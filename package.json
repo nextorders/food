@@ -43,7 +43,7 @@
     "@antfu/eslint-config": "^4.1.1",
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
-    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/exec": "^7.0.3",
     "@semantic-release/git": "^10.0.1",
     "@types/node": "^22.7.9",
     "dotenv-cli": "^8.0.0",
