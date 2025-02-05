@@ -22,7 +22,7 @@
     "@next-orders/database": "workspace:*",
     "@next-orders/ui": "workspace:*",
     "@paralleldrive/cuid2": "^2.2.2",
-    "@prisma/client": "^5.21.1",
+    "@prisma/client": "^6.3.1",
     "@vee-validate/zod": "^4.14.4",
     "bcrypt": "^5.1.1",
     "class-variance-authority": "^0.7.0",
@@ -40,7 +40,7 @@
     "@types/node": "*",
     "nuxt": "*",
     "nuxt-auth-utils": "^0.5.10",
-    "prisma": "^5.21.1",
+    "prisma": "^6.3.1",
     "shadcn-nuxt": "^0.10.4",
     "vue-tsc": "*"
   }
