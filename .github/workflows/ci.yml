@@ -3,12 +3,18 @@ name: CI
 on:
   push:
     paths-ignore:
-      - ".md"
+      - "*.md"
+      - "docker/**"
+      - ".github/**"
+      - "!.github/workflows/ci.yml"
     branches:
       - main
   pull_request:
     paths-ignore:
       - "*.md"
+      - "docker/**"
+      - ".github/**"
+      - "!.github/workflows/ci.yml"
     branches:
       - main
 
@@ -20,21 +26,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install pnpm
+      - name: PNPM
         uses: pnpm/action-setup@v4
         with:
-          run_install: true
+          run_install: false
 
       - name: Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: ESLint
         run: pnpm run lint
 
-      - name: Types
+      - name: Typecheck
         run: pnpm run typecheck
 
       - name: Build

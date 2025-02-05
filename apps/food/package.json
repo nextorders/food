@@ -1,18 +1,16 @@
 {
   "name": "@next-orders/food",
   "type": "module",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "prisma generate && nuxt build",
     "dev": "prisma generate && nuxt dev",
     "preview": "nuxt preview",
-    "db:dev": "docker compose up -d -f ./../../docker/food/docker-compose.dev.yaml",
     "db:edit": "prisma generate && pnpm exec prisma studio",
     "db:init": "pnpm exec prisma migrate dev --name init",
     "clean": "rm -rf dist",
-    "clean:modules": "rm -rf .turbo .nuxt node_modules",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
+    "clean:modules": "rm -rf .nuxt node_modules",
     "typecheck": "prisma generate && nuxt typecheck",
     "postinstall": "nuxt prepare"
   },
@@ -21,6 +19,8 @@
     "@dicebear/collection": "^9.2.2",
     "@dicebear/core": "^9.2.2",
     "@neoconfetti/vue": "^2.2.1",
+    "@next-orders/database": "workspace:*",
+    "@next-orders/ui": "workspace:*",
     "@paralleldrive/cuid2": "^2.2.2",
     "@prisma/client": "^5.21.1",
     "@vee-validate/zod": "^4.14.4",
@@ -30,32 +30,18 @@
     "libphonenumber-js": "^1.11.12",
     "radix-vue": "^1.9.7",
     "sharp": "^0.33.5",
-    "tailwindcss-animate": "^1.0.7",
-    "vee-validate": "^4.14.4",
-    "zod": "^3.23.8"
+    "vee-validate": "^4.14.4"
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.10",
     "@iconify-json/simple-icons": "^1.2.9",
-    "@next-orders/eslint": "workspace:*",
-    "@nuxt/devtools": "^1.6.0",
-    "@nuxt/fonts": "^0.10.2",
-    "@nuxt/icon": "^1.5.6",
-    "@nuxt/kit": "^3.13.2",
     "@nuxtjs/device": "^3.2.4",
-    "@nuxtjs/i18n": "^8.5.5",
-    "@nuxtjs/tailwindcss": "^6.12.2",
     "@types/bcrypt": "^5.0.2",
     "@types/node": "*",
-    "@vueuse/core": "^11.1.0",
-    "@vueuse/nuxt": "^11.1.0",
-    "nuxt": "^3.13.2",
-    "nuxt-auth-utils": "^0.5.0",
-    "nuxt-zod-i18n": "^1.10.0",
+    "nuxt": "*",
+    "nuxt-auth-utils": "^0.5.10",
     "prisma": "^5.21.1",
     "shadcn-nuxt": "^0.10.4",
-    "tailwind-merge": "^2.5.4",
-    "tailwindcss": "^3.4.14",
-    "vue-tsc": "^2.1.6"
+    "vue-tsc": "*"
   }
 }

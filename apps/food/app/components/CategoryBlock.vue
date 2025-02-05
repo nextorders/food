@@ -16,7 +16,12 @@
   <div
     class="mb-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-2"
   >
-    <ProductCard v-for="product in categoryProducts" :key="product.id" :product-id="product.id" :lazy="!isFirst" />
+    <ProductCard
+      v-for="product in categoryProducts"
+      :key="product.id"
+      :product-id="product.id"
+      :lazy="!isFirst"
+    />
   </div>
 </template>
 

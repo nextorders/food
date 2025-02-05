@@ -89,7 +89,12 @@
       </h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-        <CommandCenterPaymentMethodCard v-for="paymentMethod in channel?.paymentMethods" :key="paymentMethod.id" :payment-method-id="paymentMethod.id" @click="() => { paymentMethodId = paymentMethod.id; isUpdatePaymentMethodOpened = true }" />
+        <CommandCenterPaymentMethodCard
+          v-for="paymentMethod in channel?.paymentMethods"
+          :key="paymentMethod.id"
+          :payment-method-id="paymentMethod.id"
+          @click="() => { paymentMethodId = paymentMethod.id; isUpdatePaymentMethodOpened = true }"
+        />
         <CommandCenterPaymentMethodCreateCard @click="isCreatePaymentMethodOpened = true" />
       </div>
     </div>
@@ -108,7 +113,12 @@
   </UiModal>
 
   <UiModal :title="$t('center.update.payment-method')" :is-opened="isUpdatePaymentMethodOpened" @close="isUpdatePaymentMethodOpened = false">
-    <FormUpdateChannelPaymentMethod :is-opened="isUpdatePaymentMethodOpened" :payment-method-id="paymentMethodId" @submitted="isUpdatePaymentMethodOpened = false" @success="isUpdatePaymentMethodOpened = false" />
+    <FormUpdateChannelPaymentMethod
+      :is-opened="isUpdatePaymentMethodOpened"
+      :payment-method-id="paymentMethodId"
+      @submitted="isUpdatePaymentMethodOpened = false"
+      @success="isUpdatePaymentMethodOpened = false"
+    />
     <FormDeleteChannelPaymentMethod :is-opened="isUpdatePaymentMethodOpened" :payment-method-id="paymentMethodId" @success="isUpdatePaymentMethodOpened = false" />
   </UiModal>
 </template>

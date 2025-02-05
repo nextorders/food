@@ -1,3 +1,1 @@
-. "$(dirname -- "$0")/common.sh"
-
-npx --no -- commitlint --edit ${1}
+commitlint --edit ${1}

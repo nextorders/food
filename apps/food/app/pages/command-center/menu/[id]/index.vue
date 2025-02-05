@@ -40,7 +40,13 @@
   </UiModal>
 
   <UiModal :title="$t('center.update.menu-category')" :is-opened="isUpdateMenuCategoryOpened" @close="isUpdateMenuCategoryOpened = false">
-    <FormUpdateMenuCategory :menu-id="menu?.id ?? ''" :category-id="categoryId" :is-opened="isUpdateMenuCategoryOpened" @submitted="isUpdateMenuCategoryOpened = false" @success="isUpdateMenuCategoryOpened = false" />
+    <FormUpdateMenuCategory
+      :menu-id="menu?.id ?? ''"
+      :category-id="categoryId"
+      :is-opened="isUpdateMenuCategoryOpened"
+      @submitted="isUpdateMenuCategoryOpened = false"
+      @success="isUpdateMenuCategoryOpened = false"
+    />
   </UiModal>
 </template>
 

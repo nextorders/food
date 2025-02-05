@@ -20,8 +20,8 @@
 
 <script setup lang="ts">
 import { toTypedSchema } from '@vee-validate/zod'
-import { channelPaymentMethodUpdateSchema } from '~~/server/core/services/channel'
 import { useForm } from 'vee-validate'
+import { channelPaymentMethodUpdateSchema } from '~~/server/core/services/channel'
 import { useToast } from '~/components/ui/toast'
 
 const { isOpened, paymentMethodId } = defineProps<{

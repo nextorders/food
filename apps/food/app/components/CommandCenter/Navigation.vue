@@ -7,7 +7,13 @@
         </div>
       </div>
 
-      <CommandCenterNavigationButton v-for="(item, index) in menu" :key="index" :label="item.label" :link="item.link" :icon="item.icon" />
+      <CommandCenterNavigationButton
+        v-for="(item, index) in menu"
+        :key="index"
+        :label="item.label"
+        :link="item.link"
+        :icon="item.icon"
+      />
     </div>
 
     <div class="mb-6 flex flex-col gap-2">

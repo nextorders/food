@@ -106,8 +106,8 @@
 
 <script setup lang="ts">
 import { toTypedSchema } from '@vee-validate/zod'
-import { channelCreateSchema } from '~~/server/core/services/channel'
 import { useForm } from 'vee-validate'
+import { channelCreateSchema } from '~~/server/core/services/channel'
 import { useToast } from '~/components/ui/toast'
 
 const emit = defineEmits(['success'])

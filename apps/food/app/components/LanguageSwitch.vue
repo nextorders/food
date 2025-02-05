@@ -18,7 +18,7 @@ const { icons } = useAppConfig()
 const { locales, setLocale } = useI18n()
 const isOpened = ref(false)
 
-function handleLocaleSwitch(code: string) {
+function handleLocaleSwitch(code: Locale) {
   isOpened.value = false
   setLocale(code)
 }

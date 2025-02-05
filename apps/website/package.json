@@ -1,34 +1,28 @@
 {
   "name": "@next-orders/website",
   "type": "module",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
-    "preview": "nuxt preview",
+    "dev": "nuxt dev --port 3501",
+    "preview": "PORT=3501 nuxt preview",
+    "generate": "nuxt generate",
     "clean": "rm -rf dist",
-    "clean:modules": "rm -rf .turbo .nuxt node_modules",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
+    "clean:modules": "rm -rf .nuxt .output node_modules",
     "typecheck": "nuxt typecheck",
     "postinstall": "nuxt prepare"
   },
+  "dependencies": {
+    "@next-orders/ui": "workspace:*"
+  },
   "devDependencies": {
-    "@iconify-json/lucide": "^1.2.10",
-    "@iconify-json/pixelarticons": "^1.2.1",
-    "@next-orders/eslint": "workspace:*",
-    "@nuxt/devtools": "^1.6.0",
-    "@nuxt/fonts": "^0.10.2",
-    "@nuxt/kit": "^3.13.2",
-    "@nuxt/ui": "^2.18.7",
-    "@nuxtjs/device": "^3.2.4",
-    "@nuxtjs/i18n": "^8.5.5",
+    "@iconify-json/lucide": "^1.2.25",
+    "@iconify-json/pixelarticons": "^1.2.2",
     "@types/node": "*",
-    "@vueuse/core": "^11.1.0",
-    "@vueuse/nuxt": "^11.1.0",
-    "nuxt": "^3.13.2",
-    "nuxt-auth-utils": "^0.5.0",
-    "tailwindcss": "^3.4.14",
-    "vue-tsc": "^2.1.6"
+    "nuxt": "*",
+    "nuxt-auth-utils": "^0.5.10",
+    "typescript": "*",
+    "vue-tsc": "*"
   }
 }

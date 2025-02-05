@@ -19,7 +19,12 @@
           <UiFormMessage />
         </div>
         <UiFormControl>
-          <UiInput v-bind="componentField" type="number" step="any" placeholder="0.00" />
+          <UiInput
+            v-bind="componentField"
+            type="number"
+            step="any"
+            placeholder="0.00"
+          />
         </UiFormControl>
       </UiFormItem>
     </UiFormField>
@@ -138,8 +143,8 @@
 
 <script setup lang="ts">
 import { toTypedSchema } from '@vee-validate/zod'
-import { productVariantUpdateSchema } from '~~/server/core/services/product'
 import { useForm } from 'vee-validate'
+import { productVariantUpdateSchema } from '~~/server/core/services/product'
 import { useToast } from '~/components/ui/toast'
 
 const { isOpened, productVariantId, productVariant } = defineProps<{

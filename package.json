@@ -1,7 +1,62 @@
 {
-  "name": "@next-orders/space",
-  "version": "0.6.1",
-  "packageManager": "pnpm@9.12.1",
+  "name": "next-orders",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.15.4",
+  "description": "Modern e-commerce self-hosted platform: clients will be happy to order delicious food!",
+  "author": "Nick Kosarev <hmbanan666@hotmail.com>",
+  "license": "MIT",
+  "homepage": "https://nextorders.space",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/next-orders/food.git"
+  },
+  "bugs": {
+    "url": "https://github.com/next-orders/food/issues"
+  },
+  "keywords": [
+    "ecommerce",
+    "ecommerce-platform",
+    "multilingual",
+    "shop",
+    "self-hosted",
+    "website"
+  ],
+  "engines": {
+    "node": ">=20.18.0",
+    "pnpm": ">=9.12.1"
+  },
+  "scripts": {
+    "release": "pnpm -r --filter \"./apps/**\" --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo",
+    "build": "pnpm -r run build",
+    "dev": "pnpm -r run dev",
+    "dev:food": "pnpm --filter @next-orders/food dev",
+    "dev:local": "docker compose -f ./docker/docker-compose.yml up -d",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "clean": "pnpm -r run clean",
+    "clean:modules": "pnpm -r run clean:modules && rm -rf node_modules",
+    "typecheck": "pnpm -r run typecheck",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.1.1",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@types/node": "^22.7.9",
+    "dotenv-cli": "^8.0.0",
+    "eslint": "^9.19.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "nuxt": "^3.15.4",
+    "semantic-release": "^24.2.1",
+    "semantic-release-monorepo": "^8.0.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0",
+    "vue-tsc": "^2.2.0"
+  },
   "pnpm": {
     "supportedArchitectures": {
       "os": [
@@ -14,53 +69,6 @@
         "arm64"
       ]
     }
-  },
-  "engines": {
-    "node": ">=20.18.0",
-    "pnpm": ">=9.12.1"
-  },
-  "description": "Modern e-commerce self-hosted platform: clients will be happy to order delicious food!",
-  "keywords": [
-    "ecommerce",
-    "ecommerce-platform",
-    "multilingual",
-    "shop",
-    "self-hosted",
-    "website"
-  ],
-  "author": "Nick Kosarev <hmbanan666@hotmail.com>",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/next-orders/food.git"
-  },
-  "bugs": {
-    "url": "https://github.com/next-orders/food/issues"
-  },
-  "homepage": "https://nextorders.space",
-  "scripts": {
-    "release": "pnpm lint && pnpm typecheck && pnpm build && changelogen --release --push",
-    "build": "turbo build",
-    "dev": "dotenv -- turbo dev --parallel",
-    "dev:website": "dotenv -- pnpm --filter @next-orders/website dev",
-    "dev:food": "dotenv -- pnpm --filter @next-orders/food dev",
-    "dev:email": "dotenv -- pnpm --filter @next-orders/email dev",
-    "lint": "turbo lint --",
-    "lint:fix": "turbo lint:fix",
-    "clean": "turbo clean",
-    "clean:modules": "turbo clean:modules && rm -rf .turbo node_modules",
-    "typecheck": "turbo typecheck",
-    "prepare": "husky"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.5.0",
-    "@commitlint/config-conventional": "^19.5.0",
-    "@types/node": "^22.7.9",
-    "changelogen": "^0.5.7",
-    "dotenv-cli": "^7.4.2",
-    "husky": "^9.1.6",
-    "lint-staged": "^15.2.10",
-    "turbo": "^2.2.3"
   },
   "lint-staged": {
     "*.ts": "pnpm run lint"

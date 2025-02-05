@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: food-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # app:
+  #   image: food/app:local
+  #   container_name: food-app
+  #   restart: unless-stopped
+  #   environment:
+  #     - APP_DATABASE_URL=${APP_DATABASE_URL}
+  #     - APP_SESSION_PASSWORD=${APP_SESSION_PASSWORD}
+  #     - APP_OAUTH_GITHUB_CLIENT_ID=${APP_OAUTH_GITHUB_CLIENT_ID}
+  #     - APP_OAUTH_GITHUB_CLIENT_SECRET=${APP_OAUTH_GITHUB_CLIENT_SECRET}
+  #     - APP_OAUTH_GOOGLE_CLIENT_ID=${APP_OAUTH_GOOGLE_CLIENT_ID}
+  #     - APP_OAUTH_GOOGLE_CLIENT_SECRET=${APP_OAUTH_GOOGLE_CLIENT_SECRET}
+  #   ports:
+  #     - '3500:3000'
+
+  # landing:
+  #   image: food/landing:local
+  #   container_name: food-landing
+  #   restart: unless-stopped
+  #   ports:
+  #     - '3501:3000'
+
+volumes:
+  postgres_data:
+  redis_data:

@@ -7,8 +7,10 @@
 </template>
 
 <script setup lang="ts">
-import { SelectScrollDownButton, type SelectScrollDownButtonProps, useForwardProps } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
+import type { SelectScrollDownButtonProps } from 'radix-vue'
+import type { HTMLAttributes } from 'vue'
+import { SelectScrollDownButton, useForwardProps } from 'radix-vue'
+import { computed } from 'vue'
 
 const props = defineProps<SelectScrollDownButtonProps & { class?: HTMLAttributes['class'] }>()
 

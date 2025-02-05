@@ -5,8 +5,10 @@
 </template>
 
 <script setup lang="ts">
-import { SelectGroup, type SelectGroupProps } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
+import type { SelectGroupProps } from 'radix-vue'
+import type { HTMLAttributes } from 'vue'
+import { SelectGroup } from 'radix-vue'
+import { computed } from 'vue'
 
 const props = defineProps<SelectGroupProps & { class?: HTMLAttributes['class'] }>()
 

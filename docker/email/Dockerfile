@@ -1,21 +1,15 @@
-ARG NODE=node:22.10.0-alpine
+FROM node:22.13.1-alpine AS base
 
-################# Base builder ##############
-
-FROM $NODE AS builder
+FROM base AS builder
 WORKDIR /app
 
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
-
 COPY . .
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile \
-&& pnpm build --filter @next-orders/email
 
-################# App ##############
+RUN npm install -g pnpm --ignore-scripts \
+  && pnpm i --frozen-lockfile --ignore-scripts \
+  && pnpm build --filter @next-orders/email
 
-FROM $NODE
+FROM base
 WORKDIR /app
 COPY --from=builder /app/apps/email/.output .
 

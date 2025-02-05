@@ -1,0 +1,14 @@
+{
+  "app": {
+    "logotype": {
+      "copy-symbol": "Copy Symbol as SVG",
+      "copy-logo": "Copy Logo as SVG",
+      "brand-assets": "Brand Assets",
+      "copied": "Copied to clipboard"
+    }
+  },
+  "coming-soon": {
+    "title": "Coming soon",
+    "description": "We are working hard to bring you the best experience"
+  }
+}

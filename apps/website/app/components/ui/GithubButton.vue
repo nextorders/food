@@ -4,7 +4,7 @@
       :icon="icons.github"
       aria-label="GitHub"
       variant="ghost"
-      color="gray"
+      color="secondary"
       size="xl"
     />
   </NuxtLink>

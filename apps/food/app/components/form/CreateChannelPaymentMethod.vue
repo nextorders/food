@@ -44,8 +44,8 @@
 
 <script setup lang="ts">
 import { toTypedSchema } from '@vee-validate/zod'
-import { channelPaymentMethodCreateSchema } from '~~/server/core/services/channel'
 import { useForm } from 'vee-validate'
+import { channelPaymentMethodCreateSchema } from '~~/server/core/services/channel'
 import { useToast } from '~/components/ui/toast'
 
 const { isOpened } = defineProps<{

@@ -1,10 +1,22 @@
 <template>
   <picture v-if="id">
     <source type="image/webp" :sizes="sizes" :srcset="srcsetWebp">
-    <img alt="" :loading="lazy ? 'lazy' : 'eager'" class="rounded-xl w-full" :src="`/api/file/${id}/${sizePx}.jpg`" :sizes="sizes" :srcset="srcset">
+    <img
+      alt=""
+      :loading="lazy ? 'lazy' : 'eager'"
+      class="rounded-xl w-full"
+      :src="`/api/file/${id}/${sizePx}.jpg`"
+      :sizes="sizes"
+      :srcset="srcset"
+    >
   </picture>
 
-  <img v-else alt="" class="w-full opacity-20" src="~/assets/img/no-image.png">
+  <img
+    v-else
+    alt=""
+    class="w-full opacity-20"
+    src="~/assets/img/no-image.png"
+  >
 </template>
 
 <script setup lang="ts">

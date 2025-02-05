@@ -5,8 +5,9 @@
 </template>
 
 <script setup lang="ts">
+import type { SelectLabelProps } from 'radix-vue'
 import type { HTMLAttributes } from 'vue'
-import { SelectLabel, type SelectLabelProps } from 'radix-vue'
+import { SelectLabel } from 'radix-vue'
 
 const props = defineProps<SelectLabelProps & { class?: HTMLAttributes['class'] }>()
 </script>

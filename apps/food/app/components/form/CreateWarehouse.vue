@@ -32,8 +32,8 @@
 
 <script setup lang="ts">
 import { toTypedSchema } from '@vee-validate/zod'
-import { warehouseCreateSchema } from '~~/server/core/services/warehouse'
 import { useForm } from 'vee-validate'
+import { warehouseCreateSchema } from '~~/server/core/services/warehouse'
 import { useToast } from '~/components/ui/toast'
 
 const { isOpened } = defineProps<{

@@ -1,7 +1,9 @@
+import { fileURLToPath } from 'node:url'
 import { defineNuxtConfig } from 'nuxt/config'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  extends: '@next-orders/ui',
   future: {
     compatibilityVersion: 4,
   },
@@ -27,24 +29,6 @@ export default defineNuxtConfig({
     prefix: 'Ui',
     componentDir: './app/components/ui',
   },
-  fonts: {
-    provider: 'google',
-    families: [
-      {
-        name: 'Noto Sans',
-        provider: 'google',
-        weights: [300, 400, 500, 600, 700, 800, 900],
-      },
-    ],
-  },
-  icon: {
-    clientBundle: {
-      scan: {
-        globInclude: ['app/**/*.{vue,ts}'],
-        globExclude: ['node_modules', 'dist', 'build', 'coverage', 'test', 'tests', '.*'],
-      },
-    },
-  },
   css: ['~/assets/css/styles.css'],
   runtimeConfig: {
     channelId: 'burger',
@@ -56,20 +40,11 @@ export default defineNuxtConfig({
   },
   i18n: {
     locales: [
-      { code: 'ru', name: 'Русский', file: 'ru-RU.json' },
-      { code: 'en', name: 'English', file: 'en-EN.json' },
-      { code: 'ka', name: 'ქართული', file: 'ka-GE.json' },
+      { code: 'en', language: 'en-US', name: 'English', file: 'en-US.json' },
+      { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru-RU.json' },
+      { code: 'ka', language: 'ka-GE', name: 'ქართული', file: 'ka-GE.json' },
     ],
     strategy: 'no_prefix',
-    langDir: 'locales',
-    detectBrowserLanguage: false,
-  },
-  zodI18n: {
-    localeCodesMapping: {
-      'en-GB': 'en',
-      'ru-RU': 'ru',
-      'ka-GE': 'ka',
-    },
   },
   routeRules: {
     '/': { swr: true },
@@ -83,17 +58,15 @@ export default defineNuxtConfig({
         base: './../../.storage',
       },
     },
+    preset: fileURLToPath(new URL('./server/preset.ts', import.meta.url)),
+    experimental: {
+      tasks: true,
+    },
   },
   modules: [
-    '@vueuse/nuxt',
     '@nuxtjs/device',
-    'nuxt-zod-i18n',
-    '@nuxtjs/i18n',
-    '@nuxt/fonts',
     'nuxt-auth-utils',
-    '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
-    '@nuxt/icon',
   ],
   compatibilityDate: '2024-08-18',
 })

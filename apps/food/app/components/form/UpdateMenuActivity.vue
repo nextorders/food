@@ -13,8 +13,8 @@
 
 <script setup lang="ts">
 import { toTypedSchema } from '@vee-validate/zod'
-import { menuUpdateSchema } from '~~/server/core/services/menu'
 import { useForm } from 'vee-validate'
+import { menuUpdateSchema } from '~~/server/core/services/menu'
 import { useToast } from '~/components/ui/toast'
 
 const { isActive, menuId } = defineProps<{

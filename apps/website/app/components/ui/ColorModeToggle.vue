@@ -5,7 +5,7 @@
         :icon="isDark ? icons.colorMode.dark : icons.colorMode.light"
         :aria-label="ariaLabel"
         variant="ghost"
-        color="gray"
+        color="secondary"
         size="xl"
         @click="isDark = !isDark"
       />

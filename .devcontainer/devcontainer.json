@@ -3,7 +3,7 @@
   "dockerComposeFile": "docker-compose.yaml",
   "service": "app",
   "workspaceFolder": "/workspaces/next-orders/${localWorkspaceFolderBasename}",
-  "postCreateCommand": "npm i -g pnpm@latest turbo@latest && pnpm i",
+  "postCreateCommand": "npm i -g pnpm@latest && pnpm i",
   "forwardPorts": [5432],
   "customizations": {
     "vscode": {
@@ -11,10 +11,7 @@
         "bradlc.vscode-tailwindcss",
         "dbaeumer.vscode-eslint",
         "Vue.volar",
-        "ms-azuretools.vscode-docker",
-        "Codeium.codeium",
-        "Vercel.turbo-vsc",
-        "Prisma.prisma"
+        "ms-azuretools.vscode-docker"
       ]
     }
   },

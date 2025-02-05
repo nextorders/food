@@ -13,8 +13,8 @@
 
 <script setup lang="ts">
 import { toTypedSchema } from '@vee-validate/zod'
-import { productUpdateSchema } from '~~/server/core/services/product'
 import { useForm } from 'vee-validate'
+import { productUpdateSchema } from '~~/server/core/services/product'
 import { useToast } from '~/components/ui/toast'
 
 const { isAvailableForPurchase, productId } = defineProps<{

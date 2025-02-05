@@ -58,8 +58,8 @@
 
 <script setup lang="ts">
 import { toTypedSchema } from '@vee-validate/zod'
-import { userCreateSchema } from '~~/server/core/services/user'
 import { useForm } from 'vee-validate'
+import { userCreateSchema } from '~~/server/core/services/user'
 import { useToast } from '~/components/ui/toast'
 
 const emit = defineEmits(['success'])

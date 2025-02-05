@@ -140,8 +140,8 @@
 
 <script setup lang="ts">
 import { toTypedSchema } from '@vee-validate/zod'
-import { channelUpdateSchema } from '~~/server/core/services/channel'
 import { useForm } from 'vee-validate'
+import { channelUpdateSchema } from '~~/server/core/services/channel'
 import { useToast } from '~/components/ui/toast'
 
 const { isOpened } = defineProps<{

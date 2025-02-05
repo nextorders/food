@@ -1,7 +1,5 @@
-import { defineNuxtConfig } from 'nuxt/config'
-
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  extends: '@next-orders/ui',
   future: {
     compatibilityVersion: 4,
   },
@@ -21,51 +19,16 @@ export default defineNuxtConfig({
     host: '0.0.0.0',
     port: 4200,
   },
-  components: [
-    { path: '~/components/ui', prefix: 'U', pathPrefix: false },
-    '~/components',
-  ],
-  colorMode: {
-    classSuffix: '',
-    preference: 'dark',
-    fallback: 'light',
-  },
-  fonts: {
-    provider: 'google',
-    families: [
-      {
-        name: 'Noto Serif',
-        provider: 'google',
-        weights: [300, 400, 500, 600, 700, 800, 900],
-      },
-      {
-        name: 'Noto Sans',
-        provider: 'google',
-        weights: [300, 400, 500, 600, 700, 800, 900],
-      },
-    ],
-  },
   css: ['~/assets/css/styles.css'],
   i18n: {
-    locales: [
-      { code: 'ru', name: 'Русский', file: 'ru-RU.json' },
-      { code: 'en', name: 'English', file: 'en-EN.json' },
-    ],
-    defaultLocale: 'ru',
     strategy: 'prefix_except_default',
-    langDir: 'locales',
-    detectBrowserLanguage: {
-      useCookie: true,
-      alwaysRedirect: true,
-    },
+    locales: [
+      { code: 'en', language: 'en-US', name: 'English', file: 'en-US.json' },
+      { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru-RU.json' },
+    ],
   },
   modules: [
-    '@vueuse/nuxt',
     'nuxt-auth-utils',
-    '@nuxtjs/device',
-    '@nuxtjs/i18n',
-    '@nuxt/ui',
-    '@nuxt/fonts',
   ],
   compatibilityDate: '2024-08-18',
 })

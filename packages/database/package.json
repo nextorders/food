@@ -1,0 +1,43 @@
+{
+  "name": "@next-orders/database",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "migrations"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "clean": "rm -rf dist",
+    "clean:modules": "rm -rf node_modules",
+    "typecheck": "tsc --noEmit",
+    "postinstall": "pnpm build"
+  },
+  "dependencies": {
+    "drizzle-cuid2": "^2.0.0",
+    "drizzle-orm": "^0.39.1",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "@types/pg": "^8.11.11",
+    "dotenv": "^16.4.7",
+    "drizzle-kit": "^0.30.4",
+    "typescript": "*",
+    "unbuild": "^3.3.1"
+  }
+}

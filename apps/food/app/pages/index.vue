@@ -9,7 +9,12 @@
     {{ channel?.description }}
   </div>
 
-  <CategoryBlock v-for="category in categoriesWithProducts" :key="category.id" :category-id="category.id" :is-first="categoriesWithProducts.indexOf(category) === 0" />
+  <CategoryBlock
+    v-for="category in categoriesWithProducts"
+    :key="category.id"
+    :category-id="category.id"
+    :is-first="categoriesWithProducts.indexOf(category) === 0"
+  />
 </template>
 
 <script setup lang="ts">

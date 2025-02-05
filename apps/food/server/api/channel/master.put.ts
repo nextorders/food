@@ -1,6 +1,6 @@
 import { createId } from '@paralleldrive/cuid2'
-import { userCreateSchema } from '~~/server/core/services/user'
 import { hash } from 'bcrypt'
+import { userCreateSchema } from '~~/server/core/services/user'
 
 export default defineEventHandler(async (event) => {
   try {
