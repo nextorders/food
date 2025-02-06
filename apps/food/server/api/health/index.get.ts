@@ -1,4 +1,4 @@
-import { useDatabase } from '@next-orders/database'
+import { repository } from '@next-orders/database'
 
 export default defineEventHandler(async () => {
   const { channelId } = useRuntimeConfig()
@@ -9,9 +9,13 @@ export default defineEventHandler(async () => {
     })
   }
 
-  await useDatabase().query.channels.findFirst({
-    where: (channels, { eq }) => (eq(channels.id, channelId)),
-  })
+  const ok = await repository.checkHealth()
+  if (!ok) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'DB error',
+    })
+  }
 
   return {
     ok: true,

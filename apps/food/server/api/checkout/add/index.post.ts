@@ -1,5 +1,5 @@
+import { repository } from '@next-orders/database'
 import { createId } from '@paralleldrive/cuid2'
-import { updateCheckout } from '~~/server/core/services/checkout'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -96,7 +96,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    await updateCheckout(checkoutId)
+    await repository.checkout.recalculate(checkoutId)
 
     return {
       ok: true,

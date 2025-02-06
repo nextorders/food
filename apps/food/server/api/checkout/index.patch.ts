@@ -1,5 +1,6 @@
 import { TZDate } from '@date-fns/tz'
-import { checkoutUpdateSchema, updateCheckout } from '~~/server/core/services/checkout'
+import { repository } from '@next-orders/database'
+import { checkoutUpdateSchema } from '~~/server/core/services/checkout'
 import { sendEmail, sendHttp } from '~~/server/utils/receiver'
 
 export default defineEventHandler(async (event) => {
@@ -22,7 +23,7 @@ export default defineEventHandler(async (event) => {
       where: { id: channelId },
     })
 
-    await updateCheckout(checkout.id)
+    await repository.checkout.recalculate(checkout.id)
 
     const isFinished = data.phone && data.name
 

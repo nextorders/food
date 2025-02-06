@@ -4,8 +4,8 @@ import { boolean, doublePrecision, integer, jsonb, pgTable, text, timestamp } fr
 
 export const channels = pgTable('channels', {
   id: cuid2('id').defaultRandom().primaryKey(),
-  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).defaultNow(),
-  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).defaultNow(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
   slug: text('slug').notNull(),
   name: text('name').notNull(),
   description: text('description'),
@@ -14,25 +14,25 @@ export const channels = pgTable('channels', {
   countryCode: text('country_code').notNull(),
   currencyCode: text('currency_code').notNull(),
   timeZone: text('time_zone').notNull(),
-  isActive: boolean('is_active').default(true),
-  isDeliveryAvailable: boolean('is_delivery_available').default(true),
-  isPickupAvailable: boolean('is_pickup_available').default(true),
+  isActive: boolean('is_active').notNull().default(true),
+  isDeliveryAvailable: boolean('is_delivery_available').notNull().default(true),
+  isPickupAvailable: boolean('is_pickup_available').notNull().default(true),
   minAmountForDelivery: integer('min_amount_for_delivery'),
 })
 
 export const checkouts = pgTable('checkouts', {
   id: cuid2('id').defaultRandom().primaryKey(),
-  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).defaultNow(),
-  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).defaultNow(),
-  status: text('status').default('CREATED'),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  status: text('status').notNull().default('CREATED'),
   deliveryMethod: text('delivery_method').default(''),
   paymentMethodId: text('payment_method_id').default(''),
-  shippingPrice: doublePrecision('shipping_price').default(0),
-  totalPrice: doublePrecision('total_price').default(0),
-  name: text('name').default(''),
-  phone: text('phone').default(''),
-  time: timestamp({ precision: 3, mode: 'string' }).defaultNow(),
-  timeType: text('time_type').default('ASAP'),
+  shippingPrice: doublePrecision('shipping_price').notNull().default(0),
+  totalPrice: doublePrecision('total_price').notNull().default(0),
+  name: text('name').notNull().default(''),
+  phone: text('phone').notNull().default(''),
+  time: timestamp({ precision: 3, mode: 'string' }).notNull().defaultNow(),
+  timeType: text('time_type').notNull().default('ASAP'),
   discount: doublePrecision('discount'),
   warehouseId: text('warehouse_id'),
   street: text('street').default(''),
@@ -51,14 +51,14 @@ export const checkouts = pgTable('checkouts', {
 
 export const checkoutLines = pgTable('checkout_lines', {
   id: cuid2('id').defaultRandom().primaryKey(),
-  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).defaultNow(),
-  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).defaultNow(),
-  quantity: integer('quantity').default(1),
-  unitPrice: doublePrecision('unit_price').default(0),
-  undiscountedUnitPrice: doublePrecision('undiscounted_unit_price').default(0),
-  totalPrice: doublePrecision('total_price').default(0),
-  undiscountedTotalPrice: doublePrecision('undiscounted_total_price').default(0),
-  isGift: boolean('is_gift').default(false),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  quantity: integer('quantity').notNull().default(1),
+  unitPrice: doublePrecision('unit_price').notNull().default(0),
+  undiscountedUnitPrice: doublePrecision('undiscounted_unit_price').notNull().default(0),
+  totalPrice: doublePrecision('total_price').notNull().default(0),
+  undiscountedTotalPrice: doublePrecision('undiscounted_total_price').notNull().default(0),
+  isGift: boolean('is_gift').notNull().default(false),
   checkoutId: cuid2('checkout_id').notNull().references(() => checkouts.id, {
     onDelete: 'cascade',
     onUpdate: 'cascade',
@@ -71,8 +71,8 @@ export const checkoutLines = pgTable('checkout_lines', {
 
 export const checkoutReceivers = pgTable('checkout_receivers', {
   id: cuid2('id').defaultRandom().primaryKey(),
-  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).defaultNow(),
-  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).defaultNow(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
   type: text('type').notNull(),
   data: jsonb('data'),
   channelId: cuid2('channel_id').notNull().references(() => channels.id, {
@@ -83,17 +83,17 @@ export const checkoutReceivers = pgTable('checkout_receivers', {
 
 export const medias = pgTable('medias', {
   id: cuid2('id').defaultRandom().primaryKey(),
-  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).defaultNow(),
-  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).defaultNow(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
 })
 
 export const menus = pgTable('menus', {
   id: cuid2('id').defaultRandom().primaryKey(),
-  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).defaultNow(),
-  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).defaultNow(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
   slug: text('slug').notNull(),
   name: text('name').notNull(),
-  isActive: boolean('is_active').default(false),
+  isActive: boolean('is_active').notNull().default(false),
   channelId: cuid2('channel_id').notNull().references(() => channels.id, {
     onDelete: 'cascade',
     onUpdate: 'cascade',
@@ -102,8 +102,8 @@ export const menus = pgTable('menus', {
 
 export const menuCategories = pgTable('menu_categories', {
   id: cuid2('id').defaultRandom().primaryKey(),
-  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).defaultNow(),
-  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).defaultNow(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
   slug: text('slug').notNull(),
   name: text('name').notNull(),
   menuId: cuid2('menu_id').notNull().references(() => menus.id, {
@@ -114,8 +114,8 @@ export const menuCategories = pgTable('menu_categories', {
 
 export const paymentMethods = pgTable('payment_methods', {
   id: cuid2('id').defaultRandom().primaryKey(),
-  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).defaultNow(),
-  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).defaultNow(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
   name: text('name').notNull(),
   type: text('type').notNull(),
   channelId: cuid2('channel_id').notNull().references(() => channels.id, {
@@ -126,12 +126,12 @@ export const paymentMethods = pgTable('payment_methods', {
 
 export const products = pgTable('products', {
   id: cuid2('id').defaultRandom().primaryKey(),
-  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).defaultNow(),
-  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).defaultNow(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
   slug: text('slug').notNull(),
   name: text('name').notNull(),
   description: text('description').notNull(),
-  isAvailableForPurchase: boolean('is_available_for_purchase').default(true),
+  isAvailableForPurchase: boolean('is_available_for_purchase').notNull().default(true),
   channelId: cuid2('channel_id').notNull().references(() => channels.id, {
     onDelete: 'cascade',
     onUpdate: 'cascade',
@@ -148,10 +148,10 @@ export const products = pgTable('products', {
 
 export const productVariants = pgTable('product_variants', {
   id: cuid2('id').defaultRandom().primaryKey(),
-  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).defaultNow(),
-  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).defaultNow(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
   name: text('name').notNull(),
-  weightUnit: text('weight_unit').default('G'),
+  weightUnit: text('weight_unit').notNull().default('G'),
   weightValue: doublePrecision('weight_value').notNull(),
   gross: doublePrecision('gross').notNull(),
   net: doublePrecision('net'),
@@ -168,11 +168,11 @@ export const productVariants = pgTable('product_variants', {
 
 export const users = pgTable('users', {
   id: cuid2('id').defaultRandom().primaryKey(),
-  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).defaultNow(),
-  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).defaultNow(),
-  isActive: boolean('is_active').default(true),
-  isConfirmed: boolean('is_confirmed').default(false),
-  isStaff: boolean('is_staff').default(false),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  isActive: boolean('is_active').notNull().default(true),
+  isConfirmed: boolean('is_confirmed').notNull().default(false),
+  isStaff: boolean('is_staff').notNull().default(false),
   name: text('name'),
   email: text('email'),
   channelId: cuid2('channel_id').notNull().references(() => channels.id, {
@@ -183,8 +183,8 @@ export const users = pgTable('users', {
 
 export const userCredentials = pgTable('user_credentials', {
   id: cuid2('id').defaultRandom().primaryKey(),
-  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).defaultNow(),
-  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).defaultNow(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
   login: text('login').notNull().unique(),
   passwordHash: text('password_hash').notNull(),
   userId: cuid2('user_id').notNull().references(() => users.id, {
@@ -195,8 +195,8 @@ export const userCredentials = pgTable('user_credentials', {
 
 export const userPermissions = pgTable('user_permissions', {
   id: cuid2('id').defaultRandom().primaryKey(),
-  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).defaultNow(),
-  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).defaultNow(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
   code: text('code').notNull(),
   userId: cuid2('user_id').notNull().references(() => users.id, {
     onDelete: 'cascade',
@@ -206,8 +206,8 @@ export const userPermissions = pgTable('user_permissions', {
 
 export const warehouses = pgTable('warehouses', {
   id: cuid2('id').defaultRandom().primaryKey(),
-  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).defaultNow(),
-  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).defaultNow(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
   name: text('name').notNull(),
   address: text('address').notNull(),
   channelId: cuid2('channel_id').notNull().references(() => channels.id, {
@@ -218,14 +218,14 @@ export const warehouses = pgTable('warehouses', {
 
 export const workingDays = pgTable('working_days', {
   id: cuid2('id').defaultRandom().primaryKey(),
-  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).defaultNow(),
-  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).defaultNow(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
   day: text('day').notNull(),
   openHours: integer('open_hours').notNull(),
   openMinutes: integer('open_minutes').notNull(),
   closeHours: integer('close_hours').notNull(),
   closeMinutes: integer('close_minutes').notNull(),
-  isActive: boolean('is_active').default(true),
+  isActive: boolean('is_active').notNull().default(true),
   channelId: cuid2('channel_id').notNull().references(() => channels.id, {
     onDelete: 'cascade',
     onUpdate: 'cascade',

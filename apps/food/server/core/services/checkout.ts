@@ -1,43 +1,5 @@
 import { z } from 'zod'
 
-export async function updateCheckout(id: string) {
-  const checkout = await prisma.checkout.findFirst({
-    where: { id },
-    include: {
-      lines: {
-        include: {
-          variant: true,
-        },
-      },
-    },
-  })
-  if (!checkout) {
-    return
-  }
-
-  for (const line of checkout.lines) {
-    await prisma.checkoutLine.update({
-      where: { id: line.id },
-      data: {
-        totalPrice: line.quantity * line.variant.gross,
-        unitPrice: line.variant.gross,
-      },
-    })
-  }
-
-  const totalPrice = checkout.lines.reduce((acc, line) => {
-    return acc + line.quantity * line.variant.gross
-  }, 0)
-
-  return prisma.checkout.update({
-    where: { id: checkout.id },
-    data: {
-      updatedAt: new Date(),
-      totalPrice,
-    },
-  })
-}
-
 export const checkoutUpdateSchema = z.object({
   deliveryMethod: z.enum(['WAREHOUSE', 'DELIVERY']).optional(),
   phone: z.string().max(20).optional(),

@@ -1,4 +1,4 @@
-import { updateCheckout } from '~~/server/core/services/checkout'
+import { repository } from '@next-orders/database'
 
 export default defineEventHandler(async (event) => {
   const id = getRouterParam(event, 'id')
@@ -75,5 +75,5 @@ export default defineEventHandler(async (event) => {
     }
   }
 
-  await updateCheckout(checkoutInDB.id)
+  await repository.checkout.recalculate(checkoutInDB.id)
 })
