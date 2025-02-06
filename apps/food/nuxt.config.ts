@@ -31,6 +31,9 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/css/styles.css'],
   runtimeConfig: {
+    nitro: {
+      envPrefix: 'APP_',
+    },
     channelId: 'burger',
     storageProductsDirectory: 'products',
     public: {

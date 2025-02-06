@@ -1,3 +1,5 @@
+import { useDatabase } from '@next-orders/database'
+
 export default defineEventHandler(async () => {
   const { channelId } = useRuntimeConfig()
   if (!channelId) {
@@ -7,8 +9,8 @@ export default defineEventHandler(async () => {
     })
   }
 
-  await prisma.channel.findFirst({
-    where: { id: channelId },
+  await useDatabase().query.channels.findFirst({
+    where: (channels, { eq }) => (eq(channels.id, channelId)),
   })
 
   return {

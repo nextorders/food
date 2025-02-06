@@ -1,0 +1,11 @@
+Dockerfile
+.nuxt
+.output
+.dockerignore
+node_modules
+npm-debug.log
+README.md
+**/.nuxt
+**/*.db
+**/.env*
+.git
