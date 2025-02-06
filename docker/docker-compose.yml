@@ -10,19 +10,15 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - next_orders_pg_data:/var/lib/postgresql/data
 
   # app:
   #   image: food/app:local
   #   container_name: food-app
   #   restart: unless-stopped
   #   environment:
-  #     - APP_DATABASE_URL=${APP_DATABASE_URL}
-  #     - APP_SESSION_PASSWORD=${APP_SESSION_PASSWORD}
-  #     - APP_OAUTH_GITHUB_CLIENT_ID=${APP_OAUTH_GITHUB_CLIENT_ID}
-  #     - APP_OAUTH_GITHUB_CLIENT_SECRET=${APP_OAUTH_GITHUB_CLIENT_SECRET}
-  #     - APP_OAUTH_GOOGLE_CLIENT_ID=${APP_OAUTH_GOOGLE_CLIENT_ID}
-  #     - APP_OAUTH_GOOGLE_CLIENT_SECRET=${APP_OAUTH_GOOGLE_CLIENT_SECRET}
+  #     - DATABASE_URL=${DATABASE_URL}
+  #     - NUXT_SESSION_PASSWORD=${NUXT_SESSION_PASSWORD}
   #   ports:
   #     - '3500:3000'
 
@@ -34,5 +30,4 @@ services:
   #     - '3501:3000'
 
 volumes:
-  postgres_data:
-  redis_data:
+  next_orders_pg_data:

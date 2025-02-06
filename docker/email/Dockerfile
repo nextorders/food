@@ -11,6 +11,7 @@ RUN npm install -g pnpm --ignore-scripts \
 
 FROM base
 WORKDIR /app
+
 COPY --from=builder /app/apps/email/.output .
 
 ARG VERSION=nightly
