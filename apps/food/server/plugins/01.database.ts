@@ -1,16 +1,15 @@
+import process from 'node:process'
 import { useCreateDatabase } from '@next-orders/database'
 
 /**
  * DB init
  */
 export default defineNitroPlugin(async () => {
-  const runtimeConfig = useRuntimeConfig()
-
-  if (!runtimeConfig.databaseURL) {
-    throw new Error('APP_DATABASE_URL is not defined')
+  if (!process.env.DATABASE_URL) {
+    throw new Error('DATABASE_URL is not defined')
   }
 
-  useCreateDatabase(runtimeConfig.databaseURL)
+  useCreateDatabase(process.env.DATABASE_URL)
 
   // In dev mode we don't execute migrations, for this we use the command `pnpm db:migrate` in `@next-orders/database`
   if (import.meta.dev) {
