@@ -16,4 +16,5 @@ export default defineNitroConfig({
     pass: '',
     from: '',
   },
+  compatibilityDate: '2025-02-07',
 })

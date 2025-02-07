@@ -1,4 +1,5 @@
 import { TZDate } from '@date-fns/tz'
+import { repository } from '@next-orders/database'
 import { getDayIndexByDay } from '~~/server/utils/date'
 
 export default defineEventHandler(async () => {
@@ -11,28 +12,7 @@ export default defineEventHandler(async () => {
       })
     }
 
-    const channel = await prisma.channel.findFirst({
-      where: { id: channelId.toString() },
-      include: {
-        menus: {
-          include: {
-            categories: {
-              include: {
-                products: {
-                  include: {
-                    variants: true,
-                    category: true,
-                  },
-                },
-              },
-            },
-          },
-        },
-        warehouses: true,
-        paymentMethods: true,
-        workingDays: true,
-      },
-    })
+    const channel = await repository.channel.find(channelId)
     if (!channel) {
       throw createError({
         statusCode: 404,
@@ -40,15 +20,7 @@ export default defineEventHandler(async () => {
       })
     }
 
-    // Master
-    const master = await prisma.user.findFirst({
-      where: { channelId, isStaff: true },
-      orderBy: { createdAt: 'asc' },
-      include: {
-        permissions: true,
-      },
-    })
-    const masterAccountExists = !!master?.permissions.find((permission) => permission.code === 'MASTER')
+    const master = await repository.user.findMaster(channelId)
 
     // Working day
     const timeZone = channel.timeZone
@@ -57,15 +29,18 @@ export default defineEventHandler(async () => {
     const workingDay = channel.workingDays.find((day) => day.day === dayOfWeek)
 
     // Working days
-    const workingDays = channel.workingDays.sort((a, b) => getDayIndexByDay(a.day as WorkingDay['day']) - getDayIndexByDay(b.day as WorkingDay['day']))
+    const workingDays = channel.workingDays.toSorted((a, b) => getDayIndexByDay(a.day as WorkingDay['day']) - getDayIndexByDay(b.day as WorkingDay['day']))
     // Sunday on end
-    workingDays.push(workingDays.shift()!)
+    const firstDay = workingDays.shift()
+    if (firstDay) {
+      workingDays.push(firstDay)
+    }
 
     return {
       ...channel,
       workingDay,
       workingDays,
-      masterAccountExists,
+      masterAccountExists: !!master,
     }
   } catch (error) {
     throw errorResolver(error)

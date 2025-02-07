@@ -1,4 +1,4 @@
-import { createId } from '@paralleldrive/cuid2'
+import { createId, repository } from '@next-orders/database'
 import { productCreateSchema } from '~~/server/core/services/product'
 
 export default defineEventHandler(async (event) => {
@@ -9,15 +9,11 @@ export default defineEventHandler(async (event) => {
     const data = productCreateSchema.parse(body)
     const id = createId()
 
-    const product = await prisma.product.create({
-      data: {
-        id,
-        slug: id,
-        name: data.name,
-        description: data.description,
-        categoryId: data.categoryId,
-        channelId,
-      },
+    const product = await repository.product.create({
+      id,
+      slug: id,
+      channelId,
+      ...data,
     })
 
     return {

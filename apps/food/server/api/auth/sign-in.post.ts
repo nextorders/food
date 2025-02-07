@@ -1,3 +1,4 @@
+import { repository } from '@next-orders/database'
 import { compare } from 'bcrypt'
 
 export default defineEventHandler(async (event) => {
@@ -12,9 +13,7 @@ export default defineEventHandler(async (event) => {
       return sendRedirect(event, '/command-center')
     }
 
-    const credentials = await prisma.userCredentials.findFirst({
-      where: { login: body.login },
-    })
+    const credentials = await repository.userCredential.findByLogin(body.login)
     if (!credentials) {
       throw createError({ statusCode: 401, statusMessage: 'Wrong login or password' })
     }
@@ -24,12 +23,7 @@ export default defineEventHandler(async (event) => {
       throw createError({ statusCode: 401, statusMessage: 'Wrong login or password' })
     }
 
-    const user = await prisma.user.findFirst({
-      where: { id: credentials.userId },
-      include: {
-        permissions: true,
-      },
-    })
+    const user = await repository.user.find(credentials.userId)
     if (!user) {
       throw createError({ statusCode: 401, statusMessage: 'No user found' })
     }

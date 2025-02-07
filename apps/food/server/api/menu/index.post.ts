@@ -1,4 +1,4 @@
-import { createId } from '@paralleldrive/cuid2'
+import { createId, repository } from '@next-orders/database'
 import { menuCreateSchema } from '~~/server/core/services/menu'
 
 export default defineEventHandler(async (event) => {
@@ -9,13 +9,11 @@ export default defineEventHandler(async (event) => {
     const data = menuCreateSchema.parse(body)
     const id = createId()
 
-    const menu = await prisma.menu.create({
-      data: {
-        id,
-        slug: id,
-        name: data.name,
-        channelId,
-      },
+    const menu = await repository.menu.create({
+      id,
+      slug: id,
+      name: data.name,
+      channelId,
     })
 
     return {

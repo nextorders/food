@@ -1,3 +1,4 @@
+import { repository } from '@next-orders/database'
 import { workingDayActivityUpdateSchema } from '~~/server/core/services/workingDay'
 
 export default defineEventHandler(async (event) => {
@@ -13,9 +14,7 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = workingDayActivityUpdateSchema.parse(body)
 
-    const workingDay = await prisma.workingDay.findFirst({
-      where: { day: data.day },
-    })
+    const workingDay = await repository.workingDay.findByDayAndChannelId(channelId, data.day)
     if (!workingDay) {
       throw createError({
         statusCode: 404,
@@ -23,11 +22,8 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    await prisma.workingDay.update({
-      where: { id: workingDay.id },
-      data: {
-        isActive: !workingDay.isActive,
-      },
+    await repository.workingDay.patch(workingDay.id, {
+      isActive: !workingDay.isActive,
     })
 
     return { ok: true }

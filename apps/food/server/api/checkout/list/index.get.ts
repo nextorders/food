@@ -1,3 +1,5 @@
+import { repository } from '@next-orders/database'
+
 export default defineEventHandler(async () => {
   try {
     const { channelId } = useRuntimeConfig()
@@ -8,29 +10,7 @@ export default defineEventHandler(async () => {
       })
     }
 
-    return prisma.checkout.findMany({
-      where: { status: 'FINISHED' },
-      include: {
-        lines: {
-          include: {
-            variant: {
-              include: {
-                product: {
-                  include: {
-                    category: true,
-                  },
-                },
-              },
-            },
-          },
-          orderBy: {
-            createdAt: 'asc',
-          },
-        },
-      },
-      orderBy: { createdAt: 'desc' },
-      take: 30,
-    })
+    return repository.checkout.findLatestFinished()
   } catch (error) {
     throw errorResolver(error)
   }

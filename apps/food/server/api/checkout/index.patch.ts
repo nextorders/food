@@ -17,22 +17,17 @@ export default defineEventHandler(async (event) => {
 
     const body = await readBody(event)
     const data = checkoutUpdateSchema.parse(body)
-    const time = data.time ? new Date(data.time) : new Date()
 
-    const channel = await prisma.channel.findFirst({
-      where: { id: channelId },
-    })
+    const channel = await repository.channel.find(channelId)
 
     await repository.checkout.recalculate(checkout.id)
 
-    const isFinished = data.phone && data.name
+    const needToBeFinalized: boolean = !!data.phone && !!data.name
 
-    // Guard: If checkout.totalPrice < minAmountForDelivery
-    if (isFinished) {
-      const actualCheckout = await prisma.checkout.findFirst({
-        where: { id: checkout.id },
-      })
+    if (needToBeFinalized) {
+      const actualCheckout = await repository.checkout.find(checkout.id)
 
+      // Guard: If checkout.totalPrice < minAmountForDelivery
       if (actualCheckout?.deliveryMethod === 'DELIVERY' && channel?.minAmountForDelivery) {
         if (actualCheckout.totalPrice < channel.minAmountForDelivery) {
           throw createError({
@@ -43,35 +38,10 @@ export default defineEventHandler(async (event) => {
       }
     }
 
-    const updatedCheckout = await prisma.checkout.update({
-      where: { id: checkout.id },
-      data: {
-        deliveryMethod: data.deliveryMethod,
-        phone: data.phone,
-        name: data.name,
-        warehouseId: data.warehouseId,
-        street: data.street,
-        flat: data.flat,
-        doorphone: data.doorphone,
-        entrance: data.entrance,
-        floor: data.floor,
-        addressNote: data.addressNote,
-        paymentMethodId: data.paymentMethodId,
-        time,
-        timeType: data.timeType,
-        change: data.change,
-        note: data.note,
-      },
-    })
+    const updatedCheckout = await repository.checkout.patch(checkout.id, data)
 
-    if (isFinished) {
-      await prisma.checkout.update({
-        where: { id: checkout.id },
-        data: {
-          status: 'FINISHED',
-        },
-      })
-
+    if (needToBeFinalized) {
+      await repository.checkout.setAsFinished(checkout.id)
       await sendToReceivers(checkout.id)
 
       const session = await getUserSession(event)
@@ -93,37 +63,18 @@ export default defineEventHandler(async (event) => {
 async function sendToReceivers(checkoutId: string) {
   const { public: publicEnv } = useRuntimeConfig()
 
-  const checkout = await prisma.checkout.findFirst({
-    where: { id: checkoutId },
-    include: {
-      lines: {
-        include: {
-          variant: {
-            include: {
-              product: true,
-            },
-          },
-        },
-      },
-    },
-  })
+  const checkout = await repository.checkout.find(checkoutId)
   if (!checkout?.id) {
     return
   }
 
-  const channel = await prisma.channel.findFirst({
-    where: { id: checkout?.channelId },
-    include: {
-      warehouses: true,
-      paymentMethods: true,
-    },
-  })
+  const channel = await repository.channel.find(checkout.channelId)
   if (!channel?.id) {
     return
   }
 
-  const paymentMethodName = channel?.paymentMethods.find((p) => p.id === checkout?.paymentMethodId)?.name as string
-  const warehouseAddress = channel?.warehouses.find((w) => w.id === checkout?.warehouseId)?.address
+  const paymentMethodName = channel.paymentMethods.find((p) => p.id === checkout?.paymentMethodId)?.name as string
+  const warehouseAddress = channel.warehouses.find((w) => w.id === checkout?.warehouseId)?.address
   const address = checkout.street
     ? {
         street: checkout.street,
@@ -136,9 +87,7 @@ async function sendToReceivers(checkoutId: string) {
     : undefined
   const time = new TZDate(checkout.time, channel.timeZone).toLocaleString(publicEnv.locale, { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false })
 
-  const receivers = await prisma.checkoutReceiver.findMany({
-    where: { channelId: checkout?.channelId },
-  })
+  const receivers = await repository.checkoutReceiver.findAll(checkout.channelId)
 
   for (const receiver of receivers as CheckoutReceiver[]) {
     const data: NewCheckoutTemplate = {
@@ -156,8 +105,8 @@ async function sendToReceivers(checkoutId: string) {
       address,
       lines: checkout.lines.map((line) => ({
         id: line.id,
-        name: line.variant.product.name,
-        variant: line.variant.name,
+        name: line.productVariant.product.name,
+        variant: line.productVariant.name,
         quantity: line.quantity,
         totalPrice: line.totalPrice,
       })),

@@ -1,3 +1,5 @@
+import { repository } from '@next-orders/database'
+
 export default defineEventHandler(async () => {
   try {
     const { channelId } = useRuntimeConfig()
@@ -8,10 +10,7 @@ export default defineEventHandler(async () => {
       })
     }
 
-    return prisma.product.findMany({
-      where: { channelId: channelId.toString() },
-      include: { variants: true, category: true },
-    })
+    return repository.product.findManyByChannelId(channelId)
   } catch (error) {
     throw errorResolver(error)
   }

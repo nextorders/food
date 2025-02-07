@@ -1,4 +1,4 @@
-import { createId } from '@paralleldrive/cuid2'
+import { repository } from '@next-orders/database'
 import { productVariantCreateSchema } from '~~/server/core/services/product'
 
 export default defineEventHandler(async (event) => {
@@ -6,22 +6,7 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = productVariantCreateSchema.parse(body)
 
-    const variant = await prisma.productVariant.create({
-      data: {
-        id: createId(),
-        productId: data.productId,
-        name: data.name,
-        weightValue: data.weightValue,
-        weightUnit: data.weightUnit,
-        gross: data.gross,
-        net: data.net,
-        calories: data.calories,
-        fat: data.fat,
-        protein: data.protein,
-        carbohydrate: data.carbohydrate,
-        sku: data.sku,
-      },
-    })
+    const variant = await repository.productVariant.create(data)
 
     return {
       ok: true,

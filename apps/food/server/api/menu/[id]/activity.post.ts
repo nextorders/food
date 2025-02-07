@@ -1,32 +1,24 @@
+import { repository } from '@next-orders/database'
+
 export default defineEventHandler(async (event) => {
   try {
     const id = getRouterParam(event, 'id')
+    if (!id) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: 'Missing id',
+      })
+    }
 
-    const isActiveNow = await prisma.menu.findFirst({
-      where: { id },
-      select: { isActive: true },
-    })
-    if (!isActiveNow) {
+    const menu = await repository.menu.find(id)
+    if (!menu) {
       throw createError({
         statusCode: 404,
         statusMessage: 'Menu not found',
       })
     }
 
-    // Off all other menus
-    await prisma.menu.updateMany({
-      where: { id: { not: id } },
-      data: {
-        isActive: false,
-      },
-    })
-
-    await prisma.menu.update({
-      where: { id },
-      data: {
-        isActive: !isActiveNow.isActive,
-      },
-    })
+    await repository.menu.setAsActive(menu.id)
 
     return { ok: true }
   } catch (error) {

@@ -1,26 +1,20 @@
+import { repository } from '@next-orders/database'
 import { productVariantUpdateSchema } from '~~/server/core/services/product'
 
 export default defineEventHandler(async (event) => {
   try {
     const id = getRouterParam(event, 'id')
+    if (!id) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: 'Missing id',
+      })
+    }
+
     const body = await readBody(event)
     const data = productVariantUpdateSchema.parse(body)
 
-    const variant = await prisma.productVariant.update({
-      where: { id },
-      data: {
-        name: data.name,
-        weightValue: data.weightValue,
-        weightUnit: data.weightUnit,
-        gross: data.gross,
-        net: data.net,
-        calories: data.calories,
-        fat: data.fat,
-        protein: data.protein,
-        carbohydrate: data.carbohydrate,
-        sku: data.sku,
-      },
-    })
+    const variant = await repository.productVariant.patch(id, data)
 
     return {
       ok: true,

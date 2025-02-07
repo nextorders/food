@@ -1,5 +1,7 @@
 import { repository } from '@next-orders/database'
 
+const MAX_QUANTITY_PER_LINE = 99
+
 export default defineEventHandler(async (event) => {
   const id = getRouterParam(event, 'id')
   const body = await readBody(event)
@@ -21,14 +23,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const checkoutInDB = await prisma.checkout.findFirst({
-    where: {
-      id: checkout.id,
-    },
-    include: {
-      lines: true,
-    },
-  })
+  const checkoutInDB = await repository.checkout.find(checkout.id)
   if (!checkoutInDB?.id) {
     throw createError({
       statusCode: 404,
@@ -45,34 +40,17 @@ export default defineEventHandler(async (event) => {
   }
 
   if (method === 'increment') {
-    // Limit
-    if (line.quantity >= 99) {
+    // Check limit
+    if (line.quantity >= MAX_QUANTITY_PER_LINE) {
       throw createError({
         statusCode: 400,
         statusMessage: 'Limit reached',
       })
     }
 
-    await prisma.checkoutLine.update({
-      where: { id },
-      data: {
-        quantity: line.quantity + 1,
-      },
-    })
+    await repository.checkoutLine.increase(id, 1)
   } else if (method === 'decrement') {
-    await prisma.checkoutLine.update({
-      where: { id },
-      data: {
-        quantity: line.quantity - 1,
-      },
-    })
-
-    // If decremented to 0, remove line
-    if (line.quantity - 1 <= 0) {
-      await prisma.checkoutLine.delete({
-        where: { id },
-      })
-    }
+    await repository.checkoutLine.reduce(id, 1)
   }
 
   await repository.checkout.recalculate(checkoutInDB.id)

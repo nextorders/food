@@ -1,4 +1,4 @@
-import { createId } from '@paralleldrive/cuid2'
+import { repository } from '@next-orders/database'
 import { channelPaymentMethodCreateSchema } from '~~/server/core/services/channel'
 
 export default defineEventHandler(async (event) => {
@@ -14,13 +14,10 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = channelPaymentMethodCreateSchema.parse(body)
 
-    await prisma.paymentMethod.create({
-      data: {
-        id: createId(),
-        name: data.name,
-        type: data.type,
-        channelId,
-      },
+    await repository.paymentMethod.create({
+      name: data.name,
+      type: data.type,
+      channelId,
     })
 
     return { ok: true }

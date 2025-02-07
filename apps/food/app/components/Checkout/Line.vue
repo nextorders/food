@@ -8,7 +8,7 @@
 
         <div>
           <div class="font-medium leading-tight line-clamp-2">
-            {{ variant?.product?.name }}
+            {{ variant?.product.name }}
           </div>
           <div class="mt-1 flex flex-row gap-2 flex-nowrap items-center">
             <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-tight">
@@ -40,7 +40,7 @@
 <script setup lang="ts">
 const { line, canBeChanged = true } = defineProps<{
   line: Pick<CheckoutLine, 'id' | 'quantity'> & {
-    variant: Pick<ProductVariant, 'gross' | 'name'> & {
+    productVariant: Pick<ProductVariant, 'gross' | 'name'> & {
       weightUnit: string
       weightValue: number
       product: Pick<Product, 'name' | 'slug' | 'mediaId'> & {
@@ -52,8 +52,8 @@ const { line, canBeChanged = true } = defineProps<{
 }>()
 
 const { channel } = await useChannel()
-const totalAmount = computed(() => line ? getLocalizedPrice(line.variant?.gross * line.quantity) : 0)
-const variant = computed(() => line?.variant)
-const product = computed(() => line?.variant?.product)
+const totalAmount = computed(() => line ? getLocalizedPrice(line.productVariant?.gross * line.quantity) : 0)
+const variant = computed(() => line?.productVariant)
+const product = computed(() => line?.productVariant?.product)
 const productUrl = computed(() => `/catalog/${product.value?.category?.slug}/${product.value?.slug}`)
 </script>

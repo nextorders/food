@@ -1,13 +1,16 @@
+import { repository } from '@next-orders/database'
+
 export default defineEventHandler(async (event) => {
   try {
     const id = getRouterParam(event, 'id')
+    if (!id) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: 'Missing id',
+      })
+    }
 
-    const product = await prisma.product.findFirst({
-      where: { id },
-      include: {
-        variants: true,
-      },
-    })
+    const product = await repository.product.find(id)
     if (!product) {
       throw createError({
         statusCode: 404,

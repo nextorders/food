@@ -1,3 +1,4 @@
+import { repository } from '@next-orders/database'
 import { channelReceivingMethodUpdateSchema } from '~~/server/core/services/channel'
 
 export default defineEventHandler(async (event) => {
@@ -13,25 +14,17 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = channelReceivingMethodUpdateSchema.parse(body)
 
-    const channel = await prisma.channel.findFirst({
-      where: { id: channelId },
-    })
+    const channel = await repository.channel.find(channelId)
 
     if (data.method === 'DELIVERY') {
-      await prisma.channel.update({
-        where: { id: channelId },
-        data: {
-          isDeliveryAvailable: !channel?.isDeliveryAvailable,
-        },
+      await repository.channel.patch(channelId, {
+        isDeliveryAvailable: !channel?.isDeliveryAvailable,
       })
     }
 
     if (data.method === 'PICKUP') {
-      await prisma.channel.update({
-        where: { id: channelId },
-        data: {
-          isPickupAvailable: !channel?.isPickupAvailable,
-        },
+      await repository.channel.patch(channelId, {
+        isPickupAvailable: !channel?.isPickupAvailable,
       })
     }
 

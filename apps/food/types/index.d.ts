@@ -175,8 +175,8 @@ declare global {
 
   type CheckoutReceiver = {
     id: string
-    createdAt: Date
-    updatedAt: Date
+    createdAt: string
+    updatedAt: string
     channelId: string
   } & CheckoutReceiverTypes
 

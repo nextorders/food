@@ -1,17 +1,20 @@
+import { repository } from '@next-orders/database'
 import { channelPaymentMethodUpdateSchema } from '~~/server/core/services/channel'
 
 export default defineEventHandler(async (event) => {
   try {
     const id = getRouterParam(event, 'id')
+    if (!id) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: 'Missing id',
+      })
+    }
+
     const body = await readBody(event)
     const data = channelPaymentMethodUpdateSchema.parse(body)
 
-    await prisma.paymentMethod.update({
-      where: { id },
-      data: {
-        name: data.name,
-      },
-    })
+    await repository.paymentMethod.patch(id, data)
 
     return { ok: true }
   } catch (error) {

@@ -1,8 +1,70 @@
-import { eq } from 'drizzle-orm'
+import type { CheckoutDraft } from '../types'
+import { asc, desc, eq } from 'drizzle-orm'
 import { useDatabase } from '../database'
 import { checkoutLines, checkouts } from '../tables'
 
 export class Checkout {
+  static async find(id: string) {
+    return useDatabase().query.checkouts.findFirst({
+      where: (checkouts, { eq }) => eq(checkouts.id, id),
+      with: {
+        lines: {
+          with: {
+            productVariant: {
+              with: {
+                product: {
+                  with: {
+                    category: true,
+                  },
+                },
+              },
+            },
+          },
+          orderBy: [asc(checkoutLines.createdAt)],
+        },
+      },
+    })
+  }
+
+  static async findLatestFinished() {
+    return useDatabase().query.checkouts.findMany({
+      where: (checkouts, { eq }) => eq(checkouts.status, 'FINISHED'),
+      limit: 30,
+      orderBy: [desc(checkouts.createdAt)],
+      with: {
+        lines: {
+          with: {
+            productVariant: {
+              with: {
+                product: {
+                  with: {
+                    category: true,
+                  },
+                },
+              },
+            },
+          },
+          orderBy: [asc(checkoutLines.createdAt)],
+        },
+      },
+    })
+  }
+
+  static async create(data: CheckoutDraft) {
+    const [checkout] = await useDatabase().insert(checkouts).values(data).returning()
+    return checkout
+  }
+
+  static async patch(id: string, data: Partial<CheckoutDraft>) {
+    const [checkout] = await useDatabase().update(checkouts).set(data).where(eq(checkouts.id, id)).returning()
+    return checkout
+  }
+
+  static async setAsFinished(id: string) {
+    const [checkout] = await useDatabase().update(checkouts).set({ status: 'FINISHED' }).where(eq(checkouts.id, id)).returning()
+    return checkout
+  }
+
   /**
    * Recalculate total price for a given checkout and update the database.
    *
@@ -10,7 +72,7 @@ export class Checkout {
    */
   static async recalculate(id: string): Promise<void> {
     const checkout = await useDatabase().query.checkouts.findFirst({
-      where: (checkout, { eq }) => eq(checkout.id, id),
+      where: (checkouts, { eq }) => eq(checkouts.id, id),
       with: {
         lines: {
           with: {

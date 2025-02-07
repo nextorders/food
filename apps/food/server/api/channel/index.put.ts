@@ -1,4 +1,4 @@
-import { createId } from '@paralleldrive/cuid2'
+import { repository } from '@next-orders/database'
 import { channelCreateSchema } from '~~/server/core/services/channel'
 
 export default defineEventHandler(async (event) => {
@@ -12,9 +12,7 @@ export default defineEventHandler(async (event) => {
     }
 
     // Guard: If channel already exists
-    const channel = await prisma.channel.findFirst({
-      where: { id: channelId },
-    })
+    const channel = await repository.channel.find(channelId)
     if (channel) {
       throw createError({
         statusCode: 400,
@@ -25,30 +23,25 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = channelCreateSchema.parse(body)
 
-    await prisma.channel.create({
-      data: {
-        id: channelId,
-        slug: channelId,
-        name: data.name,
-        currencyCode: data.currencyCode,
-        countryCode: data.countryCode,
-        timeZone: data.timeZone,
-      },
+    await repository.channel.create({
+      id: channelId,
+      slug: channelId,
+      name: data.name,
+      currencyCode: data.currencyCode,
+      countryCode: data.countryCode,
+      timeZone: data.timeZone,
     })
 
     // Working days
     const days = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'] as const
     for (const day of days) {
-      await prisma.workingDay.create({
-        data: {
-          id: createId(),
-          openHours: 0,
-          openMinutes: 0,
-          closeHours: 0,
-          closeMinutes: 0,
-          channelId,
-          day,
-        },
+      await repository.workingDay.create({
+        openHours: 0,
+        openMinutes: 0,
+        closeHours: 0,
+        closeMinutes: 0,
+        channelId,
+        day,
       })
     }
 

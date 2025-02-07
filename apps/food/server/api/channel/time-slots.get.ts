@@ -1,4 +1,5 @@
 import { TZDate } from '@date-fns/tz'
+import { repository } from '@next-orders/database'
 import { getDayOfWeekByIndex } from '~~/server/utils/date'
 
 export default defineEventHandler(async () => {
@@ -11,9 +12,7 @@ export default defineEventHandler(async () => {
       })
     }
 
-    const channel = await prisma.channel.findFirst({
-      where: { id: channelId },
-    })
+    const channel = await repository.channel.find(channelId)
     if (!channel) {
       throw createError({
         statusCode: 404,
@@ -25,10 +24,8 @@ export default defineEventHandler(async () => {
     const dayOfWeekIndex = new TZDate(new Date(), timeZone).getDay()
     const dayOfWeek = getDayOfWeekByIndex(dayOfWeekIndex)
 
-    const workingDay = await prisma.workingDay.findFirst({
-      where: { channelId, day: dayOfWeek },
-    })
-    if (!workingDay || !workingDay.isActive) {
+    const workingDay = await repository.workingDay.findByDayAndChannelId(channelId, dayOfWeek)
+    if (!workingDay?.isActive) {
       throw createError({
         statusCode: 404,
         statusMessage: 'Not working today',

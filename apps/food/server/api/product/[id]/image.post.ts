@@ -1,4 +1,4 @@
-import { createId } from '@paralleldrive/cuid2'
+import { createId, repository } from '@next-orders/database'
 import sharp from 'sharp'
 
 const ACCEPTED_IMAGE_TYPES = ['jpeg', 'jpg', 'png', 'webp']
@@ -8,6 +8,12 @@ export default defineEventHandler(async (event) => {
   try {
     const { storageProductsDirectory } = useRuntimeConfig()
     const id = getRouterParam(event, 'id')
+    if (!id) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: 'Missing id',
+      })
+    }
 
     const files = await readMultipartFormData(event)
     const file = files?.[0]
@@ -18,7 +24,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const metadata = await sharp(file.data.buffer).metadata()
+    const metadata = await sharp(file.data.buffer as ArrayBuffer).metadata()
 
     if (!metadata?.format || !ACCEPTED_IMAGE_TYPES.includes(metadata?.format) || !metadata?.width || !metadata?.height) {
       throw createError({
@@ -44,7 +50,7 @@ export default defineEventHandler(async (event) => {
     const mediaId = createId()
 
     for (const size of IMAGE_SIZES) {
-      await sharp(file.data.buffer)
+      await sharp(file.data.buffer as ArrayBuffer)
         .resize({ width: size, height: size })
         .toFormat('jpg', { quality: 75 })
         .toBuffer()
@@ -52,7 +58,7 @@ export default defineEventHandler(async (event) => {
           useStorage('fileSystem').setItemRaw(`${storageProductsDirectory}/${mediaId}/${size}.jpg`, data)
         })
 
-      await sharp(file.data.buffer)
+      await sharp(file.data.buffer as ArrayBuffer)
         .resize({ width: size, height: size })
         .toFormat('webp', { quality: 75 })
         .toBuffer()
@@ -61,31 +67,20 @@ export default defineEventHandler(async (event) => {
         })
     }
 
-    await prisma.media.create({
-      data: { id: mediaId },
-    })
+    await repository.media.create({ id: mediaId })
 
-    const product = await prisma.product.findFirst({
-      where: { id },
-    })
+    const product = await repository.product.find(id)
     if (product?.mediaId) {
       // Remove old images
       for (const size of IMAGE_SIZES) {
-        await useStorage('fileSystem').removeItem(`${storageProductsDirectory}/${product?.mediaId}/${size}.jpg`)
-        await useStorage('fileSystem').removeItem(`${storageProductsDirectory}/${product?.mediaId}/${size}.webp`)
+        await useStorage('fileSystem').removeItem(`${storageProductsDirectory}/${product.mediaId}/${size}.jpg`)
+        await useStorage('fileSystem').removeItem(`${storageProductsDirectory}/${product.mediaId}/${size}.webp`)
       }
 
-      await prisma.media.delete({
-        where: { id: product.mediaId },
-      })
+      await repository.media.delete(product.mediaId)
     }
 
-    await prisma.product.update({
-      where: { id },
-      data: {
-        mediaId,
-      },
-    })
+    await repository.product.patch(id, { mediaId })
 
     return { ok: true }
   } catch (error) {

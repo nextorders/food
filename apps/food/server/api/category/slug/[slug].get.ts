@@ -1,22 +1,16 @@
+import { repository } from '@next-orders/database'
+
 export default defineEventHandler(async (event) => {
   const { channelId } = useRuntimeConfig()
   const slug = getRouterParam(event, 'slug')
+  if (!slug) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Missing slug',
+    })
+  }
 
-  const activeMenu = await prisma.menu.findFirst({
-    where: { channelId, isActive: true },
-    include: {
-      categories: {
-        where: { slug },
-        include: {
-          products: {
-            include: {
-              variants: true,
-            },
-          },
-        },
-      },
-    },
-  })
+  const activeMenu = await repository.menu.findActive(channelId, slug)
   if (!activeMenu) {
     throw createError({
       statusCode: 404,

@@ -1,20 +1,20 @@
+import { repository } from '@next-orders/database'
 import { productUpdateSchema } from '~~/server/core/services/product'
 
 export default defineEventHandler(async (event) => {
   try {
     const id = getRouterParam(event, 'id')
+    if (!id) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: 'Missing id',
+      })
+    }
+
     const body = await readBody(event)
     const data = productUpdateSchema.parse(body)
 
-    const product = await prisma.product.update({
-      where: { id },
-      data: {
-        name: data.name,
-        description: data.description,
-        slug: data.slug,
-        isAvailableForPurchase: data.isAvailableForPurchase,
-      },
-    })
+    const product = await repository.product.patch(id, data)
 
     return {
       ok: true,

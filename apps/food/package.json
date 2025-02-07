@@ -4,14 +4,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "prisma generate && nuxt build",
-    "dev": "prisma generate && nuxt dev",
+    "build": "nuxt build",
+    "dev": "nuxt dev",
     "preview": "nuxt preview",
-    "db:edit": "prisma generate && pnpm exec prisma studio",
-    "db:init": "pnpm exec prisma migrate dev --name init",
     "clean": "rm -rf dist",
     "clean:modules": "rm -rf .nuxt node_modules",
-    "typecheck": "prisma generate && nuxt typecheck",
+    "typecheck": "nuxt typecheck",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
@@ -21,8 +19,6 @@
     "@neoconfetti/vue": "^2.2.1",
     "@next-orders/database": "workspace:*",
     "@next-orders/ui": "workspace:*",
-    "@paralleldrive/cuid2": "^2.2.2",
-    "@prisma/client": "^5.21.1",
     "@vee-validate/zod": "^4.14.4",
     "bcrypt": "^5.1.1",
     "class-variance-authority": "^0.7.0",
@@ -40,7 +36,6 @@
     "@types/node": "*",
     "nuxt": "*",
     "nuxt-auth-utils": "^0.5.10",
-    "prisma": "^5.21.1",
     "shadcn-nuxt": "^0.10.4",
     "vue-tsc": "*"
   }

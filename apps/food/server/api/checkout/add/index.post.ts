@@ -1,10 +1,10 @@
 import { repository } from '@next-orders/database'
-import { createId } from '@paralleldrive/cuid2'
+
+const MAX_LINES_PER_CHECKOUT = 20
 
 export default defineEventHandler(async (event) => {
   try {
     const body = await readBody(event)
-
     if (!body.productVariantId) {
       throw createError({
         statusCode: 400,
@@ -13,9 +13,7 @@ export default defineEventHandler(async (event) => {
     }
 
     const { channelId } = useRuntimeConfig()
-    const channel = await prisma.channel.findFirst({
-      where: { id: channelId },
-    })
+    const channel = await repository.channel.find(channelId)
 
     // Guard: If channel is not active or pickup/delivery is not available
     if (!channel?.isActive || (!channel?.isPickupAvailable && !channel?.isDeliveryAvailable)) {
@@ -33,13 +31,16 @@ export default defineEventHandler(async (event) => {
       // Create new checkout
       const deliveryMethod = channel?.isDeliveryAvailable ? 'DELIVERY' : 'WAREHOUSE'
 
-      const createdCheckout = await prisma.checkout.create({
-        data: {
-          id: createId(),
-          channelId,
-          deliveryMethod,
-        },
+      const createdCheckout = await repository.checkout.create({
+        channelId,
+        deliveryMethod,
       })
+      if (!createdCheckout?.id) {
+        throw createError({
+          statusCode: 400,
+          statusMessage: 'Failed to create checkout',
+        })
+      }
 
       // Update user session
       await setUserSession(event, {
@@ -53,14 +54,7 @@ export default defineEventHandler(async (event) => {
       checkoutId = checkout.id
     }
 
-    const checkoutInDB = await prisma.checkout.findFirst({
-      where: {
-        id: checkoutId,
-      },
-      include: {
-        lines: true,
-      },
-    })
+    const checkoutInDB = await repository.checkout.find(checkoutId)
     if (!checkoutInDB?.id) {
       throw createError({
         statusCode: 404,
@@ -71,8 +65,8 @@ export default defineEventHandler(async (event) => {
     // Add +1 or create new line
     const line = checkoutInDB?.lines.find((line) => line.productVariantId === body.productVariantId)
     if (!line) {
-      // Limit
-      if (checkoutInDB?.lines?.length >= 20) {
+      // Check limit
+      if (checkoutInDB?.lines?.length >= MAX_LINES_PER_CHECKOUT) {
         throw createError({
           statusCode: 400,
           statusMessage: 'Limit reached',
@@ -80,27 +74,19 @@ export default defineEventHandler(async (event) => {
       }
 
       // Create new line
-      await prisma.checkoutLine.create({
-        data: {
-          id: createId(),
-          checkoutId,
-          productVariantId: body.productVariantId,
-          quantity: 1,
-        },
+      await repository.checkoutLine.create({
+        checkoutId,
+        productVariantId: body.productVariantId,
+        quantity: 1,
       })
     } else {
       // Add +1
-      await prisma.checkoutLine.update({
-        where: { id: line.id },
-        data: { quantity: line.quantity + 1 },
-      })
+      await repository.checkoutLine.increase(line.id, 1)
     }
 
     await repository.checkout.recalculate(checkoutId)
 
-    return {
-      ok: true,
-    }
+    return { ok: true }
   } catch (error) {
     throw errorResolver(error)
   }

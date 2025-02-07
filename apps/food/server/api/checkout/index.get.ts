@@ -1,3 +1,5 @@
+import { repository } from '@next-orders/database'
+
 export default defineEventHandler(async (event) => {
   try {
     const { channelId } = useRuntimeConfig()
@@ -16,27 +18,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    return prisma.checkout.findFirst({
-      where: { id: checkout.id },
-      include: {
-        lines: {
-          include: {
-            variant: {
-              include: {
-                product: {
-                  include: {
-                    category: true,
-                  },
-                },
-              },
-            },
-          },
-          orderBy: {
-            createdAt: 'asc',
-          },
-        },
-      },
-    })
+    return repository.checkout.find(checkout.id)
   } catch (error) {
     throw errorResolver(error)
   }

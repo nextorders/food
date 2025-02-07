@@ -3,7 +3,7 @@
     <div class="max-w-[16rem] flex flex-row gap-2 flex-nowrap items-center">
       <div>
         <div class="font-medium leading-tight line-clamp-2">
-          {{ line?.variant?.product?.name }}
+          {{ line?.productVariant.product.name }}
         </div>
         <div class="mt-1 flex flex-row gap-2 flex-nowrap items-center">
           <p class="text-neutral-500 dark:text-neutral-400 leading-tight">
@@ -38,6 +38,6 @@ const { checkouts } = await useCheckoutList()
 
 const checkout = computed(() => checkouts.value?.find((c) => c.lines?.find((l) => l.id === lineId)))
 const line = computed(() => checkout.value?.lines?.find((l) => l.id === lineId))
-const totalAmount = computed(() => line.value ? getLocalizedPrice(line.value.variant?.gross * line.value.quantity) : 0)
-const variant = computed(() => line.value?.variant)
+const totalAmount = computed(() => line.value ? getLocalizedPrice(line.value.productVariant?.gross * line.value.quantity) : 0)
+const variant = computed(() => line.value?.productVariant)
 </script>

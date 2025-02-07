@@ -1,3 +1,4 @@
+import { repository } from '@next-orders/database'
 import { channelUpdateSchema } from '~~/server/core/services/channel'
 
 export default defineEventHandler(async (event) => {
@@ -13,19 +14,7 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = channelUpdateSchema.parse(body)
 
-    await prisma.channel.update({
-      where: { id: channelId },
-      data: {
-        name: data.name,
-        description: data.description,
-        phone: data.phone,
-        currencyCode: data.currencyCode,
-        countryCode: data.countryCode,
-        timeZone: data.timeZone,
-        minAmountForDelivery: data.minAmountForDelivery,
-        conditions: data.conditions,
-      },
-    })
+    await repository.channel.patch(channelId, data)
 
     return { ok: true }
   } catch (error) {

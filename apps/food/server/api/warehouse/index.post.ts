@@ -1,4 +1,4 @@
-import { createId } from '@paralleldrive/cuid2'
+import { repository } from '@next-orders/database'
 import { warehouseCreateSchema } from '~~/server/core/services/warehouse'
 
 export default defineEventHandler(async (event) => {
@@ -8,13 +8,9 @@ export default defineEventHandler(async (event) => {
 
     const data = warehouseCreateSchema.parse(body)
 
-    const warehouse = await prisma.warehouse.create({
-      data: {
-        id: createId(),
-        name: data.name,
-        address: data.address,
-        channelId,
-      },
+    const warehouse = await repository.warehouse.create({
+      channelId,
+      ...data,
     })
 
     return {
