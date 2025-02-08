@@ -23,7 +23,11 @@
 
           <CartEmpty v-if="isEmpty" />
           <div v-else>
-            <CartLine v-for="line in checkout?.lines" :key="line.id" :line-id="line.id" />
+            <CartLine
+              v-for="line in checkout?.lines"
+              :key="line.id"
+              :line-id="line.id"
+            />
           </div>
         </div>
       </div>

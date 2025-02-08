@@ -9,7 +9,11 @@
 
   <ClientOnly>
     <div class="max-w-md grid grid-cols-1 gap-4">
-      <CommandCenterCheckoutCard v-for="checkout in checkouts" :id="checkout.id" :key="checkout.id" />
+      <CommandCenterCheckoutCard
+        v-for="checkout in checkouts"
+        :id="checkout.id"
+        :key="checkout.id"
+      />
     </div>
   </ClientOnly>
 </template>

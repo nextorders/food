@@ -10,8 +10,7 @@ declare module '#auth-utils' {
     id: string
   }
 
-  interface UserSession {
-    user: User
+  interface SecureSessionData {
     checkout?: Checkout | null
   }
 }

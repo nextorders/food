@@ -21,7 +21,7 @@
     "@iconify-json/pixelarticons": "^1.2.2",
     "@types/node": "*",
     "nuxt": "*",
-    "nuxt-auth-utils": "^0.5.10",
+    "nuxt-auth-utils": "^0.5.14",
     "typescript": "*",
     "vue-tsc": "*"
   }

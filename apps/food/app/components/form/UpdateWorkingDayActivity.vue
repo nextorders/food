@@ -1,6 +1,10 @@
 <template>
   <form class="flex flex-row items-center gap-3">
-    <UiSwitch :id="`${day}-day`" :default-checked="isActive" @update:checked="onSubmit()" />
+    <UiSwitch
+      :id="`${day}-day`"
+      :default-checked="isActive"
+      @update:checked="onSubmit()"
+    />
     <UiLabel :for="`${day}-day`" class="text-base font-medium min-w-28 leading-tight">
       {{ getLocalizedDayOfWeek(day) }}
     </UiLabel>

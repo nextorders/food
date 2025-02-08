@@ -1,6 +1,10 @@
 <template>
   <form class="flex flex-row items-center gap-3">
-    <UiSwitch :id="`${method}-switch`" :default-checked="isActive" @update:checked="onSubmit()" />
+    <UiSwitch
+      :id="`${method}-switch`"
+      :default-checked="isActive"
+      @update:checked="onSubmit()"
+    />
     <UiLabel :for="`${method}-switch`" class="text-base font-medium min-w-28 leading-tight">
       {{ method === 'DELIVERY' ? $t('app.cart.delivery') : $t('app.cart.pickup') }}
     </UiLabel>

@@ -7,13 +7,17 @@
   <div>{{ $t('app.category-page-description') }}</div>
 
   <div class="mt-4 max-w-7xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-2">
-    <ProductCard v-for="product in categoryProducts" :key="product.id" :product-id="product.id" />
+    <ProductCard
+      v-for="product in categoryProducts"
+      :key="product.id"
+      :product-id="product.id"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 const { t } = useI18n()
-const { params } = useRoute()
+const { params } = useRoute('catalog-categorySlug')
 
 const { data: category, error } = await useFetch(`/api/category/slug/${params.categorySlug}`)
 if (error.value) {

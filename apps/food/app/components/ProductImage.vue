@@ -1,6 +1,10 @@
 <template>
   <picture v-if="id">
-    <source type="image/webp" :sizes="sizes" :srcset="srcsetWebp">
+    <source
+      type="image/webp"
+      :sizes="sizes"
+      :srcset="srcsetWebp"
+    >
     <img
       alt=""
       :loading="lazy ? 'lazy' : 'eager'"

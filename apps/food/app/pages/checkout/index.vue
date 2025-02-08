@@ -119,7 +119,11 @@
                   @click="remainingCheckout.warehouseId = warehouse.id"
                 >
                   <UiCheckBadge v-if="warehouse.id === remainingCheckout.warehouseId" />
-                  <Icon :name="warehouse.id === remainingCheckout.warehouseId ? icons.mapPinCheck : icons.mapPinWarehouse" class="w-6 h-6 text-neutral-300" :class="{ '!text-emerald-500': warehouse.id === remainingCheckout.warehouseId }" />
+                  <Icon
+                    :name="warehouse.id === remainingCheckout.warehouseId ? icons.mapPinCheck : icons.mapPinWarehouse"
+                    class="w-6 h-6 text-neutral-300"
+                    :class="{ '!text-emerald-500': warehouse.id === remainingCheckout.warehouseId }"
+                  />
                   <p class="font-medium leading-tight break-all">
                     {{ warehouse.address }}
                   </p>
@@ -133,17 +137,33 @@
               </h3>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
-                <UiButton variant="secondary" class="w-full min-h-14 flex flex-row flex-wrap gap-2 justify-start items-center" @click="() => { remainingCheckout.timeType = 'ASAP'; selectedTimeLabel = '' }">
+                <UiButton
+                  variant="secondary"
+                  class="w-full min-h-14 flex flex-row flex-wrap gap-2 justify-start items-center"
+                  @click="() => { remainingCheckout.timeType = 'ASAP'; selectedTimeLabel = '' }"
+                >
                   <UiCheckBadge v-if="remainingCheckout.timeType === 'ASAP'" />
-                  <Icon :name="remainingCheckout.timeType === 'ASAP' ? icons.clockCheck : icons.clock" class="w-6 h-6 text-neutral-300" :class="{ '!text-emerald-500': remainingCheckout.timeType === 'ASAP' }" />
+                  <Icon
+                    :name="remainingCheckout.timeType === 'ASAP' ? icons.clockCheck : icons.clock"
+                    class="w-6 h-6 text-neutral-300"
+                    :class="{ '!text-emerald-500': remainingCheckout.timeType === 'ASAP' }"
+                  />
                   <p class="font-medium leading-tight break-all">
                     {{ $t('app.checkout.as-soon-as-possible') }}
                   </p>
                 </UiButton>
 
-                <UiButton variant="secondary" class="w-full min-h-14 flex flex-row flex-wrap gap-2 justify-start items-center" @click="isSelectTimeModalOpened = true">
+                <UiButton
+                  variant="secondary"
+                  class="w-full min-h-14 flex flex-row flex-wrap gap-2 justify-start items-center"
+                  @click="isSelectTimeModalOpened = true"
+                >
                   <UiCheckBadge v-if="remainingCheckout.timeType === 'SCHEDULED'" />
-                  <Icon :name="remainingCheckout.timeType === 'SCHEDULED' ? icons.alarmClockCheck : icons.alarmClock" class="w-6 h-6 text-neutral-300" :class="{ '!text-emerald-500': remainingCheckout.timeType === 'SCHEDULED' }" />
+                  <Icon
+                    :name="remainingCheckout.timeType === 'SCHEDULED' ? icons.alarmClockCheck : icons.alarmClock"
+                    class="w-6 h-6 text-neutral-300"
+                    :class="{ '!text-emerald-500': remainingCheckout.timeType === 'SCHEDULED' }"
+                  />
                   <p class="font-medium leading-tight break-all">
                     {{ selectedTimeLabel || $t('app.checkout.on-time') }}
                   </p>
@@ -157,7 +177,11 @@
               {{ $t('app.checkout.order-title') }}
             </h2>
 
-            <CheckoutLine v-for="line in checkout?.lines" :key="line.id" :line="line" />
+            <CheckoutLine
+              v-for="line in checkout?.lines"
+              :key="line.id"
+              :line="line"
+            />
 
             <div class="mt-4">
               <UiLabel for="note">
@@ -189,7 +213,11 @@
                   @click="remainingCheckout.paymentMethodId = method.id"
                 >
                   <UiCheckBadge v-if="remainingCheckout.paymentMethodId === method.id" />
-                  <Icon :name="method.type === 'CASH' ? icons.moneyCash : icons.moneyCard" class="w-8 h-8 text-neutral-300" :class="{ '!text-emerald-500': method.id === remainingCheckout.paymentMethodId }" />
+                  <Icon
+                    :name="method.type === 'CASH' ? icons.moneyCash : icons.moneyCard"
+                    class="w-8 h-8 text-neutral-300"
+                    :class="{ '!text-emerald-500': method.id === remainingCheckout.paymentMethodId }"
+                  />
                   <p class="font-medium leading-tight break-all">
                     {{ method.name }}
                   </p>
@@ -240,7 +268,11 @@
             </div>
 
             <div class="flex flex-row flex-nowrap gap-4 items-center">
-              <UiButton class="grow w-full px-4 py-4 text-lg text-center" :disabled="!isValidCheckout" @click="updateCheckout">
+              <UiButton
+                class="grow w-full px-4 py-4 text-lg text-center"
+                :disabled="!isValidCheckout"
+                @click="updateCheckout"
+              >
                 {{ $t('app.checkout.create-order') }}
               </UiButton>
 
@@ -271,11 +303,23 @@
       </div>
     </template>
 
-    <UiModal :title="$t('app.checkout.select-time-title')" :is-opened="isSelectTimeModalOpened" @close="isSelectTimeModalOpened = false">
+    <UiModal
+      :title="$t('app.checkout.select-time-title')"
+      :is-opened="isSelectTimeModalOpened"
+      @close="isSelectTimeModalOpened = false"
+    >
       <div class="flex flex-col gap-2">
-        <UiButton variant="secondary" class="w-full min-h-14 flex flex-row flex-wrap gap-2 justify-start items-center" @click="() => { remainingCheckout.timeType = 'ASAP'; selectedTimeLabel = ''; isSelectTimeModalOpened = false }">
+        <UiButton
+          variant="secondary"
+          class="w-full min-h-14 flex flex-row flex-wrap gap-2 justify-start items-center"
+          @click="() => { remainingCheckout.timeType = 'ASAP'; selectedTimeLabel = ''; isSelectTimeModalOpened = false }"
+        >
           <UiCheckBadge v-if="remainingCheckout.timeType === 'ASAP'" />
-          <Icon :name="remainingCheckout.timeType === 'ASAP' ? icons.clockCheck : icons.clock" class="w-6 h-6 text-neutral-300" :class="{ '!text-emerald-500': remainingCheckout.timeType === 'ASAP' }" />
+          <Icon
+            :name="remainingCheckout.timeType === 'ASAP' ? icons.clockCheck : icons.clock"
+            class="w-6 h-6 text-neutral-300"
+            :class="{ '!text-emerald-500': remainingCheckout.timeType === 'ASAP' }"
+          />
           <p class="font-medium leading-tight break-all">
             {{ $t('app.checkout.as-soon-as-possible') }}
           </p>
@@ -289,7 +333,11 @@
           @click="() => { remainingCheckout.timeType = 'SCHEDULED'; remainingCheckout.time = new Date(slot.value); selectedTimeLabel = slot.label; isSelectTimeModalOpened = false }"
         >
           <UiCheckBadge v-if="remainingCheckout.timeType === 'SCHEDULED' && remainingCheckout.time?.getTime() === slot.value" />
-          <Icon :name="remainingCheckout.timeType === 'SCHEDULED' ? icons.alarmClockCheck : icons.alarmClock" class="w-6 h-6 text-neutral-300" :class="{ '!text-emerald-500': remainingCheckout.timeType === 'SCHEDULED' && remainingCheckout.time?.getTime() === slot.value }" />
+          <Icon
+            :name="remainingCheckout.timeType === 'SCHEDULED' ? icons.alarmClockCheck : icons.alarmClock"
+            class="w-6 h-6 text-neutral-300"
+            :class="{ '!text-emerald-500': remainingCheckout.timeType === 'SCHEDULED' && remainingCheckout.time?.getTime() === slot.value }"
+          />
           <p class="font-medium leading-tight break-all">
             {{ slot.label }}
           </p>
@@ -383,6 +431,6 @@ async function updateCheckout() {
     note: remainingCheckout.note,
   })
 
-  navigateTo(`/finish?id=${finishedCheckout?.result.id}`)
+  navigateTo(`/finish?id=${finishedCheckout?.result?.id}`)
 }
 </script>

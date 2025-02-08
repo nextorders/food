@@ -1,5 +1,9 @@
 <template>
-  <UiModal :title="checkout?.deliveryMethod === 'DELIVERY' ? $t('app.cart.delivery-details') : $t('app.cart.pickup-details')" :is-opened="isDeliveryInfoModalOpened" @close="isDeliveryInfoModalOpened = false">
+  <UiModal
+    :title="checkout?.deliveryMethod === 'DELIVERY' ? $t('app.cart.delivery-details') : $t('app.cart.pickup-details')"
+    :is-opened="isDeliveryInfoModalOpened"
+    @close="isDeliveryInfoModalOpened = false"
+  >
     <div class="font-sans whitespace-pre-wrap">
       {{ channel?.conditions }}
     </div>
@@ -17,7 +21,11 @@
       </div>
     </div>
 
-    <UiButton variant="secondary" class="mt-4" @click="isDeliveryInfoModalOpened = false">
+    <UiButton
+      variant="secondary"
+      class="mt-4"
+      @click="isDeliveryInfoModalOpened = false"
+    >
       {{ $t('common.ok') }}
     </UiButton>
   </UiModal>

@@ -58,7 +58,11 @@
     </div>
 
     <div>
-      <CommandCenterCheckoutLine v-for="line in checkout?.lines" :key="line.id" :line-id="line.id" />
+      <CommandCenterCheckoutLine
+        v-for="line in checkout?.lines"
+        :key="line.id"
+        :line-id="line.id"
+      />
     </div>
 
     <div class="flex flex-row justify-between">

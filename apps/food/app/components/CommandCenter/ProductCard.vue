@@ -18,7 +18,11 @@
           </p>
 
           <div class="mt-4">
-            <div v-for="variant in product?.variants" :key="variant.id" class="flex justify-between">
+            <div
+              v-for="variant in product?.variants"
+              :key="variant.id"
+              class="flex justify-between"
+            >
               <p class="text-neutral-500 dark:text-white">
                 {{ variant.weightValue }}{{ getWeightLocalizedUnit(variant.weightUnit) }}
               </p>

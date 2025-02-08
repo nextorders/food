@@ -12,7 +12,10 @@
     </div>
 
     <div class="flex flex-col md:flex-row gap-4">
-      <FormUpdateProductAvailability :product-id="product?.id ?? ''" :is-available-for-purchase="product?.isAvailableForPurchase ?? false" />
+      <FormUpdateProductAvailability
+        :product-id="product?.id ?? ''"
+        :is-available-for-purchase="product?.isAvailableForPurchase ?? false"
+      />
 
       <UiButton class="min-w-48" @click="isUpdateProductOpened = true">
         {{ $t('center.edit.title') }}
@@ -22,9 +25,17 @@
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl">
     <div class="relative w-full aspect-square">
-      <ProductImage :id="product?.mediaId" :lazy="false" size="md" />
+      <ProductImage
+        :id="product?.mediaId"
+        :lazy="false"
+        size="md"
+      />
 
-      <UiButton variant="secondary" class="absolute flex justify-center items-center w-18 top-2 left-2 bg-neutral-200 dark:bg-neutral-600" @click="isUploadProductImageOpened = true">
+      <UiButton
+        variant="secondary"
+        class="absolute flex justify-center items-center w-18 top-2 left-2 bg-neutral-200 dark:bg-neutral-600"
+        @click="isUploadProductImageOpened = true"
+      >
         <Icon :name="icons.editImage" class="w-6 h-6" />
       </UiButton>
     </div>
@@ -98,11 +109,23 @@
     </div>
   </div>
 
-  <UiModal :title="$t('center.update.product-photo')" :is-opened="isUploadProductImageOpened" @close="isUploadProductImageOpened = false">
-    <FormUploadProductImage :product-id="product?.id ?? ''" :is-opened="isUploadProductImageOpened" @success="isUploadProductImageOpened = false" />
+  <UiModal
+    :title="$t('center.update.product-photo')"
+    :is-opened="isUploadProductImageOpened"
+    @close="isUploadProductImageOpened = false"
+  >
+    <FormUploadProductImage
+      :product-id="product?.id ?? ''"
+      :is-opened="isUploadProductImageOpened"
+      @success="isUploadProductImageOpened = false"
+    />
   </UiModal>
 
-  <UiModal :title="$t('center.update.product')" :is-opened="isUpdateProductOpened" @close="isUpdateProductOpened = false">
+  <UiModal
+    :title="$t('center.update.product')"
+    :is-opened="isUpdateProductOpened"
+    @close="isUpdateProductOpened = false"
+  >
     <FormUpdateProduct
       :product-id="product?.id ?? ''"
       :is-opened="isUpdateProductOpened"
@@ -117,11 +140,23 @@
     />
   </UiModal>
 
-  <UiModal :title="$t('center.create.product-variant')" :is-opened="isCreateProductVariantOpened" @close="isCreateProductVariantOpened = false">
-    <FormCreateProductVariant :product-id="product?.id ?? ''" :is-opened="isCreateProductVariantOpened" @success="isCreateProductVariantOpened = false" />
+  <UiModal
+    :title="$t('center.create.product-variant')"
+    :is-opened="isCreateProductVariantOpened"
+    @close="isCreateProductVariantOpened = false"
+  >
+    <FormCreateProductVariant
+      :product-id="product?.id ?? ''"
+      :is-opened="isCreateProductVariantOpened"
+      @success="isCreateProductVariantOpened = false"
+    />
   </UiModal>
 
-  <UiModal :title="$t('center.update.product-variant')" :is-opened="isUpdateProductVariantOpened" @close="isUpdateProductVariantOpened = false">
+  <UiModal
+    :title="$t('center.update.product-variant')"
+    :is-opened="isUpdateProductVariantOpened"
+    @close="isUpdateProductVariantOpened = false"
+  >
     <FormUpdateProductVariant
       :product-variant-id="productVariantId ?? ''"
       :product-variant="productVariant"
@@ -129,7 +164,11 @@
       @submitted="isUpdateProductVariantOpened = false"
       @success="isUpdateProductVariantOpened = false"
     />
-    <FormDeleteProductVariant :product-variant-id="productVariantId ?? ''" :is-opened="isUpdateProductVariantOpened" @success="isUpdateProductVariantOpened = false" />
+    <FormDeleteProductVariant
+      :product-variant-id="productVariantId ?? ''"
+      :is-opened="isUpdateProductVariantOpened"
+      @success="isUpdateProductVariantOpened = false"
+    />
   </UiModal>
 </template>
 
@@ -138,7 +177,7 @@ definePageMeta({
   layout: 'command-center',
   middleware: ['02-staff'],
   validate: async ({ params }) => {
-    const { error } = await useFetch(`/api/product/${params.id}`)
+    const { error } = await useFetch(`/api/product/${(params as { id: string }).id}`)
     return error.value === undefined
   },
 })
@@ -149,7 +188,7 @@ const isCreateProductVariantOpened = ref(false)
 const isUpdateProductVariantOpened = ref(false)
 
 const { icons } = useAppConfig()
-const { params } = useRoute()
+const { params } = useRoute('command-center-product-id')
 const { t } = useI18n()
 
 const { channel } = await useChannel()

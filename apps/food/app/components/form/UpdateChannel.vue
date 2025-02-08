@@ -51,7 +51,11 @@
 
           <UiSelectContent>
             <UiSelectGroup>
-              <UiSelectItem v-for="code in getLocalizedCurrencyCodesForSelect()" :key="code.value" :value="code.value">
+              <UiSelectItem
+                v-for="code in getLocalizedCurrencyCodesForSelect()"
+                :key="code.value"
+                :value="code.value"
+              >
                 {{ code.label }}
               </UiSelectItem>
             </UiSelectGroup>
@@ -75,7 +79,11 @@
 
           <UiSelectContent>
             <UiSelectGroup>
-              <UiSelectItem v-for="code in getLocalizedCountryCodesForSelect()" :key="code.value" :value="code.value">
+              <UiSelectItem
+                v-for="code in getLocalizedCountryCodesForSelect()"
+                :key="code.value"
+                :value="code.value"
+              >
                 {{ code.label }}
               </UiSelectItem>
             </UiSelectGroup>
@@ -99,7 +107,11 @@
 
           <UiSelectContent>
             <UiSelectGroup>
-              <UiSelectItem v-for="zone in getLocalizedTimezonesForSelect()" :key="zone.value" :value="zone.value">
+              <UiSelectItem
+                v-for="zone in getLocalizedTimezonesForSelect()"
+                :key="zone.value"
+                :value="zone.value"
+              >
                 {{ zone.label }}
               </UiSelectItem>
             </UiSelectGroup>
@@ -115,7 +127,11 @@
           <UiFormMessage />
         </div>
         <UiFormControl>
-          <UiInput v-bind="componentField" type="number" :placeholder="$t('common.optional')" />
+          <UiInput
+            v-bind="componentField"
+            type="number"
+            :placeholder="$t('common.optional')"
+          />
         </UiFormControl>
       </UiFormItem>
     </UiFormField>

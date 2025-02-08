@@ -14,7 +14,7 @@ export default antfu(
         order: ['template', 'script', 'style'],
       }],
       'vue/max-attributes-per-line': ['error', {
-        singleline: 3,
+        singleline: 2,
         multiline: 1,
       }],
       'ts/no-use-before-define': 'off',

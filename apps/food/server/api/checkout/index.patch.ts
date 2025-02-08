@@ -7,8 +7,8 @@ export default defineEventHandler(async (event) => {
   try {
     const { channelId } = useRuntimeConfig()
 
-    const { checkout } = await getUserSession(event)
-    if (!checkout) {
+    const { secure } = await getUserSession(event)
+    if (!secure?.checkout) {
       throw createError({
         statusCode: 404,
         statusMessage: 'No checkout',
@@ -20,12 +20,12 @@ export default defineEventHandler(async (event) => {
 
     const channel = await repository.channel.find(channelId)
 
-    await repository.checkout.recalculate(checkout.id)
+    await repository.checkout.recalculate(secure.checkout.id)
 
     const needToBeFinalized: boolean = !!data.phone && !!data.name
 
     if (needToBeFinalized) {
-      const actualCheckout = await repository.checkout.find(checkout.id)
+      const actualCheckout = await repository.checkout.find(secure.checkout.id)
 
       // Guard: If checkout.totalPrice < minAmountForDelivery
       if (actualCheckout?.deliveryMethod === 'DELIVERY' && channel?.minAmountForDelivery) {
@@ -38,16 +38,19 @@ export default defineEventHandler(async (event) => {
       }
     }
 
-    const updatedCheckout = await repository.checkout.patch(checkout.id, data)
+    const updatedCheckout = await repository.checkout.patch(secure.checkout.id, data)
 
     if (needToBeFinalized) {
-      await repository.checkout.setAsFinished(checkout.id)
-      await sendToReceivers(checkout.id)
+      await repository.checkout.setAsFinished(secure.checkout.id)
+      await sendToReceivers(secure.checkout.id)
 
       const session = await getUserSession(event)
       await replaceUserSession(event, {
         ...session,
-        checkout: null,
+        secure: {
+          ...secure,
+          checkout: null,
+        },
       })
     }
 

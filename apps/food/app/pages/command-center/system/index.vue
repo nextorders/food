@@ -73,7 +73,11 @@
       </div>
 
       <div class="space-y-2 w-full md:max-w-sm">
-        <div v-for="workingDay in channel?.workingDays" :key="workingDay.id" class="w-full flex flex-row gap-3 justify-between items-center bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3">
+        <div
+          v-for="workingDay in channel?.workingDays"
+          :key="workingDay.id"
+          class="w-full flex flex-row gap-3 justify-between items-center bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3"
+        >
           <FormUpdateWorkingDayActivity :is-active="workingDay?.isActive" :day="workingDay?.day as WorkingDay['day']" />
 
           <div>
@@ -100,26 +104,54 @@
     </div>
   </div>
 
-  <UiModal :title="$t('center.update.general-data')" :is-opened="isUpdateChannelOpened" @close="isUpdateChannelOpened = false">
-    <FormUpdateChannel :is-opened="isUpdateChannelOpened" @submitted="isUpdateChannelOpened = false" @success="isUpdateChannelOpened = false" />
+  <UiModal
+    :title="$t('center.update.general-data')"
+    :is-opened="isUpdateChannelOpened"
+    @close="isUpdateChannelOpened = false"
+  >
+    <FormUpdateChannel
+      :is-opened="isUpdateChannelOpened"
+      @submitted="isUpdateChannelOpened = false"
+      @success="isUpdateChannelOpened = false"
+    />
   </UiModal>
 
-  <UiModal :title="$t('center.update.online-ordering-time')" :is-opened="isUpdateWorkingDaysOpened" @close="isUpdateWorkingDaysOpened = false">
-    <FormUpdateWorkingDays :is-opened="isUpdateWorkingDaysOpened" @submitted="isUpdateWorkingDaysOpened = false" @success="isUpdateWorkingDaysOpened = false" />
+  <UiModal
+    :title="$t('center.update.online-ordering-time')"
+    :is-opened="isUpdateWorkingDaysOpened"
+    @close="isUpdateWorkingDaysOpened = false"
+  >
+    <FormUpdateWorkingDays
+      :is-opened="isUpdateWorkingDaysOpened"
+      @submitted="isUpdateWorkingDaysOpened = false"
+      @success="isUpdateWorkingDaysOpened = false"
+    />
   </UiModal>
 
-  <UiModal :title="$t('center.create.payment-method')" :is-opened="isCreatePaymentMethodOpened" @close="isCreatePaymentMethodOpened = false">
+  <UiModal
+    :title="$t('center.create.payment-method')"
+    :is-opened="isCreatePaymentMethodOpened"
+    @close="isCreatePaymentMethodOpened = false"
+  >
     <FormCreateChannelPaymentMethod :is-opened="isCreatePaymentMethodOpened" @success="isCreatePaymentMethodOpened = false" />
   </UiModal>
 
-  <UiModal :title="$t('center.update.payment-method')" :is-opened="isUpdatePaymentMethodOpened" @close="isUpdatePaymentMethodOpened = false">
+  <UiModal
+    :title="$t('center.update.payment-method')"
+    :is-opened="isUpdatePaymentMethodOpened"
+    @close="isUpdatePaymentMethodOpened = false"
+  >
     <FormUpdateChannelPaymentMethod
       :is-opened="isUpdatePaymentMethodOpened"
       :payment-method-id="paymentMethodId"
       @submitted="isUpdatePaymentMethodOpened = false"
       @success="isUpdatePaymentMethodOpened = false"
     />
-    <FormDeleteChannelPaymentMethod :is-opened="isUpdatePaymentMethodOpened" :payment-method-id="paymentMethodId" @success="isUpdatePaymentMethodOpened = false" />
+    <FormDeleteChannelPaymentMethod
+      :is-opened="isUpdatePaymentMethodOpened"
+      :payment-method-id="paymentMethodId"
+      @success="isUpdatePaymentMethodOpened = false"
+    />
   </UiModal>
 </template>
 

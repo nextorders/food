@@ -51,17 +51,28 @@ export class Checkout {
   }
 
   static async create(data: CheckoutDraft) {
-    const [checkout] = await useDatabase().insert(checkouts).values(data).returning()
+    const [checkout] = await useDatabase()
+      .insert(checkouts)
+      .values(data)
+      .returning()
     return checkout
   }
 
   static async patch(id: string, data: Partial<CheckoutDraft>) {
-    const [checkout] = await useDatabase().update(checkouts).set(data).where(eq(checkouts.id, id)).returning()
+    const [checkout] = await useDatabase()
+      .update(checkouts)
+      .set(data)
+      .where(eq(checkouts.id, id))
+      .returning()
     return checkout
   }
 
   static async setAsFinished(id: string) {
-    const [checkout] = await useDatabase().update(checkouts).set({ status: 'FINISHED' }).where(eq(checkouts.id, id)).returning()
+    const [checkout] = await useDatabase()
+      .update(checkouts)
+      .set({ status: 'FINISHED' })
+      .where(eq(checkouts.id, id))
+      .returning()
     return checkout
   }
 
@@ -71,34 +82,40 @@ export class Checkout {
    * @param id - The ID of the checkout to recalculate.
    */
   static async recalculate(id: string): Promise<void> {
-    const checkout = await useDatabase().query.checkouts.findFirst({
-      where: (checkouts, { eq }) => eq(checkouts.id, id),
-      with: {
-        lines: {
-          with: {
-            productVariant: true,
+    await useDatabase().transaction(async (tx) => {
+      const checkout = await tx.query.checkouts.findFirst({
+        where: (checkouts, { eq }) => eq(checkouts.id, id),
+        with: {
+          lines: {
+            with: {
+              productVariant: true,
+            },
           },
         },
-      },
+      })
+      if (!checkout) {
+        throw new Error(`Checkout with id ${id} not found`)
+      }
+
+      for (const line of checkout.lines) {
+        await tx.update(checkoutLines)
+          .set({
+            totalPrice: line.quantity * line.productVariant.gross,
+            unitPrice: line.productVariant.gross,
+          })
+          .where(eq(checkoutLines.id, line.id))
+      }
+
+      const totalPrice = checkout.lines.reduce((acc, line) => {
+        return acc + line.quantity * line.productVariant.gross
+      }, 0)
+
+      await tx.update(checkouts)
+        .set({
+          updatedAt: new Date().toString(),
+          totalPrice,
+        })
+        .where(eq(checkouts.id, checkout.id))
     })
-    if (!checkout) {
-      return
-    }
-
-    for (const line of checkout.lines) {
-      await useDatabase().update(checkoutLines).set({
-        totalPrice: line.quantity * line.productVariant.gross,
-        unitPrice: line.productVariant.gross,
-      }).where(eq(checkoutLines.id, line.id))
-    }
-
-    const totalPrice = checkout.lines.reduce((acc, line) => {
-      return acc + line.quantity * line.productVariant.gross
-    }, 0)
-
-    await useDatabase().update(checkouts).set({
-      updatedAt: new Date().toString(),
-      totalPrice,
-    }).where(eq(checkouts.id, checkout.id))
   }
 }

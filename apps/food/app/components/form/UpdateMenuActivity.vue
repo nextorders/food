@@ -2,7 +2,11 @@
   <form>
     <div class="min-w-60 px-4 py-3 bg-neutral-50 dark:bg-neutral-500 border border-neutral-100 dark:border-neutral-400 rounded-2xl">
       <div class="flex items-center gap-4">
-        <UiSwitch id="product-switch" :default-checked="isActive" @update:checked="onSubmit()" />
+        <UiSwitch
+          id="product-switch"
+          :default-checked="isActive"
+          @update:checked="onSubmit()"
+        />
         <UiLabel for="product-switch" class="leading-tight">
           {{ isActive ? $t('center.menu.is-active') : $t('center.menu.is-not-active') }}
         </UiLabel>

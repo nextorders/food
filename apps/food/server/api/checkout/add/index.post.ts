@@ -26,8 +26,8 @@ export default defineEventHandler(async (event) => {
     // Check if checkout exists
     let checkoutId = ''
 
-    const { checkout } = await getUserSession(event)
-    if (!checkout) {
+    const { secure } = await getUserSession(event)
+    if (!secure?.checkout) {
       // Create new checkout
       const deliveryMethod = channel?.isDeliveryAvailable ? 'DELIVERY' : 'WAREHOUSE'
 
@@ -44,14 +44,16 @@ export default defineEventHandler(async (event) => {
 
       // Update user session
       await setUserSession(event, {
-        checkout: {
-          id: createdCheckout.id,
+        secure: {
+          checkout: {
+            id: createdCheckout.id,
+          },
         },
       })
 
       checkoutId = createdCheckout.id
     } else {
-      checkoutId = checkout.id
+      checkoutId = secure.checkout.id
     }
 
     const checkoutInDB = await repository.checkout.find(checkoutId)

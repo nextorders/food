@@ -15,31 +15,63 @@
     </div>
   </div>
 
-  <div v-for="category in menu?.categories" :key="category.id" class="mb-8">
+  <div
+    v-for="category in menu?.categories"
+    :key="category.id"
+    class="mb-8"
+  >
     <div class="mb-4 pb-2 border-b border-neutral-200 dark:border-neutral-600 flex flex-row gap-3 items-center">
       <h2 class="text-2xl lg:text-xl">
         {{ category.name }}
       </h2>
-      <Icon :name="icons.edit" class="w-5 h-5 text-neutral-500 cursor-pointer" @click="() => { categoryId = category.id; isUpdateMenuCategoryOpened = true }" />
+      <Icon
+        :name="icons.edit"
+        class="w-5 h-5 text-neutral-500 cursor-pointer"
+        @click="() => { categoryId = category.id; isUpdateMenuCategoryOpened = true }"
+      />
     </div>
 
     <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-7 gap-4">
-      <CommandCenterProductCard v-for="product in category.products" :key="product.id" :product-id="product.id" />
+      <CommandCenterProductCard
+        v-for="product in category.products"
+        :key="product.id"
+        :product-id="product.id"
+      />
       <CommandCenterProductCreateCard @click="() => { categoryId = category.id; isCreateProductOpened = true }" />
     </div>
   </div>
 
   <GuideMenu />
 
-  <UiModal :title="$t('center.create.product')" :is-opened="isCreateProductOpened" @close="isCreateProductOpened = false">
-    <FormCreateProduct :category-id="categoryId" :is-opened="isCreateProductOpened" @success="isCreateProductOpened = false" />
+  <UiModal
+    :title="$t('center.create.product')"
+    :is-opened="isCreateProductOpened"
+    @close="isCreateProductOpened = false"
+  >
+    <FormCreateProduct
+      :category-id="categoryId"
+      :is-opened="isCreateProductOpened"
+      @success="isCreateProductOpened = false"
+    />
   </UiModal>
 
-  <UiModal :title="$t('center.create.menu-category')" :is-opened="isCreateMenuCategoryOpened" @close="isCreateMenuCategoryOpened = false">
-    <FormCreateMenuCategory :menu-id="menu?.id ?? ''" :is-opened="isCreateMenuCategoryOpened" @success="isCreateMenuCategoryOpened = false" />
+  <UiModal
+    :title="$t('center.create.menu-category')"
+    :is-opened="isCreateMenuCategoryOpened"
+    @close="isCreateMenuCategoryOpened = false"
+  >
+    <FormCreateMenuCategory
+      :menu-id="menu?.id ?? ''"
+      :is-opened="isCreateMenuCategoryOpened"
+      @success="isCreateMenuCategoryOpened = false"
+    />
   </UiModal>
 
-  <UiModal :title="$t('center.update.menu-category')" :is-opened="isUpdateMenuCategoryOpened" @close="isUpdateMenuCategoryOpened = false">
+  <UiModal
+    :title="$t('center.update.menu-category')"
+    :is-opened="isUpdateMenuCategoryOpened"
+    @close="isUpdateMenuCategoryOpened = false"
+  >
     <FormUpdateMenuCategory
       :menu-id="menu?.id ?? ''"
       :category-id="categoryId"
@@ -60,7 +92,7 @@ const isCreateProductOpened = ref(false)
 const isCreateMenuCategoryOpened = ref(false)
 const isUpdateMenuCategoryOpened = ref(false)
 
-const { params } = useRoute()
+const { params } = useRoute('command-center-menu-id')
 const { t } = useI18n()
 const { icons } = useAppConfig()
 

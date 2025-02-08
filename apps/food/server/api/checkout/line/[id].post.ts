@@ -15,15 +15,15 @@ export default defineEventHandler(async (event) => {
 
   const method = body.method === 'increment' ? 'increment' : 'decrement'
 
-  const { checkout } = await getUserSession(event)
-  if (!checkout) {
+  const { secure } = await getUserSession(event)
+  if (!secure?.checkout) {
     throw createError({
       statusCode: 404,
       statusMessage: 'No checkout',
     })
   }
 
-  const checkoutInDB = await repository.checkout.find(checkout.id)
+  const checkoutInDB = await repository.checkout.find(secure.checkout.id)
   if (!checkoutInDB?.id) {
     throw createError({
       statusCode: 404,

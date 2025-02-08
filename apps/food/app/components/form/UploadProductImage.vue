@@ -7,7 +7,11 @@
           <UiFormMessage />
         </div>
         <UiFormControl>
-          <UiInput v-bind="componentField" type="file" accept="image/*" />
+          <UiInput
+            v-bind="componentField"
+            type="file"
+            accept="image/*"
+          />
         </UiFormControl>
       </UiFormItem>
     </UiFormField>

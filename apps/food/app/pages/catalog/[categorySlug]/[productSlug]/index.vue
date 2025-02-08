@@ -4,7 +4,11 @@
   <div class="bg-white dark:bg-neutral-600 px-5 py-5 rounded-2xl">
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-0 gap-y-4 sm:gap-4">
       <div class="col-span-1 relative w-full aspect-square">
-        <ProductImage :id="product?.mediaId" :lazy="false" size="md" />
+        <ProductImage
+          :id="product?.mediaId"
+          :lazy="false"
+          size="md"
+        />
       </div>
 
       <div class="col-span-2">
@@ -24,7 +28,11 @@
             @click="variantId = variant.id"
           >
             <UiCheckBadge v-if="variant.id === selectedVariant?.id" />
-            <Icon :name="variant.id === selectedVariant?.id ? icons.bookmarkCheck : icons.bookmark" class="w-6 h-6 text-neutral-300" :class="{ '!text-emerald-500': variant.id === selectedVariant?.id }" />
+            <Icon
+              :name="variant.id === selectedVariant?.id ? icons.bookmarkCheck : icons.bookmark"
+              class="w-6 h-6 text-neutral-300"
+              :class="{ '!text-emerald-500': variant.id === selectedVariant?.id }"
+            />
             <p class="font-medium leading-tight break-all">
               {{ variant.name }}
             </p>
@@ -37,7 +45,11 @@
           </div>
 
           <CartLineCounter v-if="inCart" :line-id="inCart.id" />
-          <UiButton v-else class="w-fit flex flex-row gap-2 items-center" @click="addProduct(variantId ?? '')">
+          <UiButton
+            v-else
+            class="w-fit flex flex-row gap-2 items-center"
+            @click="addProduct(variantId ?? '')"
+          >
             <Icon :name="icons.basket" size="24" /> {{ $t('app.cart.add-to-cart') }}
           </UiButton>
         </div>
@@ -99,7 +111,7 @@
 
 <script setup lang="ts">
 const { t } = useI18n()
-const { params } = useRoute()
+const { params } = useRoute('catalog-categorySlug-productSlug')
 const { icons } = useAppConfig()
 const { channel } = await useChannel()
 const { addProduct, checkout } = useCheckout()
@@ -127,7 +139,7 @@ const weightUnit = computed(() => getWeightLocalizedUnit(selectedVariant.value?.
 const isNutritionShown = computed(() => selectedVariant.value?.calories && selectedVariant.value?.protein && selectedVariant.value?.fat && selectedVariant.value?.carbohydrate)
 
 const inCart = computed(() => {
-  return checkout.value?.lines?.find((l) => l.variant.id === selectedVariant.value?.id)
+  return checkout.value?.lines?.find((l) => l.productVariant.id === selectedVariant.value?.id)
 })
 
 const breadcrumbs = computed(() => [

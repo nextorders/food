@@ -17,11 +17,19 @@
     <CommandCenterWarehouseCreateCard @click="isCreateWarehouseOpened = true" />
   </div>
 
-  <UiModal :title="$t('center.create.warehouse')" :is-opened="isCreateWarehouseOpened" @close="isCreateWarehouseOpened = false">
+  <UiModal
+    :title="$t('center.create.warehouse')"
+    :is-opened="isCreateWarehouseOpened"
+    @close="isCreateWarehouseOpened = false"
+  >
     <FormCreateWarehouse :is-opened="isCreateWarehouseOpened" @success="isCreateWarehouseOpened = false" />
   </UiModal>
 
-  <UiModal :title="$t('center.update.warehouse')" :is-opened="isUpdateWarehouseOpened" @close="isUpdateWarehouseOpened = false">
+  <UiModal
+    :title="$t('center.update.warehouse')"
+    :is-opened="isUpdateWarehouseOpened"
+    @close="isUpdateWarehouseOpened = false"
+  >
     <FormUpdateWarehouse
       :warehouse-id="warehouseId"
       :is-opened="isUpdateWarehouseOpened"

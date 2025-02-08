@@ -35,7 +35,7 @@
     "@types/bcrypt": "^5.0.2",
     "@types/node": "*",
     "nuxt": "*",
-    "nuxt-auth-utils": "^0.5.10",
+    "nuxt-auth-utils": "^0.5.14",
     "shadcn-nuxt": "^0.10.4",
     "vue-tsc": "*"
   }

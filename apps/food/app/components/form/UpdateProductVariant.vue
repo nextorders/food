@@ -37,7 +37,11 @@
             <UiFormMessage />
           </div>
           <UiFormControl>
-            <UiInput v-bind="componentField" type="number" step="any" />
+            <UiInput
+              v-bind="componentField"
+              type="number"
+              step="any"
+            />
           </UiFormControl>
         </UiFormItem>
       </UiFormField>
@@ -57,7 +61,11 @@
 
             <UiSelectContent>
               <UiSelectGroup>
-                <UiSelectItem v-for="unit in getLocalizedWeightUnitsForSelect()" :key="unit.value" :value="unit.value">
+                <UiSelectItem
+                  v-for="unit in getLocalizedWeightUnitsForSelect()"
+                  :key="unit.value"
+                  :value="unit.value"
+                >
                   {{ unit.label }}
                 </UiSelectItem>
               </UiSelectGroup>
@@ -92,7 +100,11 @@
               <UiFormMessage />
             </div>
             <UiFormControl>
-              <UiInput v-bind="componentField" type="number" step="any" />
+              <UiInput
+                v-bind="componentField"
+                type="number"
+                step="any"
+              />
             </UiFormControl>
           </UiFormItem>
         </UiFormField>
@@ -104,7 +116,11 @@
               <UiFormMessage />
             </div>
             <UiFormControl>
-              <UiInput v-bind="componentField" type="number" step="any" />
+              <UiInput
+                v-bind="componentField"
+                type="number"
+                step="any"
+              />
             </UiFormControl>
           </UiFormItem>
         </UiFormField>
@@ -116,7 +132,11 @@
               <UiFormMessage />
             </div>
             <UiFormControl>
-              <UiInput v-bind="componentField" type="number" step="any" />
+              <UiInput
+                v-bind="componentField"
+                type="number"
+                step="any"
+              />
             </UiFormControl>
           </UiFormItem>
         </UiFormField>
@@ -128,7 +148,11 @@
               <UiFormMessage />
             </div>
             <UiFormControl>
-              <UiInput v-bind="componentField" type="number" step="any" />
+              <UiInput
+                v-bind="componentField"
+                type="number"
+                step="any"
+              />
             </UiFormControl>
           </UiFormItem>
         </UiFormField>

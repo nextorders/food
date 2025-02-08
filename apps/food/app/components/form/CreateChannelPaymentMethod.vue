@@ -27,7 +27,11 @@
 
           <UiSelectContent>
             <UiSelectGroup>
-              <UiSelectItem v-for="type in getLocalizedPaymentMethodTypesForSelect()" :key="type.value" :value="type.value">
+              <UiSelectItem
+                v-for="type in getLocalizedPaymentMethodTypesForSelect()"
+                :key="type.value"
+                :value="type.value"
+              >
                 {{ type.label }}
               </UiSelectItem>
             </UiSelectGroup>

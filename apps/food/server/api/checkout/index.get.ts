@@ -10,15 +10,15 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const { checkout } = await getUserSession(event)
-    if (!checkout?.id) {
+    const { secure } = await getUserSession(event)
+    if (!secure?.checkout?.id) {
       throw createError({
         statusCode: 404,
         statusMessage: 'No checkout',
       })
     }
 
-    return repository.checkout.find(checkout.id)
+    return repository.checkout.find(secure.checkout.id)
   } catch (error) {
     throw errorResolver(error)
   }
