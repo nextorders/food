@@ -4,5 +4,8 @@
     "code_actions": {
       "source.fixAll.eslint": true
     }
+  },
+  "prettier": {
+    "allowed": false
   }
 }
