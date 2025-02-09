@@ -18,6 +18,10 @@ WORKDIR /app
 
 # Copy built artifacts from builder
 COPY --from=builder /app/apps/website/.output .
+COPY docker/website/health-check.sh ./
+
+# Make the script executable
+RUN chmod +x ./health-check.sh
 
 # Running as non-root is a security best practice
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
@@ -35,9 +39,9 @@ ENV VERSION=${VERSION} \
 
 EXPOSE 3000
 
-# Health check
+# Health check using exec form
 HEALTHCHECK --interval=30s --timeout=5s --start-period=60s \
-    CMD curl -f http://localhost:3000/ || exit 1
+    CMD ["health-check.sh"]
 
 # Run the application
 ENTRYPOINT ["node"]
