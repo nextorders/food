@@ -28,6 +28,7 @@
     "postinstall": "pnpm build"
   },
   "dependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
     "drizzle-cuid2": "^2.0.0",
     "drizzle-orm": "^0.39.1",
     "pg": "^8.13.1"
