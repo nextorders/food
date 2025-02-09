@@ -7,7 +7,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 COPY packages ./packages
 COPY apps/website ./apps/website
-RUN npm install -g pnpm --ignore-scripts && \
+RUN npm install --ignore-scripts -g pnpm && \
     pnpm i --frozen-lockfile --ignore-scripts && \
     pnpm build --filter @next-orders/website
 
