@@ -20,11 +20,11 @@ WORKDIR /app
 COPY --from=builder /app/apps/website/.output .
 COPY docker/website/health-check.sh ./
 
-# Make the script executable
-RUN chmod +x ./health-check.sh
-
 # Running as non-root is a security best practice
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+# Make the Health check script executable
+RUN addgroup -S appgroup && \
+    adduser -S appuser -G appgroup && \
+    chmod +x ./health-check.sh
 USER appuser
 
 # Configuration
