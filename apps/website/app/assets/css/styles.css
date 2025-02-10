@@ -1,0 +1,8 @@
+@theme {
+  --font-sans: 'Noto Sans', sans-serif;
+  --font-serif: 'Noto Serif', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}

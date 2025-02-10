@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       release:
-        description: 'ex: @next-orders/food-v1.0.0'
+        description: 'ex: @next-orders/website-v1.0.0'
         type: string
         required: true
       ref:

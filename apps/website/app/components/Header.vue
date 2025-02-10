@@ -1,13 +1,13 @@
 <template>
-  <header :class="headerClasses">
+  <header class="bg-(--ui-bg)/75 backdrop-blur border-b border-(--ui-border) sticky top-0 z-50" :class="{ 'bg-transparent': transparent }">
     <UContainer>
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center gap-4">
           <Logo />
         </div>
         <div class="flex items-center gap-1">
-          <UColorModeToggle />
-          <UGithubButton />
+          <ColorModeToggle />
+          <GithubButton />
         </div>
       </div>
     </UContainer>
@@ -15,15 +15,7 @@
 </template>
 
 <script setup lang="ts">
-interface Props {
+const { transparent = false } = defineProps<{
   transparent?: boolean
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  transparent: false,
-})
-
-const headerClasses = computed(() => [
-  props.transparent ? 'bg-transparent' : 'bg-white dark:bg-gray-800 shadow-sm',
-])
+}>()
 </script>

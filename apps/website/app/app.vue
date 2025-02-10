@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col min-h-screen bg-white dark:bg-gray-800 font-serif">
+  <UApp class="bg-(--ui-bg)">
     <Header transparent />
     <NuxtPage />
-  </div>
+  </UApp>
 </template>

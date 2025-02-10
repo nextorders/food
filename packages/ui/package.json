@@ -16,6 +16,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@nuxt/devtools": "^2.0.0",
     "nuxt": "*"
   }
 }

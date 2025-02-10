@@ -11,6 +11,9 @@ export default defineAppConfig({
     aliases: {
       'food:loader': 'lucide:loader',
       'food:brand-assets': 'lucide:text-select',
+      'pixel:github': 'pixelarticons:github',
+      'pixel:color-mode-light': 'pixelarticons:sun',
+      'pixel:color-mode-dark': 'pixelarticons:moon',
     },
   },
 
@@ -19,9 +22,9 @@ export default defineAppConfig({
    */
   ui: {
     colors: {
-      primary: 'gray',
-      secondary: 'blue',
-      neutral: 'neutral',
+      primary: 'blue',
+      secondary: 'green',
+      neutral: 'slate',
     },
     icons: {
       loading: 'food:loader',

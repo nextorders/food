@@ -2,10 +2,10 @@
   <ClientOnly>
     <UTooltip :text="ariaLabel">
       <UButton
-        :icon="isDark ? icons.colorMode.dark : icons.colorMode.light"
+        :icon="isDark ? 'pixel:color-mode-dark' : 'pixel:color-mode-light'"
         :aria-label="ariaLabel"
         variant="ghost"
-        color="secondary"
+        color="primary"
         size="xl"
         @click="isDark = !isDark"
       />
@@ -18,7 +18,6 @@
 </template>
 
 <script setup lang="ts">
-const { icons } = useAppConfig()
 const colorMode = useColorMode()
 const { t } = useI18n()
 
