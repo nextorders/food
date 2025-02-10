@@ -1,8 +1,7 @@
 [
   {
-    "label": "ESlint",
+    "label": "Lint",
     "command": "pnpm run lint:fix",
-    "env": { "foo": "bar" },
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always",
@@ -13,5 +12,21 @@
   {
     "label": "Typecheck",
     "command": "pnpm run typecheck"
+  },
+  {
+    "label": "Test",
+    "command": "pnpm vitest run"
+  },
+  {
+    "label": "Test with watcher",
+    "command": "pnpm vitest"
+  },
+  {
+    "label": "Test with coverage",
+    "command": "pnpm vitest run --coverage"
+  },
+  {
+    "label": "Full check",
+    "command": "pnpm run lint:fix && pnpm run typecheck && pnpm vitest run"
   }
 ]
