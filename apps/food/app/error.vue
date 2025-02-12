@@ -1,22 +1,28 @@
 <template>
-  <div class="flex flex-col max-w-sm mx-auto mt-32 text-center">
+  <div class="flex flex-col max-w-sm mx-auto mt-32 text-center items-center">
     <h1 class="text-4xl mb-4">
       {{ $t('error.title') }} {{ error?.statusCode }}
     </h1>
     <p>{{ error?.statusMessage }}</p>
 
-    <UiButton class="mt-12" @click="handleError">
+    <UButton
+      variant="solid"
+      size="xl"
+      class="mt-12 w-full justify-center"
+      @click="handleError"
+    >
       {{ $t('common.to-home') }}
-    </UiButton>
+    </UButton>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { NuxtError } from '#app'
+const { error } = defineProps<{ error: {
+  statusCode: number
+  statusMessage?: string
+} }>()
 
-defineProps({
-  error: Object as () => NuxtError,
-})
-
-const handleError = () => clearError({ redirect: '/' })
+function handleError() {
+  clearError({ redirect: '/' })
+}
 </script>

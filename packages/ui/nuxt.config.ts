@@ -49,7 +49,7 @@ export default defineNuxtConfig({
     provider: 'google',
     families: [
       {
-        name: 'Noto Serif',
+        name: 'Lora',
         provider: 'google',
       },
       {

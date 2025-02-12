@@ -3,5 +3,11 @@
 
 @theme {
   --font-sans: 'Noto Sans', sans-serif;
-  --font-serif: 'Noto Serif', sans-serif;
+  --font-serif: 'Lora', serif;
+
+  --ui-radius: var(--radius-lg);
+}
+
+.bg-muted {
+  background-color: var(--ui-bg-muted);
 }

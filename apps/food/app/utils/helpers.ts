@@ -92,7 +92,7 @@ export function getLocalizedPaymentMethodTypesForSelect(): { value: PaymentMetho
   ]
 }
 
-export function getLocalizedCountryCodesForSelect(): { value: CountryCode, label: string }[] {
+export function getLocalizedCountryCodesForSelect(): { value: string, label: string }[] {
   const { t } = useI18n()
 
   return [
@@ -113,7 +113,7 @@ export function getLocalizedCountryCodesForSelect(): { value: CountryCode, label
   ]
 }
 
-export function getLocalizedCurrencyCodesForSelect(): { value: CurrencyCode, label: string }[] {
+export function getLocalizedCurrencyCodesForSelect(): { value: string, label: string }[] {
   const { t } = useI18n()
 
   return [
@@ -141,7 +141,7 @@ export function getLocalizedWeightUnitsForSelect(): { value: WeightUnit, label: 
   ]
 }
 
-export function getLocalizedTimezonesForSelect(): { value: TimeZone, label: string }[] {
+export function getLocalizedTimezonesForSelect(): { value: string, label: string }[] {
   return [
     { value: '-12:00', label: '-12:00' },
     { value: '-11:00', label: '-11:00' },

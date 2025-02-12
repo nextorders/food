@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
-    "preview": "nuxt preview",
+    "dev": "nuxt dev --port 3502",
+    "preview": "PORT=3502 nuxt preview",
     "clean": "rm -rf dist",
     "clean:modules": "rm -rf .nuxt node_modules",
     "typecheck": "nuxt typecheck",
@@ -17,7 +17,8 @@
     "@dicebear/collection": "^9.2.2",
     "@dicebear/core": "^9.2.2",
     "@neoconfetti/vue": "^2.2.1",
-    "@next-orders/database": "workspace:*",
+    "@next-orders/core": "workspace:*",
+    "@next-orders/init": "workspace:*",
     "@next-orders/ui": "workspace:*",
     "@vee-validate/zod": "^4.14.4",
     "bcrypt": "^5.1.1",
@@ -29,8 +30,6 @@
     "vee-validate": "^4.14.4"
   },
   "devDependencies": {
-    "@iconify-json/lucide": "^1.2.10",
-    "@iconify-json/simple-icons": "^1.2.9",
     "@nuxtjs/device": "^3.2.4",
     "@types/bcrypt": "^5.0.2",
     "@types/node": "*",

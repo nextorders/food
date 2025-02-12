@@ -1,5 +1,3 @@
-# food UI layer
-
-This package presents a customized Nuxt Layer UI for food applications.
+# UI Nuxt Layer
 
 Details see https://nuxt.com/docs/getting-started/layers

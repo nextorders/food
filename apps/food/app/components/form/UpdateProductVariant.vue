@@ -166,9 +166,9 @@
 </template>
 
 <script setup lang="ts">
+import { productVariantUpdateSchema } from '@next-orders/core/shared/services/product'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
-import { productVariantUpdateSchema } from '~~/server/core/services/product'
 import { useToast } from '~/components/ui/toast'
 
 const { isOpened, productVariantId, productVariant } = defineProps<{

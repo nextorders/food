@@ -1,8 +1,5 @@
 export default defineNuxtConfig({
   extends: '@next-orders/ui',
-  future: {
-    compatibilityVersion: 4,
-  },
   app: {
     head: {
       link: [
@@ -13,11 +10,6 @@ export default defineNuxtConfig({
         },
       ],
     },
-  },
-  devtools: { enabled: true },
-  devServer: {
-    host: '0.0.0.0',
-    port: 4200,
   },
   css: ['~/assets/css/styles.css'],
   i18n: {

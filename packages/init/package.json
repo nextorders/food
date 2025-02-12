@@ -1,0 +1,18 @@
+{
+  "name": "@next-orders/init",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./nuxt.config.ts",
+  "scripts": {
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@neoconfetti/vue": "^2.2.1",
+    "@next-orders/core": "workspace:*",
+    "@next-orders/ui": "workspace:*"
+  },
+  "devDependencies": {
+    "nuxt": "*"
+  }
+}

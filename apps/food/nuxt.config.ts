@@ -1,9 +1,5 @@
-import { fileURLToPath } from 'node:url'
-import { defineNuxtConfig } from 'nuxt/config'
-
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  extends: '@next-orders/ui',
+  extends: ['@next-orders/core', '@next-orders/ui', '@next-orders/init'],
   future: {
     compatibilityVersion: 4,
   },
@@ -11,19 +7,9 @@ export default defineNuxtConfig({
     optimizeDeps: {
       exclude: ['vee-validate'],
     },
-    build: {
-      rollupOptions: {
-        external: ['sharp'],
-      },
-    },
   },
   devtools: {
-    enabled: true,
     componentInspector: false,
-  },
-  devServer: {
-    host: '0.0.0.0',
-    port: 4200,
   },
   shadcn: {
     prefix: 'Ui',
@@ -49,23 +35,9 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { swr: true },
     '/catalog/**': { swr: true },
-    '/api/file/**': { prerender: false },
-  },
-  nitro: {
-    storage: {
-      fileSystem: {
-        driver: 'fs',
-        base: './../../.storage',
-      },
-    },
-    preset: fileURLToPath(new URL('./server/preset.ts', import.meta.url)),
-    experimental: {
-      tasks: true,
-    },
   },
   modules: [
     '@nuxtjs/device',
-    'nuxt-auth-utils',
     'shadcn-nuxt',
   ],
   compatibilityDate: '2024-08-18',

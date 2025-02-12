@@ -16,9 +16,9 @@
 </template>
 
 <script setup lang="ts">
+import { menuUpdateSchema } from '@next-orders/core/shared/services/menu'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
-import { menuUpdateSchema } from '~~/server/core/services/menu'
 import { useToast } from '~/components/ui/toast'
 
 const { isActive, menuId } = defineProps<{

@@ -1,0 +1,26 @@
+{
+  "name": "@next-orders/core",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./nuxt.config.ts",
+  "scripts": {
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@dicebear/collection": "^9.2.2",
+    "@dicebear/core": "^9.2.2",
+    "@next-orders/database": "workspace:*",
+    "@nuxtjs/i18n": "^9.2.0",
+    "@vueuse/core": "^12.5.0",
+    "@vueuse/nuxt": "^12.5.0",
+    "bcrypt": "^5.1.1",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/node": "*",
+    "nuxt": "*",
+    "nuxt-auth-utils": "^0.5.14"
+  }
+}

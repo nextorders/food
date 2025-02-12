@@ -31,9 +31,9 @@
 </template>
 
 <script setup lang="ts">
+import { menuCategoryUpdateSchema } from '@next-orders/core/shared/services/menu'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
-import { menuCategoryUpdateSchema } from '~~/server/core/services/menu'
 import { useToast } from '~/components/ui/toast'
 
 const { isOpened, menuId, categoryId } = defineProps<{

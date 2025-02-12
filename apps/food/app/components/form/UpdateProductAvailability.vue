@@ -16,9 +16,9 @@
 </template>
 
 <script setup lang="ts">
+import { productUpdateSchema } from '@next-orders/core/shared/services/product'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
-import { productUpdateSchema } from '~~/server/core/services/product'
 import { useToast } from '~/components/ui/toast'
 
 const { isAvailableForPurchase, productId } = defineProps<{

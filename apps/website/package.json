@@ -17,8 +17,6 @@
     "@next-orders/ui": "workspace:*"
   },
   "devDependencies": {
-    "@iconify-json/lucide": "^1.2.25",
-    "@iconify-json/pixelarticons": "^1.2.2",
     "@types/node": "*",
     "nuxt": "*",
     "nuxt-auth-utils": "^0.5.14",

@@ -31,9 +31,9 @@
 </template>
 
 <script setup lang="ts">
+import { warehouseCreateSchema } from '@next-orders/core/shared/services/warehouse'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
-import { warehouseCreateSchema } from '~~/server/core/services/warehouse'
 import { useToast } from '~/components/ui/toast'
 
 const { isOpened } = defineProps<{

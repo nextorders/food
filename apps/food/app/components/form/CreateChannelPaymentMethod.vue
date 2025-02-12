@@ -47,9 +47,9 @@
 </template>
 
 <script setup lang="ts">
+import { channelPaymentMethodCreateSchema } from '@next-orders/core/shared/services/channel'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
-import { channelPaymentMethodCreateSchema } from '~~/server/core/services/channel'
 import { useToast } from '~/components/ui/toast'
 
 const { isOpened } = defineProps<{
