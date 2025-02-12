@@ -114,6 +114,9 @@ importers:
       '@next-orders/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@next-orders/database':
+        specifier: workspace:*
+        version: link:../../packages/database
       '@next-orders/init':
         specifier: workspace:*
         version: link:../../packages/init

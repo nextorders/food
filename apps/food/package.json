@@ -18,6 +18,7 @@
     "@dicebear/core": "^9.2.2",
     "@neoconfetti/vue": "^2.2.1",
     "@next-orders/core": "workspace:*",
+    "@next-orders/database": "workspace:*",
     "@next-orders/init": "workspace:*",
     "@next-orders/ui": "workspace:*",
     "@vee-validate/zod": "^4.14.4",
