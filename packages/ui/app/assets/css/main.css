@@ -8,6 +8,14 @@
   --ui-radius: var(--radius-lg);
 }
 
+:root {
+  --ui-primary: black;
+}
+
+.dark {
+  --ui-primary: white;
+}
+
 .bg-muted {
   background-color: var(--ui-bg-muted);
 }

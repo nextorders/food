@@ -1,5 +1,8 @@
 export default defineNuxtConfig({
   extends: '@next-orders/ui',
+  future: {
+    compatibilityVersion: 4,
+  },
   app: {
     head: {
       link: [

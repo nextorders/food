@@ -1,23 +1,13 @@
 <template>
-  <ClientOnly>
-    <NuxtLink to="/" class="flex items-center gap-2 leading-tight hover:opacity-80 duration-200">
-      <img
-        alt="Logo"
-        src="~/assets/img/logo-full.png"
-        class="h-12 w-auto"
-        :class="{ hidden: isDark }"
-      >
-      <img
-        alt="Logo Dark"
-        src="~/assets/img/logo-full-dark.png"
-        class="h-12 w-auto"
-        :class="{ hidden: !isDark }"
-      >
-    </NuxtLink>
-  </ClientOnly>
-</template>
+  <ULink to="/" class="flex items-center gap-2 leading-tight hover:opacity-80 duration-200">
+    <img
+      alt="Logo"
+      src="~/assets/img/logo.png"
+      class="h-12 w-auto"
+    >
 
-<script setup lang="ts">
-const colorMode = useColorMode()
-const isDark = computed(() => colorMode.value === 'dark')
-</script>
+    <p class="uppercase text-2xl tracking-tight font-serif font-black">
+      Next Orders
+    </p>
+  </ULink>
+</template>
