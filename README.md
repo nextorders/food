@@ -3,7 +3,7 @@ Modern e-commerce self-hosted platform: clients will be happy to order delicious
 
 👉 [Check out demo website](https://demo.nextorders.space/)
 
-🎯 [Admin panel](https://demo.nextorders.space/command-center). Use **demo** as login and password. Read mode only.
+🎯 [Admin panel](https://demo.nextorders.space/command-center). Use **demo** as login and password. Read only mode 🔒👮‍♂️
 
 ![main-screen-desktop](https://github.com/next-orders/food/blob/main/.github/media/main-screen-desktop.jpg?raw=true)
 
@@ -39,7 +39,7 @@ Let's see what happens. Give the project a star ⭐. Offer your ideas and make c
 
 ## 🌎 Locales
 
-The application has [several localizations](https://github.com/next-orders/food/tree/main/apps/food/app/locales):
+The application has [several localizations](https://github.com/next-orders/food/tree/main/apps/web-app/i18n/locales):
 
 - en | English
 - ru | Russian | Русский
@@ -47,14 +47,14 @@ The application has [several localizations](https://github.com/next-orders/food/
 
 ## 🥒 Repository structure
 
-- [Food e-commerce](https://github.com/next-orders/food/tree/main/apps/food): Storefront and Command Center. Client can order delicious food.
+- [Web App](https://github.com/next-orders/food/tree/main/apps/web-app): Web storefront and Command Center. Client can order delicious food.
 - [Email service](https://github.com/next-orders/food/tree/main/apps/email): Easy way to build and send html emails through a prepared service.
 
 ## ☕ How to deploy
 
 ⚠️ Warn: work in progress. Be careful with updates! Your images and DB data are at risk.
 
-You can deploy @next-orders/food on your server (1GB+ RAM) by this:
+You can deploy @next-orders/web-app on your server (1GB+ RAM) by this:
 
 ```shell
 # Connect over SSH and use with args: version, locale, your domain, your email
@@ -69,12 +69,12 @@ Also, you can use single Docker Image to create container:
 
 ```shell
 # Use the specific version
-docker pull ghcr.io/next-orders/food:v0.7.0
+docker pull ghcr.io/next-orders/food/web-app:v0.7.0
 
 # Warn: you need an external PostgreSQL as DB
 ```
 
-Check [**.env.example**](https://github.com/next-orders/food/tree/main/apps/food/.env.example) for more info about required config variables.
+Check [**.env.example**](https://github.com/next-orders/food/tree/main/apps/web-app/.env.example) for more info about required config variables.
 
 ## 🍿 How to develop
 
@@ -87,7 +87,8 @@ Make a fork. Or clone this repo and use standard commands:
 ```shell
 git clone https://github.com/next-orders/food
 pnpm i
-pnpm dev:food
+pnpm dev:compose
+pnpm dev:all
 ```
 
 ## 🍰 License

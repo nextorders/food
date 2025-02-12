@@ -1,5 +1,5 @@
 {
-  "name": "@next-orders/food",
+  "name": "@next-orders/web-app",
   "type": "module",
   "version": "0.0.0",
   "private": true,
@@ -19,7 +19,6 @@
     "@neoconfetti/vue": "^2.2.1",
     "@next-orders/core": "workspace:*",
     "@next-orders/database": "workspace:*",
-    "@next-orders/init": "workspace:*",
     "@next-orders/ui": "workspace:*",
     "@vee-validate/zod": "^4.14.4",
     "bcrypt": "^5.1.1",

@@ -59,7 +59,6 @@
 <script setup lang="ts">
 import type { UserCreateSchema } from '@next-orders/core/shared/services/user'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { useChannel } from '@next-orders/core/app/composables/useChannel'
 import { userCreateSchema } from '@next-orders/core/shared/services/user'
 
 const emit = defineEmits(['success'])

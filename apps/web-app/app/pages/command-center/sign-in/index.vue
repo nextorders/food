@@ -52,7 +52,7 @@
 
 <script setup lang="ts">
 definePageMeta({
-  layout: 'sign-in',
+  layout: 'empty',
 })
 
 const { icons } = useAppConfig()

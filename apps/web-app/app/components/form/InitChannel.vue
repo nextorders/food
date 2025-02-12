@@ -72,9 +72,7 @@
 <script setup lang="ts">
 import type { ChannelCreateSchema } from '@next-orders/core/shared/services/channel'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { useChannel } from '@next-orders/core/app/composables/useChannel'
 import { channelCreateSchema } from '@next-orders/core/shared/services/channel'
-import { getLocalizedCountryCodesForSelect, getLocalizedCurrencyCodesForSelect, getLocalizedTimezonesForSelect } from './../utils/helpers'
 
 const emit = defineEmits(['success'])
 

@@ -24,7 +24,7 @@ jobs:
       - name: Set matrix
         id: set-matrix
         run: |
-          APPS=("food" "website" "email")
+          APPS=("web-app" "website" "email")
           CHANGED=()
 
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then

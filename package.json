@@ -29,9 +29,8 @@
   "scripts": {
     "release": "pnpm -r --filter \"./apps/**\" --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo",
     "build": "pnpm -r run build",
-    "dev": "pnpm -r run dev",
-    "dev:food": "pnpm --filter @next-orders/food dev",
-    "dev:local": "docker compose -f ./docker/docker-compose.yml up -d",
+    "dev:compose": "docker compose -f ./docker/docker-compose.yml up -d",
+    "dev:all": "pnpm -r run dev",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "clean": "pnpm -r run clean",

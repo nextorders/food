@@ -12,8 +12,8 @@
     </p>
 
     <div class="mt-12 px-6 py-6 max-w-md mx-auto bg-muted rounded-2xl">
-      <InitFormChannel v-if="!channel?.id" />
-      <InitFormMaster v-else-if="!channel.masterAccountExists" />
+      <FormInitChannel v-if="!channel?.id" />
+      <FormInitMaster v-else-if="!channel.masterAccountExists" />
       <div v-else>
         <h2 class="mb-4 text-xl md:text-2xl font-semibold text-center">
           {{ $t('init.finish-message') }}
@@ -37,10 +37,9 @@
 
 <script setup lang="ts">
 import { vConfetti } from '@neoconfetti/vue'
-import { useChannel } from '@next-orders/core/app/composables/useChannel'
 
 definePageMeta({
-  layout: 'welcome',
+  layout: 'empty',
 })
 
 const { width, height } = useWindowSize()
