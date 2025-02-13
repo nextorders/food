@@ -2,35 +2,35 @@ packages:
   - apps/*
   - packages/*
 catalog:
-  "@antfu/eslint-config": ^4.1.1
-  "@commitlint/cli": ^19.7.1
-  "@commitlint/config-conventional": ^19.7.1
-  "@date-fns/tz": ^1.1.2
-  "@dicebear/collection": ^9.2.2
-  "@dicebear/core": ^9.2.2
-  "@iconify-json/circle-flags": ^1.2.6
-  "@iconify-json/lucide": ^1.2.26
-  "@iconify-json/pixelarticons": ^1.2.2
-  "@iconify-json/simple-icons": ^1.2.24
-  "@neoconfetti/vue": ^2.2.1
-  "@nuxt/devtools": ^2.0.0
-  "@nuxt/image": ^1.9.0
-  "@nuxt/ui": 3.0.0-alpha.12
-  "@nuxtjs/i18n": ^9.2.0
-  "@paralleldrive/cuid2": ^2.2.2
-  "@semantic-release/exec": ^7.0.3
-  "@semantic-release/git": ^10.0.1
-  "@types/bcrypt": ^5.0.2
-  "@types/node": ^22.13.1
-  "@types/nodemailer": ^6.4.16
-  "@types/pg": ^8.11.11
-  "@vitejs/plugin-vue": ^5.1.4
-  "@vitest/browser": ^3.0.5
-  "@vitest/coverage-v8": ^3.0.5
-  "@vue-email/components": ^0.0.19
-  "@vue-email/render": ^0.0.9
-  "@vueuse/core": ^12.5.0
-  "@vueuse/nuxt": ^12.5.0
+  '@antfu/eslint-config': ^4.1.1
+  '@commitlint/cli': ^19.7.1
+  '@commitlint/config-conventional': ^19.7.1
+  '@date-fns/tz': ^1.1.2
+  '@dicebear/collection': ^9.2.2
+  '@dicebear/core': ^9.2.2
+  '@iconify-json/circle-flags': ^1.2.6
+  '@iconify-json/lucide': ^1.2.26
+  '@iconify-json/pixelarticons': ^1.2.2
+  '@iconify-json/simple-icons': ^1.2.24
+  '@neoconfetti/vue': ^2.2.1
+  '@nuxt/devtools': ^2.0.0
+  '@nuxt/image': ^1.9.0
+  '@nuxt/ui': 3.0.0-alpha.12
+  '@nuxtjs/i18n': ^9.2.0
+  '@paralleldrive/cuid2': ^2.2.2
+  '@semantic-release/exec': ^7.0.3
+  '@semantic-release/git': ^10.0.1
+  '@types/bcrypt': ^5.0.2
+  '@types/node': ^22.13.1
+  '@types/nodemailer': ^6.4.16
+  '@types/pg': ^8.11.11
+  '@vitejs/plugin-vue': ^5.1.4
+  '@vitest/browser': ^3.0.5
+  '@vitest/coverage-v8': ^3.0.5
+  '@vue-email/components': ^0.0.19
+  '@vue-email/render': ^0.0.9
+  '@vueuse/core': ^12.5.0
+  '@vueuse/nuxt': ^12.5.0
   bcrypt: ^5.1.1
   class-variance-authority: ^0.7.0
   clsx: ^2.1.1

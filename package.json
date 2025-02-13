@@ -24,7 +24,7 @@
   ],
   "engines": {
     "node": ">=22.13.1",
-    "pnpm": ">=10.2.0"
+    "pnpm": ">=10.3.0"
   },
   "scripts": {
     "release": "pnpm -r --filter \"./apps/**\" --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo",
@@ -66,6 +66,9 @@
       "sharp": "catalog:"
     },
     "onlyBuiltDependencies": [
+      "@next-orders/core",
+      "@next-orders/database",
+      "@next-orders/ui",
       "bcrypt",
       "sharp"
     ],
