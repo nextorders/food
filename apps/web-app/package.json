@@ -13,20 +13,20 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@date-fns/tz": "^1.1.2",
-    "@neoconfetti/vue": "^2.2.1",
+    "@date-fns/tz": "catalog:",
+    "@neoconfetti/vue": "catalog:",
     "@next-orders/core": "workspace:*",
     "@next-orders/database": "workspace:*",
     "@next-orders/ui": "workspace:*",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "libphonenumber-js": "^1.11.19",
-    "radix-vue": "^1.9.7"
+    "class-variance-authority": "catalog:",
+    "clsx": "catalog:",
+    "libphonenumber-js": "catalog:",
+    "radix-vue": "catalog:"
   },
   "devDependencies": {
     "@types/node": "catalog:",
     "nuxt": "catalog:",
-    "shadcn-nuxt": "^0.10.4",
+    "shadcn-nuxt": "catalog:",
     "vue-tsc": "catalog:"
   }
 }

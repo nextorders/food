@@ -8,19 +8,19 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@dicebear/collection": "^9.2.2",
-    "@dicebear/core": "^9.2.2",
+    "@dicebear/collection": "catalog:",
+    "@dicebear/core": "catalog:",
     "@next-orders/database": "workspace:*",
-    "@nuxtjs/i18n": "^9.2.0",
-    "@vueuse/core": "^12.5.0",
-    "@vueuse/nuxt": "^12.5.0",
-    "bcrypt": "^5.1.1",
+    "@nuxtjs/i18n": "catalog:",
+    "@vueuse/core": "catalog:",
+    "@vueuse/nuxt": "catalog:",
+    "bcrypt": "catalog:",
     "sharp": "catalog:"
   },
   "devDependencies": {
-    "@types/bcrypt": "^5.0.2",
+    "@types/bcrypt": "catalog:",
     "@types/node": "catalog:",
     "nuxt": "catalog:",
-    "nuxt-auth-utils": "^0.5.14"
+    "nuxt-auth-utils": "catalog:"
   }
 }

@@ -28,17 +28,17 @@
     "postinstall": "pnpm build"
   },
   "dependencies": {
-    "@paralleldrive/cuid2": "^2.2.2",
-    "drizzle-cuid2": "^2.0.0",
-    "drizzle-orm": "^0.39.1",
-    "pg": "^8.13.1"
+    "@paralleldrive/cuid2": "catalog:",
+    "drizzle-cuid2": "catalog:",
+    "drizzle-orm": "catalog:",
+    "pg": "catalog:"
   },
   "devDependencies": {
     "@types/node": "catalog:",
-    "@types/pg": "^8.11.11",
-    "dotenv": "^16.4.7",
-    "drizzle-kit": "^0.30.4",
+    "@types/pg": "catalog:",
+    "dotenv": "catalog:",
+    "drizzle-kit": "catalog:",
     "typescript": "catalog:",
-    "unbuild": "^3.3.1"
+    "unbuild": "catalog:"
   }
 }

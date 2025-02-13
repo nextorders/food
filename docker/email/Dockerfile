@@ -6,7 +6,7 @@ WORKDIR /app
 COPY . .
 
 RUN npm install -g pnpm --ignore-scripts \
-  && pnpm i --frozen-lockfile --ignore-scripts \
+  && pnpm i --frozen-lockfile \
   && pnpm build --filter @next-orders/email
 
 FROM base

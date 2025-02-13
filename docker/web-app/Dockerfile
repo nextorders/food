@@ -8,7 +8,7 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 COPY packages ./packages
 COPY apps/web-app ./apps/web-app
 RUN npm install --ignore-scripts -g pnpm && \
-    pnpm i --frozen-lockfile --ignore-scripts && \
+    pnpm i --frozen-lockfile && \
     pnpm build --filter @next-orders/web-app
 
 # Production stage

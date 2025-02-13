@@ -19,7 +19,7 @@
   "devDependencies": {
     "@types/node": "catalog:",
     "nuxt": "catalog:",
-    "nuxt-auth-utils": "^0.5.14",
+    "nuxt-auth-utils": "catalog:",
     "typescript": "catalog:",
     "vue-tsc": "catalog:"
   }

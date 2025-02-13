@@ -42,28 +42,28 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.1.1",
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1",
-    "@semantic-release/exec": "^7.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "@vitest/browser": "^3.0.5",
-    "@vitest/coverage-v8": "^3.0.5",
-    "dotenv-cli": "^8.0.0",
-    "eslint": "^9.19.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^15.4.3",
-    "playwright": "^1.50.1",
-    "semantic-release": "^24.2.1",
-    "semantic-release-monorepo": "^8.0.2",
-    "vite": "^6.1.0",
-    "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.0.5",
-    "vitest-browser-vue": "^0.1.0"
+    "@antfu/eslint-config": "catalog:",
+    "@commitlint/cli": "catalog:",
+    "@commitlint/config-conventional": "catalog:",
+    "@semantic-release/exec": "catalog:",
+    "@semantic-release/git": "catalog:",
+    "@vitest/browser": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "dotenv-cli": "catalog:",
+    "eslint": "catalog:",
+    "husky": "catalog:",
+    "lint-staged": "catalog:",
+    "playwright": "catalog:",
+    "semantic-release": "catalog:",
+    "semantic-release-monorepo": "catalog:",
+    "vite": "catalog:",
+    "vite-tsconfig-paths": "catalog:",
+    "vitest": "catalog:",
+    "vitest-browser-vue": "catalog:"
   },
   "pnpm": {
     "overrides": {
-      "sharp": "^0.33.5"
+      "sharp": "catalog:"
     },
     "onlyBuiltDependencies": [
       "bcrypt",
