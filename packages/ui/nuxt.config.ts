@@ -38,8 +38,8 @@ export default defineNuxtConfig({
       alwaysRedirect: true,
     },
     locales: [
-      { code: 'en', language: 'en-US', name: 'English', file: 'en-US.json', emoji: '🇺🇸' },
-      { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru-RU.json', emoji: '🇷🇺' },
+      { code: 'en', language: 'en-US', name: 'English', file: 'en-US.json' },
+      { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru-RU.json' },
     ],
   },
   css: [resolvePath('./app/assets/css/main.css')],
