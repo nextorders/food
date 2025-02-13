@@ -10,5 +10,118 @@
   "coming-soon": {
     "title": "Скоро",
     "description": "Мы усердно работаем, чтобы предоставить вам лучший опыт."
+  },
+  "zodI18n": {
+    "errors": {
+      "custom": "Неверный ввод",
+      "invalid_arguments": "Неверный тип аргументов функции",
+      "invalid_date": "Неверный формат даты",
+      "invalid_enum_value": "Неверное значение перечисления. Ожидалось {options}, получено '{received}'",
+      "invalid_intersection_types": "Результаты пересечения не могут быть объединены",
+      "invalid_literal": "Неверное значение литерала, ожидалось {expected}",
+      "invalid_return_type": "Неверный тип возвращаемого значения функции",
+      "invalid_string": {
+        "cuid": "Неверный {validation}",
+        "datetime": "Неверный {validation}",
+        "email": "Неверный {validation}",
+        "endsWith": "Неверный формат, должен заканчиваться на \"{endsWith}\"",
+        "regex": "Неверное значение строки",
+        "startsWith": "Неверный формат, должен начинаться с \"{startsWith}\"",
+        "url": "Неверный {validation}",
+        "uuid": "Неверный {validation}"
+      },
+      "invalid_type": "Ожидался тип - {expected}, получено - {received}",
+      "invalid_type_received_undefined": "Не должно быть пустым",
+      "invalid_union": "Результаты пересечения не могут быть объединены",
+      "invalid_union_discriminator": "Неверное значение дискриминатора. Ожидалось {options}",
+      "not_finite": "Число должно быть конечным",
+      "not_multiple_of": "Число должно быть кратно {multipleOf}",
+      "required": "Обязательно",
+      "too_big": {
+        "array": {
+          "exact": "Массив должен содержать ровно {maximum} элемента(ов)",
+          "inclusive": "Массив должен содержать не более {maximum} элемента(ов)",
+          "not_inclusive": "Массив должен содержать менее {maximum} элемента(ов)"
+        },
+        "date": {
+          "exact": "Дата должна быть {maximum}",
+          "inclusive": "Дата должна быть меньше или равна {maximum}",
+          "not_inclusive": "Дата должна быть меньше {maximum}"
+        },
+        "number": {
+          "exact": "Число должно быть ровно {maximum}",
+          "inclusive": "Число должно быть меньше или равно {maximum}",
+          "not_inclusive": "Число должно быть меньше {maximum}"
+        },
+        "set": {
+          "exact": "Неверный ввод",
+          "inclusive": "Неверный ввод",
+          "not_inclusive": "Неверный ввод"
+        },
+        "string": {
+          "exact": "Строка должна содержать ровно {maximum} символа(ов)",
+          "inclusive": "Строка должна содержать не более {maximum} символа(ов)",
+          "not_inclusive": "Строка должна содержать менее {maximum} символа(ов)"
+        }
+      },
+      "too_small": {
+        "array": {
+          "exact": "Массив должен содержать ровно {minimum} элемента(ов)",
+          "inclusive": "Массив должен содержать не более {minimum} элемента(ов)",
+          "not_inclusive": "Массив должен содержать менее {minimum} элемента(ов)"
+        },
+        "date": {
+          "exact": "Дата должна быть {minimum}",
+          "inclusive": "Дата должна быть меньше или равна {minimum}",
+          "not_inclusive": "Дата должна быть меньше {minimum}"
+        },
+        "number": {
+          "exact": "Число должно быть ровно {minimum}",
+          "inclusive": "Число должно быть меньше или равно {minimum}",
+          "not_inclusive": "Число должно быть меньше {minimum}"
+        },
+        "set": {
+          "exact": "Неверный ввод",
+          "inclusive": "Неверный ввод",
+          "not_inclusive": "Неверный ввод"
+        },
+        "string": {
+          "exact": "Строка должна содержать ровно {minimum} символа(ов)",
+          "inclusive": "Строка должна содержать не менее {minimum} символа(ов)",
+          "not_inclusive": "Строка должна содержать более {minimum} символа(ов)"
+        }
+      },
+      "unrecognized_keys": "Неверные ключи в объекте: {keys}"
+    },
+    "types": {
+      "array": "массив",
+      "bigint": "bigint",
+      "boolean": "булево значение",
+      "date": "дата",
+      "float": "число с плавающей точкой",
+      "function": "функция",
+      "integer": "целое число",
+      "map": "хеш-таблица",
+      "nan": "NaN",
+      "never": "never",
+      "null": "null",
+      "number": "число",
+      "object": "объект",
+      "promise": "promise",
+      "set": "множество",
+      "string": "строка",
+      "symbol": "символ",
+      "undefined": "не определено",
+      "unknown": "unknown",
+      "void": "void"
+    },
+    "validations": {
+      "cuid": "CUID",
+      "datetime": "дата и время",
+      "email": "email",
+      "regex": "регулярное выражение",
+      "url": "ссылка",
+      "uuid": "UUID"
+    }
   }
 }

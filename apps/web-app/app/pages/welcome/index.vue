@@ -11,7 +11,7 @@
       {{ $t('init.description') }}
     </p>
 
-    <div class="mt-12 px-6 py-6 max-w-md mx-auto bg-muted rounded-2xl">
+    <div class="mt-12 px-6 py-6 max-w-sm mx-auto bg-muted rounded-2xl">
       <FormInitChannel v-if="!channel?.id" />
       <FormInitMaster v-else-if="!channel.masterAccountExists" />
       <div v-else>

@@ -1,12 +1,10 @@
 <template>
   <div class="mb-4 flex flex-row gap-4 justify-center items-center">
-    <img
-      src="~/assets/img/hot-drink.png"
-      width="64"
-      height="64"
+    <NuxtImg
+      src="/img/hot-drink.png"
       alt=""
       class="size-16"
-    >
+    />
 
     <h2 class="text-lg leading-tight font-medium">
       {{ $t('init.admin-data') }}

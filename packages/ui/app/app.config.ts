@@ -11,6 +11,8 @@ export default defineAppConfig({
     aliases: {
       'food:loader': 'lucide:loader',
       'food:brand-assets': 'lucide:text-select',
+      'food:flag-ru': 'circle-flags:ru',
+      'food:flag-en': 'circle-flags:uk',
       'pixel:github': 'pixelarticons:github',
       'pixel:color-mode-light': 'pixelarticons:sun',
       'pixel:color-mode-dark': 'pixelarticons:moon',

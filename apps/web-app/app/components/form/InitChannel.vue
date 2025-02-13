@@ -1,12 +1,10 @@
 <template>
-  <div class="mb-4 flex flex-col gap-4 justify-start items-center">
-    <img
-      src="~/assets/img/recipe-list.png"
-      width="64"
-      height="64"
+  <div class="mb-4 flex flex-row gap-4 justify-center items-center">
+    <NuxtImg
+      src="/img/recipe-list.png"
       alt=""
       class="size-16"
-    >
+    />
 
     <h2 class="text-lg leading-tight font-medium">
       {{ $t('init.general-data') }}
@@ -14,6 +12,7 @@
   </div>
 
   <UForm
+    ref="form"
     :schema="channelCreateSchema"
     :state="state"
     class="flex flex-col gap-3"
@@ -79,6 +78,9 @@ const emit = defineEmits(['success'])
 const { t } = useI18n()
 const toast = useToast()
 const { refresh: refreshChannelData } = await useChannel()
+
+const form = useTemplateRef('form')
+useClearFormI18n(form)
 
 const state = ref<Partial<ChannelCreateSchema>>({
   name: undefined,

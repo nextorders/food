@@ -14,24 +14,19 @@
   },
   "dependencies": {
     "@date-fns/tz": "^1.1.2",
-    "@dicebear/collection": "^9.2.2",
-    "@dicebear/core": "^9.2.2",
     "@neoconfetti/vue": "^2.2.1",
     "@next-orders/core": "workspace:*",
     "@next-orders/database": "workspace:*",
     "@next-orders/ui": "workspace:*",
-    "bcrypt": "^5.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "libphonenumber-js": "^1.11.12",
-    "radix-vue": "^1.9.7",
-    "sharp": "^0.33.5"
+    "libphonenumber-js": "^1.11.19",
+    "radix-vue": "^1.9.7"
   },
   "devDependencies": {
-    "@types/bcrypt": "^5.0.2",
-    "@types/node": "*",
-    "nuxt": "*",
+    "@types/node": "catalog:",
+    "nuxt": "catalog:",
     "shadcn-nuxt": "^0.10.4",
-    "vue-tsc": "*"
+    "vue-tsc": "catalog:"
   }
 }

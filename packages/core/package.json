@@ -15,12 +15,12 @@
     "@vueuse/core": "^12.5.0",
     "@vueuse/nuxt": "^12.5.0",
     "bcrypt": "^5.1.1",
-    "sharp": "^0.33.5"
+    "sharp": "catalog:"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
-    "@types/node": "*",
-    "nuxt": "*",
+    "@types/node": "catalog:",
+    "nuxt": "catalog:",
     "nuxt-auth-utils": "^0.5.14"
   }
 }

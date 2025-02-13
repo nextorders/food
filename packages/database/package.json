@@ -34,11 +34,11 @@
     "pg": "^8.13.1"
   },
   "devDependencies": {
-    "@types/node": "*",
+    "@types/node": "catalog:",
     "@types/pg": "^8.11.11",
     "dotenv": "^16.4.7",
     "drizzle-kit": "^0.30.4",
-    "typescript": "*",
+    "typescript": "catalog:",
     "unbuild": "^3.3.1"
   }
 }

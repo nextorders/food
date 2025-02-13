@@ -3,11 +3,6 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-  vite: {
-    optimizeDeps: {
-      exclude: ['vee-validate'],
-    },
-  },
   devtools: {
     componentInspector: false,
   },
@@ -28,7 +23,7 @@ export default defineNuxtConfig({
     locales: [
       { code: 'en', language: 'en-US', name: 'English', file: 'en-US.json' },
       { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru-RU.json' },
-      { code: 'ka', language: 'ka-GE', name: 'ქართული', file: 'ka-GE.json' },
+      // { code: 'ka', language: 'ka-GE', name: 'ქართული', file: 'ka-GE.json' },
     ],
     strategy: 'no_prefix',
   },

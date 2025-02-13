@@ -1,5 +1,5 @@
 <template>
-  <div class="px-4 lg:px-12 pb-10 mt-20 text-center">
+  <div class="px-4 lg:px-12 mt-20 mb-4 text-center">
     <div class="flex flex-row gap-1 justify-center items-center">
       {{ $t('common.footer.copyright-part-one') }}
       <NuxtLink
@@ -10,6 +10,10 @@
         {{ $t('common.footer.copyright-part-two') }}
       </NuxtLink>
     </div>
+  </div>
+
+  <div class="w-fit mx-auto">
+    <LanguageSelect />
   </div>
 </template>
 

@@ -17,10 +17,10 @@
     "@next-orders/ui": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "*",
-    "nuxt": "*",
+    "@types/node": "catalog:",
+    "nuxt": "catalog:",
     "nuxt-auth-utils": "^0.5.14",
-    "typescript": "*",
-    "vue-tsc": "*"
+    "typescript": "catalog:",
+    "vue-tsc": "catalog:"
   }
 }
