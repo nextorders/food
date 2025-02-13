@@ -93,13 +93,11 @@
 
       <UiActiveCard @click="isCreateProductVariantOpened = true">
         <div class="h-full flex flex-row gap-3 justify-center items-center">
-          <img
-            src="~/assets/img/green-notebook.png"
-            width="64"
-            height="64"
+          <NuxtImg
+            src="/img/green-notebook.png"
             alt=""
-            class="w-10 h-10"
-          >
+            class="size-10"
+          />
 
           <div class="text-lg leading-tight">
             {{ $t('center.create.title') }}

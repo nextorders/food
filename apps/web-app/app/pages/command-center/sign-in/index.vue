@@ -4,13 +4,11 @@
 
     <div class="flex flex-col justify-center items-center bg-neutral-100">
       <div class="w-full max-w-xs">
-        <img
-          src="~/assets/img/eggs-192.png"
-          width="64"
-          height="64"
+        <NuxtImg
+          src="/img/eggs-192.png"
           alt=""
-          class="mx-auto mb-2 w-20 h-20"
-        >
+          class="mx-auto mb-2 size-20"
+        />
 
         <h1 class="mb-10 text-2xl text-center">
           {{ $t('center.welcome-message') }}

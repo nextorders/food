@@ -1,13 +1,11 @@
 <template>
   <UiActiveCard>
     <div class="flex flex-col justify-center items-center h-full min-h-28 text-center">
-      <img
-        src="~/assets/img/green-notebook.png"
-        width="64"
-        height="64"
+      <NuxtImg
+        src="/img/green-notebook.png"
         alt=""
-        class="mx-auto mb-2 w-12 h-12"
-      >
+        class="mx-auto mb-2 size-12"
+      />
       <h2 class="leading-tight">
         {{ $t('center.create.payment-method') }}
       </h2>

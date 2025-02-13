@@ -1,12 +1,10 @@
 <template>
   <div class="mt-32 text-center max-w-xl mx-auto">
-    <img
-      src="~/assets/img/recipe-book.png"
-      width="64"
-      height="64"
+    <NuxtImg
+      src="/img/recipe-book.png"
       alt=""
-      class="mx-auto mb-4 w-16 h-16"
-    >
+      class="mx-auto mb-4 size-16"
+    />
     <h2 class="mb-4 text-lg font-semibold">
       {{ locales[l][1] }}
     </h2>

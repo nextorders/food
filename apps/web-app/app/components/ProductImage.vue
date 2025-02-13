@@ -15,12 +15,12 @@
     >
   </picture>
 
-  <img
+  <NuxtImg
     v-else
     alt=""
     class="w-full opacity-20"
-    src="~/assets/img/no-image.png"
-  >
+    src="/img/no-image.png"
+  />
 </template>
 
 <script setup lang="ts">
