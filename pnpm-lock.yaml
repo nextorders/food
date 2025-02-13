@@ -120,9 +120,6 @@ importers:
       '@next-orders/ui':
         specifier: workspace:*
         version: link:../../packages/ui
-      '@vee-validate/zod':
-        specifier: ^4.14.4
-        version: 4.15.0(vue@3.5.13(typescript@5.7.3))(zod@3.24.1)
       bcrypt:
         specifier: ^5.1.1
         version: 5.1.1
@@ -141,13 +138,7 @@ importers:
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
-      vee-validate:
-        specifier: ^4.14.4
-        version: 4.15.0(vue@3.5.13(typescript@5.7.3))
     devDependencies:
-      '@nuxtjs/device':
-        specifier: ^3.2.4
-        version: 3.2.4
       '@types/bcrypt':
         specifier: ^5.0.2
         version: 5.0.2
@@ -157,9 +148,6 @@ importers:
       nuxt:
         specifier: '*'
         version: 3.15.4(@parcel/watcher@2.5.1)(@types/node@22.13.1)(db0@0.2.3(drizzle-orm@0.39.2(@types/pg@8.11.11)(pg@8.13.1)))(drizzle-orm@0.39.2(@types/pg@8.11.11)(pg@8.13.1))(eslint@9.19.0(jiti@2.4.2))(ioredis@5.5.0)(lightningcss@1.29.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.5)(terser@5.38.1)(typescript@5.7.3)(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.38.1)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.7.3))(yaml@2.7.0)
-      nuxt-auth-utils:
-        specifier: ^0.5.14
-        version: 0.5.14(bcrypt@5.1.1)(magicast@0.3.5)
       shadcn-nuxt:
         specifier: ^0.10.4
         version: 0.10.4(magicast@0.3.5)
@@ -1758,9 +1746,6 @@ packages:
   '@nuxtjs/color-mode@3.5.2':
     resolution: {integrity: sha512-cC6RfgZh3guHBMLLjrBB2Uti5eUoGM9KyauOaYS9ETmxNWBMTvpgjvSiSJp1OFljIXPIqVTJ3xtJpSNZiO3ZaA==}
 
-  '@nuxtjs/device@3.2.4':
-    resolution: {integrity: sha512-jIvN6QeodBNrUrL/1FCHk4bebsiLsGHlJd8c/m2ksLrGY4IZ0npA8IYhDTdYV92epGxoe8+3iZOzCjav+6TshQ==}
-
   '@nuxtjs/i18n@9.2.0':
     resolution: {integrity: sha512-R7azgNji8jIZdimlylK1CU4plO1OjRPZduTyjS9SHHasMCzxrPM+LBJLRzjt9NUNatquLeCcVfHAYvxIxPHCmg==}
     engines: {node: ^14.16.0 || >=16.11.0}
@@ -2507,11 +2492,6 @@ packages:
     peerDependencies:
       vue: '>=2.7 || >=3'
 
-  '@vee-validate/zod@4.15.0':
-    resolution: {integrity: sha512-MpvIKiyg9X5yD8bJW0no2AU7wtR2T5mrvD9tuPRiie951sU2n6QKgMV38qKKOiqFBCxsMSjIuLLLV3V5kVE4nQ==}
-    peerDependencies:
-      zod: ^3.24.0
-
   '@vercel/nft@0.27.10':
     resolution: {integrity: sha512-zbaF9Wp/NsZtKLE4uVmL3FyfFwlpDyuymQM1kPbeT0mVOHKDQQNjnnfslB3REg3oZprmNFJuh3pkHBk2qAaizg==}
     engines: {node: '>=16'}
@@ -2758,9 +2738,6 @@ packages:
 
   '@vue/devtools-api@6.6.4':
     resolution: {integrity: sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==}
-
-  '@vue/devtools-api@7.7.1':
-    resolution: {integrity: sha512-Cexc8GimowoDkJ6eNelOPdYIzsu2mgNyp0scOQ3tiaYSb9iok6LOESSsJvHaI+ib3joRfqRJNLkHFjhNuWA5dg==}
 
   '@vue/devtools-core@7.6.8':
     resolution: {integrity: sha512-8X4roysTwzQ94o7IobjVcOd1aZF5iunikrMrHPI2uUdigZCi2kFTQc7ffYiFiTNaLElCpjOhCnM7bo7aK1yU7A==}
@@ -7370,11 +7347,6 @@ packages:
       radix-vue: ^1.4.0
       vue: ^3.3.0
 
-  vee-validate@4.15.0:
-    resolution: {integrity: sha512-PGJh1QCFwCBjbHu5aN6vB8macYVWrajbDvgo1Y/8fz9n/RVIkLmZCJDpUgu7+mUmCOPMxeyq7vXUOhbwAqdXcA==}
-    peerDependencies:
-      vue: ^3.4.26
-
   vfile-message@4.0.2:
     resolution: {integrity: sha512-jRDZ1IMLttGj41KcZvlrYAaI3CfqpLpfpf+Mfig13viT6NKvRzWZ+lXz0Y5D60w6uJIBAOGq9mSHf0gktF0duw==}
 
@@ -9463,10 +9435,6 @@ snapshots:
       - magicast
       - supports-color
 
-  '@nuxtjs/device@3.2.4':
-    dependencies:
-      defu: 6.1.4
-
   '@nuxtjs/i18n@9.2.0(@vue/compiler-dom@3.5.13)(eslint@9.19.0(jiti@2.4.2))(magicast@0.3.5)(rollup@4.34.5)(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       '@intlify/h3': 0.6.1
@@ -10295,14 +10263,6 @@ snapshots:
       unhead: 1.11.18
       vue: 3.5.13(typescript@5.7.3)
 
-  '@vee-validate/zod@4.15.0(vue@3.5.13(typescript@5.7.3))(zod@3.24.1)':
-    dependencies:
-      type-fest: 4.33.0
-      vee-validate: 4.15.0(vue@3.5.13(typescript@5.7.3))
-      zod: 3.24.1
-    transitivePeerDependencies:
-      - vue
-
   '@vercel/nft@0.27.10(rollup@4.34.5)':
     dependencies:
       '@mapbox/node-pre-gyp': 2.0.0
@@ -10633,10 +10593,6 @@ snapshots:
       he: 1.2.0
 
   '@vue/devtools-api@6.6.4': {}
-
-  '@vue/devtools-api@7.7.1':
-    dependencies:
-      '@vue/devtools-kit': 7.7.1
 
   '@vue/devtools-core@7.6.8(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.38.1)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))':
     dependencies:
@@ -15706,12 +15662,6 @@ snapshots:
       vue: 3.5.13(typescript@5.7.3)
     transitivePeerDependencies:
       - '@vue/composition-api'
-
-  vee-validate@4.15.0(vue@3.5.13(typescript@5.7.3)):
-    dependencies:
-      '@vue/devtools-api': 7.7.1
-      type-fest: 4.33.0
-      vue: 3.5.13(typescript@5.7.3)
 
   vfile-message@4.0.2:
     dependencies:

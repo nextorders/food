@@ -60,7 +60,7 @@
         v-for="variant in product?.variants"
         :key="variant.id"
         class="space-y-2 flex flex-col justify-between"
-        @click="() => { productVariant = variant; productVariantId = variant.id; isUpdateProductVariantOpened = true }"
+        @click="() => { productVariantId = variant.id; isUpdateProductVariantOpened = true }"
       >
         <div class="text-lg font-medium md:leading-tight text-center">
           {{ variant.name }}
@@ -158,8 +158,8 @@
     @close="isUpdateProductVariantOpened = false"
   >
     <FormUpdateProductVariant
+      :product-id="product?.id ?? ''"
       :product-variant-id="productVariantId ?? ''"
-      :product-variant="productVariant"
       :is-opened="isUpdateProductVariantOpened"
       @submitted="isUpdateProductVariantOpened = false"
       @success="isUpdateProductVariantOpened = false"
@@ -209,5 +209,4 @@ const breadcrumbs = computed(() => [
 ])
 
 const productVariantId = ref('')
-const productVariant = ref()
 </script>

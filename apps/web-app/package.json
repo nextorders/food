@@ -20,21 +20,17 @@
     "@next-orders/core": "workspace:*",
     "@next-orders/database": "workspace:*",
     "@next-orders/ui": "workspace:*",
-    "@vee-validate/zod": "^4.14.4",
     "bcrypt": "^5.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "libphonenumber-js": "^1.11.12",
     "radix-vue": "^1.9.7",
-    "sharp": "^0.33.5",
-    "vee-validate": "^4.14.4"
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
-    "@nuxtjs/device": "^3.2.4",
     "@types/bcrypt": "^5.0.2",
     "@types/node": "*",
     "nuxt": "*",
-    "nuxt-auth-utils": "^0.5.14",
     "shadcn-nuxt": "^0.10.4",
     "vue-tsc": "*"
   }

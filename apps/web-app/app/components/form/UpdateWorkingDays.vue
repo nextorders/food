@@ -2,59 +2,48 @@
   <form class="space-y-4" @submit="onSubmit">
     <div v-for="day in channel?.workingDays" :key="day.id">
       <div class="grid grid-cols-2 gap-4">
-        <UiFormField :name="`${day.day}.open`">
-          <UiFormItem>
-            <div>
-              <UiFormLabel>{{ getLocalizedDayOfWeek(day.day) }}, {{ $t('common.time-from') }}</UiFormLabel>
-              <UiFormMessage />
-            </div>
-            <UiFormControl>
-              <UiInput v-model="workingDays[day.day as WorkingDay['day']].open" type="time" />
-            </UiFormControl>
-          </UiFormItem>
-        </UiFormField>
+        <UFormField :label="`${getLocalizedDayOfWeek(day.day)}, ${$t('common.time-from')}`" :name="`${day.day}.open`">
+          <UInput
+            v-model="workingDays[day.day as WorkingDay['day']].open"
+            type="time"
+            size="xl"
+            class="w-full items-center justify-center"
+          />
+        </UFormField>
 
-        <UiFormField :name="`${day.day}.close`">
-          <UiFormItem>
-            <div>
-              <UiFormLabel>{{ $t('common.time-to') }}</UiFormLabel>
-              <UiFormMessage />
-            </div>
-            <UiFormControl>
-              <UiInput v-model="workingDays[day.day as WorkingDay['day']].close" type="time" />
-            </UiFormControl>
-          </UiFormItem>
-        </UiFormField>
+        <UFormField :label="$t('common.time-to')" :name="`${day.day}.close`">
+          <UInput
+            v-model="workingDays[day.day as WorkingDay['day']].close"
+            type="time"
+            size="xl"
+            class="w-full items-center justify-center"
+          />
+        </UFormField>
       </div>
     </div>
 
-    <UiButton type="submit" variant="secondary">
+    <UButton
+      type="submit"
+      variant="solid"
+      color="primary"
+      size="xl"
+      class="mt-3 w-full justify-center items-center"
+    >
       {{ $t('center.update.title') }}
-    </UiButton>
+    </UButton>
   </form>
 </template>
 
 <script setup lang="ts">
-import { channelUpdateSchema } from '@next-orders/core/shared/services/channel'
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { useToast } from '~/components/ui/toast'
-
-const { isOpened } = defineProps<{
+defineProps<{
   isOpened: boolean
 }>()
 
 const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const { toast } = useToast()
+const toast = useToast()
 const { channel, refresh: refreshChannelData } = await useChannel()
-
-const formSchema = toTypedSchema(channelUpdateSchema)
-
-const { handleSubmit, handleReset } = useForm({
-  validationSchema: formSchema,
-})
 
 const days = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'] as const
 
@@ -81,14 +70,7 @@ function prepareWorkingDays() {
   return preparedDays
 }
 
-watch(
-  () => isOpened,
-  () => {
-    handleReset()
-  },
-)
-
-const onSubmit = handleSubmit(async (_, { resetForm }) => {
+async function onSubmit() {
   emit('submitted')
 
   // add to all open and close ':00' at the end of workingDays object for future zod time() validation
@@ -109,14 +91,13 @@ const onSubmit = handleSubmit(async (_, { resetForm }) => {
 
   if (error.value) {
     console.error(error.value)
-    toast({ title: t('error.title'), description: '...' })
+    toast.add({ title: t('error.title'), description: '...' })
   }
 
   if (data.value) {
     await refreshChannelData()
     emit('success')
-    toast({ title: t('toast.opening-hours-updated'), description: t('toast.updating-data') })
-    resetForm()
+    toast.add({ title: t('toast.opening-hours-updated'), description: t('toast.updating-data') })
   }
-})
+}
 </script>

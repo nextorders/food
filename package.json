@@ -2,7 +2,7 @@
   "name": "next-orders",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@10.2.0",
+  "packageManager": "pnpm@10.3.0",
   "description": "Modern e-commerce self-hosted platform: clients will be happy to order delicious food!",
   "author": "Nick Kosarev <hmbanan666@hotmail.com>",
   "license": "MIT",
@@ -66,7 +66,9 @@
     "vue-tsc": "^2.2.0"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["bcrypt"],
+    "onlyBuiltDependencies": [
+      "bcrypt"
+    ],
     "supportedArchitectures": {
       "os": [
         "linux",

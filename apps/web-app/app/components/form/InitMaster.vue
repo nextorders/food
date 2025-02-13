@@ -67,7 +67,7 @@ const { t } = useI18n()
 const toast = useToast()
 const { refresh: refreshChannelData } = await useChannel()
 
-const state = reactive<Partial<UserCreateSchema>>({
+const state = ref<Partial<UserCreateSchema>>({
   login: undefined,
   password: undefined,
   name: undefined,
@@ -75,8 +75,8 @@ const state = reactive<Partial<UserCreateSchema>>({
 
 const isFormValid = computed<boolean>(() => {
   return (
-    !!state.login
-    && !!state.password
+    !!state.value.login
+    && !!state.value.password
   )
 })
 

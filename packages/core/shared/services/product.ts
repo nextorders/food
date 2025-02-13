@@ -6,12 +6,16 @@ export const productCreateSchema = z.object({
   description: z.string().min(0).max(1000).optional().default(''),
 })
 
+export type ProductCreateSchema = z.output<typeof productCreateSchema>
+
 export const productUpdateSchema = z.object({
   name: z.string().min(2).max(75).optional(),
   description: z.string().min(0).max(1000).optional(),
   slug: z.string().min(2).max(50).optional(),
   isAvailableForPurchase: z.boolean().optional(),
 })
+
+export type ProductUpdateSchema = z.output<typeof productUpdateSchema>
 
 export const productVariantCreateSchema = z.object({
   productId: z.string(),
@@ -20,12 +24,14 @@ export const productVariantCreateSchema = z.object({
   weightUnit: z.enum(['G', 'KG', 'ML', 'L', 'LB', 'OZ']),
   gross: z.number(),
   net: z.number().optional(),
-  calories: z.coerce.number().optional().nullable(),
-  protein: z.coerce.number().optional().nullable(),
-  fat: z.coerce.number().optional().nullable(),
-  carbohydrate: z.coerce.number().optional().nullable(),
-  sku: z.string().max(50).optional().nullable(),
+  calories: z.coerce.number().optional(),
+  protein: z.coerce.number().optional(),
+  fat: z.coerce.number().optional(),
+  carbohydrate: z.coerce.number().optional(),
+  sku: z.string().max(50).optional(),
 })
+
+export type ProductVariantCreateSchema = z.output<typeof productVariantCreateSchema>
 
 export const productVariantUpdateSchema = z.object({
   name: z.string().min(2).max(50).optional(),
@@ -33,12 +39,14 @@ export const productVariantUpdateSchema = z.object({
   weightUnit: z.enum(['G', 'KG', 'ML', 'L', 'LB', 'OZ']).optional(),
   gross: z.number().optional(),
   net: z.number().optional(),
-  calories: z.coerce.number().optional().nullable(),
-  protein: z.coerce.number().optional().nullable(),
-  fat: z.coerce.number().optional().nullable(),
-  carbohydrate: z.coerce.number().optional().nullable(),
-  sku: z.string().max(50).optional().nullable(),
+  calories: z.coerce.number().optional(),
+  protein: z.coerce.number().optional(),
+  fat: z.coerce.number().optional(),
+  carbohydrate: z.coerce.number().optional(),
+  sku: z.string().max(50).optional(),
 })
+
+export type ProductVariantUpdateSchema = z.output<typeof productVariantUpdateSchema>
 
 const MAX_FILE_SIZE = 20000000
 const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp']
@@ -51,3 +59,5 @@ export const productImageUploadSchema = z.object({
       'Only .jpg, .jpeg, .png and .webp formats are supported.',
     ),
 })
+
+export type ProductImageUploadSchema = z.output<typeof productImageUploadSchema>

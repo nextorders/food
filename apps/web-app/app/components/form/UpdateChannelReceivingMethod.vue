@@ -12,9 +12,6 @@
 </template>
 
 <script setup lang="ts">
-import { useForm } from 'vee-validate'
-import { useToast } from '~/components/ui/toast'
-
 const { isActive, method } = defineProps<{
   isActive: boolean
   method: 'DELIVERY' | 'PICKUP'
@@ -23,23 +20,13 @@ const { isActive, method } = defineProps<{
 const emit = defineEmits(['success'])
 
 const { t } = useI18n()
-const { toast } = useToast()
+const toast = useToast()
 const { refresh: refreshChannelData } = await useChannel()
 
-const { handleSubmit, handleReset, setFieldValue } = useForm()
-
-watch(
-  () => isActive,
-  () => {
-    handleReset()
-    setFieldValue('isActive', isActive)
-  },
-)
-
-const onSubmit = handleSubmit(async (_, { resetForm }) => {
+async function onSubmit() {
   const { data, error } = await useAsyncData(
     'update-channel-receiving-method',
-    () => $fetch('/api/channel/receiving-method', {
+    () => $fetch('/api/warehouse', {
       method: 'POST',
       body: { method },
     }),
@@ -47,14 +34,13 @@ const onSubmit = handleSubmit(async (_, { resetForm }) => {
 
   if (error.value) {
     console.error(error.value)
-    toast({ title: t('error.title'), description: '...' })
+    toast.add({ title: t('error.title'), description: '...' })
   }
 
   if (data.value) {
     await refreshChannelData()
     emit('success')
-    toast({ title: t('toast.receiving-method-updated'), description: t('toast.updating-data') })
-    resetForm()
+    toast.add({ title: t('toast.receiving-method-updated'), description: t('toast.updating-data') })
   }
-})
+}
 </script>

@@ -1,91 +1,60 @@
 <template>
-  <form class="space-y-3" @submit="onSubmit">
-    <UiFormField v-slot="{ componentField }" name="name">
-      <UiFormItem>
-        <div>
-          <UiFormLabel>{{ $t('center.data.name') }}</UiFormLabel>
-          <UiFormMessage />
-        </div>
-        <UiFormControl>
-          <UiInput v-bind="componentField" :placeholder="$t('center.product.variant-name-placeholder')" />
-        </UiFormControl>
-      </UiFormItem>
-    </UiFormField>
+  <UForm
+    :schema="productVariantUpdateSchema"
+    :state="state"
+    class="flex flex-col gap-3"
+    @submit="onSubmit"
+  >
+    <UFormField :label="$t('center.data.name')" name="name">
+      <UInput
+        v-model="state.name"
+        :placeholder="$t('center.product.variant-name-placeholder')"
+        size="xl"
+        class="w-full items-center justify-center"
+      />
+    </UFormField>
 
-    <UiFormField v-slot="{ componentField }" name="gross">
-      <UiFormItem>
-        <div>
-          <UiFormLabel>{{ $t('common.price') }}, {{ getCurrencySign(channel?.currencyCode) }}</UiFormLabel>
-          <UiFormMessage />
-        </div>
-        <UiFormControl>
-          <UiInput
-            v-bind="componentField"
-            type="number"
-            step="any"
-            placeholder="0.00"
-          />
-        </UiFormControl>
-      </UiFormItem>
-    </UiFormField>
+    <UFormField :label="`${$t('common.price')}, ${getCurrencySign(channel?.currencyCode)}`" name="gross">
+      <UInput
+        v-model="state.gross"
+        type="number"
+        step="any"
+        placeholder="0.00"
+        size="xl"
+        class="w-full items-center justify-center"
+      />
+    </UFormField>
 
     <div class="grid grid-cols-2 gap-2">
-      <UiFormField v-slot="{ componentField }" name="weightValue">
-        <UiFormItem>
-          <div>
-            <UiFormLabel>{{ $t('common.weight-or-volume') }}</UiFormLabel>
-            <UiFormMessage />
-          </div>
-          <UiFormControl>
-            <UiInput
-              v-bind="componentField"
-              type="number"
-              step="any"
-            />
-          </UiFormControl>
-        </UiFormItem>
-      </UiFormField>
+      <UFormField :label="$t('common.weight-or-volume')" name="weightValue">
+        <UInput
+          v-model="state.weightValue"
+          type="number"
+          step="any"
+          size="xl"
+          class="w-full items-center justify-center"
+        />
+      </UFormField>
 
-      <UiFormField v-slot="{ componentField }" name="weightUnit">
-        <UiFormItem>
-          <div>
-            <UiFormLabel>{{ $t('common.measurement-unit') }}</UiFormLabel>
-            <UiFormMessage />
-          </div>
-          <UiSelect v-bind="componentField">
-            <UiFormControl>
-              <UiSelectTrigger>
-                <UiSelectValue :placeholder="$t('common.select')" />
-              </UiSelectTrigger>
-            </UiFormControl>
-
-            <UiSelectContent>
-              <UiSelectGroup>
-                <UiSelectItem
-                  v-for="unit in getLocalizedWeightUnitsForSelect()"
-                  :key="unit.value"
-                  :value="unit.value"
-                >
-                  {{ unit.label }}
-                </UiSelectItem>
-              </UiSelectGroup>
-            </UiSelectContent>
-          </UiSelect>
-        </UiFormItem>
-      </UiFormField>
+      <UFormField :label="$t('common.measurement-unit')" name="weightUnit">
+        <USelect
+          v-model="state.weightUnit"
+          :items="getLocalizedWeightUnitsForSelect()"
+          :placeholder="$t('common.select')"
+          size="xl"
+          class="w-full"
+        />
+      </UFormField>
     </div>
 
-    <UiFormField v-slot="{ componentField }" name="sku">
-      <UiFormItem>
-        <div>
-          <UiFormLabel>{{ $t('common.sku') }}</UiFormLabel>
-          <UiFormMessage />
-        </div>
-        <UiFormControl>
-          <UiInput v-bind="componentField" :placeholder="$t('common.optional')" />
-        </UiFormControl>
-      </UiFormItem>
-    </UiFormField>
+    <UFormField :label="$t('common.sku')" name="sku">
+      <UInput
+        v-model="state.sku"
+        :placeholder="$t('common.optional')"
+        size="xl"
+        class="w-full items-center justify-center"
+      />
+    </UFormField>
 
     <div class="pt-4">
       <h3 class="font-semibold">
@@ -93,143 +62,138 @@
       </h3>
 
       <div class="grid grid-cols-2 gap-2">
-        <UiFormField v-slot="{ componentField }" name="calories">
-          <UiFormItem>
-            <div>
-              <UiFormLabel>{{ $t('common.nutrition.calories') }}, {{ $t('common.nutrition.kcal') }}</UiFormLabel>
-              <UiFormMessage />
-            </div>
-            <UiFormControl>
-              <UiInput
-                v-bind="componentField"
-                type="number"
-                step="any"
-              />
-            </UiFormControl>
-          </UiFormItem>
-        </UiFormField>
+        <UFormField :label="`${$t('common.nutrition.calories')}, ${$t('common.nutrition.kcal')}`" name="calories">
+          <UInput
+            v-model="state.calories"
+            type="number"
+            step="any"
+            size="xl"
+            class="w-full items-center justify-center"
+          />
+        </UFormField>
 
-        <UiFormField v-slot="{ componentField }" name="protein">
-          <UiFormItem>
-            <div>
-              <UiFormLabel>{{ $t('common.nutrition.protein') }}</UiFormLabel>
-              <UiFormMessage />
-            </div>
-            <UiFormControl>
-              <UiInput
-                v-bind="componentField"
-                type="number"
-                step="any"
-              />
-            </UiFormControl>
-          </UiFormItem>
-        </UiFormField>
+        <UFormField :label="$t('common.nutrition.protein')" name="protein">
+          <UInput
+            v-model="state.protein"
+            type="number"
+            step="any"
+            size="xl"
+            class="w-full items-center justify-center"
+          />
+        </UFormField>
 
-        <UiFormField v-slot="{ componentField }" name="fat">
-          <UiFormItem>
-            <div>
-              <UiFormLabel>{{ $t('common.nutrition.fat') }}</UiFormLabel>
-              <UiFormMessage />
-            </div>
-            <UiFormControl>
-              <UiInput
-                v-bind="componentField"
-                type="number"
-                step="any"
-              />
-            </UiFormControl>
-          </UiFormItem>
-        </UiFormField>
+        <UFormField :label="$t('common.nutrition.fat')" name="fat">
+          <UInput
+            v-model="state.fat"
+            type="number"
+            step="any"
+            size="xl"
+            class="w-full items-center justify-center"
+          />
+        </UFormField>
 
-        <UiFormField v-slot="{ componentField }" name="carbohydrate">
-          <UiFormItem>
-            <div>
-              <UiFormLabel>{{ $t('common.nutrition.carbohydrate') }}</UiFormLabel>
-              <UiFormMessage />
-            </div>
-            <UiFormControl>
-              <UiInput
-                v-bind="componentField"
-                type="number"
-                step="any"
-              />
-            </UiFormControl>
-          </UiFormItem>
-        </UiFormField>
+        <UFormField :label="$t('common.nutrition.carbohydrate')" name="carbohydrate">
+          <UInput
+            v-model="state.carbohydrate"
+            type="number"
+            step="any"
+            size="xl"
+            class="w-full items-center justify-center"
+          />
+        </UFormField>
       </div>
     </div>
 
-    <UiButton type="submit" variant="secondary">
+    <UButton
+      type="submit"
+      variant="solid"
+      color="primary"
+      size="xl"
+      class="mt-3 w-full justify-center items-center"
+    >
       {{ $t('center.update.title') }}
-    </UiButton>
-  </form>
+    </UButton>
+  </UForm>
 </template>
 
 <script setup lang="ts">
+import type { ProductVariantUpdateSchema } from '@next-orders/core/shared/services/product'
+import type { FormSubmitEvent } from '@nuxt/ui'
 import { productVariantUpdateSchema } from '@next-orders/core/shared/services/product'
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { useToast } from '~/components/ui/toast'
 
-const { isOpened, productVariantId, productVariant } = defineProps<{
+const { isOpened, productId, productVariantId } = defineProps<{
   isOpened: boolean
+  productId: string
   productVariantId: string
-  productVariant: any
 }>()
 
 const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const { toast } = useToast()
+const toast = useToast()
 const { channel, refresh: refreshChannelData } = await useChannel()
-const { refresh: refreshProducts } = await useProduct()
+const { refresh: refreshProducts, products } = await useProduct()
 
-const formSchema = toTypedSchema(productVariantUpdateSchema)
+const product = computed(() => products.value?.find((product) => product.id === productId))
+const productVariant = computed(() => product.value?.variants?.find((variant) => variant.id === productVariantId))
 
-const { handleSubmit, handleReset, setValues } = useForm({
-  validationSchema: formSchema,
+const state = ref<Partial<ProductVariantUpdateSchema>>({
+  name: productVariant.value?.name,
+  weightUnit: productVariant.value?.weightUnit as ProductVariantUpdateSchema['weightUnit'],
+  weightValue: productVariant.value?.weightValue,
+  gross: productVariant.value?.gross,
+  net: productVariant.value?.net ?? undefined,
+  sku: productVariant.value?.sku ?? undefined,
+  calories: productVariant.value?.calories ?? undefined,
+  carbohydrate: productVariant.value?.carbohydrate ?? undefined,
+  protein: productVariant.value?.protein ?? undefined,
+  fat: productVariant.value?.fat ?? undefined,
 })
+
+function resetState() {
+  state.value = {
+    name: productVariant.value?.name,
+    weightUnit: productVariant.value?.weightUnit as ProductVariantUpdateSchema['weightUnit'],
+    weightValue: productVariant.value?.weightValue,
+    gross: productVariant.value?.gross,
+    net: productVariant.value?.net ?? undefined,
+    sku: productVariant.value?.sku ?? undefined,
+    calories: productVariant.value?.calories ?? undefined,
+    carbohydrate: productVariant.value?.carbohydrate ?? undefined,
+    protein: productVariant.value?.protein ?? undefined,
+    fat: productVariant.value?.fat ?? undefined,
+  }
+}
 
 watch(
   () => isOpened,
   () => {
-    handleReset()
-    setValues({
-      name: productVariant?.name,
-      gross: productVariant?.gross,
-      weightValue: productVariant?.weightValue,
-      weightUnit: productVariant?.weightUnit,
-      calories: productVariant?.calories,
-      protein: productVariant?.protein,
-      fat: productVariant?.fat,
-      carbohydrate: productVariant?.carbohydrate,
-      sku: productVariant?.sku,
-    })
+    resetState()
   },
 )
 
-const onSubmit = handleSubmit(async (values, { resetForm }) => {
+async function onSubmit(event: FormSubmitEvent<ProductVariantUpdateSchema>) {
   emit('submitted')
 
   const { data, error } = await useAsyncData(
     'update-product-variant',
     () => $fetch(`/api/product/variant/${productVariantId}`, {
       method: 'PATCH',
-      body: values,
+      body: event.data,
     }),
   )
 
   if (error.value) {
     console.error(error.value)
-    toast({ title: t('error.title'), description: '...' })
+    toast.add({ title: t('error.title'), description: '...' })
   }
 
   if (data.value) {
     await refreshChannelData()
     await refreshProducts()
     emit('success')
-    toast({ title: t('toast.variant-updated'), description: t('toast.updating-data') })
-    resetForm()
+    toast.add({ title: t('toast.variant-updated'), description: t('toast.updating-data') })
+    resetState()
   }
-})
+}
 </script>

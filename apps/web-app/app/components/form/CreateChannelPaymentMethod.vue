@@ -1,56 +1,44 @@
 <template>
-  <form class="space-y-3" @submit="onSubmit">
-    <UiFormField v-slot="{ componentField }" name="name">
-      <UiFormItem>
-        <div>
-          <UiFormLabel>{{ $t('center.data.name') }}</UiFormLabel>
-          <UiFormMessage />
-        </div>
-        <UiFormControl>
-          <UiInput v-bind="componentField" />
-        </UiFormControl>
-      </UiFormItem>
-    </UiFormField>
+  <UForm
+    :schema="channelPaymentMethodCreateSchema"
+    :state="state"
+    class="flex flex-col gap-3"
+    @submit="onSubmit"
+  >
+    <UFormField :label="$t('center.data.name')" name="name">
+      <UInput
+        v-model="state.name"
+        size="xl"
+        class="w-full items-center justify-center"
+      />
+    </UFormField>
 
-    <UiFormField v-slot="{ componentField }" name="type">
-      <UiFormItem>
-        <div>
-          <UiFormLabel>{{ $t('center.data.type') }}</UiFormLabel>
-          <UiFormMessage />
-        </div>
-        <UiSelect v-bind="componentField">
-          <UiFormControl>
-            <UiSelectTrigger>
-              <UiSelectValue :placeholder="$t('common.select')" />
-            </UiSelectTrigger>
-          </UiFormControl>
+    <UFormField :label="$t('center.data.type')" name="type">
+      <USelect
+        v-model="state.type"
+        :items="getLocalizedPaymentMethodTypesForSelect()"
+        :placeholder="$t('common.select')"
+        size="xl"
+        class="w-full"
+      />
+    </UFormField>
 
-          <UiSelectContent>
-            <UiSelectGroup>
-              <UiSelectItem
-                v-for="type in getLocalizedPaymentMethodTypesForSelect()"
-                :key="type.value"
-                :value="type.value"
-              >
-                {{ type.label }}
-              </UiSelectItem>
-            </UiSelectGroup>
-          </UiSelectContent>
-        </UiSelect>
-      </UiFormItem>
-    </UiFormField>
-
-    <UiButton type="submit" variant="secondary">
+    <UButton
+      type="submit"
+      variant="solid"
+      color="primary"
+      size="xl"
+      class="mt-3 w-full justify-center items-center"
+    >
       {{ $t('center.create.title') }}
-    </UiButton>
-  </form>
+    </UButton>
+  </UForm>
 </template>
 
 <script setup lang="ts">
+import type { ChannelPaymentMethodCreateSchema } from '@next-orders/core/shared/services/channel'
+import type { FormSubmitEvent } from '@nuxt/ui'
 import { channelPaymentMethodCreateSchema } from '@next-orders/core/shared/services/channel'
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { useToast } from '~/components/ui/toast'
 
 const { isOpened } = defineProps<{
   isOpened: boolean
@@ -59,41 +47,47 @@ const { isOpened } = defineProps<{
 const emit = defineEmits(['success'])
 
 const { t } = useI18n()
-const { toast } = useToast()
+const toast = useToast()
 const { refresh: refreshChannelData } = await useChannel()
 
-const formSchema = toTypedSchema(channelPaymentMethodCreateSchema)
-
-const { handleSubmit, handleReset } = useForm({
-  validationSchema: formSchema,
+const state = ref<Partial<ChannelPaymentMethodCreateSchema>>({
+  name: undefined,
+  type: undefined,
 })
+
+function resetState() {
+  state.value = {
+    name: undefined,
+    type: undefined,
+  }
+}
 
 watch(
   () => isOpened,
   () => {
-    handleReset()
+    resetState()
   },
 )
 
-const onSubmit = handleSubmit(async (values, { resetForm }) => {
+async function onSubmit(event: FormSubmitEvent<ChannelPaymentMethodCreateSchema>) {
   const { data, error } = await useAsyncData(
     'create-payment-method',
     () => $fetch('/api/channel/payment-method', {
       method: 'POST',
-      body: values,
+      body: event.data,
     }),
   )
 
   if (error.value) {
     console.error(error.value)
-    toast({ title: t('error.title'), description: '...' })
+    toast.add({ title: t('error.title'), description: '...' })
   }
 
   if (data.value) {
     await refreshChannelData()
     emit('success')
-    toast({ title: t('toast.payment-method-created'), description: t('toast.updating-data') })
-    resetForm()
+    toast.add({ title: t('toast.payment-method-created'), description: t('toast.updating-data') })
+    resetState()
   }
-})
+}
 </script>

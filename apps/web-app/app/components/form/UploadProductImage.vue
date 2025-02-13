@@ -1,32 +1,36 @@
 <template>
-  <form class="space-y-3" @submit="onSubmit">
-    <UiFormField v-slot="{ componentField }" name="file">
-      <UiFormItem>
-        <div>
-          <UiFormLabel>{{ $t('common.photo') }}</UiFormLabel>
-          <UiFormMessage />
-        </div>
-        <UiFormControl>
-          <UiInput
-            v-bind="componentField"
-            type="file"
-            accept="image/*"
-          />
-        </UiFormControl>
-      </UiFormItem>
-    </UiFormField>
+  <UForm
+    :schema="productImageUploadSchema"
+    :state="state"
+    class="flex flex-col gap-3"
+    @submit="onSubmit"
+  >
+    <UFormField :label="$t('common.photo')" name="file">
+      <UInput
+        v-model="state.file"
+        type="file"
+        accept="image/*"
+        size="xl"
+        class="w-full items-center justify-center"
+      />
+    </UFormField>
 
-    <UiButton type="submit" variant="secondary">
+    <UButton
+      type="submit"
+      variant="solid"
+      color="primary"
+      size="xl"
+      class="mt-3 w-full justify-center items-center"
+    >
       {{ $t('center.upload.title') }}
-    </UiButton>
-  </form>
+    </UButton>
+  </UForm>
 </template>
 
 <script setup lang="ts">
+import type { ProductImageUploadSchema } from '@next-orders/core/shared/services/product'
+import type { FormSubmitEvent } from '@nuxt/ui'
 import { productImageUploadSchema } from '@next-orders/core/shared/services/product'
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { useToast } from '~/components/ui/toast'
 
 const { isOpened, productId } = defineProps<{
   isOpened: boolean
@@ -36,26 +40,30 @@ const { isOpened, productId } = defineProps<{
 const emit = defineEmits(['success'])
 
 const { t } = useI18n()
-const { toast } = useToast()
+const toast = useToast()
 const { refresh: refreshChannelData } = await useChannel()
 const { refresh: refreshProducts } = await useProduct()
 
-const formSchema = toTypedSchema(productImageUploadSchema)
-
-const { handleSubmit, handleReset } = useForm({
-  validationSchema: formSchema,
+const state = ref<Partial<ProductImageUploadSchema>>({
+  file: undefined,
 })
+
+function resetState() {
+  state.value = {
+    file: undefined,
+  }
+}
 
 watch(
   () => isOpened,
   () => {
-    handleReset()
+    resetState()
   },
 )
 
-const onSubmit = handleSubmit(async (values, { resetForm }) => {
+async function onSubmit(event: FormSubmitEvent<ProductImageUploadSchema>) {
   const formData = new FormData()
-  formData.append('file', values.file)
+  formData.append('file', event.data.file)
 
   const { data, error } = await useAsyncData(
     'upload-product-image',
@@ -67,15 +75,15 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
 
   if (error.value) {
     console.error(error.value)
-    toast({ title: t('error.title'), description: '...' })
+    toast.add({ title: t('error.title'), description: '...' })
   }
 
   if (data.value) {
     await refreshChannelData()
     await refreshProducts()
     emit('success')
-    toast({ title: t('toast.photo-loaded'), description: t('toast.updating-data') })
-    resetForm()
+    toast.add({ title: t('toast.photo-loaded'), description: t('toast.updating-data') })
+    resetState()
   }
-})
+}
 </script>

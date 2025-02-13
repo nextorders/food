@@ -7,10 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { useForm } from 'vee-validate'
-import { useToast } from '~/components/ui/toast'
-
-const { isOpened, productVariantId } = defineProps<{
+const { productVariantId } = defineProps<{
   isOpened: boolean
   productVariantId: string
 }>()
@@ -18,36 +15,28 @@ const { isOpened, productVariantId } = defineProps<{
 const emit = defineEmits(['success'])
 
 const { t } = useI18n()
-const { toast } = useToast()
+const toast = useToast()
 const { refresh: refreshChannelData } = await useChannel()
 const { refresh: refreshProducts } = await useProduct()
 
-const { handleSubmit, handleReset } = useForm()
-
-watch(
-  () => isOpened,
-  () => {
-    handleReset()
-  },
-)
-
-const onSubmit = handleSubmit(async (_, { resetForm }) => {
+async function onSubmit() {
   const { data, error } = await useAsyncData(
     'delete-product-variant',
-    () => $fetch(`/api/product/variant/${productVariantId}`, { method: 'DELETE' }),
+    () => $fetch(`/api/product/variant/${productVariantId}`, {
+      method: 'DELETE',
+    }),
   )
 
   if (error.value) {
     console.error(error.value)
-    toast({ title: t('error.title'), description: '...' })
+    toast.add({ title: t('error.title'), description: '...' })
   }
 
   if (data.value) {
     await refreshChannelData()
     await refreshProducts()
     emit('success')
-    toast({ title: t('toast.variant-deleted'), description: t('toast.updating-data') })
-    resetForm()
+    toast.add({ title: t('toast.variant-deleted'), description: t('toast.updating-data') })
   }
-})
+}
 </script>

@@ -1,40 +1,42 @@
 <template>
-  <form class="space-y-3" @submit="onSubmit">
-    <UiFormField v-slot="{ componentField }" name="name">
-      <UiFormItem>
-        <div>
-          <UiFormLabel>{{ $t('center.data.name') }}</UiFormLabel>
-          <UiFormMessage />
-        </div>
-        <UiFormControl>
-          <UiInput v-bind="componentField" />
-        </UiFormControl>
-      </UiFormItem>
-    </UiFormField>
+  <UForm
+    :schema="warehouseUpdateSchema"
+    :state="state"
+    class="flex flex-col gap-3"
+    @submit="onSubmit"
+  >
+    <UFormField :label="$t('center.data.name')" name="name">
+      <UInput
+        v-model="state.name"
+        size="xl"
+        class="w-full items-center justify-center"
+      />
+    </UFormField>
 
-    <UiFormField v-slot="{ componentField }" name="address">
-      <UiFormItem>
-        <div>
-          <UiFormLabel>{{ $t('app.checkout.address.title') }}</UiFormLabel>
-          <UiFormMessage />
-        </div>
-        <UiFormControl>
-          <UiInput v-bind="componentField" />
-        </UiFormControl>
-      </UiFormItem>
-    </UiFormField>
+    <UFormField :label="$t('app.checkout.address.title')" name="address">
+      <UInput
+        v-model="state.address"
+        size="xl"
+        class="w-full items-center justify-center"
+      />
+    </UFormField>
 
-    <UiButton type="submit" variant="secondary">
+    <UButton
+      type="submit"
+      variant="solid"
+      color="primary"
+      size="xl"
+      class="mt-3 w-full justify-center items-center"
+    >
       {{ $t('center.update.title') }}
-    </UiButton>
-  </form>
+    </UButton>
+  </UForm>
 </template>
 
 <script setup lang="ts">
+import type { WarehouseUpdateSchema } from '@next-orders/core/shared/services/warehouse'
+import type { FormSubmitEvent } from '@nuxt/ui'
 import { warehouseUpdateSchema } from '@next-orders/core/shared/services/warehouse'
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { useToast } from '~/components/ui/toast'
 
 const { isOpened, warehouseId } = defineProps<{
   isOpened: boolean
@@ -44,48 +46,50 @@ const { isOpened, warehouseId } = defineProps<{
 const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const { toast } = useToast()
+const toast = useToast()
 const { refresh: refreshChannelData, channel } = await useChannel()
 const warehouse = computed(() => channel.value?.warehouses?.find((w) => w.id === warehouseId))
 
-const formSchema = toTypedSchema(warehouseUpdateSchema)
-
-const { handleSubmit, handleReset, setValues } = useForm({
-  validationSchema: formSchema,
+const state = ref<Partial<WarehouseUpdateSchema>>({
+  name: warehouse.value?.name,
+  address: warehouse.value?.address,
 })
+
+function resetState() {
+  state.value = {
+    name: warehouse.value?.name,
+    address: warehouse.value?.address,
+  }
+}
 
 watch(
   () => isOpened,
   () => {
-    handleReset()
-    setValues({
-      name: warehouse.value?.name,
-      address: warehouse.value?.address,
-    })
+    resetState()
   },
 )
 
-const onSubmit = handleSubmit(async (values, { resetForm }) => {
+async function onSubmit(event: FormSubmitEvent<WarehouseUpdateSchema>) {
   emit('submitted')
 
   const { data, error } = await useAsyncData(
     'update-warehouse',
-    () => $fetch(`/api/warehouse/${warehouse.value?.id}`, {
+    () => $fetch(`/api/warehouse/${warehouseId}`, {
       method: 'PATCH',
-      body: values,
+      body: event.data,
     }),
   )
 
   if (error.value) {
     console.error(error.value)
-    toast({ title: t('error.title'), description: '...' })
+    toast.add({ title: t('error.title'), description: '...' })
   }
 
   if (data.value) {
     await refreshChannelData()
     emit('success')
-    toast({ title: t('toast.warehouse-updated'), description: t('toast.updating-data') })
-    resetForm()
+    toast.add({ title: t('toast.warehouse-updated'), description: t('toast.updating-data') })
+    resetState()
   }
-})
+}
 </script>

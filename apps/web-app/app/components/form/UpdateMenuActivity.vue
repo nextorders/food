@@ -16,11 +16,6 @@
 </template>
 
 <script setup lang="ts">
-import { menuUpdateSchema } from '@next-orders/core/shared/services/menu'
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { useToast } from '~/components/ui/toast'
-
 const { isActive, menuId } = defineProps<{
   isActive: boolean
   menuId: string
@@ -29,39 +24,26 @@ const { isActive, menuId } = defineProps<{
 const emit = defineEmits(['success'])
 
 const { t } = useI18n()
-const { toast } = useToast()
+const toast = useToast()
 const { refresh: refreshChannelData } = await useChannel()
 
-const formSchema = toTypedSchema(menuUpdateSchema)
-
-const { handleSubmit, handleReset, setFieldValue } = useForm({
-  validationSchema: formSchema,
-})
-
-watch(
-  () => isActive,
-  () => {
-    handleReset()
-    setFieldValue('isActive', isActive)
-  },
-)
-
-const onSubmit = handleSubmit(async (_, { resetForm }) => {
+async function onSubmit() {
   const { data, error } = await useAsyncData(
     'update-menu-activity',
-    () => $fetch(`/api/menu/${menuId}/activity`, { method: 'POST' }),
+    () => $fetch(`/api/menu/${menuId}/activity`, {
+      method: 'POST',
+    }),
   )
 
   if (error.value) {
     console.error(error.value)
-    toast({ title: t('error.title'), description: '...' })
+    toast.add({ title: t('error.title'), description: '...' })
   }
 
   if (data.value) {
     await refreshChannelData()
     emit('success')
-    toast({ title: t('toast.menu-updated'), description: t('toast.updating-data') })
-    resetForm()
+    toast.add({ title: t('toast.menu-updated'), description: t('toast.updating-data') })
   }
-})
+}
 </script>

@@ -16,11 +16,6 @@
 </template>
 
 <script setup lang="ts">
-import { productUpdateSchema } from '@next-orders/core/shared/services/product'
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { useToast } from '~/components/ui/toast'
-
 const { isAvailableForPurchase, productId } = defineProps<{
   isAvailableForPurchase: boolean
   productId: string
@@ -29,27 +24,13 @@ const { isAvailableForPurchase, productId } = defineProps<{
 const emit = defineEmits(['success'])
 
 const { t } = useI18n()
-const { toast } = useToast()
+const toast = useToast()
 const { refresh: refreshChannelData } = await useChannel()
 const { refresh: refreshProducts } = await useProduct()
 
-const formSchema = toTypedSchema(productUpdateSchema)
-
-const { handleSubmit, handleReset, setFieldValue } = useForm({
-  validationSchema: formSchema,
-})
-
-watch(
-  () => isAvailableForPurchase,
-  () => {
-    handleReset()
-    setFieldValue('isAvailableForPurchase', isAvailableForPurchase)
-  },
-)
-
-const onSubmit = handleSubmit(async (_, { resetForm }) => {
+async function onSubmit() {
   const { data, error } = await useAsyncData(
-    'update-product',
+    'update-product-availability',
     () => $fetch(`/api/product/${productId}`, {
       method: 'PATCH',
       body: {
@@ -60,15 +41,14 @@ const onSubmit = handleSubmit(async (_, { resetForm }) => {
 
   if (error.value) {
     console.error(error.value)
-    toast({ title: t('error.title'), description: '...' })
+    toast.add({ title: t('error.title'), description: '...' })
   }
 
   if (data.value) {
     await refreshChannelData()
     await refreshProducts()
     emit('success')
-    toast({ title: t('toast.product-updated'), description: t('toast.updating-data') })
-    resetForm()
+    toast.add({ title: t('toast.product-updated'), description: t('toast.updating-data') })
   }
-})
+}
 </script>

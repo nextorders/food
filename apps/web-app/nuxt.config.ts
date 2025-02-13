@@ -37,7 +37,6 @@ export default defineNuxtConfig({
     '/catalog/**': { swr: true },
   },
   modules: [
-    '@nuxtjs/device',
     'shadcn-nuxt',
   ],
   compatibilityDate: '2024-08-18',

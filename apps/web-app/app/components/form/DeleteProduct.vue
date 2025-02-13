@@ -1,16 +1,19 @@
 <template>
   <form class="mt-3" @submit="onSubmit">
-    <UiButton type="submit" variant="destructive">
+    <UButton
+      type="submit"
+      variant="solid"
+      color="warning"
+      size="xl"
+      class="mt-3 w-full justify-center items-center"
+    >
       {{ $t('center.delete.title') }}
-    </UiButton>
+    </UButton>
   </form>
 </template>
 
 <script setup lang="ts">
-import { useForm } from 'vee-validate'
-import { useToast } from '~/components/ui/toast'
-
-const { isOpened, productId, redirectTo } = defineProps<{
+const { productId, redirectTo } = defineProps<{
   isOpened: boolean
   productId: string
   redirectTo: string
@@ -20,37 +23,29 @@ const emit = defineEmits(['success'])
 
 const router = useRouter()
 const { t } = useI18n()
-const { toast } = useToast()
+const toast = useToast()
 const { refresh: refreshChannelData } = await useChannel()
 const { refresh: refreshProducts } = await useProduct()
 
-const { handleSubmit, handleReset } = useForm()
-
-watch(
-  () => isOpened,
-  () => {
-    handleReset()
-  },
-)
-
-const onSubmit = handleSubmit(async (_, { resetForm }) => {
+async function onSubmit() {
   const { data, error } = await useAsyncData(
     'delete-product',
-    () => $fetch(`/api/product/${productId}`, { method: 'DELETE' }),
+    () => $fetch(`/api/product/${productId}`, {
+      method: 'DELETE',
+    }),
   )
 
   if (error.value) {
     console.error(error.value)
-    toast({ title: t('error.title'), description: '...' })
+    toast.add({ title: t('error.title'), description: '...' })
   }
 
   if (data.value) {
     await refreshChannelData()
     await refreshProducts()
     emit('success')
-    toast({ title: t('toast.product-deleted'), description: t('toast.updating-data') })
-    resetForm()
+    toast.add({ title: t('toast.product-deleted'), description: t('toast.updating-data') })
     router.push(redirectTo)
   }
-})
+}
 </script>
