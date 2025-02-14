@@ -28,17 +28,35 @@
     <UFormField :label="$t('common.password')" name="password">
       <UInput
         v-model="state.password"
+        :type="isPasswordVisible ? 'text' : 'password'"
+        :ui="{ trailing: 'pe-2' }"
         size="xl"
         class="w-full items-center justify-center"
-      />
+      >
+        <template #trailing>
+          <UButton
+            color="neutral"
+            variant="link"
+            size="md"
+            :icon="isPasswordVisible ? 'i-lucide-eye-off' : 'i-lucide-eye'"
+            :aria-label="isPasswordVisible ? 'Hide password' : 'Show password'"
+            :aria-pressed="isPasswordVisible"
+            aria-controls="password"
+            @click="isPasswordVisible = !isPasswordVisible"
+          />
+        </template>
+      </UInput>
     </UFormField>
 
-    <UFormField :label="$t('app.checkout.your-name')" name="name">
+    <UFormField
+      :label="$t('app.checkout.your-name')"
+      :hint="$t('common.optional')"
+      name="name"
+    >
       <UInput
         v-model="state.name"
         size="xl"
         class="w-full items-center justify-center"
-        :placeholder="$t('common.optional')"
       />
     </UFormField>
 
@@ -64,6 +82,8 @@ const emit = defineEmits(['success'])
 const { t } = useI18n()
 const toast = useToast()
 const { refresh: refreshChannelData } = await useChannel()
+
+const isPasswordVisible = ref(false)
 
 const state = ref<Partial<UserCreateSchema>>({
   login: undefined,

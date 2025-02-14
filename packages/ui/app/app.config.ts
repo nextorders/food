@@ -13,9 +13,9 @@ export default defineAppConfig({
       'food:brand-assets': 'lucide:text-select',
       'food:flag-ru': 'circle-flags:ru',
       'food:flag-en': 'circle-flags:uk',
-      'pixel:github': 'pixelarticons:github',
-      'pixel:color-mode-light': 'pixelarticons:sun',
-      'pixel:color-mode-dark': 'pixelarticons:moon',
+      'food:github': 'simple-icons:github',
+      'food:color-mode-light': 'lucide:sun-dim',
+      'food:color-mode-dark': 'lucide:moon',
     },
   },
 
@@ -31,6 +31,12 @@ export default defineAppConfig({
     },
     icons: {
       loading: 'food:loader',
+    },
+    modal: {
+      slots: {
+        title: 'text-xl',
+        close: 'top-5 scale-110',
+      },
     },
     button: {
       variants: {

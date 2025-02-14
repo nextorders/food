@@ -13,18 +13,16 @@
       :key="menu.id"
       :menu-id="menu.id"
     />
-    <CommandCenterMenuCreateCard @click="isModalOpened = true" />
+    <UModal :title="$t('center.create.menu')">
+      <CommandCenterMenuCreateCard @click="isModalOpened = true" />
+
+      <template #body>
+        <FormCreateMenu :is-opened="isModalOpened" @success="isModalOpened = false" />
+      </template>
+    </UModal>
   </div>
 
   <GuideMenus />
-
-  <UiModal
-    :title="$t('center.create.menu')"
-    :is-opened="isModalOpened"
-    @close="isModalOpened = false"
-  >
-    <FormCreateMenu :is-opened="isModalOpened" @success="isModalOpened = false" />
-  </UiModal>
 </template>
 
 <script setup lang="ts">

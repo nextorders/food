@@ -2,7 +2,7 @@
   <ClientOnly>
     <UTooltip :text="ariaLabel">
       <UButton
-        :icon="isDark ? 'pixel:color-mode-dark' : 'pixel:color-mode-light'"
+        :icon="isDark ? 'food:color-mode-dark' : 'food:color-mode-light'"
         :aria-label="ariaLabel"
         variant="ghost"
         color="primary"
