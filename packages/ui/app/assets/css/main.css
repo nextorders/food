@@ -15,7 +15,3 @@
 .dark {
   --ui-primary: white;
 }
-
-.bg-muted {
-  background-color: var(--ui-bg-muted);
-}
