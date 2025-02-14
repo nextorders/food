@@ -2,10 +2,10 @@ packages:
   - apps/*
   - packages/*
 catalog:
-  '@antfu/eslint-config': ^4.1.1
+  '@antfu/eslint-config': ^4.2.0
   '@commitlint/cli': ^19.7.1
   '@commitlint/config-conventional': ^19.7.1
-  '@date-fns/tz': ^1.1.2
+  '@date-fns/tz': ^1.2.0
   '@dicebear/collection': ^9.2.2
   '@dicebear/core': ^9.2.2
   '@iconify-json/circle-flags': ^1.2.6
@@ -21,13 +21,13 @@ catalog:
   '@semantic-release/exec': ^7.0.3
   '@semantic-release/git': ^10.0.1
   '@types/bcrypt': ^5.0.2
-  '@types/node': ^22.13.1
-  '@types/nodemailer': ^6.4.16
+  '@types/node': ^22.13.2
+  '@types/nodemailer': ^6.4.17
   '@types/pg': ^8.11.11
-  '@vitejs/plugin-vue': ^5.1.4
+  '@vitejs/plugin-vue': ^5.2.1
   '@vitest/browser': ^3.0.5
   '@vitest/coverage-v8': ^3.0.5
-  '@vue-email/components': ^0.0.19
+  '@vue-email/components': ^0.0.21
   '@vue-email/render': ^0.0.9
   '@vueuse/core': ^12.5.0
   '@vueuse/nuxt': ^12.5.0
@@ -38,19 +38,19 @@ catalog:
   dotenv-cli: ^8.0.0
   drizzle-cuid2: ^2.0.0
   drizzle-kit: ^0.30.4
-  drizzle-orm: ^0.39.1
-  eslint: ^9.19.0
+  drizzle-orm: ^0.39.3
+  eslint: ^9.20.1
   husky: ^9.1.7
   libphonenumber-js: ^1.11.19
   lint-staged: ^15.4.3
-  nodemailer: ^6.9.15
+  nodemailer: ^6.10.0
   nuxt: ^3.15.4
-  nuxt-auth-utils: ^0.5.14
+  nuxt-auth-utils: ^0.5.15
   nuxt-zod-i18n: ^1.11.5
-  pg: ^8.13.1
+  pg: ^8.13.3
   playwright: ^1.50.1
   radix-vue: ^1.9.7
-  semantic-release: ^24.2.1
+  semantic-release: ^24.2.2
   semantic-release-monorepo: ^8.0.2
   shadcn-nuxt: ^0.10.4
   sharp: ^0.33.5
