@@ -2,7 +2,7 @@ packages:
   - apps/*
   - packages/*
 catalog:
-  '@antfu/eslint-config': ^4.2.0
+  '@antfu/eslint-config': ^4.2.1
   '@commitlint/cli': ^19.7.1
   '@commitlint/config-conventional': ^19.7.1
   '@date-fns/tz': ^1.2.0
@@ -13,7 +13,7 @@ catalog:
   '@iconify-json/pixelarticons': ^1.2.2
   '@iconify-json/simple-icons': ^1.2.24
   '@neoconfetti/vue': ^2.2.1
-  '@nuxt/devtools': ^2.0.0
+  '@nuxt/devtools': ^2.1.0
   '@nuxt/image': ^1.9.0
   '@nuxt/ui': 3.0.0-alpha.12
   '@nuxtjs/i18n': ^9.2.0
@@ -50,7 +50,7 @@ catalog:
   pg: ^8.13.3
   playwright: ^1.50.1
   radix-vue: ^1.9.7
-  semantic-release: ^24.2.2
+  semantic-release: ^24.2.3
   semantic-release-monorepo: ^8.0.2
   shadcn-nuxt: ^0.10.4
   sharp: ^0.33.5
