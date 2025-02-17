@@ -6,7 +6,9 @@ const IMAGE_SIZES = [120, 300, 600, 800]
 
 export default defineEventHandler(async (event) => {
   try {
-    const { storageProductsDirectory } = useRuntimeConfig()
+    const { productsDirectory } = useRuntimeConfig()
+    const storage = useStorage('s3')
+
     const id = getRouterParam(event, 'id')
     if (!id) {
       throw createError({
@@ -55,7 +57,7 @@ export default defineEventHandler(async (event) => {
         .toFormat('jpg', { quality: 75 })
         .toBuffer()
         .then((data) => {
-          useStorage('fileSystem').setItemRaw(`${storageProductsDirectory}/${mediaId}/${size}.jpg`, data)
+          storage.setItemRaw(`${productsDirectory}/${mediaId}/${size}.jpg`, data)
         })
 
       await sharp(file.data.buffer as ArrayBuffer)
@@ -63,7 +65,7 @@ export default defineEventHandler(async (event) => {
         .toFormat('webp', { quality: 75 })
         .toBuffer()
         .then((data) => {
-          useStorage('fileSystem').setItemRaw(`${storageProductsDirectory}/${mediaId}/${size}.webp`, data)
+          storage.setItemRaw(`${productsDirectory}/${mediaId}/${size}.webp`, data)
         })
     }
 
@@ -73,8 +75,8 @@ export default defineEventHandler(async (event) => {
     if (product?.mediaId) {
       // Remove old images
       for (const size of IMAGE_SIZES) {
-        await useStorage('fileSystem').removeItem(`${storageProductsDirectory}/${product.mediaId}/${size}.jpg`)
-        await useStorage('fileSystem').removeItem(`${storageProductsDirectory}/${product.mediaId}/${size}.webp`)
+        await storage.removeItem(`${productsDirectory}/${product.mediaId}/${size}.jpg`)
+        await storage.removeItem(`${productsDirectory}/${product.mediaId}/${size}.webp`)
       }
 
       await repository.media.delete(product.mediaId)

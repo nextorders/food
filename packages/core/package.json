@@ -14,6 +14,7 @@
     "@nuxtjs/i18n": "catalog:",
     "@vueuse/core": "catalog:",
     "@vueuse/nuxt": "catalog:",
+    "aws4fetch": "catalog:",
     "bcrypt": "catalog:",
     "sharp": "catalog:"
   },

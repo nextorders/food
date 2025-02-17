@@ -31,6 +31,7 @@ catalog:
   '@vue-email/render': ^0.0.9
   '@vueuse/core': ^12.5.0
   '@vueuse/nuxt': ^12.5.0
+  aws4fetch: ^1.0.20
   bcrypt: ^5.1.1
   class-variance-authority: ^0.7.0
   clsx: ^2.1.1

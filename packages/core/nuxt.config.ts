@@ -7,16 +7,17 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     channelId: 'burger',
-    storageProductsDirectory: 'products',
     locale: 'en',
+    productsDirectory: '/products',
+    s3: {
+      bucket: '',
+      region: '',
+      endpoint: '',
+      accessKeyId: '',
+      secretAccessKey: '',
+    },
   },
   nitro: {
-    storage: {
-      fileSystem: {
-        driver: 'fs',
-        base: './../../.storage',
-      },
-    },
     preset: fileURLToPath(new URL('./server/preset.ts', import.meta.url)),
     experimental: {
       tasks: true,
