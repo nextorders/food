@@ -1,7 +1,7 @@
 <template>
   <CatalogBreadcrumb :items="breadcrumbs" />
 
-  <div class="bg-white dark:bg-neutral-600 px-5 py-5 rounded-2xl">
+  <div>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-0 gap-y-4 sm:gap-4">
       <div class="col-span-1 relative w-full aspect-square">
         <ProductImage
@@ -148,6 +148,5 @@ const breadcrumbs = computed(() => [
     label: product.value?.category?.name ?? '',
     to: `/catalog/${product.value?.category?.slug}`,
   },
-  { label: product.value?.name ?? '' },
 ])
 </script>

@@ -3,11 +3,11 @@
   <NavigationMain />
 
   <main class="relative w-auto min-h-dvh lg:pl-72 xl:pr-80 top-16">
-    <div class="px-2 md:px-4 pb-10 pt-4 max-w-7xl">
+    <UContainer class="pb-10 pt-4 max-w-7xl">
       <NuxtErrorBoundary>
         <slot />
       </NuxtErrorBoundary>
-    </div>
+    </UContainer>
 
     <DeliveryInfoModal />
     <CartDrawer />

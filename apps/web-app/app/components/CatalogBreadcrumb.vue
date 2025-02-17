@@ -7,7 +7,7 @@
     </UBreadcrumb>
 
     <UButton
-      variant="solid"
+      variant="soft"
       color="primary"
       size="md"
       icon="food:undo"
