@@ -1,5 +1,5 @@
 <template>
-  <UiBreadcrumb :links="breadcrumbs" :is-dark-background="true" />
+  <CatalogBreadcrumb :items="breadcrumbs" />
 
   <h1 class="text-3xl font-medium">
     {{ category?.name }}
@@ -34,10 +34,7 @@ useHead({
 })
 
 const breadcrumbs = computed(() => [
-  { title: t('common.home'), href: '/' },
-  {
-    title: category.value?.name ?? '',
-    href: '#',
-  },
+  { label: t('common.home'), icon: 'food:home', to: '/' },
+  { label: category.value?.name ?? '' },
 ])
 </script>

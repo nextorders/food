@@ -1,5 +1,5 @@
 <template>
-  <UiBreadcrumb :links="breadcrumbs" :is-dark-background="true" />
+  <CatalogBreadcrumb :items="breadcrumbs" />
 
   <div class="mb-4 flex flex-col md:flex-row justify-between md:items-center gap-2">
     <h1 class="text-2xl md:text-3xl font-semibold">
@@ -97,15 +97,12 @@ const { t } = useI18n()
 const { icons } = useAppConfig()
 
 const breadcrumbs = computed(() => [
-  { title: t('common.website'), href: '/' },
+  { label: t('common.website'), icon: 'food:home', to: '/' },
   {
-    title: t('center.menu.title'),
-    href: '/command-center/menu',
+    label: t('center.menu.title'),
+    to: '/command-center/menu',
   },
-  {
-    title: t('center.menu.menu-page'),
-    href: '#',
-  },
+  { label: t('center.menu.menu-page') },
 ])
 
 const { menus } = await useChannel()

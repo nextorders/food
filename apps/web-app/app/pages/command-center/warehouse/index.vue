@@ -1,5 +1,5 @@
 <template>
-  <UiBreadcrumb :links="breadcrumbs" :is-dark-background="true" />
+  <CatalogBreadcrumb :items="breadcrumbs" />
 
   <div class="mb-4 flex flex-col md:flex-row justify-between md:items-center gap-2">
     <h1 class="text-2xl md:text-3xl font-semibold">
@@ -49,11 +49,8 @@ const { t } = useI18n()
 const { channel } = await useChannel()
 
 const breadcrumbs = computed(() => [
-  { title: t('common.website'), href: '/' },
-  {
-    title: t('center.menu.warehouses'),
-    href: '#',
-  },
+  { label: t('common.website'), icon: 'food:home', to: '/' },
+  { label: t('center.menu.warehouses') },
 ])
 
 const warehouseId = ref('')

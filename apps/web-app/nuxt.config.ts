@@ -28,8 +28,8 @@ export default defineNuxtConfig({
     strategy: 'no_prefix',
   },
   routeRules: {
-    '/': { swr: true },
-    '/catalog/**': { swr: true },
+    // '/': { swr: true },
+    // '/catalog/**': { swr: true },
   },
   modules: [
     'shadcn-nuxt',

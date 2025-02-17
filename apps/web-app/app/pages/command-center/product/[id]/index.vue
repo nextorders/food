@@ -1,5 +1,5 @@
 <template>
-  <UiBreadcrumb :links="breadcrumbs" :is-dark-background="true" />
+  <CatalogBreadcrumb :items="breadcrumbs" />
 
   <div class="mb-6 flex flex-col md:flex-row justify-between md:items-center gap-4">
     <div>
@@ -195,15 +195,12 @@ const product = computed(() => products.value?.find((p) => p.id === params.id))
 const menuPageUrl = `/command-center/menu/${product.value?.category.menuId}`
 
 const breadcrumbs = computed(() => [
-  { title: t('common.website'), href: '/' },
+  { label: t('common.website'), icon: 'food:home', to: '/' },
   {
-    title: t('center.menu.menu-page'),
-    href: menuPageUrl,
+    label: t('center.menu.menu-page'),
+    to: menuPageUrl,
   },
-  {
-    title: t('center.menu.product-page'),
-    href: '#',
-  },
+  { label: t('center.menu.product-page') },
 ])
 
 const productVariantId = ref('')

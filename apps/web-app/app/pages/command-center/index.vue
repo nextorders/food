@@ -1,5 +1,5 @@
 <template>
-  <UiBreadcrumb :links="breadcrumbs" :is-dark-background="true" />
+  <CatalogBreadcrumb :items="breadcrumbs" />
 </template>
 
 <script setup lang="ts">
@@ -11,10 +11,7 @@ definePageMeta({
 const { t } = useI18n()
 
 const breadcrumbs = computed(() => [
-  { title: t('common.website'), href: '/' },
-  {
-    title: t('center.menu.dashboard'),
-    href: '#',
-  },
+  { label: t('common.website'), icon: 'food:home', to: '/' },
+  { label: t('center.menu.dashboard') },
 ])
 </script>

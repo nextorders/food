@@ -1,5 +1,5 @@
 <template>
-  <UiBreadcrumb :links="breadcrumbs" :is-dark-background="true" />
+  <CatalogBreadcrumb :items="breadcrumbs" />
 
   <div class="space-y-12">
     <div>
@@ -165,11 +165,8 @@ const { t } = useI18n()
 const { channel } = await useChannel()
 
 const breadcrumbs = computed(() => [
-  { title: t('common.website'), href: '/' },
-  {
-    title: t('center.menu.settings'),
-    href: '#',
-  },
+  { label: t('common.website'), icon: 'food:home', to: '/' },
+  { label: t('center.menu.settings') },
 ])
 
 const isUpdateChannelOpened = ref(false)
