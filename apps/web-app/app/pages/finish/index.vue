@@ -79,11 +79,9 @@
       </div>
     </ClientOnly>
 
-    <NuxtLink to="/" class="block grow">
-      <UiButton class="w-full px-4 py-4 text-lg text-center">
-        {{ $t('common.to-home') }}
-      </UiButton>
-    </NuxtLink>
+    <UButton to="/" class="block grow w-full px-4 py-4 text-lg text-center">
+      {{ $t('common.to-home') }}
+    </UButton>
   </div>
 </template>
 

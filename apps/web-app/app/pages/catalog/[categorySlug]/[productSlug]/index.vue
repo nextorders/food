@@ -19,24 +19,14 @@
           {{ weightValue }}{{ weightUnit }}
         </div>
 
-        <div v-if="!withSingleVariant" class="mt-4 mb-6 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2">
-          <UiButton
-            v-for="variant in product?.variants"
-            :key="variant.id"
-            variant="secondary"
-            class="w-full min-h-14 flex flex-row flex-wrap gap-2 justify-start items-center"
-            @click="variantId = variant.id"
-          >
-            <UiCheckBadge v-if="variant.id === selectedVariant?.id" />
-            <Icon
-              :name="variant.id === selectedVariant?.id ? icons.bookmarkCheck : icons.bookmark"
-              class="w-6 h-6 text-neutral-300"
-              :class="{ '!text-emerald-500': variant.id === selectedVariant?.id }"
-            />
-            <p class="font-medium leading-tight break-all">
-              {{ variant.name }}
-            </p>
-          </UiButton>
+        <div v-if="!withSingleVariant" class="mt-4 mb-6">
+          <USelect
+            v-model="variantId"
+            :items="product?.variants.map((variant) => ({ label: variant.name, value: variant.id }))"
+            size="xl"
+            icon="food:bookmark-check"
+            class="min-w-56"
+          />
         </div>
 
         <div class="mt-4 flex flex-row gap-6 items-center">
@@ -45,13 +35,16 @@
           </div>
 
           <CartLineCounter v-if="inCart" :line-id="inCart.id" />
-          <UiButton
+          <UButton
             v-else
+            size="xl"
+            variant="gradient"
+            icon="food:busket"
             class="w-fit flex flex-row gap-2 items-center"
             @click="addProduct(variantId ?? '')"
           >
-            <Icon :name="icons.basket" size="24" /> {{ $t('app.cart.add-to-cart') }}
-          </UiButton>
+            {{ $t('app.cart.add-to-cart') }}
+          </UButton>
         </div>
       </div>
     </div>
@@ -112,7 +105,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const { params } = useRoute('catalog-categorySlug-productSlug')
-const { icons } = useAppConfig()
 const { channel } = await useChannel()
 const { addProduct, checkout } = useCheckout()
 

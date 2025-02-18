@@ -1,8 +1,14 @@
 <template>
   <form class="mt-3" @submit="onSubmit">
-    <UiButton type="submit" variant="destructive">
+    <UButton
+      type="submit"
+      size="xl"
+      variant="soft"
+      color="error"
+      class="w-full justify-center"
+    >
       {{ $t('center.delete.title') }}
-    </UiButton>
+    </UButton>
   </form>
 </template>
 

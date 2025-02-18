@@ -7,7 +7,7 @@
 
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
         <div class="col-span-full md:col-span-7 space-y-6">
-          <div class="p-3 md:p-6 bg-white dark:bg-neutral-600 rounded-3xl space-y-5">
+          <div class="p-3 md:p-6 bg-(--ui-bg-muted) rounded-3xl space-y-5">
             <CartDeliveryMethodSwitch />
 
             <div class="w-full">
@@ -110,25 +110,14 @@
                 {{ $t('app.checkout.select-address') }}
               </h3>
 
-              <div class="grid grid-cols-1 md:grid-cols-1 gap-2">
-                <UiButton
-                  v-for="warehouse in channel?.warehouses"
-                  :key="warehouse.id"
-                  variant="secondary"
-                  class="w-full min-h-14 flex flex-row flex-wrap gap-2 justify-start items-center"
-                  @click="remainingCheckout.warehouseId = warehouse.id"
-                >
-                  <UiCheckBadge v-if="warehouse.id === remainingCheckout.warehouseId" />
-                  <Icon
-                    :name="warehouse.id === remainingCheckout.warehouseId ? icons.mapPinCheck : icons.mapPinWarehouse"
-                    class="w-6 h-6 text-neutral-300"
-                    :class="{ '!text-emerald-500': warehouse.id === remainingCheckout.warehouseId }"
-                  />
-                  <p class="font-medium leading-tight break-all">
-                    {{ warehouse.address }}
-                  </p>
-                </UiButton>
-              </div>
+              <USelect
+                v-model="remainingCheckout.warehouseId"
+                :items="channel?.warehouses.map(warehouse => ({ label: warehouse.address, value: warehouse.id }))"
+                :placeholder="$t('common.select')"
+                size="xl"
+                icon="food:warehouse"
+                class="w-full"
+              />
             </div>
 
             <div class="w-full">
@@ -136,43 +125,21 @@
                 {{ $t('app.checkout.time-title') }}
               </h3>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
-                <UiButton
-                  variant="secondary"
-                  class="w-full min-h-14 flex flex-row flex-wrap gap-2 justify-start items-center"
-                  @click="() => { remainingCheckout.timeType = 'ASAP'; selectedTimeLabel = '' }"
-                >
-                  <UiCheckBadge v-if="remainingCheckout.timeType === 'ASAP'" />
-                  <Icon
-                    :name="remainingCheckout.timeType === 'ASAP' ? icons.clockCheck : icons.clock"
-                    class="w-6 h-6 text-neutral-300"
-                    :class="{ '!text-emerald-500': remainingCheckout.timeType === 'ASAP' }"
-                  />
-                  <p class="font-medium leading-tight break-all">
-                    {{ $t('app.checkout.as-soon-as-possible') }}
-                  </p>
-                </UiButton>
-
-                <UiButton
-                  variant="secondary"
-                  class="w-full min-h-14 flex flex-row flex-wrap gap-2 justify-start items-center"
-                  @click="isSelectTimeModalOpened = true"
-                >
-                  <UiCheckBadge v-if="remainingCheckout.timeType === 'SCHEDULED'" />
-                  <Icon
-                    :name="remainingCheckout.timeType === 'SCHEDULED' ? icons.alarmClockCheck : icons.alarmClock"
-                    class="w-6 h-6 text-neutral-300"
-                    :class="{ '!text-emerald-500': remainingCheckout.timeType === 'SCHEDULED' }"
-                  />
-                  <p class="font-medium leading-tight break-all">
-                    {{ selectedTimeLabel || $t('app.checkout.on-time') }}
-                  </p>
-                </UiButton>
-              </div>
+              <USelect
+                v-model="remainingCheckout.time"
+                :items="[
+                  { label: $t('app.checkout.as-soon-as-possible'), value: 0 },
+                  ...slots,
+                ]"
+                :placeholder="$t('app.checkout.select-time')"
+                size="xl"
+                icon="food:clock"
+                class="w-full"
+              />
             </div>
           </div>
 
-          <div class="p-3 md:p-6 bg-white dark:bg-neutral-600 rounded-3xl">
+          <div class="p-3 md:p-6 bg-(--ui-bg-muted) rounded-3xl">
             <h2 class="mb-4 text-xl md:text-2xl font-medium">
               {{ $t('app.checkout.order-title') }}
             </h2>
@@ -198,18 +165,19 @@
         </div>
 
         <div class="col-span-full md:col-span-5 h-fit sticky top-20">
-          <div class="mb-6 p-3 md:p-6 bg-white dark:bg-neutral-600 rounded-3xl space-y-5">
+          <div class="mb-6 p-3 md:p-6 bg-(--ui-bg-muted) rounded-3xl space-y-5">
             <div>
               <h3 class="mb-2 text-lg md:text-xl font-medium">
                 {{ $t('app.checkout.payment-title') }}
               </h3>
 
               <div class="grid grid-cols-2 md:grid-cols-2 gap-2">
-                <UiButton
+                <UButton
                   v-for="method in paymentMethods"
                   :key="method.type"
-                  variant="secondary"
-                  class="w-full min-h-14 flex flex-col flex-wrap gap-1 justify-center items-center"
+                  variant="soft"
+                  color="neutral"
+                  class="relative w-full min-h-14 justify-center items-center"
                   @click="remainingCheckout.paymentMethodId = method.id"
                 >
                   <UiCheckBadge v-if="remainingCheckout.paymentMethodId === method.id" />
@@ -221,7 +189,7 @@
                   <p class="font-medium leading-tight break-all">
                     {{ method.name }}
                   </p>
-                </UiButton>
+                </UButton>
               </div>
 
               <div v-if="selectedPaymentMethod?.type === 'CASH'" class="mt-4">
@@ -268,13 +236,15 @@
             </div>
 
             <div class="flex flex-row flex-nowrap gap-4 items-center">
-              <UiButton
-                class="grow w-full px-4 py-4 text-lg text-center"
+              <UButton
+                size="xl"
+                variant="gradient"
+                class="grow w-full justify-center"
                 :disabled="!isValidCheckout"
                 @click="updateCheckout"
               >
                 {{ $t('app.checkout.create-order') }}
-              </UiButton>
+              </UButton>
 
               <div class="font-medium text-right text-2xl min-w-[5rem] tracking-tight">
                 {{ totalPrice }} <span class="text-base">{{ getCurrencySign(channel?.currencyCode) }}</span>
@@ -290,11 +260,13 @@
         {{ $t('app.cart.empty-label') }}
       </h1>
 
-      <NuxtLink to="/">
-        <UiButton class="max-w-sm">
-          {{ $t('common.to-home') }}
-        </UiButton>
-      </NuxtLink>
+      <UButton
+        to="/"
+        size="xl"
+        variant="gradient"
+      >
+        {{ $t('common.to-home') }}
+      </UButton>
     </div>
 
     <template #fallback>
@@ -302,48 +274,6 @@
         <Icon :name="icons.loader" class="w-24 h-24 text-neutral-300 animate-pulse" />
       </div>
     </template>
-
-    <UiModal
-      :title="$t('app.checkout.select-time-title')"
-      :is-opened="isSelectTimeModalOpened"
-      @close="isSelectTimeModalOpened = false"
-    >
-      <div class="flex flex-col gap-2">
-        <UiButton
-          variant="secondary"
-          class="w-full min-h-14 flex flex-row flex-wrap gap-2 justify-start items-center"
-          @click="() => { remainingCheckout.timeType = 'ASAP'; selectedTimeLabel = ''; isSelectTimeModalOpened = false }"
-        >
-          <UiCheckBadge v-if="remainingCheckout.timeType === 'ASAP'" />
-          <Icon
-            :name="remainingCheckout.timeType === 'ASAP' ? icons.clockCheck : icons.clock"
-            class="w-6 h-6 text-neutral-300"
-            :class="{ '!text-emerald-500': remainingCheckout.timeType === 'ASAP' }"
-          />
-          <p class="font-medium leading-tight break-all">
-            {{ $t('app.checkout.as-soon-as-possible') }}
-          </p>
-        </UiButton>
-
-        <UiButton
-          v-for="slot in slots"
-          :key="slot.id"
-          variant="secondary"
-          class="w-full min-h-14 flex flex-row flex-wrap gap-2 justify-start items-center"
-          @click="() => { remainingCheckout.timeType = 'SCHEDULED'; remainingCheckout.time = new Date(slot.value); selectedTimeLabel = slot.label; isSelectTimeModalOpened = false }"
-        >
-          <UiCheckBadge v-if="remainingCheckout.timeType === 'SCHEDULED' && remainingCheckout.time?.getTime() === slot.value" />
-          <Icon
-            :name="remainingCheckout.timeType === 'SCHEDULED' ? icons.alarmClockCheck : icons.alarmClock"
-            class="w-6 h-6 text-neutral-300"
-            :class="{ '!text-emerald-500': remainingCheckout.timeType === 'SCHEDULED' && remainingCheckout.time?.getTime() === slot.value }"
-          />
-          <p class="font-medium leading-tight break-all">
-            {{ slot.label }}
-          </p>
-        </UiButton>
-      </div>
-    </UiModal>
   </ClientOnly>
 </template>
 
@@ -363,8 +293,7 @@ const paymentMethods = computed(() => channel.value?.paymentMethods)
 const remainingCheckout = reactive<CheckoutDraft>({
   name: '',
   phone: '',
-  time: undefined,
-  timeType: 'ASAP',
+  time: 0,
   change: undefined,
   note: undefined,
   warehouseId: undefined,
@@ -382,8 +311,6 @@ const isOkForData = computed(() => !!remainingCheckout.name && !!remainingChecko
 const isOkForAmount = computed<boolean>(() => checkout.value?.deliveryMethod === 'DELIVERY' && channel.value?.minAmountForDelivery ? channel.value?.minAmountForDelivery <= (checkout.value?.totalPrice || 0) : true)
 const isValidCheckout = computed(() => isOkForAmount.value && isOkForData.value)
 const isValidPhone = ref(false)
-const selectedTimeLabel = ref('')
-const isSelectTimeModalOpened = ref(false)
 const selectedPaymentMethod = computed(() => paymentMethods.value?.find((m) => m.id === remainingCheckout.paymentMethodId))
 const totalPrice = computed(() => getLocalizedPrice(checkout.value?.totalPrice) ?? 0)
 
@@ -412,8 +339,6 @@ function formatPhone() {
 }
 
 async function updateCheckout() {
-  const time = remainingCheckout.time ? new Date(remainingCheckout.time) : undefined
-
   const finishedCheckout = await update({
     phone: remainingCheckout.phone,
     name: remainingCheckout.name,
@@ -425,8 +350,7 @@ async function updateCheckout() {
     floor: remainingCheckout.floor,
     addressNote: remainingCheckout.addressNote,
     paymentMethodId: remainingCheckout.paymentMethodId,
-    time,
-    timeType: remainingCheckout.timeType,
+    time: remainingCheckout.time,
     change: remainingCheckout.change,
     note: remainingCheckout.note,
   })

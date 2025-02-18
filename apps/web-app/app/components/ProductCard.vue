@@ -30,6 +30,7 @@
 
       <UButton
         variant="soft"
+        color="neutral"
         size="xl"
         icon="food:plus"
         class="justify-center items-center font-normal"

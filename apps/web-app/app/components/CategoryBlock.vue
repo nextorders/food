@@ -8,6 +8,7 @@
       :to="`/catalog/${category?.slug}`"
       size="lg"
       variant="soft"
+      color="neutral"
       trailing-icon="food:arrow-right"
     >
       {{ $t('app.open-category') }}

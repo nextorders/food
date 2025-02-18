@@ -131,8 +131,7 @@ declare global {
     totalPrice: number
     discount: number | null
     note: string | null
-    time: Date
-    timeType: 'ASAP' | 'SCHEDULED'
+    time: number
     change: string | null
     warehouseId: string | null
     street: string
@@ -146,8 +145,8 @@ declare global {
 
   type CheckoutDeliveryMethod = 'DELIVERY' | 'WAREHOUSE'
 
-  interface CheckoutDraft extends Pick<Checkout, 'name' | 'phone' | 'paymentMethodId' | 'note' | 'time' | 'timeType' | 'change' | 'warehouseId' | 'street' | 'flat' | 'doorphone' | 'entrance' | 'floor'> {
-    time: Date | undefined
+  interface CheckoutDraft extends Pick<Checkout, 'name' | 'phone' | 'paymentMethodId' | 'note' | 'time' | 'change' | 'warehouseId' | 'street' | 'flat' | 'doorphone' | 'entrance' | 'floor'> {
+    time: number
     note: string | undefined
     change: string | undefined
     warehouseId: string | undefined

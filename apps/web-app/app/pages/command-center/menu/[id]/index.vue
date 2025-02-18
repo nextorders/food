@@ -9,9 +9,14 @@
     <div class="flex flex-col md:flex-row gap-4">
       <FormUpdateMenuActivity :menu-id="menu?.id ?? ''" :is-active="menu?.isActive ?? false" />
 
-      <UiButton class="w-full md:w-fit" @click="isCreateMenuCategoryOpened = true">
+      <UButton
+        size="xl"
+        variant="gradient"
+        class="w-full md:w-fit"
+        @click="isCreateMenuCategoryOpened = true"
+      >
         {{ t('center.add.menu-category') }}
-      </UiButton>
+      </UButton>
     </div>
   </div>
 

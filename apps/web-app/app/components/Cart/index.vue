@@ -32,7 +32,7 @@
         </div>
       </div>
 
-      <div class="absolute bottom-0 left-0 right-0 rounded-2xl bg-neutral-50 dark:bg-neutral-700">
+      <div class="absolute bottom-0 left-0 right-0 rounded-2xl bg-(--ui-bg-muted)">
         <button
           class="relative my-4 mx-4 flex flex-row gap-3 flex-wrap items-center active:scale-95 lg:hover:scale-95 lg:active:scale-90 duration-200"
           @click="isDeliveryInfoModalOpened = !isDeliveryInfoModalOpened"

@@ -8,6 +8,7 @@
 
     <UButton
       variant="soft"
+      color="neutral"
       size="lg"
       icon="food:undo"
       class="w-full md:w-auto mx-auto md:mx-0 justify-center"

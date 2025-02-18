@@ -17,9 +17,14 @@
         :is-available-for-purchase="product?.isAvailableForPurchase ?? false"
       />
 
-      <UiButton class="min-w-48" @click="isUpdateProductOpened = true">
+      <UButton
+        variant="gradient"
+        size="xl"
+        class="justify-center min-w-48"
+        @click="isUpdateProductOpened = true"
+      >
         {{ $t('center.edit.title') }}
-      </UiButton>
+      </UButton>
     </div>
   </div>
 
@@ -31,13 +36,16 @@
         size="md"
       />
 
-      <UiButton
-        variant="secondary"
-        class="absolute flex justify-center items-center w-18 top-2 left-2 bg-neutral-200 dark:bg-neutral-600"
-        @click="isUploadProductImageOpened = true"
-      >
-        <Icon :name="icons.editImage" class="w-6 h-6" />
-      </UiButton>
+      <div class="absolute top-2 left-2">
+        <UButton
+          variant="outline"
+          color="neutral"
+          size="xl"
+          icon="food:image-upload"
+          class="p-3 justify-center items-center"
+          @click="isUploadProductImageOpened = true"
+        />
+      </div>
     </div>
 
     <div class="md:col-span-2">
@@ -185,7 +193,6 @@ const isUpdateProductOpened = ref(false)
 const isCreateProductVariantOpened = ref(false)
 const isUpdateProductVariantOpened = ref(false)
 
-const { icons } = useAppConfig()
 const { params } = useRoute('command-center-product-id')
 const { t } = useI18n()
 

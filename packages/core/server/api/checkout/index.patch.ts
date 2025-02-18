@@ -37,7 +37,11 @@ export default defineEventHandler(async (event) => {
       }
     }
 
-    const updatedCheckout = await repository.checkout.patch(secure.checkout.id, data)
+    const updatedCheckout = await repository.checkout.patch(secure.checkout.id, {
+      ...data,
+      time: data.time ? new Date(data.time).toDateString() : new Date().toDateString(),
+      timeType: data.time ? 'SCHEDULED' : 'ASAP',
+    })
 
     if (needToBeFinalized) {
       await repository.checkout.setAsFinished(secure.checkout.id)
@@ -96,7 +100,7 @@ async function sendToReceivers(checkoutId: string) {
       id: checkout.id,
       deliveryMethod: checkout.deliveryMethod as Checkout['deliveryMethod'],
       time,
-      timeType: checkout.timeType as Checkout['timeType'],
+      timeType: checkout.timeType as 'ASAP' | 'SCHEDULED',
       paymentMethodName,
       change: checkout.change ?? undefined,
       name: checkout.name,

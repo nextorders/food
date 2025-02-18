@@ -1,6 +1,6 @@
 <template>
   <ClientOnly>
-    <div class="px-0 py-0 flex flex-row gap-0 justify-center bg-(--ui-bg-muted) rounded-xl">
+    <div class="px-0 py-0 flex flex-row gap-0 justify-center bg-(--ui-bg-elevated) rounded-xl">
       <UButton
         v-if="channel?.isDeliveryAvailable"
         class="w-full justify-center"

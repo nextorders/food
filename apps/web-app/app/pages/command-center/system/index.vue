@@ -8,9 +8,14 @@
           {{ t('center.data.general-title') }}
         </h2>
 
-        <UiButton class="w-full md:w-fit" @click="isUpdateChannelOpened = true">
+        <UButton
+          size="md"
+          variant="gradient"
+          class="w-full md:w-fit"
+          @click="isUpdateChannelOpened = true"
+        >
           {{ t('center.edit.title') }}
-        </UiButton>
+        </UButton>
       </div>
 
       <div class="w-full md:max-w-sm flex flex-col gap-2">
@@ -67,9 +72,14 @@
           {{ t('center.data.online-ordering-time-title') }}
         </h2>
 
-        <UiButton class="w-full md:w-fit" @click="isUpdateWorkingDaysOpened = true">
+        <UButton
+          size="md"
+          variant="gradient"
+          class="w-full md:w-fit"
+          @click="isUpdateWorkingDaysOpened = true"
+        >
           {{ t('center.edit.title') }}
-        </UiButton>
+        </UButton>
       </div>
 
       <div class="space-y-2 w-full md:max-w-sm">
