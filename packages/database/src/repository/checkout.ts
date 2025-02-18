@@ -1,5 +1,5 @@
 import type { CheckoutDraft } from '../types'
-import { asc, desc, eq } from 'drizzle-orm'
+import { asc, desc, eq, sql } from 'drizzle-orm'
 import { useDatabase } from '../database'
 import { checkoutLines, checkouts } from '../tables'
 
@@ -112,8 +112,8 @@ export class Checkout {
 
       await tx.update(checkouts)
         .set({
-          updatedAt: new Date().toString(),
           totalPrice,
+          updatedAt: sql`NOW()`,
         })
         .where(eq(checkouts.id, checkout.id))
     })
