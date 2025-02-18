@@ -8,6 +8,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@date-fns/tz": "catalog:",
     "@dicebear/collection": "catalog:",
     "@dicebear/core": "catalog:",
     "@next-orders/database": "workspace:*",

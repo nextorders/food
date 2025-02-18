@@ -13,7 +13,6 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@date-fns/tz": "catalog:",
     "@neoconfetti/vue": "catalog:",
     "@next-orders/core": "workspace:*",
     "@next-orders/database": "workspace:*",

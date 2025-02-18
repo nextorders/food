@@ -4,17 +4,18 @@
       {{ category?.name }}
     </h2>
 
-    <NuxtLink :to="`/catalog/${category?.slug}`">
-      <UiButton variant="secondary" class="bg-neutral-200">
-        <div class="flex flex-row gap-2 items-center">
-          {{ $t('app.open-category') }} <Icon :name="icons.arrowRight" />
-        </div>
-      </UiButton>
-    </NuxtLink>
+    <UButton
+      :to="`/catalog/${category?.slug}`"
+      size="lg"
+      variant="soft"
+      trailing-icon="food:arrow-right"
+    >
+      {{ $t('app.open-category') }}
+    </UButton>
   </div>
 
   <div
-    class="mb-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-2"
+    class="mb-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-6"
   >
     <ProductCard
       v-for="product in categoryProducts"
@@ -31,7 +32,6 @@ const { categoryId } = defineProps<{
   isFirst?: boolean
 }>()
 
-const { icons } = useAppConfig()
 const { categories } = await useChannel()
 const category = computed(() => categories.value.find(({ id }) => id === categoryId))
 const categoryProducts = computed(() => category.value?.products.filter((p) => p.variants.length > 0).splice(0, 8))

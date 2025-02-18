@@ -1,6 +1,6 @@
 <template>
   <ClientOnly>
-    <div v-if="checkout" class="relative bg-white dark:bg-neutral-600 rounded-2xl px-4 py-4 h-full flex flex-col justify-between">
+    <div v-if="checkout" class="relative rounded-2xl border border-(--ui-border) px-4 py-4 h-full flex flex-col justify-between">
       <div class="h-screen overflow-y-auto">
         <div class="mb-48">
           <div class="mb-4 flex flex-row justify-between items-center">
@@ -47,14 +47,17 @@
         </button>
 
         <div v-if="!isEmpty" class="my-4 mx-4">
-          <NuxtLink to="/checkout">
-            <UiButton class="py-4 flex flex-row gap-2 flex-wrap justify-between items-center">
-              <p>{{ $t('app.cart.next-label') }}</p>
-              <div class="text-lg tracking-tight">
-                {{ getLocalizedPrice(checkout?.totalPrice) }} <span class="text-base">{{ getCurrencySign(channel?.currencyCode) }}</span>
-              </div>
-            </UiButton>
-          </NuxtLink>
+          <UButton
+            to="/checkout"
+            variant="gradient"
+            size="xl"
+            class="w-full justify-between items-center"
+          >
+            <p>{{ $t('app.cart.next-label') }}</p>
+            <div class="text-lg tracking-tight">
+              {{ getLocalizedPrice(checkout?.totalPrice) }} <span class="text-base">{{ getCurrencySign(channel?.currencyCode) }}</span>
+            </div>
+          </UButton>
         </div>
       </div>
     </div>

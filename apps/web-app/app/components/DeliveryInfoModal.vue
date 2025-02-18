@@ -21,13 +21,13 @@
       </div>
     </div>
 
-    <UiButton
-      variant="secondary"
+    <UButton
+      variant="soft"
       class="mt-4"
       @click="isDeliveryInfoModalOpened = false"
     >
       {{ $t('common.ok') }}
-    </UiButton>
+    </UButton>
   </UiModal>
 </template>
 

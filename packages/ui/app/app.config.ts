@@ -12,6 +12,8 @@ export default defineAppConfig({
       'food:loader': 'lucide:loader-circle',
       'food:arrow-right': 'lucide:arrow-right',
       'food:arrow-left': 'lucide:arrow-left',
+      'food:plus': 'lucide:plus',
+      'food:minus': 'lucide:minus',
       'food:undo': 'lucide:undo-2',
       'food:home': 'lucide:home',
       'food:brand-assets': 'lucide:text-select',

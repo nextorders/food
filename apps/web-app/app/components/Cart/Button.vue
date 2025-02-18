@@ -1,15 +1,17 @@
 <template>
   <ClientOnly>
     <div v-if="!isEmpty" class="block xl:hidden">
-      <UiButton
-        class="px-4 flex flex-row gap-2 items-center"
+      <UButton
+        variant="gradient"
+        size="lg"
+        class="items-center"
         @click="isCartDrawerOpened = !isCartDrawerOpened"
       >
         <p>{{ $t('app.cart.title') }}</p>
-        <div class="rounded-full bg-white w-6 h-6 text-center">
+        <div class="rounded-full bg-white size-6 text-center">
           {{ checkout?.lines?.length }}
         </div>
-      </UiButton>
+      </UButton>
     </div>
   </ClientOnly>
 </template>

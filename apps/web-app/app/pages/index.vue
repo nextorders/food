@@ -5,7 +5,7 @@
   <h1 class="mb-2 text-3xl font-medium">
     {{ channel?.name }}
   </h1>
-  <div class="mb-6">
+  <div class="mb-8">
     {{ channel?.description }}
   </div>
 
