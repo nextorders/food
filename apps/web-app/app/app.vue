@@ -1,5 +1,9 @@
 <template>
-  <UApp :locale="locales[locale]" class="min-h-dvh">
+  <UApp
+    :locale="locales[locale]"
+    :tooltip="{ delayDuration: 0 }"
+    class="min-h-dvh"
+  >
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

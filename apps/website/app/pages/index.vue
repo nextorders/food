@@ -7,16 +7,16 @@
     </div>
 
     <div class="flex items-center justify-center group">
-      <img
+      <NuxtImg
         src="/mike/idle.png"
         alt=""
         class="h-40 w-40 group-hover:-translate-x-8 duration-200"
-      >
-      <img
+      />
+      <NuxtImg
         src="/jake/idle.png"
         alt=""
         class="h-40 w-40 scale-x-[-1] group-hover:translate-x-8 duration-200"
-      >
+      />
     </div>
 
     <div class="space-y-6 mt-10 text-lg">

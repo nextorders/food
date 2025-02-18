@@ -26,7 +26,6 @@
   "devDependencies": {
     "@types/node": "catalog:",
     "nuxt": "catalog:",
-    "shadcn-nuxt": "catalog:",
-    "vue-tsc": "catalog:"
+    "shadcn-nuxt": "catalog:"
   }
 }
