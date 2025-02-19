@@ -3,7 +3,6 @@ function _useApp() {
 
   const isNavbarOpened = ref(false)
   const isCartDrawerOpened = ref(false)
-  const isDeliveryInfoModalOpened = ref(false)
   const searchQuery = ref('')
 
   watch(
@@ -11,7 +10,6 @@ function _useApp() {
     () => {
       isNavbarOpened.value = false
       isCartDrawerOpened.value = false
-      isDeliveryInfoModalOpened.value = false
       searchQuery.value = ''
     },
   )
@@ -19,7 +17,6 @@ function _useApp() {
   return {
     isNavbarOpened,
     isCartDrawerOpened,
-    isDeliveryInfoModalOpened,
     searchQuery,
   }
 }

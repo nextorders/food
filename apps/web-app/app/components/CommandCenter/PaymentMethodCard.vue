@@ -1,15 +1,15 @@
 <template>
-  <UiActiveCard class="relative min-h-28 text-center flex flex-col items-center justify-center">
-    <Icon :name="icons.moneyCard" class="w-8 h-8 text-neutral-300 dark:text-neutral-500" />
+  <div class="bg-(--ui-bg-muted) relative min-h-28 text-center flex flex-col items-center justify-center">
+    <Icon :name="icons.moneyCard" class="size-8 text-(--ui-text-dimmed)" />
 
     <h3 class="text-lg font-semibold leading-tight">
       {{ paymentMethod?.name }}
     </h3>
 
-    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+    <p class="text-sm text-(--ui-text-muted)">
       {{ paymentMethod?.type }}
     </p>
-  </UiActiveCard>
+  </div>
 </template>
 
 <script setup lang="ts">

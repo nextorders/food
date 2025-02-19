@@ -1,39 +1,37 @@
 <template>
   <NuxtLink :to="`/command-center/product/${productId}`">
-    <UiActiveCard :class="{ 'opacity-75': isWarning }">
-      <div class="flex flex-col justify-between h-full">
-        <div class="relative w-full aspect-square">
-          <div class="z-10 absolute top-1 left-1">
-            <div v-if="isWarning" class="px-2 py-1 bg-white rounded-xl">
-              <Icon :name="icons.alert" class="w-8 h-8 text-amber-500" />
-            </div>
+    <div class="bg-(--ui-bg-muted) flex flex-col justify-between h-full">
+      <div class="relative w-full aspect-square">
+        <div class="z-10 absolute top-1 left-1">
+          <div v-if="isWarning" class="px-2 py-1 bg-white rounded-xl">
+            <Icon :name="icons.alert" class="size-8 text-(--ui-warning)" />
           </div>
-
-          <ProductImage :id="product?.mediaId" size="sm" />
         </div>
 
-        <div class="h-full flex flex-col justify-between">
-          <p class="mt-2 text-lg leading-tight line-clamp-2">
-            {{ product?.name }}
-          </p>
+        <ProductImage :id="product?.mediaId" size="sm" />
+      </div>
 
-          <div class="mt-4">
-            <div
-              v-for="variant in product?.variants"
-              :key="variant.id"
-              class="flex justify-between"
-            >
-              <p class="text-neutral-500 dark:text-white">
-                {{ variant.weightValue }}{{ getWeightLocalizedUnit(variant.weightUnit) }}
-              </p>
-              <p class="font-medium">
-                {{ getLocalizedPrice(variant.gross) }}<span class="pl-1 text-xs">{{ getCurrencySign(channel?.currencyCode) }}</span>
-              </p>
-            </div>
+      <div class="h-full flex flex-col justify-between">
+        <p class="mt-2 text-lg leading-tight line-clamp-2">
+          {{ product?.name }}
+        </p>
+
+        <div class="mt-4">
+          <div
+            v-for="variant in product?.variants"
+            :key="variant.id"
+            class="flex justify-between"
+          >
+            <p class="text-(--ui-text-muted)">
+              {{ variant.weightValue }}{{ getWeightLocalizedUnit(variant.weightUnit) }}
+            </p>
+            <p class="font-medium">
+              {{ formatNumberToLocal(variant.gross) }}<span class="pl-1 text-xs">{{ getCurrencySign(channel?.currencyCode) }}</span>
+            </p>
           </div>
         </div>
       </div>
-    </UiActiveCard>
+    </div>
   </NuxtLink>
 </template>
 

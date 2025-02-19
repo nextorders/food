@@ -1,13 +1,13 @@
 <template>
-  <UiActiveCard class="relative min-h-36 text-center flex flex-col items-center justify-center">
-    <Icon :name="icons.house" class="w-12 h-12 mb-2 text-neutral-300 dark:text-neutral-500" />
+  <div class="bg-(--ui-bg-muted) relative min-h-36 text-center flex flex-col items-center justify-center">
+    <Icon :name="icons.house" class="size-12 mb-2 text-(--ui-text-dimmed)" />
 
     <h3 class="text-xl font-semibold">
       {{ warehouse?.name }}
     </h3>
 
     <div>{{ warehouse?.address }}</div>
-  </UiActiveCard>
+  </div>
 </template>
 
 <script setup lang="ts">

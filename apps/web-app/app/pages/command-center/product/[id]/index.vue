@@ -64,10 +64,10 @@
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-      <UiActiveCard
+      <div
         v-for="variant in product?.variants"
         :key="variant.id"
-        class="space-y-2 flex flex-col justify-between"
+        class="bg-(--ui-bg-muted) space-y-2 flex flex-col justify-between"
         @click="() => { productVariantId = variant.id; isUpdateProductVariantOpened = true }"
       >
         <div class="text-lg font-medium md:leading-tight text-center">
@@ -76,7 +76,7 @@
 
         <div class="flex flex-row flex-nowrap gap-6 items-center justify-center">
           <div class="text-neutral-500">
-            {{ getLocalizedPrice(variant.gross) }} {{ getCurrencySign(channel?.currencyCode) }}
+            {{ formatNumberToLocal(variant.gross) }} {{ getCurrencySign(channel?.currencyCode) }}
           </div>
           <div class="text-neutral-500">
             {{ variant.weightValue }}{{ getWeightLocalizedUnit(variant.weightUnit) }}
@@ -97,21 +97,19 @@
             {{ variant.carbohydrate }}{{ $t('common.abbreviation.g') }}
           </div>
         </div>
-      </UiActiveCard>
+      </div>
 
-      <UiActiveCard @click="isCreateProductVariantOpened = true">
-        <div class="h-full flex flex-row gap-3 justify-center items-center">
-          <NuxtImg
-            src="/img/green-notebook.png"
-            alt=""
-            class="size-10"
-          />
+      <div class="bg-(--ui-bg-muted) h-full flex flex-row gap-3 justify-center items-center" @click="isCreateProductVariantOpened = true">
+        <NuxtImg
+          src="/img/green-notebook.png"
+          alt=""
+          class="size-10"
+        />
 
-          <div class="text-lg leading-tight">
-            {{ $t('center.create.title') }}
-          </div>
+        <div class="text-lg leading-tight">
+          {{ $t('center.create.title') }}
         </div>
-      </UiActiveCard>
+      </div>
     </div>
   </div>
 

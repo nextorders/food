@@ -1,14 +1,10 @@
 <template>
-  <form class="flex flex-row items-center gap-3">
-    <UiSwitch
-      :id="`${method}-switch`"
-      :default-checked="isActive"
-      @update:checked="onSubmit()"
-    />
-    <UiLabel :for="`${method}-switch`" class="text-base font-medium min-w-28 leading-tight">
-      {{ method === 'DELIVERY' ? $t('app.cart.delivery') : $t('app.cart.pickup') }}
-    </UiLabel>
-  </form>
+  <USwitch
+    size="xl"
+    :label="method === 'DELIVERY' ? $t('app.cart.delivery') : $t('app.cart.pickup')"
+    :default-value="isActive"
+    @change="onSubmit"
+  />
 </template>
 
 <script setup lang="ts">
@@ -26,7 +22,7 @@ const { refresh: refreshChannelData } = await useChannel()
 async function onSubmit() {
   const { data, error } = await useAsyncData(
     'update-channel-receiving-method',
-    () => $fetch('/api/warehouse', {
+    () => $fetch('/api/channel/receiving-method', {
       method: 'POST',
       body: { method },
     }),

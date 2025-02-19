@@ -1,16 +1,10 @@
-export function getLocalizedPrice(value?: number): string {
+export function formatNumberToLocal(value?: number): string {
   if (!value) {
     return ''
   }
 
-  const remainder = value - Number.parseInt(value.toString())
-  if (remainder > 0) {
-    // Have some digits after dot: return as Decimal
-    return value.toFixed(2)
-  }
-
-  // As it is: for RUB, currency with an integer
-  return value.toString()
+  const { locale } = useI18n()
+  return new Intl.NumberFormat(locale.value).format(value)
 }
 
 export function getCurrencySign<CurrencyLiteral = string & object>(code?: CurrencyCode | CurrencyLiteral): string {

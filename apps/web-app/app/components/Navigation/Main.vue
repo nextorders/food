@@ -22,7 +22,7 @@
 
         <button
           class="flex flex-row gap-2 items-center active:scale-95 lg:hover:scale-95 lg:active:scale-90 duration-200"
-          @click="isDeliveryInfoModalOpened = !isDeliveryInfoModalOpened"
+          @click="modal.open(ModalDeliveryInfo)"
         >
           <Icon :name="icons.link" /> {{ $t('app.show-details-label') }}
         </button>
@@ -51,8 +51,10 @@
 </template>
 
 <script setup lang="ts">
-const { isDeliveryInfoModalOpened } = useApp()
+import { ModalDeliveryInfo } from '#components'
+
 const { icons } = useAppConfig()
 const { channel, categoriesWithProducts } = await useChannel()
 const { checkout } = useCheckout()
+const modal = useModal()
 </script>

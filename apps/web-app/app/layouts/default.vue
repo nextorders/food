@@ -9,7 +9,6 @@
       </NuxtErrorBoundary>
     </UContainer>
 
-    <DeliveryInfoModal />
     <CartDrawer />
     <Footer />
   </main>

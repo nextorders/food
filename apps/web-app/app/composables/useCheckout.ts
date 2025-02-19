@@ -5,6 +5,7 @@ function _useCheckout() {
   })
 
   const isEmpty = computed(() => !data.value || data.value?.lines?.length === 0)
+  const total = computed(() => formatNumberToLocal(data.value?.totalPrice ?? 0))
 
   const addProduct = async (productVariantId: string) => {
     try {
@@ -56,7 +57,7 @@ function _useCheckout() {
     }
   }
 
-  return { checkout: data, isEmpty, addProduct, update, changeLineQuantity }
+  return { checkout: data, total, isEmpty, addProduct, update, changeLineQuantity }
 }
 
 export const useCheckout = createSharedComposable(_useCheckout)

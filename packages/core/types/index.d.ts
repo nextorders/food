@@ -148,7 +148,7 @@ declare global {
   interface CheckoutDraft extends Pick<Checkout, 'name' | 'phone' | 'paymentMethodId' | 'note' | 'time' | 'change' | 'warehouseId' | 'street' | 'flat' | 'doorphone' | 'entrance' | 'floor'> {
     time: number
     note: string | undefined
-    change: string | undefined
+    change: number
     warehouseId: string | undefined
     street: string | undefined
     flat: string | undefined

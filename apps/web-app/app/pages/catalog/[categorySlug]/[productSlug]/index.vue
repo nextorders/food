@@ -124,7 +124,7 @@ const variantId = ref(product.value?.variants[0]?.id)
 const withSingleVariant = computed(() => product.value?.variants.length === 1)
 const selectedVariant = computed(() => product.value?.variants.find(({ id }) => id === variantId.value))
 
-const price = computed(() => getLocalizedPrice(selectedVariant.value?.gross))
+const price = computed(() => formatNumberToLocal(selectedVariant.value?.gross))
 const weightValue = computed(() => selectedVariant.value?.weightValue)
 const weightUnit = computed(() => getWeightLocalizedUnit(selectedVariant.value?.weightUnit))
 

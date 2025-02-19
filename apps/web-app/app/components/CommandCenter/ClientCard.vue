@@ -1,20 +1,18 @@
 <template>
   <NuxtLink :to="`/command-center/client/${id}`">
-    <UiActiveCard>
-      <div class="relative">
-        <img
-          :src="clientAvatarURL"
-          alt="Client"
-          width="300"
-          height="300"
-          class="w-full aspect-square rounded-xl"
-        >
-      </div>
+    <div class="bg-(--ui-bg-muted) relative">
+      <img
+        :src="clientAvatarURL"
+        alt="Client"
+        width="300"
+        height="300"
+        class="w-full aspect-square rounded-xl"
+      >
+    </div>
 
-      <div class="mt-2 text-base font-medium leading-tight text-center">
-        {{ firstName }}
-      </div>
-    </UiActiveCard>
+    <div class="mt-2 text-base font-medium leading-tight text-center">
+      {{ firstName }}
+    </div>
   </NuxtLink>
 </template>
 

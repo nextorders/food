@@ -53,7 +53,7 @@ const product = computed(() => products.value?.find(({ id }) => id === productId
 const withSingleVariant = computed(() => product.value?.variants.length === 1)
 const smallestVariant = computed(() => withSingleVariant.value ? product.value?.variants[0] : product.value?.variants.reduce((prev, curr) => (prev.gross < curr.gross ? prev : curr)))
 
-const price = computed(() => getLocalizedPrice(smallestVariant.value?.gross))
+const price = computed(() => formatNumberToLocal(smallestVariant.value?.gross))
 const weightValue = computed(() => smallestVariant.value?.weightValue)
 const weightUnit = computed(() => getWeightLocalizedUnit(smallestVariant.value?.weightUnit))
 

@@ -7,106 +7,85 @@
 
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
         <div class="col-span-full md:col-span-7 space-y-6">
-          <div class="p-3 md:p-6 bg-(--ui-bg-muted) rounded-3xl space-y-5">
-            <CartDeliveryMethodSwitch />
-
-            <div class="w-full">
-              <h3 class="mb-2 text-lg md:text-xl font-medium">
+          <div class="p-3 md:p-6 bg-(--ui-bg-muted) rounded-3xl flex flex-col gap-4">
+            <div class="flex flex-col gap-2">
+              <h3 class="text-lg md:text-xl font-medium">
                 {{ $t('app.checkout.contacts') }}
               </h3>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                <UiInput
+                <UInput
                   v-model="remainingCheckout.phone"
                   type="tel"
-                  name="phone"
-                  :placeholder="$t('app.checkout.your-phone')"
+                  size="xl"
                   maxlength="17"
-                  :class="{ '!outline-emerald-500': isValidPhone }"
+                  :class="{ '!ring-(--ui-success)': isValidPhone }"
+                  :placeholder="$t('app.checkout.your-phone')"
                   @change="formatPhone"
                 />
 
-                <UiInput
+                <UInput
                   v-model="remainingCheckout.name"
-                  name="name"
+                  size="xl"
                   :placeholder="$t('app.checkout.your-name')"
                 />
               </div>
             </div>
 
-            <div v-if="checkout?.deliveryMethod === 'DELIVERY'" class="w-full">
-              <h3 class="mb-2 text-lg md:text-xl font-medium">
+            <div v-if="checkout?.deliveryMethod === 'DELIVERY'" class="flex flex-col gap-2">
+              <h3 class="text-lg md:text-xl font-medium">
                 {{ $t('app.checkout.enter-address') }}
               </h3>
-              <UiLabel for="street">
-                {{ $t('app.checkout.address.street') }}
-              </UiLabel>
-              <UiInput
-                id="street"
-                v-model="remainingCheckout.street"
-                name="street"
-              />
+              <UFormField :label="$t('app.checkout.address.street')">
+                <UInput
+                  v-model="remainingCheckout.street"
+                  size="xl"
+                  class="w-full"
+                />
+              </UFormField>
 
-              <div class="mt-2 mb-2 grid grid-cols-2 md:grid-cols-4 gap-2">
-                <div>
-                  <UiLabel for="flat">
-                    {{ $t('app.checkout.address.flat') }}
-                  </UiLabel>
-                  <UiInput
-                    id="flat"
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                <UFormField :label="$t('app.checkout.address.flat')">
+                  <UInput
                     v-model="remainingCheckout.flat"
-                    name="flat"
+                    size="xl"
                   />
-                </div>
+                </UFormField>
 
-                <div>
-                  <UiLabel for="doorphone">
-                    {{ $t('app.checkout.address.doorphone') }}
-                  </UiLabel>
-                  <UiInput
-                    id="doorphone"
+                <UFormField :label="$t('app.checkout.address.doorphone')">
+                  <UInput
                     v-model="remainingCheckout.doorphone"
-                    name="doorphone"
+                    size="xl"
                   />
-                </div>
+                </UFormField>
 
-                <div>
-                  <UiLabel for="entrance">
-                    {{ $t('app.checkout.address.entrance') }}
-                  </UiLabel>
-                  <UiInput
-                    id="entrance"
+                <UFormField :label="$t('app.checkout.address.entrance')">
+                  <UInput
                     v-model="remainingCheckout.entrance"
-                    name="entrance"
+                    size="xl"
                   />
-                </div>
+                </UFormField>
 
-                <div>
-                  <UiLabel for="floor">
-                    {{ $t('app.checkout.address.floor') }}
-                  </UiLabel>
-                  <UiInput
-                    id="floor"
+                <UFormField :label="$t('app.checkout.address.floor')">
+                  <UInput
                     v-model="remainingCheckout.floor"
-                    name="floor"
+                    size="xl"
                   />
-                </div>
+                </UFormField>
               </div>
 
-              <div>
-                <UiLabel for="address-note">
-                  {{ $t('app.checkout.address.note') }}
-                </UiLabel>
-                <UiTextarea
-                  id="address-note"
+              <UFormField :label="$t('app.checkout.address.note')">
+                <UTextarea
                   v-model="remainingCheckout.addressNote"
-                  name="address-note"
+                  size="xl"
+                  class="w-full"
                   :placeholder="$t('app.checkout.address.note-placeholder')"
                 />
-              </div>
+              </UFormField>
             </div>
-            <div v-if="checkout?.deliveryMethod === 'WAREHOUSE'">
-              <h3 class="mb-2 text-lg md:text-xl font-medium">
+
+            <div v-if="checkout?.deliveryMethod === 'WAREHOUSE'" class="flex flex-col gap-2">
+              <h3 class="text-lg md:text-xl font-medium">
                 {{ $t('app.checkout.select-address') }}
               </h3>
 
@@ -120,8 +99,8 @@
               />
             </div>
 
-            <div class="w-full">
-              <h3 class="mb-2 text-lg md:text-xl font-medium">
+            <div class="flex flex-col gap-2">
+              <h3 class="text-lg md:text-xl font-medium">
                 {{ $t('app.checkout.time-title') }}
               </h3>
 
@@ -139,8 +118,8 @@
             </div>
           </div>
 
-          <div class="p-3 md:p-6 bg-(--ui-bg-muted) rounded-3xl">
-            <h2 class="mb-4 text-xl md:text-2xl font-medium">
+          <div class="p-3 md:p-6 bg-(--ui-bg-muted) rounded-3xl flex flex-col gap-4">
+            <h2 class="text-xl md:text-2xl font-medium">
               {{ $t('app.checkout.order-title') }}
             </h2>
 
@@ -150,89 +129,76 @@
               :line="line"
             />
 
-            <div class="mt-4">
-              <UiLabel for="note">
-                {{ $t('app.checkout.order-note') }}
-              </UiLabel>
-              <UiTextarea
-                id="note"
+            <UFormField :label="$t('app.checkout.order-note')">
+              <UTextarea
                 v-model="remainingCheckout.note"
-                name="note"
+                size="xl"
+                class="w-full"
                 :placeholder="$t('app.checkout.order-note-placeholder')"
               />
-            </div>
+            </UFormField>
           </div>
         </div>
 
         <div class="col-span-full md:col-span-5 h-fit sticky top-20">
-          <div class="mb-6 p-3 md:p-6 bg-(--ui-bg-muted) rounded-3xl space-y-5">
-            <div>
-              <h3 class="mb-2 text-lg md:text-xl font-medium">
+          <div class="mb-6 px-3 md:px-6 flex flex-col gap-5">
+            <CartDeliveryMethodSwitch />
+
+            <div class="space-y-2">
+              <h3 class="text-lg md:text-xl font-medium">
                 {{ $t('app.checkout.payment-title') }}
               </h3>
 
-              <div class="grid grid-cols-2 md:grid-cols-2 gap-2">
-                <UButton
-                  v-for="method in paymentMethods"
-                  :key="method.type"
-                  variant="soft"
-                  color="neutral"
-                  class="relative w-full min-h-14 justify-center items-center"
-                  @click="remainingCheckout.paymentMethodId = method.id"
-                >
-                  <UiCheckBadge v-if="remainingCheckout.paymentMethodId === method.id" />
-                  <Icon
-                    :name="method.type === 'CASH' ? icons.moneyCash : icons.moneyCard"
-                    class="w-8 h-8 text-neutral-300"
-                    :class="{ '!text-emerald-500': method.id === remainingCheckout.paymentMethodId }"
-                  />
-                  <p class="font-medium leading-tight break-all">
-                    {{ method.name }}
-                  </p>
-                </UButton>
-              </div>
+              <USelect
+                v-model="remainingCheckout.paymentMethodId"
+                :items="paymentMethods?.map(paymentMethod => ({ label: paymentMethod.name, value: paymentMethod.id }))"
+                :placeholder="$t('common.select')"
+                size="xl"
+                icon="food:cash"
+                class="w-full"
+              />
 
-              <div v-if="selectedPaymentMethod?.type === 'CASH'" class="mt-4">
-                <UiLabel for="change">
-                  {{ $t('app.checkout.change-label') }}?
-                </UiLabel>
-                <UiInput
-                  id="change"
+              <UFormField v-if="selectedPaymentMethod?.type === 'CASH'" :label="$t('app.checkout.change-label')">
+                <UInputNumber
                   v-model="remainingCheckout.change"
-                  name="change"
+                  size="xl"
+                  orientation="vertical"
+                  class="w-full"
+                  :min="0"
                   :placeholder="getCurrencySign(channel?.currencyCode)"
                 />
-              </div>
+              </UFormField>
             </div>
 
-            <div>
-              <h3 class="mb-2 text-lg md:text-xl font-medium">
+            <div class="space-y-2">
+              <h3 class="text-lg md:text-xl font-medium">
                 {{ $t('app.checkout.total-title') }}
               </h3>
 
-              <div>
-                <div class="flex flex-row justify-between text-lg">
-                  <div>{{ $t('app.checkout.cost.products') }}</div>
-                  <div class="tracking-tight">
-                    {{ getLocalizedPrice(checkout?.totalPrice) }} <span class="text-sm">{{ getCurrencySign(channel?.currencyCode) }}</span>
-                  </div>
-                </div>
-                <div v-if="checkout?.deliveryMethod === 'DELIVERY'" class="mt-4 leading-tight flex flex-row flex-nowrap gap-2 items-center text-neutral-500 dark:text-neutral-300">
-                  <Icon :name="icons.info" class="w-8 h-8 flex-shrink-0" />
-                  <p>{{ $t('app.checkout.info-shipping-price') }}</p>
+              <div class="flex flex-row justify-between text-lg">
+                <div>{{ $t('app.checkout.cost.products') }}</div>
+                <div class="tracking-tight">
+                  {{ total }} <span class="text-sm">{{ getCurrencySign(channel?.currencyCode) }}</span>
                 </div>
               </div>
             </div>
 
-            <div v-if="!isValidCheckout" class="text-amber-600">
-              <div v-if="!isOkForData" class="leading-tight flex flex-row flex-nowrap gap-2 items-center">
-                <Icon :name="icons.alert" class="w-8 h-8 flex-shrink-0" />
-                <p>{{ $t('app.checkout.warning-data') }}</p>
-              </div>
-              <div v-if="!isOkForAmount" class="leading-tight flex flex-row flex-nowrap gap-2 items-center">
-                <Icon :name="icons.alert" class="w-8 h-8 flex-shrink-0" />
-                <p>{{ $t('app.minimum-order-value') }}: {{ channel?.minAmountForDelivery }} {{ getCurrencySign(channel?.currencyCode) }}</p>
-              </div>
+            <div class="space-y-3">
+              <CheckoutInfoMessage
+                v-if="checkout?.deliveryMethod === 'DELIVERY'"
+                icon="info"
+                :message="$t('app.checkout.info-shipping-price')"
+              />
+              <CheckoutInfoMessage
+                v-if="!isValidCheckout && !isOkForData"
+                icon="alert"
+                :message="$t('app.checkout.warning-data')"
+              />
+              <CheckoutInfoMessage
+                v-if="!isValidCheckout && !isOkForAmount"
+                icon="alert"
+                :message="`${$t('app.minimum-order-value')}: ${channel?.minAmountForDelivery} ${getCurrencySign(channel?.currencyCode)}`"
+              />
             </div>
 
             <div class="flex flex-row flex-nowrap gap-4 items-center">
@@ -247,7 +213,7 @@
               </UButton>
 
               <div class="font-medium text-right text-2xl min-w-[5rem] tracking-tight">
-                {{ totalPrice }} <span class="text-base">{{ getCurrencySign(channel?.currencyCode) }}</span>
+                {{ total }} <span class="text-base">{{ getCurrencySign(channel?.currencyCode) }}</span>
               </div>
             </div>
           </div>
@@ -284,17 +250,17 @@ definePageMeta({
 
 const { icons } = useAppConfig()
 const { channel } = await useChannel()
-const { checkout, update } = useCheckout()
+const { checkout, total, update } = useCheckout()
 const { slots } = useTime()
 
 const countryCode = computed(() => channel.value?.countryCode as CountryCode)
 const paymentMethods = computed(() => channel.value?.paymentMethods)
 
-const remainingCheckout = reactive<CheckoutDraft>({
+const remainingCheckout = ref<CheckoutDraft>({
   name: '',
   phone: '',
   time: 0,
-  change: undefined,
+  change: checkout.value?.totalPrice ?? 0,
   note: undefined,
   warehouseId: undefined,
   street: undefined,
@@ -307,52 +273,51 @@ const remainingCheckout = reactive<CheckoutDraft>({
 })
 
 const haveProblemWithOrder = computed(() => !checkout.value?.lines.length || (!channel.value?.isPickupAvailable && !channel.value?.isDeliveryAvailable))
-const isOkForData = computed(() => !!remainingCheckout.name && !!remainingCheckout.phone && !!remainingCheckout.paymentMethodId && (checkout.value?.deliveryMethod === 'DELIVERY' ? !!remainingCheckout.street : true) && (checkout.value?.deliveryMethod === 'WAREHOUSE' ? !!remainingCheckout.warehouseId : true))
+const isOkForData = computed(() => !!remainingCheckout.value.name && !!remainingCheckout.value.phone && !!remainingCheckout.value.paymentMethodId && (checkout.value?.deliveryMethod === 'DELIVERY' ? !!remainingCheckout.value.street : true) && (checkout.value?.deliveryMethod === 'WAREHOUSE' ? !!remainingCheckout.value.warehouseId : true))
 const isOkForAmount = computed<boolean>(() => checkout.value?.deliveryMethod === 'DELIVERY' && channel.value?.minAmountForDelivery ? channel.value?.minAmountForDelivery <= (checkout.value?.totalPrice || 0) : true)
 const isValidCheckout = computed(() => isOkForAmount.value && isOkForData.value)
 const isValidPhone = ref(false)
-const selectedPaymentMethod = computed(() => paymentMethods.value?.find((m) => m.id === remainingCheckout.paymentMethodId))
-const totalPrice = computed(() => getLocalizedPrice(checkout.value?.totalPrice) ?? 0)
+const selectedPaymentMethod = computed(() => paymentMethods.value?.find((m) => m.id === remainingCheckout.value.paymentMethodId))
 
 watch(
-  () => remainingCheckout.phone,
+  () => remainingCheckout.value.phone,
   () => {
-    if (!remainingCheckout.phone) {
+    if (!remainingCheckout.value.phone) {
       return
     }
-    if (remainingCheckout.phone.length > 17) {
+    if (remainingCheckout.value.phone.length > 17) {
       return
     }
 
-    getPhoneNumberFormatter(countryCode.value).input(remainingCheckout.phone)
-    isValidPhone.value = checkPhoneNumberValidity(remainingCheckout.phone, countryCode.value)
+    getPhoneNumberFormatter(countryCode.value).input(remainingCheckout.value.phone)
+    isValidPhone.value = checkPhoneNumberValidity(remainingCheckout.value.phone, countryCode.value)
   },
 )
 
 function formatPhone() {
-  if (!remainingCheckout.phone) {
+  if (!remainingCheckout.value.phone) {
     return
   }
 
-  getPhoneNumberFormatter(countryCode.value).input(remainingCheckout.phone)
-  remainingCheckout.phone = formatPhoneNumber(remainingCheckout.phone, countryCode.value)
+  getPhoneNumberFormatter(countryCode.value).input(remainingCheckout.value.phone)
+  remainingCheckout.value.phone = formatPhoneNumber(remainingCheckout.value.phone, countryCode.value)
 }
 
 async function updateCheckout() {
   const finishedCheckout = await update({
-    phone: remainingCheckout.phone,
-    name: remainingCheckout.name,
-    warehouseId: remainingCheckout.warehouseId,
-    street: remainingCheckout.street,
-    flat: remainingCheckout.flat,
-    doorphone: remainingCheckout.doorphone,
-    entrance: remainingCheckout.entrance,
-    floor: remainingCheckout.floor,
-    addressNote: remainingCheckout.addressNote,
-    paymentMethodId: remainingCheckout.paymentMethodId,
-    time: remainingCheckout.time,
-    change: remainingCheckout.change,
-    note: remainingCheckout.note,
+    phone: remainingCheckout.value.phone,
+    name: remainingCheckout.value.name,
+    warehouseId: remainingCheckout.value.warehouseId,
+    street: remainingCheckout.value.street,
+    flat: remainingCheckout.value.flat,
+    doorphone: remainingCheckout.value.doorphone,
+    entrance: remainingCheckout.value.entrance,
+    floor: remainingCheckout.value.floor,
+    addressNote: remainingCheckout.value.addressNote,
+    paymentMethodId: remainingCheckout.value.paymentMethodId,
+    time: remainingCheckout.value.time,
+    change: remainingCheckout.value.change ? remainingCheckout.value.change.toString() : undefined,
+    note: remainingCheckout.value.note,
   })
 
   navigateTo(`/finish?id=${finishedCheckout?.result?.id}`)

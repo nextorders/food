@@ -34,15 +34,12 @@
 
       <div class="absolute bottom-0 left-0 right-0 rounded-2xl bg-(--ui-bg-muted)">
         <button
-          class="relative my-4 mx-4 flex flex-row gap-3 flex-wrap items-center active:scale-95 lg:hover:scale-95 lg:active:scale-90 duration-200"
-          @click="isDeliveryInfoModalOpened = !isDeliveryInfoModalOpened"
+          class="relative m-4 flex flex-row gap-2 flex-wrap items-center active:scale-95 lg:hover:scale-95 lg:active:scale-90 duration-200"
+          @click="modal.open(ModalDeliveryInfo)"
         >
-          <Icon :name="icons.info" class="w-6 h-6 text-neutral-300" />
-
-          <div class="text-left">
-            <div class="text-sm text-neutral-500 dark:text-neutral-400">
-              {{ $t('app.cart.conditions') }}
-            </div>
+          <Icon :name="icons.info" class="size-6 text-(--ui-text-dimmed)" />
+          <div class="text-left text-sm text-(--ui-text-muted)">
+            {{ $t('app.cart.conditions') }}
           </div>
         </button>
 
@@ -55,7 +52,7 @@
           >
             <p>{{ $t('app.cart.next-label') }}</p>
             <div class="text-lg tracking-tight">
-              {{ getLocalizedPrice(checkout?.totalPrice) }} <span class="text-base">{{ getCurrencySign(channel?.currencyCode) }}</span>
+              {{ formatNumberToLocal(checkout?.totalPrice) }} <span class="text-base">{{ getCurrencySign(channel?.currencyCode) }}</span>
             </div>
           </UButton>
         </div>
@@ -71,8 +68,11 @@
 </template>
 
 <script setup lang="ts">
-const { isCartDrawerOpened, isDeliveryInfoModalOpened } = useApp()
+import { ModalDeliveryInfo } from '#components'
+
+const { isCartDrawerOpened } = useApp()
 const { icons } = useAppConfig()
 const { channel } = await useChannel()
 const { checkout, isEmpty } = useCheckout()
+const modal = useModal()
 </script>

@@ -16,7 +16,7 @@
           </p>
           <div class="mt-1 flex flex-row gap-2 flex-nowrap">
             <div class="text-sm font-medium tracking-tight">
-              {{ getLocalizedPrice(line?.productVariant.gross) }} <span class="text-xs">{{ getCurrencySign(channel?.currencyCode) }}</span>
+              {{ formatNumberToLocal(line?.productVariant.gross) }} <span class="text-xs">{{ getCurrencySign(channel?.currencyCode) }}</span>
             </div>
             <div class="text-sm text-neutral-500 dark:text-white font-light">
               {{ variant?.weightValue }}{{ getWeightLocalizedUnit(variant?.weightUnit) }}
