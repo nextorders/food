@@ -33,8 +33,6 @@ catalog:
   '@vueuse/nuxt': ^12.7.0
   aws4fetch: ^1.0.20
   bcrypt: ^5.1.1
-  class-variance-authority: ^0.7.0
-  clsx: ^2.1.1
   dotenv: ^16.4.7
   dotenv-cli: ^8.0.0
   drizzle-cuid2: ^2.0.0
@@ -50,10 +48,8 @@ catalog:
   nuxt-zod-i18n: ^1.11.5
   pg: ^8.13.3
   playwright: ^1.50.1
-  radix-vue: ^1.9.7
   semantic-release: ^24.2.3
   semantic-release-monorepo: ^8.0.2
-  shadcn-nuxt: ^0.10.4
   sharp: ^0.33.5
   typescript: ^5.7.3
   unbuild: ^3.3.1
