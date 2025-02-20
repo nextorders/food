@@ -2,7 +2,7 @@
   <CommandCenterStaffBar v-if="user?.isStaff" class="mb-4" />
   <MaintenanceMessage v-if="channel?.isActive === false || !activeMenu || (!channel?.isPickupAvailable && !channel?.isDeliveryAvailable)" />
 
-  <h1 class="mb-2 text-3xl font-medium">
+  <h1 class="mb-2 text-3xl md:text-4xl font-medium">
     {{ channel?.name }}
   </h1>
   <div class="mb-8">

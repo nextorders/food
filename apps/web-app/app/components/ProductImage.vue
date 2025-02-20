@@ -9,7 +9,7 @@
       alt=""
       :loading="lazy ? 'lazy' : 'eager'"
       class="rounded-xl w-full"
-      :src="`/api/file/${id}/${sizePx}.jpg`"
+      :src="`${finalProductUrl}/${id}/${sizePx}.jpg`"
       :sizes="sizes"
       :srcset="srcset"
     >
@@ -40,6 +40,9 @@ const sizesMap = {
 const sizePx = sizesMap[size]
 const sizes = `${sizePx}px`
 
-const srcset = computed(() => `/api/file/${id}/${sizePx}.jpg ${sizePx}w`)
-const srcsetWebp = computed(() => `/api/file/${id}/${sizePx}.webp ${sizePx}w`)
+const { public: publicEnv } = useRuntimeConfig()
+const finalProductUrl = `${publicEnv.mediaUrl}/products`
+
+const srcset = computed(() => `${finalProductUrl}/${id}/${sizePx}.jpg ${sizePx}w`)
+const srcsetWebp = computed(() => `${finalProductUrl}/${id}/${sizePx}.webp ${sizePx}w`)
 </script>

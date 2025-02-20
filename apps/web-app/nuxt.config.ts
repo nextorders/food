@@ -13,8 +13,8 @@ export default defineNuxtConfig({
   css: ['~/assets/css/styles.css'],
   runtimeConfig: {
     channelId: 'burger',
-    storageProductsDirectory: 'products',
     public: {
+      mediaUrl: '',
       projectUrl: 'https://github.com/next-orders/food',
       locale: 'en',
     },

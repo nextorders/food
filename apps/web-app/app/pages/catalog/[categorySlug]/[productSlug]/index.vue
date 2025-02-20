@@ -51,7 +51,7 @@
 
     <div class="mt-6 flex flex-col xl:flex-row justify-between gap-4">
       <div v-if="product?.description">
-        <div class="mb-1 font-medium text-neutral-400">
+        <div class="mb-1 font-medium text-(--ui-text-muted)">
           {{ $t('common.description') }}
         </div>
         <div class="leading-snug">
@@ -60,10 +60,10 @@
       </div>
 
       <div v-if="isNutritionShown">
-        <div class="mb-1 font-medium text-neutral-400">
+        <div class="mb-1 font-medium text-(--ui-text-muted)">
           {{ $t('common.nutrition.value-title') }}
         </div>
-        <div class="mt-2 px-4 py-4 w-fit flex flex-row gap-4 bg-neutral-100 dark:bg-neutral-500 rounded-2xl">
+        <div class="mt-2 p-4 w-fit flex flex-row gap-4 bg-(--ui-bg-muted) rounded-xl">
           <div>
             <div class="font-medium">
               {{ selectedVariant?.calories }}

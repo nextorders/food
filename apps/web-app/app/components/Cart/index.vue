@@ -4,16 +4,16 @@
       <div class="h-screen overflow-y-auto">
         <div class="mb-48">
           <div class="mb-4 flex flex-row justify-between items-center">
-            <p class="text-2xl font-medium">
+            <h3 class="text-2xl font-medium">
               {{ $t('app.cart.title') }}
-            </p>
+            </h3>
 
             <button
               aria-label="Close"
               class="block xl:hidden rounded-xl lg:hover:scale-90 hover:bg-neutral-100 duration-200"
               @click="isCartDrawerOpened = !isCartDrawerOpened"
             >
-              <Icon :name="icons.close" class="w-8 h-8" />
+              <Icon :name="icons.close" class="size-8" />
             </button>
           </div>
 

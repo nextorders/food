@@ -2,12 +2,8 @@
   <div class="mb-4 flex flex-row gap-2 items-center justify-between">
     <NuxtLink :to="productUrl">
       <div class="max-w-[15rem] flex flex-row gap-2 flex-nowrap items-center cursor-pointer active:scale-95 lg:hover:scale-95 lg:active:scale-90 duration-200 group">
-        <div class="relative w-14 h-14 aspect-square">
-          <ProductImage
-            :id="line?.productVariant.product.mediaId"
-            size="xs"
-            class="xl:grayscale xl:contrast-75 xl:brightness-125 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100"
-          />
+        <div class="relative size-14 aspect-square">
+          <ProductImage :id="line?.productVariant.product.mediaId" size="xs" />
         </div>
 
         <div>
@@ -18,7 +14,7 @@
             <div class="text-sm font-medium tracking-tight">
               {{ formatNumberToLocal(line?.productVariant.gross) }} <span class="text-xs">{{ getCurrencySign(channel?.currencyCode) }}</span>
             </div>
-            <div class="text-sm text-neutral-500 dark:text-white font-light">
+            <div class="text-sm text-(--ui-text-muted) font-light">
               {{ variant?.weightValue }}{{ getWeightLocalizedUnit(variant?.weightUnit) }}
             </div>
           </div>
