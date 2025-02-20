@@ -12,7 +12,7 @@
           size="md"
           variant="gradient"
           class="w-full md:w-fit"
-          @click="isUpdateChannelOpened = true"
+          @click="modal.open(ModalUpdateChannel)"
         >
           {{ t('center.edit.title') }}
         </UButton>
@@ -76,7 +76,7 @@
           size="md"
           variant="gradient"
           class="w-full md:w-fit"
-          @click="isUpdateWorkingDaysOpened = true"
+          @click="modal.open(ModalUpdateWorkingDays)"
         >
           {{ t('center.edit.title') }}
         </UButton>
@@ -107,81 +107,28 @@
           v-for="paymentMethod in channel?.paymentMethods"
           :key="paymentMethod.id"
           :payment-method-id="paymentMethod.id"
-          @click="() => { paymentMethodId = paymentMethod.id; isUpdatePaymentMethodOpened = true }"
+          @click="modal.open(ModalUpdateChannelPaymentMethod, { paymentMethodId: paymentMethod.id })"
         />
-        <CommandCenterPaymentMethodCreateCard @click="isCreatePaymentMethodOpened = true" />
+        <CommandCenterPaymentMethodCreateCard @click="modal.open(ModalCreateChannelPaymentMethod)" />
       </div>
     </div>
   </div>
-
-  <UiModal
-    :title="$t('center.update.general-data')"
-    :is-opened="isUpdateChannelOpened"
-    @close="isUpdateChannelOpened = false"
-  >
-    <FormUpdateChannel
-      :is-opened="isUpdateChannelOpened"
-      @submitted="isUpdateChannelOpened = false"
-      @success="isUpdateChannelOpened = false"
-    />
-  </UiModal>
-
-  <UiModal
-    :title="$t('center.update.online-ordering-time')"
-    :is-opened="isUpdateWorkingDaysOpened"
-    @close="isUpdateWorkingDaysOpened = false"
-  >
-    <FormUpdateWorkingDays
-      :is-opened="isUpdateWorkingDaysOpened"
-      @submitted="isUpdateWorkingDaysOpened = false"
-      @success="isUpdateWorkingDaysOpened = false"
-    />
-  </UiModal>
-
-  <UiModal
-    :title="$t('center.create.payment-method')"
-    :is-opened="isCreatePaymentMethodOpened"
-    @close="isCreatePaymentMethodOpened = false"
-  >
-    <FormCreateChannelPaymentMethod :is-opened="isCreatePaymentMethodOpened" @success="isCreatePaymentMethodOpened = false" />
-  </UiModal>
-
-  <UiModal
-    :title="$t('center.update.payment-method')"
-    :is-opened="isUpdatePaymentMethodOpened"
-    @close="isUpdatePaymentMethodOpened = false"
-  >
-    <FormUpdateChannelPaymentMethod
-      :is-opened="isUpdatePaymentMethodOpened"
-      :payment-method-id="paymentMethodId"
-      @submitted="isUpdatePaymentMethodOpened = false"
-      @success="isUpdatePaymentMethodOpened = false"
-    />
-    <FormDeleteChannelPaymentMethod
-      :is-opened="isUpdatePaymentMethodOpened"
-      :payment-method-id="paymentMethodId"
-      @success="isUpdatePaymentMethodOpened = false"
-    />
-  </UiModal>
 </template>
 
 <script setup lang="ts">
+import { ModalCreateChannelPaymentMethod, ModalUpdateChannel, ModalUpdateChannelPaymentMethod, ModalUpdateWorkingDays } from '#components'
+
 definePageMeta({
   layout: 'command-center',
   middleware: ['02-staff'],
 })
 
 const { t } = useI18n()
+const modal = useModal()
 const { channel } = await useChannel()
 
 const breadcrumbs = computed(() => [
   { label: t('common.website'), icon: 'food:home', to: '/' },
   { label: t('center.menu.settings') },
 ])
-
-const isUpdateChannelOpened = ref(false)
-const isUpdateWorkingDaysOpened = ref(false)
-const isCreatePaymentMethodOpened = ref(false)
-const isUpdatePaymentMethodOpened = ref(false)
-const paymentMethodId = ref('')
 </script>

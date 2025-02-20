@@ -1,15 +1,14 @@
 <template>
-  <form class="mt-3" @submit="onSubmit">
-    <UButton
-      type="submit"
-      variant="solid"
-      color="warning"
-      size="xl"
-      class="mt-3 w-full justify-center items-center"
-    >
-      {{ $t('center.delete.title') }}
-    </UButton>
-  </form>
+  <UButton
+    type="submit"
+    variant="soft"
+    color="error"
+    size="xl"
+    class="w-full justify-center items-center"
+    @submit="onSubmit"
+  >
+    {{ $t('center.delete.title') }}
+  </UButton>
 </template>
 
 <script setup lang="ts">

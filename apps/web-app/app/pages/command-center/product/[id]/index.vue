@@ -21,7 +21,7 @@
         variant="gradient"
         size="xl"
         class="justify-center min-w-48"
-        @click="isUpdateProductOpened = true"
+        @click="modal.open(ModalUpdateProduct, { productId: product?.id, redirectTo: menuPageUrl })"
       >
         {{ $t('center.edit.title') }}
       </UButton>
@@ -43,7 +43,7 @@
           size="xl"
           icon="food:image-upload"
           class="p-3 justify-center items-center"
-          @click="isUploadProductImageOpened = true"
+          @click="modal.open(ModalUploadProductImage, { productId: product?.id })"
         />
       </div>
     </div>
@@ -68,7 +68,7 @@
         v-for="variant in product?.variants"
         :key="variant.id"
         class="bg-(--ui-bg-muted) space-y-2 flex flex-col justify-between"
-        @click="() => { productVariantId = variant.id; isUpdateProductVariantOpened = true }"
+        @click="modal.open(ModalUpdateProductVariant, { productId: product?.id, productVariantId: variant.id })"
       >
         <div class="text-lg font-medium md:leading-tight text-center">
           {{ variant.name }}
@@ -99,7 +99,10 @@
         </div>
       </div>
 
-      <div class="bg-(--ui-bg-muted) h-full flex flex-row gap-3 justify-center items-center" @click="isCreateProductVariantOpened = true">
+      <div
+        class="bg-(--ui-bg-muted) h-full flex flex-row gap-3 justify-center items-center"
+        @click="modal.open(ModalCreateProductVariant, { productId: product?.id })"
+      >
         <NuxtImg
           src="/img/green-notebook.png"
           alt=""
@@ -112,71 +115,11 @@
       </div>
     </div>
   </div>
-
-  <UiModal
-    :title="$t('center.update.product-photo')"
-    :is-opened="isUploadProductImageOpened"
-    @close="isUploadProductImageOpened = false"
-  >
-    <FormUploadProductImage
-      :product-id="product?.id ?? ''"
-      :is-opened="isUploadProductImageOpened"
-      @success="isUploadProductImageOpened = false"
-    />
-  </UiModal>
-
-  <UiModal
-    :title="$t('center.update.product')"
-    :is-opened="isUpdateProductOpened"
-    @close="isUpdateProductOpened = false"
-  >
-    <FormUpdateProduct
-      :product-id="product?.id ?? ''"
-      :is-opened="isUpdateProductOpened"
-      @submitted="isUpdateProductOpened = false"
-      @success="isUpdateProductOpened = false"
-    />
-    <FormDeleteProduct
-      :product-id="product?.id ?? ''"
-      :redirect-to="menuPageUrl"
-      :is-opened="isUpdateProductOpened"
-      @success="isUpdateProductOpened = false"
-    />
-  </UiModal>
-
-  <UiModal
-    :title="$t('center.create.product-variant')"
-    :is-opened="isCreateProductVariantOpened"
-    @close="isCreateProductVariantOpened = false"
-  >
-    <FormCreateProductVariant
-      :product-id="product?.id ?? ''"
-      :is-opened="isCreateProductVariantOpened"
-      @success="isCreateProductVariantOpened = false"
-    />
-  </UiModal>
-
-  <UiModal
-    :title="$t('center.update.product-variant')"
-    :is-opened="isUpdateProductVariantOpened"
-    @close="isUpdateProductVariantOpened = false"
-  >
-    <FormUpdateProductVariant
-      :product-id="product?.id ?? ''"
-      :product-variant-id="productVariantId ?? ''"
-      :is-opened="isUpdateProductVariantOpened"
-      @submitted="isUpdateProductVariantOpened = false"
-      @success="isUpdateProductVariantOpened = false"
-    />
-    <FormDeleteProductVariant
-      :product-variant-id="productVariantId ?? ''"
-      :is-opened="isUpdateProductVariantOpened"
-      @success="isUpdateProductVariantOpened = false"
-    />
-  </UiModal>
 </template>
 
 <script setup lang="ts">
+import { ModalCreateProductVariant, ModalUpdateProduct, ModalUpdateProductVariant, ModalUploadProductImage } from '#components'
+
 definePageMeta({
   layout: 'command-center',
   middleware: ['02-staff'],
@@ -186,13 +129,9 @@ definePageMeta({
   },
 })
 
-const isUploadProductImageOpened = ref(false)
-const isUpdateProductOpened = ref(false)
-const isCreateProductVariantOpened = ref(false)
-const isUpdateProductVariantOpened = ref(false)
-
 const { params } = useRoute('command-center-product-id')
 const { t } = useI18n()
+const modal = useModal()
 
 const { channel } = await useChannel()
 const { products } = await useProduct()
@@ -207,6 +146,4 @@ const breadcrumbs = computed(() => [
   },
   { label: t('center.menu.product-page') },
 ])
-
-const productVariantId = ref('')
 </script>

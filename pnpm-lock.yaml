@@ -99,12 +99,6 @@ catalogs:
     bcrypt:
       specifier: ^5.1.1
       version: 5.1.1
-    class-variance-authority:
-      specifier: ^0.7.0
-      version: 0.7.1
-    clsx:
-      specifier: ^2.1.1
-      version: 2.1.1
     dotenv:
       specifier: ^16.4.7
       version: 16.4.7
@@ -150,18 +144,12 @@ catalogs:
     playwright:
       specifier: ^1.50.1
       version: 1.50.1
-    radix-vue:
-      specifier: ^1.9.7
-      version: 1.9.13
     semantic-release:
       specifier: ^24.2.3
       version: 24.2.3
     semantic-release-monorepo:
       specifier: ^8.0.2
       version: 8.0.2
-    shadcn-nuxt:
-      specifier: ^0.10.4
-      version: 0.10.4
     typescript:
       specifier: ^5.7.3
       version: 5.7.3
@@ -282,18 +270,9 @@ importers:
       '@next-orders/ui':
         specifier: workspace:*
         version: link:../../packages/ui
-      class-variance-authority:
-        specifier: 'catalog:'
-        version: 0.7.1
-      clsx:
-        specifier: 'catalog:'
-        version: 2.1.1
       libphonenumber-js:
         specifier: 'catalog:'
         version: 1.11.20
-      radix-vue:
-        specifier: 'catalog:'
-        version: 1.9.13(vue@3.5.13(typescript@5.7.3))
     devDependencies:
       '@types/node':
         specifier: 'catalog:'
@@ -301,9 +280,6 @@ importers:
       nuxt:
         specifier: 'catalog:'
         version: 3.15.4(@parcel/watcher@2.5.1)(@types/node@22.13.4)(aws4fetch@1.0.20)(db0@0.2.3(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3)))(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3))(eslint@9.20.1(jiti@2.4.2))(ioredis@5.5.0)(lightningcss@1.29.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.5)(terser@5.38.1)(typescript@5.7.3)(vite@6.1.0(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.38.1)(yaml@2.7.0))(yaml@2.7.0)
-      shadcn-nuxt:
-        specifier: 'catalog:'
-        version: 0.10.4(magicast@0.3.5)
 
   apps/website:
     dependencies:
@@ -1977,9 +1953,6 @@ packages:
   '@open-draft/until@2.1.0':
     resolution: {integrity: sha512-U69T3ItWHvLwGg5eJ0n3I62nWuE6ilHlmz7zM0npLBRvPRd7e6NYmg54vvRtP5mZG7kZqZCFVdsTWo7BPtBujg==}
 
-  '@oxc-parser/wasm@0.1.0':
-    resolution: {integrity: sha512-oA7XhTbg9rRBJhIzxCNhJwYmON/9LFAH4GBQxl7HWmGSS6HTrb2t6Peq82nxY0W7knguH52neh9T7zs27FVvsQ==}
-
   '@paralleldrive/cuid2@2.2.2':
     resolution: {integrity: sha512-ZOBkgDwEdoYVlSeRbYYXs0S9MejQofiVYoTbKzy/6GQa39/q5tQU2IX46+shYnUkpEl3wc+J6wRlar7r2EK2xA==}
 
@@ -3422,9 +3395,6 @@ packages:
   citty@0.1.6:
     resolution: {integrity: sha512-tskPPKEs8D2KPafUypv2gxwJP8h/OaJmC82QQGGDQcHvXX43xF2VDACcJVmZ0EuSxkpO9Kc4MlrA3q0+FG58AQ==}
 
-  class-variance-authority@0.7.1:
-    resolution: {integrity: sha512-Ka+9Trutv7G8M6WT6SeiRWz792K5qEqIGEGzXKhAE6xOWAY6pPH8U+9IY3oCMv6kqTmLsv7Xh/2w2RigkePMsg==}
-
   clean-regexp@1.0.0:
     resolution: {integrity: sha512-GfisEZEJvzKrmGWkvfhgzcz/BllN1USeqD2V6tg14OAOgaCD2Z/PUEuxnAZ/nPvmaHRG7a8y77p1T/IRQ4D1Hw==}
     engines: {node: '>=4'}
@@ -3472,10 +3442,6 @@ packages:
   clone@2.1.2:
     resolution: {integrity: sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w==}
     engines: {node: '>=0.8'}
-
-  clsx@2.1.1:
-    resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
-    engines: {node: '>=6'}
 
   cluster-key-slot@1.1.2:
     resolution: {integrity: sha512-RMr0FhtfXemyinomL4hrWcYJxmX6deFdCxpJzhDttxgO1+bcCnkk+9drydLVDmAMG7NE6aN/fl4F7ucU/90gAA==}
@@ -6839,9 +6805,6 @@ packages:
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  shadcn-nuxt@0.10.4:
-    resolution: {integrity: sha512-WhSGzjaSMi1D2xb9Aflpwl8G8Qvlb0g4OuJLPO4YyRhduQDuscU6Pr1HdF7T4700foLLglgFnz7m8E2DDLLHJA==}
-
   sharp@0.33.5:
     resolution: {integrity: sha512-haPVm1EkS9pgvHrQ/F3Xy+hgcuMV0Wm9vfIBSiwZ05k+xgb0PkBQpGsAA/oWdDobNaZTH5ppvHtzCFbnSEwHVw==}
     engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
@@ -9849,8 +9812,6 @@ snapshots:
 
   '@open-draft/until@2.1.0': {}
 
-  '@oxc-parser/wasm@0.1.0': {}
-
   '@paralleldrive/cuid2@2.2.2':
     dependencies:
       '@noble/hashes': 1.7.1
@@ -11490,10 +11451,6 @@ snapshots:
     dependencies:
       consola: 3.4.0
 
-  class-variance-authority@0.7.1:
-    dependencies:
-      clsx: 2.1.1
-
   clean-regexp@1.0.0:
     dependencies:
       escape-string-regexp: 1.0.5
@@ -11549,8 +11506,6 @@ snapshots:
       wrap-ansi: 7.0.0
 
   clone@2.1.2: {}
-
-  clsx@2.1.1: {}
 
   cluster-key-slot@1.1.2: {}
 
@@ -15298,14 +15253,6 @@ snapshots:
   set-blocking@2.0.0: {}
 
   setprototypeof@1.2.0: {}
-
-  shadcn-nuxt@0.10.4(magicast@0.3.5):
-    dependencies:
-      '@nuxt/kit': 3.15.4(magicast@0.3.5)
-      '@oxc-parser/wasm': 0.1.0
-    transitivePeerDependencies:
-      - magicast
-      - supports-color
 
   sharp@0.33.5:
     dependencies:

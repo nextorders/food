@@ -12,48 +12,26 @@
       v-for="warehouse in channel?.warehouses"
       :key="warehouse.id"
       :warehouse-id="warehouse.id"
-      @click="() => { warehouseId = warehouse.id; isUpdateWarehouseOpened = true }"
+      @click="modal.open(ModalUpdateWarehouse, { warehouseId: warehouse.id })"
     />
-    <CommandCenterWarehouseCreateCard @click="isCreateWarehouseOpened = true" />
+    <CommandCenterWarehouseCreateCard @click="modal.open(ModalCreateWarehouse)" />
   </div>
-
-  <UiModal
-    :title="$t('center.create.warehouse')"
-    :is-opened="isCreateWarehouseOpened"
-    @close="isCreateWarehouseOpened = false"
-  >
-    <FormCreateWarehouse :is-opened="isCreateWarehouseOpened" @success="isCreateWarehouseOpened = false" />
-  </UiModal>
-
-  <UiModal
-    :title="$t('center.update.warehouse')"
-    :is-opened="isUpdateWarehouseOpened"
-    @close="isUpdateWarehouseOpened = false"
-  >
-    <FormUpdateWarehouse
-      :warehouse-id="warehouseId"
-      :is-opened="isUpdateWarehouseOpened"
-      @submitted="isUpdateWarehouseOpened = false"
-      @success="isUpdateWarehouseOpened = false"
-    />
-  </UiModal>
 </template>
 
 <script setup lang="ts">
+import { ModalCreateWarehouse, ModalUpdateWarehouse } from '#components'
+
 definePageMeta({
   layout: 'command-center',
   middleware: ['02-staff'],
 })
 
 const { t } = useI18n()
+const modal = useModal()
 const { channel } = await useChannel()
 
 const breadcrumbs = computed(() => [
   { label: t('common.website'), icon: 'food:home', to: '/' },
   { label: t('center.menu.warehouses') },
 ])
-
-const warehouseId = ref('')
-const isCreateWarehouseOpened = ref(false)
-const isUpdateWarehouseOpened = ref(false)
 </script>

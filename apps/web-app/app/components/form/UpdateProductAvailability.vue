@@ -1,5 +1,5 @@
 <template>
-  <div class="min-w-60 px-4 py-3 bg-neutral-50 dark:bg-neutral-500 border border-neutral-100 dark:border-neutral-500 rounded-2xl">
+  <div class="min-w-60 px-4 py-3 bg-(--ui-bg-muted) rounded-xl">
     <USwitch
       size="xl"
       :label="isAvailableForPurchase ? $t('center.product.available-for-purchase') : $t('center.product.not-available-for-purchase')"

@@ -6,10 +6,6 @@ export default defineNuxtConfig({
   devtools: {
     componentInspector: false,
   },
-  shadcn: {
-    prefix: 'Ui',
-    componentDir: './app/components/ui',
-  },
   css: ['~/assets/css/styles.css'],
   runtimeConfig: {
     channelId: 'burger',
@@ -31,8 +27,5 @@ export default defineNuxtConfig({
     // '/': { swr: true },
     // '/catalog/**': { swr: true },
   },
-  modules: [
-    'shadcn-nuxt',
-  ],
-  compatibilityDate: '2024-08-18',
+  compatibilityDate: '2025-02-20',
 })

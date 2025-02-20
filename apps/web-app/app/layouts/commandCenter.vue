@@ -11,6 +11,4 @@
     </div>
     <Footer />
   </main>
-
-  <UiToaster />
 </template>

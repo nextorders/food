@@ -1,5 +1,5 @@
 <template>
-  <div class="min-w-60 px-4 py-3 bg-(--ui-bg-muted) border border-(--ui-border) rounded-xl">
+  <div class="min-w-60 px-4 py-3 bg-(--ui-bg-muted) rounded-xl">
     <USwitch
       size="xl"
       :label="isActive ? $t('center.menu.is-active') : $t('center.menu.is-not-active')"

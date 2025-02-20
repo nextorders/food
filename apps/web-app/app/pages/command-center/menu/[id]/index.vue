@@ -13,7 +13,7 @@
         size="xl"
         variant="gradient"
         class="w-full md:w-fit"
-        @click="isCreateMenuCategoryOpened = true"
+        @click="modal.open(ModalCreateMenuCategory, { menuId: menu?.id })"
       >
         {{ t('center.add.menu-category') }}
       </UButton>
@@ -25,14 +25,14 @@
     :key="category.id"
     class="mb-8"
   >
-    <div class="mb-4 pb-2 border-b border-neutral-200 dark:border-neutral-600 flex flex-row gap-3 items-center">
-      <h2 class="text-2xl lg:text-xl">
+    <div class="mb-4 pb-2 border-b border-(--ui-border) flex flex-row gap-3 items-center">
+      <h2 class="text-xl lg:text-2xl">
         {{ category.name }}
       </h2>
       <Icon
         :name="icons.edit"
         class="w-5 h-5 text-neutral-500 cursor-pointer"
-        @click="() => { categoryId = category.id; isUpdateMenuCategoryOpened = true }"
+        @click="modal.open(ModalUpdateMenuCategory, { categoryId: category.id, menuId: menu?.id })"
       />
     </div>
 
@@ -42,64 +42,27 @@
         :key="product.id"
         :product-id="product.id"
       />
-      <CommandCenterProductCreateCard @click="() => { categoryId = category.id; isCreateProductOpened = true }" />
+      <CommandCenterProductCreateCard
+        @click="modal.open(ModalCreateProduct, { categoryId: category.id })"
+      />
     </div>
   </div>
 
   <GuideMenu />
-
-  <UiModal
-    :title="$t('center.create.product')"
-    :is-opened="isCreateProductOpened"
-    @close="isCreateProductOpened = false"
-  >
-    <FormCreateProduct
-      :category-id="categoryId"
-      :is-opened="isCreateProductOpened"
-      @success="isCreateProductOpened = false"
-    />
-  </UiModal>
-
-  <UiModal
-    :title="$t('center.create.menu-category')"
-    :is-opened="isCreateMenuCategoryOpened"
-    @close="isCreateMenuCategoryOpened = false"
-  >
-    <FormCreateMenuCategory
-      :menu-id="menu?.id ?? ''"
-      :is-opened="isCreateMenuCategoryOpened"
-      @success="isCreateMenuCategoryOpened = false"
-    />
-  </UiModal>
-
-  <UiModal
-    :title="$t('center.update.menu-category')"
-    :is-opened="isUpdateMenuCategoryOpened"
-    @close="isUpdateMenuCategoryOpened = false"
-  >
-    <FormUpdateMenuCategory
-      :menu-id="menu?.id ?? ''"
-      :category-id="categoryId"
-      :is-opened="isUpdateMenuCategoryOpened"
-      @submitted="isUpdateMenuCategoryOpened = false"
-      @success="isUpdateMenuCategoryOpened = false"
-    />
-  </UiModal>
 </template>
 
 <script setup lang="ts">
+import { ModalCreateMenuCategory, ModalCreateProduct, ModalUpdateMenuCategory } from '#components'
+
 definePageMeta({
   layout: 'command-center',
   middleware: ['02-staff'],
 })
 
-const isCreateProductOpened = ref(false)
-const isCreateMenuCategoryOpened = ref(false)
-const isUpdateMenuCategoryOpened = ref(false)
-
 const { params } = useRoute('command-center-menu-id')
 const { t } = useI18n()
 const { icons } = useAppConfig()
+const modal = useModal()
 
 const breadcrumbs = computed(() => [
   { label: t('common.website'), icon: 'food:home', to: '/' },
@@ -112,6 +75,4 @@ const breadcrumbs = computed(() => [
 
 const { menus } = await useChannel()
 const menu = computed(() => menus.value?.find((menu) => menu.id === params.id))
-
-const categoryId = ref('')
 </script>
