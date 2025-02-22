@@ -2,17 +2,17 @@ import {
   AsYouType,
   formatIncompletePhoneNumber,
   isValidPhoneNumber,
-  parsePhoneNumber,
+  parsePhoneNumberWithError,
 } from 'libphonenumber-js'
 
-export function getPhoneNumberFormatter(countryCode: CountryCode) {
+export function getPhoneNumberFormatter(countryCode?: CountryCode) {
   return new AsYouType(countryCode)
 }
 
-export function formatPhoneNumber(value: string, countryCode: CountryCode) {
+export function formatPhoneNumber(value: string, countryCode?: CountryCode) {
   if (value.length > 10) {
     try {
-      const parsed = parsePhoneNumber(value, countryCode)
+      const parsed = parsePhoneNumberWithError(value, countryCode)
       if (parsed) {
         return parsed.format('INTERNATIONAL', {
           humanReadable: true,
@@ -31,6 +31,6 @@ export function formatPhoneNumber(value: string, countryCode: CountryCode) {
   return value
 }
 
-export function checkPhoneNumberValidity(value: string, countryCode: CountryCode) {
+export function checkPhoneNumberValidity(value: string, countryCode?: CountryCode) {
   return isValidPhoneNumber(value, countryCode)
 }

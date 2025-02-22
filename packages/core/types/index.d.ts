@@ -27,9 +27,10 @@ declare global {
 
   interface PaymentMethod {
     id: string
-    createdAt: Date
-    updatedAt: Date
+    createdAt: string
+    updatedAt: string
     name: string
+    channelId: string
     type: PaymentMethodType
   }
 
@@ -234,11 +235,11 @@ declare global {
 
   interface Warehouse {
     id: string
-    createdAt: Date
-    updatedAt: Date
+    createdAt: string
+    updatedAt: string
     name: string
-    address: string
     channelId: string
+    address: string
   }
 }
 

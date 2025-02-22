@@ -91,7 +91,7 @@
 
               <USelect
                 v-model="remainingCheckout.warehouseId"
-                :items="channel?.warehouses.map(warehouse => ({ label: warehouse.address, value: warehouse.id }))"
+                :items="channel.warehouses.map(warehouse => ({ label: warehouse.address, value: warehouse.id }))"
                 :placeholder="$t('common.select')"
                 size="xl"
                 icon="food:warehouse"
@@ -151,7 +151,7 @@
 
               <USelect
                 v-model="remainingCheckout.paymentMethodId"
-                :items="paymentMethods?.map(paymentMethod => ({ label: paymentMethod.name, value: paymentMethod.id }))"
+                :items="channel.paymentMethods.map(method => ({ label: method.name, value: method.id }))"
                 :placeholder="$t('common.select')"
                 size="xl"
                 icon="food:cash"
@@ -249,12 +249,9 @@ definePageMeta({
 })
 
 const { icons } = useAppConfig()
-const { channel } = await useChannel()
+const channel = useChannelStore()
 const { checkout, total, update } = useCheckout()
 const { slots } = useTime()
-
-const countryCode = computed(() => channel.value?.countryCode as CountryCode)
-const paymentMethods = computed(() => channel.value?.paymentMethods)
 
 const remainingCheckout = ref<CheckoutDraft>({
   name: '',
@@ -272,12 +269,12 @@ const remainingCheckout = ref<CheckoutDraft>({
   paymentMethodId: '',
 })
 
-const haveProblemWithOrder = computed(() => !checkout.value?.lines.length || (!channel.value?.isPickupAvailable && !channel.value?.isDeliveryAvailable))
+const haveProblemWithOrder = computed(() => !checkout.value?.lines.length || channel.isOnMaintenance)
 const isOkForData = computed(() => !!remainingCheckout.value.name && !!remainingCheckout.value.phone && !!remainingCheckout.value.paymentMethodId && (checkout.value?.deliveryMethod === 'DELIVERY' ? !!remainingCheckout.value.street : true) && (checkout.value?.deliveryMethod === 'WAREHOUSE' ? !!remainingCheckout.value.warehouseId : true))
-const isOkForAmount = computed<boolean>(() => checkout.value?.deliveryMethod === 'DELIVERY' && channel.value?.minAmountForDelivery ? channel.value?.minAmountForDelivery <= (checkout.value?.totalPrice || 0) : true)
+const isOkForAmount = computed<boolean>(() => checkout.value?.deliveryMethod === 'DELIVERY' && channel.minAmountForDelivery ? channel.minAmountForDelivery <= (checkout.value?.totalPrice || 0) : true)
 const isValidCheckout = computed(() => isOkForAmount.value && isOkForData.value)
 const isValidPhone = ref(false)
-const selectedPaymentMethod = computed(() => paymentMethods.value?.find((m) => m.id === remainingCheckout.value.paymentMethodId))
+const selectedPaymentMethod = computed(() => channel.paymentMethods.find((m) => m.id === remainingCheckout.value.paymentMethodId))
 
 watch(
   () => remainingCheckout.value.phone,
@@ -289,8 +286,8 @@ watch(
       return
     }
 
-    getPhoneNumberFormatter(countryCode.value).input(remainingCheckout.value.phone)
-    isValidPhone.value = checkPhoneNumberValidity(remainingCheckout.value.phone, countryCode.value)
+    getPhoneNumberFormatter(channel.countryCode).input(remainingCheckout.value.phone)
+    isValidPhone.value = checkPhoneNumberValidity(remainingCheckout.value.phone, channel.countryCode)
   },
 )
 
@@ -299,8 +296,8 @@ function formatPhone() {
     return
   }
 
-  getPhoneNumberFormatter(countryCode.value).input(remainingCheckout.value.phone)
-  remainingCheckout.value.phone = formatPhoneNumber(remainingCheckout.value.phone, countryCode.value)
+  getPhoneNumberFormatter(channel.countryCode).input(remainingCheckout.value.phone)
+  remainingCheckout.value.phone = formatPhoneNumber(remainingCheckout.value.phone, channel.countryCode)
 }
 
 async function updateCheckout() {
@@ -320,6 +317,6 @@ async function updateCheckout() {
     note: remainingCheckout.value.note,
   })
 
-  navigateTo(`/finish?id=${finishedCheckout?.result?.id}`)
+  await navigateTo(`/finish?id=${finishedCheckout?.result?.id}`)
 }
 </script>

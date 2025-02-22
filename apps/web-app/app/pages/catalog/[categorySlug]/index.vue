@@ -2,13 +2,13 @@
   <CatalogBreadcrumb :items="breadcrumbs" />
 
   <h1 class="text-3xl font-medium">
-    {{ category?.name }}
+    {{ category.name }}
   </h1>
   <div>{{ $t('app.category-page-description') }}</div>
 
   <div class="mt-4 max-w-7xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-6">
     <ProductCard
-      v-for="product in categoryProducts"
+      v-for="product in category.products"
       :key="product.id"
       :product-id="product.id"
     />
@@ -18,23 +18,22 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const { params } = useRoute('catalog-categorySlug')
+const channel = useChannelStore()
 
-const { data: category, error } = await useFetch(`/api/category/slug/${params.categorySlug}`)
-if (error.value) {
+const category = channel.getMenuCategoryBySlug(params.categorySlug)
+if (!category) {
   throw createError({
     statusCode: 404,
     statusMessage: 'Category not found',
   })
 }
 
-const categoryProducts = computed(() => category.value?.products.filter((p) => p.variants.length > 0))
-
 useHead({
-  title: category.value?.name,
+  title: category.name,
 })
 
 const breadcrumbs = computed(() => [
   { label: t('common.home'), icon: 'food:home', to: '/' },
-  { label: category.value?.name ?? '' },
+  { label: category.name },
 ])
 </script>

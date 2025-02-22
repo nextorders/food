@@ -31,7 +31,7 @@
 
         <div class="mt-4 flex flex-row gap-6 items-center">
           <div class="text-2xl font-medium tracking-tight">
-            {{ price }} <span class="text-xl">{{ getCurrencySign(channel?.currencyCode) }}</span>
+            {{ price }} <span class="text-xl">{{ channel.currencySign }}</span>
           </div>
 
           <CartLineCounter v-if="inCart" :line-id="inCart.id" />
@@ -105,11 +105,11 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const { params } = useRoute('catalog-categorySlug-productSlug')
-const { channel } = await useChannel()
+const channel = useChannelStore()
 const { addProduct, checkout } = useCheckout()
 
-const { data: product, error } = await useFetch(`/api/product/slug/${params.productSlug}`)
-if (error.value) {
+const product = channel.getProductBySlug(params.productSlug)
+if (!product) {
   throw createError({
     statusCode: 404,
     statusMessage: 'Product not found',
@@ -117,12 +117,12 @@ if (error.value) {
 }
 
 useHead({
-  title: product.value?.name,
+  title: product.name,
 })
 
-const variantId = ref(product.value?.variants[0]?.id)
-const withSingleVariant = computed(() => product.value?.variants.length === 1)
-const selectedVariant = computed(() => product.value?.variants.find(({ id }) => id === variantId.value))
+const variantId = ref(product.variants[0]?.id)
+const withSingleVariant = computed(() => product.variants.length === 1)
+const selectedVariant = computed(() => product.variants.find(({ id }) => id === variantId.value))
 
 const price = computed(() => formatNumberToLocal(selectedVariant.value?.gross))
 const weightValue = computed(() => selectedVariant.value?.weightValue)
@@ -137,8 +137,8 @@ const inCart = computed(() => {
 const breadcrumbs = computed(() => [
   { label: t('common.home'), icon: 'food:home', to: '/' },
   {
-    label: product.value?.category?.name ?? '',
-    to: `/catalog/${product.value?.category?.slug}`,
+    label: product.category.name,
+    to: `/catalog/${product.category?.slug}`,
   },
 ])
 </script>

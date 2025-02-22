@@ -43,9 +43,9 @@ definePageMeta({
 })
 
 const { width, height } = useWindowSize()
-const { channel } = await useChannel()
+const channel = useChannelStore()
 
-if (channel.value?.id && channel.value?.masterAccountExists) {
+if (channel.isInitialized) {
   await navigateTo('/command-center')
 }
 </script>

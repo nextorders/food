@@ -29,8 +29,8 @@ useHead({
 const channel = useChannelStore()
 await channel.fetchData()
 
-// Need to init channel
-if (!channel.id || !channel.masterAccountExists) {
+if (!channel.isInitialized) {
+  // Need to init channel
   await navigateTo('/welcome')
 }
 </script>

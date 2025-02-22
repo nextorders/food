@@ -11,69 +11,96 @@ interface ProductWithData extends Product {
   category: MenuCategory
 }
 
-export const useChannelStore = defineStore('channel', {
-  state: () => ({
-    id: '',
-    isActive: false,
-    name: '',
-    description: null as string | null,
-    currencyCode: '' as CurrencyCode,
-    isPickupAvailable: false,
-    isDeliveryAvailable: false,
-    phone: null as string | null,
-    conditions: null as string | null,
-    minAmountForDelivery: null as number | null,
-    masterAccountExists: false,
-    menus: [] as MenuWithData[],
-  }),
-  getters: {
-    activeMenu(): MenuWithData | null {
-      return this.menus.find((menu) => menu.isActive) || null
-    },
-    activeCategories(): MenuCategoryWithData[] {
-      return this.activeMenu ? this.activeMenu.categories : []
-    },
-    activeProducts(): ProductWithData[] {
-      return this.activeCategories.flatMap((category) => category.products.filter((p) => p.variants.length > 0))
-    },
-    isOnMaintenance(): boolean {
-      return this.isActive === false || !this.activeMenu || (!this.isPickupAvailable && !this.isDeliveryAvailable)
-    },
-    currencySign(): string {
-      return this.currencyCode ? CURRENCY_SIGNS[this.currencyCode as CurrencyCode] : ''
-    },
-  },
-  actions: {
-    async fetchData() {
-      const { data } = await useFetch('/api/channel', {
-        lazy: true,
-        server: true,
-      })
-      if (!data.value) {
-        throw new Error('Channel data not found')
-      }
+export const useChannelStore = defineStore('channel', () => {
+  const id = ref('')
+  const isActive = ref(false)
+  const name = ref('')
+  const description = ref<string | null>(null)
+  const currencyCode = ref<CurrencyCode | null>(null)
+  const countryCode = ref<CountryCode | undefined>(undefined)
+  const isPickupAvailable = ref(false)
+  const isDeliveryAvailable = ref(false)
+  const phone = ref<string | null>(null)
+  const conditions = ref<string | null>(null)
+  const minAmountForDelivery = ref<number | null>(null)
+  const masterAccountExists = ref(false)
+  const menus = ref<MenuWithData[]>([])
+  const paymentMethods = ref<PaymentMethod[]>([])
+  const warehouses = ref<Warehouse[]>([])
 
-      this.id = data.value.id
-      this.isActive = data.value.isActive
-      this.name = data.value.name
-      this.description = data.value.description
-      this.currencyCode = data.value.currencyCode as CurrencyCode
-      this.isPickupAvailable = data.value.isPickupAvailable
-      this.isDeliveryAvailable = data.value.isDeliveryAvailable
-      this.phone = data.value.phone
-      this.conditions = data.value.conditions
-      this.minAmountForDelivery = data.value.minAmountForDelivery
-      this.masterAccountExists = data.value.masterAccountExists
-      this.menus = data.value.menus
-    },
-    getMenuCategory(id: string): MenuCategoryWithData | null {
-      return this.activeMenu?.categories.find((category) => category.id === id) || null
-    },
-    getFirstProductsInCategory(categoryId: string, amount: number = 8): ProductWithData[] {
-      return this.getMenuCategory(categoryId)?.products.filter((p) => p.variants.length > 0).splice(0, amount) || []
-    },
-    getProduct(id: string): ProductWithData | null {
-      return this.activeProducts.find((product) => product.id === id) || null
-    },
-  },
+  const activeMenu = computed<MenuWithData | null>(() => menus.value.find((menu) => menu.isActive) || null)
+  const activeCategories = computed<MenuCategoryWithData[]>(() => activeMenu.value ? activeMenu.value.categories : [])
+  const activeProducts = computed<ProductWithData[]>(() => activeCategories.value.flatMap((category) => category.products.filter((p) => p.variants.length > 0)))
+  const currencySign = computed<string>(() => currencyCode.value ? CURRENCY_SIGNS[currencyCode.value as CurrencyCode] : '')
+  const isOnMaintenance = computed<boolean>(() => isActive.value === false || !activeMenu.value || (!isPickupAvailable.value && !isDeliveryAvailable.value))
+  const isInitialized = computed<boolean>(() => !!id.value && !!masterAccountExists.value)
+
+  async function fetchData() {
+    const { data } = await useFetch('/api/channel', {
+      lazy: true,
+      server: true,
+    })
+    if (!data.value) {
+      throw new Error('Channel data not found')
+    }
+
+    id.value = data.value.id
+    isActive.value = data.value.isActive
+    name.value = data.value.name
+    description.value = data.value.description
+    currencyCode.value = data.value.currencyCode as CurrencyCode
+    countryCode.value = data.value.countryCode as CountryCode
+    isPickupAvailable.value = data.value.isPickupAvailable
+    isDeliveryAvailable.value = data.value.isDeliveryAvailable
+    phone.value = data.value.phone
+    conditions.value = data.value.conditions
+    minAmountForDelivery.value = data.value.minAmountForDelivery
+    masterAccountExists.value = data.value.masterAccountExists
+    menus.value = data.value.menus
+    paymentMethods.value = data.value.paymentMethods as PaymentMethod[]
+    warehouses.value = data.value.warehouses
+  }
+  function getMenuCategory(id: string): MenuCategoryWithData | null {
+    return activeMenu.value?.categories.find((category) => category.id === id) || null
+  }
+  function getMenuCategoryBySlug(slug: string): MenuCategoryWithData | null {
+    return activeMenu.value?.categories.find((category) => category.slug === slug) || null
+  }
+  function getProduct(id: string): ProductWithData | null {
+    return activeProducts.value.find((product) => product.id === id) || null
+  }
+  function getProductBySlug(slug: string): ProductWithData | null {
+    return activeProducts.value.find((product) => product.slug === slug) || null
+  }
+
+  return {
+    id,
+    isActive,
+    name,
+    description,
+    currencyCode,
+    countryCode,
+    isPickupAvailable,
+    isDeliveryAvailable,
+    phone,
+    conditions,
+    minAmountForDelivery,
+    masterAccountExists,
+    menus,
+    paymentMethods,
+    warehouses,
+
+    activeMenu,
+    activeCategories,
+    activeProducts,
+    currencySign,
+    isOnMaintenance,
+    isInitialized,
+
+    fetchData,
+    getMenuCategory,
+    getMenuCategoryBySlug,
+    getProduct,
+    getProductBySlug,
+  }
 })
