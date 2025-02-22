@@ -165,7 +165,7 @@
                   orientation="vertical"
                   class="w-full"
                   :min="0"
-                  :placeholder="getCurrencySign(channel?.currencyCode)"
+                  :placeholder="channel.currencySign"
                 />
               </UFormField>
             </div>
@@ -178,7 +178,7 @@
               <div class="flex flex-row justify-between text-lg">
                 <div>{{ $t('app.checkout.cost.products') }}</div>
                 <div class="tracking-tight">
-                  {{ total }} <span class="text-sm">{{ getCurrencySign(channel?.currencyCode) }}</span>
+                  {{ total }} <span class="text-sm">{{ channel.currencySign }}</span>
                 </div>
               </div>
             </div>
@@ -197,7 +197,7 @@
               <CheckoutInfoMessage
                 v-if="!isValidCheckout && !isOkForAmount"
                 icon="alert"
-                :message="`${$t('app.minimum-order-value')}: ${channel?.minAmountForDelivery} ${getCurrencySign(channel?.currencyCode)}`"
+                :message="`${$t('app.minimum-order-value')}: ${channel.minAmountForDelivery} ${channel.currencySign}`"
               />
             </div>
 
@@ -213,7 +213,7 @@
               </UButton>
 
               <div class="font-medium text-right text-2xl min-w-[5rem] tracking-tight">
-                {{ total }} <span class="text-base">{{ getCurrencySign(channel?.currencyCode) }}</span>
+                {{ total }} <span class="text-base">{{ channel.currencySign }}</span>
               </div>
             </div>
           </div>

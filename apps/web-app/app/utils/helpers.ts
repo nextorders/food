@@ -19,31 +19,6 @@ export const CURRENCY_SIGNS: Record<CurrencyCode, string> = {
   TRY: '₺',
 }
 
-export function getCurrencySign<CurrencyLiteral = string & object>(code?: CurrencyCode | CurrencyLiteral): string {
-  switch (code as CurrencyCode) {
-    case 'RUB':
-      return '₽'
-    case 'USD':
-      return '$'
-    case 'EUR':
-      return '€'
-    case 'GEL':
-      return '₾'
-    case 'BYN':
-      return 'Br'
-    case 'UAH':
-      return '₴'
-    case 'KZT':
-      return '₸'
-    case 'PLN':
-      return 'zł'
-    case 'TRY':
-      return '₺'
-    default:
-      return ''
-  }
-}
-
 export function getWeightLocalizedUnit<WeightUnitLiteral = string & object>(unit?: WeightUnit | WeightUnitLiteral): string {
   const { t } = useI18n()
 

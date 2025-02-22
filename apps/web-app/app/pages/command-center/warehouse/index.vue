@@ -9,7 +9,7 @@
 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4">
     <CommandCenterWarehouseCard
-      v-for="warehouse in channel?.warehouses"
+      v-for="warehouse in channel.warehouses"
       :key="warehouse.id"
       :warehouse-id="warehouse.id"
       @click="modal.open(ModalUpdateWarehouse, { warehouseId: warehouse.id })"
@@ -28,7 +28,7 @@ definePageMeta({
 
 const { t } = useI18n()
 const modal = useModal()
-const { channel } = await useChannel()
+const channel = useChannelStore()
 
 const breadcrumbs = computed(() => [
   { label: t('common.website'), icon: 'food:home', to: '/' },

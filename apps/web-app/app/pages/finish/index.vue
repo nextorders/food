@@ -43,9 +43,9 @@
           </p>
         </div>
 
-        <p>{{ $t('app.checkout.payment-title') }}: <span class="font-medium">{{ channel?.paymentMethods.find((p) => p.id === checkout?.paymentMethodId)?.name }}</span></p>
+        <p>{{ $t('app.checkout.payment-title') }}: <span class="font-medium">{{ channel.paymentMethods.find((p) => p.id === checkout?.paymentMethodId)?.name }}</span></p>
         <p v-if="checkout?.change">
-          {{ $t('app.checkout.change-label') }}: <span class="font-medium">{{ checkout?.change }} {{ getCurrencySign(channel?.currencyCode) }}</span>
+          {{ $t('app.checkout.change-label') }}: <span class="font-medium">{{ checkout?.change }} {{ channel.currencySign }}</span>
         </p>
         <p v-if="checkout?.note">
           {{ $t('app.checkout.order-note') }}: <span class="font-medium">{{ checkout?.note }}</span>
@@ -73,7 +73,7 @@
         <div class="flex flex-row justify-between">
           <div>{{ $t('app.checkout.cost.products') }}</div>
           <div class="tracking-tight text-lg">
-            {{ checkout?.totalPrice }} <span class="text-sm">{{ getCurrencySign(channel?.currencyCode) }}</span>
+            {{ checkout?.totalPrice }} <span class="text-sm">{{ channel.currencySign }}</span>
           </div>
         </div>
       </div>
@@ -90,7 +90,7 @@ definePageMeta({
   layout: 'finish',
 })
 
-const { channel } = await useChannel()
+const channel = useChannelStore()
 
 const route = useRoute()
 const id = ref(route.query.id ? route.query.id.toString() : '')
@@ -103,5 +103,5 @@ if (error.value) {
   navigateTo('/')
 }
 
-const warehouse = computed(() => channel.value?.warehouses.find((w) => w.id === checkout.value?.warehouseId))
+const warehouse = computed(() => channel.warehouses.find((w) => w.id === checkout.value?.warehouseId))
 </script>

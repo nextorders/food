@@ -14,7 +14,7 @@
       />
     </UFormField>
 
-    <UFormField :label="`${$t('common.price')}, ${getCurrencySign(channel?.currencyCode)}`" name="gross">
+    <UFormField :label="`${$t('common.price')}, ${channel.currencySign}`" name="gross">
       <UInput
         v-model="state.gross"
         type="number"
@@ -131,7 +131,8 @@ const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
 const toast = useToast()
-const { channel, refresh: refreshChannelData } = await useChannel()
+const channel = useChannelStore()
+const { refresh: refreshChannelData } = await useChannel()
 const { refresh: refreshProducts, products } = await useProduct()
 
 const product = computed(() => products.value?.find((product) => product.id === productId))

@@ -60,7 +60,7 @@
     </UFormField>
 
     <UFormField
-      :label="`${$t('app.cart.delivery')} / ${$t('app.minimum-order-value')}, ${getCurrencySign(channel?.currencyCode)}`"
+      :label="`${$t('app.cart.delivery')} / ${$t('app.minimum-order-value')}, ${channel.currencySign}`"
       name="minAmountForDelivery"
     >
       <UInput
@@ -106,29 +106,30 @@ const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
 const toast = useToast()
-const { channel, refresh: refreshChannelData } = await useChannel()
+const channel = useChannelStore()
+const { refresh: refreshChannelData } = await useChannel()
 
 const state = ref<Partial<ChannelUpdateSchema>>({
-  name: channel.value?.name,
-  description: channel.value?.description ?? undefined,
-  conditions: channel.value?.conditions ?? undefined,
-  phone: channel.value?.phone ?? undefined,
-  countryCode: channel.value?.countryCode,
-  currencyCode: channel.value?.currencyCode,
-  timeZone: channel.value?.timeZone,
-  minAmountForDelivery: channel.value?.minAmountForDelivery ?? undefined,
+  name: channel.name,
+  description: channel.description ?? undefined,
+  conditions: channel.conditions ?? undefined,
+  phone: channel.phone ?? undefined,
+  countryCode: channel.countryCode,
+  currencyCode: channel.currencyCode,
+  timeZone: channel.timeZone,
+  minAmountForDelivery: channel.minAmountForDelivery ?? undefined,
 })
 
 function resetState() {
   state.value = {
-    name: channel.value?.name,
-    description: channel.value?.description ?? undefined,
-    conditions: channel.value?.conditions ?? undefined,
-    phone: channel.value?.phone ?? undefined,
-    countryCode: channel.value?.countryCode,
-    currencyCode: channel.value?.currencyCode,
-    timeZone: channel.value?.timeZone,
-    minAmountForDelivery: channel.value?.minAmountForDelivery ?? undefined,
+    name: channel.name,
+    description: channel.description ?? undefined,
+    conditions: channel.conditions ?? undefined,
+    phone: channel.phone ?? undefined,
+    countryCode: channel.countryCode,
+    currencyCode: channel.currencyCode,
+    timeZone: channel.timeZone,
+    minAmountForDelivery: channel.minAmountForDelivery ?? undefined,
   }
 }
 

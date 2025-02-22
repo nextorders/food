@@ -6,7 +6,7 @@
       <h1 class="mb-1 text-2xl md:text-3xl font-semibold">
         {{ product?.name }}
       </h1>
-      <p class="text-neutral-500 break-words">
+      <p class="text-(--ui-text-muted) break-words">
         /{{ product?.category.slug }}/{{ product?.slug }}
       </p>
     </div>
@@ -52,7 +52,7 @@
       <p v-if="product?.description">
         {{ product?.description }}
       </p>
-      <p v-else class="text-neutral-500">
+      <p v-else class="text-(--ui-text-muted)">
         [{{ $t('center.product.no-description-label') }}]
       </p>
     </div>
@@ -75,15 +75,15 @@
         </div>
 
         <div class="flex flex-row flex-nowrap gap-6 items-center justify-center">
-          <div class="text-neutral-500">
-            {{ formatNumberToLocal(variant.gross) }} {{ getCurrencySign(channel?.currencyCode) }}
+          <div class="text-(--ui-text-muted)">
+            {{ formatNumberToLocal(variant.gross) }} {{ channel.currencySign }}
           </div>
-          <div class="text-neutral-500">
+          <div class="text-(--ui-text-muted)">
             {{ variant.weightValue }}{{ getWeightLocalizedUnit(variant.weightUnit) }}
           </div>
         </div>
 
-        <div v-if="variant.calories" class="flex flex-row gap-3 justify-center text-neutral-500 text-sm">
+        <div v-if="variant.calories" class="flex flex-row gap-3 justify-center text-(--ui-text-muted) text-sm">
           <div v-if="variant.calories">
             {{ variant.calories }}{{ $t('common.abbreviation.kcal') }}
           </div>
@@ -123,20 +123,19 @@ import { ModalCreateProductVariant, ModalUpdateProduct, ModalUpdateProductVarian
 definePageMeta({
   layout: 'command-center',
   middleware: ['02-staff'],
-  validate: async ({ params }) => {
-    const { error } = await useFetch(`/api/product/${(params as { id: string }).id}`)
-    return error.value === undefined
-  },
 })
 
 const { params } = useRoute('command-center-product-id')
 const { t } = useI18n()
 const modal = useModal()
 
-const { channel } = await useChannel()
-const { products } = await useProduct()
-const product = computed(() => products.value?.find((p) => p.id === params.id))
-const menuPageUrl = `/command-center/menu/${product.value?.category.menuId}`
+const channel = useChannelStore()
+const product = channel.getProduct(params.id)
+if (!product) {
+  throw createError({ statusCode: 404, statusMessage: 'Product not found' })
+}
+
+const menuPageUrl = `/command-center/menu/${product.category.menuId}`
 
 const breadcrumbs = computed(() => [
   { label: t('common.website'), icon: 'food:home', to: '/' },

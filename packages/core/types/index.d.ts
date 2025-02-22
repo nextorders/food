@@ -38,8 +38,8 @@ declare global {
 
   interface WorkingDay {
     id: string
-    createdAt: Date
-    updatedAt: Date
+    createdAt: string
+    updatedAt: string
     day: 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY' | 'SUNDAY'
     openHours: number
     openMinutes: number

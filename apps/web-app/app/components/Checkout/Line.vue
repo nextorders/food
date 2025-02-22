@@ -30,7 +30,7 @@
     </div>
 
     <div class="min-w-[3rem] ml-0 md:ml-4 text-base md:text-lg text-right tracking-tight">
-      {{ totalAmount }} <span class="text-xs">{{ getCurrencySign(channel?.currencyCode) }}</span>
+      {{ totalAmount }} <span class="text-xs">{{ channel.currencySign }}</span>
     </div>
   </div>
 </template>
@@ -49,7 +49,7 @@ const { line, canBeChanged = true } = defineProps<{
   canBeChanged?: boolean
 }>()
 
-const { channel } = await useChannel()
+const channel = useChannelStore()
 const totalAmount = computed(() => line ? formatNumberToLocal(line.productVariant?.gross * line.quantity) : 0)
 const variant = computed(() => line?.productVariant)
 const product = computed(() => line?.productVariant?.product)

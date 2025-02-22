@@ -20,32 +20,32 @@
 
       <div class="w-full md:max-w-sm flex flex-col gap-2">
         <div class="bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3">
-          {{ t('center.data.name') }}: <span class="font-semibold">{{ channel?.name }}</span>
+          {{ t('center.data.name') }}: <span class="font-semibold">{{ channel.name }}</span>
         </div>
         <div v-if="channel?.description" class="bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3">
-          {{ t('common.description') }}: <span class="font-semibold">{{ channel?.description }}</span>
+          {{ t('common.description') }}: <span class="font-semibold">{{ channel.description }}</span>
         </div>
         <div v-if="channel?.phone" class="bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3">
-          {{ t('center.data.phone') }}: <span class="font-semibold">{{ channel?.phone }}</span>
+          {{ t('center.data.phone') }}: <span class="font-semibold">{{ channel.phone }}</span>
         </div>
         <div class="bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3">
-          {{ t('center.data.currency') }}: <span class="font-semibold">{{ channel?.currencyCode }}</span>
+          {{ t('center.data.currency') }}: <span class="font-semibold">{{ channel.currencyCode }}</span>
         </div>
         <div class="bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3">
-          {{ t('center.data.country') }}: <span class="font-semibold">{{ channel?.countryCode }}</span>
+          {{ t('center.data.country') }}: <span class="font-semibold">{{ channel.countryCode }}</span>
         </div>
         <div class="bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3">
-          {{ t('center.data.timezone') }}: <span class="font-semibold">{{ channel?.timeZone }}</span>
+          {{ t('center.data.timezone') }}: <span class="font-semibold">{{ channel.timeZone }}</span>
         </div>
         <div v-if="channel?.minAmountForDelivery" class="bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3">
-          {{ t('app.minimum-order-value') }}: <span class="font-semibold">{{ channel?.minAmountForDelivery }} {{ getCurrencySign(channel?.currencyCode) }}</span>
+          {{ t('app.minimum-order-value') }}: <span class="font-semibold">{{ channel.minAmountForDelivery }} {{ channel.currencySign }}</span>
         </div>
 
         <div v-if="channel?.conditions" class="text-sm whitespace-pre-wrap w-full md:max-w-sm bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3">
           <p class="mb-2 text-base">
             {{ t('center.data.delivery-conditions') }}:
           </p>
-          <div>{{ channel?.conditions }}</div>
+          <div>{{ channel.conditions }}</div>
         </div>
       </div>
     </div>
@@ -57,11 +57,11 @@
 
       <div class="space-y-2 w-full md:max-w-sm">
         <div class="w-full flex flex-row gap-3 justify-between items-center bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3">
-          <FormUpdateChannelReceivingMethod :is-active="channel?.isDeliveryAvailable ?? false" method="DELIVERY" />
+          <FormUpdateChannelReceivingMethod :is-active="channel.isDeliveryAvailable" method="DELIVERY" />
         </div>
 
         <div class="w-full flex flex-row gap-3 justify-between items-center bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3">
-          <FormUpdateChannelReceivingMethod :is-active="channel?.isPickupAvailable ?? false" method="PICKUP" />
+          <FormUpdateChannelReceivingMethod :is-active="channel.isPickupAvailable" method="PICKUP" />
         </div>
       </div>
     </div>
@@ -84,7 +84,7 @@
 
       <div class="space-y-2 w-full md:max-w-sm">
         <div
-          v-for="workingDay in channel?.workingDays"
+          v-for="workingDay in channel.workingDays"
           :key="workingDay.id"
           class="w-full flex flex-row gap-3 justify-between items-center bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3"
         >
@@ -104,7 +104,7 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
         <CommandCenterPaymentMethodCard
-          v-for="paymentMethod in channel?.paymentMethods"
+          v-for="paymentMethod in channel.paymentMethods"
           :key="paymentMethod.id"
           :payment-method-id="paymentMethod.id"
           @click="modal.open(ModalUpdateChannelPaymentMethod, { paymentMethodId: paymentMethod.id })"
@@ -125,7 +125,7 @@ definePageMeta({
 
 const { t } = useI18n()
 const modal = useModal()
-const { channel } = await useChannel()
+const channel = useChannelStore()
 
 const breadcrumbs = computed(() => [
   { label: t('common.website'), icon: 'food:home', to: '/' },

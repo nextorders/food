@@ -60,6 +60,12 @@ definePageMeta({
 })
 
 const { params } = useRoute('command-center-menu-id')
+const channel = useChannelStore()
+const menu = channel.getMenu(params.id)
+if (!menu) {
+  throw createError({ statusCode: 404, statusMessage: 'Menu not found' })
+}
+
 const { t } = useI18n()
 const { icons } = useAppConfig()
 const modal = useModal()
@@ -72,7 +78,4 @@ const breadcrumbs = computed(() => [
   },
   { label: t('center.menu.menu-page') },
 ])
-
-const { menus } = await useChannel()
-const menu = computed(() => menus.value?.find((menu) => menu.id === params.id))
 </script>

@@ -16,14 +16,17 @@ export const useChannelStore = defineStore('channel', () => {
   const isActive = ref(false)
   const name = ref('')
   const description = ref<string | null>(null)
-  const currencyCode = ref<CurrencyCode | null>(null)
+  const currencyCode = ref<CurrencyCode | undefined>(undefined)
   const countryCode = ref<CountryCode | undefined>(undefined)
+  const timeZone = ref<string>('')
   const isPickupAvailable = ref(false)
   const isDeliveryAvailable = ref(false)
   const phone = ref<string | null>(null)
   const conditions = ref<string | null>(null)
   const minAmountForDelivery = ref<number | null>(null)
   const masterAccountExists = ref(false)
+  const workingDay = ref<WorkingDay | undefined>(undefined)
+  const workingDays = ref<WorkingDay[]>([])
   const menus = ref<MenuWithData[]>([])
   const paymentMethods = ref<PaymentMethod[]>([])
   const warehouses = ref<Warehouse[]>([])
@@ -31,6 +34,7 @@ export const useChannelStore = defineStore('channel', () => {
   const activeMenu = computed<MenuWithData | null>(() => menus.value.find((menu) => menu.isActive) || null)
   const activeCategories = computed<MenuCategoryWithData[]>(() => activeMenu.value ? activeMenu.value.categories : [])
   const activeProducts = computed<ProductWithData[]>(() => activeCategories.value.flatMap((category) => category.products.filter((p) => p.variants.length > 0)))
+  const allProducts = computed<ProductWithData[]>(() => menus.value.flatMap((menu) => menu.categories.flatMap((category) => category.products)))
   const currencySign = computed<string>(() => currencyCode.value ? CURRENCY_SIGNS[currencyCode.value as CurrencyCode] : '')
   const isOnMaintenance = computed<boolean>(() => isActive.value === false || !activeMenu.value || (!isPickupAvailable.value && !isDeliveryAvailable.value))
   const isInitialized = computed<boolean>(() => !!id.value && !!masterAccountExists.value)
@@ -50,6 +54,7 @@ export const useChannelStore = defineStore('channel', () => {
     description.value = data.value.description
     currencyCode.value = data.value.currencyCode as CurrencyCode
     countryCode.value = data.value.countryCode as CountryCode
+    timeZone.value = data.value.timeZone
     isPickupAvailable.value = data.value.isPickupAvailable
     isDeliveryAvailable.value = data.value.isDeliveryAvailable
     phone.value = data.value.phone
@@ -59,6 +64,11 @@ export const useChannelStore = defineStore('channel', () => {
     menus.value = data.value.menus
     paymentMethods.value = data.value.paymentMethods as PaymentMethod[]
     warehouses.value = data.value.warehouses
+    workingDay.value = data.value.workingDay as WorkingDay | undefined
+    workingDays.value = data.value.workingDays as WorkingDay[]
+  }
+  function getMenu(id: string): MenuWithData | null {
+    return menus.value.find((menu) => menu.id === id) || null
   }
   function getMenuCategory(id: string): MenuCategoryWithData | null {
     return activeMenu.value?.categories.find((category) => category.id === id) || null
@@ -67,10 +77,10 @@ export const useChannelStore = defineStore('channel', () => {
     return activeMenu.value?.categories.find((category) => category.slug === slug) || null
   }
   function getProduct(id: string): ProductWithData | null {
-    return activeProducts.value.find((product) => product.id === id) || null
+    return allProducts.value.find((product) => product.id === id) || null
   }
   function getProductBySlug(slug: string): ProductWithData | null {
-    return activeProducts.value.find((product) => product.slug === slug) || null
+    return allProducts.value.find((product) => product.slug === slug) || null
   }
 
   return {
@@ -80,12 +90,15 @@ export const useChannelStore = defineStore('channel', () => {
     description,
     currencyCode,
     countryCode,
+    timeZone,
     isPickupAvailable,
     isDeliveryAvailable,
     phone,
     conditions,
     minAmountForDelivery,
     masterAccountExists,
+    workingDay,
+    workingDays,
     menus,
     paymentMethods,
     warehouses,
@@ -93,11 +106,13 @@ export const useChannelStore = defineStore('channel', () => {
     activeMenu,
     activeCategories,
     activeProducts,
+    allProducts,
     currencySign,
     isOnMaintenance,
     isInitialized,
 
     fetchData,
+    getMenu,
     getMenuCategory,
     getMenuCategoryBySlug,
     getProduct,

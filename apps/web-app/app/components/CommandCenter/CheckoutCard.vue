@@ -47,10 +47,10 @@
       </div>
 
       <p class="font-medium">
-        <span class="text-neutral-500 dark:text-neutral-400 font-normal">{{ $t('app.checkout.payment-title') }}:</span> {{ channel?.paymentMethods.find((p) => p.id === checkout?.paymentMethodId)?.name }}
+        <span class="text-neutral-500 dark:text-neutral-400 font-normal">{{ $t('app.checkout.payment-title') }}:</span> {{ channel.paymentMethods.find((p) => p.id === checkout?.paymentMethodId)?.name }}
       </p>
       <p v-if="checkout?.change" class="font-medium">
-        <span class="text-neutral-500 dark:text-neutral-400 font-normal">{{ $t('app.checkout.change-label') }}:</span> {{ checkout?.change }} {{ getCurrencySign(channel?.currencyCode) }}
+        <span class="text-neutral-500 dark:text-neutral-400 font-normal">{{ $t('app.checkout.change-label') }}:</span> {{ checkout?.change }} {{ channel.currencySign }}
       </p>
       <p v-if="checkout?.note" class="font-medium">
         <span class="text-neutral-500 dark:text-neutral-400 font-normal">{{ $t('app.checkout.order-note') }}:</span> {{ checkout?.note }}
@@ -70,7 +70,7 @@
         {{ $t('app.checkout.cost.products') }}
       </div>
       <div class="tracking-tight text-lg">
-        {{ checkout?.totalPrice }} <span class="text-sm">{{ getCurrencySign(channel?.currencyCode) }}</span>
+        {{ checkout?.totalPrice }} <span class="text-sm">{{ channel.currencySign }}</span>
       </div>
     </div>
   </div>
@@ -81,8 +81,8 @@ const { id } = defineProps<{
   id: string
 }>()
 
-const { channel } = await useChannel()
+const channel = useChannelStore()
 const { checkouts } = await useCheckoutList()
 const checkout = computed(() => checkouts.value?.find((c) => c.id === id))
-const warehouse = computed(() => channel.value?.warehouses.find((w) => w.id === checkout.value?.warehouseId))
+const warehouse = computed(() => channel.warehouses.find((w) => w.id === checkout.value?.warehouseId))
 </script>

@@ -6,10 +6,10 @@
     <Icon :name="icons.clock" /> {{ $t('app.cart.today-until') }} {{ todayUntil }}
   </div>
   <div class="mb-2">
-    <div v-if="checkout?.deliveryMethod === 'DELIVERY' && channel?.minAmountForDelivery" class="flex flex-row gap-2 items-center">
+    <div v-if="checkout?.deliveryMethod === 'DELIVERY' && channel.minAmountForDelivery" class="flex flex-row gap-2 items-center">
       <Icon :name="icons.delivery" />
       <div class="lowercase">
-        {{ $t('app.cart.from') }} {{ channel?.minAmountForDelivery }} <span class="text-sm">{{ getCurrencySign(channel?.currencyCode) }}</span>
+        {{ $t('app.cart.from') }} {{ channel.minAmountForDelivery }} <span class="text-sm">{{ channel.currencySign }}</span>
       </div>
     </div>
   </div>
@@ -19,8 +19,8 @@
 const { icons } = useAppConfig()
 const { t } = useI18n()
 
-const { channel } = await useChannel()
+const channel = useChannelStore()
 const { checkout } = useCheckout()
 const title = computed(() => checkout.value?.deliveryMethod === 'DELIVERY' ? t('app.cart.delivery') : t('app.cart.pickup'))
-const todayUntil = computed(() => channel.value?.workingDay?.isActive ? `${channel.value.workingDay.closeHours.toString().padStart(2, '0')}:${channel.value.workingDay.closeMinutes.toString().padStart(2, '0')}` : undefined)
+const todayUntil = computed(() => channel.workingDay?.isActive ? `${channel.workingDay.closeHours.toString().padStart(2, '0')}:${channel.workingDay.closeMinutes.toString().padStart(2, '0')}` : undefined)
 </script>
