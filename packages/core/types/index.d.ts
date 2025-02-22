@@ -56,19 +56,19 @@ declare global {
 
   interface Menu {
     id: string
-    createdAt: Date
-    updatedAt: Date
-    isActive: boolean
+    createdAt: string
+    updatedAt: string
     slug: string
     name: string
+    isActive: boolean
     channelId: string
     categories: MenuCategory[]
   }
 
   interface MenuCategory {
     id: string
-    createdAt: Date
-    updatedAt: Date
+    createdAt: string
+    updatedAt: string
     slug: string
     name: string
     menuId: string
@@ -87,13 +87,13 @@ declare global {
 
   interface Product {
     id: string
-    createdAt: Date
-    updatedAt: Date
+    createdAt: string
+    updatedAt: string
     slug: string
     name: string
     description: string
-    isAvailableForPurchase: boolean
     channelId: string
+    isAvailableForPurchase: boolean
     categoryId: string
     mediaId: string | null
     variants: ProductVariant[]

@@ -33,7 +33,7 @@ const { categoryId } = defineProps<{
   isFirst?: boolean
 }>()
 
-const { categories } = await useChannel()
-const category = computed(() => categories.value.find(({ id }) => id === categoryId))
-const categoryProducts = computed(() => category.value?.products.filter((p) => p.variants.length > 0).splice(0, 8))
+const channel = useChannelStore()
+const category = channel.getMenuCategory(categoryId)
+const categoryProducts = channel.getFirstProductsInCategory(categoryId, 8)
 </script>

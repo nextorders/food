@@ -18,6 +18,7 @@ catalog:
   '@nuxt/ui': 3.0.0-alpha.13
   '@nuxtjs/i18n': ^9.2.1
   '@paralleldrive/cuid2': ^2.2.2
+  '@pinia/nuxt': ^0.10.1
   '@semantic-release/exec': ^7.0.3
   '@semantic-release/git': ^10.0.1
   '@types/bcrypt': ^5.0.2
@@ -48,6 +49,7 @@ catalog:
   nuxt-zod-i18n: ^1.11.5
   pg: ^8.13.3
   playwright: ^1.50.1
+  pinia: ^3.0.1
   semantic-release: ^24.2.3
   semantic-release-monorepo: ^8.0.2
   sharp: ^0.33.5

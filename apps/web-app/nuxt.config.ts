@@ -1,5 +1,6 @@
 export default defineNuxtConfig({
   extends: ['@next-orders/core', '@next-orders/ui'],
+  modules: ['@pinia/nuxt'],
   future: {
     compatibilityVersion: 4,
   },
@@ -22,6 +23,9 @@ export default defineNuxtConfig({
       // { code: 'ka', language: 'ka-GE', name: 'ქართული', file: 'ka-GE.json' },
     ],
     strategy: 'no_prefix',
+  },
+  pinia: {
+    storesDirs: ['./stores/**'],
   },
   routeRules: {
     // '/': { swr: true },

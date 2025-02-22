@@ -52,7 +52,7 @@
           >
             <p>{{ $t('app.cart.next-label') }}</p>
             <div class="text-lg tracking-tight">
-              {{ formatNumberToLocal(checkout?.totalPrice) }} <span class="text-base">{{ getCurrencySign(channel?.currencyCode) }}</span>
+              {{ formatNumberToLocal(checkout?.totalPrice) }} <span class="text-base">{{ channel.currencySign }}</span>
             </div>
           </UButton>
         </div>
@@ -72,7 +72,7 @@ import { ModalDeliveryInfo } from '#components'
 
 const { isCartDrawerOpened } = useApp()
 const { icons } = useAppConfig()
-const { channel } = await useChannel()
 const { checkout, isEmpty } = useCheckout()
 const modal = useModal()
+const channel = useChannelStore()
 </script>

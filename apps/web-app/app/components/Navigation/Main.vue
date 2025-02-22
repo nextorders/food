@@ -6,14 +6,14 @@
           href="/"
           class="font-medium text-xl"
         >
-          {{ channel?.name }}
+          {{ channel.name }}
         </NuxtLink>
         <div class="mt-1 text-sm leading-tight">
-          {{ channel?.description }}
+          {{ channel.description }}
         </div>
 
-        <div v-if="channel?.phone" class="mt-4 text-lg leading-tight">
-          {{ channel?.phone }}
+        <div v-if="channel.phone" class="mt-4 text-lg leading-tight">
+          {{ channel.phone }}
         </div>
       </div>
 
@@ -34,7 +34,7 @@
         </p>
 
         <NavigationButton
-          v-for="category in categoriesWithProducts"
+          v-for="category in channel.activeCategories"
           :key="category.id"
           :link="`/catalog/${category.slug}`"
           :label="category.name"
@@ -54,7 +54,7 @@
 import { ModalDeliveryInfo } from '#components'
 
 const { icons } = useAppConfig()
-const { channel, categoriesWithProducts } = await useChannel()
+const channel = useChannelStore()
 const { checkout } = useCheckout()
 const modal = useModal()
 </script>

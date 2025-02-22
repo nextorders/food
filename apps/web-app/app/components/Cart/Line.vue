@@ -12,7 +12,7 @@
           </p>
           <div class="mt-1 flex flex-row gap-2 flex-nowrap">
             <div class="text-sm font-medium tracking-tight">
-              {{ formatNumberToLocal(line?.productVariant.gross) }} <span class="text-xs">{{ getCurrencySign(channel?.currencyCode) }}</span>
+              {{ formatNumberToLocal(line?.productVariant.gross) }} <span class="text-xs">{{ channel.currencySign }}</span>
             </div>
             <div class="text-sm text-(--ui-text-muted) font-light">
               {{ variant?.weightValue }}{{ getWeightLocalizedUnit(variant?.weightUnit) }}
@@ -31,7 +31,7 @@ const { lineId } = defineProps<{
   lineId: string
 }>()
 
-const { channel } = await useChannel()
+const channel = useChannelStore()
 const { checkout } = useCheckout()
 const line = computed(() => checkout.value?.lines?.find((l) => l.id === lineId))
 const variant = computed(() => line.value?.productVariant)

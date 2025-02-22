@@ -7,6 +7,18 @@ export function formatNumberToLocal(value?: number): string {
   return new Intl.NumberFormat(locale.value).format(value)
 }
 
+export const CURRENCY_SIGNS: Record<CurrencyCode, string> = {
+  RUB: '₽',
+  USD: '$',
+  EUR: '€',
+  GEL: '₾',
+  BYN: 'Br',
+  UAH: '₴',
+  KZT: '₸',
+  PLN: 'zł',
+  TRY: '₺',
+}
+
 export function getCurrencySign<CurrencyLiteral = string & object>(code?: CurrencyCode | CurrencyLiteral): string {
   switch (code as CurrencyCode) {
     case 'RUB':

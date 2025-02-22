@@ -17,7 +17,9 @@
     "@next-orders/core": "workspace:*",
     "@next-orders/database": "workspace:*",
     "@next-orders/ui": "workspace:*",
-    "libphonenumber-js": "catalog:"
+    "@pinia/nuxt": "catalog:",
+    "libphonenumber-js": "catalog:",
+    "pinia": "catalog:"
   },
   "devDependencies": {
     "@types/node": "catalog:",
