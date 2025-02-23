@@ -42,7 +42,6 @@ const emit = defineEmits(['success'])
 const { t } = useI18n()
 const toast = useToast()
 const channel = useChannelStore()
-const { refresh: refreshProducts } = await useProduct()
 
 const state = ref<Partial<ProductImageUploadSchema>>({
   file: undefined,
@@ -80,7 +79,6 @@ async function onSubmit(event: FormSubmitEvent<ProductImageUploadSchema>) {
 
   if (data.value) {
     await channel.update()
-    await refreshProducts()
     emit('success')
     toast.add({ title: t('toast.photo-loaded'), description: t('toast.updating-data') })
     resetState()

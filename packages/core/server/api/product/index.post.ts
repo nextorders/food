@@ -5,7 +5,6 @@ export default defineEventHandler(async (event) => {
   try {
     const { channelId } = useRuntimeConfig()
     const body = await readBody(event)
-
     const data = productCreateSchema.parse(body)
     const id = createId()
 
@@ -15,6 +14,8 @@ export default defineEventHandler(async (event) => {
       channelId,
       ...data,
     })
+
+    await repository.channel.setAsUpdated(channelId)
 
     return {
       ok: true,

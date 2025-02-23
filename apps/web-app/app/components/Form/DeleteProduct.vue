@@ -24,7 +24,6 @@ const router = useRouter()
 const { t } = useI18n()
 const toast = useToast()
 const channel = useChannelStore()
-const { refresh: refreshProducts } = await useProduct()
 
 async function onSubmit() {
   const { data, error } = await useAsyncData(
@@ -41,7 +40,6 @@ async function onSubmit() {
 
   if (data.value) {
     await channel.update()
-    await refreshProducts()
     emit('success')
     toast.add({ title: t('toast.product-deleted'), description: t('toast.updating-data') })
     router.push(redirectTo)

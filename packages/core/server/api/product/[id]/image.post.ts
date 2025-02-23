@@ -6,7 +6,7 @@ const IMAGE_SIZES = [120, 300, 600, 800]
 
 export default defineEventHandler(async (event) => {
   try {
-    const { productsDirectory } = useRuntimeConfig()
+    const { productsDirectory, channelId } = useRuntimeConfig()
     const storage = useStorage('s3')
 
     const id = getRouterParam(event, 'id')
@@ -83,6 +83,8 @@ export default defineEventHandler(async (event) => {
     }
 
     await repository.product.patch(id, { mediaId })
+
+    await repository.channel.setAsUpdated(channelId)
 
     return { ok: true }
   } catch (error) {

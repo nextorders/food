@@ -3,10 +3,13 @@ import { productVariantCreateSchema } from './../../../../shared/services/produc
 
 export default defineEventHandler(async (event) => {
   try {
+    const { channelId } = useRuntimeConfig()
     const body = await readBody(event)
     const data = productVariantCreateSchema.parse(body)
 
     const variant = await repository.productVariant.create(data)
+
+    await repository.channel.setAsUpdated(channelId)
 
     return {
       ok: true,

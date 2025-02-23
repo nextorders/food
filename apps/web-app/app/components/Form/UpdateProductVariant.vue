@@ -132,9 +132,7 @@ const emit = defineEmits(['success', 'submitted'])
 const { t } = useI18n()
 const toast = useToast()
 const channel = useChannelStore()
-const { refresh: refreshProducts, products } = await useProduct()
-
-const product = computed(() => products.value?.find((product) => product.id === productId))
+const product = channel.getProduct(productId)
 const productVariant = computed(() => product.value?.variants?.find((variant) => variant.id === productVariantId))
 
 const state = ref<Partial<ProductVariantUpdateSchema>>({
@@ -190,7 +188,6 @@ async function onSubmit(event: FormSubmitEvent<ProductVariantUpdateSchema>) {
 
   if (data.value) {
     await channel.update()
-    await refreshProducts()
     emit('success')
     toast.add({ title: t('toast.variant-updated'), description: t('toast.updating-data') })
     resetState()
