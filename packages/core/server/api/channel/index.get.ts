@@ -2,7 +2,9 @@ import { TZDate } from '@date-fns/tz'
 import { repository } from '@next-orders/database'
 import { getDayIndexByDay, getDayOfWeekByIndex } from './../../../shared/utils/date'
 
-export default defineEventHandler(async () => {
+let cacheUpdatedAt: string | null = null
+
+export default defineCachedEventHandler(async () => {
   try {
     const { channelId } = useRuntimeConfig()
     if (!channelId) {
@@ -45,4 +47,26 @@ export default defineEventHandler(async () => {
   } catch (error) {
     throw errorResolver(error)
   }
+}, {
+  shouldInvalidateCache,
 })
+
+/**
+ * Determines if the cache should be invalidated based on channel updatedAt
+ * True if cache should be invalidated, false otherwise
+ */
+async function shouldInvalidateCache(): Promise<boolean> {
+  const { channelId } = useRuntimeConfig()
+
+  const channel = await repository.channel.find(channelId)
+  if (!channel) {
+    return true
+  }
+
+  if (cacheUpdatedAt !== channel.updatedAt) {
+    cacheUpdatedAt = channel.updatedAt
+    return true
+  }
+
+  return false
+}

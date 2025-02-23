@@ -27,9 +27,5 @@ export default defineNuxtConfig({
   pinia: {
     storesDirs: ['./stores/**'],
   },
-  routeRules: {
-    // '/': { swr: true },
-    // '/catalog/**': { swr: true },
-  },
   compatibilityDate: '2025-02-20',
 })
