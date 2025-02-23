@@ -2,7 +2,45 @@ import { TZDate } from '@date-fns/tz'
 import { repository } from '@next-orders/database'
 import { getDayIndexByDay, getDayOfWeekByIndex } from './../../../shared/utils/date'
 
-let cacheUpdatedAt: string | null = null
+class ChannelCache {
+  /**
+   * Timestamp of the last channel update used for cache invalidation comparison
+   */
+  updatedAt: string | null = null
+
+  /**
+   * Maximum age of cache in seconds (default: 12 hours)
+   */
+  maxAge: number = 60 * 60 * 12
+
+  /**
+   * Determines if stale-while-revalidate caching strategy should be used
+   * If false: data was changed => need to revalidate cache before sending response
+   */
+  swr: boolean = false
+
+  /**
+   * Determines if the cache should be invalidated based on channel updatedAt
+   * @returns true if cache should be invalidated, false otherwise
+   */
+  async shouldInvalidateCache(): Promise<boolean> {
+    const { channelId } = useRuntimeConfig()
+
+    const channel = await repository.channel.find(channelId)
+    if (!channel) {
+      return true
+    }
+
+    if (this.updatedAt !== channel.updatedAt) {
+      this.updatedAt = channel.updatedAt
+      return true
+    }
+
+    return false
+  }
+}
+
+const cache = new ChannelCache()
 
 export default defineCachedEventHandler(async () => {
   try {
@@ -48,25 +86,7 @@ export default defineCachedEventHandler(async () => {
     throw errorResolver(error)
   }
 }, {
-  shouldInvalidateCache,
+  swr: cache.swr,
+  maxAge: cache.maxAge,
+  shouldInvalidateCache: cache.shouldInvalidateCache,
 })
-
-/**
- * Determines if the cache should be invalidated based on channel updatedAt
- * True if cache should be invalidated, false otherwise
- */
-async function shouldInvalidateCache(): Promise<boolean> {
-  const { channelId } = useRuntimeConfig()
-
-  const channel = await repository.channel.find(channelId)
-  if (!channel) {
-    return true
-  }
-
-  if (cacheUpdatedAt !== channel.updatedAt) {
-    cacheUpdatedAt = channel.updatedAt
-    return true
-  }
-
-  return false
-}

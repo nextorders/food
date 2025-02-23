@@ -109,7 +109,7 @@ const channel = useChannelStore()
 const { addProduct, checkout } = useCheckout()
 
 const product = channel.getProductBySlug(params.productSlug)
-if (!product) {
+if (!product.value) {
   throw createError({
     statusCode: 404,
     statusMessage: 'Product not found',
@@ -117,12 +117,12 @@ if (!product) {
 }
 
 useHead({
-  title: product.name,
+  title: product.value.name,
 })
 
-const variantId = ref(product.variants[0]?.id)
-const withSingleVariant = computed(() => product.variants.length === 1)
-const selectedVariant = computed(() => product.variants.find(({ id }) => id === variantId.value))
+const variantId = ref(product.value.variants[0]?.id)
+const withSingleVariant = computed(() => product.value?.variants.length === 1)
+const selectedVariant = computed(() => product.value?.variants.find(({ id }) => id === variantId.value))
 
 const price = computed(() => formatNumberToLocal(selectedVariant.value?.gross))
 const weightValue = computed(() => selectedVariant.value?.weightValue)
@@ -137,8 +137,8 @@ const inCart = computed(() => {
 const breadcrumbs = computed(() => [
   { label: t('common.home'), icon: 'food:home', to: '/' },
   {
-    label: product.category.name,
-    to: `/catalog/${product.category?.slug}`,
+    label: product.value?.category.name ?? '',
+    to: `/catalog/${product.value?.category?.slug}`,
   },
 ])
 </script>

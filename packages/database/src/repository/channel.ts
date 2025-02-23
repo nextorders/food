@@ -1,5 +1,5 @@
 import type { ChannelDraft } from '../types'
-import { eq } from 'drizzle-orm'
+import { eq, sql } from 'drizzle-orm'
 import { useDatabase } from '../database'
 import { channels } from '../tables'
 
@@ -35,7 +35,16 @@ export class Channel {
   }
 
   static async patch(id: string, data: Partial<ChannelDraft>) {
-    const [channel] = await useDatabase().update(channels).set(data).where(eq(channels.id, id)).returning()
+    const [channel] = await useDatabase().update(channels).set({
+      ...data,
+      updatedAt: sql`NOW()`,
+    }).where(eq(channels.id, id)).returning()
+
+    return channel
+  }
+
+  static async setAsUpdated(id: string) {
+    const [channel] = await useDatabase().update(channels).set({ updatedAt: sql`NOW()` }).where(eq(channels.id, id)).returning()
     return channel
   }
 }

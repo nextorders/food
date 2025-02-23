@@ -13,6 +13,7 @@ interface ProductWithData extends Product {
 
 export const useChannelStore = defineStore('channel', () => {
   const id = ref('')
+  const updatedAt = ref<string | undefined>(undefined)
   const isActive = ref(false)
   const name = ref('')
   const description = ref<string | null>(null)
@@ -44,12 +45,15 @@ export const useChannelStore = defineStore('channel', () => {
     const { data } = await useFetch('/api/channel', {
       lazy: true,
       server: true,
+      cache: 'no-cache',
+      getCachedData: undefined,
     })
     if (!data.value) {
       throw new Error('Channel data not found')
     }
 
     id.value = data.value.id
+    updatedAt.value = data.value.updatedAt
     isActive.value = data.value.isActive
     name.value = data.value.name
     description.value = data.value.description
@@ -80,15 +84,16 @@ export const useChannelStore = defineStore('channel', () => {
   function getActiveMenuCategoryBySlug(slug: string): MenuCategoryWithData | null {
     return activeMenu.value?.categories.find((category) => category.slug === slug) || null
   }
-  function getProduct(id: string): ProductWithData | null {
-    return allProducts.value.find((product) => product.id === id) || null
+  function getProduct(id: string): ComputedRef<ProductWithData | undefined> {
+    return computed(() => allProducts.value.find((product) => product.id === id))
   }
-  function getProductBySlug(slug: string): ProductWithData | null {
-    return allProducts.value.find((product) => product.slug === slug) || null
+  function getProductBySlug(slug: string): ComputedRef<ProductWithData | undefined> {
+    return computed(() => allProducts.value.find((product) => product.slug === slug))
   }
 
   return {
     id,
+    updatedAt,
     isActive,
     name,
     description,

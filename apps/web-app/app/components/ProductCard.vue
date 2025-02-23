@@ -50,11 +50,11 @@ const { productId } = defineProps<{
 const channel = useChannelStore()
 const product = channel.getProduct(productId)
 
-const withSingleVariant = computed(() => product?.variants.length === 1)
-const smallestVariant = computed(() => withSingleVariant.value ? product?.variants[0] : product?.variants.reduce((prev, curr) => (prev.gross < curr.gross ? prev : curr)))
+const withSingleVariant = computed(() => product.value?.variants.length === 1)
+const smallestVariant = computed(() => withSingleVariant.value ? product.value?.variants[0] : product.value?.variants.reduce((prev, curr) => (prev.gross < curr.gross ? prev : curr)))
 
 const price = computed(() => formatNumberToLocal(smallestVariant.value?.gross))
 const weightValue = computed(() => smallestVariant.value?.weightValue)
 const weightUnit = computed(() => getWeightLocalizedUnit(smallestVariant.value?.weightUnit))
-const productUrl = `/catalog/${product?.category?.slug}/${product?.slug}`
+const productUrl = `/catalog/${product.value?.category?.slug}/${product.value?.slug}`
 </script>

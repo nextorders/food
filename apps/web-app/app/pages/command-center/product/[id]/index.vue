@@ -131,17 +131,20 @@ const modal = useModal()
 
 const channel = useChannelStore()
 const product = channel.getProduct(params.id)
-if (!product) {
-  throw createError({ statusCode: 404, statusMessage: 'Product not found' })
+if (!product.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Product not found',
+  })
 }
 
-const menuPageUrl = `/command-center/menu/${product.category.menuId}`
+const menuPageUrl = computed(() => `/command-center/menu/${product.value?.category.menuId}`)
 
 const breadcrumbs = computed(() => [
   { label: t('common.website'), icon: 'food:home', to: '/' },
   {
     label: t('center.menu.menu-page'),
-    to: menuPageUrl,
+    to: menuPageUrl.value,
   },
   { label: t('center.menu.product-page') },
 ])

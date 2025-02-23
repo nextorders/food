@@ -3,6 +3,8 @@ import { productUpdateSchema } from './../../../../shared/services/product'
 
 export default defineEventHandler(async (event) => {
   try {
+    const { channelId } = useRuntimeConfig()
+
     const id = getRouterParam(event, 'id')
     if (!id) {
       throw createError({
@@ -15,6 +17,8 @@ export default defineEventHandler(async (event) => {
     const data = productUpdateSchema.parse(body)
 
     const product = await repository.product.patch(id, data)
+
+    await repository.channel.setAsUpdated(channelId)
 
     return {
       ok: true,
