@@ -39,6 +39,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
+    "check:full": "pnpm run lint:fix && pnpm run typecheck && pnpm vitest run",
     "prepare": "husky"
   },
   "devDependencies": {
