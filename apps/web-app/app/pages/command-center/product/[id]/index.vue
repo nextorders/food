@@ -68,7 +68,7 @@
         v-for="variant in product?.variants"
         :key="variant.id"
         class="bg-(--ui-bg-muted) space-y-2 flex flex-col justify-between"
-        @click="modal.open(ModalUpdateProductVariant, { productId: product?.id, productVariantId: variant.id })"
+        @click="modal.open(ModalUpdateProductVariant, { productVariantId: variant.id })"
       >
         <div class="text-lg font-medium md:leading-tight text-center">
           {{ variant.name }}

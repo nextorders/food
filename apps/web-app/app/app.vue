@@ -4,6 +4,7 @@
     :tooltip="{ delayDuration: 0 }"
     class="min-h-dvh"
   >
+    <NuxtLoadingIndicator :color="false" class="bg-(--ui-primary) h-[2px]" />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
@@ -28,6 +29,9 @@ useHead({
 // Init Stores
 const channel = useChannelStore()
 await channel.update()
+
+const checkout = useCheckoutStore()
+await checkout.update()
 
 if (!channel.isInitialized) {
   await navigateTo('/welcome')

@@ -3,7 +3,6 @@
     <template #body>
       <div class="space-y-3">
         <FormUpdateProductVariant
-          :product-id="productId ?? ''"
           :product-variant-id="productVariantId ?? ''"
           :is-opened="modal.isOpen.value"
           @submitted="modal.close()"
@@ -21,7 +20,6 @@
 
 <script setup lang="ts">
 defineProps<{
-  productId?: string
   productVariantId?: string
 }>()
 

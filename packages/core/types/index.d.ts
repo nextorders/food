@@ -161,16 +161,16 @@ declare global {
 
   interface CheckoutLine {
     id: string
-    createdAt: Date
-    updatedAt: Date
-    checkoutId: string
-    productVariantId: string
+    createdAt: string
+    updatedAt: string
+    totalPrice: number
     quantity: number
     unitPrice: number
     undiscountedUnitPrice: number
-    totalPrice: number
     undiscountedTotalPrice: number
     isGift: boolean
+    checkoutId: string
+    productVariantId: string
   }
 
   type CheckoutReceiver = {

@@ -41,7 +41,7 @@
             variant="gradient"
             icon="food:busket"
             class="w-fit flex flex-row gap-2 items-center"
-            @click="addProduct(variantId ?? '')"
+            @click="checkout.add(variantId ?? '')"
           >
             {{ $t('app.cart.add-to-cart') }}
           </UButton>
@@ -106,7 +106,7 @@
 const { t } = useI18n()
 const { params } = useRoute('catalog-categorySlug-productSlug')
 const channel = useChannelStore()
-const { addProduct, checkout } = useCheckout()
+const checkout = useCheckoutStore()
 
 const product = channel.getProductBySlug(params.productSlug)
 if (!product.value) {
@@ -131,7 +131,7 @@ const weightUnit = computed(() => getWeightLocalizedUnit(selectedVariant.value?.
 const isNutritionShown = computed(() => selectedVariant.value?.calories && selectedVariant.value?.protein && selectedVariant.value?.fat && selectedVariant.value?.carbohydrate)
 
 const inCart = computed(() => {
-  return checkout.value?.lines?.find((l) => l.productVariant.id === selectedVariant.value?.id)
+  return checkout.lines.find((l) => l.productVariantId === selectedVariant.value?.id)
 })
 
 const breadcrumbs = computed(() => [

@@ -3,7 +3,7 @@
     <button
       aria-label="Minus"
       class="flex flex-row items-center p-1 rounded-xl lg:hover:scale-90 lg:hover:bg-(--ui-bg-muted) duration-200"
-      @click="changeLineQuantity(lineId, 'decrement')"
+      @click="checkout.changeLineQuantity(lineId, 'decrement')"
     >
       <Icon :name="icons.minus" class="size-5" />
     </button>
@@ -15,7 +15,7 @@
     <button
       aria-label="Plus"
       class="flex flex-row items-center p-1 rounded-xl lg:hover:scale-90 lg:hover:bg-(--ui-bg-muted) duration-200"
-      @click="changeLineQuantity(lineId, 'increment')"
+      @click="checkout.changeLineQuantity(lineId, 'increment')"
     >
       <Icon :name="icons.plus" class="size-5" />
     </button>
@@ -28,6 +28,6 @@ const { lineId } = defineProps<{
 }>()
 
 const { icons } = useAppConfig()
-const { checkout, changeLineQuantity } = useCheckout()
-const line = computed(() => checkout.value?.lines?.find((l) => l.id === lineId))
+const checkout = useCheckoutStore()
+const line = computed(() => checkout.lines?.find((l) => l.id === lineId))
 </script>

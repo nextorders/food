@@ -33,6 +33,6 @@
 
 <script setup lang="ts">
 const channel = useChannelStore()
-const { checkout } = useCheckout()
+const checkout = useCheckoutStore()
 const modal = useModal()
 </script>

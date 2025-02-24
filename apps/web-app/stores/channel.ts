@@ -72,23 +72,39 @@ export const useChannelStore = defineStore('channel', () => {
     workingDay.value = data.value.workingDay as WorkingDay | undefined
     workingDays.value = data.value.workingDays as WorkingDay[]
   }
-  function getMenu(id: string): MenuWithData | null {
-    return menus.value.find((menu) => menu.id === id) || null
+  async function getTimeSlots() {
+    const { data } = await useFetch('/api/channel/time-slots', {
+      lazy: true,
+      server: true,
+      cache: 'no-cache',
+      getCachedData: undefined,
+    })
+    if (!data.value) {
+      throw new Error('Time slots not found')
+    }
+
+    return data.value
   }
-  function getMenuCategory(id: string): MenuCategoryWithData | null {
-    return allCategories.value.find((category) => category.id === id) || null
+  function getMenu(id: string): ComputedRef<MenuWithData | undefined> {
+    return computed(() => menus.value.find((menu) => menu.id === id))
   }
-  function getActiveMenuCategory(id: string): MenuCategoryWithData | null {
-    return activeMenu.value?.categories.find((category) => category.id === id) || null
+  function getMenuCategory(id: string): ComputedRef<MenuCategoryWithData | undefined> {
+    return computed(() => allCategories.value.find((category) => category.id === id))
   }
-  function getActiveMenuCategoryBySlug(slug: string): MenuCategoryWithData | null {
-    return activeMenu.value?.categories.find((category) => category.slug === slug) || null
+  function getActiveMenuCategory(id: string): ComputedRef<MenuCategoryWithData | undefined> {
+    return computed(() => activeMenu.value?.categories.find((category) => category.id === id))
+  }
+  function getActiveMenuCategoryBySlug(slug: string): ComputedRef<MenuCategoryWithData | undefined> {
+    return computed(() => activeMenu.value?.categories.find((category) => category.slug === slug))
   }
   function getProduct(id: string): ComputedRef<ProductWithData | undefined> {
     return computed(() => allProducts.value.find((product) => product.id === id))
   }
   function getProductBySlug(slug: string): ComputedRef<ProductWithData | undefined> {
     return computed(() => allProducts.value.find((product) => product.slug === slug))
+  }
+  function getProductVariant(id: string): ComputedRef<ProductVariant | undefined> {
+    return computed(() => allProducts.value.flatMap((product) => product.variants).find((variant) => variant.id === id))
   }
 
   return {
@@ -122,11 +138,13 @@ export const useChannelStore = defineStore('channel', () => {
     isInitialized,
 
     update,
+    getTimeSlots,
     getMenu,
     getMenuCategory,
     getActiveMenuCategory,
     getActiveMenuCategoryBySlug,
     getProduct,
     getProductBySlug,
+    getProductVariant,
   }
 })

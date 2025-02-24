@@ -2,19 +2,19 @@
   <div class="flex flex-row gap-2 items-center justify-between">
     <NuxtLink :to="productUrl" class="max-w-[16rem] flex flex-row gap-2 flex-nowrap items-center cursor-pointer active:scale-95 lg:hover:scale-95 lg:active:scale-90 duration-200 group">
       <div class="relative size-12 md:size-14 aspect-square">
-        <ProductImage :id="variant?.product?.mediaId" size="xs" />
+        <ProductImage :id="product?.mediaId" size="xs" />
       </div>
 
       <div class="space-y-1">
         <div class="font-medium text-(--ui-text) leading-tight line-clamp-2">
-          {{ variant?.product.name }}
+          {{ product?.name }}
         </div>
         <div class="flex flex-row gap-2 flex-nowrap items-center">
           <p class="text-sm text-(--ui-text-muted) leading-tight">
-            {{ variant?.name }}
+            {{ productVariant?.name }}
           </p>
           <p class="text-sm text-(--ui-text-muted)">
-            {{ variant?.weightValue }}{{ getWeightLocalizedUnit(variant?.weightUnit) }}
+            {{ productVariant?.weightValue }}{{ getWeightLocalizedUnit(productVariant?.weightUnit) }}
           </p>
         </div>
       </div>
@@ -37,21 +37,14 @@
 
 <script setup lang="ts">
 const { line, canBeChanged = true } = defineProps<{
-  line: Pick<CheckoutLine, 'id' | 'quantity'> & {
-    productVariant: Pick<ProductVariant, 'gross' | 'name'> & {
-      weightUnit: string
-      weightValue: number
-      product: Pick<Product, 'name' | 'slug' | 'mediaId'> & {
-        category: Pick<MenuCategory, 'slug'>
-      }
-    }
-  }
+  line: CheckoutLine
   canBeChanged?: boolean
 }>()
 
 const channel = useChannelStore()
-const totalAmount = computed(() => line ? formatNumberToLocal(line.productVariant?.gross * line.quantity) : 0)
-const variant = computed(() => line?.productVariant)
-const product = computed(() => line?.productVariant?.product)
+const productVariant = channel.getProductVariant(line.productVariantId ?? '')
+const product = channel.getProduct(productVariant.value?.productId ?? '')
 const productUrl = computed(() => `/catalog/${product.value?.category?.slug}/${product.value?.slug}`)
+
+const totalAmount = computed(() => formatNumberToLocal(productVariant.value?.gross ? productVariant.value?.gross * line.quantity : 0))
 </script>

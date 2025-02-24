@@ -20,7 +20,7 @@ const { icons } = useAppConfig()
 const { t } = useI18n()
 
 const channel = useChannelStore()
-const { checkout } = useCheckout()
-const title = computed(() => checkout.value?.deliveryMethod === 'DELIVERY' ? t('app.cart.delivery') : t('app.cart.pickup'))
+const checkout = useCheckoutStore()
+const title = computed(() => checkout.deliveryMethod === 'DELIVERY' ? t('app.cart.delivery') : t('app.cart.pickup'))
 const todayUntil = computed(() => channel.workingDay?.isActive ? `${channel.workingDay.closeHours.toString().padStart(2, '0')}:${channel.workingDay.closeMinutes.toString().padStart(2, '0')}` : undefined)
 </script>

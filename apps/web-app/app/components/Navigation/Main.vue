@@ -55,6 +55,6 @@ import { ModalDeliveryInfo } from '#components'
 
 const { icons } = useAppConfig()
 const channel = useChannelStore()
-const { checkout } = useCheckout()
+const checkout = useCheckoutStore()
 const modal = useModal()
 </script>

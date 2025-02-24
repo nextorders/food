@@ -3,6 +3,7 @@ import { menuCategoryCreateSchema } from './../../../shared/services/menu'
 
 export default defineEventHandler(async (event) => {
   try {
+    const { channelId } = useRuntimeConfig()
     const body = await readBody(event)
 
     const data = menuCategoryCreateSchema.parse(body)
@@ -14,6 +15,8 @@ export default defineEventHandler(async (event) => {
       name: data.name,
       menuId: data.menuId,
     })
+
+    await repository.channel.setAsUpdated(channelId)
 
     return {
       ok: true,

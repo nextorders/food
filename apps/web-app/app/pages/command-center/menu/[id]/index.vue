@@ -62,7 +62,7 @@ definePageMeta({
 const { params } = useRoute('command-center-menu-id')
 const channel = useChannelStore()
 const menu = channel.getMenu(params.id)
-if (!menu) {
+if (!menu.value) {
   throw createError({ statusCode: 404, statusMessage: 'Menu not found' })
 }
 

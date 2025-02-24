@@ -51,14 +51,14 @@ const channel = useChannelStore()
 const category = channel.getMenuCategory(categoryId)
 
 const state = ref<Partial<MenuCategoryUpdateSchema>>({
-  name: category?.name,
-  slug: category?.slug,
+  name: category.value?.name,
+  slug: category.value?.slug,
 })
 
 function resetState() {
   state.value = {
-    name: category?.name,
-    slug: category?.slug,
+    name: category.value?.name,
+    slug: category.value?.slug,
   }
 }
 

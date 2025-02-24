@@ -121,9 +121,8 @@ import type { ProductVariantUpdateSchema } from '@next-orders/core/shared/servic
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { productVariantUpdateSchema } from '@next-orders/core/shared/services/product'
 
-const { isOpened, productId, productVariantId } = defineProps<{
+const { isOpened, productVariantId } = defineProps<{
   isOpened: boolean
-  productId: string
   productVariantId: string
 }>()
 
@@ -132,8 +131,7 @@ const emit = defineEmits(['success', 'submitted'])
 const { t } = useI18n()
 const toast = useToast()
 const channel = useChannelStore()
-const product = channel.getProduct(productId)
-const productVariant = computed(() => product.value?.variants?.find((variant) => variant.id === productVariantId))
+const productVariant = channel.getProductVariant(productVariantId)
 
 const state = ref<Partial<ProductVariantUpdateSchema>>({
   name: productVariant.value?.name,
