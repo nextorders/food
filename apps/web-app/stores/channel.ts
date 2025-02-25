@@ -11,6 +11,12 @@ interface ProductWithData extends Product {
   category: MenuCategory
 }
 
+interface TimeSlot {
+  id: string
+  label: string
+  value: number
+}
+
 export const useChannelStore = defineStore('channel', () => {
   const id = ref('')
   const updatedAt = ref<string | undefined>(undefined)
@@ -31,6 +37,7 @@ export const useChannelStore = defineStore('channel', () => {
   const menus = ref<MenuWithData[]>([])
   const paymentMethods = ref<PaymentMethod[]>([])
   const warehouses = ref<Warehouse[]>([])
+  const timeSlots = ref<TimeSlot[]>([])
 
   const activeMenu = computed<MenuWithData | null>(() => menus.value.find((menu) => menu.isActive) || null)
   const activeCategories = computed<MenuCategoryWithData[]>(() => activeMenu.value ? activeMenu.value.categories : [])
@@ -72,18 +79,18 @@ export const useChannelStore = defineStore('channel', () => {
     workingDay.value = data.value.workingDay as WorkingDay | undefined
     workingDays.value = data.value.workingDays as WorkingDay[]
   }
-  async function getTimeSlots() {
+  async function updateTimeSlots() {
     const { data } = await useFetch('/api/channel/time-slots', {
-      lazy: true,
+      lazy: false,
       server: true,
       cache: 'no-cache',
       getCachedData: undefined,
     })
     if (!data.value) {
-      throw new Error('Time slots not found')
+      return
     }
 
-    return data.value
+    timeSlots.value = data.value
   }
   function getMenu(id: string): ComputedRef<MenuWithData | undefined> {
     return computed(() => menus.value.find((menu) => menu.id === id))
@@ -106,6 +113,9 @@ export const useChannelStore = defineStore('channel', () => {
   function getProductVariant(id: string): ComputedRef<ProductVariant | undefined> {
     return computed(() => allProducts.value.flatMap((product) => product.variants).find((variant) => variant.id === id))
   }
+  function getProductsByQuery(query: string): ProductWithData[] {
+    return activeProducts.value.filter((product) => product.name.toLowerCase().includes(query.toLowerCase()))
+  }
 
   return {
     id,
@@ -127,6 +137,7 @@ export const useChannelStore = defineStore('channel', () => {
     menus,
     paymentMethods,
     warehouses,
+    timeSlots,
 
     activeMenu,
     activeCategories,
@@ -138,7 +149,7 @@ export const useChannelStore = defineStore('channel', () => {
     isInitialized,
 
     update,
-    getTimeSlots,
+    updateTimeSlots,
     getMenu,
     getMenuCategory,
     getActiveMenuCategory,
@@ -146,5 +157,6 @@ export const useChannelStore = defineStore('channel', () => {
     getProduct,
     getProductBySlug,
     getProductVariant,
+    getProductsByQuery,
   }
 })

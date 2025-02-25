@@ -1,4 +1,4 @@
-export function useApp() {
+export function _useApp() {
   const route = useRoute()
 
   const isNavbarOpened = ref(false)
@@ -20,3 +20,5 @@ export function useApp() {
     searchQuery,
   }
 }
+
+export const useApp = createSharedComposable(_useApp)

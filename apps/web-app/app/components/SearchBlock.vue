@@ -1,15 +1,15 @@
 <template>
-  <div class="invisible group-hover:visible group-focus:visible group-active:visible group-focus-within:visible group-focus-visible:visible fixed top-16 left-0 w-72 bg-white dark:bg-neutral-500 px-4 py-4 rounded-b-2xl shadow-lg duration-200">
-    <div v-if="searchQuery" class="flex flex-col gap-2">
+  <div class="invisible group-hover:visible group-focus:visible group-active:visible group-focus-within:visible group-focus-visible:visible fixed top-16 left-0 w-72 bg-(--ui-bg-accented) px-4 py-4 rounded-b-2xl shadow-lg duration-200">
+    <div v-if="searchQuery.length" class="flex flex-col gap-2">
       <div v-if="showResults?.length" class="flex flex-col gap-2">
-        <NuxtLink
+        <UButton
           v-for="product in showResults"
           :key="product.id"
           :to="`/catalog/${product.category.slug}/${product.slug}`"
-          class="px-4 py-4 rounded-xl bg-neutral-50 dark:bg-neutral-600 hover:bg-neutral-100 hover:dark:bg-neutral-600/60 text-base cursor-pointer"
+          size="xl"
         >
           {{ product.name }}
-        </NuxtLink>
+        </UButton>
       </div>
       <div v-else class="text-neutral-500">
         {{ $t('app.search.nothing-found') }}
@@ -21,14 +21,14 @@
       </div>
 
       <div v-if="topResults?.length" class="flex flex-col gap-2">
-        <NuxtLink
+        <UButton
           v-for="product in topResults"
           :key="product.id"
           :to="`/catalog/${product.category.slug}/${product.slug}`"
-          class="px-4 py-4 rounded-xl bg-neutral-50 dark:bg-neutral-600 hover:bg-neutral-100 hover:dark:bg-neutral-600/60 text-base cursor-pointer"
+          size="xl"
         >
           {{ product.name }}
-        </NuxtLink>
+        </UButton>
       </div>
     </div>
   </div>
@@ -39,9 +39,5 @@ const { searchQuery } = useApp()
 const channel = useChannelStore()
 
 const topResults = computed(() => channel.activeProducts.slice(0, 5))
-const showResults = computed(() => findProductsByQuery(searchQuery.value)?.slice(0, 5))
-
-function findProductsByQuery(query: string) {
-  return channel.activeProducts.filter((product) => product.name.toLowerCase().includes(query.toLowerCase()))
-}
+const showResults = computed(() => channel.getProductsByQuery(searchQuery.value)?.slice(0, 5))
 </script>

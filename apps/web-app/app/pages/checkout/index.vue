@@ -107,7 +107,7 @@
               v-model="remainingCheckout.time"
               :items="[
                 { label: $t('app.checkout.as-soon-as-possible'), value: 0 },
-                ...slots,
+                ...channel.timeSlots,
               ]"
               size="xl"
               icon="food:clock"
@@ -241,7 +241,7 @@ definePageMeta({
 
 const channel = useChannelStore()
 const checkout = useCheckoutStore()
-const slots = await channel.getTimeSlots()
+await channel.updateTimeSlots()
 
 const remainingCheckout = ref<CheckoutDraft>({
   name: '',

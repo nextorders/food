@@ -5,7 +5,7 @@
       alt=""
       class="mx-auto mb-2 size-24 opacity-60 grayscale"
     />
-    <div class="text-lg text-center font-normal text-neutral-500">
+    <div class="text-lg text-center font-normal text-(--ui-text-muted)">
       {{ $t('app.cart.empty-label') }}
     </div>
   </div>

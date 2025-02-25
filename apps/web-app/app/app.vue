@@ -28,10 +28,12 @@ useHead({
 
 // Init Stores
 const channel = useChannelStore()
-await channel.update()
-
 const checkout = useCheckoutStore()
-await checkout.update()
+
+await Promise.all([
+  channel.update(),
+  checkout.update(),
+])
 
 if (!channel.isInitialized) {
   await navigateTo('/welcome')
