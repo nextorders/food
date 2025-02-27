@@ -44,7 +44,7 @@ const { isOpened } = defineProps<{
   isOpened: boolean
 }>()
 
-const emit = defineEmits(['success'])
+const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
 const toast = useToast()
@@ -70,6 +70,8 @@ watch(
 )
 
 async function onSubmit(event: FormSubmitEvent<ChannelPaymentMethodCreateSchema>) {
+  emit('submitted')
+
   const { data, error } = await useAsyncData(
     'create-payment-method',
     () => $fetch('/api/channel/payment-method', {

@@ -18,6 +18,7 @@
     "@next-orders/database": "workspace:*",
     "@next-orders/ui": "workspace:*",
     "@pinia/nuxt": "catalog:",
+    "ioredis": "catalog:",
     "libphonenumber-js": "catalog:",
     "pinia": "catalog:"
   },

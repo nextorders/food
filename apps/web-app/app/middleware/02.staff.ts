@@ -6,10 +6,9 @@ export default defineNuxtRouteMiddleware(async () => {
   }
 
   // Check if staff has actual information
-  const { error } = await useFetch(`/api/user/${user.value?.id}`)
-  if (error.value?.message) {
+  const { error } = await useFetch(`/api/user/${user.value.id}`)
+  if (error.value) {
     await clear()
-
     return navigateTo('/command-center/sign-in')
   }
 })

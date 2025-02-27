@@ -1,4 +1,4 @@
-import { repository } from '@next-orders/database'
+import { patchChannel } from '../../../server/services/db/channel'
 import { channelUpdateSchema } from './../../../shared/services/channel'
 
 export default defineEventHandler(async (event) => {
@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = channelUpdateSchema.parse(body)
 
-    await repository.channel.patch(channelId, data)
+    await patchChannel(channelId, data as Partial<Channel>)
 
     return { ok: true }
   } catch (error) {

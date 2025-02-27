@@ -1,8 +1,10 @@
-import { repository } from '@next-orders/database'
+import { setChannelAsUpdated } from '../../../../server/services/db/channel'
+import { patchWarehouse } from '../../../../server/services/db/warehouse'
 import { warehouseUpdateSchema } from './../../../../shared/services/warehouse'
 
 export default defineEventHandler(async (event) => {
   try {
+    const { channelId } = useRuntimeConfig()
     const id = getRouterParam(event, 'id')
     if (!id) {
       throw createError({
@@ -14,7 +16,9 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = warehouseUpdateSchema.parse(body)
 
-    const warehouse = await repository.warehouse.patch(id, data)
+    const warehouse = await patchWarehouse(id, data)
+
+    await setChannelAsUpdated(channelId)
 
     return {
       ok: true,

@@ -1,4 +1,5 @@
-import { repository } from '@next-orders/database'
+import { setChannelAsUpdated } from '../../../../server/services/db/channel'
+import { changeWorkingDayActivity, getWorkingDays } from '../../../../server/services/db/work'
 import { workingDayActivityUpdateSchema } from './../../../../shared/services/workingDay'
 
 export default defineEventHandler(async (event) => {
@@ -14,17 +15,18 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = workingDayActivityUpdateSchema.parse(body)
 
-    const workingDay = await repository.workingDay.findByDayAndChannelId(channelId, data.day)
-    if (!workingDay) {
+    const workingDays = await getWorkingDays()
+    if (!workingDays) {
       throw createError({
         statusCode: 404,
         statusMessage: 'Working day not found',
       })
     }
 
-    await repository.workingDay.patch(workingDay.id, {
-      isActive: !workingDay.isActive,
-    })
+    const day = workingDays.find((workingDay) => workingDay.day === data.day)
+    await changeWorkingDayActivity(data.day, !day?.isActive)
+
+    await setChannelAsUpdated(channelId)
 
     return { ok: true }
   } catch (error) {

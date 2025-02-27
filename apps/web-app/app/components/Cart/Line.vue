@@ -36,5 +36,6 @@ const checkout = useCheckoutStore()
 const line = computed(() => checkout.lines?.find((l) => l.id === lineId))
 const productVariant = channel.getProductVariant(line.value?.productVariantId ?? '')
 const product = channel.getProduct(productVariant.value?.productId ?? '')
-const productUrl = computed(() => `/catalog/${product.value?.category?.slug}/${product.value?.slug}`)
+const category = channel.getMenuCategoryByProduct(product.value?.id ?? '')
+const productUrl = computed(() => `/catalog/${category?.slug}/${product.value?.slug}`)
 </script>

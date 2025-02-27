@@ -3,6 +3,7 @@
     <template #body>
       <FormCreateChannelPaymentMethod
         :is-opened="modal.isOpen.value"
+        @submitted="modal.close()"
         @success="modal.close()"
       />
     </template>

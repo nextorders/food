@@ -1,20 +1,11 @@
-interface MenuWithData extends Menu {
-  categories: MenuCategoryWithData[]
-}
-
-interface MenuCategoryWithData extends MenuCategory {
-  products: ProductWithData[]
-}
-
-interface ProductWithData extends Product {
-  variants: ProductVariant[]
-  category: MenuCategory
-}
-
 interface TimeSlot {
   id: string
   label: string
   value: number
+}
+
+interface ProductWithCategory extends Product {
+  category: MenuCategory
 }
 
 export const useChannelStore = defineStore('channel', () => {
@@ -33,88 +24,132 @@ export const useChannelStore = defineStore('channel', () => {
   const minAmountForDelivery = ref<number | null>(null)
   const masterAccountExists = ref(false)
   const workingDay = ref<WorkingDay | undefined>(undefined)
-  const workingDays = ref<WorkingDay[]>([])
-  const menus = ref<MenuWithData[]>([])
+  const workingDays = ref<WorkingWeek | null>(null)
+  const menus = ref<Menu[]>([])
+  const products = ref<Product[]>([])
   const paymentMethods = ref<PaymentMethod[]>([])
   const warehouses = ref<Warehouse[]>([])
   const timeSlots = ref<TimeSlot[]>([])
 
-  const activeMenu = computed<MenuWithData | null>(() => menus.value.find((menu) => menu.isActive) || null)
-  const activeCategories = computed<MenuCategoryWithData[]>(() => activeMenu.value ? activeMenu.value.categories : [])
-  const activeProducts = computed<ProductWithData[]>(() => activeCategories.value.flatMap((category) => category.products.filter((p) => p.variants.length > 0)))
-  const allCategories = computed<MenuCategoryWithData[]>(() => menus.value.flatMap((menu) => menu.categories))
-  const allProducts = computed<ProductWithData[]>(() => menus.value.flatMap((menu) => menu.categories.flatMap((category) => category.products)))
-  const currencySign = computed<string>(() => currencyCode.value ? CURRENCY_SIGNS[currencyCode.value as CurrencyCode] : '')
+  const activeMenu = computed<Menu | null>(() => menus.value.find((menu) => menu.isActive) || null)
+  const activeCategories = computed<MenuCategory[]>(() => activeMenu.value ? activeMenu.value.categories : [])
+  const activeProducts = computed<Product[]>(() => products.value)
+  const allCategories = computed<MenuCategory[]>(() => menus.value.flatMap((menu) => menu.categories))
+  const currencySign = computed<string>(() => currencyCode.value ? CURRENCY_SIGNS[currencyCode.value] : '')
   const isOnMaintenance = computed<boolean>(() => isActive.value === false || !activeMenu.value || (!isPickupAvailable.value && !isDeliveryAvailable.value))
   const isInitialized = computed<boolean>(() => !!id.value && !!masterAccountExists.value)
 
   async function update() {
-    const { data } = await useFetch('/api/channel', {
+    const data = await $fetch('/api/channel', {
       lazy: true,
       server: true,
       cache: 'no-cache',
       getCachedData: undefined,
     })
-    if (!data.value) {
+    if (!data) {
       throw new Error('Channel data not found')
     }
 
-    id.value = data.value.id
-    updatedAt.value = data.value.updatedAt
-    isActive.value = data.value.isActive
-    name.value = data.value.name
-    description.value = data.value.description
-    currencyCode.value = data.value.currencyCode as CurrencyCode
-    countryCode.value = data.value.countryCode as CountryCode
-    timeZone.value = data.value.timeZone
-    isPickupAvailable.value = data.value.isPickupAvailable
-    isDeliveryAvailable.value = data.value.isDeliveryAvailable
-    phone.value = data.value.phone
-    conditions.value = data.value.conditions
-    minAmountForDelivery.value = data.value.minAmountForDelivery
-    masterAccountExists.value = data.value.masterAccountExists
-    menus.value = data.value.menus
-    paymentMethods.value = data.value.paymentMethods as PaymentMethod[]
-    warehouses.value = data.value.warehouses
-    workingDay.value = data.value.workingDay as WorkingDay | undefined
-    workingDays.value = data.value.workingDays as WorkingDay[]
+    id.value = data.id
+    updatedAt.value = data.updatedAt
+    isActive.value = data.isActive
+    name.value = data.name
+    description.value = data.description
+    currencyCode.value = data.currencyCode
+    countryCode.value = data.countryCode
+    timeZone.value = data.timeZone
+    isPickupAvailable.value = data.isPickupAvailable
+    isDeliveryAvailable.value = data.isDeliveryAvailable
+    phone.value = data.phone
+    conditions.value = data.conditions
+    minAmountForDelivery.value = data.minAmountForDelivery
+    masterAccountExists.value = data.masterAccountExists
+    menus.value = data.menus
+    products.value = data.products
+    paymentMethods.value = data.paymentMethods as PaymentMethod[]
+    warehouses.value = data.warehouses
+    workingDay.value = data.workingDay as WorkingDay | undefined
+    workingDays.value = data.workingDays
   }
   async function updateTimeSlots() {
-    const { data } = await useFetch('/api/channel/time-slots', {
+    const data = await $fetch('/api/channel/time-slots', {
       lazy: false,
       server: true,
       cache: 'no-cache',
       getCachedData: undefined,
     })
-    if (!data.value) {
+    if (!data) {
       return
     }
 
-    timeSlots.value = data.value
+    timeSlots.value = data
   }
-  function getMenu(id: string): ComputedRef<MenuWithData | undefined> {
+  function getMenu(id: string): ComputedRef<Menu | undefined> {
     return computed(() => menus.value.find((menu) => menu.id === id))
   }
-  function getMenuCategory(id: string): ComputedRef<MenuCategoryWithData | undefined> {
+  function getMenuCategory(id: string): ComputedRef<MenuCategory | undefined> {
     return computed(() => allCategories.value.find((category) => category.id === id))
   }
-  function getActiveMenuCategory(id: string): ComputedRef<MenuCategoryWithData | undefined> {
+  function getMenuCategoryByProduct(id: string): MenuCategory | undefined {
+    return allCategories.value.find((category) => category.products.find((product) => product.id === id))
+  }
+  function getActiveMenuCategory(id: string): ComputedRef<MenuCategory | undefined> {
     return computed(() => activeMenu.value?.categories.find((category) => category.id === id))
   }
-  function getActiveMenuCategoryBySlug(slug: string): ComputedRef<MenuCategoryWithData | undefined> {
+  function getActiveMenuCategoryBySlug(slug: string): ComputedRef<MenuCategory | undefined> {
     return computed(() => activeMenu.value?.categories.find((category) => category.slug === slug))
   }
-  function getProduct(id: string): ComputedRef<ProductWithData | undefined> {
-    return computed(() => allProducts.value.find((product) => product.id === id))
+  function getProduct(id: string): ComputedRef<Product | undefined> {
+    return computed(() => products.value.find((product) => product.id === id))
   }
-  function getProductBySlug(slug: string): ComputedRef<ProductWithData | undefined> {
-    return computed(() => allProducts.value.find((product) => product.slug === slug))
+  function getProductBySlug(slug: string): ComputedRef<Product | undefined> {
+    return computed(() => products.value.find((product) => product.slug === slug))
+  }
+  function getProductByProductVariant(id: string): Product | undefined {
+    return products.value.find((product) => product.variants.find((variant) => variant.id === id))
   }
   function getProductVariant(id: string): ComputedRef<ProductVariant | undefined> {
-    return computed(() => allProducts.value.flatMap((product) => product.variants).find((variant) => variant.id === id))
+    return computed(() => products.value.flatMap((product) => product.variants).find((variant) => variant.id === id))
   }
-  function getProductsByQuery(query: string): ProductWithData[] {
-    return activeProducts.value.filter((product) => product.name.toLowerCase().includes(query.toLowerCase()))
+  function getProductsByQuery(query: string): ProductWithCategory[] {
+    const productList = products.value.filter((product) => product.name.toLowerCase().includes(query.toLowerCase()))
+
+    const result: ProductWithCategory[] = []
+    for (const p of productList) {
+      const category = getMenuCategoryByProduct(p.id)
+      if (!category) {
+        continue
+      }
+
+      result.push({
+        ...p,
+        category,
+      })
+    }
+
+    return result
+  }
+  function getTopSearchedProducts(): ProductWithCategory[] {
+    const productList = products.value.slice(0, 5)
+
+    const result: ProductWithCategory[] = []
+    for (const p of productList) {
+      const category = getMenuCategoryByProduct(p.id)
+      if (!category) {
+        continue
+      }
+
+      result.push({
+        ...p,
+        category,
+      })
+    }
+
+    return result
+  }
+  function getProductsInCategory(categoryId: string): ComputedRef<Product[]> {
+    const productIds = activeMenu.value?.categories.find((category) => category.id === categoryId)?.products.map((product) => product.id) || []
+    return computed(() => products.value.filter((product) => productIds.includes(product.id)))
   }
 
   return {
@@ -143,7 +178,6 @@ export const useChannelStore = defineStore('channel', () => {
     activeCategories,
     activeProducts,
     allCategories,
-    allProducts,
     currencySign,
     isOnMaintenance,
     isInitialized,
@@ -152,11 +186,15 @@ export const useChannelStore = defineStore('channel', () => {
     updateTimeSlots,
     getMenu,
     getMenuCategory,
+    getMenuCategoryByProduct,
     getActiveMenuCategory,
     getActiveMenuCategoryBySlug,
     getProduct,
     getProductBySlug,
+    getProductByProductVariant,
     getProductVariant,
     getProductsByQuery,
+    getTopSearchedProducts,
+    getProductsInCategory,
   }
 })

@@ -43,5 +43,5 @@ const { productId } = defineProps<{
 const { icons } = useAppConfig()
 const channel = useChannelStore()
 const product = channel.getProduct(productId)
-const isWarning = computed(() => product.value?.variants.length === 0 || !product.value?.isAvailableForPurchase)
+const isWarning = computed(() => product.value?.variants?.length === 0 || !product.value?.isAvailableForPurchase)
 </script>

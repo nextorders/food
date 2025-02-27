@@ -1,6 +1,12 @@
 import { TZDate } from '@date-fns/tz'
-import { repository } from '@next-orders/database'
-import { getDayIndexByDay, getDayOfWeekByIndex } from './../../../shared/utils/date'
+import { getKeys } from '../../../server/services/db'
+import { getChannel } from '../../../server/services/db/channel'
+import { getMenus } from '../../../server/services/db/menu'
+import { getPaymentMethods } from '../../../server/services/db/payment'
+import { getProducts } from '../../../server/services/db/product'
+import { getMaster } from '../../../server/services/db/user'
+import { getWarehouses } from '../../../server/services/db/warehouse'
+import { getWorkingDays } from '../../../server/services/db/work'
 
 class ChannelCache {
   /**
@@ -26,7 +32,7 @@ class ChannelCache {
   async shouldInvalidateCache(): Promise<boolean> {
     const { channelId } = useRuntimeConfig()
 
-    const channel = await repository.channel.find(channelId)
+    const channel = await getChannel(channelId)
     if (!channel) {
       return true
     }
@@ -45,14 +51,7 @@ const cache = new ChannelCache()
 export default defineCachedEventHandler(async () => {
   try {
     const { channelId } = useRuntimeConfig()
-    if (!channelId) {
-      throw createError({
-        statusCode: 400,
-        statusMessage: 'Missing channelId',
-      })
-    }
-
-    const channel = await repository.channel.find(channelId)
+    const channel = await getChannel(channelId)
     if (!channel) {
       throw createError({
         statusCode: 404,
@@ -60,27 +59,30 @@ export default defineCachedEventHandler(async () => {
       })
     }
 
-    const master = await repository.user.findMaster(channelId)
+    const { menuKeys, productKeys, warehouseKeys, paymentMethodKeys } = await getKeys()
+
+    const menus = await getMenus(menuKeys)
+    const products = await getProducts(productKeys)
+    const warehouses = await getWarehouses(warehouseKeys)
+    const paymentMethods = await getPaymentMethods(paymentMethodKeys)
+
+    const workingDays = await getWorkingDays()
 
     // Working day
-    const timeZone = channel.timeZone
-    const dayOfWeekIndex = new TZDate(new Date(), timeZone).getDay()
-    const dayOfWeek = getDayOfWeekByIndex(dayOfWeekIndex)
-    const workingDay = channel.workingDays.find((day) => day.day === dayOfWeek)
+    const dayOfWeekIndex = new TZDate(new Date(), channel.timeZone).getDay()
+    const workingDay = workingDays?.find((day) => day.index === dayOfWeekIndex)
 
-    // Working days
-    const workingDays = channel.workingDays.toSorted((a, b) => getDayIndexByDay(a.day as WorkingDay['day']) - getDayIndexByDay(b.day as WorkingDay['day']))
-    // Sunday on end
-    const firstDay = workingDays.shift()
-    if (firstDay) {
-      workingDays.push(firstDay)
-    }
+    const master = await getMaster()
 
     return {
       ...channel,
-      workingDay,
       workingDays,
+      workingDay,
       masterAccountExists: !!master,
+      menus,
+      products,
+      warehouses,
+      paymentMethods,
     }
   } catch (error) {
     throw errorResolver(error)

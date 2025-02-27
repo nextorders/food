@@ -1,4 +1,5 @@
-import { repository } from '@next-orders/database'
+import { setChannelAsUpdated } from '../../../../server/services/db/channel'
+import { patchProduct } from '../../../../server/services/db/product'
 import { productUpdateSchema } from './../../../../shared/services/product'
 
 export default defineEventHandler(async (event) => {
@@ -16,9 +17,9 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = productUpdateSchema.parse(body)
 
-    const product = await repository.product.patch(id, data)
+    const product = await patchProduct(id, data)
 
-    await repository.channel.setAsUpdated(channelId)
+    await setChannelAsUpdated(channelId)
 
     return {
       ok: true,

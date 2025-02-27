@@ -85,13 +85,13 @@
       <div class="space-y-2 w-full md:max-w-sm">
         <div
           v-for="workingDay in channel.workingDays"
-          :key="workingDay.id"
+          :key="workingDay.day"
           class="w-full flex flex-row gap-3 justify-between items-center bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3"
         >
-          <FormUpdateWorkingDayActivity :is-active="workingDay?.isActive" :day="workingDay?.day as WorkingDay['day']" />
+          <FormUpdateWorkingDayActivity :is-active="workingDay.isActive" :day="workingDay.day" />
 
           <div>
-            {{ workingDay.openHours.toString().padStart(2, '0') }}:{{ workingDay.openMinutes.toString().padStart(2, '0') }} - {{ workingDay.closeHours.toString().padStart(2, '0') }}:{{ workingDay.closeMinutes.toString().padStart(2, '0') }}
+            {{ workingDay.open }} - {{ workingDay.close }}
           </div>
         </div>
       </div>

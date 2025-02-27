@@ -5,7 +5,7 @@
     color="error"
     size="xl"
     class="w-full justify-center items-center"
-    @submit="onSubmit"
+    @click="onSubmit"
   >
     {{ $t('center.delete.title') }}
   </UButton>

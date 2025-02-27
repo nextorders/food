@@ -1,4 +1,4 @@
-import { repository } from '@next-orders/database'
+import { getUser } from '../../../../server/services/db/user'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const user = await repository.user.find(id)
+    const user = await getUser(id)
     if (!user) {
       throw createError({
         statusCode: 404,

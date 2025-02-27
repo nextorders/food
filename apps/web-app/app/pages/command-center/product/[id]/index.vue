@@ -7,7 +7,7 @@
         {{ product?.name }}
       </h1>
       <p class="text-(--ui-text-muted) break-words">
-        /{{ product?.category.slug }}/{{ product?.slug }}
+        /{{ category?.slug }}/{{ product?.slug }}
       </p>
     </div>
 
@@ -138,7 +138,10 @@ if (!product.value) {
   })
 }
 
-const menuPageUrl = computed(() => `/command-center/menu/${product.value?.category.menuId}`)
+const category = channel.getMenuCategoryByProduct(product.value?.id ?? '')
+const menu = channel.menus.find((menu) => menu.categories.some((category) => category.id === category?.id))
+
+const menuPageUrl = computed(() => `/command-center/menu/${menu?.id}`)
 
 const breadcrumbs = computed(() => [
   { label: t('common.website'), icon: 'food:home', to: '/' },

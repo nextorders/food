@@ -1,5 +1,8 @@
-import { createId, repository } from '@next-orders/database'
+import { createId } from '@paralleldrive/cuid2'
 import sharp from 'sharp'
+import { setChannelAsUpdated } from '../../../../server/services/db/channel'
+import { createMedia, deleteMedia } from '../../../../server/services/db/media'
+import { getProduct, patchProduct } from '../../../../server/services/db/product'
 
 const ACCEPTED_IMAGE_TYPES = ['jpeg', 'jpg', 'png', 'webp']
 const IMAGE_SIZES = [120, 300, 600, 800]
@@ -69,9 +72,9 @@ export default defineEventHandler(async (event) => {
         })
     }
 
-    await repository.media.create({ id: mediaId })
+    await createMedia({ id: mediaId })
 
-    const product = await repository.product.find(id)
+    const product = await getProduct(id)
     if (product?.mediaId) {
       // Remove old images
       for (const size of IMAGE_SIZES) {
@@ -79,12 +82,12 @@ export default defineEventHandler(async (event) => {
         await storage.removeItem(`${productsDirectory}/${product.mediaId}/${size}.webp`)
       }
 
-      await repository.media.delete(product.mediaId)
+      await deleteMedia(product.mediaId)
     }
 
-    await repository.product.patch(id, { mediaId })
+    await patchProduct(id, { mediaId })
 
-    await repository.channel.setAsUpdated(channelId)
+    await setChannelAsUpdated(channelId)
 
     return { ok: true }
   } catch (error) {

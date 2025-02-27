@@ -43,8 +43,8 @@ const { line, canBeChanged = true } = defineProps<{
 
 const channel = useChannelStore()
 const productVariant = channel.getProductVariant(line.productVariantId ?? '')
-const product = channel.getProduct(productVariant.value?.productId ?? '')
-const productUrl = computed(() => `/catalog/${product.value?.category?.slug}/${product.value?.slug}`)
-
+const product = channel.getProductByProductVariant(productVariant.value?.id ?? '')
+const category = channel.getMenuCategoryByProduct(product?.id ?? '')
+const productUrl = computed(() => `/catalog/${category?.slug}/${product?.slug}`)
 const totalAmount = computed(() => formatNumberToLocal(productVariant.value?.gross ? productVariant.value?.gross * line.quantity : 0))
 </script>

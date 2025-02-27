@@ -1,4 +1,5 @@
-import { repository } from '@next-orders/database'
+import { createChannel, getChannel } from '../../../server/services/db/channel'
+import { createWorkingDays } from '../../../server/services/db/work'
 import { channelCreateSchema } from './../../../shared/services/channel'
 
 export default defineEventHandler(async (event) => {
@@ -12,7 +13,7 @@ export default defineEventHandler(async (event) => {
     }
 
     // Guard: If channel already exists
-    const channel = await repository.channel.find(channelId)
+    const channel = await getChannel(channelId)
     if (channel) {
       throw createError({
         statusCode: 400,
@@ -23,27 +24,73 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = channelCreateSchema.parse(body)
 
-    await repository.channel.create({
+    await createChannel({
       id: channelId,
       slug: channelId,
       name: data.name,
-      currencyCode: data.currencyCode,
-      countryCode: data.countryCode,
-      timeZone: data.timeZone,
+      currencyCode: data.currencyCode as CurrencyCode,
+      countryCode: data.countryCode as CountryCode,
+      timeZone: data.timeZone as TimeZone,
+      description: null,
+      conditions: null,
+      phone: null,
+      minAmountForDelivery: null,
+      isActive: true,
+      isDeliveryAvailable: true,
+      isPickupAvailable: true,
     })
 
     // Working days
-    const days = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'] as const
-    for (const day of days) {
-      await repository.workingDay.create({
-        openHours: 0,
-        openMinutes: 0,
-        closeHours: 0,
-        closeMinutes: 0,
-        channelId,
-        day,
-      })
-    }
+    await createWorkingDays([
+      {
+        index: 0,
+        day: 'SUNDAY',
+        open: '00:00',
+        close: '00:00',
+        isActive: true,
+      },
+      {
+        index: 1,
+        day: 'MONDAY',
+        open: '00:00',
+        close: '00:00',
+        isActive: true,
+      },
+      {
+        index: 2,
+        day: 'TUESDAY',
+        open: '00:00',
+        close: '00:00',
+        isActive: true,
+      },
+      {
+        index: 3,
+        day: 'WEDNESDAY',
+        open: '00:00',
+        close: '00:00',
+        isActive: true,
+      },
+      {
+        index: 4,
+        day: 'THURSDAY',
+        open: '00:00',
+        close: '00:00',
+        isActive: true,
+      },
+      {
+        index: 5,
+        day: 'FRIDAY',
+        open: '00:00',
+        close: '00:00',
+        isActive: true,
+      },
+      {
+        index: 6,
+        day: 'SATURDAY',
+        open: '00:00',
+        close: '00:00',
+        isActive: true,
+      }])
 
     return { ok: true }
   } catch (error) {

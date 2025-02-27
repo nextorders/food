@@ -50,5 +50,9 @@
     "scss",
     "pcss",
     "postcss"
-  ]
+  ],
+  "sonarlint.connectedMode.project": {
+    "connectionId": "next-orders",
+    "projectKey": "next-orders_food"
+  }
 }

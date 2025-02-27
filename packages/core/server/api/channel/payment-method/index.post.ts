@@ -1,4 +1,6 @@
-import { repository } from '@next-orders/database'
+import { createId } from '@paralleldrive/cuid2'
+import { setChannelAsUpdated } from '../../../../server/services/db/channel'
+import { createPaymentMethod } from '../../../../server/services/db/payment'
 import { channelPaymentMethodCreateSchema } from './../../../../shared/services/channel'
 
 export default defineEventHandler(async (event) => {
@@ -14,11 +16,13 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = channelPaymentMethodCreateSchema.parse(body)
 
-    await repository.paymentMethod.create({
+    await createPaymentMethod({
+      id: createId(),
       name: data.name,
       type: data.type,
-      channelId,
     })
+
+    await setChannelAsUpdated(channelId)
 
     return { ok: true }
   } catch (error) {

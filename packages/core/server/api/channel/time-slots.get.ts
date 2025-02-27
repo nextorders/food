@@ -1,6 +1,6 @@
 import { TZDate } from '@date-fns/tz'
-import { repository } from '@next-orders/database'
-import { getDayOfWeekByIndex } from './../../../shared/utils/date'
+import { getChannel } from '../../../server/services/db/channel'
+import { getWorkingDays } from '../../../server/services/db/work'
 
 export default defineEventHandler(async () => {
   try {
@@ -12,7 +12,7 @@ export default defineEventHandler(async () => {
       })
     }
 
-    const channel = await repository.channel.find(channelId)
+    const channel = await getChannel(channelId)
     if (!channel) {
       throw createError({
         statusCode: 404,
@@ -22,9 +22,9 @@ export default defineEventHandler(async () => {
 
     const timeZone = channel.timeZone
     const dayOfWeekIndex = new TZDate(new Date(), timeZone).getDay()
-    const dayOfWeek = getDayOfWeekByIndex(dayOfWeekIndex)
 
-    const workingDay = await repository.workingDay.findByDayAndChannelId(channelId, dayOfWeek)
+    const workingDays = await getWorkingDays()
+    const workingDay = workingDays?.find((workingDay) => workingDay.index === dayOfWeekIndex)
     if (!workingDay?.isActive) {
       throw createError({
         statusCode: 404,
@@ -33,14 +33,19 @@ export default defineEventHandler(async () => {
     }
 
     const timeOpen = new TZDate(new Date(), timeZone)
-    timeOpen.setHours(workingDay.openHours)
-    timeOpen.setMinutes(workingDay.openMinutes)
+    const timeOpenHours = Number(workingDay.open.split(':')[0])
+    const timeOpenMinutes = Number(workingDay.open.split(':')[1])
+    timeOpen.setHours(timeOpenHours)
+    timeOpen.setMinutes(timeOpenMinutes)
+
     const timeClose = new TZDate(new Date(), timeZone)
-    timeClose.setHours(workingDay.closeHours)
-    timeClose.setMinutes(workingDay.closeMinutes)
+    const timeCloseHours = Number(workingDay.close.split(':')[0])
+    const timeCloseMinutes = Number(workingDay.close.split(':')[1])
+    timeClose.setHours(timeCloseHours)
+    timeClose.setMinutes(timeCloseMinutes)
 
     // Guard: if timeClose is 00:XX -> set it no next day
-    if (workingDay.closeHours === 0) {
+    if (timeCloseHours === 0) {
       timeClose.setDate(timeClose.getDate() + 1)
     }
 

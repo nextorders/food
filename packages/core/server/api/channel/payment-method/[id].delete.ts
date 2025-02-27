@@ -1,7 +1,9 @@
-import { repository } from '@next-orders/database'
+import { setChannelAsUpdated } from '../../../../server/services/db/channel'
+import { deletePaymentMethod } from '../../../../server/services/db/payment'
 
 export default defineEventHandler(async (event) => {
   try {
+    const { channelId } = useRuntimeConfig()
     const id = getRouterParam(event, 'id')
     if (!id) {
       throw createError({
@@ -10,7 +12,8 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    await repository.paymentMethod.delete(id)
+    await deletePaymentMethod(id)
+    await setChannelAsUpdated(channelId)
 
     return { ok: true }
   } catch (error) {

@@ -134,11 +134,13 @@ const inCart = computed(() => {
   return checkout.lines.find((l) => l.productVariantId === selectedVariant.value?.id)
 })
 
+const category = channel.getMenuCategoryByProduct(product.value.id)
+
 const breadcrumbs = computed(() => [
   { label: t('common.home'), icon: 'food:home', to: '/' },
   {
-    label: product.value?.category.name ?? '',
-    to: `/catalog/${product.value?.category?.slug}`,
+    label: category?.name ?? '',
+    to: `/catalog/${category?.slug}`,
   },
 ])
 </script>

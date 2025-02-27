@@ -19,9 +19,10 @@
     class="mb-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-6"
   >
     <ProductCard
-      v-for="product in category?.products.filter((p) => p.isAvailableForPurchase).slice(0, 8)"
+      v-for="product in products"
       :key="product.id"
       :product-id="product.id"
+      :category-slug="category?.slug ?? ''"
       :lazy="!isFirst"
     />
   </div>
@@ -35,4 +36,5 @@ const { categoryId } = defineProps<{
 
 const channel = useChannelStore()
 const category = channel.getActiveMenuCategory(categoryId)
+const products = channel.getProductsInCategory(categoryId).value.filter((p) => p.isAvailableForPurchase && p.variants.length).slice(0, 8)
 </script>

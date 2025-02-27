@@ -1,4 +1,5 @@
-import { repository } from '@next-orders/database'
+import { setChannelAsUpdated } from '../../../../server/services/db/channel'
+import { deleteProductVariant } from '../../../../server/services/db/product'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -12,13 +13,11 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const variant = await repository.productVariant.delete(id)
-
-    await repository.channel.setAsUpdated(channelId)
+    await deleteProductVariant(id)
+    await setChannelAsUpdated(channelId)
 
     return {
       ok: true,
-      result: variant,
     }
   } catch (error) {
     throw errorResolver(error)

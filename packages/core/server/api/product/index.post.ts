@@ -1,4 +1,6 @@
-import { createId, repository } from '@next-orders/database'
+import { createId } from '@paralleldrive/cuid2'
+import { setChannelAsUpdated } from '../../../server/services/db/channel'
+import { createProduct } from '../../../server/services/db/product'
 import { productCreateSchema } from './../../../shared/services/product'
 
 export default defineEventHandler(async (event) => {
@@ -8,14 +10,16 @@ export default defineEventHandler(async (event) => {
     const data = productCreateSchema.parse(body)
     const id = createId()
 
-    const product = await repository.product.create({
+    const product = await createProduct({
+      ...data,
       id,
       slug: id,
-      channelId,
-      ...data,
+      isAvailableForPurchase: true,
+      mediaId: null,
+      variants: [],
     })
 
-    await repository.channel.setAsUpdated(channelId)
+    await setChannelAsUpdated(channelId)
 
     return {
       ok: true,

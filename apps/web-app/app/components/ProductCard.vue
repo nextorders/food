@@ -42,19 +42,20 @@
 </template>
 
 <script setup lang="ts">
-const { productId } = defineProps<{
+const { productId, categorySlug } = defineProps<{
   productId: string
+  categorySlug: string
   lazy?: boolean
 }>()
 
 const channel = useChannelStore()
 const product = channel.getProduct(productId)
 
-const withSingleVariant = computed(() => product.value?.variants.length === 1)
-const smallestVariant = computed(() => withSingleVariant.value ? product.value?.variants[0] : product.value?.variants.reduce((prev, curr) => (prev.gross < curr.gross ? prev : curr)))
+const withSingleVariant = computed<boolean>(() => product.value?.variants.length === 1)
+const smallestVariant = computed(() => product.value?.variants[0])
 
 const price = computed(() => formatNumberToLocal(smallestVariant.value?.gross))
 const weightValue = computed(() => smallestVariant.value?.weightValue)
 const weightUnit = computed(() => getWeightLocalizedUnit(smallestVariant.value?.weightUnit))
-const productUrl = `/catalog/${product.value?.category?.slug}/${product.value?.slug}`
+const productUrl = `/catalog/${categorySlug}/${product.value?.slug}`
 </script>

@@ -16,6 +16,7 @@ export default defineNuxtConfig({
       accessKeyId: '',
       secretAccessKey: '',
     },
+    redisUrl: '',
   },
   nitro: {
     preset: fileURLToPath(new URL('./server/preset.ts', import.meta.url)),

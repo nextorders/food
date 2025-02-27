@@ -123,6 +123,9 @@ catalogs:
     husky:
       specifier: ^9.1.7
       version: 9.1.7
+    ioredis:
+      specifier: ^5.5.0
+      version: 5.5.0
     libphonenumber-js:
       specifier: ^1.11.20
       version: 1.11.20
@@ -279,6 +282,9 @@ importers:
       '@pinia/nuxt':
         specifier: 'catalog:'
         version: 0.10.1(magicast@0.3.5)(pinia@3.0.1(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)))
+      ioredis:
+        specifier: 'catalog:'
+        version: 5.5.0
       libphonenumber-js:
         specifier: 'catalog:'
         version: 1.11.20
@@ -291,7 +297,7 @@ importers:
         version: 22.13.4
       nuxt:
         specifier: 'catalog:'
-        version: 3.15.4(@parcel/watcher@2.5.1)(@types/node@22.13.4)(aws4fetch@1.0.20)(db0@0.2.3(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3)))(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3))(eslint@9.20.1(jiti@2.4.2))(ioredis@5.5.0)(lightningcss@1.29.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.5)(terser@5.38.1)(typescript@5.7.3)(vite@6.1.0(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.38.1)(yaml@2.7.0))(yaml@2.7.0)
+        version: 3.15.4(@parcel/watcher@2.5.1)(@types/node@22.13.4)(aws4fetch@1.0.20)(db0@0.2.3(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3)))(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3))(eslint@9.20.1(jiti@2.4.2))(ioredis@5.5.0)(lightningcss@1.29.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.5)(terser@5.38.1)(typescript@5.7.3)(vite@6.1.1(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.38.1)(yaml@2.7.0))(yaml@2.7.0)
 
   apps/website:
     dependencies:
@@ -326,12 +332,15 @@ importers:
       '@nuxtjs/i18n':
         specifier: 'catalog:'
         version: 9.2.1(@vue/compiler-dom@3.5.13)(eslint@9.20.1(jiti@2.4.2))(magicast@0.3.5)(rollup@4.34.5)(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
+      '@paralleldrive/cuid2':
+        specifier: 'catalog:'
+        version: 2.2.2
       '@vueuse/core':
         specifier: 'catalog:'
         version: 12.7.0(typescript@5.7.3)
       '@vueuse/nuxt':
         specifier: 'catalog:'
-        version: 12.7.0(magicast@0.3.5)(nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@22.13.4)(aws4fetch@1.0.20)(db0@0.2.3(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3)))(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3))(eslint@9.20.1(jiti@2.4.2))(ioredis@5.5.0)(lightningcss@1.29.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.5)(terser@5.38.1)(typescript@5.7.3)(vite@6.1.1(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.38.1)(yaml@2.7.0))(yaml@2.7.0))(typescript@5.7.3)
+        version: 12.7.0(magicast@0.3.5)(nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@22.13.4)(aws4fetch@1.0.20)(db0@0.2.3(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3)))(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3))(eslint@9.20.1(jiti@2.4.2))(ioredis@5.5.0)(lightningcss@1.29.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.5)(terser@5.38.1)(typescript@5.7.3)(vite@6.1.0(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.38.1)(yaml@2.7.0))(yaml@2.7.0))(typescript@5.7.3)
       aws4fetch:
         specifier: 'catalog:'
         version: 1.0.20
@@ -350,7 +359,7 @@ importers:
         version: 22.13.4
       nuxt:
         specifier: 'catalog:'
-        version: 3.15.4(@parcel/watcher@2.5.1)(@types/node@22.13.4)(aws4fetch@1.0.20)(db0@0.2.3(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3)))(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3))(eslint@9.20.1(jiti@2.4.2))(ioredis@5.5.0)(lightningcss@1.29.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.5)(terser@5.38.1)(typescript@5.7.3)(vite@6.1.1(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.38.1)(yaml@2.7.0))(yaml@2.7.0)
+        version: 3.15.4(@parcel/watcher@2.5.1)(@types/node@22.13.4)(aws4fetch@1.0.20)(db0@0.2.3(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3)))(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3))(eslint@9.20.1(jiti@2.4.2))(ioredis@5.5.0)(lightningcss@1.29.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.5)(terser@5.38.1)(typescript@5.7.3)(vite@6.1.0(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.38.1)(yaml@2.7.0))(yaml@2.7.0)
       nuxt-auth-utils:
         specifier: 'catalog:'
         version: 0.5.16(bcrypt@5.1.1)(magicast@0.3.5)
@@ -11232,6 +11241,19 @@ snapshots:
   '@vueuse/metadata@10.11.1': {}
 
   '@vueuse/metadata@12.7.0': {}
+
+  '@vueuse/nuxt@12.7.0(magicast@0.3.5)(nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@22.13.4)(aws4fetch@1.0.20)(db0@0.2.3(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3)))(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3))(eslint@9.20.1(jiti@2.4.2))(ioredis@5.5.0)(lightningcss@1.29.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.5)(terser@5.38.1)(typescript@5.7.3)(vite@6.1.0(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.38.1)(yaml@2.7.0))(yaml@2.7.0))(typescript@5.7.3)':
+    dependencies:
+      '@nuxt/kit': 3.15.4(magicast@0.3.5)
+      '@vueuse/core': 12.7.0(typescript@5.7.3)
+      '@vueuse/metadata': 12.7.0
+      local-pkg: 1.0.0
+      nuxt: 3.15.4(@parcel/watcher@2.5.1)(@types/node@22.13.4)(aws4fetch@1.0.20)(db0@0.2.3(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3)))(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3))(eslint@9.20.1(jiti@2.4.2))(ioredis@5.5.0)(lightningcss@1.29.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.5)(terser@5.38.1)(typescript@5.7.3)(vite@6.1.0(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.38.1)(yaml@2.7.0))(yaml@2.7.0)
+      vue: 3.5.13(typescript@5.7.3)
+    transitivePeerDependencies:
+      - magicast
+      - supports-color
+      - typescript
 
   '@vueuse/nuxt@12.7.0(magicast@0.3.5)(nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@22.13.4)(aws4fetch@1.0.20)(db0@0.2.3(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3)))(drizzle-orm@0.39.3(@types/pg@8.11.11)(pg@8.13.3))(eslint@9.20.1(jiti@2.4.2))(ioredis@5.5.0)(lightningcss@1.29.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.5)(terser@5.38.1)(typescript@5.7.3)(vite@6.1.1(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.38.1)(yaml@2.7.0))(yaml@2.7.0))(typescript@5.7.3)':
     dependencies:

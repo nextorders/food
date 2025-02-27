@@ -1,19 +1,19 @@
 <template>
   <form class="space-y-4" @submit="onSubmit">
-    <div v-for="day in channel.workingDays" :key="day.id">
+    <div v-for="day in workingDays" :key="day.day">
       <div class="grid grid-cols-2 gap-4">
-        <UFormField :label="`${getLocalizedDayOfWeek(day.day)}, ${$t('common.time-from')}`" :name="`${day.day}.open`">
+        <UFormField :label="`${getLocalizedDayOfWeek(day.day)}, ${$t('common.time-from')}`">
           <UInput
-            v-model="workingDays[day.day as WorkingDay['day']].open"
+            v-model="workingDays[day.index].open"
             type="time"
             size="xl"
             class="w-full items-center justify-center"
           />
         </UFormField>
 
-        <UFormField :label="$t('common.time-to')" :name="`${day.day}.close`">
+        <UFormField :label="$t('common.time-to')">
           <UInput
-            v-model="workingDays[day.day as WorkingDay['day']].close"
+            v-model="workingDays[day.index].close"
             type="time"
             size="xl"
             class="w-full items-center justify-center"
@@ -45,31 +45,7 @@ const { t } = useI18n()
 const toast = useToast()
 const channel = useChannelStore()
 
-const days = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'] as const
-
-const workingDays = reactive(prepareWorkingDays())
-
-function prepareWorkingDays() {
-  const preparedDays = {
-    MONDAY: { open: '', close: '' },
-    TUESDAY: { open: '', close: '' },
-    WEDNESDAY: { open: '', close: '' },
-    THURSDAY: { open: '', close: '' },
-    FRIDAY: { open: '', close: '' },
-    SATURDAY: { open: '', close: '' },
-    SUNDAY: { open: '', close: '' },
-  }
-
-  for (const day of days) {
-    const dayData = channel.workingDays.find((d) => d.day === day)
-    preparedDays[day] = {
-      open: `${dayData?.openHours.toString().padStart(2, '0')}:${dayData?.openMinutes.toString().padStart(2, '0')}`,
-      close: `${dayData?.closeHours.toString().padStart(2, '0')}:${dayData?.closeMinutes.toString().padStart(2, '0')}`,
-    }
-  }
-
-  return preparedDays
-}
+const workingDays = ref(channel.workingDays ?? [])
 
 async function onSubmit() {
   emit('submitted')
@@ -86,7 +62,7 @@ async function onSubmit() {
     'update-working-days',
     () => $fetch('/api/channel/working-day', {
       method: 'PATCH',
-      body: workingDaysCopy,
+      body: workingDays,
     }),
   )
 

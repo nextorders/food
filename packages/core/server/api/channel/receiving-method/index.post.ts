@@ -1,4 +1,4 @@
-import { repository } from '@next-orders/database'
+import { getChannel, patchChannel } from '../../../../server/services/db/channel'
 import { channelReceivingMethodUpdateSchema } from './../../../../shared/services/channel'
 
 export default defineEventHandler(async (event) => {
@@ -14,16 +14,16 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = channelReceivingMethodUpdateSchema.parse(body)
 
-    const channel = await repository.channel.find(channelId)
+    const channel = await getChannel(channelId)
 
     if (data.method === 'DELIVERY') {
-      await repository.channel.patch(channelId, {
+      await patchChannel(channelId, {
         isDeliveryAvailable: !channel?.isDeliveryAvailable,
       })
     }
 
     if (data.method === 'PICKUP') {
-      await repository.channel.patch(channelId, {
+      await patchChannel(channelId, {
         isPickupAvailable: !channel?.isPickupAvailable,
       })
     }

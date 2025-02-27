@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!checkout.isEmpty && !channel.isOnMaintenance">
+  <template v-if="!checkout.isEmpty && !channel.isOnMaintenance">
     <h1 class="pt-8 mb-4 md:mb-8 text-3xl md:text-4xl font-medium">
       {{ $t('app.checkout.title') }}
     </h1>
@@ -217,21 +217,23 @@
         </div>
       </div>
     </div>
-  </div>
+  </template>
 
-  <div v-else class="text-center pt-16 pb-32">
-    <h1 class="pt-8 mb-4 md:mb-8 text-3xl md:text-4xl font-medium text-center">
-      {{ $t('app.cart.empty-label') }}
-    </h1>
+  <template v-else>
+    <div class="text-center pt-16 pb-32">
+      <h1 class="pt-8 mb-4 md:mb-8 text-3xl md:text-4xl font-medium text-center">
+        {{ $t('app.cart.empty-label') }}
+      </h1>
 
-    <UButton
-      to="/"
-      size="xl"
-      variant="gradient"
-    >
-      {{ $t('common.to-home') }}
-    </UButton>
-  </div>
+      <UButton
+        to="/"
+        size="xl"
+        variant="gradient"
+      >
+        {{ $t('common.to-home') }}
+      </UButton>
+    </div>
+  </template>
 </template>
 
 <script setup lang="ts">
@@ -271,7 +273,7 @@ watch(
     if (!remainingCheckout.value.phone) {
       return
     }
-    if (remainingCheckout.value.phone.length > 17) {
+    if (remainingCheckout.value.phone?.length > 17) {
       return
     }
 

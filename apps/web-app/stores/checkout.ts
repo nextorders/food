@@ -11,23 +11,31 @@ export const useCheckoutStore = defineStore('checkout', () => {
   const total = computed(() => formatNumberToLocal(totalPrice.value))
 
   async function update() {
-    const { data, error } = await useFetch('/api/checkout', {
-      lazy: true,
-      server: true,
-      cache: 'no-cache',
-      getCachedData: undefined,
-    })
-    if (!data.value || error.value) {
-      return
-    }
+    try {
+      const data = await $fetch('/api/checkout', {
+        lazy: true,
+        server: true,
+        cache: 'no-cache',
+        getCachedData: undefined,
+      })
+      if (!data) {
+        return
+      }
 
-    id.value = data.value.id
-    name.value = data.value.name
-    phone.value = data.value.phone
-    status.value = data.value.status as Checkout['status']
-    totalPrice.value = data.value.totalPrice
-    deliveryMethod.value = data.value.deliveryMethod as Checkout['deliveryMethod'] | null
-    lines.value = data.value.lines
+      id.value = data.id
+      name.value = data.name
+      phone.value = data.phone
+      status.value = data.status as Checkout['status']
+      totalPrice.value = data.totalPrice
+      deliveryMethod.value = data.deliveryMethod as Checkout['deliveryMethod'] | null
+      lines.value = data.lines
+    } catch (error) {
+      if (error instanceof Error) {
+        if (error.name === 'NotFound') {
+          // its ok
+        }
+      }
+    }
   }
   async function add(productVariantId: string) {
     try {

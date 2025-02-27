@@ -1,4 +1,6 @@
-import { repository } from '@next-orders/database'
+import { createId } from '@paralleldrive/cuid2'
+import { setChannelAsUpdated } from '../../../server/services/db/channel'
+import { createWarehouse } from '../../../server/services/db/warehouse'
 import { warehouseCreateSchema } from './../../../shared/services/warehouse'
 
 export default defineEventHandler(async (event) => {
@@ -8,10 +10,12 @@ export default defineEventHandler(async (event) => {
 
     const data = warehouseCreateSchema.parse(body)
 
-    const warehouse = await repository.warehouse.create({
-      channelId,
+    const warehouse = await createWarehouse({
       ...data,
+      id: createId(),
     })
+
+    await setChannelAsUpdated(channelId)
 
     return {
       ok: true,
