@@ -1,4 +1,6 @@
-import { createId, repository } from '@next-orders/database'
+import { createId } from '@paralleldrive/cuid2'
+import { setChannelAsUpdated } from '../../../server/services/db/channel'
+import { createMenuCategory } from '../../../server/services/db/menu'
 import { menuCategoryCreateSchema } from './../../../shared/services/menu'
 
 export default defineEventHandler(async (event) => {
@@ -9,14 +11,15 @@ export default defineEventHandler(async (event) => {
     const data = menuCategoryCreateSchema.parse(body)
     const id = createId()
 
-    const category = await repository.menuCategory.create({
+    const category = await createMenuCategory({
       id,
       slug: id,
       name: data.name,
       menuId: data.menuId,
+      products: [],
     })
 
-    await repository.channel.setAsUpdated(channelId)
+    await setChannelAsUpdated(channelId)
 
     return {
       ok: true,

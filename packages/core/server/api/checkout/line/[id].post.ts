@@ -1,4 +1,4 @@
-import { repository } from '@next-orders/database'
+import { getCheckout, patchCheckoutLine, recalculateCheckout } from '../../../../server/services/db/checkout'
 
 const MAX_QUANTITY_PER_LINE = 99
 
@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const checkoutInDB = await repository.checkout.find(secure.checkout.id)
+  const checkoutInDB = await getCheckout(secure.checkout.id)
   if (!checkoutInDB?.id) {
     throw createError({
       statusCode: 404,
@@ -48,10 +48,10 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    await repository.checkoutLine.increase(id, 1)
+    await patchCheckoutLine(checkoutInDB.id, line.id, { quantity: line.quantity + 1 })
   } else if (method === 'decrement') {
-    await repository.checkoutLine.reduce(id, 1)
+    await patchCheckoutLine(checkoutInDB.id, line.id, { quantity: line.quantity - 1 })
   }
 
-  await repository.checkout.recalculate(checkoutInDB.id)
+  await recalculateCheckout(checkoutInDB.id)
 })

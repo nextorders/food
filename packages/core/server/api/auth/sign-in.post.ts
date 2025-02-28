@@ -1,5 +1,5 @@
-import { repository } from '@next-orders/database'
 import { compare } from 'bcrypt'
+import { getUser, getUserCredentialsByLogin } from '../../../server/services/db/user'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -13,17 +13,17 @@ export default defineEventHandler(async (event) => {
       return sendRedirect(event, '/command-center')
     }
 
-    const credentials = await repository.userCredential.findByLogin(body.login)
+    const credentials = await getUserCredentialsByLogin(body.login)
     if (!credentials) {
       throw createError({ statusCode: 401, statusMessage: 'Wrong login or password' })
     }
 
-    const isMatch = await compare(body.password, credentials.passwordHash)
+    const isMatch = await compare(body.password, credentials.password)
     if (!isMatch) {
       throw createError({ statusCode: 401, statusMessage: 'Wrong login or password' })
     }
 
-    const user = await repository.user.find(credentials.userId)
+    const user = await getUser(credentials.userId)
     if (!user) {
       throw createError({ statusCode: 401, statusMessage: 'No user found' })
     }
@@ -33,7 +33,7 @@ export default defineEventHandler(async (event) => {
         id: user.id,
         isStaff: user.isStaff,
         name: user.name,
-        permissions: user.permissions.map((permission) => permission.code) as PermissionCode[],
+        permissions: user.permissions,
       },
     })
 

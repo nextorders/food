@@ -1,4 +1,4 @@
-import { repository } from '@next-orders/database'
+import { getKeys } from '../../../server/services/db'
 
 export default defineEventHandler(async () => {
   const { channelId } = useRuntimeConfig()
@@ -9,8 +9,8 @@ export default defineEventHandler(async () => {
     })
   }
 
-  const ok = await repository.checkHealth()
-  if (!ok) {
+  const keys = await getKeys()
+  if (!keys?.allKeys) {
     throw createError({
       statusCode: 500,
       statusMessage: 'DB error',

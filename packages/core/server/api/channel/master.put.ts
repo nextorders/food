@@ -1,17 +1,12 @@
 import { createId } from '@paralleldrive/cuid2'
 import { hash } from 'bcrypt'
+import { setChannelAsUpdated } from '../../../server/services/db/channel'
 import { createUser, createUserCredentials, getMaster } from '../../../server/services/db/user'
 import { userCreateSchema } from './../../../shared/services/user'
 
 export default defineEventHandler(async (event) => {
   try {
     const { channelId } = useRuntimeConfig()
-    if (!channelId) {
-      throw createError({
-        statusCode: 400,
-        statusMessage: 'Missing channelId',
-      })
-    }
 
     // Guard: If user already exists
     const master = await getMaster()
@@ -43,13 +38,16 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const passwordHash = await hash(data.password, 10)
+    const password = await hash(data.password, 10)
 
-    await createUserCredentials(user.id, {
+    await createUserCredentials({
       id: createId(),
+      userId: user.id,
       login: data.login,
-      passwordHash,
+      password,
     })
+
+    await setChannelAsUpdated(channelId)
 
     return { ok: true }
   } catch (error) {

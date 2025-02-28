@@ -1,5 +1,11 @@
 import { TZDate } from '@date-fns/tz'
-import { repository } from '@next-orders/database'
+import { getKeys } from '../../../server/services/db'
+import { getChannel } from '../../../server/services/db/channel'
+import { getCheckout, patchCheckout, recalculateCheckout, setCheckoutAsFinished } from '../../../server/services/db/checkout'
+import { getPaymentMethods } from '../../../server/services/db/payment'
+import { getProduct, getProductVariant } from '../../../server/services/db/product'
+import { getCheckoutReceivers } from '../../../server/services/db/receiver'
+import { getWarehouses } from '../../../server/services/db/warehouse'
 import { checkoutUpdateSchema } from './../../../shared/services/checkout'
 
 export default defineEventHandler(async (event) => {
@@ -17,14 +23,14 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = checkoutUpdateSchema.parse(body)
 
-    const channel = await repository.channel.find(channelId)
+    const channel = await getChannel(channelId)
 
-    await repository.checkout.recalculate(secure.checkout.id)
+    await recalculateCheckout(secure.checkout.id)
 
     const needToBeFinalized: boolean = !!data.phone && !!data.name
 
     if (needToBeFinalized) {
-      const actualCheckout = await repository.checkout.find(secure.checkout.id)
+      const actualCheckout = await getCheckout(secure.checkout.id)
 
       // Guard: If checkout.totalPrice < minAmountForDelivery
       if (actualCheckout?.deliveryMethod === 'DELIVERY' && channel?.minAmountForDelivery) {
@@ -37,14 +43,15 @@ export default defineEventHandler(async (event) => {
       }
     }
 
-    const updatedCheckout = await repository.checkout.patch(secure.checkout.id, {
+    const updatedCheckout = await patchCheckout(secure.checkout.id, {
       ...data,
-      time: data.time ? new Date(data.time).toDateString() : new Date().toDateString(),
+      change: data.change?.toString(),
+      time: data.time ? new Date(data.time).toISOString() : new Date().toISOString(),
       timeType: data.time ? 'SCHEDULED' : 'ASAP',
     })
 
     if (needToBeFinalized) {
-      await repository.checkout.setAsFinished(secure.checkout.id)
+      await setCheckoutAsFinished(secure.checkout.id)
       await sendToReceivers(secure.checkout.id)
 
       const session = await getUserSession(event)
@@ -69,18 +76,23 @@ export default defineEventHandler(async (event) => {
 async function sendToReceivers(checkoutId: string) {
   const { locale } = useRuntimeConfig()
 
-  const checkout = await repository.checkout.find(checkoutId)
+  const checkout = await getCheckout(checkoutId)
   if (!checkout?.id) {
     return
   }
 
-  const channel = await repository.channel.find(checkout.channelId)
+  const channel = await getChannel(checkout.channelId)
   if (!channel?.id) {
     return
   }
 
-  const paymentMethodName = channel.paymentMethods.find((p) => p.id === checkout?.paymentMethodId)?.name as string
-  const warehouseAddress = channel.warehouses.find((w) => w.id === checkout?.warehouseId)?.address
+  const { paymentMethodKeys, warehouseKeys } = await getKeys()
+
+  const paymentMethods = await getPaymentMethods(paymentMethodKeys)
+  const paymentMethodName = paymentMethods.find((p) => p.id === checkout?.paymentMethodId)?.name as string
+
+  const warehouses = await getWarehouses(warehouseKeys)
+  const warehouseAddress = warehouses.find((w) => w.id === checkout?.warehouseId)?.address
   const address = checkout.street
     ? {
         street: checkout.street,
@@ -93,12 +105,25 @@ async function sendToReceivers(checkoutId: string) {
     : undefined
   const time = new TZDate(checkout.time, channel.timeZone).toLocaleString(locale, { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false })
 
-  const receivers = await repository.checkoutReceiver.findAll(checkout.channelId)
+  const receivers = await getCheckoutReceivers()
 
-  for (const receiver of receivers as CheckoutReceiver[]) {
+  // Prepare lines
+  const lines = []
+  for (const line of checkout.lines) {
+    const variant = await getProductVariant(line.productVariantId)
+    const product = await getProduct(variant?.productId ?? '')
+
+    lines.push({
+      ...line,
+      name: product?.name ?? '',
+      variant: variant?.name ?? '',
+    })
+  }
+
+  for (const receiver of receivers) {
     const data: NewCheckoutTemplate = {
       id: checkout.id,
-      deliveryMethod: checkout.deliveryMethod as Checkout['deliveryMethod'],
+      deliveryMethod: checkout.deliveryMethod,
       time,
       timeType: checkout.timeType as 'ASAP' | 'SCHEDULED',
       paymentMethodName,
@@ -109,13 +134,7 @@ async function sendToReceivers(checkoutId: string) {
       totalPrice: checkout.totalPrice,
       warehouseAddress,
       address,
-      lines: checkout.lines.map((line) => ({
-        id: line.id,
-        name: line.productVariant.product.name,
-        variant: line.productVariant.name,
-        quantity: line.quantity,
-        totalPrice: line.totalPrice,
-      })),
+      lines,
     }
 
     if (receiver.type === 'EMAIL' && receiver.data.template === 'NEW_CHECKOUT') {

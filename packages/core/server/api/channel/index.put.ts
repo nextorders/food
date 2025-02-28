@@ -5,12 +5,6 @@ import { channelCreateSchema } from './../../../shared/services/channel'
 export default defineEventHandler(async (event) => {
   try {
     const { channelId } = useRuntimeConfig()
-    if (!channelId) {
-      throw createError({
-        statusCode: 400,
-        statusMessage: 'Missing channelId',
-      })
-    }
 
     // Guard: If channel already exists
     const channel = await getChannel(channelId)

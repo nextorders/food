@@ -40,11 +40,34 @@ export async function createUser(data: Omit<User, 'createdAt' | 'updatedAt'>): P
   return getUser(data.id)
 }
 
-export async function createUserCredentials(userId: string, data: Omit<UserCredentials, 'createdAt' | 'updatedAt'>): Promise<UserCredentials | null> {
-  await useStorage('db').setItem(`user:${userId}:credentials:${data.id}`, {
+export async function createUserCredentials(data: Omit<UserCredentials, 'createdAt' | 'updatedAt'>): Promise<UserCredentials | null> {
+  await useStorage('db').setItem(`user:${data.userId}:credentials:${data.id}`, {
     ...data,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   })
-  return getUserCredentials(userId, data.id)
+  return getUserCredentials(data.userId, data.id)
+}
+
+export async function getUserCredentialsByLogin(login: string): Promise<UserCredentials | null> {
+  const { userKeys } = await getKeys()
+  const storage = new Map<string, unknown>(userKeys.map((key) => [key, useStorage('db').getItem(key)]))
+
+  for (const key of userKeys) {
+    const keyParsed = key.split(':')
+
+    // user:id:credentials:id
+    if (keyParsed[1] && keyParsed[2] && keyParsed[3]) {
+      const userCredentials = await storage.get(key) as UserCredentials
+      if (!userCredentials) {
+        continue
+      }
+
+      if (userCredentials.login === login) {
+        return userCredentials
+      }
+    }
+  }
+
+  return null
 }

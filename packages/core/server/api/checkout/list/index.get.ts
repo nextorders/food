@@ -1,16 +1,16 @@
-import { repository } from '@next-orders/database'
+import { getLatestFinishedCheckouts } from '../../../../server/services/db/checkout'
 
 export default defineEventHandler(async () => {
   try {
-    const { channelId } = useRuntimeConfig()
-    if (!channelId) {
+    const checkouts = await getLatestFinishedCheckouts()
+    if (!checkouts) {
       throw createError({
-        statusCode: 400,
-        statusMessage: 'Missing channelId',
+        statusCode: 404,
+        statusMessage: 'No checkouts',
       })
     }
 
-    return repository.checkout.findLatestFinished()
+    return checkouts
   } catch (error) {
     throw errorResolver(error)
   }

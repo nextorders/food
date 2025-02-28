@@ -13,6 +13,8 @@ export const checkoutUpdateSchema = z.object({
   addressNote: z.string().max(250).optional(),
   paymentMethodId: z.string().max(50).optional(),
   time: z.number().optional(),
-  change: z.string().max(10).optional(),
+  change: z.number().optional(),
   note: z.string().max(250).optional(),
 })
+
+export type CheckoutDraft = z.output<typeof checkoutUpdateSchema>

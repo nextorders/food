@@ -1,3 +1,5 @@
+import type { CheckoutDraft } from '@next-orders/core/shared/services/checkout'
+
 export const useCheckoutStore = defineStore('checkout', () => {
   const id = ref<string | null>(null)
   const name = ref('')
@@ -25,7 +27,7 @@ export const useCheckoutStore = defineStore('checkout', () => {
       id.value = data.id
       name.value = data.name
       phone.value = data.phone
-      status.value = data.status as Checkout['status']
+      status.value = data.status
       totalPrice.value = data.totalPrice
       deliveryMethod.value = data.deliveryMethod as Checkout['deliveryMethod'] | null
       lines.value = data.lines
@@ -52,7 +54,7 @@ export const useCheckoutStore = defineStore('checkout', () => {
       console.error(error)
     }
   }
-  async function change(checkout: Partial<Checkout>) {
+  async function change(checkout: CheckoutDraft) {
     try {
       const data = await $fetch(
         '/api/checkout',

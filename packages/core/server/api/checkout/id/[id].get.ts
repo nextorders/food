@@ -1,4 +1,4 @@
-import { repository } from '@next-orders/database'
+import { getCheckout } from '../../../../server/services/db/checkout'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const checkout = await repository.checkout.find(id)
+    const checkout = await getCheckout(id)
     if (!checkout?.id) {
       throw createError({
         statusCode: 404,

@@ -1,15 +1,7 @@
-import { repository } from '@next-orders/database'
+import { getCheckout } from '../../../server/services/db/checkout'
 
 export default defineEventHandler(async (event) => {
   try {
-    const { channelId } = useRuntimeConfig()
-    if (!channelId) {
-      throw createError({
-        statusCode: 400,
-        statusMessage: 'Missing channelId',
-      })
-    }
-
     const { secure } = await getUserSession(event)
     if (!secure?.checkout?.id) {
       throw createError({
@@ -18,7 +10,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    return repository.checkout.find(secure.checkout.id)
+    return getCheckout(secure.checkout.id)
   } catch (error) {
     throw errorResolver(error)
   }

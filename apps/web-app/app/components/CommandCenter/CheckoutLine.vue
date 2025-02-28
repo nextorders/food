@@ -3,14 +3,14 @@
     <div class="max-w-[16rem] flex flex-row gap-2 flex-nowrap items-center">
       <div>
         <div class="font-medium leading-tight line-clamp-2">
-          {{ line?.productVariant.product.name }}
+          {{ product?.name }}
         </div>
         <div class="mt-1 flex flex-row gap-2 flex-nowrap items-center">
           <p class="text-neutral-500 dark:text-neutral-400 leading-tight">
-            {{ variant?.name }}
+            {{ productVariant?.name }}
           </p>
           <p class="text-neutral-500 dark:text-neutral-400">
-            {{ variant?.weightValue }}{{ getWeightLocalizedUnit(variant?.weightUnit) }}
+            {{ productVariant?.weightValue }}{{ getWeightLocalizedUnit(productVariant?.weightUnit) }}
           </p>
         </div>
       </div>
@@ -38,6 +38,7 @@ const { checkouts } = await useCheckoutList()
 
 const checkout = computed(() => checkouts.value?.find((c) => c.lines?.find((l) => l.id === lineId)))
 const line = computed(() => checkout.value?.lines?.find((l) => l.id === lineId))
-const totalAmount = computed(() => line.value ? formatNumberToLocal(line.value.productVariant?.gross * line.value.quantity) : 0)
-const variant = computed(() => line.value?.productVariant)
+const totalAmount = computed(() => line.value ? formatNumberToLocal(line.value.totalPrice) : 0)
+const productVariant = channel.getProductVariant(line.value?.productVariantId ?? '')
+const product = channel.getProduct(productVariant.value?.productId ?? '')
 </script>

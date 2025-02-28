@@ -1,4 +1,6 @@
-import { repository } from '@next-orders/database'
+import { createId } from '@paralleldrive/cuid2'
+import { getChannel } from '../../../../server/services/db/channel'
+import { createCheckout, createCheckoutLine, getCheckout, patchCheckoutLine, recalculateCheckout } from '../../../../server/services/db/checkout'
 
 const MAX_LINES_PER_CHECKOUT = 20
 
@@ -13,7 +15,7 @@ export default defineEventHandler(async (event) => {
     }
 
     const { channelId } = useRuntimeConfig()
-    const channel = await repository.channel.find(channelId)
+    const channel = await getChannel(channelId)
 
     // Guard: If channel is not active or pickup/delivery is not available
     if (!channel?.isActive || (!channel?.isPickupAvailable && !channel?.isDeliveryAvailable)) {
@@ -31,9 +33,29 @@ export default defineEventHandler(async (event) => {
       // Create new checkout
       const deliveryMethod = channel?.isDeliveryAvailable ? 'DELIVERY' : 'WAREHOUSE'
 
-      const createdCheckout = await repository.checkout.create({
+      const createdCheckout = await createCheckout({
+        id: createId(),
+        status: 'CREATED',
         channelId,
         deliveryMethod,
+        name: '',
+        phone: '',
+        street: '',
+        flat: null,
+        doorphone: null,
+        entrance: null,
+        floor: null,
+        addressNote: null,
+        shippingPrice: 0,
+        totalPrice: 0,
+        paymentMethodId: '',
+        discount: 0,
+        note: null,
+        change: null,
+        time: '',
+        timeType: 'ASAP',
+        warehouseId: null,
+        lines: [],
       })
       if (!createdCheckout?.id) {
         throw createError({
@@ -56,7 +78,7 @@ export default defineEventHandler(async (event) => {
       checkoutId = secure.checkout.id
     }
 
-    const checkoutInDB = await repository.checkout.find(checkoutId)
+    const checkoutInDB = await getCheckout(checkoutId)
     if (!checkoutInDB?.id) {
       throw createError({
         statusCode: 404,
@@ -76,17 +98,23 @@ export default defineEventHandler(async (event) => {
       }
 
       // Create new line
-      await repository.checkoutLine.create({
+      await createCheckoutLine({
+        id: createId(),
         checkoutId,
         productVariantId: body.productVariantId,
         quantity: 1,
+        unitPrice: 0,
+        totalPrice: 0,
+        undiscountedUnitPrice: 0,
+        undiscountedTotalPrice: 0,
+        isGift: false,
       })
     } else {
       // Add +1
-      await repository.checkoutLine.increase(line.id, 1)
+      await patchCheckoutLine(checkoutId, line.id, { quantity: line.quantity + 1 })
     }
 
-    await repository.checkout.recalculate(checkoutId)
+    await recalculateCheckout(checkoutId)
 
     return { ok: true }
   } catch (error) {

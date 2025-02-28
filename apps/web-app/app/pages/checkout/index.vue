@@ -237,6 +237,8 @@
 </template>
 
 <script setup lang="ts">
+import type { CheckoutDraft } from '@next-orders/core/shared/services/checkout'
+
 definePageMeta({
   layout: 'checkout',
 })
@@ -304,7 +306,7 @@ async function updateCheckout() {
     addressNote: remainingCheckout.value.addressNote,
     paymentMethodId: remainingCheckout.value.paymentMethodId,
     time: remainingCheckout.value.time,
-    change: remainingCheckout.value.change ? remainingCheckout.value.change.toString() : undefined,
+    change: remainingCheckout.value.change,
     note: remainingCheckout.value.note,
   })
 

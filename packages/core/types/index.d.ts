@@ -78,6 +78,7 @@ declare global {
     slug: string
     name: string
     products: { id: string }[]
+    menuId: string
   }
 
   interface Product {
@@ -115,7 +116,7 @@ declare global {
     id: string
     createdAt: string
     updatedAt: string
-    status: 'CREATED' | 'FINISHED' | 'CANCELED'
+    status: CheckoutStatus
     name: string
     phone: string
     deliveryMethod: CheckoutDeliveryMethod
@@ -124,7 +125,8 @@ declare global {
     totalPrice: number
     discount: number | null
     note: string | null
-    time: number
+    time: string
+    timeType: 'ASAP' | 'SCHEDULED'
     change: string | null
     warehouseId: string | null
     street: string
@@ -134,22 +136,11 @@ declare global {
     floor: string | null
     addressNote: string | null
     channelId: string
+    lines: CheckoutLine[]
   }
 
+  type CheckoutStatus = 'CREATED' | 'FINISHED' | 'CANCELED'
   type CheckoutDeliveryMethod = 'DELIVERY' | 'WAREHOUSE'
-
-  interface CheckoutDraft extends Pick<Checkout, 'name' | 'phone' | 'paymentMethodId' | 'note' | 'time' | 'change' | 'warehouseId' | 'street' | 'flat' | 'doorphone' | 'entrance' | 'floor'> {
-    time: number
-    note: string | undefined
-    change: number
-    warehouseId: string | undefined
-    street: string | undefined
-    flat: string | undefined
-    doorphone: string | undefined
-    entrance: string | undefined
-    floor: string | undefined
-    addressNote: string | undefined
-  }
 
   interface CheckoutLine {
     id: string
@@ -169,7 +160,6 @@ declare global {
     id: string
     createdAt: string
     updatedAt: string
-    channelId: string
   } & CheckoutReceiverTypes
 
   type CheckoutReceiverTypes = CheckoutReceiverTypeEmail | CheckoutReceiverTypeHttp
@@ -194,6 +184,14 @@ declare global {
     }
   }
 
+  interface CheckoutRegistryItem {
+    id: string
+    createdAt: string
+    updatedAt: string
+    checkoutId: string
+    status: CheckoutStatus
+  }
+
   interface User {
     id: string
     createdAt: string
@@ -213,7 +211,8 @@ declare global {
     createdAt: string
     updatedAt: string
     login: string
-    passwordHash: string
+    password: string
+    userId: string
   }
 
   interface Warehouse {

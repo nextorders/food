@@ -1,4 +1,4 @@
-import { repository } from '@next-orders/database'
+import { getMenu, setMenuAsActive } from '../../../../server/services/db/menu'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const menu = await repository.menu.find(id)
+    const menu = await getMenu(id)
     if (!menu) {
       throw createError({
         statusCode: 404,
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    await repository.menu.setAsActive(menu.id)
+    await setMenuAsActive(menu.id)
 
     return { ok: true }
   } catch (error) {

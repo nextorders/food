@@ -1,8 +1,10 @@
-import { repository } from '@next-orders/database'
+import { setChannelAsUpdated } from '../../../../server/services/db/channel'
+import { patchMenu } from '../../../../server/services/db/menu'
 import { menuUpdateSchema } from './../../../../shared/services/menu'
 
 export default defineEventHandler(async (event) => {
   try {
+    const { channelId } = useRuntimeConfig()
     const id = getRouterParam(event, 'id')
     if (!id) {
       throw createError({
@@ -14,7 +16,9 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = menuUpdateSchema.parse(body)
 
-    const menu = await repository.menu.patch(id, data)
+    const menu = await patchMenu(id, data)
+
+    await setChannelAsUpdated(channelId)
 
     return {
       ok: true,

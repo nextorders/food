@@ -5,12 +5,6 @@ import { getWorkingDays } from '../../../server/services/db/work'
 export default defineEventHandler(async () => {
   try {
     const { channelId } = useRuntimeConfig()
-    if (!channelId) {
-      throw createError({
-        statusCode: 400,
-        statusMessage: 'Missing channelId',
-      })
-    }
 
     const channel = await getChannel(channelId)
     if (!channel) {

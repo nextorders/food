@@ -5,12 +5,6 @@ import { workingDaysUpdateSchema } from './../../../../shared/services/workingDa
 export default defineEventHandler(async (event) => {
   try {
     const { channelId } = useRuntimeConfig()
-    if (!channelId) {
-      throw createError({
-        statusCode: 400,
-        statusMessage: 'Missing channelId',
-      })
-    }
 
     const body = await readBody(event)
     const data = workingDaysUpdateSchema.parse(body)

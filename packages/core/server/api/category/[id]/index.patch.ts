@@ -1,4 +1,5 @@
-import { repository } from '@next-orders/database'
+import { setChannelAsUpdated } from '../../../../server/services/db/channel'
+import { patchMenuCategory } from '../../../../server/services/db/menu'
 import { menuCategoryUpdateSchema } from './../../../../shared/services/menu'
 
 export default defineEventHandler(async (event) => {
@@ -16,9 +17,9 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = menuCategoryUpdateSchema.parse(body)
 
-    const category = await repository.menuCategory.patch(id, data)
+    const category = await patchMenuCategory(id, data)
 
-    await repository.channel.setAsUpdated(channelId)
+    await setChannelAsUpdated(channelId)
 
     return {
       ok: true,

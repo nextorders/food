@@ -1,5 +1,5 @@
 export async function getWorkingDays(): Promise<WorkingWeek | null> {
-  return useStorage('db').getItem<WorkingWeek>('working-time')
+  return useStorage('db').getItem<WorkingWeek>('working_time')
 }
 
 export async function changeWorkingDayActivity(day: DayCode, isActive: boolean): Promise<void> {
@@ -15,7 +15,7 @@ export async function changeWorkingDayActivity(day: DayCode, isActive: boolean):
 
   workingDay.isActive = isActive
 
-  await useStorage('db').setItem('working-time', workingDays)
+  await useStorage('db').setItem('working_time', workingDays)
 }
 
 export async function patchWorkingDay(day: DayCode, data: Partial<WorkingDay>): Promise<WorkingWeek | null> {
@@ -32,11 +32,11 @@ export async function patchWorkingDay(day: DayCode, data: Partial<WorkingDay>): 
   const updatedDay = { ...workingDay, ...data }
   const updatedWeek = workingDays.map((workingDay) => (workingDay.day === day ? updatedDay : workingDay))
 
-  await useStorage('db').setItem('working-time', updatedWeek)
+  await useStorage('db').setItem('working_time', updatedWeek)
   return getWorkingDays()
 }
 
 export async function createWorkingDays(data: WorkingWeek): Promise<WorkingWeek | null> {
-  await useStorage('db').setItem('working-time', data)
+  await useStorage('db').setItem('working_time', data)
   return getWorkingDays()
 }
