@@ -125,7 +125,7 @@ async function sendToReceivers(checkoutId: string) {
       id: checkout.id,
       deliveryMethod: checkout.deliveryMethod,
       time,
-      timeType: checkout.timeType as 'ASAP' | 'SCHEDULED',
+      timeType: checkout.timeType,
       paymentMethodName,
       change: checkout.change ?? undefined,
       name: checkout.name,
