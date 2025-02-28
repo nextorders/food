@@ -86,6 +86,14 @@ export const useCheckoutStore = defineStore('checkout', () => {
       console.error(error)
     }
   }
+  async function get(id: string) {
+    try {
+      const data = await $fetch(`/api/checkout/id/${id}`)
+      return data
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return {
     id,
@@ -103,5 +111,6 @@ export const useCheckoutStore = defineStore('checkout', () => {
     add,
     change,
     changeLineQuantity,
+    get,
   }
 })

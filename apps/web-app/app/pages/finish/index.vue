@@ -10,16 +10,16 @@
 
     <div>
       <h3 class="mb-2 text-lg font-medium text-(--ui-text-muted)">
-        {{ checkout?.deliveryMethod === 'WAREHOUSE' ? $t('app.cart.pickup') : $t('app.cart.delivery') }}
+        {{ checkoutData?.deliveryMethod === 'WAREHOUSE' ? $t('app.cart.pickup') : $t('app.cart.delivery') }}
       </h3>
 
-      <p>{{ $t('app.checkout.your-name') }}: <span class="font-medium">{{ checkout?.name }}</span></p>
+      <p>{{ $t('app.checkout.your-name') }}: <span class="font-medium">{{ checkoutData?.name }}</span></p>
       <p class="mb-2">
-        {{ $t('app.checkout.your-phone') }}: <span class="font-medium">{{ checkout?.phone }}</span>
+        {{ $t('app.checkout.your-phone') }}: <span class="font-medium">{{ checkoutData?.phone }}</span>
       </p>
 
-      <p v-if="checkout?.time">
-        {{ $t('app.checkout.time-title') }}: <span class="font-medium">{{ checkout?.timeType === 'ASAP' ? $t('app.checkout.as-soon-as-possible') : new Date(checkout?.time).toLocaleString(undefined, {
+      <p v-if="checkoutData?.time">
+        {{ $t('app.checkout.time-title') }}: <span class="font-medium">{{ checkoutData.timeType === 'ASAP' ? $t('app.checkout.as-soon-as-possible') : new Date(checkoutData.time).toLocaleString(undefined, {
           year: 'numeric',
           month: 'numeric',
           day: 'numeric',
@@ -33,21 +33,21 @@
         <p v-if="warehouse?.address" class="inline font-medium">
           {{ warehouse?.address }}
         </p>
-        <p v-if="checkout?.street" class="inline font-medium">
-          <span>{{ checkout?.street }} {{ checkout?.flat }}</span>
-          <span v-if="checkout?.doorphone" class="lowercase">, {{ $t('app.checkout.address.doorphone') }} {{ checkout?.doorphone }}</span>
-          <span v-if="checkout?.entrance" class="lowercase">, {{ $t('app.checkout.address.entrance') }} {{ checkout?.entrance }}</span>
-          <span v-if="checkout?.floor" class="lowercase">, {{ $t('app.checkout.address.floor') }} {{ checkout?.floor }}</span>
-          <span v-if="checkout?.addressNote">. {{ checkout?.addressNote }}</span>
+        <p v-if="checkoutData?.street" class="inline font-medium">
+          <span>{{ checkoutData?.street }} {{ checkoutData?.flat }}</span>
+          <span v-if="checkoutData?.doorphone" class="lowercase">, {{ $t('app.checkout.address.doorphone') }} {{ checkoutData?.doorphone }}</span>
+          <span v-if="checkoutData?.entrance" class="lowercase">, {{ $t('app.checkout.address.entrance') }} {{ checkoutData?.entrance }}</span>
+          <span v-if="checkoutData?.floor" class="lowercase">, {{ $t('app.checkout.address.floor') }} {{ checkoutData?.floor }}</span>
+          <span v-if="checkoutData?.addressNote">. {{ checkoutData?.addressNote }}</span>
         </p>
       </div>
 
-      <p>{{ $t('app.checkout.payment-title') }}: <span class="font-medium">{{ channel.paymentMethods.find((p) => p.id === checkout?.paymentMethodId)?.name }}</span></p>
-      <p v-if="checkout?.change">
-        {{ $t('app.checkout.change-label') }}: <span class="font-medium">{{ checkout?.change }} {{ channel.currencySign }}</span>
+      <p>{{ $t('app.checkout.payment-title') }}: <span class="font-medium">{{ channel.paymentMethods.find((p) => p.id === checkoutData?.paymentMethodId)?.name }}</span></p>
+      <p v-if="checkoutData?.change">
+        {{ $t('app.checkout.change-label') }}: <span class="font-medium">{{ checkoutData.change }} {{ channel.currencySign }}</span>
       </p>
-      <p v-if="checkout?.note">
-        {{ $t('app.checkout.order-note') }}: <span class="font-medium">{{ checkout?.note }}</span>
+      <p v-if="checkoutData?.note">
+        {{ $t('app.checkout.order-note') }}: <span class="font-medium">{{ checkoutData.note }}</span>
       </p>
     </div>
 
@@ -57,7 +57,7 @@
       </h3>
 
       <CheckoutLine
-        v-for="line in checkout?.lines"
+        v-for="line in checkoutData?.lines"
         :key="line.id"
         :line-id="line.id"
         :line="line"
@@ -72,7 +72,7 @@
       <div class="flex flex-row justify-between">
         <div>{{ $t('app.checkout.cost.products') }}</div>
         <div class="tracking-tight text-lg">
-          {{ checkout?.totalPrice }} <span class="text-sm">{{ channel.currencySign }}</span>
+          {{ checkoutData?.totalPrice }} <span class="text-sm">{{ channel.currencySign }}</span>
         </div>
       </div>
     </div>
@@ -93,17 +93,14 @@ definePageMeta({
 })
 
 const channel = useChannelStore()
+const checkout = useCheckoutStore()
 
 const route = useRoute()
-const id = ref(route.query.id ? route.query.id.toString() : '')
-if (!id.value) {
-  navigateTo('/')
+
+const checkoutData = await checkout.get(route.query.id?.toString() as string)
+if (!checkoutData) {
+  await navigateTo('/')
 }
 
-const { data: checkout, error } = await useFetch(`/api/checkout/id/${id.value}`)
-if (error.value) {
-  navigateTo('/')
-}
-
-const warehouse = computed(() => channel.warehouses.find((w) => w.id === checkout.value?.warehouseId))
+const warehouse = computed(() => channel.warehouses.find((w) => w.id === checkoutData?.warehouseId))
 </script>
