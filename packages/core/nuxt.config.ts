@@ -1,12 +1,9 @@
-import { fileURLToPath } from 'node:url'
-
 export default defineNuxtConfig({
   modules: ['@nuxtjs/i18n', 'nuxt-auth-utils', '@vueuse/nuxt'],
   routeRules: {
     '/api/file/**': { prerender: false },
   },
   runtimeConfig: {
-    channelId: 'burger',
     locale: 'en',
     productsDirectory: '/products',
     s3: {
@@ -17,12 +14,6 @@ export default defineNuxtConfig({
       secretAccessKey: '',
     },
     redisUrl: '',
-  },
-  nitro: {
-    preset: fileURLToPath(new URL('./server/preset.ts', import.meta.url)),
-    experimental: {
-      tasks: true,
-    },
   },
   vite: {
     build: {

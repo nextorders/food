@@ -15,7 +15,6 @@
   "dependencies": {
     "@neoconfetti/vue": "catalog:",
     "@next-orders/core": "workspace:*",
-    "@next-orders/database": "workspace:*",
     "@next-orders/ui": "workspace:*",
     "@pinia/nuxt": "catalog:",
     "ioredis": "catalog:",

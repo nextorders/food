@@ -68,7 +68,6 @@
     },
     "onlyBuiltDependencies": [
       "@next-orders/core",
-      "@next-orders/database",
       "@next-orders/ui",
       "bcrypt",
       "sharp"

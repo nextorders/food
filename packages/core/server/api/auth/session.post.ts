@@ -1,4 +1,4 @@
-import { createId } from '@next-orders/database'
+import { createId } from '@paralleldrive/cuid2'
 
 export default defineEventHandler(async (event) => {
   try {

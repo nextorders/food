@@ -21,6 +21,6 @@ export default antfu(
     },
   },
   {
-    ignores: ['.github/**', 'packages/database/migrations/**'],
+    ignores: ['.github/**'],
   },
 )
