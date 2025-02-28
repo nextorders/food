@@ -1,7 +1,18 @@
+import { createId } from '@paralleldrive/cuid2'
 import { getProductVariant } from './product'
 
 async function getCheckoutRegistryItems(): Promise<CheckoutRegistryItem[] | null> {
   return useStorage('db').getItem<CheckoutRegistryItem[]>('checkout_registry')
+}
+
+async function createCheckoutRegistryItem(item: CheckoutRegistryItem): Promise<void> {
+  const items = await getCheckoutRegistryItems()
+  if (!items) {
+    await useStorage('db').setItem('checkout_registry', [item])
+    return
+  }
+
+  await useStorage('db').setItem('checkout_registry', [...items, item])
 }
 
 export async function getCheckout(id: string): Promise<Checkout | null> {
@@ -19,7 +30,7 @@ export async function getLatestFinishedCheckouts(amount: number = 10): Promise<C
     .sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())
     .slice(0, amount)
 
-  const keys = latestCheckouts.map((item) => `checkout:${item.id}`)
+  const keys = latestCheckouts.map((item) => `checkout:${item.checkoutId}`)
 
   const storage = new Map<string, unknown>(keys.map((key) => [key, useStorage('db').getItem(key)]))
   const checkouts: Checkout[] = []
@@ -66,16 +77,20 @@ export async function recalculateCheckout(id: string): Promise<void> {
     return
   }
 
+  // Check if any line has no quantity
+  const updatedLines: CheckoutLine[] = []
   for (const line of checkout.lines) {
-    const productVariant = await getProductVariant(line.productVariantId)
-    if (!productVariant) {
+    if (line.quantity <= 0) {
+      // Delete line
       continue
     }
 
-    // Guard
-    if (line.quantity <= 0) {
-      await deleteCheckoutLine(id, line.id)
-      line.totalPrice = 0
+    updatedLines.push(line)
+  }
+
+  for (const line of updatedLines) {
+    const productVariant = await getProductVariant(line.productVariantId)
+    if (!productVariant) {
       continue
     }
 
@@ -83,12 +98,12 @@ export async function recalculateCheckout(id: string): Promise<void> {
     line.unitPrice = productVariant.gross
   }
 
-  const totalPrice = checkout.lines.reduce((acc, line) => {
+  const totalPrice = updatedLines.reduce((acc, line) => {
     return acc + line.totalPrice
   }, 0)
 
   await patchCheckout(id, {
-    lines: checkout.lines,
+    lines: updatedLines,
     totalPrice,
   })
 }
@@ -96,6 +111,14 @@ export async function recalculateCheckout(id: string): Promise<void> {
 export async function setCheckoutAsFinished(id: string): Promise<void> {
   await patchCheckout(id, {
     status: 'FINISHED',
+  })
+
+  await createCheckoutRegistryItem({
+    id: createId(),
+    checkoutId: id,
+    status: 'FINISHED',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
   })
 }
 
@@ -149,15 +172,4 @@ export async function patchCheckoutLine(checkoutId: string, id: string, data: Pa
   })
 
   return getCheckoutLine(checkoutId, id)
-}
-
-async function deleteCheckoutLine(checkoutId: string, id: string): Promise<void> {
-  const checkout = await getCheckout(checkoutId)
-  if (!checkout) {
-    return
-  }
-
-  await patchCheckout(checkoutId, {
-    lines: checkout.lines.filter((line) => line.id !== id),
-  })
 }

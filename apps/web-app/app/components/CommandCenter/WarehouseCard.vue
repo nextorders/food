@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-(--ui-bg-muted) relative min-h-36 text-center flex flex-col items-center justify-center">
+  <div class="bg-(--ui-bg-muted) rounded-xl relative min-h-36 text-center flex flex-col items-center justify-center">
     <Icon :name="icons.house" class="size-12 mb-2 text-(--ui-text-dimmed)" />
 
     <h3 class="text-xl font-semibold">

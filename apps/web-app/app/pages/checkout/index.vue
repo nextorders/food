@@ -304,10 +304,10 @@ async function updateCheckout() {
     entrance: remainingCheckout.value.entrance,
     floor: remainingCheckout.value.floor,
     addressNote: remainingCheckout.value.addressNote,
-    paymentMethodId: remainingCheckout.value.paymentMethodId,
-    time: remainingCheckout.value.time,
-    change: remainingCheckout.value.change,
     note: remainingCheckout.value.note,
+    time: remainingCheckout.value.time,
+    paymentMethodId: remainingCheckout.value.paymentMethodId,
+    change: selectedPaymentMethod.value?.type === 'CASH' ? remainingCheckout.value.change : undefined,
   })
 
   await navigateTo(`/finish?id=${finishedCheckout?.result?.id}`)

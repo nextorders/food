@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-(--ui-bg-muted) px-4 md:px-6 py-5 space-y-6">
+  <div class="bg-(--ui-bg-muted) rounded-xl px-4 md:px-6 py-5 space-y-6">
     <div>
       <div class="mb-2 flex flex-row gap-3 items-center">
         <img
