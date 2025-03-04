@@ -13,7 +13,7 @@
       :key="menu.id"
       :menu-id="menu.id"
     />
-    <CommandCenterMenuCreateCard @click="modal.open(ModalCreateMenu)" />
+    <CommandCenterMenuCreateCard @click="modalCreateMenu.open()" />
   </div>
 
   <GuideMenus />
@@ -27,9 +27,10 @@ definePageMeta({
   middleware: ['02-staff'],
 })
 
-const channel = useChannelStore()
-const modal = useModal()
 const { t } = useI18n()
+const channel = useChannelStore()
+const overlay = useOverlay()
+const modalCreateMenu = overlay.create(ModalCreateMenu)
 
 const breadcrumbs = computed(() => [
   { label: t('common.website'), icon: 'food:home', to: '/' },

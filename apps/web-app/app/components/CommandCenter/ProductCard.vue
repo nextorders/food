@@ -13,7 +13,7 @@
 
       <div class="px-2 py-1 h-full flex flex-col justify-between">
         <p class="mt-2 leading-tight line-clamp-2">
-          {{ product?.name }}
+          {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
         </p>
 
         <div class="mt-4">
@@ -26,7 +26,7 @@
               {{ variant.weightValue }}{{ getWeightLocalizedUnit(variant.weightUnit) }}
             </p>
             <p class="font-medium">
-              {{ formatNumberToLocal(variant.gross) }}<span class="pl-1 text-xs">{{ channel.currencySign }}</span>
+              {{ new Intl.NumberFormat(locale).format(variant.gross) }}<span class="pl-1 text-xs">{{ channel.currencySign }}</span>
             </p>
           </div>
         </div>
@@ -40,6 +40,7 @@ const { productId } = defineProps<{
   productId: string
 }>()
 
+const { locale } = useI18n()
 const { icons } = useAppConfig()
 const channel = useChannelStore()
 const product = channel.getProduct(productId)

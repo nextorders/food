@@ -176,7 +176,7 @@
             <div class="flex flex-row justify-between text-lg">
               <div>{{ $t('app.checkout.cost.products') }}</div>
               <div class="tracking-tight">
-                {{ checkout.total }} <span class="text-sm">{{ channel.currencySign }}</span>
+                {{ new Intl.NumberFormat(locale).format(checkout.totalPrice) }} <span class="text-sm">{{ channel.currencySign }}</span>
               </div>
             </div>
           </div>
@@ -211,7 +211,7 @@
             </UButton>
 
             <div class="font-medium text-right text-2xl min-w-[5rem] tracking-tight">
-              {{ checkout.total }} <span class="text-base">{{ channel.currencySign }}</span>
+              {{ new Intl.NumberFormat(locale).format(checkout.totalPrice) }} <span class="text-base">{{ channel.currencySign }}</span>
             </div>
           </div>
         </div>
@@ -243,6 +243,7 @@ definePageMeta({
   layout: 'checkout',
 })
 
+const { locale } = useI18n()
 const channel = useChannelStore()
 const checkout = useCheckoutStore()
 await channel.updateTimeSlots()

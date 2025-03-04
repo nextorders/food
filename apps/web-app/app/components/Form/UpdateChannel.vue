@@ -49,6 +49,16 @@
       />
     </UFormField>
 
+    <UFormField :label="$t('common.language')" name="defaultLocale">
+      <USelect
+        v-model="state.defaultLocale"
+        :items="getLocalizedLanguageCodesForSelect()"
+        :placeholder="$t('common.select')"
+        size="xl"
+        class="w-full"
+      />
+    </UFormField>
+
     <UFormField :label="$t('center.data.timezone')" name="timeZone">
       <USelect
         v-model="state.timeZone"
@@ -97,10 +107,7 @@
 import type { ChannelUpdateSchema } from '@next-orders/core/shared/services/channel'
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { channelUpdateSchema } from '@next-orders/core/shared/services/channel'
-
-const { isOpened } = defineProps<{
-  isOpened: boolean
-}>()
+import { getLocalizedCountryCodesForSelect } from '../../utils/helpers'
 
 const emit = defineEmits(['success', 'submitted'])
 
@@ -115,6 +122,7 @@ const state = ref<Partial<ChannelUpdateSchema>>({
   phone: channel.phone ?? undefined,
   countryCode: channel.countryCode,
   currencyCode: channel.currencyCode,
+  defaultLocale: channel.defaultLocale,
   timeZone: channel.timeZone,
   minAmountForDelivery: channel.minAmountForDelivery ?? undefined,
 })
@@ -127,17 +135,11 @@ function resetState() {
     phone: channel.phone ?? undefined,
     countryCode: channel.countryCode,
     currencyCode: channel.currencyCode,
+    defaultLocale: channel.defaultLocale,
     timeZone: channel.timeZone,
     minAmountForDelivery: channel.minAmountForDelivery ?? undefined,
   }
 }
-
-watch(
-  () => isOpened,
-  () => {
-    resetState()
-  },
-)
 
 async function onSubmit(event: FormSubmitEvent<ChannelUpdateSchema>) {
   emit('submitted')

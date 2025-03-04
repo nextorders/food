@@ -16,6 +16,7 @@ export const useChannelStore = defineStore('channel', () => {
   const description = ref<string | null>(null)
   const currencyCode = ref<CurrencyCode | undefined>(undefined)
   const countryCode = ref<CountryCode | undefined>(undefined)
+  const defaultLocale = ref<Locale | undefined>(undefined)
   const timeZone = ref<string>('')
   const isPickupAvailable = ref(false)
   const isDeliveryAvailable = ref(false)
@@ -57,6 +58,7 @@ export const useChannelStore = defineStore('channel', () => {
     description.value = data.description
     currencyCode.value = data.currencyCode
     countryCode.value = data.countryCode
+    defaultLocale.value = data.defaultLocale
     timeZone.value = data.timeZone
     isPickupAvailable.value = data.isPickupAvailable
     isDeliveryAvailable.value = data.isDeliveryAvailable
@@ -105,14 +107,12 @@ export const useChannelStore = defineStore('channel', () => {
   function getProductBySlug(slug: string): ComputedRef<Product | undefined> {
     return computed(() => products.value.find((product) => product.slug === slug))
   }
-  function getProductByProductVariant(id: string): Product | undefined {
-    return products.value.find((product) => product.variants.find((variant) => variant.id === id))
-  }
   function getProductVariant(id: string): ComputedRef<ProductVariant | undefined> {
     return computed(() => products.value.flatMap((product) => product.variants).find((variant) => variant.id === id))
   }
   function getProductsByQuery(query: string): ProductWithCategory[] {
-    const productList = products.value.filter((product) => product.name.toLowerCase().includes(query.toLowerCase()))
+    const { locale } = useI18n()
+    const productList = products.value.filter((product) => product.name.find((name) => name.locale === locale.value)?.value.toLowerCase().includes(query.toLowerCase()))
 
     const result: ProductWithCategory[] = []
     for (const p of productList) {
@@ -160,6 +160,7 @@ export const useChannelStore = defineStore('channel', () => {
     description,
     currencyCode,
     countryCode,
+    defaultLocale,
     timeZone,
     isPickupAvailable,
     isDeliveryAvailable,
@@ -191,7 +192,6 @@ export const useChannelStore = defineStore('channel', () => {
     getActiveMenuCategoryBySlug,
     getProduct,
     getProductBySlug,
-    getProductByProductVariant,
     getProductVariant,
     getProductsByQuery,
     getTopSearchedProducts,

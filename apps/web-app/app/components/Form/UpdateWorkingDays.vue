@@ -35,10 +35,6 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  isOpened: boolean
-}>()
-
 const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()

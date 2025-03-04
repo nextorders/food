@@ -95,7 +95,7 @@ export async function getMenuCategory(id: string): Promise<MenuCategory | null> 
     const [, menuId, category, categoryId] = key.split(':')
 
     // menu:id:category:id
-    if (menuId === id && category === 'category' && categoryId) {
+    if (menuId && category === 'category' && categoryId === id) {
       return useStorage('db').getItem<MenuCategory>(key)
     }
   }

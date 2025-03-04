@@ -2,7 +2,7 @@
   <CatalogBreadcrumb :items="breadcrumbs" />
 
   <h1 class="text-3xl font-medium">
-    {{ category?.name }}
+    {{ category?.name.find((name) => category?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
   </h1>
   <div>{{ $t('app.category-page-description') }}</div>
 
@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const { params } = useRoute('catalog-categorySlug')
 const channel = useChannelStore()
 
@@ -32,11 +32,11 @@ if (!category.value) {
 const products = channel.getProductsInCategory(category.value.id).value.filter((p) => p.isAvailableForPurchase && p.variants.length)
 
 useHead({
-  title: category.value?.name,
+  title: category.value?.name.find((name) => category.value?.name.some((name) => name.locale === locale.value) ? name.locale === locale.value : name.locale === channel.defaultLocale)?.value,
 })
 
 const breadcrumbs = computed(() => [
   { label: t('common.home'), icon: 'food:home', to: '/' },
-  { label: category.value?.name ?? '' },
+  { label: category.value?.name.find((name) => category.value?.name.some((name) => name.locale === locale.value) ? name.locale === locale.value : name.locale === channel.defaultLocale)?.value ?? '' },
 ])
 </script>

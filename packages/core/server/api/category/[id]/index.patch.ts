@@ -1,5 +1,5 @@
 import { setChannelAsUpdated } from '../../../../server/services/db/channel'
-import { patchMenuCategory } from '../../../../server/services/db/menu'
+import { getMenuCategory, patchMenuCategory } from '../../../../server/services/db/menu'
 import { menuCategoryUpdateSchema } from './../../../../shared/services/menu'
 
 export default defineEventHandler(async (event) => {
@@ -17,13 +17,26 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = menuCategoryUpdateSchema.parse(body)
 
-    const category = await patchMenuCategory(id, data)
+    const category = await getMenuCategory(id)
+    if (!category) {
+      throw createError({
+        statusCode: 404,
+        statusMessage: 'Category not found',
+      })
+    }
+
+    const updatedName = data?.name ? updateLocaleValues(category.name, { locale: data.locale, value: data.name }) : category.name
+
+    const updatedCategory = await patchMenuCategory(id, {
+      ...data,
+      name: updatedName,
+    })
 
     await setChannelAsUpdated(channelId)
 
     return {
       ok: true,
-      result: category,
+      result: updatedCategory,
     }
   } catch (error) {
     throw errorResolver(error)

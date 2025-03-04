@@ -4,14 +4,12 @@
       <div class="space-y-3">
         <FormUpdateProductVariant
           :product-variant-id="productVariantId ?? ''"
-          :is-opened="modal.isOpen.value"
-          @submitted="modal.close()"
-          @success="modal.close()"
+          @submitted="closeAll"
+          @success="closeAll"
         />
         <FormDeleteProductVariant
           :product-variant-id="productVariantId ?? ''"
-          :is-opened="modal.isOpen.value"
-          @success="modal.close()"
+          @success="closeAll"
         />
       </div>
     </template>
@@ -23,5 +21,11 @@ defineProps<{
   productVariantId?: string
 }>()
 
-const modal = useModal()
+const overlay = useOverlay()
+
+function closeAll() {
+  for (const o of overlay.overlays) {
+    overlay.close(o.id)
+  }
+}
 </script>

@@ -13,7 +13,7 @@
         size="xl"
         variant="gradient"
         class="w-full md:w-fit"
-        @click="modal.open(ModalCreateMenuCategory, { menuId: menu?.id })"
+        @click="modalCreateMenuCategory.open({ menuId: menu?.id })"
       >
         {{ t('center.add.menu-category') }}
       </UButton>
@@ -27,12 +27,12 @@
   >
     <div class="mb-4 pb-2 border-b border-(--ui-border) flex flex-row gap-3 items-center">
       <h2 class="text-xl lg:text-2xl">
-        {{ category.name }}
+        {{ category.name.find((name) => category.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
       </h2>
       <Icon
         :name="icons.edit"
         class="w-5 h-5 text-neutral-500 cursor-pointer"
-        @click="modal.open(ModalUpdateMenuCategory, { categoryId: category.id })"
+        @click="modalUpdateMenuCategory.open({ categoryId: category.id })"
       />
     </div>
 
@@ -43,7 +43,7 @@
         :product-id="product.id"
       />
       <CommandCenterProductCreateCard
-        @click="modal.open(ModalCreateProduct, { categoryId: category.id })"
+        @click="modalCreateProduct.open({ categoryId: category.id })"
       />
     </div>
   </div>
@@ -66,9 +66,12 @@ if (!menu.value) {
   throw createError({ statusCode: 404, statusMessage: 'Menu not found' })
 }
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const { icons } = useAppConfig()
-const modal = useModal()
+const overlay = useOverlay()
+const modalCreateMenuCategory = overlay.create(ModalCreateMenuCategory)
+const modalUpdateMenuCategory = overlay.create(ModalUpdateMenuCategory)
+const modalCreateProduct = overlay.create(ModalCreateProduct)
 
 const breadcrumbs = computed(() => [
   { label: t('common.website'), icon: 'food:home', to: '/' },

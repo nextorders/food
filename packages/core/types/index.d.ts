@@ -10,6 +10,7 @@ declare global {
     phone: string | null
     currencyCode: CurrencyCode
     countryCode: CountryCode
+    defaultLocale: Locale
     timeZone: TimeZone
     isActive: boolean
     isDeliveryAvailable: boolean
@@ -22,6 +23,11 @@ declare global {
   type CountryCode = 'RU' | 'US' | 'GB' | 'GR' | 'GE' | 'UA' | 'BY' | 'KZ' | 'FR' | 'DE' | 'IT' | 'ES' | 'TR' | 'PL'
 
   type Locale = 'ru' | 'en'
+
+  type LocaleValue = {
+    locale: Locale
+    value: string
+  }
 
   type TimeZone = '-12:00' | '-11:00' | '-10:00' | '-09:00' | '-08:00' | '-07:00' | '-06:00' | '-05:00' | '-04:00' | '-03:00' | '-02:00' | '-01:00' | '00:00' | '+01:00' | '+02:00' | '+03:00' | '+04:00' | '+05:00' | '+06:00' | '+07:00' | '+08:00' | '+09:00' | '+10:00' | '+11:00' | '+12:00'
 
@@ -76,7 +82,7 @@ declare global {
     createdAt: string
     updatedAt: string
     slug: string
-    name: string
+    name: LocaleValue[]
     products: { id: string }[]
     menuId: string
   }
@@ -86,8 +92,8 @@ declare global {
     createdAt: string
     updatedAt: string
     slug: string
-    name: string
-    description: string
+    name: LocaleValue[]
+    description: LocaleValue[]
     isAvailableForPurchase: boolean
     mediaId: string | null
     variants: ProductVariant[]

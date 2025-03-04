@@ -4,15 +4,13 @@
       <div class="space-y-3">
         <FormUpdateProduct
           :product-id="productId ?? ''"
-          :is-opened="modal.isOpen.value"
-          @submitted="modal.close()"
-          @success="modal.close()"
+          @submitted="closeAll"
+          @success="closeAll"
         />
         <FormDeleteProduct
           :product-id="productId ?? ''"
           :redirect-to="redirectTo"
-          :is-opened="modal.isOpen.value"
-          @success="modal.close()"
+          @success="closeAll"
         />
       </div>
     </template>
@@ -25,5 +23,11 @@ defineProps<{
   redirectTo: string
 }>()
 
-const modal = useModal()
+const overlay = useOverlay()
+
+function closeAll() {
+  for (const o of overlay.overlays) {
+    overlay.close(o.id)
+  }
+}
 </script>

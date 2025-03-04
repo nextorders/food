@@ -1,5 +1,5 @@
 import { setChannelAsUpdated } from '../../../../server/services/db/channel'
-import { patchProduct } from '../../../../server/services/db/product'
+import { getProduct, patchProduct } from '../../../../server/services/db/product'
 import { productUpdateSchema } from './../../../../shared/services/product'
 
 export default defineEventHandler(async (event) => {
@@ -17,13 +17,28 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = productUpdateSchema.parse(body)
 
-    const product = await patchProduct(id, data)
+    const product = await getProduct(id)
+    if (!product) {
+      throw createError({
+        statusCode: 404,
+        statusMessage: 'Product not found',
+      })
+    }
+
+    const updatedName = data?.name ? updateLocaleValues(product.name, { locale: data.locale, value: data.name }) : product.name
+    const updatedDescription = data?.description ? updateLocaleValues(product.description, { locale: data.locale, value: data.description }) : product.description
+
+    const updatedProduct = await patchProduct(id, {
+      ...data,
+      name: updatedName,
+      description: updatedDescription,
+    })
 
     await setChannelAsUpdated(channelId)
 
     return {
       ok: true,
-      result: product,
+      result: updatedProduct,
     }
   } catch (error) {
     throw errorResolver(error)

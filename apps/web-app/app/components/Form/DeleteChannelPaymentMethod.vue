@@ -13,7 +13,6 @@
 
 <script setup lang="ts">
 const { paymentMethodId } = defineProps<{
-  isOpened: boolean
   paymentMethodId: string
 }>()
 

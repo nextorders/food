@@ -8,7 +8,7 @@
           :to="`/catalog/${product.category.slug}/${product.slug}`"
           size="xl"
         >
-          {{ product.name }}
+          {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
         </UButton>
       </div>
       <div v-else class="text-neutral-500">
@@ -27,7 +27,7 @@
           :to="`/catalog/${product.category.slug}/${product.slug}`"
           size="xl"
         >
-          {{ product.name }}
+          {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
         </UButton>
       </div>
     </div>
@@ -35,6 +35,7 @@
 </template>
 
 <script setup lang="ts">
+const { locale } = useI18n()
 const { searchQuery } = useApp()
 const channel = useChannelStore()
 

@@ -12,7 +12,7 @@
           size="md"
           variant="gradient"
           class="w-full md:w-fit"
-          @click="modal.open(ModalUpdateChannel)"
+          @click="modalUpdateChannel.open()"
         >
           {{ t('center.edit.title') }}
         </UButton>
@@ -33,6 +33,9 @@
         </div>
         <div class="bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3">
           {{ t('center.data.country') }}: <span class="font-semibold">{{ channel.countryCode }}</span>
+        </div>
+        <div class="bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3">
+          {{ t('common.language') }}: <span class="font-semibold">{{ channel.defaultLocale }}</span>
         </div>
         <div class="bg-white dark:bg-neutral-500 rounded-2xl px-4 py-3">
           {{ t('center.data.timezone') }}: <span class="font-semibold">{{ channel.timeZone }}</span>
@@ -76,7 +79,7 @@
           size="md"
           variant="gradient"
           class="w-full md:w-fit"
-          @click="modal.open(ModalUpdateWorkingDays)"
+          @click="modalUpdateWorkingDays.open()"
         >
           {{ t('center.edit.title') }}
         </UButton>
@@ -107,9 +110,9 @@
           v-for="paymentMethod in channel.paymentMethods"
           :key="paymentMethod.id"
           :payment-method-id="paymentMethod.id"
-          @click="modal.open(ModalUpdateChannelPaymentMethod, { paymentMethodId: paymentMethod.id })"
+          @click="modalUpdateChannelPaymentMethod.open({ paymentMethodId: paymentMethod.id })"
         />
-        <CommandCenterPaymentMethodCreateCard @click="modal.open(ModalCreateChannelPaymentMethod)" />
+        <CommandCenterPaymentMethodCreateCard @click="modalCreateChannelPaymentMethod.open()" />
       </div>
     </div>
   </div>
@@ -124,7 +127,11 @@ definePageMeta({
 })
 
 const { t } = useI18n()
-const modal = useModal()
+const overlay = useOverlay()
+const modalUpdateChannel = overlay.create(ModalUpdateChannel)
+const modalUpdateWorkingDays = overlay.create(ModalUpdateWorkingDays)
+const modalUpdateChannelPaymentMethod = overlay.create(ModalUpdateChannelPaymentMethod)
+const modalCreateChannelPaymentMethod = overlay.create(ModalCreateChannelPaymentMethod)
 const channel = useChannelStore()
 
 const breadcrumbs = computed(() => [

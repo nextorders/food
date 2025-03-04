@@ -1,11 +1,17 @@
 <template>
   <UModal :title="$t('center.create.menu')">
     <template #body>
-      <FormCreateMenu :is-opened="modal.isOpen.value" @success="modal.close()" />
+      <FormCreateMenu @success="closeAll" />
     </template>
   </UModal>
 </template>
 
 <script setup lang="ts">
-const modal = useModal()
+const overlay = useOverlay()
+
+function closeAll() {
+  for (const o of overlay.overlays) {
+    overlay.close(o.id)
+  }
+}
 </script>

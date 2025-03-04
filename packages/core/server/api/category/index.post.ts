@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
     const category = await createMenuCategory({
       id,
       slug: id,
-      name: data.name,
+      name: [{ locale: data.locale, value: data.name }],
       menuId: data.menuId,
       products: [],
     })

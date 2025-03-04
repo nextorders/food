@@ -2,14 +2,19 @@
   <UModal :title="$t('center.update.general-data')">
     <template #body>
       <FormUpdateChannel
-        :is-opened="modal.isOpen.value"
-        @submitted="modal.close()"
-        @success="modal.close()"
+        @submitted="closeAll"
+        @success="closeAll"
       />
     </template>
   </UModal>
 </template>
 
 <script setup lang="ts">
-const modal = useModal()
+const overlay = useOverlay()
+
+function closeAll() {
+  for (const o of overlay.overlays) {
+    overlay.close(o.id)
+  }
+}
 </script>

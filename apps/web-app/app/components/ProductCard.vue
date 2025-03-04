@@ -20,7 +20,7 @@
           <span class="pl-1 text-lg">{{ channel.currencySign }}</span>
         </div>
         <p class="font-normal leading-tight line-clamp-2">
-          {{ product?.name }}
+          {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
         </p>
         <div class="mt-2 font-light text-neutral-500 dark:text-white">
           <span v-if="!withSingleVariant" class="pr-1">{{ $t('app.cart.from') }}</span>
@@ -48,14 +48,15 @@ const { productId, categorySlug } = defineProps<{
   lazy?: boolean
 }>()
 
+const { locale } = useI18n()
 const channel = useChannelStore()
 const product = channel.getProduct(productId)
 
 const withSingleVariant = computed<boolean>(() => product.value?.variants.length === 1)
 const smallestVariant = computed(() => product.value?.variants[0])
 
-const price = computed(() => formatNumberToLocal(smallestVariant.value?.gross))
+const price = computed(() => new Intl.NumberFormat(locale.value).format(smallestVariant.value?.gross ?? 0))
 const weightValue = computed(() => smallestVariant.value?.weightValue)
 const weightUnit = computed(() => getWeightLocalizedUnit(smallestVariant.value?.weightUnit))
-const productUrl = `/catalog/${categorySlug}/${product.value?.slug}`
+const productUrl = computed(() => `/catalog/${categorySlug}/${product.value?.slug}`)
 </script>

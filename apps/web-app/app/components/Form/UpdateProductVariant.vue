@@ -121,8 +121,7 @@ import type { ProductVariantUpdateSchema } from '@next-orders/core/shared/servic
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { productVariantUpdateSchema } from '@next-orders/core/shared/services/product'
 
-const { isOpened, productVariantId } = defineProps<{
-  isOpened: boolean
+const { productVariantId } = defineProps<{
   productVariantId: string
 }>()
 
@@ -160,13 +159,6 @@ function resetState() {
     fat: productVariant.value?.fat ?? undefined,
   }
 }
-
-watch(
-  () => isOpened,
-  () => {
-    resetState()
-  },
-)
 
 async function onSubmit(event: FormSubmitEvent<ProductVariantUpdateSchema>) {
   emit('submitted')

@@ -3,8 +3,7 @@
     <template #body>
       <FormCreateProductVariant
         :product-id="productId ?? ''"
-        :is-opened="modal.isOpen.value"
-        @success="modal.close()"
+        @success="closeAll"
       />
     </template>
   </UModal>
@@ -15,5 +14,11 @@ defineProps<{
   productId?: string
 }>()
 
-const modal = useModal()
+const overlay = useOverlay()
+
+function closeAll() {
+  for (const o of overlay.overlays) {
+    overlay.close(o.id)
+  }
+}
 </script>

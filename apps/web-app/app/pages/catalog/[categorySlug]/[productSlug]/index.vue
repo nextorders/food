@@ -13,7 +13,7 @@
 
       <div class="col-span-2">
         <h1 class="text-xl md:text-2xl lg:text-3xl font-medium">
-          {{ product?.name }}
+          {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
         </h1>
         <div class="mt-1 font-normal text-neutral-400">
           {{ weightValue }}{{ weightUnit }}
@@ -55,7 +55,7 @@
           {{ $t('common.description') }}
         </div>
         <div class="leading-snug">
-          {{ product.description }}
+          {{ product.description.find((name) => product?.description.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
         </div>
       </div>
 
@@ -103,7 +103,7 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const { params } = useRoute('catalog-categorySlug-productSlug')
 const channel = useChannelStore()
 const checkout = useCheckoutStore()
@@ -117,14 +117,14 @@ if (!product.value) {
 }
 
 useHead({
-  title: product.value.name,
+  title: product.value?.name.find((name) => product.value?.name.some((name) => name.locale === locale.value) ? name.locale === locale.value : name.locale === channel.defaultLocale)?.value,
 })
 
 const variantId = ref(product.value.variants[0]?.id)
 const withSingleVariant = computed(() => product.value?.variants.length === 1)
 const selectedVariant = computed(() => product.value?.variants.find(({ id }) => id === variantId.value))
 
-const price = computed(() => formatNumberToLocal(selectedVariant.value?.gross))
+const price = computed(() => new Intl.NumberFormat(locale.value).format(selectedVariant.value?.gross ?? 0))
 const weightValue = computed(() => selectedVariant.value?.weightValue)
 const weightUnit = computed(() => getWeightLocalizedUnit(selectedVariant.value?.weightUnit))
 
@@ -139,7 +139,7 @@ const category = channel.getMenuCategoryByProduct(product.value.id)
 const breadcrumbs = computed(() => [
   { label: t('common.home'), icon: 'food:home', to: '/' },
   {
-    label: category?.name ?? '',
+    label: category?.name?.find((name) => category?.name.some((name) => name.locale === locale.value) ? name.locale === locale.value : name.locale === channel.defaultLocale)?.value ?? '',
     to: `/catalog/${category?.slug}`,
   },
 ])

@@ -3,8 +3,7 @@
     <template #body>
       <FormCreateProduct
         :category-id="categoryId"
-        :is-opened="modal.isOpen.value"
-        @success="modal.close()"
+        @success="closeAll"
       />
     </template>
   </UModal>
@@ -15,5 +14,11 @@ defineProps<{
   categoryId: string
 }>()
 
-const modal = useModal()
+const overlay = useOverlay()
+
+function closeAll() {
+  for (const o of overlay.overlays) {
+    overlay.close(o.id)
+  }
+}
 </script>

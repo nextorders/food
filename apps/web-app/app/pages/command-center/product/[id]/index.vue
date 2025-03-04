@@ -4,7 +4,7 @@
   <div class="mb-6 flex flex-col md:flex-row justify-between md:items-center gap-4">
     <div>
       <h1 class="mb-1 text-2xl md:text-3xl font-semibold">
-        {{ product?.name }}
+        {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
       </h1>
       <p class="text-(--ui-text-muted) break-words">
         /{{ category?.slug }}/{{ product?.slug }}
@@ -21,7 +21,7 @@
         variant="gradient"
         size="xl"
         class="justify-center min-w-48"
-        @click="modal.open(ModalUpdateProduct, { productId: product?.id, redirectTo: menuPageUrl })"
+        @click="modalUpdateProduct.open({ productId: product?.id, redirectTo: menuPageUrl })"
       >
         {{ $t('center.edit.title') }}
       </UButton>
@@ -43,14 +43,14 @@
           size="xl"
           icon="food:image-upload"
           class="p-3 justify-center items-center"
-          @click="modal.open(ModalUploadProductImage, { productId: product?.id })"
+          @click="modalUploadProductImage.open({ productId: product?.id })"
         />
       </div>
     </div>
 
     <div class="md:col-span-2">
       <p v-if="product?.description">
-        {{ product?.description }}
+        {{ product?.description.find((name) => product?.description.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
       </p>
       <p v-else class="text-(--ui-text-muted)">
         [{{ $t('center.product.no-description-label') }}]
@@ -68,7 +68,7 @@
         v-for="variant in product?.variants"
         :key="variant.id"
         class="bg-(--ui-bg-muted) space-y-2 flex flex-col justify-between"
-        @click="modal.open(ModalUpdateProductVariant, { productVariantId: variant.id })"
+        @click="modalUpdateProductVariant.open({ productVariantId: variant.id })"
       >
         <div class="text-lg font-medium md:leading-tight text-center">
           {{ variant.name }}
@@ -76,7 +76,7 @@
 
         <div class="flex flex-row flex-nowrap gap-6 items-center justify-center">
           <div class="text-(--ui-text-muted)">
-            {{ formatNumberToLocal(variant.gross) }} {{ channel.currencySign }}
+            {{ new Intl.NumberFormat(locale).format(variant.gross) }} {{ channel.currencySign }}
           </div>
           <div class="text-(--ui-text-muted)">
             {{ variant.weightValue }}{{ getWeightLocalizedUnit(variant.weightUnit) }}
@@ -101,7 +101,7 @@
 
       <div
         class="bg-(--ui-bg-muted) h-full flex flex-row gap-3 justify-center items-center"
-        @click="modal.open(ModalCreateProductVariant, { productId: product?.id })"
+        @click="modalCreateProductVariant.open({ productId: product?.id })"
       >
         <NuxtImg
           src="/img/green-notebook.png"
@@ -126,8 +126,12 @@ definePageMeta({
 })
 
 const { params } = useRoute('command-center-product-id')
-const { t } = useI18n()
-const modal = useModal()
+const { t, locale } = useI18n()
+const overlay = useOverlay()
+const modalUpdateProduct = overlay.create(ModalUpdateProduct)
+const modalUploadProductImage = overlay.create(ModalUploadProductImage)
+const modalUpdateProductVariant = overlay.create(ModalUpdateProductVariant)
+const modalCreateProductVariant = overlay.create(ModalCreateProductVariant)
 
 const channel = useChannelStore()
 const product = channel.getProduct(params.id)

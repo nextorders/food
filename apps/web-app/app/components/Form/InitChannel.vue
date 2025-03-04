@@ -26,6 +26,16 @@
       />
     </UFormField>
 
+    <UFormField :label="$t('common.language')" name="defaultLocale">
+      <USelect
+        v-model="state.defaultLocale"
+        :items="getLocalizedLanguageCodesForSelect()"
+        :placeholder="$t('common.select')"
+        size="xl"
+        class="w-full"
+      />
+    </UFormField>
+
     <UFormField :label="$t('center.data.country')" name="countryCode">
       <USelect
         v-model="state.countryCode"
@@ -72,6 +82,7 @@
 import type { ChannelCreateSchema } from '@next-orders/core/shared/services/channel'
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { channelCreateSchema } from '@next-orders/core/shared/services/channel'
+import { getLocalizedCountryCodesForSelect } from '../../utils/helpers'
 
 const emit = defineEmits(['success'])
 
@@ -86,6 +97,7 @@ const state = ref<Partial<ChannelCreateSchema>>({
   name: undefined,
   countryCode: undefined,
   currencyCode: undefined,
+  defaultLocale: undefined,
   timeZone: undefined,
 })
 
@@ -94,6 +106,7 @@ const isFormValid = computed<boolean>(() => {
     !!state.value.name
     && !!state.value.countryCode
     && !!state.value.currencyCode
+    && !!state.value.defaultLocale
     && !!state.value.timeZone
   )
 })

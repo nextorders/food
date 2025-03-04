@@ -32,8 +32,7 @@ import type { ProductImageUploadSchema } from '@next-orders/core/shared/services
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { productImageUploadSchema } from '@next-orders/core/shared/services/product'
 
-const { isOpened, productId } = defineProps<{
-  isOpened: boolean
+const { productId } = defineProps<{
   productId: string
 }>()
 
@@ -52,13 +51,6 @@ function resetState() {
     file: undefined,
   }
 }
-
-watch(
-  () => isOpened,
-  () => {
-    resetState()
-  },
-)
 
 async function onSubmit(event: FormSubmitEvent<ProductImageUploadSchema>) {
   const formData = new FormData()

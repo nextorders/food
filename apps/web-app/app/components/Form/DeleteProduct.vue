@@ -13,7 +13,6 @@
 
 <script setup lang="ts">
 const { productId, redirectTo } = defineProps<{
-  isOpened: boolean
   productId: string
   redirectTo: string
 }>()

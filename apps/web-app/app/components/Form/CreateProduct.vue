@@ -6,11 +6,21 @@
     @submit="onSubmit"
   >
     <UFormField :label="$t('center.data.name')" name="name">
-      <UInput
-        v-model="state.name"
-        size="xl"
-        class="w-full items-center justify-center"
-      />
+      <UButtonGroup class="w-full">
+        <UDropdownMenu :items="localeState.items">
+          <UButton
+            color="neutral"
+            variant="outline"
+            :icon="localeState.icon.value"
+            class="w-12 items-center justify-center"
+          />
+        </UDropdownMenu>
+        <UInput
+          v-model="state.name"
+          size="xl"
+          class="grow"
+        />
+      </UButtonGroup>
     </UFormField>
 
     <UFormField :label="$t('common.description')" name="description">
@@ -38,8 +48,7 @@ import type { ProductCreateSchema } from '@next-orders/core/shared/services/prod
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { productCreateSchema } from '@next-orders/core/shared/services/product'
 
-const { isOpened, categoryId } = defineProps<{
-  isOpened: boolean
+const { categoryId } = defineProps<{
   categoryId: string
 }>()
 
@@ -49,7 +58,10 @@ const { t } = useI18n()
 const toast = useToast()
 const channel = useChannelStore()
 
+const localeState = useLocalizedState(resetState, channel.defaultLocale)
+
 const state = ref<Partial<ProductCreateSchema>>({
+  locale: localeState.locale.value,
   name: undefined,
   description: undefined,
   categoryId,
@@ -57,18 +69,12 @@ const state = ref<Partial<ProductCreateSchema>>({
 
 function resetState() {
   state.value = {
+    locale: localeState.locale.value,
     name: undefined,
     description: undefined,
     categoryId,
   }
 }
-
-watch(
-  () => isOpened,
-  () => {
-    resetState()
-  },
-)
 
 async function onSubmit(event: FormSubmitEvent<ProductCreateSchema>) {
   const { data, error } = await useAsyncData(

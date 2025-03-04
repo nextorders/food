@@ -13,7 +13,7 @@
 
       <ul>
         <li v-for="category in menu?.categories" :key="category.id">
-          {{ category.name }} ({{ category.products?.length }})
+          {{ category.name.find((name) => category.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }} ({{ category.products?.length }})
         </li>
       </ul>
     </div>
@@ -25,6 +25,7 @@ const { menuId } = defineProps<{
   menuId: string
 }>()
 
+const { locale } = useI18n()
 const { icons } = useAppConfig()
 const channel = useChannelStore()
 const menu = channel.getMenu(menuId)

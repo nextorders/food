@@ -38,10 +38,6 @@ import type { WarehouseCreateSchema } from '@next-orders/core/shared/services/wa
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { warehouseCreateSchema } from '@next-orders/core/shared/services/warehouse'
 
-const { isOpened } = defineProps<{
-  isOpened: boolean
-}>()
-
 const emit = defineEmits(['success'])
 
 const { t } = useI18n()
@@ -59,13 +55,6 @@ function resetState() {
     address: undefined,
   }
 }
-
-watch(
-  () => isOpened,
-  () => {
-    resetState()
-  },
-)
 
 async function onSubmit(event: FormSubmitEvent<WarehouseCreateSchema>) {
   const { data, error } = await useAsyncData(

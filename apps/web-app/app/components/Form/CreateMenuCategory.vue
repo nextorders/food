@@ -6,11 +6,21 @@
     @submit="onSubmit"
   >
     <UFormField :label="$t('center.data.name')" name="name">
-      <UInput
-        v-model="state.name"
-        size="xl"
-        class="w-full items-center justify-center"
-      />
+      <UButtonGroup class="w-full">
+        <UDropdownMenu :items="localeState.items">
+          <UButton
+            color="neutral"
+            variant="outline"
+            :icon="localeState.icon.value"
+            class="w-12 items-center justify-center"
+          />
+        </UDropdownMenu>
+        <UInput
+          v-model="state.name"
+          size="xl"
+          class="grow"
+        />
+      </UButtonGroup>
     </UFormField>
 
     <UButton
@@ -30,8 +40,7 @@ import type { MenuCategoryCreateSchema } from '@next-orders/core/shared/services
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { menuCategoryCreateSchema } from '@next-orders/core/shared/services/menu'
 
-const { isOpened, menuId } = defineProps<{
-  isOpened: boolean
+const { menuId } = defineProps<{
   menuId: string
 }>()
 
@@ -41,24 +50,21 @@ const { t } = useI18n()
 const toast = useToast()
 const channel = useChannelStore()
 
+const localeState = useLocalizedState(resetState, channel.defaultLocale)
+
 const state = ref<Partial<MenuCategoryCreateSchema>>({
+  locale: localeState.locale.value,
   name: undefined,
   menuId,
 })
 
 function resetState() {
   state.value = {
+    locale: localeState.locale.value,
     name: undefined,
     menuId,
   }
 }
-
-watch(
-  () => isOpened,
-  () => {
-    resetState()
-  },
-)
 
 async function onSubmit(event: FormSubmitEvent<MenuCategoryCreateSchema>) {
   const { data, error } = await useAsyncData(

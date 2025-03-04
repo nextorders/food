@@ -121,8 +121,7 @@ import type { ProductVariantCreateSchema } from '@next-orders/core/shared/servic
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { productVariantCreateSchema } from '@next-orders/core/shared/services/product'
 
-const { isOpened, productId } = defineProps<{
-  isOpened: boolean
+const { productId } = defineProps<{
   productId: string
 }>()
 
@@ -161,13 +160,6 @@ function resetState() {
     productId,
   }
 }
-
-watch(
-  () => isOpened,
-  () => {
-    resetState()
-  },
-)
 
 async function onSubmit(event: FormSubmitEvent<ProductVariantCreateSchema>) {
   const { data, error } = await useAsyncData(

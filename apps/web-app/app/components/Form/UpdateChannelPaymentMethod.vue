@@ -30,8 +30,7 @@ import type { ChannelPaymentMethodUpdateSchema } from '@next-orders/core/shared/
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { channelPaymentMethodUpdateSchema } from '@next-orders/core/shared/services/channel'
 
-const { isOpened, paymentMethodId } = defineProps<{
-  isOpened: boolean
+const { paymentMethodId } = defineProps<{
   paymentMethodId: string
 }>()
 
@@ -51,13 +50,6 @@ function resetState() {
     name: paymentMethod.value?.name,
   }
 }
-
-watch(
-  () => isOpened,
-  () => {
-    resetState()
-  },
-)
 
 async function onSubmit(event: FormSubmitEvent<ChannelPaymentMethodUpdateSchema>) {
   emit('submitted')

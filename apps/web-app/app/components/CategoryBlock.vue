@@ -1,7 +1,7 @@
 <template>
   <div class="mb-4 flex flex-row justify-between items-center gap-2">
     <h2 class="text-2xl md:text-3xl font-medium">
-      {{ category?.name }}
+      {{ category?.name.find((name) => category?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
     </h2>
 
     <UButton
@@ -34,6 +34,7 @@ const { categoryId } = defineProps<{
   isFirst?: boolean
 }>()
 
+const { locale } = useI18n()
 const channel = useChannelStore()
 const category = channel.getActiveMenuCategory(categoryId)
 const products = channel.getProductsInCategory(categoryId).value.filter((p) => p.isAvailableForPurchase && p.variants.length).slice(0, 8)

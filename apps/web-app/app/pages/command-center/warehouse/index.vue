@@ -12,9 +12,9 @@
       v-for="warehouse in channel.warehouses"
       :key="warehouse.id"
       :warehouse-id="warehouse.id"
-      @click="modal.open(ModalUpdateWarehouse, { warehouseId: warehouse.id })"
+      @click="modalUpdateWarehouse.open({ warehouseId: warehouse.id })"
     />
-    <CommandCenterWarehouseCreateCard @click="modal.open(ModalCreateWarehouse)" />
+    <CommandCenterWarehouseCreateCard @click="modalCreateWarehouse.open()" />
   </div>
 </template>
 
@@ -27,7 +27,9 @@ definePageMeta({
 })
 
 const { t } = useI18n()
-const modal = useModal()
+const overlay = useOverlay()
+const modalUpdateWarehouse = overlay.create(ModalUpdateWarehouse)
+const modalCreateWarehouse = overlay.create(ModalCreateWarehouse)
 const channel = useChannelStore()
 
 const breadcrumbs = computed(() => [

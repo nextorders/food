@@ -29,6 +29,8 @@ export default defineAppConfig({
       'food:brand-assets': 'lucide:text-select',
       'food:flag-ru': 'circle-flags:ru',
       'food:flag-en': 'circle-flags:uk',
+      'food:flag-es': 'circle-flags:es',
+      'food:flag-ka': 'circle-flags:ge',
       'food:github': 'simple-icons:github',
       'food:color-mode-light': 'lucide:sun-dim',
       'food:color-mode-dark': 'lucide:moon',

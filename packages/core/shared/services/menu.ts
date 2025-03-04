@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { locale } from './locale'
 
 export const menuCreateSchema = z.object({
   name: z.string().min(2).max(50),
@@ -12,6 +13,7 @@ export const menuUpdateSchema = z.object({
 })
 
 export const menuCategoryCreateSchema = z.object({
+  locale,
   name: z.string().min(2).max(50),
   menuId: z.string(),
 })
@@ -19,6 +21,7 @@ export const menuCategoryCreateSchema = z.object({
 export type MenuCategoryCreateSchema = z.output<typeof menuCategoryCreateSchema>
 
 export const menuCategoryUpdateSchema = z.object({
+  locale,
   name: z.string().min(2).max(50).optional(),
   slug: z.string().min(2).max(50).optional(),
 })

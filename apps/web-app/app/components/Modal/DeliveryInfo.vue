@@ -23,7 +23,7 @@
       <UButton
         variant="solid"
         size="lg"
-        @click="modal.close"
+        @click="closeAll"
       >
         {{ $t('common.ok') }}
       </UButton>
@@ -34,5 +34,11 @@
 <script setup lang="ts">
 const channel = useChannelStore()
 const checkout = useCheckoutStore()
-const modal = useModal()
+const overlay = useOverlay()
+
+function closeAll() {
+  for (const o of overlay.overlays) {
+    overlay.close(o.id)
+  }
+}
 </script>

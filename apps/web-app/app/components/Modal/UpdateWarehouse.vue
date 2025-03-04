@@ -3,9 +3,8 @@
     <template #body>
       <FormUpdateWarehouse
         :warehouse-id="warehouseId"
-        :is-opened="modal.isOpen.value"
-        @submitted="modal.close()"
-        @success="modal.close()"
+        @submitted="closeAll"
+        @success="closeAll"
       />
     </template>
   </UModal>
@@ -16,5 +15,11 @@ defineProps<{
   warehouseId: string
 }>()
 
-const modal = useModal()
+const overlay = useOverlay()
+
+function closeAll() {
+  for (const o of overlay.overlays) {
+    overlay.close(o.id)
+  }
+}
 </script>

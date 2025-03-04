@@ -104,6 +104,7 @@
       "card": "Card",
       "custom": "Custom"
     },
+    "language": "Language",
     "country": {
       "us": "United States",
       "ru": "Russia",

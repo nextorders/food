@@ -38,8 +38,7 @@ import type { WarehouseUpdateSchema } from '@next-orders/core/shared/services/wa
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { warehouseUpdateSchema } from '@next-orders/core/shared/services/warehouse'
 
-const { isOpened, warehouseId } = defineProps<{
-  isOpened: boolean
+const { warehouseId } = defineProps<{
   warehouseId: string
 }>()
 
@@ -61,13 +60,6 @@ function resetState() {
     address: warehouse.value?.address,
   }
 }
-
-watch(
-  () => isOpened,
-  () => {
-    resetState()
-  },
-)
 
 async function onSubmit(event: FormSubmitEvent<WarehouseUpdateSchema>) {
   emit('submitted')

@@ -5,12 +5,26 @@
     class="flex flex-col gap-3"
     @submit="onSubmit"
   >
-    <UFormField :label="$t('center.data.name')" name="name">
-      <UInput
-        v-model="state.name"
-        size="xl"
-        class="w-full items-center justify-center"
-      />
+    <UFormField
+      :label="$t('center.data.name')"
+      name="name"
+    >
+      <UButtonGroup class="w-full">
+        <UDropdownMenu :items="localeState.items">
+          <UButton
+            color="neutral"
+            variant="outline"
+            :icon="localeState.icon.value"
+            class="w-12 items-center justify-center"
+          />
+        </UDropdownMenu>
+
+        <UInput
+          v-model="state.name"
+          size="xl"
+          class="grow"
+        />
+      </UButtonGroup>
     </UFormField>
 
     <UFormField :label="$t('common.slug')" name="slug">
@@ -38,8 +52,7 @@ import type { MenuCategoryUpdateSchema } from '@next-orders/core/shared/services
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { menuCategoryUpdateSchema } from '@next-orders/core/shared/services/menu'
 
-const { isOpened, categoryId } = defineProps<{
-  isOpened: boolean
+const { categoryId } = defineProps<{
   categoryId: string
 }>()
 
@@ -50,24 +63,21 @@ const toast = useToast()
 const channel = useChannelStore()
 const category = channel.getMenuCategory(categoryId)
 
+const localeState = useLocalizedState(resetState)
+
 const state = ref<Partial<MenuCategoryUpdateSchema>>({
-  name: category.value?.name,
+  locale: localeState.locale.value,
+  name: category.value?.name.find((name) => name.locale === localeState.locale.value)?.value,
   slug: category.value?.slug,
 })
 
 function resetState() {
   state.value = {
-    name: category.value?.name,
+    locale: localeState.locale.value,
+    name: category.value?.name.find((name) => name.locale === localeState.locale.value)?.value,
     slug: category.value?.slug,
   }
 }
-
-watch(
-  () => isOpened,
-  () => {
-    resetState()
-  },
-)
 
 async function onSubmit(event: FormSubmitEvent<MenuCategoryUpdateSchema>) {
   emit('submitted')

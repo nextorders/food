@@ -14,6 +14,8 @@ export default defineEventHandler(async (event) => {
       ...data,
       id,
       slug: id,
+      name: [{ locale: data.locale, value: data.name }],
+      description: [{ locale: data.locale, value: data.description }],
       isAvailableForPurchase: true,
       mediaId: null,
       variants: [],

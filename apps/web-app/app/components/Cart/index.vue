@@ -34,7 +34,7 @@
     <div class="absolute bottom-0 left-0 right-0 rounded-2xl bg-(--ui-bg-muted)">
       <button
         class="relative m-4 flex flex-row gap-2 flex-wrap items-center active:scale-95 lg:hover:scale-95 lg:active:scale-90 duration-200"
-        @click="modal.open(ModalDeliveryInfo)"
+        @click="modalDeliveryInfo.open()"
       >
         <Icon :name="icons.info" class="size-6 text-(--ui-text-dimmed)" />
         <div class="text-left text-sm text-(--ui-text-muted)">
@@ -51,7 +51,7 @@
         >
           <p>{{ $t('app.cart.next-label') }}</p>
           <div class="text-lg tracking-tight">
-            {{ formatNumberToLocal(checkout.totalPrice) }} <span class="text-base">{{ channel.currencySign }}</span>
+            {{ new Intl.NumberFormat(locale).format(checkout.totalPrice) }} <span class="text-base">{{ channel.currencySign }}</span>
           </div>
         </UButton>
       </div>
@@ -62,9 +62,11 @@
 <script setup lang="ts">
 import { ModalDeliveryInfo } from '#components'
 
+const { locale } = useI18n()
 const { isCartDrawerOpened } = useApp()
 const { icons } = useAppConfig()
-const modal = useModal()
+const overlay = useOverlay()
+const modalDeliveryInfo = overlay.create(ModalDeliveryInfo)
 const channel = useChannelStore()
 const checkout = useCheckoutStore()
 </script>

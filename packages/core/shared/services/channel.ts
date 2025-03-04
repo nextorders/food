@@ -4,6 +4,7 @@ export const channelCreateSchema = z.object({
   name: z.string().min(2).max(75),
   currencyCode: z.string().max(3),
   countryCode: z.string().max(3),
+  defaultLocale: z.string().max(5),
   timeZone: z.string().max(6),
 })
 
@@ -15,6 +16,7 @@ export const channelUpdateSchema = z.object({
   phone: z.string().max(20).optional(),
   currencyCode: z.string().max(3).optional(),
   countryCode: z.string().max(3).optional(),
+  defaultLocale: z.string().max(5).optional(),
   timeZone: z.string().max(6).optional(),
   minAmountForDelivery: z.number().optional(),
   conditions: z.string().max(750).optional(),

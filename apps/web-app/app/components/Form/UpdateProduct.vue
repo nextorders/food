@@ -6,16 +6,29 @@
     @submit="onSubmit"
   >
     <UFormField :label="$t('center.data.name')" name="name">
-      <UInput
-        v-model="state.name"
-        size="xl"
-        class="w-full items-center justify-center"
-      />
+      <UButtonGroup class="w-full">
+        <UDropdownMenu :items="localeState.items">
+          <UButton
+            color="neutral"
+            variant="outline"
+            :icon="localeState.icon.value"
+            class="w-12 items-center justify-center"
+          />
+        </UDropdownMenu>
+
+        <UInput
+          v-model="state.name"
+          :placeholder="defaultName"
+          size="xl"
+          class="grow"
+        />
+      </UButtonGroup>
     </UFormField>
 
     <UFormField :label="$t('common.description')" name="description">
       <UTextarea
         v-model="state.description"
+        :placeholder="defaultDescription"
         :rows="8"
         size="xl"
         class="w-full items-center justify-center"
@@ -47,8 +60,7 @@ import type { ProductUpdateSchema } from '@next-orders/core/shared/services/prod
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { productUpdateSchema } from '@next-orders/core/shared/services/product'
 
-const { isOpened, productId } = defineProps<{
-  isOpened: boolean
+const { productId } = defineProps<{
   productId: string
 }>()
 
@@ -59,26 +71,26 @@ const toast = useToast()
 const channel = useChannelStore()
 const product = channel.getProduct(productId)
 
+const localeState = useLocalizedState(resetState)
+
+const defaultName = product.value?.name.find((name) => name.locale === channel.defaultLocale)?.value
+const defaultDescription = product.value?.description.find((description) => description.locale === channel.defaultLocale)?.value
+
 const state = ref<Partial<ProductUpdateSchema>>({
-  name: product.value?.name,
-  description: product.value?.description,
+  locale: localeState.locale.value,
+  name: product.value?.name.find((name) => name.locale === localeState.locale.value)?.value,
+  description: product.value?.description.find((description) => description.locale === localeState.locale.value)?.value,
   slug: product.value?.slug,
 })
 
 function resetState() {
   state.value = {
-    name: product.value?.name,
-    description: product.value?.description,
+    locale: localeState.locale.value,
+    name: product.value?.name.find((name) => name.locale === localeState.locale.value)?.value,
+    description: product.value?.description.find((description) => description.locale === localeState.locale.value)?.value,
     slug: product.value?.slug,
   }
 }
-
-watch(
-  () => isOpened,
-  () => {
-    resetState()
-  },
-)
 
 async function onSubmit(event: FormSubmitEvent<ProductUpdateSchema>) {
   emit('submitted')

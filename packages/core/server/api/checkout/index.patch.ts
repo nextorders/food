@@ -115,7 +115,7 @@ async function sendToReceivers(checkoutId: string) {
 
     lines.push({
       ...line,
-      name: product?.name ?? '',
+      name: product?.name?.find((name) => name.locale === locale)?.value ?? '',
       variant: variant?.name ?? '',
     })
   }

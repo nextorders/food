@@ -22,7 +22,7 @@
 
         <button
           class="flex flex-row gap-2 items-center active:scale-95 lg:hover:scale-95 lg:active:scale-90 duration-200"
-          @click="modal.open(ModalDeliveryInfo)"
+          @click="modalDeliveryInfo.open()"
         >
           <Icon :name="icons.link" /> {{ $t('app.show-details-label') }}
         </button>
@@ -33,12 +33,16 @@
           {{ $t('app.catalog') }}
         </p>
 
-        <NavigationButton
+        <ULink
           v-for="category in channel.activeCategories"
           :key="category.id"
-          :link="`/catalog/${category.slug}`"
-          :label="category.name"
-        />
+          :to="`/catalog/${category.slug}`"
+          :active="$route.path.startsWith(`/catalog/${category.slug}`)"
+          class="text-base font-normal flex flex-row items-center gap-4 w-full h-12 px-3 rounded-2xl lg:hover:bg-(--ui-bg-accented) duration-200"
+          :class="{ 'bg-(--ui-bg-accented) font-medium': $route.path.startsWith(`/catalog/${category.slug}`) }"
+        >
+          {{ category.name?.find((name) => category?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
+        </ULink>
       </div>
     </div>
 
@@ -53,8 +57,10 @@
 <script setup lang="ts">
 import { ModalDeliveryInfo } from '#components'
 
+const { locale } = useI18n()
 const { icons } = useAppConfig()
 const channel = useChannelStore()
 const checkout = useCheckoutStore()
-const modal = useModal()
+const overlay = useOverlay()
+const modalDeliveryInfo = overlay.create(ModalDeliveryInfo)
 </script>

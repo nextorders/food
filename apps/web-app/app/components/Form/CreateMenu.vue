@@ -30,10 +30,6 @@ import type { MenuCreateSchema } from '@next-orders/core/shared/services/menu'
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { menuCreateSchema } from '@next-orders/core/shared/services/menu'
 
-const { isOpened } = defineProps<{
-  isOpened: boolean
-}>()
-
 const emit = defineEmits(['success'])
 
 const { t } = useI18n()
@@ -49,13 +45,6 @@ function resetState() {
     name: undefined,
   }
 }
-
-watch(
-  () => isOpened,
-  () => {
-    resetState()
-  },
-)
 
 async function onSubmit(event: FormSubmitEvent<MenuCreateSchema>) {
   const { data, error } = await useAsyncData(

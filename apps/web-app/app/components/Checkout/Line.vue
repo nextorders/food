@@ -7,7 +7,7 @@
 
       <div class="space-y-1">
         <div class="font-medium text-(--ui-text) leading-tight line-clamp-2">
-          {{ product?.name }}
+          {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
         </div>
         <div class="flex flex-row gap-2 flex-nowrap items-center">
           <p class="text-sm text-(--ui-text-muted) leading-tight">
@@ -41,10 +41,11 @@ const { line, canBeChanged = true } = defineProps<{
   canBeChanged?: boolean
 }>()
 
+const { locale } = useI18n()
 const channel = useChannelStore()
 const productVariant = channel.getProductVariant(line.productVariantId ?? '')
-const product = channel.getProductByProductVariant(productVariant.value?.id ?? '')
-const category = channel.getMenuCategoryByProduct(product?.id ?? '')
-const productUrl = computed(() => `/catalog/${category?.slug}/${product?.slug}`)
-const totalAmount = computed(() => formatNumberToLocal(productVariant.value?.gross ? productVariant.value?.gross * line.quantity : 0))
+const product = channel.getProduct(productVariant.value?.productId ?? '')
+const category = channel.getMenuCategoryByProduct(product.value?.id ?? '')
+const productUrl = computed(() => `/catalog/${category?.slug}/${product.value?.slug}`)
+const totalAmount = computed(() => new Intl.NumberFormat(locale.value).format(productVariant.value?.gross ? productVariant.value?.gross * line.quantity : 0))
 </script>

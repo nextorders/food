@@ -13,7 +13,6 @@
 
 <script setup lang="ts">
 const { productVariantId } = defineProps<{
-  isOpened: boolean
   productVariantId: string
 }>()
 

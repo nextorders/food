@@ -10,7 +10,6 @@ export const useCheckoutStore = defineStore('checkout', () => {
   const lines = ref<CheckoutLine[]>([])
 
   const isEmpty = computed(() => lines.value.length === 0)
-  const total = computed(() => formatNumberToLocal(totalPrice.value))
 
   async function update() {
     try {
@@ -105,7 +104,6 @@ export const useCheckoutStore = defineStore('checkout', () => {
     lines,
 
     isEmpty,
-    total,
 
     update,
     add,

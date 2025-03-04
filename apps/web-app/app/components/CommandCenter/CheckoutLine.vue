@@ -3,7 +3,7 @@
     <div class="max-w-[16rem] flex flex-row gap-2 flex-nowrap items-center">
       <div>
         <div class="font-medium leading-tight line-clamp-2">
-          {{ product?.name }}
+          {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
         </div>
         <div class="mt-1 flex flex-row gap-2 flex-nowrap items-center">
           <p class="text-neutral-500 dark:text-neutral-400 leading-tight">
@@ -33,12 +33,13 @@ const { lineId } = defineProps<{
   lineId: string
 }>()
 
+const { locale } = useI18n()
 const channel = useChannelStore()
 const { checkouts } = await useCheckoutList()
 
 const checkout = computed(() => checkouts.value?.find((c) => c.lines?.find((l) => l.id === lineId)))
 const line = computed(() => checkout.value?.lines?.find((l) => l.id === lineId))
-const totalAmount = computed(() => line.value ? formatNumberToLocal(line.value.totalPrice) : 0)
+const totalAmount = computed(() => line.value ? new Intl.NumberFormat(locale.value).format(line.value.totalPrice) : 0)
 const productVariant = channel.getProductVariant(line.value?.productVariantId ?? '')
 const product = channel.getProduct(productVariant.value?.productId ?? '')
 </script>

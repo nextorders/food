@@ -24,6 +24,7 @@ export default defineEventHandler(async (event) => {
       name: data.name,
       currencyCode: data.currencyCode as CurrencyCode,
       countryCode: data.countryCode as CountryCode,
+      defaultLocale: data.defaultLocale as Locale,
       timeZone: data.timeZone as TimeZone,
       description: null,
       conditions: null,
