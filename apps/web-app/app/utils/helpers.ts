@@ -15,11 +15,8 @@ export function getLocaleValue(data: { values?: LocaleValue[], locale: Locale, d
     return ''
   }
 
-  return data.values.find((v) =>
-    data.values?.some((n) => n.locale === data.locale)
-      ? v.locale === data.locale
-      : v.locale === data.defaultLocale,
-  )?.value ?? ''
+  const hasCurrentLocale = data.values.some((n) => n.locale === data.locale)
+  return data.values.find((v) => hasCurrentLocale ? v.locale === data.locale : v.locale === data.defaultLocale)?.value ?? ''
 }
 
 export function getWeightLocalizedUnit<WeightUnitLiteral = string & object>(unit?: WeightUnit | WeightUnitLiteral): string {
