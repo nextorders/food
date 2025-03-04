@@ -4,7 +4,7 @@
   <div class="mb-6 flex flex-col md:flex-row justify-between md:items-center gap-4">
     <div>
       <h1 class="mb-1 text-2xl md:text-3xl font-semibold">
-        {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
+        {{ getLocaleValue({ values: product?.name, locale, defaultLocale: channel.defaultLocale }) }}
       </h1>
       <p class="text-(--ui-text-muted) break-words">
         /{{ category?.slug }}/{{ product?.slug }}
@@ -50,7 +50,7 @@
 
     <div class="md:col-span-2">
       <p v-if="product?.description">
-        {{ product?.description.find((name) => product?.description.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
+        {{ getLocaleValue({ values: product?.description, locale, defaultLocale: channel.defaultLocale }) }}
       </p>
       <p v-else class="text-(--ui-text-muted)">
         [{{ $t('center.product.no-description-label') }}]

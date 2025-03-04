@@ -1,7 +1,7 @@
 <template>
   <div class="mb-4 flex flex-row justify-between items-center gap-2">
     <h2 class="text-2xl md:text-3xl font-medium">
-      {{ category?.name.find((name) => category?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
+      {{ getLocaleValue({ values: category?.name, locale, defaultLocale: channel.defaultLocale }) }}
     </h2>
 
     <UButton

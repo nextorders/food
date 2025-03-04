@@ -10,6 +10,18 @@ export const CURRENCY_SIGNS: Record<CurrencyCode, string> = {
   TRY: '₺',
 }
 
+export function getLocaleValue(data: { values?: LocaleValue[], locale: Locale, defaultLocale?: Locale }): string {
+  if (!data.values || !Array.isArray(data.values)) {
+    return ''
+  }
+
+  return data.values.find((v) =>
+    data.values?.some((n) => n.locale === data.locale)
+      ? v.locale === data.locale
+      : v.locale === data.defaultLocale,
+  )?.value ?? ''
+}
+
 export function getWeightLocalizedUnit<WeightUnitLiteral = string & object>(unit?: WeightUnit | WeightUnitLiteral): string {
   const { t } = useI18n()
 

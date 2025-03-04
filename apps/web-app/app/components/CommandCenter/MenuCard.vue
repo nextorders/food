@@ -13,7 +13,7 @@
 
       <ul>
         <li v-for="category in menu?.categories" :key="category.id">
-          {{ category.name.find((name) => category.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }} ({{ category.products?.length }})
+          {{ getLocaleValue({ values: category.name, locale, defaultLocale: channel.defaultLocale }) }} ({{ category.products?.length }})
         </li>
       </ul>
     </div>

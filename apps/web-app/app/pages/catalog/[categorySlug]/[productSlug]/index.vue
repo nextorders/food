@@ -13,7 +13,7 @@
 
       <div class="col-span-2">
         <h1 class="text-xl md:text-2xl lg:text-3xl font-medium">
-          {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
+          {{ getLocaleValue({ values: product?.name, locale, defaultLocale: channel.defaultLocale }) }}
         </h1>
         <div class="mt-1 font-normal text-neutral-400">
           {{ weightValue }}{{ weightUnit }}
@@ -55,7 +55,7 @@
           {{ $t('common.description') }}
         </div>
         <div class="leading-snug">
-          {{ product.description.find((name) => product?.description.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
+          {{ getLocaleValue({ values: product?.description, locale, defaultLocale: channel.defaultLocale }) }}
         </div>
       </div>
 
@@ -117,7 +117,7 @@ if (!product.value) {
 }
 
 useHead({
-  title: product.value?.name.find((name) => product.value?.name.some((name) => name.locale === locale.value) ? name.locale === locale.value : name.locale === channel.defaultLocale)?.value,
+  title: getLocaleValue({ values: product.value?.name, locale: locale.value, defaultLocale: channel.defaultLocale }),
 })
 
 const variantId = ref(product.value.variants[0]?.id)
@@ -139,7 +139,7 @@ const category = channel.getMenuCategoryByProduct(product.value.id)
 const breadcrumbs = computed(() => [
   { label: t('common.home'), icon: 'food:home', to: '/' },
   {
-    label: category?.name?.find((name) => category?.name.some((name) => name.locale === locale.value) ? name.locale === locale.value : name.locale === channel.defaultLocale)?.value ?? '',
+    label: getLocaleValue({ values: category?.name, locale: locale.value, defaultLocale: channel.defaultLocale }),
     to: `/catalog/${category?.slug}`,
   },
 ])

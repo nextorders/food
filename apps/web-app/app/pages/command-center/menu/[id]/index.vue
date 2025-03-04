@@ -27,7 +27,7 @@
   >
     <div class="mb-4 pb-2 border-b border-(--ui-border) flex flex-row gap-3 items-center">
       <h2 class="text-xl lg:text-2xl">
-        {{ category.name.find((name) => category.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
+        {{ getLocaleValue({ values: category.name, locale, defaultLocale: channel.defaultLocale }) }}
       </h2>
       <Icon
         :name="icons.edit"

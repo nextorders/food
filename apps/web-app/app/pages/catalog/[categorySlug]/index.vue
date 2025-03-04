@@ -2,7 +2,7 @@
   <CatalogBreadcrumb :items="breadcrumbs" />
 
   <h1 class="text-3xl font-medium">
-    {{ category?.name.find((name) => category?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
+    {{ getLocaleValue({ values: category?.name, locale, defaultLocale: channel.defaultLocale }) }}
   </h1>
   <div>{{ $t('app.category-page-description') }}</div>
 
@@ -32,11 +32,11 @@ if (!category.value) {
 const products = channel.getProductsInCategory(category.value.id).value.filter((p) => p.isAvailableForPurchase && p.variants.length)
 
 useHead({
-  title: category.value?.name.find((name) => category.value?.name.some((name) => name.locale === locale.value) ? name.locale === locale.value : name.locale === channel.defaultLocale)?.value,
+  title: getLocaleValue({ values: category.value?.name, locale: locale.value, defaultLocale: channel.defaultLocale }),
 })
 
 const breadcrumbs = computed(() => [
   { label: t('common.home'), icon: 'food:home', to: '/' },
-  { label: category.value?.name.find((name) => category.value?.name.some((name) => name.locale === locale.value) ? name.locale === locale.value : name.locale === channel.defaultLocale)?.value ?? '' },
+  { label: getLocaleValue({ values: category.value?.name, locale: locale.value, defaultLocale: channel.defaultLocale }) },
 ])
 </script>

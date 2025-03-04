@@ -13,7 +13,7 @@
 
       <div class="px-2 py-1 h-full flex flex-col justify-between">
         <p class="mt-2 leading-tight line-clamp-2">
-          {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
+          {{ getLocaleValue({ values: product?.name, locale, defaultLocale: channel.defaultLocale }) }}
         </p>
 
         <div class="mt-4">

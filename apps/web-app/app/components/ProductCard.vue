@@ -20,7 +20,7 @@
           <span class="pl-1 text-lg">{{ channel.currencySign }}</span>
         </div>
         <p class="font-normal leading-tight line-clamp-2">
-          {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
+          {{ getLocaleValue({ values: product?.name, locale, defaultLocale: channel.defaultLocale }) }}
         </p>
         <div class="mt-2 font-light text-neutral-500 dark:text-white">
           <span v-if="!withSingleVariant" class="pr-1">{{ $t('app.cart.from') }}</span>

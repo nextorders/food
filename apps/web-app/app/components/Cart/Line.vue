@@ -8,7 +8,7 @@
 
         <div>
           <p class="font-base text-xs leading-tight line-clamp-2">
-            {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
+            {{ getLocaleValue({ values: product?.name, locale, defaultLocale: channel.defaultLocale }) }}
           </p>
           <div class="mt-1 flex flex-row gap-2 flex-nowrap">
             <div class="text-sm font-medium tracking-tight">

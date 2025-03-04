@@ -8,7 +8,7 @@
           :to="`/catalog/${product.category.slug}/${product.slug}`"
           size="xl"
         >
-          {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
+          {{ getLocaleValue({ values: product.name, locale, defaultLocale: channel.defaultLocale }) }}
         </UButton>
       </div>
       <div v-else class="text-neutral-500">
@@ -27,7 +27,7 @@
           :to="`/catalog/${product.category.slug}/${product.slug}`"
           size="xl"
         >
-          {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
+          {{ getLocaleValue({ values: product.name, locale, defaultLocale: channel.defaultLocale }) }}
         </UButton>
       </div>
     </div>
@@ -38,6 +38,10 @@
 const { locale } = useI18n()
 const { searchQuery } = useApp()
 const channel = useChannelStore()
+
+watch(locale, () => {
+  searchQuery.value = ''
+})
 
 const topResults = computed(() => channel.getTopSearchedProducts())
 const showResults = computed(() => channel.getProductsByQuery(searchQuery.value)?.slice(0, 5))

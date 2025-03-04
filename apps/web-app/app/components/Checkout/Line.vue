@@ -7,7 +7,7 @@
 
       <div class="space-y-1">
         <div class="font-medium text-(--ui-text) leading-tight line-clamp-2">
-          {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
+          {{ getLocaleValue({ values: product?.name, locale, defaultLocale: channel.defaultLocale }) }}
         </div>
         <div class="flex flex-row gap-2 flex-nowrap items-center">
           <p class="text-sm text-(--ui-text-muted) leading-tight">

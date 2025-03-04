@@ -3,7 +3,7 @@
     <div class="max-w-[16rem] flex flex-row gap-2 flex-nowrap items-center">
       <div>
         <div class="font-medium leading-tight line-clamp-2">
-          {{ product?.name.find((name) => product?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
+          {{ getLocaleValue({ values: product?.name, locale, defaultLocale: channel.defaultLocale }) }}
         </div>
         <div class="mt-1 flex flex-row gap-2 flex-nowrap items-center">
           <p class="text-neutral-500 dark:text-neutral-400 leading-tight">

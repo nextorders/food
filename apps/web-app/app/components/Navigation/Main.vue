@@ -41,7 +41,7 @@
           class="text-base font-normal flex flex-row items-center gap-4 w-full h-12 px-3 rounded-2xl lg:hover:bg-(--ui-bg-accented) duration-200"
           :class="{ 'bg-(--ui-bg-accented) font-medium': $route.path.startsWith(`/catalog/${category.slug}`) }"
         >
-          {{ category.name?.find((name) => category?.name.some((name) => name.locale === locale) ? name.locale === locale : name.locale === channel.defaultLocale)?.value }}
+          {{ getLocaleValue({ values: category.name, locale, defaultLocale: channel.defaultLocale }) }}
         </ULink>
       </div>
     </div>
