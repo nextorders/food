@@ -21,6 +21,7 @@
 
         <UInput
           v-model="state.name"
+          :placeholder="defaultName"
           size="xl"
           class="grow"
         />
@@ -64,6 +65,8 @@ const channel = useChannelStore()
 const category = channel.getMenuCategory(categoryId)
 
 const localeState = useLocalizedState(resetState)
+
+const defaultName = category.value?.name.find((name) => name.locale === channel.defaultLocale)?.value
 
 const state = ref<Partial<MenuCategoryUpdateSchema>>({
   locale: localeState.locale.value,
