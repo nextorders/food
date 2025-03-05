@@ -1,38 +1,27 @@
 <template>
-  <div class="w-full h-full px-2 md:px-4 flex flex-row flex-nowrap justify-between content-center items-center border-b border-neutral-100 dark:border-neutral-500">
-    <div class="mr-2 lg:hidden flex justify-center items-center justify-items-center h-full hover:scale-110 transition duration-200">
-      <button
-        aria-label="Close Navigation"
-        :data-active="isNavbarOpened"
-        class="hidden data-[active=true]:flex items-center"
-        @click="isNavbarOpened = false"
-      >
-        <Icon :name="icons.close" class="w-10 h-10" />
-      </button>
-      <button
-        aria-label="Open Navigation"
-        :data-active="!isNavbarOpened"
-        class="hidden data-[active=true]:flex items-center"
+  <div class="h-16 shrink-0 flex items-center justify-between border-b border-(--ui-border) px-4 sm:px-6 gap-1.5">
+    <div class="flex items-center gap-1.5 min-w-0">
+      <UButton
+        icon="food:menu"
+        color="neutral"
+        variant="ghost"
+        class="visible lg:hidden"
         @click="isNavbarOpened = true"
-      >
-        <Icon :name="icons.menu" class="w-10 h-10" />
-      </button>
+      />
+
+      <h2 class="flex items-center gap-1.5 font-semibold text-lg text-(--ui-text-highlighted) truncate">
+        {{ title }}
+      </h2>
     </div>
 
-    <div class="mr-auto hidden">
-      <div class="flex flex-row gap-2 items-center">
-        <Icon :name="icons.search" class="w-8 h-8" />
-        <input
-          type="text"
-          :placeholder="$t('center.search-label')"
-          class="bg-transparent"
-        >
-      </div>
+    <div class="flex items-center shrink-0 gap-3">
+      <slot />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const { icons } = useAppConfig()
+defineProps<{ title: string }>()
+
 const { isNavbarOpened } = useApp()
 </script>

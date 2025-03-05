@@ -1,14 +1,38 @@
 <template>
-  <header class="z-20 h-16 bg-white dark:bg-neutral-600 fixed top-0 left-0 right-0">
-    <CommandCenterHeader />
-  </header>
-
-  <CommandCenterNavigation />
-
-  <main class="min-h-dvh relative w-auto top-16 lg:pl-72">
-    <div class="min-h-[75vh] px-2 md:px-4 pb-10 pt-4">
-      <slot />
+  <div class="fixed inset-0 flex overflow-hidden">
+    <div class="hidden lg:flex flex-col min-h-svh min-w-16 w-72 border-r border-(--ui-border) shrink-0 bg-(--ui-bg-elevated)/25">
+      <CommandCenterNavigationHeader class="h-16" />
+      <CommandCenterNavigation />
     </div>
-    <Footer />
-  </main>
+
+    <main class="flex flex-col min-w-0 min-h-svh lg:not-last:border-r lg:not-last:border-(--ui-border) flex-1">
+      <slot />
+    </main>
+  </div>
+
+  <USlideover
+    v-model:open="isNavbarOpened"
+    side="left"
+  >
+    <template #header>
+      <div class="flex flex-row items-center">
+        <UButton
+          icon="food:close"
+          color="neutral"
+          variant="ghost"
+          @click="isNavbarOpened = false"
+        />
+
+        <CommandCenterNavigationHeader />
+      </div>
+    </template>
+
+    <template #body>
+      <CommandCenterNavigation />
+    </template>
+  </USlideover>
 </template>
+
+<script setup lang="ts">
+const { isNavbarOpened } = useApp()
+</script>

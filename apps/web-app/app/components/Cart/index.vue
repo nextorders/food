@@ -47,7 +47,8 @@
           to="/checkout"
           variant="gradient"
           size="xl"
-          class="w-full justify-between items-center"
+          block
+          class="justify-between"
         >
           <p>{{ $t('app.cart.next-label') }}</p>
           <div class="text-lg tracking-tight">

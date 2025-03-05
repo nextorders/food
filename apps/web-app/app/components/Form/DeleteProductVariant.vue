@@ -4,7 +4,7 @@
     size="xl"
     variant="soft"
     color="error"
-    class="w-full justify-center"
+    block
     @click="onSubmit"
   >
     {{ $t('center.delete.title') }}

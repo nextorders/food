@@ -18,7 +18,8 @@
       variant="solid"
       color="primary"
       size="xl"
-      class="mt-3 w-full justify-center items-center"
+      block
+      class="mt-3"
     >
       {{ $t('center.update.title') }}
     </UButton>

@@ -1,84 +1,68 @@
 <template>
-  <Navigation>
-    <div class="mb-32">
-      <div class="flex flex-row items-center pb-2">
-        <div class="font-semibold text-xl">
-          {{ $t('center.title') }}
-        </div>
-      </div>
+  <div class="flex flex-col gap-4 flex-1 overflow-y-auto px-4 py-2">
+    <UNavigationMenu
+      :items="menuItems"
+      orientation="vertical"
+    />
 
-      <CommandCenterNavigationButton
-        v-for="(item, index) in menu"
-        :key="index"
-        :label="item.label"
-        :link="item.link"
-        :icon="item.icon"
-      />
-    </div>
+    <UNavigationMenu
+      :items="linkItems"
+      orientation="vertical"
+      class="mt-auto"
+    />
+  </div>
 
-    <div class="mb-6 flex flex-col gap-2">
-      <div class="flex flex-row gap-2">
-        <ColorModeToggle />
-      </div>
-
-      <div class="px-2 py-3 bg-neutral-100 dark:bg-neutral-600 rounded-2xl flex flex-row gap-2 items-center">
-        <img
-          :src="userAvatar"
-          width="40"
-          height="40"
-          alt=""
-          class="w-12 h-12 rounded-full"
-        >
-        <div>
-          <p class="font-semibold text-lg">
-            {{ user?.name ?? $t('common.colleague') }}
-          </p>
-          <button @click="signOut">
-            {{ $t('common.sign-out') }}
-          </button>
-        </div>
-      </div>
-    </div>
-  </Navigation>
+  <div class="shrink-0 flex items-center gap-1.5 px-4 py-2 lg:border-t lg:border-(--ui-border)">
+    <CommandCenterUserMenu />
+  </div>
 </template>
 
 <script setup lang="ts">
-const { user, clear, fetch: refreshSession } = useUserSession()
-const { icons } = useAppConfig()
 const { t } = useI18n()
-const menu = computed(() => [
+const channel = useChannelStore()
+
+const menus = computed(() => channel.menus.map((menu) => {
+  return {
+    label: menu.name,
+    to: `/command-center/menu/${menu.id}`,
+  }
+}))
+
+const menuItems = computed(() => [
   {
     label: t('center.menu.dashboard'),
-    link: '/command-center',
-    icon: icons.dashboard,
+    to: '/command-center',
+    icon: 'food:dashboard',
   },
   {
     label: t('center.menu.title'),
-    link: '/command-center/menu',
-    icon: icons.list,
+    to: '/command-center/menu',
+    icon: 'food:list',
+    children: menus.value,
   },
   {
     label: t('center.menu.warehouses'),
-    link: '/command-center/warehouse',
-    icon: icons.mapPinWarehouse,
+    to: '/command-center/warehouse',
+    icon: 'food:warehouse',
   },
   {
     label: t('center.menu.checkouts'),
-    link: '/command-center/checkout',
-    icon: icons.checkouts,
+    to: '/command-center/checkout',
+    icon: 'food:checkouts',
+    badge: '4',
   },
   {
     label: t('center.menu.settings'),
-    link: '/command-center/system',
-    icon: icons.options,
+    to: '/command-center/system',
+    icon: 'food:options',
   },
 ])
 
-const userAvatar = '/api/avatar/admin.svg'
-
-async function signOut() {
-  await clear()
-  await refreshSession()
-  await navigateTo('/command-center/sign-in')
-}
+const linkItems = computed(() => [
+  {
+    label: t('common.website'),
+    icon: 'food:store',
+    to: '/',
+  },
+])
 </script>

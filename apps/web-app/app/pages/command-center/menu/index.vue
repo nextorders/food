@@ -1,22 +1,26 @@
 <template>
-  <CatalogBreadcrumb :items="breadcrumbs" />
+  <CommandCenterHeader :title="t('center.menu.title')">
+    <UButton
+      size="lg"
+      variant="gradient"
+      class="w-full md:w-fit"
+      @click="modalCreateMenu.open()"
+    >
+      {{ t('center.create.menu') }}
+    </UButton>
+  </CommandCenterHeader>
 
-  <div class="mb-4 flex flex-col md:flex-row justify-between md:items-center gap-2">
-    <h1 class="text-2xl md:text-3xl font-semibold">
-      {{ t('center.menu.title') }}
-    </h1>
-  </div>
+  <CommandCenterContent>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4">
+      <CommandCenterMenuCard
+        v-for="menu in channel.menus"
+        :key="menu.id"
+        :menu-id="menu.id"
+      />
+    </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4">
-    <CommandCenterMenuCard
-      v-for="menu in channel.menus"
-      :key="menu.id"
-      :menu-id="menu.id"
-    />
-    <CommandCenterMenuCreateCard @click="modalCreateMenu.open()" />
-  </div>
-
-  <GuideMenus />
+    <GuideMenus />
+  </CommandCenterContent>
 </template>
 
 <script setup lang="ts">
@@ -31,9 +35,4 @@ const { t } = useI18n()
 const channel = useChannelStore()
 const overlay = useOverlay()
 const modalCreateMenu = overlay.create(ModalCreateMenu)
-
-const breadcrumbs = computed(() => [
-  { label: t('common.website'), icon: 'food:home', to: '/' },
-  { label: t('center.menu.title') },
-])
 </script>

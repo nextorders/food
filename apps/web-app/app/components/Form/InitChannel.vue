@@ -70,7 +70,8 @@
       type="submit"
       variant="gradient"
       size="xl"
-      class="mt-3 w-full justify-center items-center"
+      block
+      class="mt-3"
       :disabled="!isFormValid"
     >
       {{ $t('app.cart.next-label') }}

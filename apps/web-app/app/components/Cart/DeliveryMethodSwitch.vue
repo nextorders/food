@@ -2,7 +2,7 @@
   <div class="p-0 flex flex-row gap-0 justify-center bg-(--ui-bg-elevated) rounded-xl">
     <UButton
       v-if="channel.isDeliveryAvailable"
-      class="w-full justify-center"
+      block
       :variant="checkout.deliveryMethod === 'DELIVERY' ? 'gradient' : 'ghost'"
       @click="checkout.change({ deliveryMethod: 'DELIVERY' })"
     >
@@ -10,7 +10,7 @@
     </UButton>
     <UButton
       v-if="channel.isPickupAvailable"
-      class="w-full justify-center"
+      block
       :variant="checkout.deliveryMethod === 'WAREHOUSE' ? 'gradient' : 'ghost'"
       @click="checkout.change({ deliveryMethod: 'WAREHOUSE' })"
     >
