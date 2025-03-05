@@ -132,8 +132,13 @@ const female: Partial<StyleOptions<Options>> = {
 }
 
 export function getRandInteger(min: number, max: number): number {
-  // using crypto for better randomness
-  return crypto.getRandomValues(new Uint32Array(1))[0] % (max - min + 1) + min
+  const range = max - min + 1
+  const randomBuffer = new Uint32Array(1)
+  crypto.getRandomValues(randomBuffer)
+
+  // Convert to float between 0 and 1
+  const randomNumber = randomBuffer[0] / (2 ** 32)
+  return Math.floor(randomNumber * range) + min
 }
 
 export function choosePartsByGender(gender: string | undefined) {
