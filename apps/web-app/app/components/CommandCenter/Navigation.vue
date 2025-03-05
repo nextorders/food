@@ -18,8 +18,13 @@
 </template>
 
 <script setup lang="ts">
+import { ModalCreateMenu } from '#components'
+
 const { t } = useI18n()
 const channel = useChannelStore()
+
+const overlay = useOverlay()
+const modalCreateMenu = overlay.create(ModalCreateMenu)
 
 const menus = computed(() => channel.menus.map((menu) => {
   return {
@@ -38,7 +43,16 @@ const menuItems = computed(() => [
     label: t('center.menu.title'),
     to: '/command-center/menu',
     icon: 'food:list',
-    children: menus.value,
+    children: [
+      ...menus.value,
+      {
+        label: t('center.create.menu'),
+        icon: 'food:plus',
+        onSelect: () => {
+          modalCreateMenu.open()
+        },
+      },
+    ],
   },
   {
     label: t('center.menu.warehouses'),

@@ -1,5 +1,14 @@
 <template>
-  <CommandCenterHeader :title="t('center.menu.product-page')" />
+  <CommandCenterHeader :title="t('center.menu.product-page')">
+    <UButton
+      size="lg"
+      variant="gradient"
+      class="w-full md:w-fit"
+      @click="modalUpdateProduct.open({ productId: product?.id, redirectTo: menuPageUrl })"
+    >
+      {{ t('center.edit.title') }}
+    </UButton>
+  </CommandCenterHeader>
 
   <CommandCenterContent>
     <div class="mb-6 flex flex-col md:flex-row justify-between md:items-center gap-4">
@@ -17,15 +26,6 @@
           :product-id="product?.id ?? ''"
           :is-available-for-purchase="product?.isAvailableForPurchase ?? false"
         />
-
-        <UButton
-          variant="gradient"
-          size="xl"
-          class="justify-center min-w-48"
-          @click="modalUpdateProduct.open({ productId: product?.id, redirectTo: menuPageUrl })"
-        >
-          {{ $t('center.edit.title') }}
-        </UButton>
       </div>
     </div>
 
