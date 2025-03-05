@@ -8,6 +8,7 @@ COPY packages ./packages
 COPY apps/website ./apps/website
 RUN npm install --ignore-scripts -g pnpm && \
     pnpm i --frozen-lockfile --ignore-scripts && \
+    pnpm -r --filter "./packages/**" run postinstall && \
     pnpm build --filter @next-orders/website
 
 # Production stage
