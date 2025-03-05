@@ -131,15 +131,15 @@ const female: Partial<StyleOptions<Options>> = {
   ],
 }
 
-export function getRandInteger(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min)) + min
+export function getRandInteger(min: number, max: number): number {
+  // using crypto for better randomness
+  return crypto.getRandomValues(new Uint32Array(1))[0] % (max - min + 1) + min
 }
 
 export function choosePartsByGender(gender: string | undefined) {
   if (!gender) {
     const sexVariants = ['male', 'female']
-    const randomSex
-      = sexVariants[Math.floor(Math.random() * sexVariants.length)]
+    const randomSex = sexVariants[getRandInteger(0, 1)]
 
     return randomSex === 'male' ? male : female
   }
