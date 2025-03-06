@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 COPY apps/email ./apps/email
 RUN npm install --ignore-scripts -g pnpm && \
-    pnpm i --frozen-lockfile --ignore-scripts && \
+    pnpm i --frozen-lockfile && \
     pnpm build --filter @next-orders/email
 
 # Production stage
