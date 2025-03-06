@@ -16,6 +16,7 @@ export default defineEventHandler(async (event) => {
       slug: id,
       name: [{ locale: data.locale, value: data.name }],
       menuId: data.menuId,
+      icon: null,
       products: [],
     })
 
