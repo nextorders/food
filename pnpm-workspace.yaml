@@ -11,7 +11,7 @@ supportedArchitectures:
   os:
     - linux
     - darwin
-    - current
+    - win32
   cpu:
     - x64
     - arm64
