@@ -1,20 +1,6 @@
 packages:
   - apps/*
   - packages/*
-onlyBuiltDependencies:
-  - sharp
-  - bcrypt
-  - '@next-orders/core'
-  - '@next-orders/ui'
-  - '@nuxt/image'
-supportedArchitectures:
-  os:
-    - linux
-    - darwin
-    - win32
-  cpu:
-    - x64
-    - arm64
 catalog:
   '@antfu/eslint-config': ^4.3.0
   '@commitlint/cli': ^19.7.1
@@ -68,3 +54,14 @@ catalog:
   vitest: ^3.0.6
   vitest-browser-vue: ^0.2.0
   zod: ^3.24.2
+onlyBuiltDependencies:
+  - bcrypt
+  - sharp
+ignoredBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild
+  - msw
+  - vue-demi
+supportedArchitectures:
+  os: [linux, darwin, win32]
+  cpu: [x64, arm64]
