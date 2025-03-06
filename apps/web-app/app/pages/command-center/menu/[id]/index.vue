@@ -1,5 +1,5 @@
 <template>
-  <CommandCenterHeader :title="t('center.menu.menu-page')">
+  <CommandCenterHeader :title="menu?.name ?? t('center.menu.menu-page')">
     <UButton
       size="lg"
       variant="gradient"
@@ -12,10 +12,6 @@
 
   <CommandCenterContent>
     <div class="mb-4 flex flex-col md:flex-row justify-between md:items-center gap-2">
-      <h1 class="text-2xl md:text-3xl font-semibold">
-        {{ menu?.name }}
-      </h1>
-
       <div class="flex flex-col md:flex-row gap-4">
         <FormUpdateMenuActivity :menu-id="menu?.id ?? ''" :is-active="menu?.isActive ?? false" />
       </div>

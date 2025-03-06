@@ -205,7 +205,8 @@
     "category-page-description": "აქ არის ყველა პროდუქტი ამ კატეგორიიდან",
     "minimum-order-value": "შეკვეთის მინიმალური ღირებულება",
     "maximum-order-weight": "შეკვეთის მაქსიმალური წონა",
-    "maintenance-message": "ვებსაიტი მოვლის პროცესშია. შეკვეთები შეჩერებულია."
+    "maintenance-message": "ვებსაიტი მოვლის პროცესშია. შეკვეთები შეჩერებულია.",
+    "tech-support-label": "ტექნიკური მხარდაჭერა"
   },
   "center": {
     "title": "სარდლობის ცენტრი",
@@ -302,6 +303,7 @@
     "menu-updated": "მენიუ განახლდა!",
     "category-created": "კატეგორია შეიქმნა!",
     "category-updated": "კატეგორია განახლდა!",
+    "category-deleted": "კატეგორია წაიშალა!",
     "product-created": "პროდუქტი შეიქმნა!",
     "product-updated": "პროდუქტი განახლდა!",
     "product-deleted": "პროდუქტი წაიშალა!",

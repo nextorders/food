@@ -205,7 +205,8 @@
     "category-page-description": "Здесь представлены все товары из этой категории",
     "minimum-order-value": "Минимальная стоимость заказа",
     "maximum-order-weight": "Максимальный вес заказа",
-    "maintenance-message": "Веб-сайт находится на техническом обслуживании. Заказы приостановлены."
+    "maintenance-message": "Веб-сайт находится на техническом обслуживании. Заказы приостановлены.",
+    "tech-support-label": "Техническая поддержка"
   },
   "center": {
     "title": "Командный центр",
@@ -293,7 +294,7 @@
     "finish-message": "Все готово!"
   },
   "toast": {
-    "updating-data": "Сейчас мы обновим данные",
+    "updating-data": "Все данные сейчас обновятся",
     "payment-method-created": "Метод оплаты создан!",
     "payment-method-updated": "Метод оплаты обновлен!",
     "payment-method-deleted": "Метод оплаты удален!",
@@ -302,6 +303,7 @@
     "menu-updated": "Меню обновлено!",
     "category-created": "Категория создана!",
     "category-updated": "Категория обновлена!",
+    "category-deleted": "Категория удалена!",
     "product-created": "Продукт создан!",
     "product-updated": "Продукт обновлен!",
     "product-deleted": "Продукт удален!",

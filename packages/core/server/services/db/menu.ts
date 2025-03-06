@@ -128,3 +128,16 @@ export async function patchMenuCategory(id: string, data: Partial<MenuCategory>)
 
   return getMenuCategory(id)
 }
+
+export async function deleteMenuCategory(id: string): Promise<void> {
+  const { menuKeys } = await getKeys()
+
+  for (const key of menuKeys) {
+    const [, menuId, category, categoryId] = key.split(':')
+
+    // menu:id:category:id
+    if (menuId && category === 'category' && categoryId === id) {
+      return useStorage('db').removeItem(`menu:${menuId}:category:${id}`)
+    }
+  }
+}

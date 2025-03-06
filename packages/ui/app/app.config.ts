@@ -22,6 +22,7 @@ export default defineAppConfig({
       'food:arrow-right': 'lucide:arrow-right',
       'food:arrow-left': 'lucide:arrow-left',
       'food:info': 'lucide:info',
+      'food:help': 'lucide:circle-help',
       'food:alert': 'lucide:triangle-alert',
       'food:plus': 'lucide:plus',
       'food:minus': 'lucide:minus',

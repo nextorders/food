@@ -1,5 +1,5 @@
 <template>
-  <CommandCenterHeader :title="t('center.menu.product-page')">
+  <CommandCenterHeader :title="getLocaleValue({ values: product?.name, locale, defaultLocale: channel.defaultLocale }) ?? t('center.menu.product-page')">
     <UButton
       size="lg"
       variant="gradient"
@@ -12,14 +12,9 @@
 
   <CommandCenterContent>
     <div class="mb-6 flex flex-col md:flex-row justify-between md:items-center gap-4">
-      <div>
-        <h1 class="mb-1 text-2xl md:text-3xl font-semibold">
-          {{ getLocaleValue({ values: product?.name, locale, defaultLocale: channel.defaultLocale }) }}
-        </h1>
-        <p class="text-(--ui-text-muted) break-words">
-          /{{ category?.slug }}/{{ product?.slug }}
-        </p>
-      </div>
+      <p class="text-md md:text-lg font-semibold break-words">
+        /{{ category?.slug }}/{{ product?.slug }}
+      </p>
 
       <div class="flex flex-col md:flex-row gap-4">
         <FormUpdateProductAvailability

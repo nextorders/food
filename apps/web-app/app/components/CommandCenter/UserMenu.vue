@@ -23,7 +23,7 @@ const { user, clear, fetch: refreshSession } = useUserSession()
 const { t, locales, setLocale } = useI18n()
 const colorMode = useColorMode()
 
-const userAvatar = '/api/avatar/admin.svg'
+const userAvatar = '/img/admin-avatar.svg'
 
 async function signOut() {
   await clear()

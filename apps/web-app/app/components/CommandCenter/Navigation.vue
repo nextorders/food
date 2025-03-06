@@ -21,6 +21,7 @@
 import { ModalCreateMenu } from '#components'
 
 const { t } = useI18n()
+const { public: publicEnv } = useRuntimeConfig()
 const channel = useChannelStore()
 
 const overlay = useOverlay()
@@ -43,6 +44,7 @@ const menuItems = computed(() => [
     label: t('center.menu.title'),
     to: '/command-center/menu',
     icon: 'food:list',
+    defaultOpen: true,
     children: [
       ...menus.value,
       {
@@ -77,6 +79,12 @@ const linkItems = computed(() => [
     label: t('common.website'),
     icon: 'food:store',
     to: '/',
+  },
+  {
+    label: t('app.tech-support-label'),
+    icon: 'food:help',
+    to: publicEnv.projectUrl,
+    target: '_blank',
   },
 ])
 </script>
