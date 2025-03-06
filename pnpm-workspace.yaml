@@ -1,6 +1,20 @@
 packages:
   - apps/*
   - packages/*
+onlyBuiltDependencies:
+  - sharp
+  - bcrypt
+  - '@next-orders/core'
+  - '@next-orders/ui'
+  - '@nuxt/image'
+supportedArchitectures:
+  os:
+    - linux
+    - darwin
+    - current
+  cpu:
+    - x64
+    - arm64
 catalog:
   '@antfu/eslint-config': ^4.3.0
   '@commitlint/cli': ^19.7.1

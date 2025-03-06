@@ -62,27 +62,6 @@
     "vitest": "catalog:",
     "vitest-browser-vue": "catalog:"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@next-orders/core",
-      "@next-orders/ui",
-      "bcrypt",
-      "sharp",
-      "@nuxt/image",
-      "ipx"
-    ],
-    "supportedArchitectures": {
-      "os": [
-        "linux",
-        "darwin",
-        "current"
-      ],
-      "cpu": [
-        "x64",
-        "arm64"
-      ]
-    }
-  },
   "lint-staged": {
     "*.ts": "pnpm run lint"
   },
