@@ -67,7 +67,9 @@
       "@next-orders/core",
       "@next-orders/ui",
       "bcrypt",
-      "sharp"
+      "sharp",
+      "@nuxt/image",
+      "ipx"
     ],
     "supportedArchitectures": {
       "os": [
