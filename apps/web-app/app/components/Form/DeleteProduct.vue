@@ -19,8 +19,8 @@ const { productId, redirectTo } = defineProps<{
 
 const emit = defineEmits(['success'])
 
-const router = useRouter()
 const { t } = useI18n()
+const router = useRouter()
 const toast = useToast()
 const channel = useChannelStore()
 

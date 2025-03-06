@@ -82,6 +82,7 @@ declare global {
     createdAt: string
     updatedAt: string
     slug: string
+    icon: string | null
     name: LocaleValue[]
     products: { id: string }[]
     menuId: string

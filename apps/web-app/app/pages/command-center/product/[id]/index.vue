@@ -4,7 +4,7 @@
       size="lg"
       variant="gradient"
       class="w-full md:w-fit"
-      @click="modalUpdateProduct.open({ productId: product?.id, redirectTo: menuPageUrl })"
+      @click="modalUpdateProduct.open({ productId: product?.id, redirectTo: '/command-center/product' })"
     >
       {{ t('center.edit.title') }}
     </UButton>
@@ -13,7 +13,7 @@
   <CommandCenterContent>
     <div class="mb-6 flex flex-col md:flex-row justify-between md:items-center gap-4">
       <p class="text-md md:text-lg font-semibold break-words">
-        /{{ category?.slug }}/{{ product?.slug }}
+        /{{ product?.slug }}
       </p>
 
       <div class="flex flex-col md:flex-row gap-4">
@@ -138,9 +138,4 @@ if (!product.value) {
     statusMessage: 'Product not found',
   })
 }
-
-const category = channel.getMenuCategoryByProduct(product.value?.id ?? '')
-const menu = channel.menus.find((menu) => menu.categories.some((category) => category.id === category?.id))
-
-const menuPageUrl = computed(() => `/command-center/menu/${menu?.id}`)
 </script>

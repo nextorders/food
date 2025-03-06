@@ -10,6 +10,8 @@
 </template>
 
 <script setup lang="ts">
+import type { ProductUpdateSchema } from '@next-orders/core/shared/services/product'
+
 const { isAvailableForPurchase, productId } = defineProps<{
   isAvailableForPurchase: boolean
   productId: string
@@ -21,12 +23,17 @@ const { t } = useI18n()
 const toast = useToast()
 const channel = useChannelStore()
 
+const state = ref<Partial<ProductUpdateSchema>>({
+  locale: channel.defaultLocale,
+})
+
 async function onSubmit() {
   const { data, error } = await useAsyncData(
     'update-product-availability',
     () => $fetch(`/api/product/${productId}`, {
       method: 'PATCH',
       body: {
+        ...state.value,
         isAvailableForPurchase: !isAvailableForPurchase,
       },
     }),

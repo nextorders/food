@@ -18,6 +18,12 @@
       <slot />
     </div>
   </div>
+
+  <template v-if="$slots.submenu">
+    <div class="shrink-0 flex items-center justify-between border-b border-(--ui-border) px-4 sm:px-6 gap-1.5 overflow-x-auto min-h-[49px]">
+      <slot name="submenu" />
+    </div>
+  </template>
 </template>
 
 <script setup lang="ts">

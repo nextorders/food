@@ -141,3 +141,31 @@ export async function deleteMenuCategory(id: string): Promise<void> {
     }
   }
 }
+
+export async function attachProductToMenuCategory(categoryId: string, productId: string): Promise<MenuCategory | null> {
+  const category = await getMenuCategory(categoryId)
+  if (!category) {
+    return null
+  }
+
+  const newCategory: MenuCategory = {
+    ...category,
+    products: [...category.products, { id: productId }],
+  }
+
+  return patchMenuCategory(categoryId, newCategory)
+}
+
+export async function detachProductFromMenuCategory(categoryId: string, productId: string): Promise<MenuCategory | null> {
+  const category = await getMenuCategory(categoryId)
+  if (!category) {
+    return null
+  }
+
+  const newCategory: MenuCategory = {
+    ...category,
+    products: category.products.filter((product) => product.id !== productId),
+  }
+
+  return patchMenuCategory(categoryId, newCategory)
+}

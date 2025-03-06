@@ -9,6 +9,7 @@
         />
         <FormDeleteMenuCategory
           :category-id="categoryId"
+          :redirect-to="redirectTo"
           @success="closeAll"
         />
       </div>
@@ -21,6 +22,7 @@ import { FormDeleteMenuCategory } from '#components'
 
 defineProps<{
   categoryId: string
+  redirectTo: string
 }>()
 
 const overlay = useOverlay()

@@ -27,3 +27,10 @@ export const menuCategoryUpdateSchema = z.object({
 })
 
 export type MenuCategoryUpdateSchema = z.output<typeof menuCategoryUpdateSchema>
+
+export const menuCategoryAttachProductSchema = z.object({
+  categoryId: z.string(),
+  productId: z.string(),
+})
+
+export type MenuCategoryAttachProductSchema = z.output<typeof menuCategoryAttachProductSchema>

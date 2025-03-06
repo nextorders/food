@@ -3,7 +3,6 @@ import { locale } from './locale'
 
 export const productCreateSchema = z.object({
   locale,
-  categoryId: z.string(),
   name: z.string().min(2).max(75),
   description: z.string().min(0).max(1000).optional().default(''),
 })

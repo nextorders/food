@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@iconify-json/circle-flags": "catalog:",
+    "@iconify-json/fluent-emoji-flat": "catalog:",
     "@iconify-json/lucide": "catalog:",
     "@iconify-json/pixelarticons": "catalog:",
     "@iconify-json/simple-icons": "catalog:",

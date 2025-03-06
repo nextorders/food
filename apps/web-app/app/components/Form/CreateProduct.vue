@@ -49,10 +49,6 @@ import type { ProductCreateSchema } from '@next-orders/core/shared/services/prod
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { productCreateSchema } from '@next-orders/core/shared/services/product'
 
-const { categoryId } = defineProps<{
-  categoryId: string
-}>()
-
 const emit = defineEmits(['success'])
 
 const { t } = useI18n()
@@ -65,7 +61,6 @@ const state = ref<Partial<ProductCreateSchema>>({
   locale: localeState.locale.value,
   name: undefined,
   description: undefined,
-  categoryId,
 })
 
 function resetState() {
@@ -73,7 +68,6 @@ function resetState() {
     locale: localeState.locale.value,
     name: undefined,
     description: undefined,
-    categoryId,
   }
 }
 

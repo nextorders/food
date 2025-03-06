@@ -12,13 +12,15 @@
 </template>
 
 <script setup lang="ts">
-const { categoryId } = defineProps<{
+const { categoryId, redirectTo } = defineProps<{
   categoryId: string
+  redirectTo: string
 }>()
 
 const emit = defineEmits(['success'])
 
 const { t } = useI18n()
+const router = useRouter()
 const toast = useToast()
 const channel = useChannelStore()
 
@@ -39,6 +41,7 @@ async function onSubmit() {
     await channel.update()
     emit('success')
     toast.add({ title: t('toast.category-deleted'), description: t('toast.updating-data') })
+    router.push(redirectTo)
   }
 }
 </script>

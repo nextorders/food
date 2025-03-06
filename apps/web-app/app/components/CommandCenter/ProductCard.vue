@@ -1,6 +1,6 @@
 <template>
   <NuxtLink :to="`/command-center/product/${productId}`">
-    <div class="bg-(--ui-bg-muted) rounded-xl flex flex-col justify-between h-full">
+    <div class="bg-(--ui-bg-elevated)/50 rounded-xl flex flex-col justify-between h-full">
       <div class="relative w-full aspect-square">
         <template v-if="isWarning">
           <div class="z-10 absolute top-1 left-1 p-2 bg-(--ui-bg-muted) rounded-xl">
@@ -11,8 +11,8 @@
         <ProductImage :id="product?.mediaId" size="sm" />
       </div>
 
-      <div class="px-2 py-1 h-full flex flex-col justify-between">
-        <p class="mt-2 leading-tight line-clamp-2">
+      <div class="px-3 py-3 h-full flex flex-col justify-between">
+        <p class="text-sm leading-tight line-clamp-2">
           {{ getLocaleValue({ values: product?.name, locale, defaultLocale: channel.defaultLocale }) }}
         </p>
 

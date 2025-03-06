@@ -16,6 +16,8 @@ export default defineAppConfig({
       'food:list': 'lucide:layout-list',
       'food:checkouts': 'lucide:copy-check',
       'food:options': 'lucide:cog',
+      'food:edit': 'lucide:pencil',
+      'food:cooking': 'lucide:cooking-pot',
       'food:sign-in': 'lucide:log-in',
       'food:sign-out': 'lucide:log-out',
       'food:dots': 'lucide:ellipsis-vertical',

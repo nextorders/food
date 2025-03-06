@@ -27,6 +27,9 @@ catalogs:
     '@iconify-json/circle-flags':
       specifier: ^1.2.6
       version: 1.2.6
+    '@iconify-json/fluent-emoji-flat':
+      specifier: ^1.2.3
+      version: 1.2.3
     '@iconify-json/lucide':
       specifier: ^1.2.26
       version: 1.2.26
@@ -355,6 +358,9 @@ importers:
       '@iconify-json/circle-flags':
         specifier: 'catalog:'
         version: 1.2.6
+      '@iconify-json/fluent-emoji-flat':
+        specifier: 'catalog:'
+        version: 1.2.3
       '@iconify-json/lucide':
         specifier: 'catalog:'
         version: 1.2.26
@@ -1143,6 +1149,9 @@ packages:
 
   '@iconify-json/circle-flags@1.2.6':
     resolution: {integrity: sha512-UR7hL1nxOFWDVlSTuAmssyAzm3U1PuE5CMVLlahuVsnm1l7Q2b29+jUaSLTDCFqrpvdeWifCmj4C6Ojkj+4uww==}
+
+  '@iconify-json/fluent-emoji-flat@1.2.3':
+    resolution: {integrity: sha512-dPvAidr4bQv8Esr77qNyD8V8yhtIDUirAQP6eHGeoqxpYVZTnGQ556NlBs4553cV4fjnK81t6eSBmPGPk+yUeA==}
 
   '@iconify-json/lucide@1.2.26':
     resolution: {integrity: sha512-arD/8mK0lRxFY2LgLf345NhWVWiOtV8sOxJuLnq4QRz3frMiOwVwGxEgp5Xe/bRGzxO2CxxCBok0bPRpCkYZQQ==}
@@ -8346,6 +8355,10 @@ snapshots:
   '@humanwhocodes/retry@0.4.1': {}
 
   '@iconify-json/circle-flags@1.2.6':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/fluent-emoji-flat@1.2.3':
     dependencies:
       '@iconify/types': 2.0.0
 

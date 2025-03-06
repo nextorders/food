@@ -41,8 +41,12 @@ const menuItems = computed(() => [
     icon: 'food:dashboard',
   },
   {
+    label: t('center.menu.products'),
+    to: '/command-center/product',
+    icon: 'food:cooking',
+  },
+  {
     label: t('center.menu.title'),
-    to: '/command-center/menu',
     icon: 'food:list',
     defaultOpen: true,
     children: [

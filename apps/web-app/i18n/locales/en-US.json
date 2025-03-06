@@ -234,7 +234,8 @@
       "client-page": "Client Page",
       "settings": "Settings",
       "warehouses": "Warehouses",
-      "product": "Products",
+      "product": "Product",
+      "products": "Products",
       "product-page": "Product Page",
       "is-active": "Is active, displayed on website",
       "is-not-active": "Is not active, not displayed on website"
@@ -247,6 +248,10 @@
       "menu-category": "Create new Menu Category",
       "warehouse": "Create new Warehouse",
       "payment-method": "Create new Payment Method"
+    },
+    "attach": {
+      "title": "Attach",
+      "product": "Attach Product"
     },
     "add": {
       "menu-category": "Add Category"

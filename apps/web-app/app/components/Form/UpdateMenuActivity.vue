@@ -1,12 +1,9 @@
 <template>
-  <div class="min-w-60 px-4 py-3 bg-(--ui-bg-muted) rounded-xl">
-    <USwitch
-      size="xl"
-      :label="isActive ? $t('center.menu.is-active') : $t('center.menu.is-not-active')"
-      :default-value="isActive"
-      @change="onSubmit"
-    />
-  </div>
+  <USwitch
+    :label="isActive ? $t('center.menu.is-active') : $t('center.menu.is-not-active')"
+    :default-value="isActive"
+    @change="onSubmit"
+  />
 </template>
 
 <script setup lang="ts">

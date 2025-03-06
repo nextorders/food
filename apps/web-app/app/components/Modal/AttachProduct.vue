@@ -1,12 +1,20 @@
 <template>
-  <UModal :title="$t('center.create.product')">
+  <UModal :title="$t('center.attach.product')">
     <template #body>
-      <FormCreateProduct @success="closeAll" />
+      <FormAttachProduct
+        :category-id="categoryId"
+        @submitted="closeAll"
+        @success="closeAll"
+      />
     </template>
   </UModal>
 </template>
 
 <script setup lang="ts">
+defineProps<{
+  categoryId: string
+}>()
+
 const overlay = useOverlay()
 
 function closeAll() {
