@@ -81,7 +81,7 @@ async function onSubmit(event: FormSubmitEvent<MenuCategoryAttachProductSchema>)
   emit('submitted')
 
   const { data, error } = await useAsyncData(
-    'attach-product-to-menu-category',
+    operationId,
     () => $fetch(`/api/category/${categoryId}/product`, {
       method: 'POST',
       body: event.data,

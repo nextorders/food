@@ -88,7 +88,7 @@ async function onSubmit(event: FormSubmitEvent<ProductCreateSchema>) {
   emit('submitted')
 
   const { data, error } = await useAsyncData(
-    'create-product',
+    operationId,
     () => $fetch('/api/product', {
       method: 'POST',
       body: event.data,

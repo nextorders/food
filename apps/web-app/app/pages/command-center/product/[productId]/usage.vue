@@ -194,7 +194,7 @@ async function detachProduct(categoryId: string, productId: string) {
   })
 
   const { data, error } = await useAsyncData(
-    'attach-product-to-menu-category',
+    operationId,
     () => $fetch(`/api/category/${categoryId}/product`, {
       method: 'DELETE',
       body: {
