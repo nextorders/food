@@ -39,7 +39,7 @@
             v-else
             size="xl"
             variant="gradient"
-            icon="food:busket"
+            icon="food:basket"
             class="w-fit flex flex-row gap-2 items-center"
             @click="checkout.add(variantId ?? '')"
           >

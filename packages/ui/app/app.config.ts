@@ -33,7 +33,7 @@ export default defineAppConfig({
       'food:minus': 'lucide:minus',
       'food:undo': 'lucide:undo-2',
       'food:image-upload': 'lucide:image-down',
-      'food:busket': 'lucide:shopping-basket',
+      'food:basket': 'lucide:shopping-basket',
       'food:bookmark': 'lucide:bookmark',
       'food:bookmark-check': 'lucide:bookmark-check',
       'food:cash': 'lucide:banknote',

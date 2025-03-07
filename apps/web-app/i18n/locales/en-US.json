@@ -227,8 +227,9 @@
       "client-ordered": "Client ordered"
     },
     "product": {
-      "available-for-purchase": "Available for purchase",
-      "not-available-for-purchase": "Not available for purchase",
+      "availability": "Availability",
+      "available-for-purchase": "Available",
+      "not-available-for-purchase": "Not available",
       "no-description-label": "No description yet",
       "variants-title": "Product Variants",
       "variant-name-placeholder": "25 cm, 6 pcs, on traditional dough, etc.",

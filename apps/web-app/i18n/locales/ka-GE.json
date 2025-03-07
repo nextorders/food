@@ -227,6 +227,7 @@
       "client-ordered": "კლიენტმა შეუკვეთა"
     },
     "product": {
+      "availability": "Availability",
       "available-for-purchase": "შესაძენად ხელმისაწვდომია",
       "not-available-for-purchase": "არ არის ხელმისაწვდომი შესაძენად",
       "no-description-label": "ჯერ არ არის აღწერა",
