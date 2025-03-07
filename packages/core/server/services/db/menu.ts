@@ -169,3 +169,24 @@ export async function detachProductFromMenuCategory(categoryId: string, productI
 
   return patchMenuCategory(categoryId, newCategory)
 }
+
+export async function detachProductFromAllMenuCategories(productId: string): Promise<void> {
+  const { menuKeys } = await getKeys()
+  const menuStorage = new Map<string, unknown>(menuKeys.map((key) => [key, useStorage('db').getItem(key)]))
+
+  for (const key of menuKeys) {
+    const [, menuId, category, categoryId] = key.split(':')
+
+    // menu:id:category:id
+    if (menuId && category === 'category' && categoryId) {
+      const category = await menuStorage.get(key) as MenuCategory
+      if (!category) {
+        continue
+      }
+
+      if (category.products.find((product) => product.id === productId)) {
+        await detachProductFromMenuCategory(category.id, productId)
+      }
+    }
+  }
+}

@@ -34,6 +34,10 @@
         "dark": "Переключиться на темный режим"
       }
     },
+    "table": {
+      "rows-from": "из",
+      "rows-selected": "{0} строк выбрано | {0} строка выбрана | {0} строки выбраны | {0} строк выбрано"
+    },
     "colleague": "Коллега",
     "continue-working": "Продолжить работу",
     "hello": "Привет",
@@ -44,6 +48,10 @@
     "login": "Логин",
     "password": "Пароль",
     "return": "Вернуться",
+    "filter": "Отфильтровать",
+    "actions": "Действия",
+    "columns": "Столбцы",
+    "open-page": "Открыть страницу",
     "ok": "Хорошо",
     "more-information": "Больше информации",
     "home": "Главная",
@@ -223,7 +231,8 @@
       "not-available-for-purchase": "Недоступен для покупки",
       "no-description-label": "Описания пока нет",
       "variants-title": "Вариации продукта",
-      "variant-name-placeholder": "25 см, 6 шт, на традиционном тесте, и т.п."
+      "variant-name-placeholder": "25 см, 6 шт, на традиционном тесте, и т.п.",
+      "usage": "Где используется"
     },
     "menu": {
       "dashboard": "Панель управления",
@@ -237,8 +246,8 @@
       "product": "Продукт",
       "products": "Продукты",
       "product-page": "Страница продукта",
-      "is-active": "Активное, отображается на веб-сайте",
-      "is-not-active": "Не активное, не отображается на веб-сайте"
+      "is-active": "Активное",
+      "is-not-active": "Не активное"
     },
     "create": {
       "title": "Создать",
@@ -252,6 +261,10 @@
     "attach": {
       "title": "Добавить",
       "product": "Добавить продукт"
+    },
+    "detach": {
+      "title": "Открепить",
+      "product": "Открепить продукт"
     },
     "add": {
       "menu-category": "Добавить категорию"
@@ -299,7 +312,8 @@
     "finish-message": "Все готово!"
   },
   "toast": {
-    "updating-data": "Все данные сейчас обновятся",
+    "in-process": "В процессе",
+    "updating-data": "Данные сейчас обновятся",
     "payment-method-created": "Метод оплаты создан!",
     "payment-method-updated": "Метод оплаты обновлен!",
     "payment-method-deleted": "Метод оплаты удален!",

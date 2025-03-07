@@ -1,7 +1,7 @@
 <template>
   <UModal :title="$t('center.create.product')">
     <template #body>
-      <FormCreateProduct @success="closeAll" />
+      <FormCreateProduct @submitted="closeAll" @success="closeAll" />
     </template>
   </UModal>
 </template>

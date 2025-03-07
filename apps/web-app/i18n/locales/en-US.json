@@ -34,6 +34,10 @@
         "dark": "Switch to Dark Mode"
       }
     },
+    "table": {
+      "rows-from": "from",
+      "rows-selected": "{0} rows selected | {0} row selected | {0} rows selected"
+    },
     "colleague": "Colleague",
     "continue-working": "Continue working",
     "hello": "Hello",
@@ -44,6 +48,10 @@
     "login": "Login",
     "password": "Password",
     "return": "Return",
+    "filter": "Filter",
+    "actions": "Actions",
+    "columns": "Columns",
+    "open-page": "Open page",
     "ok": "OK",
     "more-information": "More information",
     "home": "Home",
@@ -223,7 +231,8 @@
       "not-available-for-purchase": "Not available for purchase",
       "no-description-label": "No description yet",
       "variants-title": "Product Variants",
-      "variant-name-placeholder": "25 cm, 6 pcs, on traditional dough, etc."
+      "variant-name-placeholder": "25 cm, 6 pcs, on traditional dough, etc.",
+      "usage": "Where is used"
     },
     "menu": {
       "dashboard": "Control Panel",
@@ -237,8 +246,8 @@
       "product": "Product",
       "products": "Products",
       "product-page": "Product Page",
-      "is-active": "Is active, displayed on website",
-      "is-not-active": "Is not active, not displayed on website"
+      "is-active": "Is active",
+      "is-not-active": "Is not active"
     },
     "create": {
       "title": "Create",
@@ -252,6 +261,10 @@
     "attach": {
       "title": "Attach",
       "product": "Attach Product"
+    },
+    "detach": {
+      "title": "Detach",
+      "product": "Detach Product"
     },
     "add": {
       "menu-category": "Add Category"
@@ -299,7 +312,8 @@
     "finish-message": "It's done!"
   },
   "toast": {
-    "updating-data": "All data is being updated",
+    "in-process": "In process",
+    "updating-data": "Data is being updated",
     "payment-method-created": "Payment Method created!",
     "payment-method-updated": "Payment Method updated!",
     "payment-method-deleted": "Payment Method deleted!",

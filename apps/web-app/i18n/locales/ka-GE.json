@@ -34,6 +34,10 @@
         "dark": "გადაერთეთ ბნელ რეჟიმში"
       }
     },
+    "table": {
+      "rows-from": "from",
+      "rows-selected": "{0} rows selected | {0} row selected | {0} rows selected"
+    },
     "colleague": "კოლეგა",
     "continue-working": "განაგრძეთ მუშაობა",
     "hello": "გამარჯობა",
@@ -44,6 +48,10 @@
     "login": "შესვლა",
     "password": "პაროლი",
     "return": "დაბრუნება",
+    "filter": "Filter",
+    "actions": "Actions",
+    "columns": "Columns",
+    "open-page": "Open page",
     "ok": "OK",
     "more-information": "მეტი ინფორმაცია",
     "home": "მთავარი",
@@ -223,7 +231,8 @@
       "not-available-for-purchase": "არ არის ხელმისაწვდომი შესაძენად",
       "no-description-label": "ჯერ არ არის აღწერა",
       "variants-title": "პროდუქტის ვარიაციები",
-      "variant-name-placeholder": "25 სმ, 6 ც., ტრადიციულ ცომზე და ა.შ."
+      "variant-name-placeholder": "25 სმ, 6 ც., ტრადიციულ ცომზე და ა.შ.",
+      "usage": "Where is used"
     },
     "menu": {
       "dashboard": "მართვის პანელი",
@@ -252,6 +261,10 @@
     "attach": {
       "title": "მიმაგრება",
       "product": "პროდუქტის მიმაგრება"
+    },
+    "detach": {
+      "title": "Detach",
+      "product": "Detach Product"
     },
     "add": {
       "menu-category": "დაამატეთ კატეგორია"
@@ -299,6 +312,7 @@
     "finish-message": "შესრულებულია!"
   },
   "toast": {
+    "in-process": "In process",
     "updating-data": "ჩვენ ახლა ვაახლებთ მონაცემებს",
     "payment-method-created": "გადახდის მეთოდი შეიქმნა!",
     "payment-method-updated": "გადახდის მეთოდი განახლდა!",

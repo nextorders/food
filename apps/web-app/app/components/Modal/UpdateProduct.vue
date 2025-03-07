@@ -10,6 +10,7 @@
         <FormDeleteProduct
           :product-id="productId ?? ''"
           :redirect-to="redirectTo"
+          @submitted="closeAll"
           @success="closeAll"
         />
       </div>

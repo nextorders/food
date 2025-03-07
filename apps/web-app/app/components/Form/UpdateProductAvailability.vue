@@ -1,12 +1,9 @@
 <template>
-  <div class="min-w-60 px-4 py-3 bg-(--ui-bg-muted) rounded-xl">
-    <USwitch
-      size="xl"
-      :label="isAvailableForPurchase ? $t('center.product.available-for-purchase') : $t('center.product.not-available-for-purchase')"
-      :default-value="isAvailableForPurchase"
-      @change="onSubmit"
-    />
-  </div>
+  <USwitch
+    :label="isAvailableForPurchase ? $t('center.product.available-for-purchase') : $t('center.product.not-available-for-purchase')"
+    :default-value="isAvailableForPurchase"
+    @change="onSubmit"
+  />
 </template>
 
 <script setup lang="ts">
@@ -28,8 +25,21 @@ const state = ref<Partial<ProductUpdateSchema>>({
 })
 
 async function onSubmit() {
+  const operationId = useId()
+
+  toast.add({
+    id: operationId,
+    title: t('toast.in-process'),
+    description: t('toast.updating-data'),
+    icon: 'food:loader',
+    duration: 120000,
+    ui: {
+      icon: 'animate-spin',
+    },
+  })
+
   const { data, error } = await useAsyncData(
-    'update-product-availability',
+    operationId,
     () => $fetch(`/api/product/${productId}`, {
       method: 'PATCH',
       body: {
@@ -41,13 +51,31 @@ async function onSubmit() {
 
   if (error.value) {
     console.error(error.value)
-    toast.add({ title: t('error.title'), description: '...' })
+    toast.update(operationId, {
+      title: t('error.title'),
+      icon: 'food:close',
+      color: 'error',
+      description: '...',
+      duration: 3000,
+      ui: {
+        icon: '',
+      },
+    })
   }
 
   if (data.value) {
     await channel.update()
     emit('success')
-    toast.add({ title: t('toast.product-updated'), description: t('toast.updating-data') })
+    toast.update(operationId, {
+      title: t('toast.product-updated'),
+      description: undefined,
+      icon: 'food:check',
+      color: 'success',
+      duration: 3000,
+      ui: {
+        icon: '',
+      },
+    })
   }
 }
 </script>

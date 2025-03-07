@@ -1,4 +1,5 @@
 import { getKeys } from '.'
+import { detachProductFromAllMenuCategories } from './menu'
 
 export async function getProduct(id: string): Promise<Product | null> {
   return useStorage('db').getItem<Product>(`product:${id}`)
@@ -90,6 +91,8 @@ export async function deleteProduct(id: string): Promise<void> {
       await useStorage('db').removeItem(key)
     }
   }
+
+  await detachProductFromAllMenuCategories(id)
 }
 
 export async function getProductVariant(id: string): Promise<ProductVariant | null> {
