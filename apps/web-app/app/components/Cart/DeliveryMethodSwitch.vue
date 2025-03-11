@@ -13,7 +13,7 @@ const { t } = useI18n()
 const channel = useChannelStore()
 const checkout = useCheckoutStore()
 
-const tabItems = [{
+const tabItems = computed(() => [{
   label: t('app.cart.delivery'),
   value: 'DELIVERY',
   disabled: !channel.isDeliveryAvailable,
@@ -21,7 +21,7 @@ const tabItems = [{
   label: t('app.cart.pickup'),
   value: 'WAREHOUSE',
   disabled: !channel.isPickupAvailable,
-}]
+}])
 const selectedTab = ref<CheckoutDeliveryMethod | undefined>(checkout.deliveryMethod)
 
 watch (selectedTab, () => {

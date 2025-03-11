@@ -19,6 +19,7 @@ export default defineAppConfig({
       'food:edit': 'lucide:pencil',
       'food:detach': 'lucide:pin-off',
       'food:cooking': 'lucide:cooking-pot',
+      'food:delivery': 'lucide:car',
       'food:sign-in': 'lucide:log-in',
       'food:sign-out': 'lucide:log-out',
       'food:dots': 'lucide:ellipsis-vertical',

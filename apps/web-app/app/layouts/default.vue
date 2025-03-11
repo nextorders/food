@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <NavigationMain />
+  <Navigation />
 
   <main class="relative w-auto min-h-dvh lg:pl-72 xl:pr-80 top-0">
     <UContainer class="pb-10 pt-4 max-w-7xl">
