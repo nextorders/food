@@ -30,8 +30,8 @@ catalog:
   '@vitest/coverage-v8': ^3.0.6
   '@vue-email/components': ^0.0.21
   '@vue-email/render': ^0.0.9
-  '@vueuse/core': ^12.7.0
-  '@vueuse/nuxt': ^12.7.0
+  '@vueuse/core': ^13.0.0
+  '@vueuse/nuxt': ^13.0.0
   aws4fetch: ^1.0.20
   bcrypt: ^5.1.1
   dotenv: ^16.4.7
