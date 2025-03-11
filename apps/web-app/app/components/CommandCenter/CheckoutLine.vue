@@ -1,18 +1,16 @@
 <template>
   <div class="flex flex-row gap-2 items-center justify-between">
-    <div class="max-w-[16rem] flex flex-row gap-2 flex-nowrap items-center">
-      <div>
-        <div class="font-medium leading-tight line-clamp-2">
-          {{ getLocaleValue({ values: product?.name, locale, defaultLocale: channel.defaultLocale }) }}
-        </div>
-        <div class="mt-1 flex flex-row gap-2 flex-nowrap items-center">
-          <p class="text-neutral-500 dark:text-neutral-400 leading-tight">
-            {{ productVariant?.name }}
-          </p>
-          <p class="text-neutral-500 dark:text-neutral-400">
-            {{ productVariant?.weightValue }}{{ getWeightLocalizedUnit(productVariant?.weightUnit) }}
-          </p>
-        </div>
+    <div class="max-w-[16rem] flex flex-col flex-nowrap">
+      <div class="font-medium leading-tight line-clamp-2">
+        {{ getLocaleValue({ values: product?.name, locale, defaultLocale: channel.defaultLocale }) }}
+      </div>
+      <div class="mt-1 flex flex-row gap-2 flex-nowrap items-center">
+        <p class="text-neutral-500 dark:text-neutral-400 leading-tight">
+          {{ getLocaleValue({ values: productVariant?.name, locale, defaultLocale: channel.defaultLocale }) }}
+        </p>
+        <p class="text-neutral-500 dark:text-neutral-400">
+          {{ productVariant?.weightValue }}{{ getWeightLocalizedUnit(productVariant?.weightUnit) }}
+        </p>
       </div>
     </div>
 

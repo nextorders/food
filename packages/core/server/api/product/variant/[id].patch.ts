@@ -1,5 +1,5 @@
 import { setChannelAsUpdated } from '../../../../server/services/db/channel'
-import { patchProductVariant } from '../../../../server/services/db/product'
+import { getProductVariant, patchProductVariant } from '../../../../server/services/db/product'
 import { productVariantUpdateSchema } from './../../../../shared/services/product'
 
 export default defineEventHandler(async (event) => {
@@ -17,13 +17,26 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = productVariantUpdateSchema.parse(body)
 
-    const variant = await patchProductVariant(id, data)
+    const variant = await getProductVariant(id)
+    if (!variant) {
+      throw createError({
+        statusCode: 404,
+        statusMessage: 'Variant not found',
+      })
+    }
+
+    const name = data?.name ? updateLocaleValues(variant.name, { locale: data.locale, value: data.name }) : variant.name
+
+    const updatedVariant = await patchProductVariant(id, {
+      ...data,
+      name,
+    })
 
     await setChannelAsUpdated(channelId)
 
     return {
       ok: true,
-      result: variant,
+      result: updatedVariant,
     }
   } catch (error) {
     throw errorResolver(error)

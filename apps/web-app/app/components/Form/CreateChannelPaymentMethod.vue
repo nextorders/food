@@ -6,11 +6,21 @@
     @submit="onSubmit"
   >
     <UFormField :label="$t('center.data.name')" name="name">
-      <UInput
-        v-model="state.name"
-        size="xl"
-        class="w-full items-center justify-center"
-      />
+      <UButtonGroup class="w-full">
+        <UDropdownMenu :items="localeState.items">
+          <UButton
+            color="neutral"
+            variant="outline"
+            :icon="localeState.icon.value"
+            class="w-12 items-center justify-center"
+          />
+        </UDropdownMenu>
+        <UInput
+          v-model="state.name"
+          size="xl"
+          class="grow"
+        />
+      </UButtonGroup>
     </UFormField>
 
     <UFormField :label="$t('center.data.type')" name="type">
@@ -47,13 +57,17 @@ const { t } = useI18n()
 const toast = useToast()
 const channel = useChannelStore()
 
+const localeState = useLocalizedState(resetState, channel.defaultLocale)
+
 const state = ref<Partial<ChannelPaymentMethodCreateSchema>>({
+  locale: localeState.locale.value,
   name: undefined,
   type: undefined,
 })
 
 function resetState() {
   state.value = {
+    locale: localeState.locale.value,
     name: undefined,
     type: undefined,
   }

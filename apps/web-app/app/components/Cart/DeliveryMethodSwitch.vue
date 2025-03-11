@@ -1,25 +1,30 @@
 <template>
-  <div class="p-0 flex flex-row gap-0 justify-center bg-(--ui-bg-elevated) rounded-xl">
-    <UButton
-      v-if="channel.isDeliveryAvailable"
-      block
-      :variant="checkout.deliveryMethod === 'DELIVERY' ? 'gradient' : 'ghost'"
-      @click="checkout.change({ deliveryMethod: 'DELIVERY' })"
-    >
-      {{ $t('app.cart.delivery') }}
-    </UButton>
-    <UButton
-      v-if="channel.isPickupAvailable"
-      block
-      :variant="checkout.deliveryMethod === 'WAREHOUSE' ? 'gradient' : 'ghost'"
-      @click="checkout.change({ deliveryMethod: 'WAREHOUSE' })"
-    >
-      {{ $t('app.cart.pickup') }}
-    </UButton>
-  </div>
+  <UTabs
+    v-model="selectedTab"
+    :items="tabItems"
+    :content="false"
+    size="md"
+    variant="gradient"
+  />
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
 const channel = useChannelStore()
 const checkout = useCheckoutStore()
+
+const tabItems = [{
+  label: t('app.cart.delivery'),
+  value: 'DELIVERY',
+  disabled: !channel.isDeliveryAvailable,
+}, {
+  label: t('app.cart.pickup'),
+  value: 'WAREHOUSE',
+  disabled: !channel.isPickupAvailable,
+}]
+const selectedTab = ref<CheckoutDeliveryMethod | undefined>(checkout.deliveryMethod)
+
+watch (selectedTab, () => {
+  checkout.change({ deliveryMethod: selectedTab.value })
+})
 </script>

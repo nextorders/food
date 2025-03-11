@@ -31,6 +31,7 @@ export const channelReceivingMethodUpdateSchema = z.object({
 })
 
 export const channelPaymentMethodCreateSchema = z.object({
+  locale,
   name: z.string().min(2).max(50),
   type: z.enum(['CASH', 'CARD', 'CUSTOM']),
 })
@@ -38,6 +39,7 @@ export const channelPaymentMethodCreateSchema = z.object({
 export type ChannelPaymentMethodCreateSchema = z.output<typeof channelPaymentMethodCreateSchema>
 
 export const channelPaymentMethodUpdateSchema = z.object({
+  locale,
   name: z.string().min(2).max(50).optional(),
 })
 

@@ -13,11 +13,10 @@
   <CommandCenterContent>
     <div class="flex flex-wrap items-center justify-between gap-1.5">
       <UInput
-        :model-value="(table?.tableApi?.getColumn('id')?.getFilterValue() as string)"
+        v-model="filterValue"
+        :placeholder="$t('common.filter')"
         class="max-w-sm"
         icon="food:search"
-        :placeholder="$t('common.filter')"
-        @update:model-value="table?.tableApi?.getColumn('id')?.setFilterValue($event)"
       />
 
       <div class="flex flex-wrap items-center gap-1.5">
@@ -52,7 +51,6 @@
 
     <UTable
       ref="table"
-      v-model:column-filters="columnFilters"
       v-model:column-visibility="columnVisibility"
       v-model:row-selection="rowSelection"
       v-model:pagination="pagination"
@@ -90,7 +88,7 @@
         {{ row.getValue('id') }}
       </template>
       <template #mediaId-cell="{ row }">
-        <div class="size-14">
+        <div class="size-14 ml-auto">
           <ProductImage :id="row.getValue('mediaId')" size="xs" />
         </div>
       </template>
@@ -106,7 +104,7 @@
             :key="variant.id"
             class="font-medium"
           >
-            {{ `${variant.name}, ${variant.weightValue}${getWeightLocalizedUnit(variant.weightUnit)}, ${new Intl.NumberFormat(locale).format(variant.gross)}${channel.currencySign}` }}
+            {{ `${getLocaleValue({ values: variant.name, locale, defaultLocale: channel.defaultLocale })}, ${variant.weightValue}${getWeightLocalizedUnit(variant.weightUnit)}, ${new Intl.NumberFormat(locale).format(variant.gross)}${channel.currencySign}` }}
           </div>
         </div>
       </template>
@@ -163,12 +161,9 @@ const modalCreateProduct = overlay.create(ModalCreateProduct)
 const { locale, t } = useI18n()
 const channel = useChannelStore()
 
-const data = computed<Product[]>(() => channel.activeProducts)
+const filterValue = ref('')
+const data = computed<Product[]>(() => channel.activeProducts.filter((product) => product.name.find((name) => name.value.toLowerCase().includes(filterValue.value.toLowerCase()))))
 
-const columnFilters = ref([{
-  id: 'id',
-  value: '',
-}])
 const columnVisibility = ref({
   id: false,
 })

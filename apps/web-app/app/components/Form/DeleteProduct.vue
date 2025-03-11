@@ -24,9 +24,9 @@ const router = useRouter()
 const toast = useToast()
 const channel = useChannelStore()
 
-async function onSubmit() {
-  const operationId = useId()
+const operationId = useId()
 
+async function onSubmit() {
   toast.add({
     id: operationId,
     title: t('toast.in-process'),

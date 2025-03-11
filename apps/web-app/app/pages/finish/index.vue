@@ -3,7 +3,7 @@
     {{ $t('app.finish.title') }}
   </h1>
 
-  <div class="p-3 md:p-6 bg-(--ui-bg-muted) rounded-3xl space-y-6">
+  <div class="p-3 md:p-6 bg-(--ui-bg-elevated)/50 rounded-3xl space-y-6">
     <h2 class="text-center font-medium text-xl">
       {{ $t('app.finish.success-message') }} {{ $t('app.finish.expect-call') }}
     </h2>
@@ -42,7 +42,7 @@
         </p>
       </div>
 
-      <p>{{ $t('app.checkout.payment-title') }}: <span class="font-medium">{{ channel.paymentMethods.find((p) => p.id === checkoutData?.paymentMethodId)?.name }}</span></p>
+      <p>{{ $t('app.checkout.payment-title') }}: <span class="font-medium">{{ paymentMethod }}</span></p>
       <p v-if="checkoutData?.change">
         {{ $t('app.checkout.change-label') }}: <span class="font-medium">{{ checkoutData.change }} {{ channel.currencySign }}</span>
       </p>
@@ -92,10 +92,10 @@ definePageMeta({
   layout: 'finish',
 })
 
+const { locale } = useI18n()
+const route = useRoute()
 const channel = useChannelStore()
 const checkout = useCheckoutStore()
-
-const route = useRoute()
 
 const checkoutData = await checkout.get(route.query.id?.toString() as string)
 if (!checkoutData) {
@@ -103,4 +103,6 @@ if (!checkoutData) {
 }
 
 const warehouse = computed(() => channel.warehouses.find((w) => w.id === checkoutData?.warehouseId))
+
+const paymentMethod = computed(() => getLocaleValue({ values: channel.paymentMethods.find((p) => p.id === checkoutData?.paymentMethodId)?.name, locale: locale.value, defaultLocale: channel.defaultLocale }))
 </script>

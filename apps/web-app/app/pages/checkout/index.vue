@@ -6,7 +6,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
       <div class="col-span-full md:col-span-7 space-y-6">
-        <div class="p-3 md:p-6 bg-(--ui-bg-muted) rounded-3xl flex flex-col gap-4">
+        <div class="p-3 md:p-6 bg-(--ui-bg-elevated)/50 rounded-3xl flex flex-col gap-4">
           <div class="flex flex-col gap-2">
             <h3 class="text-lg md:text-xl font-medium">
               {{ $t('app.checkout.contacts') }}
@@ -116,7 +116,7 @@
           </div>
         </div>
 
-        <div class="p-3 md:p-6 bg-(--ui-bg-muted) rounded-3xl flex flex-col gap-4">
+        <div class="p-3 md:p-6 bg-(--ui-bg-elevated)/50 rounded-3xl flex flex-col gap-4">
           <h2 class="text-xl md:text-2xl font-medium">
             {{ $t('app.checkout.order-title') }}
           </h2>
@@ -149,7 +149,7 @@
 
             <USelect
               v-model="remainingCheckout.paymentMethodId"
-              :items="channel.paymentMethods.map(method => ({ label: method.name, value: method.id }))"
+              :items="channel.paymentMethods.map(method => ({ label: getLocaleValue({ values: method.name, locale, defaultLocale: channel.defaultLocale }), value: method.id }))"
               :placeholder="$t('common.select')"
               size="xl"
               icon="food:cash"

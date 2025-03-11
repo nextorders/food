@@ -11,7 +11,7 @@
         </div>
         <div class="flex flex-row gap-2 flex-nowrap items-center">
           <p class="text-sm text-(--ui-text-muted) leading-tight">
-            {{ productVariant?.name }}
+            {{ getLocaleValue({ values: productVariant?.name, locale, defaultLocale: channel.defaultLocale }) }}
           </p>
           <p class="text-sm text-(--ui-text-muted)">
             {{ productVariant?.weightValue }}{{ getWeightLocalizedUnit(productVariant?.weightUnit) }}

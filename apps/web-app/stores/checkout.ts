@@ -6,7 +6,7 @@ export const useCheckoutStore = defineStore('checkout', () => {
   const phone = ref('')
   const status = ref<Checkout['status'] | undefined>(undefined)
   const totalPrice = ref(0)
-  const deliveryMethod = ref<Checkout['deliveryMethod'] | null>(null)
+  const deliveryMethod = ref<Checkout['deliveryMethod'] | undefined>(undefined)
   const lines = ref<CheckoutLine[]>([])
 
   const isEmpty = computed(() => lines.value.length === 0)
@@ -28,7 +28,7 @@ export const useCheckoutStore = defineStore('checkout', () => {
       phone.value = data.phone
       status.value = data.status
       totalPrice.value = data.totalPrice
-      deliveryMethod.value = data.deliveryMethod as Checkout['deliveryMethod'] | null
+      deliveryMethod.value = data.deliveryMethod
       lines.value = data.lines
     } catch (error) {
       if (error instanceof Error) {

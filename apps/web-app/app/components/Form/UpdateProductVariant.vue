@@ -6,12 +6,23 @@
     @submit="onSubmit"
   >
     <UFormField :label="$t('center.data.name')" name="name">
-      <UInput
-        v-model="state.name"
-        :placeholder="$t('center.product.variant-name-placeholder')"
-        size="xl"
-        class="w-full items-center justify-center"
-      />
+      <UButtonGroup class="w-full">
+        <UDropdownMenu :items="localeState.items">
+          <UButton
+            color="neutral"
+            variant="outline"
+            :icon="localeState.icon.value"
+            class="w-12 items-center justify-center"
+          />
+        </UDropdownMenu>
+
+        <UInput
+          v-model="state.name"
+          :placeholder="defaultName ?? $t('center.product.variant-name-placeholder')"
+          size="xl"
+          class="w-full items-center justify-center"
+        />
+      </UButtonGroup>
     </UFormField>
 
     <UFormField :label="`${$t('common.price')}, ${channel.currencySign}`" name="gross">
@@ -133,8 +144,13 @@ const toast = useToast()
 const channel = useChannelStore()
 const productVariant = channel.getProductVariant(productVariantId)
 
+const localeState = useLocalizedState(resetState)
+
+const defaultName = productVariant.value?.name.find((name) => name.locale === channel.defaultLocale)?.value
+
 const state = ref<Partial<ProductVariantUpdateSchema>>({
-  name: productVariant.value?.name,
+  locale: localeState.locale.value,
+  name: productVariant.value?.name.find((name) => name.locale === localeState.locale.value)?.value,
   weightUnit: productVariant.value?.weightUnit as ProductVariantUpdateSchema['weightUnit'],
   weightValue: productVariant.value?.weightValue,
   gross: productVariant.value?.gross,
@@ -148,7 +164,8 @@ const state = ref<Partial<ProductVariantUpdateSchema>>({
 
 function resetState() {
   state.value = {
-    name: productVariant.value?.name,
+    locale: localeState.locale.value,
+    name: productVariant.value?.name.find((name) => name.locale === localeState.locale.value)?.value,
     weightUnit: productVariant.value?.weightUnit as ProductVariantUpdateSchema['weightUnit'],
     weightValue: productVariant.value?.weightValue,
     gross: productVariant.value?.gross,
@@ -161,7 +178,20 @@ function resetState() {
   }
 }
 
+const operationId = useId()
+
 async function onSubmit(event: FormSubmitEvent<ProductVariantUpdateSchema>) {
+  toast.add({
+    id: operationId,
+    title: t('toast.in-process'),
+    description: t('toast.updating-data'),
+    icon: 'food:loader',
+    duration: 120000,
+    ui: {
+      icon: 'animate-spin',
+    },
+  })
+
   emit('submitted')
 
   const { data, error } = await useAsyncData(
@@ -174,13 +204,31 @@ async function onSubmit(event: FormSubmitEvent<ProductVariantUpdateSchema>) {
 
   if (error.value) {
     console.error(error.value)
-    toast.add({ title: t('error.title'), description: '...' })
+    toast.update(operationId, {
+      title: t('error.title'),
+      icon: 'food:close',
+      color: 'error',
+      description: '...',
+      duration: 3000,
+      ui: {
+        icon: '',
+      },
+    })
   }
 
   if (data.value) {
     await channel.update()
     emit('success')
-    toast.add({ title: t('toast.variant-updated'), description: t('toast.updating-data') })
+    toast.update(operationId, {
+      title: t('toast.variant-updated'),
+      description: undefined,
+      icon: 'food:check',
+      color: 'success',
+      duration: 3000,
+      ui: {
+        icon: '',
+      },
+    })
     resetState()
   }
 }

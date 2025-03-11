@@ -64,9 +64,9 @@ watch(selectedProduct, () => {
   state.value.productId = selectedProduct.value?.value || ''
 })
 
-async function onSubmit(event: FormSubmitEvent<MenuCategoryAttachProductSchema>) {
-  const operationId = useId()
+const operationId = useId()
 
+async function onSubmit(event: FormSubmitEvent<MenuCategoryAttachProductSchema>) {
   toast.add({
     id: operationId,
     title: t('toast.in-process'),

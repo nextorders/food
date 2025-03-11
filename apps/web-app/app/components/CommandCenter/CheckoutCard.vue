@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-(--ui-bg-muted) rounded-xl px-4 md:px-6 py-5 space-y-6">
+  <div class="bg-(--ui-bg-elevated)/50 rounded-xl px-4 md:px-6 py-5 space-y-6">
     <div>
       <div class="mb-2 flex flex-row gap-3 items-center">
         <img
@@ -47,7 +47,7 @@
       </div>
 
       <p class="font-medium">
-        <span class="text-neutral-500 dark:text-neutral-400 font-normal">{{ $t('app.checkout.payment-title') }}:</span> {{ channel.paymentMethods.find((p) => p.id === checkout?.paymentMethodId)?.name }}
+        <span class="text-neutral-500 dark:text-neutral-400 font-normal">{{ $t('app.checkout.payment-title') }}:</span> {{ paymentMethod }}
       </p>
       <p v-if="checkout?.change" class="font-medium">
         <span class="text-neutral-500 dark:text-neutral-400 font-normal">{{ $t('app.checkout.change-label') }}:</span> {{ checkout?.change }} {{ channel.currencySign }}
@@ -57,7 +57,7 @@
       </p>
     </div>
 
-    <div>
+    <div class="flex flex-col gap-3">
       <CommandCenterCheckoutLine
         v-for="line in checkout?.lines"
         :key="line.id"
@@ -81,8 +81,11 @@ const { id } = defineProps<{
   id: string
 }>()
 
+const { locale } = useI18n()
 const channel = useChannelStore()
 const { checkouts } = await useCheckoutList()
 const checkout = computed(() => checkouts.value?.find((c) => c.id === id))
 const warehouse = computed(() => channel.warehouses.find((w) => w.id === checkout.value?.warehouseId))
+
+const paymentMethod = computed(() => getLocaleValue({ values: channel.paymentMethods.find((p) => p.id === checkout.value?.paymentMethodId)?.name, locale: locale.value, defaultLocale: channel.defaultLocale }))
 </script>

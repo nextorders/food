@@ -6,12 +6,22 @@
     @submit="onSubmit"
   >
     <UFormField :label="$t('center.data.name')" name="name">
-      <UInput
-        v-model="state.name"
-        :placeholder="$t('center.product.variant-name-placeholder')"
-        size="xl"
-        class="w-full items-center justify-center"
-      />
+      <UButtonGroup class="w-full">
+        <UDropdownMenu :items="localeState.items">
+          <UButton
+            color="neutral"
+            variant="outline"
+            :icon="localeState.icon.value"
+            class="w-12 items-center justify-center"
+          />
+        </UDropdownMenu>
+        <UInput
+          v-model="state.name"
+          :placeholder="$t('center.product.variant-name-placeholder')"
+          size="xl"
+          class="grow"
+        />
+      </UButtonGroup>
     </UFormField>
 
     <UFormField :label="`${$t('common.price')}, ${channel.currencySign}`" name="gross">
@@ -132,7 +142,10 @@ const { t } = useI18n()
 const toast = useToast()
 const channel = useChannelStore()
 
+const localeState = useLocalizedState(resetState, channel.defaultLocale)
+
 const state = ref<Partial<ProductVariantCreateSchema>>({
+  locale: localeState.locale.value,
   name: undefined,
   weightUnit: undefined,
   weightValue: undefined,
@@ -148,6 +161,7 @@ const state = ref<Partial<ProductVariantCreateSchema>>({
 
 function resetState() {
   state.value = {
+    locale: localeState.locale.value,
     name: undefined,
     weightUnit: undefined,
     weightValue: undefined,

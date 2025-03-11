@@ -1,5 +1,5 @@
 import { setChannelAsUpdated } from '../../../../server/services/db/channel'
-import { patchPaymentMethod } from '../../../../server/services/db/payment'
+import { getPaymentMethod, patchPaymentMethod } from '../../../../server/services/db/payment'
 import { channelPaymentMethodUpdateSchema } from './../../../../shared/services/channel'
 
 export default defineEventHandler(async (event) => {
@@ -16,7 +16,20 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const data = channelPaymentMethodUpdateSchema.parse(body)
 
-    await patchPaymentMethod(id, data)
+    const payment = await getPaymentMethod(id)
+    if (!payment) {
+      throw createError({
+        statusCode: 404,
+        statusMessage: 'Payment method not found',
+      })
+    }
+
+    const name = data?.name ? updateLocaleValues(payment.name, { locale: data.locale, value: data.name }) : payment.name
+
+    await patchPaymentMethod(id, {
+      ...data,
+      name,
+    })
     await setChannelAsUpdated(channelId)
 
     return { ok: true }

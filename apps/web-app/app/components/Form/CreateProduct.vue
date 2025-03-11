@@ -71,9 +71,9 @@ function resetState() {
   }
 }
 
-async function onSubmit(event: FormSubmitEvent<ProductCreateSchema>) {
-  const operationId = useId()
+const operationId = useId()
 
+async function onSubmit(event: FormSubmitEvent<ProductCreateSchema>) {
   toast.add({
     id: operationId,
     title: t('toast.in-process'),

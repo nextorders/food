@@ -1,5 +1,5 @@
 <template>
-  <div class="invisible group-hover:visible group-focus:visible group-active:visible group-focus-within:visible group-focus-visible:visible fixed top-16 left-0 w-72 bg-(--ui-bg-accented) px-4 py-4 rounded-b-2xl shadow-lg duration-200">
+  <div class="invisible group-hover:visible group-focus:visible group-active:visible group-focus-within:visible group-focus-visible:visible fixed top-16 left-0 w-72 bg-(--ui-bg-elevated) px-4 py-4 rounded-b-2xl shadow-lg duration-200">
     <div v-if="searchQuery?.length" class="flex flex-col gap-2">
       <div v-if="showResults?.length" class="flex flex-col gap-2">
         <UButton
@@ -7,6 +7,7 @@
           :key="product.id"
           :to="`/catalog/${product.category.slug}/${product.slug}`"
           size="xl"
+          variant="soft"
         >
           {{ getLocaleValue({ values: product.name, locale, defaultLocale: channel.defaultLocale }) }}
         </UButton>
@@ -26,6 +27,7 @@
           :key="product.id"
           :to="`/catalog/${product.category.slug}/${product.slug}`"
           size="xl"
+          variant="soft"
         >
           {{ getLocaleValue({ values: product.name, locale, defaultLocale: channel.defaultLocale }) }}
         </UButton>

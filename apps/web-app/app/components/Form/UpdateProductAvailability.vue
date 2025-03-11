@@ -24,9 +24,9 @@ const state = ref<Partial<ProductUpdateSchema>>({
   locale: channel.defaultLocale,
 })
 
-async function onSubmit() {
-  const operationId = useId()
+const operationId = useId()
 
+async function onSubmit() {
   toast.add({
     id: operationId,
     title: t('toast.in-process'),

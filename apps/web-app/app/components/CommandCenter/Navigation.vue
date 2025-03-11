@@ -41,6 +41,12 @@ const menuItems = computed(() => [
     icon: 'food:dashboard',
   },
   {
+    label: t('center.menu.checkouts'),
+    to: '/command-center/checkout',
+    icon: 'food:checkouts',
+    badge: '4',
+  },
+  {
     label: t('center.menu.products'),
     to: '/command-center/product',
     icon: 'food:cooking',
@@ -64,12 +70,6 @@ const menuItems = computed(() => [
     label: t('center.menu.warehouses'),
     to: '/command-center/warehouse',
     icon: 'food:warehouse',
-  },
-  {
-    label: t('center.menu.checkouts'),
-    to: '/command-center/checkout',
-    icon: 'food:checkouts',
-    badge: '4',
   },
   {
     label: t('center.menu.settings'),

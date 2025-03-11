@@ -89,7 +89,7 @@ async function sendToReceivers(checkoutId: string) {
   const { paymentMethodKeys, warehouseKeys } = await getKeys()
 
   const paymentMethods = await getPaymentMethods(paymentMethodKeys)
-  const paymentMethodName = paymentMethods.find((p) => p.id === checkout?.paymentMethodId)?.name as string
+  const paymentMethodName = paymentMethods.find((p) => p.id === checkout?.paymentMethodId)?.name.find((name) => name.locale === locale)?.value ?? ''
 
   const warehouses = await getWarehouses(warehouseKeys)
   const warehouseAddress = warehouses.find((w) => w.id === checkout?.warehouseId)?.address
@@ -116,7 +116,7 @@ async function sendToReceivers(checkoutId: string) {
     lines.push({
       ...line,
       name: product?.name?.find((name) => name.locale === locale)?.value ?? '',
-      variant: variant?.name ?? '',
+      variant: variant?.name.find((name) => name.locale === locale)?.value ?? '',
     })
   }
 

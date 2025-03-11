@@ -35,7 +35,7 @@ declare global {
     id: string
     createdAt: string
     updatedAt: string
-    name: string
+    name: LocaleValue[]
     type: PaymentMethodType
   }
 
@@ -105,7 +105,7 @@ declare global {
     createdAt: string
     updatedAt: string
     productId: string
-    name: string
+    name: LocaleValue[]
     weightUnit: WeightUnit
     weightValue: number
     gross: number

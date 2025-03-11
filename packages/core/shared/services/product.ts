@@ -20,6 +20,7 @@ export const productUpdateSchema = z.object({
 export type ProductUpdateSchema = z.output<typeof productUpdateSchema>
 
 export const productVariantCreateSchema = z.object({
+  locale,
   productId: z.string(),
   name: z.string().min(2).max(50),
   weightValue: z.number(),
@@ -36,6 +37,7 @@ export const productVariantCreateSchema = z.object({
 export type ProductVariantCreateSchema = z.output<typeof productVariantCreateSchema>
 
 export const productVariantUpdateSchema = z.object({
+  locale,
   name: z.string().min(2).max(50).optional(),
   weightValue: z.number().optional(),
   weightUnit: z.enum(['G', 'KG', 'ML', 'L', 'LB', 'OZ']).optional(),

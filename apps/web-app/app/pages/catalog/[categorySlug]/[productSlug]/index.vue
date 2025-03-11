@@ -12,17 +12,18 @@
       </div>
 
       <div class="col-span-2">
-        <h1 class="text-xl md:text-2xl lg:text-3xl font-medium">
+        <h1 class="text-xl md:text-2xl lg:text-3xl font-medium text-(--ui-text-highlighted)">
           {{ getLocaleValue({ values: product?.name, locale, defaultLocale: channel.defaultLocale }) }}
         </h1>
-        <div class="mt-1 font-normal text-neutral-400">
-          {{ weightValue }}{{ weightUnit }}
+        <div class="mt-1 font-normal text-neutral-400 flex flex-row gap-3">
+          <span>{{ weightValue }}{{ weightUnit }}</span>
+          <span>{{ getLocaleValue({ values: selectedVariant?.name, locale, defaultLocale: channel.defaultLocale }) }}</span>
         </div>
 
         <div v-if="!withSingleVariant" class="mt-4 mb-6">
           <USelect
             v-model="variantId"
-            :items="product?.variants.map((variant) => ({ label: variant.name, value: variant.id }))"
+            :items="product?.variants.map((variant) => ({ label: getLocaleValue({ values: variant.name, locale, defaultLocale: channel.defaultLocale }), value: variant.id }))"
             size="xl"
             icon="food:bookmark-check"
             class="min-w-56"
@@ -63,7 +64,7 @@
         <div class="mb-1 font-medium text-(--ui-text-muted)">
           {{ $t('common.nutrition.value-title') }}
         </div>
-        <div class="mt-2 p-4 w-fit flex flex-row gap-4 bg-(--ui-bg-muted) rounded-xl">
+        <div class="mt-2 p-4 w-fit flex flex-row gap-4 bg-(--ui-bg-elevated)/50 rounded-xl">
           <div>
             <div class="font-medium">
               {{ selectedVariant?.calories }}

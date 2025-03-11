@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
 
     await createPaymentMethod({
       id: createId(),
-      name: data.name,
+      name: [{ locale: data.locale, value: data.name }],
       type: data.type,
     })
 

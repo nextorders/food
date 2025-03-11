@@ -12,6 +12,7 @@ export default defineEventHandler(async (event) => {
     const variant = await createProductVariant({
       ...data,
       id: createId(),
+      name: [{ locale: data.locale, value: data.name }],
       sku: data.sku ?? null,
       net: data.net ?? null,
       calories: data.calories ?? null,

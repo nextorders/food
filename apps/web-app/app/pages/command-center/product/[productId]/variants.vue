@@ -8,7 +8,7 @@
         @click="modalUpdateProductVariant.open({ productVariantId: variant.id })"
       >
         <div class="text-lg font-medium md:leading-tight text-center">
-          {{ variant.name }}
+          {{ getLocaleValue({ values: variant.name, locale, defaultLocale: channel.defaultLocale }) }}
         </div>
 
         <div class="flex flex-row flex-nowrap gap-6 items-center justify-center">
