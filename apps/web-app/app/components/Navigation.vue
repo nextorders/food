@@ -5,8 +5,8 @@
   >
     <div class="w-full h-full bg-(--ui-bg-elevated) lg:bg-(--ui-bg-elevated)/25 px-2 md:px-4 pt-4 border-r border-(--ui-border)">
       <div class="h-full overflow-y-auto flex flex-col justify-between">
-        <div class="flex flex-col gap-6">
-          <div>
+        <div class="flex flex-col gap-4">
+          <div class="px-2.5">
             <NuxtLink
               href="/"
               class="font-medium text-xl"
@@ -22,27 +22,17 @@
             </div>
           </div>
 
-          <div v-if="checkout">
-            <h3 class="font-medium text-lg">
-              {{ title }}
-            </h3>
-
+          <template v-if="checkout">
             <UNavigationMenu
               :items="menuItems"
               orientation="vertical"
             />
-          </div>
+          </template>
 
-          <div>
-            <h3 class="font-medium text-lg">
-              {{ $t('app.catalog') }}
-            </h3>
-
-            <UNavigationMenu
-              :items="catalogItems"
-              orientation="vertical"
-            />
-          </div>
+          <UNavigationMenu
+            :items="catalogItems"
+            orientation="vertical"
+          />
         </div>
 
         <div class="mb-6 flex flex-col gap-2">
@@ -72,6 +62,10 @@ const todayUntil = computed(() => channel.workingDay?.isActive ? channel.working
 
 const menuItems = computed(() => [
   {
+    label: title.value,
+    type: 'label' as const,
+  },
+  {
     label: `${t('app.cart.today-until')} ${todayUntil.value}`,
     icon: 'food:clock',
   },
@@ -88,12 +82,15 @@ const menuItems = computed(() => [
   },
 ])
 
-const catalogItems = computed(() => channel.activeCategories.map((c) => {
+const catalogItems = computed(() => [{
+  label: t('app.catalog'),
+  type: 'label' as const,
+}, ...channel.activeCategories.map((c) => {
   return {
     label: getLocaleValue({ values: c.name, locale: locale.value, defaultLocale: channel.defaultLocale }),
     to: `/catalog/${c.slug}`,
     active: route.path.startsWith(`/catalog/${c.slug}`),
     icon: c.icon ?? 'food:bookmark',
   }
-}))
+})])
 </script>

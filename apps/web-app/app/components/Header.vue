@@ -20,19 +20,24 @@
         </button>
       </div>
 
-      <div class="relative mr-auto group">
-        <div class="flex flex-row gap-1 items-center">
-          <Icon :name="icons.search" class="w-8 h-8" />
-          <input
-            v-model="searchQuery"
-            type="text"
-            :placeholder="$t('app.search.placeholder')"
-            class="px-2 py-2 w-32 md:w-56 bg-transparent placeholder:text-neutral-500 dark:placeholder:text-neutral-400 outline-none rounded-xl"
-          >
-        </div>
+      <UModal v-model:open="isModalOpened" class="relative mr-auto group">
+        <UButton
+          :label="$t('app.search.placeholder')"
+          icon="food:search"
+          color="neutral"
+          variant="outline"
+          size="lg"
+        />
 
-        <SearchBlock />
-      </div>
+        <template #content>
+          <UCommandPalette
+            v-model="value"
+            :groups="groups"
+            :placeholder="$t('app.search.placeholder')"
+            class="h-80"
+          />
+        </template>
+      </UModal>
 
       <CartButton />
     </div>
@@ -40,6 +45,27 @@
 </template>
 
 <script setup lang="ts">
-const { isNavbarOpened, searchQuery } = useApp()
+const { locale } = useI18n()
+const { isNavbarOpened } = useApp()
 const { icons } = useAppConfig()
+const channel = useChannelStore()
+
+const isModalOpened = ref(false)
+
+const groups = computed(() => [
+  {
+    id: 'products',
+    items: channel.getProductsForSearch().map((product) => {
+      return {
+        label: getLocaleValue({ values: product.name, locale: locale.value, defaultLocale: channel.defaultLocale }),
+        suffix: getLocaleValue({ values: product.category.name, locale: locale.value, defaultLocale: channel.defaultLocale }),
+        onSelect: () => {
+          isModalOpened.value = false
+          navigateTo(`/catalog/${product.category.slug}/${product.slug}`)
+        },
+      }
+    }),
+  },
+])
+const value = ref({})
 </script>

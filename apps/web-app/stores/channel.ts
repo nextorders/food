@@ -110,30 +110,9 @@ export const useChannelStore = defineStore('channel', () => {
   function getProductVariant(id: string): ComputedRef<ProductVariant | undefined> {
     return computed(() => products.value.flatMap((product) => product.variants).find((variant) => variant.id === id))
   }
-  function getProductsByQuery(query: string): ProductWithCategory[] {
-    const { locale } = useI18n()
-    const productList = products.value.filter((product) => product.name.find((name) => name.locale === locale.value)?.value.toLowerCase().includes(query.toLowerCase()))
-
+  function getProductsForSearch(): ProductWithCategory[] {
     const result: ProductWithCategory[] = []
-    for (const p of productList) {
-      const category = getMenuCategoryByProduct(p.id)
-      if (!category) {
-        continue
-      }
-
-      result.push({
-        ...p,
-        category,
-      })
-    }
-
-    return result
-  }
-  function getTopSearchedProducts(): ProductWithCategory[] {
-    const productList = products.value.slice(0, 5)
-
-    const result: ProductWithCategory[] = []
-    for (const p of productList) {
+    for (const p of products.value) {
       const category = getMenuCategoryByProduct(p.id)
       if (!category) {
         continue
@@ -193,8 +172,7 @@ export const useChannelStore = defineStore('channel', () => {
     getProduct,
     getProductBySlug,
     getProductVariant,
-    getProductsByQuery,
-    getTopSearchedProducts,
+    getProductsForSearch,
     getProductsInCategory,
   }
 })
