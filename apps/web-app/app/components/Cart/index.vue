@@ -1,25 +1,22 @@
 <template>
-  <div v-if="checkout.id" class="relative rounded-2xl bg-(--ui-bg) border border-(--ui-border) p-4 h-full flex flex-col justify-between">
-    <div class="h-screen overflow-y-auto">
-      <div class="mb-48">
-        <div class="mb-4 flex flex-row justify-between items-center">
-          <h3 class="text-2xl font-medium">
-            {{ $t('app.cart.title') }}
-          </h3>
+  <div v-if="checkout.id" class="flex flex-col h-full shrink-0">
+    <div class="flex flex-col gap-4 flex-1 overflow-y-auto px-4 py-2">
+      <div class="flex flex-row justify-between items-center">
+        <h3 class="text-2xl font-medium">
+          {{ $t('app.cart.title') }}
+        </h3>
 
-          <button
-            aria-label="Close"
-            class="block xl:hidden rounded-xl lg:hover:scale-90 hover:bg-neutral-100 duration-200"
-            @click="isCartDrawerOpened = !isCartDrawerOpened"
-          >
-            <Icon :name="icons.close" class="size-8" />
-          </button>
-        </div>
+        <UButton
+          icon="food:close"
+          variant="soft"
+          class="xl:hidden"
+          @click="isCartDrawerOpened = !isCartDrawerOpened"
+        />
+      </div>
 
-        <div class="mt-2 mb-4">
-          <CartDeliveryMethodSwitch />
-        </div>
+      <CartDeliveryMethodSwitch />
 
+      <div>
         <CartEmpty v-if="checkout.isEmpty" />
         <template v-else>
           <CartLine
@@ -31,31 +28,29 @@
       </div>
     </div>
 
-    <div class="absolute bottom-0 left-0 right-0 rounded-2xl bg-(--ui-bg-muted)">
-      <button
-        class="relative m-4 flex flex-row gap-2 flex-wrap items-center active:scale-95 lg:hover:scale-95 lg:active:scale-90 duration-200"
+    <div class="shrink-0 flex flex-col gap-2 px-4 py-3.5 rounded-xl xl:bg-(--ui-bg-elevated)/50">
+      <UButton
+        variant="link"
+        color="neutral"
+        icon="food:info"
+        class="px-0"
+        :label="$t('app.cart.conditions')"
         @click="modalDeliveryInfo.open()"
-      >
-        <Icon :name="icons.info" class="size-6 text-(--ui-text-dimmed)" />
-        <div class="text-left text-sm text-(--ui-text-muted)">
-          {{ $t('app.cart.conditions') }}
-        </div>
-      </button>
+      />
 
-      <div v-if="!checkout.isEmpty" class="my-4 mx-4">
-        <UButton
-          to="/checkout"
-          variant="gradient"
-          size="xl"
-          block
-          class="justify-between"
-        >
-          <p>{{ $t('app.cart.next-label') }}</p>
-          <div class="text-lg tracking-tight">
-            {{ new Intl.NumberFormat(locale).format(checkout.totalPrice) }} <span class="text-base">{{ channel.currencySign }}</span>
-          </div>
-        </UButton>
-      </div>
+      <UButton
+        v-if="!checkout.isEmpty"
+        to="/checkout"
+        variant="gradient"
+        size="xl"
+        block
+        class="justify-between"
+      >
+        <p>{{ $t('app.cart.next-label') }}</p>
+        <p class="text-lg tracking-tight">
+          {{ new Intl.NumberFormat(locale).format(checkout.totalPrice) }} <span class="text-base">{{ channel.currencySign }}</span>
+        </p>
+      </UButton>
     </div>
   </div>
 </template>
@@ -65,7 +60,6 @@ import { ModalDeliveryInfo } from '#components'
 
 const { locale } = useI18n()
 const { isCartDrawerOpened } = useApp()
-const { icons } = useAppConfig()
 const overlay = useOverlay()
 const modalDeliveryInfo = overlay.create(ModalDeliveryInfo)
 const channel = useChannelStore()

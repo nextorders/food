@@ -51,8 +51,8 @@
       </p>
     </div>
 
-    <div>
-      <h3 class="mb-2 text-lg font-medium text-(--ui-text-muted)">
+    <div class="flex flex-col gap-3">
+      <h3 class="text-lg font-medium text-(--ui-text-muted)">
         {{ $t('app.finish.ordered-title') }}
       </h3>
 

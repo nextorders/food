@@ -1,17 +1,29 @@
 <template>
-  <div v-if="!checkout.isEmpty" class="block xl:hidden">
-    <UButton
-      variant="gradient"
-      size="lg"
-      class="items-center"
-      @click="isCartDrawerOpened = !isCartDrawerOpened"
+  <UDrawer
+    v-if="!checkout.isEmpty"
+    v-model:open="isCartDrawerOpened"
+    direction="right"
+    class="block xl:hidden"
+  >
+    <UChip
+      :text="checkout.lines.length"
+      size="3xl"
+      color="primary"
     >
-      <p>{{ $t('app.cart.title') }}</p>
-      <div class="pt-0.5 rounded-full bg-(--ui-bg-muted) size-6 text-center text-(--ui-primary)">
-        {{ checkout.lines.length }}
+      <UButton
+        variant="gradient"
+        size="lg"
+        class="min-w-16 justify-center"
+        :label="$t('app.cart.title')"
+      />
+    </UChip>
+
+    <template #content>
+      <div class="py-2.5">
+        <Cart />
       </div>
-    </UButton>
-  </div>
+    </template>
+  </UDrawer>
 </template>
 
 <script setup lang="ts">

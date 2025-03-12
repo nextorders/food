@@ -1,24 +1,14 @@
 <template>
-  <header class="bg-(--ui-bg)/75 backdrop-blur border-b border-(--ui-border) sticky top-0 h-16 z-50">
-    <div class="z-10 w-full h-full px-2 md:px-4 flex flex-row flex-nowrap justify-between content-center items-center">
-      <div class="mr-2 md:mr-0 flex justify-center items-center justify-items-center lg:hidden h-full lg:hover:scale-110 transition duration-200">
-        <button
-          aria-label="Close Navigation"
-          :data-active="isNavbarOpened"
-          class="hidden data-[active=true]:flex items-center"
-          @click="isNavbarOpened = !isNavbarOpened"
-        >
-          <Icon :name="icons.close" class="w-10 h-10" />
-        </button>
-        <button
-          aria-label="Open Navigation"
-          :data-active="!isNavbarOpened"
-          class="hidden data-[active=true]:flex items-center"
-          @click="isNavbarOpened = !isNavbarOpened"
-        >
-          <Icon :name="icons.menu" class="w-10 h-10" />
-        </button>
-      </div>
+  <header class="z-40 h-16 sticky flex items-center justify-between border-b border-(--ui-border) bg-(--ui-bg)/75 backdrop-blur px-4 sm:px-6 gap-1.5">
+    <div class="flex items-center gap-1.5 min-w-0">
+      <UButton
+        icon="food:menu"
+        color="neutral"
+        variant="outline"
+        size="lg"
+        class="visible lg:hidden"
+        @click="isNavbarOpened = true"
+      />
 
       <UModal v-model:open="isModalOpened" class="relative mr-auto group">
         <UButton
@@ -38,7 +28,9 @@
           />
         </template>
       </UModal>
+    </div>
 
+    <div class="flex items-center shrink-0 gap-3">
       <CartButton />
     </div>
   </header>
@@ -47,7 +39,6 @@
 <script setup lang="ts">
 const { locale } = useI18n()
 const { isNavbarOpened } = useApp()
-const { icons } = useAppConfig()
 const channel = useChannelStore()
 
 const isModalOpened = ref(false)

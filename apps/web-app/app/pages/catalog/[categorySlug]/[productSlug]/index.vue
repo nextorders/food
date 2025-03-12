@@ -50,8 +50,8 @@
       </div>
     </div>
 
-    <div class="mt-6 flex flex-col xl:flex-row justify-between gap-4">
-      <div v-if="product?.description">
+    <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div v-if="product?.description" class="col-span-2">
         <div class="mb-1 font-medium text-(--ui-text-muted)">
           {{ $t('common.description') }}
         </div>

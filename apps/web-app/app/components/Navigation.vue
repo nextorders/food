@@ -1,55 +1,42 @@
 <template>
-  <nav
-    :data-active="isNavbarOpened"
-    class="z-10 w-0 h-[calc(100dvh-64px)] invisible lg:visible lg:w-72 fixed top-16 data-[active=true]:w-full data-[active=true]:visible lg:data-[active=true]:w-72"
-  >
-    <div class="w-full h-full bg-(--ui-bg-elevated) lg:bg-(--ui-bg-elevated)/25 px-2 md:px-4 pt-4 border-r border-(--ui-border)">
-      <div class="h-full overflow-y-auto flex flex-col justify-between">
-        <div class="flex flex-col gap-4">
-          <div class="px-2.5">
-            <NuxtLink
-              href="/"
-              class="font-medium text-xl"
-            >
-              {{ getLocaleValue({ values: channel.name, locale, defaultLocale: channel.defaultLocale }) }}
-            </NuxtLink>
-            <div class="mt-1 text-sm leading-tight">
-              {{ getLocaleValue({ values: channel.description, locale, defaultLocale: channel.defaultLocale }) }}
-            </div>
+  <div class="flex flex-col gap-4 flex-1 overflow-y-auto py-2">
+    <div class="px-2.5">
+      <NuxtLink
+        href="/"
+        class="font-medium text-xl"
+      >
+        {{ getLocaleValue({ values: channel.name, locale, defaultLocale: channel.defaultLocale }) }}
+      </NuxtLink>
+      <div class="mt-1 text-sm leading-tight">
+        {{ getLocaleValue({ values: channel.description, locale, defaultLocale: channel.defaultLocale }) }}
+      </div>
 
-            <div v-if="channel.phone" class="mt-4 text-lg leading-tight">
-              {{ channel.phone }}
-            </div>
-          </div>
-
-          <template v-if="checkout">
-            <UNavigationMenu
-              :items="menuItems"
-              orientation="vertical"
-            />
-          </template>
-
-          <UNavigationMenu
-            :items="catalogItems"
-            orientation="vertical"
-          />
-        </div>
-
-        <div class="mb-6 flex flex-col gap-2">
-          <div class="flex flex-row gap-2">
-            <ColorModeToggle />
-          </div>
-        </div>
+      <div v-if="channel.phone" class="mt-4 text-lg leading-tight">
+        {{ channel.phone }}
       </div>
     </div>
-  </nav>
+
+    <UNavigationMenu
+      v-if="checkout.id"
+      :items="menuItems"
+      orientation="vertical"
+    />
+
+    <UNavigationMenu
+      :items="catalogItems"
+      orientation="vertical"
+    />
+  </div>
+
+  <div class="shrink-0 flex items-center gap-1.5 py-2 lg:border-t lg:border-(--ui-border)">
+    <ColorModeToggle />
+  </div>
 </template>
 
 <script setup lang="ts">
 import { ModalDeliveryInfo } from '#components'
 
 const { locale, t } = useI18n()
-const { isNavbarOpened } = useApp()
 const route = useRoute()
 const channel = useChannelStore()
 const checkout = useCheckoutStore()
