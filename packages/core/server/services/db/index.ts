@@ -6,6 +6,7 @@ interface Keys {
   paymentMethodKeys: string[]
   userKeys: string[]
   receiverKeys: string[]
+  linkKeys: string[]
 }
 
 export async function getKeys(): Promise<Keys> {
@@ -16,6 +17,7 @@ export async function getKeys(): Promise<Keys> {
   const paymentMethodKeys = allKeys.filter((key) => key.startsWith('payment:method:'))
   const userKeys = allKeys.filter((key) => key.startsWith('user:'))
   const receiverKeys = allKeys.filter((key) => key.startsWith('receiver:'))
+  const linkKeys = allKeys.filter((key) => key.startsWith('link:'))
 
   return {
     allKeys,
@@ -25,5 +27,6 @@ export async function getKeys(): Promise<Keys> {
     paymentMethodKeys,
     userKeys,
     receiverKeys,
+    linkKeys,
   }
 }

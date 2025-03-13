@@ -65,8 +65,9 @@
     "slug": "ადამიანის მიერ წაკითხვადი URL",
     "photo": "ფოტო",
     "footer": {
+      "copyright": "Copyright",
       "copyright-part-one": "შექმნილია ❤️-ით",
-      "copyright-part-two": "{'@'}next-orders"
+      "copyright-part-two": "{'@'}next-orders/food"
     },
     "abbreviation": {
       "min": "წთ",

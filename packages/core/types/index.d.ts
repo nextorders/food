@@ -7,6 +7,7 @@ declare global {
     name: LocaleValue[]
     description: LocaleValue[]
     conditions: LocaleValue[]
+    copyright: LocaleValue[]
     phone: string | null
     currencyCode: CurrencyCode
     countryCode: CountryCode
@@ -27,6 +28,14 @@ declare global {
   type LocaleValue = {
     locale: Locale
     value: string
+  }
+
+  interface Link {
+    id: string
+    createdAt: string
+    updatedAt: string
+    to: string
+    icon: string
   }
 
   type TimeZone = '-12:00' | '-11:00' | '-10:00' | '-09:00' | '-08:00' | '-07:00' | '-06:00' | '-05:00' | '-04:00' | '-03:00' | '-02:00' | '-01:00' | '00:00' | '+01:00' | '+02:00' | '+03:00' | '+04:00' | '+05:00' | '+06:00' | '+07:00' | '+08:00' | '+09:00' | '+10:00' | '+11:00' | '+12:00'

@@ -65,8 +65,9 @@
     "slug": "Human-friendly URL",
     "photo": "Photo",
     "footer": {
+      "copyright": "Copyright",
       "copyright-part-one": "Created with ❤️ on",
-      "copyright-part-two": "{'@'}next-orders"
+      "copyright-part-two": "{'@'}next-orders/food"
     },
     "abbreviation": {
       "min": "min",

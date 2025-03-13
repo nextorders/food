@@ -22,6 +22,8 @@ export const useChannelStore = defineStore('channel', () => {
   const isDeliveryAvailable = ref(false)
   const phone = ref<string | null>(null)
   const conditions = ref<LocaleValue[]>([])
+  const copyright = ref<LocaleValue[]>([])
+  const links = ref<Link[]>([])
   const minAmountForDelivery = ref<number | null>(null)
   const masterAccountExists = ref(false)
   const workingDay = ref<WorkingDay | undefined>(undefined)
@@ -64,6 +66,8 @@ export const useChannelStore = defineStore('channel', () => {
     isDeliveryAvailable.value = data.isDeliveryAvailable
     phone.value = data.phone
     conditions.value = data.conditions
+    copyright.value = data.copyright
+    links.value = data.links
     minAmountForDelivery.value = data.minAmountForDelivery
     masterAccountExists.value = data.masterAccountExists
     menus.value = data.menus
@@ -145,6 +149,8 @@ export const useChannelStore = defineStore('channel', () => {
     isDeliveryAvailable,
     phone,
     conditions,
+    copyright,
+    links,
     minAmountForDelivery,
     masterAccountExists,
     workingDay,

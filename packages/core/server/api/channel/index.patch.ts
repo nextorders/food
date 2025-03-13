@@ -19,12 +19,14 @@ export default defineEventHandler(async (event) => {
     const name = data?.name ? updateLocaleValues(channel.name, { locale: data.locale, value: data.name }) : channel.name
     const description = data?.description ? updateLocaleValues(channel.description, { locale: data.locale, value: data.description }) : channel.description
     const conditions = data?.conditions ? updateLocaleValues(channel.conditions, { locale: data.locale, value: data.conditions }) : channel.conditions
+    const copyright = data?.copyright ? updateLocaleValues(channel.copyright, { locale: data.locale, value: data.copyright }) : channel.copyright
 
     await patchChannel(channelId, {
       ...data,
       name,
       description,
       conditions,
+      copyright,
     } as Partial<Channel>)
 
     return { ok: true }

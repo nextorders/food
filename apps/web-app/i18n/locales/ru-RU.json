@@ -65,8 +65,9 @@
     "slug": "Человекопонятный URL",
     "photo": "Фото",
     "footer": {
+      "copyright": "Копирайт",
       "copyright-part-one": "Создано с ❤️ на",
-      "copyright-part-two": "{'@'}next-orders"
+      "copyright-part-two": "{'@'}next-orders/food"
     },
     "abbreviation": {
       "min": "мин",

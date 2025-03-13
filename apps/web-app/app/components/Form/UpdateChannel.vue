@@ -105,6 +105,16 @@
       />
     </UFormField>
 
+    <UFormField :label="$t('common.footer.copyright')" name="copyright">
+      <UTextarea
+        v-model="state.copyright"
+        :placeholder="defaultCopyright"
+        :rows="4"
+        size="xl"
+        class="w-full items-center justify-center"
+      />
+    </UFormField>
+
     <UButton
       type="submit"
       variant="solid"
@@ -135,12 +145,14 @@ const localeState = useLocalizedState(resetState)
 const defaultName = channel.name.find((name) => name.locale === channel.defaultLocale)?.value
 const defaultDescription = channel.description.find((description) => description.locale === channel.defaultLocale)?.value
 const defaultConditions = channel.conditions.find((condition) => condition.locale === channel.defaultLocale)?.value
+const defaultCopyright = channel.copyright.find((copyright) => copyright.locale === channel.defaultLocale)?.value
 
 const state = ref<Partial<ChannelUpdateSchema>>({
   locale: localeState.locale.value,
   name: channel.name.find((name) => name.locale === localeState.locale.value)?.value,
   description: channel.description.find((description) => description.locale === localeState.locale.value)?.value,
   conditions: channel.conditions.find((condition) => condition.locale === localeState.locale.value)?.value,
+  copyright: channel.copyright.find((copyright) => copyright.locale === localeState.locale.value)?.value,
   phone: channel.phone ?? undefined,
   countryCode: channel.countryCode,
   currencyCode: channel.currencyCode,
@@ -155,6 +167,7 @@ function resetState() {
     name: channel.name.find((name) => name.locale === localeState.locale.value)?.value,
     description: channel.description.find((description) => description.locale === localeState.locale.value)?.value,
     conditions: channel.conditions.find((condition) => condition.locale === localeState.locale.value)?.value,
+    copyright: channel.copyright.find((copyright) => copyright.locale === localeState.locale.value)?.value,
     phone: channel.phone ?? undefined,
     countryCode: channel.countryCode,
     currencyCode: channel.currencyCode,

@@ -30,6 +30,7 @@ export default defineEventHandler(async (event) => {
       timeZone: data.timeZone as TimeZone,
       description: [],
       conditions: [],
+      copyright: [],
       phone: null,
       minAmountForDelivery: null,
       isActive: true,

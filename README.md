@@ -1,4 +1,4 @@
-# 🍔 Food Orders
+# 🍔 NextOrders: Food
 Modern e-commerce self-hosted platform: clients will be happy to order delicious food!
 
 👉 [Check out demo website](https://demo.nextorders.space/)
@@ -7,7 +7,7 @@ Modern e-commerce self-hosted platform: clients will be happy to order delicious
 
 ![main-screen-desktop](https://github.com/next-orders/food/blob/main/.github/media/main-screen-desktop.jpg?raw=true)
 
-## 🍕 Main idea and architecture of Next-Orders
+## 🍕 Main idea and architecture of NextOrders
 
 There is a great desire to create software that is ideal for ordering and delivering food.
 It will be a set of solutions that can work together. It is important that each element can be easily replaced later.
@@ -49,6 +49,7 @@ The application has [several localizations](https://github.com/next-orders/food/
 
 - [Web App](https://github.com/next-orders/food/tree/main/apps/web-app): Web storefront and Command Center. Client can order delicious food.
 - [Email service](https://github.com/next-orders/food/tree/main/apps/email): Easy way to build and send html emails through a prepared service.
+- [Website](https://github.com/next-orders/food/tree/main/apps/website): Info portal and documentation.
 
 ## ☕ How to deploy
 

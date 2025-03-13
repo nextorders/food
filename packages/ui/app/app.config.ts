@@ -44,6 +44,7 @@ export default defineAppConfig({
       'food:home': 'lucide:house',
       'food:store': 'lucide:store',
       'food:brand-assets': 'lucide:text-select',
+      'food:phone': 'lucide:smartphone',
       'food:flag-ru': 'circle-flags:ru',
       'food:flag-en': 'circle-flags:uk',
       'food:flag-es': 'circle-flags:es',

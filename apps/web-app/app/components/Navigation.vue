@@ -10,11 +10,13 @@
       <div class="mt-1 text-sm leading-tight">
         {{ getLocaleValue({ values: channel.description, locale, defaultLocale: channel.defaultLocale }) }}
       </div>
-
-      <div v-if="channel.phone" class="mt-4 text-lg leading-tight">
-        {{ channel.phone }}
-      </div>
     </div>
+
+    <UNavigationMenu
+      v-if="channel.phone"
+      :items="phoneItems"
+      orientation="vertical"
+    />
 
     <UNavigationMenu
       v-if="checkout.id"
@@ -28,8 +30,9 @@
     />
   </div>
 
-  <div class="shrink-0 flex items-center gap-1.5 py-2 lg:border-t lg:border-(--ui-border)">
+  <div class="shrink-0 flex items-center gap-1.5 py-2 px-2">
     <ColorModeToggle />
+    <LanguageSelect />
   </div>
 </template>
 
@@ -46,6 +49,17 @@ const modalDeliveryInfo = overlay.create(ModalDeliveryInfo)
 
 const title = computed(() => checkout.deliveryMethod === 'DELIVERY' ? t('app.cart.delivery') : t('app.cart.pickup'))
 const todayUntil = computed(() => channel.workingDay?.isActive ? channel.workingDay.close : undefined)
+
+// Remove all except numbers and +
+const preparedPhone = computed(() => channel.phone?.replace(/[^0-9+]/g, ''))
+
+const phoneItems = computed(() => [
+  {
+    label: channel.phone ?? '',
+    icon: 'food:phone',
+    to: `tel:${preparedPhone.value}`,
+  },
+])
 
 const menuItems = computed(() => [
   {

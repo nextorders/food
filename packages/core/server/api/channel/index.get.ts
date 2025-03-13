@@ -1,6 +1,7 @@
 import { TZDate } from '@date-fns/tz'
 import { getKeys } from '../../../server/services/db'
 import { getChannel } from '../../../server/services/db/channel'
+import { getLinks } from '../../../server/services/db/link'
 import { getMenus } from '../../../server/services/db/menu'
 import { getPaymentMethods } from '../../../server/services/db/payment'
 import { getProducts } from '../../../server/services/db/product'
@@ -59,12 +60,13 @@ export default defineCachedEventHandler(async () => {
       })
     }
 
-    const { menuKeys, productKeys, warehouseKeys, paymentMethodKeys } = await getKeys()
+    const { menuKeys, productKeys, warehouseKeys, paymentMethodKeys, linkKeys } = await getKeys()
 
     const menus = await getMenus(menuKeys)
     const products = await getProducts(productKeys)
     const warehouses = await getWarehouses(warehouseKeys)
     const paymentMethods = await getPaymentMethods(paymentMethodKeys)
+    const links = await getLinks(linkKeys)
 
     const workingDays = await getWorkingDays()
 
@@ -83,6 +85,7 @@ export default defineCachedEventHandler(async () => {
       products,
       warehouses,
       paymentMethods,
+      links,
     }
   } catch (error) {
     throw errorResolver(error)

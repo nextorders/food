@@ -21,7 +21,8 @@ export const channelUpdateSchema = z.object({
   defaultLocale: z.string().max(5).optional(),
   timeZone: z.string().max(6).optional(),
   minAmountForDelivery: z.number().optional(),
-  conditions: z.string().max(750).optional(),
+  conditions: z.string().max(1000).optional(),
+  copyright: z.string().max(350).optional(),
 })
 
 export type ChannelUpdateSchema = z.output<typeof channelUpdateSchema>

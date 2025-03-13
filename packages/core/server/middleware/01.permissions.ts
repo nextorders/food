@@ -1,8 +1,14 @@
+type Route = {
+  route: string
+  method: 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE'
+  permissions: PermissionCode[]
+}
+
 export default defineEventHandler(async (event) => {
   const { user } = await getUserSession(event)
   const permissions = user?.permissions || []
 
-  const routesWithRequiredPermissions = [
+  const routesWithRequiredPermissions: Route[] = [
     {
       route: '/api/product',
       method: 'POST',
@@ -15,21 +21,6 @@ export default defineEventHandler(async (event) => {
     },
     {
       route: '/api/product',
-      method: 'DELETE',
-      permissions: ['MANAGE_PRODUCTS', 'MASTER'],
-    },
-    {
-      route: '/api/product/variant',
-      method: 'POST',
-      permissions: ['MANAGE_PRODUCTS', 'MASTER'],
-    },
-    {
-      route: '/api/product/variant',
-      method: 'PATCH',
-      permissions: ['MANAGE_PRODUCTS', 'MASTER'],
-    },
-    {
-      route: '/api/product/variant',
       method: 'DELETE',
       permissions: ['MANAGE_PRODUCTS', 'MASTER'],
     },
@@ -83,11 +74,26 @@ export default defineEventHandler(async (event) => {
       method: 'DELETE',
       permissions: ['MANAGE_OPTIONS', 'MASTER'],
     },
+    {
+      route: '/api/link',
+      method: 'POST',
+      permissions: ['MANAGE_OPTIONS', 'MASTER'],
+    },
+    {
+      route: '/api/link',
+      method: 'PATCH',
+      permissions: ['MANAGE_OPTIONS', 'MASTER'],
+    },
+    {
+      route: '/api/link',
+      method: 'DELETE',
+      permissions: ['MANAGE_OPTIONS', 'MASTER'],
+    },
   ]
 
   for (const route of routesWithRequiredPermissions) {
     if (event.path.startsWith(route.route) && event.method === route.method) {
-      if (!route.permissions.some((permission) => permissions.includes(permission as PermissionCode))) {
+      if (!route.permissions.some((permission) => permissions.includes(permission))) {
         throw errorResolver(createError({ statusCode: 403, statusMessage: 'Not allowed' }))
       }
     }
