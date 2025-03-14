@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
     const { channelId } = useRuntimeConfig()
 
     const { secure } = await getUserSession(event)
-    if (!secure?.checkout) {
+    if (!secure?.checkoutId) {
       throw createError({
         statusCode: 404,
         statusMessage: 'No checkout',
@@ -25,12 +25,12 @@ export default defineEventHandler(async (event) => {
 
     const channel = await getChannel(channelId)
 
-    await recalculateCheckout(secure.checkout.id)
+    await recalculateCheckout(secure.checkoutId)
 
     const needToBeFinalized: boolean = !!data.phone && !!data.name
 
     if (needToBeFinalized) {
-      const actualCheckout = await getCheckout(secure.checkout.id)
+      const actualCheckout = await getCheckout(secure.checkoutId)
 
       // Guard: If checkout.totalPrice < minAmountForDelivery
       if (actualCheckout?.deliveryMethod === 'DELIVERY' && channel?.minAmountForDelivery) {
@@ -43,7 +43,7 @@ export default defineEventHandler(async (event) => {
       }
     }
 
-    const updatedCheckout = await patchCheckout(secure.checkout.id, {
+    const updatedCheckout = await patchCheckout(secure.checkoutId, {
       ...data,
       change: data.change?.toString(),
       time: data.time ? new Date(data.time).toISOString() : new Date().toISOString(),
@@ -51,15 +51,15 @@ export default defineEventHandler(async (event) => {
     })
 
     if (needToBeFinalized) {
-      await setCheckoutAsFinished(secure.checkout.id)
-      await sendToReceivers(secure.checkout.id)
+      await setCheckoutAsFinished(secure.checkoutId)
+      await sendToReceivers(secure.checkoutId)
 
       const session = await getUserSession(event)
       await replaceUserSession(event, {
         ...session,
         secure: {
           ...secure,
-          checkout: null,
+          checkoutId: null,
         },
       })
     }

@@ -311,6 +311,8 @@ async function updateCheckout() {
     change: selectedPaymentMethod.value?.type === 'CASH' ? remainingCheckout.value.change : undefined,
   })
 
+  await checkout.update()
+
   await navigateTo(`/finish?id=${finishedCheckout?.result?.id}`)
 }
 </script>

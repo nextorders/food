@@ -80,7 +80,8 @@
     <UButton
       to="/"
       variant="gradient"
-      class="block grow w-full px-4 py-4 text-lg text-center"
+      size="xl"
+      block
     >
       {{ $t('common.to-home') }}
     </UButton>

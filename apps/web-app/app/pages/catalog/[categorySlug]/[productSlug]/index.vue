@@ -41,7 +41,6 @@
             size="xl"
             variant="gradient"
             icon="food:basket"
-            class="w-fit flex flex-row gap-2 items-center"
             @click="checkout.add(variantId ?? '')"
           >
             {{ $t('app.cart.add-to-cart') }}

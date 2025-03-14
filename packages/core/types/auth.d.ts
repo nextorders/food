@@ -6,12 +6,8 @@ declare module '#auth-utils' {
     permissions: PermissionCode[]
   }
 
-  interface Checkout {
-    id: string
-  }
-
   interface SecureSessionData {
-    checkout?: Checkout | null
+    checkoutId?: string | null
   }
 }
 

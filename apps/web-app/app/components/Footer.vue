@@ -1,5 +1,5 @@
 <template>
-  <div class="px-4 lg:px-6 my-20 flex flex-col gap-3.5">
+  <div class="px-4 lg:px-6 xl:px-8 my-20 flex flex-col gap-3.5">
     <div class="flex flex-col lg:flex-row gap-2 justify-between lg:items-center">
       <div class="font-sans text-xs text-(--ui-text-muted) whitespace-pre-wrap">
         {{ getLocaleValue({ values: channel.copyright, locale, defaultLocale: channel.defaultLocale }) }}

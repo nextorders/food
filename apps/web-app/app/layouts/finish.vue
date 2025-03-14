@@ -1,9 +1,10 @@
 <template>
-  <main class="relative">
-    <div class="px-2 md:px-4 pt-12 pb-10 mx-auto max-w-xl">
+  <main class="relative top-16 min-h-dvh">
+    <UContainer class="pb-10 pt-4 max-w-2xl">
       <slot />
-    </div>
-    <div class="mx-auto max-w-4xl">
+    </UContainer>
+
+    <div class="pb-10 max-w-2xl mx-auto">
       <Footer />
     </div>
   </main>

@@ -20,7 +20,7 @@ export const useCheckoutStore = defineStore('checkout', () => {
         getCachedData: undefined,
       })
       if (!data) {
-        return
+        return clear()
       }
 
       id.value = data.id
@@ -32,11 +32,14 @@ export const useCheckoutStore = defineStore('checkout', () => {
       lines.value = data.lines
     } catch (error) {
       if (error instanceof Error) {
-        if (error.name === 'NotFound') {
-          // its ok
-        }
+        // its ok
       }
     }
+  }
+  function clear() {
+    id.value = null
+    totalPrice.value = 0
+    lines.value = []
   }
   async function add(productVariantId: string) {
     try {
