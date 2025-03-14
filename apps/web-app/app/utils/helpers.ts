@@ -158,3 +158,19 @@ export function getLocalizedTimezonesForSelect(): { value: string, label: string
     { value: '+12:00', label: '+12:00' },
   ]
 }
+
+export function getLinkIconsForSelect(): { value: string, icon: string, label: string }[] {
+  return [
+    { value: 'simple-icons:bluesky', icon: 'simple-icons:bluesky', label: 'Bluesky' },
+    { value: 'simple-icons:facebook', icon: 'simple-icons:facebook', label: 'Facebook' },
+    { value: 'simple-icons:github', icon: 'simple-icons:github', label: 'GitHub' },
+    { value: 'simple-icons:instagram', icon: 'simple-icons:instagram', label: 'Instagram' },
+    { value: 'simple-icons:odnoklassniki', icon: 'simple-icons:odnoklassniki', label: 'Odnoklassniki' },
+    { value: 'simple-icons:telegram', icon: 'simple-icons:telegram', label: 'Telegram' },
+    { value: 'simple-icons:viber', icon: 'simple-icons:viber', label: 'Viber' },
+    { value: 'simple-icons:vk', icon: 'simple-icons:vk', label: 'VK' },
+    { value: 'simple-icons:whatsapp', icon: 'simple-icons:whatsapp', label: 'WhatsApp' },
+    { value: 'simple-icons:x', icon: 'simple-icons:x', label: 'X' },
+    { value: 'simple-icons:youtube', icon: 'simple-icons:youtube', label: 'YouTube' },
+  ]
+}

@@ -64,6 +64,7 @@
     "sku": "სტატიის ნომერი",
     "slug": "ადამიანის მიერ წაკითხვადი URL",
     "photo": "ფოტო",
+    "icon": "Icon",
     "footer": {
       "copyright": "Copyright",
       "copyright-part-one": "შექმნილია ❤️-ით",
@@ -222,6 +223,10 @@
     "welcome-message": "გელოდებოდით!",
     "to-website": "გადადით საიტზე",
     "search-label": "იპოვნეთ რამე",
+    "link": {
+      "title": "Links",
+      "url": "URL"
+    },
     "checkout": {
       "name": "სახელი",
       "phone": "ტელეფონი",
@@ -258,7 +263,8 @@
       "menu": "შექმენით ახალი მენიუ",
       "menu-category": "შექმენით ახალი მენიუს კატეგორია",
       "warehouse": "შექმენით ახალი საწყობი",
-      "payment-method": "შექმენით ახალი გადახდის მეთოდი"
+      "payment-method": "შექმენით ახალი გადახდის მეთოდი",
+      "link": "Create new Link"
     },
     "attach": {
       "title": "მიმაგრება",
@@ -280,7 +286,8 @@
       "warehouse": "განაახლეთ საწყობი",
       "general-data": "განაახლეთ ზოგადი მონაცემები",
       "online-ordering-time": "განაახლეთ ონლაინ შეკვეთის დრო",
-      "payment-method": "განაახლეთ გადახდის მეთოდი"
+      "payment-method": "განაახლეთ გადახდის მეთოდი",
+      "link": "Update Link"
     },
     "delete": {
       "title": "წაშლა",
@@ -331,6 +338,9 @@
     "variant-created": "პროდუქტის ვარიანტი შეიქმნა!",
     "variant-updated": "განახლებულია პროდუქტის ვარიანტი!",
     "variant-deleted": "პროდუქტის ვარიანტი წაიშალა!",
+    "link-created": "Link created!",
+    "link-updated": "Link updated!",
+    "link-deleted": "Link deleted!",
     "warehouse-created": "საწყობი შეიქმნა!",
     "warehouse-updated": "საწყობი განახლდა!",
     "website-configured": "საიტი სწორად არის კონფიგურირებული!",

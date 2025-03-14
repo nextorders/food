@@ -116,12 +116,28 @@
           <CommandCenterPaymentMethodCreateCard @click="modalCreateChannelPaymentMethod.open()" />
         </div>
       </div>
+
+      <div>
+        <h2 class="mb-4 text-xl md:text-2xl font-semibold">
+          {{ t('center.link.title') }}
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+          <CommandCenterLinkCard
+            v-for="link in channel.links"
+            :id="link.id"
+            :key="link.id"
+            @click="modalUpdateLink.open({ id: link.id })"
+          />
+          <CommandCenterLinkCreateCard @click="modalCreateLink.open()" />
+        </div>
+      </div>
     </div>
   </CommandCenterContent>
 </template>
 
 <script setup lang="ts">
-import { ModalCreateChannelPaymentMethod, ModalUpdateChannel, ModalUpdateChannelPaymentMethod, ModalUpdateWorkingDays } from '#components'
+import { ModalCreateChannelPaymentMethod, ModalCreateLink, ModalUpdateChannel, ModalUpdateChannelPaymentMethod, ModalUpdateLink, ModalUpdateWorkingDays } from '#components'
 
 definePageMeta({
   layout: 'command-center',
@@ -134,5 +150,7 @@ const modalUpdateChannel = overlay.create(ModalUpdateChannel)
 const modalUpdateWorkingDays = overlay.create(ModalUpdateWorkingDays)
 const modalUpdateChannelPaymentMethod = overlay.create(ModalUpdateChannelPaymentMethod)
 const modalCreateChannelPaymentMethod = overlay.create(ModalCreateChannelPaymentMethod)
+const modalCreateLink = overlay.create(ModalCreateLink)
+const modalUpdateLink = overlay.create(ModalUpdateLink)
 const channel = useChannelStore()
 </script>

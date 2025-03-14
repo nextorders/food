@@ -64,6 +64,7 @@
     "sku": "Артикул",
     "slug": "Человекопонятный URL",
     "photo": "Фото",
+    "icon": "Иконка",
     "footer": {
       "copyright": "Копирайт",
       "copyright-part-one": "Создано с ❤️ на",
@@ -222,6 +223,10 @@
     "welcome-message": "Мы вас заждались!",
     "to-website": "К веб-сайту",
     "search-label": "Найти что-нибудь",
+    "link": {
+      "title": "Ссылки",
+      "url": "URL"
+    },
     "checkout": {
       "name": "Имя",
       "phone": "Телефон",
@@ -258,7 +263,8 @@
       "menu": "Создать новое меню",
       "menu-category": "Создать новую категорию",
       "warehouse": "Создать новый склад",
-      "payment-method": "Создать новый метод оплаты"
+      "payment-method": "Создать новый метод оплаты",
+      "link": "Создать новую ссылку"
     },
     "attach": {
       "title": "Добавить",
@@ -280,7 +286,8 @@
       "warehouse": "Обновить склад",
       "general-data": "Обновить основные данные",
       "online-ordering-time": "Обновить время оформления заказов",
-      "payment-method": "Обновить метод оплаты"
+      "payment-method": "Обновить метод оплаты",
+      "link": "Обновить ссылку"
     },
     "delete": {
       "title": "Удалить",
@@ -331,6 +338,9 @@
     "variant-created": "Вариация создана!",
     "variant-updated": "Вариация обновлена!",
     "variant-deleted": "Вариация удалена!",
+    "link-created": "Ссылка создана!",
+    "link-updated": "Ссылка обновлена!",
+    "link-deleted": "Ссылка удалена!",
     "warehouse-created": "Склад создан!",
     "warehouse-updated": "Склад обновлен!",
     "website-configured": "Веб-сайт настроен!",

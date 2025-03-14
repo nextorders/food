@@ -64,6 +64,7 @@
     "sku": "SKU",
     "slug": "Human-friendly URL",
     "photo": "Photo",
+    "icon": "Icon",
     "footer": {
       "copyright": "Copyright",
       "copyright-part-one": "Created with ❤️ on",
@@ -222,6 +223,10 @@
     "welcome-message": "We've been waiting for you!",
     "to-website": "To Website",
     "search-label": "Find anything",
+    "link": {
+      "title": "Links",
+      "url": "URL"
+    },
     "checkout": {
       "name": "Name",
       "phone": "Phone",
@@ -258,7 +263,8 @@
       "menu": "Create new Menu",
       "menu-category": "Create new Menu Category",
       "warehouse": "Create new Warehouse",
-      "payment-method": "Create new Payment Method"
+      "payment-method": "Create new Payment Method",
+      "link": "Create new Link"
     },
     "attach": {
       "title": "Attach",
@@ -280,7 +286,8 @@
       "warehouse": "Update Warehouse",
       "general-data": "Update General Data",
       "online-ordering-time": "Update Online ordering time",
-      "payment-method": "Update Payment Method"
+      "payment-method": "Update Payment Method",
+      "link": "Update Link"
     },
     "delete": {
       "title": "Delete",
@@ -331,6 +338,9 @@
     "variant-created": "Product variant created!",
     "variant-updated": "Product variant updated!",
     "variant-deleted": "Product variant deleted!",
+    "link-created": "Link created!",
+    "link-updated": "Link updated!",
+    "link-deleted": "Link deleted!",
     "warehouse-created": "Warehouse created!",
     "warehouse-updated": "Warehouse updated!",
     "website-configured": "Website configured!",

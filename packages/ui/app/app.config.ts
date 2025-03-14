@@ -113,5 +113,14 @@ export default defineAppConfig({
         },
       },
     },
+    selectMenu: {
+      variants: {
+        size: {
+          xl: {
+            base: 'px-4 py-3',
+          },
+        },
+      },
+    },
   },
 })

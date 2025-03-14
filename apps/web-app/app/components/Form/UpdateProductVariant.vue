@@ -195,7 +195,7 @@ async function onSubmit(event: FormSubmitEvent<ProductVariantUpdateSchema>) {
   emit('submitted')
 
   const { data, error } = await useAsyncData(
-    'update-product-variant',
+    operationId,
     () => $fetch(`/api/product/variant/${productVariantId}`, {
       method: 'PATCH',
       body: event.data,
