@@ -352,6 +352,7 @@
   },
   "error": {
     "title": "Ошибка",
+    "default": "Что-то пошло не так",
     "invalid-credentials": "Неверные данные"
   }
 }

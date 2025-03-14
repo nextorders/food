@@ -352,6 +352,7 @@
   },
   "error": {
     "title": "შეცდომა",
+    "default": "Something went wrong",
     "invalid-credentials": "არასწორი ანგარიშის რწმუნებათა სიგელები"
   }
 }

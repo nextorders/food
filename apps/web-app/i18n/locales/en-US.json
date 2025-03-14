@@ -352,6 +352,7 @@
   },
   "error": {
     "title": "Error",
+    "default": "Something went wrong",
     "invalid-credentials": "Invalid credentials"
   }
 }

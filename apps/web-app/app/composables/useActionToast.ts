@@ -30,7 +30,7 @@ function _useActionToast() {
     })
   }
 
-  function error(description: string = '...') {
+  function error(description: string = t('error.default')) {
     toast.update(id.value, {
       title: t('error.title'),
       icon: 'food:close',
