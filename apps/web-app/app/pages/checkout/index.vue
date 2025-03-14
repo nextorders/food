@@ -204,6 +204,7 @@
               size="xl"
               variant="gradient"
               class="grow w-full justify-center"
+              :loading="isLoading"
               :disabled="!isValidCheckout"
               @click="updateCheckout"
             >
@@ -264,6 +265,8 @@ const remainingCheckout = ref<CheckoutDraft>({
   paymentMethodId: '',
 })
 
+const isLoading = ref(false)
+
 const isOkForData = computed(() => !!remainingCheckout.value.name && !!remainingCheckout.value.phone && !!remainingCheckout.value.paymentMethodId && (checkout.deliveryMethod === 'DELIVERY' ? !!remainingCheckout.value.street : true) && (checkout.deliveryMethod === 'WAREHOUSE' ? !!remainingCheckout.value.warehouseId : true))
 const isOkForAmount = computed<boolean>(() => checkout.deliveryMethod === 'DELIVERY' && channel.minAmountForDelivery ? channel.minAmountForDelivery <= checkout.totalPrice : true)
 const isValidCheckout = computed(() => isOkForAmount.value && isOkForData.value)
@@ -295,6 +298,8 @@ function formatPhone() {
 }
 
 async function updateCheckout() {
+  isLoading.value = true
+
   const finishedCheckout = await checkout.change({
     phone: remainingCheckout.value.phone,
     name: remainingCheckout.value.name,

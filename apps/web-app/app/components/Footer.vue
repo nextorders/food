@@ -12,12 +12,12 @@
       />
     </div>
 
-    <div class="flex flex-row gap-1 items-center text-sm">
+    <div class="flex flex-row gap-1 items-center text-sm text-(--ui-text-muted)">
       {{ $t('common.footer.copyright-part-one') }}
       <ULink
         :to="projectUrl"
         target="_blank"
-        class="font-semibold hover:opacity-80 duration-200"
+        class="font-medium"
       >
         {{ $t('common.footer.copyright-part-two') }}
       </ULink>
