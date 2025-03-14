@@ -13,30 +13,28 @@ const { isActive, day } = defineProps<{
   day: WorkingDay['day']
 }>()
 
-const emit = defineEmits(['success'])
+const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 
 async function onSubmit() {
-  const { data, error } = await useAsyncData(
-    'update-working-day-activity',
-    () => $fetch('/api/channel/working-day/activity', {
+  actionToast.start()
+  emit('submitted')
+
+  try {
+    await $fetch('/api/channel/working-day/activity', {
       method: 'POST',
       body: { day },
-    }),
-  )
+    })
 
-  if (error.value) {
-    console.error(error.value)
-    toast.add({ title: t('error.title'), description: '...' })
-  }
-
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.working-day-updated'))
     emit('success')
-    toast.add({ title: t('toast.working-day-updated'), description: t('toast.updating-data') })
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>

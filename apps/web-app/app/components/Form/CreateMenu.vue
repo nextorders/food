@@ -31,41 +31,32 @@ import type { MenuCreateSchema } from '@next-orders/core/shared/services/menu'
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { menuCreateSchema } from '@next-orders/core/shared/services/menu'
 
-const emit = defineEmits(['success'])
+const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 
 const state = ref<Partial<MenuCreateSchema>>({
   name: undefined,
 })
 
-function resetState() {
-  state.value = {
-    name: undefined,
-  }
-}
-
 async function onSubmit(event: FormSubmitEvent<MenuCreateSchema>) {
-  const { data, error } = await useAsyncData(
-    'create-menu',
-    () => $fetch('/api/menu', {
+  actionToast.start()
+  emit('submitted')
+
+  try {
+    await $fetch('/api/menu', {
       method: 'POST',
       body: event.data,
-    }),
-  )
+    })
 
-  if (error.value) {
-    console.error(error.value)
-    toast.add({ title: t('error.title'), description: '...' })
-  }
-
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.menu-created'))
     emit('success')
-    toast.add({ title: t('toast.menu-created'), description: t('toast.updating-data') })
-    resetState()
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>

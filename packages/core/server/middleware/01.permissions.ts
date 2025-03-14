@@ -1,99 +1,54 @@
-type Route = {
-  route: string
-  method: 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE'
-  permissions: PermissionCode[]
+type ProtectedRoute = {
+  path: string
+  methods: ('GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE' | 'HEAD' | 'CONNECT' | 'OPTIONS' | 'TRACE')[]
+  requiredPermissions: PermissionCode[]
 }
+
+const protectedRoutes: ProtectedRoute[] = [
+  {
+    path: '/api/category',
+    methods: ['POST', 'PATCH', 'DELETE'],
+    requiredPermissions: ['MANAGE_MENUS', 'MASTER'],
+  },
+  {
+    path: '/api/channel',
+    methods: ['POST', 'PATCH', 'DELETE'],
+    requiredPermissions: ['MANAGE_OPTIONS', 'MASTER'],
+  },
+  {
+    path: '/api/checkout/list',
+    methods: ['GET'],
+    requiredPermissions: ['MANAGE_CHECKOUTS', 'MASTER'],
+  },
+  {
+    path: '/api/link',
+    methods: ['POST', 'PATCH', 'DELETE'],
+    requiredPermissions: ['MANAGE_OPTIONS', 'MASTER'],
+  },
+  {
+    path: '/api/menu',
+    methods: ['POST', 'PATCH', 'DELETE'],
+    requiredPermissions: ['MANAGE_MENUS', 'MASTER'],
+  },
+  {
+    path: '/api/product',
+    methods: ['POST', 'PATCH', 'DELETE'],
+    requiredPermissions: ['MANAGE_PRODUCTS', 'MASTER'],
+  },
+  {
+    path: '/api/warehouse',
+    methods: ['POST', 'PATCH', 'DELETE'],
+    requiredPermissions: ['MANAGE_WAREHOUSES', 'MASTER'],
+  },
+]
 
 export default defineEventHandler(async (event) => {
   const { user } = await getUserSession(event)
-  const permissions = user?.permissions || []
+  const userPermissions = user?.permissions || []
 
-  const routesWithRequiredPermissions: Route[] = [
-    {
-      route: '/api/product',
-      method: 'POST',
-      permissions: ['MANAGE_PRODUCTS', 'MASTER'],
-    },
-    {
-      route: '/api/product',
-      method: 'PATCH',
-      permissions: ['MANAGE_PRODUCTS', 'MASTER'],
-    },
-    {
-      route: '/api/product',
-      method: 'DELETE',
-      permissions: ['MANAGE_PRODUCTS', 'MASTER'],
-    },
-    {
-      route: '/api/menu',
-      method: 'POST',
-      permissions: ['MANAGE_MENUS', 'MASTER'],
-    },
-    {
-      route: '/api/menu',
-      method: 'PATCH',
-      permissions: ['MANAGE_MENUS', 'MASTER'],
-    },
-    {
-      route: '/api/category',
-      method: 'POST',
-      permissions: ['MANAGE_MENUS', 'MASTER'],
-    },
-    {
-      route: '/api/category',
-      method: 'PATCH',
-      permissions: ['MANAGE_MENUS', 'MASTER'],
-    },
-    {
-      route: '/api/warehouse',
-      method: 'POST',
-      permissions: ['MANAGE_WAREHOUSES', 'MASTER'],
-    },
-    {
-      route: '/api/warehouse',
-      method: 'PATCH',
-      permissions: ['MANAGE_WAREHOUSES', 'MASTER'],
-    },
-    {
-      route: '/api/checkout/list',
-      method: 'GET',
-      permissions: ['MANAGE_CHECKOUTS', 'MASTER'],
-    },
-    {
-      route: '/api/channel',
-      method: 'PATCH',
-      permissions: ['MANAGE_OPTIONS', 'MASTER'],
-    },
-    {
-      route: '/api/channel',
-      method: 'POST',
-      permissions: ['MANAGE_OPTIONS', 'MASTER'],
-    },
-    {
-      route: '/api/channel',
-      method: 'DELETE',
-      permissions: ['MANAGE_OPTIONS', 'MASTER'],
-    },
-    {
-      route: '/api/link',
-      method: 'POST',
-      permissions: ['MANAGE_OPTIONS', 'MASTER'],
-    },
-    {
-      route: '/api/link',
-      method: 'PATCH',
-      permissions: ['MANAGE_OPTIONS', 'MASTER'],
-    },
-    {
-      route: '/api/link',
-      method: 'DELETE',
-      permissions: ['MANAGE_OPTIONS', 'MASTER'],
-    },
-  ]
-
-  for (const route of routesWithRequiredPermissions) {
-    if (event.path.startsWith(route.route) && event.method === route.method) {
-      if (!route.permissions.some((permission) => permissions.includes(permission))) {
+  for (const route of protectedRoutes) {
+    if (event.path.startsWith(route.path) && route.methods.includes(event.method)) {
+      if (!route.requiredPermissions.some((permission) => userPermissions.includes(permission))) {
         throw errorResolver(createError({ statusCode: 403, statusMessage: 'Not allowed' }))
       }
     }

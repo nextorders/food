@@ -137,7 +137,7 @@ import { getLocalizedCountryCodesForSelect } from '../../utils/helpers'
 const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 
 const localeState = useLocalizedState(resetState)
@@ -178,26 +178,21 @@ function resetState() {
 }
 
 async function onSubmit(event: FormSubmitEvent<ChannelUpdateSchema>) {
+  actionToast.start()
   emit('submitted')
 
-  const { data, error } = await useAsyncData(
-    'update-channel',
-    () => $fetch('/api/channel', {
+  try {
+    await $fetch('/api/channel', {
       method: 'PATCH',
       body: event.data,
-    }),
-  )
+    })
 
-  if (error.value) {
-    console.error(error.value)
-    toast.add({ title: t('error.title'), description: '...' })
-  }
-
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.website-updated'))
     emit('success')
-    toast.add({ title: t('toast.website-updated'), description: t('toast.updating-data') })
-    resetState()
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>

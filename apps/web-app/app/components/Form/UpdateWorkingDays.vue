@@ -39,39 +39,27 @@
 const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 
 const workingDays = ref(channel.workingDays ?? [])
 
 async function onSubmit() {
+  actionToast.start()
   emit('submitted')
 
-  // add to all open and close ':00' at the end of workingDays object for future zod time() validation
-  const workingDaysCopy = JSON.parse(JSON.stringify(workingDays)) as typeof workingDays
-
-  Object.values(workingDaysCopy).forEach((day) => {
-    day.open += ':00'
-    day.close += ':00'
-  })
-
-  const { data, error } = await useAsyncData(
-    'update-working-days',
-    () => $fetch('/api/channel/working-day', {
+  try {
+    await $fetch('/api/channel/working-day', {
       method: 'PATCH',
       body: workingDays,
-    }),
-  )
+    })
 
-  if (error.value) {
-    console.error(error.value)
-    toast.add({ title: t('error.title'), description: '...' })
-  }
-
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.opening-hours-updated'))
     emit('success')
-    toast.add({ title: t('toast.opening-hours-updated'), description: t('toast.updating-data') })
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>

@@ -46,7 +46,7 @@ const { warehouseId } = defineProps<{
 const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 const warehouse = computed(() => channel.warehouses.find((w) => w.id === warehouseId))
 
@@ -55,34 +55,22 @@ const state = ref<Partial<WarehouseUpdateSchema>>({
   address: warehouse.value?.address,
 })
 
-function resetState() {
-  state.value = {
-    name: warehouse.value?.name,
-    address: warehouse.value?.address,
-  }
-}
-
 async function onSubmit(event: FormSubmitEvent<WarehouseUpdateSchema>) {
+  actionToast.start()
   emit('submitted')
 
-  const { data, error } = await useAsyncData(
-    'update-warehouse',
-    () => $fetch(`/api/warehouse/${warehouseId}`, {
+  try {
+    await $fetch(`/api/warehouse/${warehouseId}`, {
       method: 'PATCH',
       body: event.data,
-    }),
-  )
+    })
 
-  if (error.value) {
-    console.error(error.value)
-    toast.add({ title: t('error.title'), description: '...' })
-  }
-
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.warehouse-updated'))
     emit('success')
-    toast.add({ title: t('toast.warehouse-updated'), description: t('toast.updating-data') })
-    resetState()
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>

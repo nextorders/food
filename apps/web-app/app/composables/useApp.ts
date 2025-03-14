@@ -1,4 +1,4 @@
-export function _useApp() {
+function _useApp() {
   const route = useRoute()
 
   const isNavbarOpened = ref(false)

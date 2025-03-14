@@ -54,7 +54,7 @@ import { channelPaymentMethodCreateSchema } from '@next-orders/core/shared/servi
 const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 
 const localeState = useLocalizedState(resetState, channel.defaultLocale)
@@ -74,26 +74,21 @@ function resetState() {
 }
 
 async function onSubmit(event: FormSubmitEvent<ChannelPaymentMethodCreateSchema>) {
+  actionToast.start()
   emit('submitted')
 
-  const { data, error } = await useAsyncData(
-    'create-payment-method',
-    () => $fetch('/api/channel/payment-method', {
+  try {
+    await $fetch('/api/channel/payment-method', {
       method: 'POST',
       body: event.data,
-    }),
-  )
+    })
 
-  if (error.value) {
-    console.error(error.value)
-    toast.add({ title: t('error.title'), description: '...' })
-  }
-
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.payment-method-created'))
     emit('success')
-    toast.add({ title: t('toast.payment-method-created'), description: t('toast.updating-data') })
-    resetState()
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>

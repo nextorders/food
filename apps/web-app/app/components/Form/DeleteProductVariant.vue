@@ -16,29 +16,27 @@ const { productVariantId } = defineProps<{
   productVariantId: string
 }>()
 
-const emit = defineEmits(['success'])
+const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 
 async function onSubmit() {
-  const { data, error } = await useAsyncData(
-    'delete-product-variant',
-    () => $fetch(`/api/product/variant/${productVariantId}`, {
+  actionToast.start()
+  emit('submitted')
+
+  try {
+    await $fetch(`/api/product/variant/${productVariantId}`, {
       method: 'DELETE',
-    }),
-  )
+    })
 
-  if (error.value) {
-    console.error(error.value)
-    toast.add({ title: t('error.title'), description: '...' })
-  }
-
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.variant-deleted'))
     emit('success')
-    toast.add({ title: t('toast.variant-deleted'), description: t('toast.updating-data') })
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>

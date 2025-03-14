@@ -39,10 +39,10 @@ import type { WarehouseCreateSchema } from '@next-orders/core/shared/services/wa
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { warehouseCreateSchema } from '@next-orders/core/shared/services/warehouse'
 
-const emit = defineEmits(['success'])
+const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 
 const state = ref<Partial<WarehouseCreateSchema>>({
@@ -50,32 +50,22 @@ const state = ref<Partial<WarehouseCreateSchema>>({
   address: undefined,
 })
 
-function resetState() {
-  state.value = {
-    name: undefined,
-    address: undefined,
-  }
-}
-
 async function onSubmit(event: FormSubmitEvent<WarehouseCreateSchema>) {
-  const { data, error } = await useAsyncData(
-    'create-warehouse',
-    () => $fetch('/api/warehouse', {
+  actionToast.start()
+  emit('submitted')
+
+  try {
+    await $fetch('/api/warehouse', {
       method: 'POST',
       body: event.data,
-    }),
-  )
+    })
 
-  if (error.value) {
-    console.error(error.value)
-    toast.add({ title: t('error.title'), description: '...' })
-  }
-
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.warehouse-created'))
     emit('success')
-    toast.add({ title: t('toast.warehouse-created'), description: t('toast.updating-data') })
-    resetState()
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>

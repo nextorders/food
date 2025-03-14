@@ -85,10 +85,10 @@ import type { FormSubmitEvent } from '@nuxt/ui'
 import { channelCreateSchema } from '@next-orders/core/shared/services/channel'
 import { getLocalizedCountryCodesForSelect } from '../../utils/helpers'
 
-const emit = defineEmits(['success'])
+const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 
 const form = useTemplateRef('form')
@@ -113,23 +113,21 @@ const isFormValid = computed<boolean>(() => {
 })
 
 async function onSubmit(event: FormSubmitEvent<ChannelCreateSchema>) {
-  const { data, error } = await useAsyncData(
-    'create-channel',
-    () => $fetch('/api/channel', {
+  actionToast.start()
+  emit('submitted')
+
+  try {
+    await $fetch('/api/channel', {
       method: 'PUT',
       body: event.data,
-    }),
-  )
+    })
 
-  if (error.value) {
-    console.error(error.value)
-    toast.add({ title: t('error.title'), description: '...' })
-  }
-
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.website-configured'))
     emit('success')
-    toast.add({ title: t('toast.website-configured'), description: t('toast.updating-data') })
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>

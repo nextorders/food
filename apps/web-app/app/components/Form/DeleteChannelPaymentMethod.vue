@@ -16,29 +16,27 @@ const { paymentMethodId } = defineProps<{
   paymentMethodId: string
 }>()
 
-const emit = defineEmits(['success'])
+const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 
 async function onSubmit() {
-  const { data, error } = await useAsyncData(
-    'delete-payment-method',
-    () => $fetch(`/api/channel/payment-method/${paymentMethodId}`, {
+  actionToast.start()
+  emit('submitted')
+
+  try {
+    await $fetch(`/api/channel/payment-method/${paymentMethodId}`, {
       method: 'DELETE',
-    }),
-  )
+    })
 
-  if (error.value) {
-    console.error(error.value)
-    toast.add({ title: t('error.title'), description: '...' })
-  }
-
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.payment-method-deleted'))
     emit('success')
-    toast.add({ title: t('toast.payment-method-deleted'), description: t('toast.updating-data') })
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>

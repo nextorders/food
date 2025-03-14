@@ -50,7 +50,7 @@ const { id } = defineProps<{
 const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 const link = channel.links.find((link) => link.id === id)
 
@@ -69,65 +69,22 @@ watch(iconState, () => {
   state.value.icon = iconState.value.value
 })
 
-function resetState() {
-  state.value = {
-    to: link?.to,
-    icon: link?.icon,
-  }
-}
-
-const operationId = useId()
-
 async function onSubmit(event: FormSubmitEvent<LinkUpdateSchema>) {
-  toast.add({
-    id: operationId,
-    title: t('toast.in-process'),
-    description: t('toast.updating-data'),
-    icon: 'food:loader',
-    duration: 120000,
-    ui: {
-      icon: 'animate-spin',
-    },
-  })
-
+  actionToast.start()
   emit('submitted')
 
-  const { data, error } = await useAsyncData(
-    operationId,
-    () => $fetch(`/api/link/${id}`, {
+  try {
+    await $fetch(`/api/link/${id}`, {
       method: 'PATCH',
       body: event.data,
-    }),
-  )
-
-  if (error.value) {
-    console.error(error.value)
-    toast.update(operationId, {
-      title: t('error.title'),
-      icon: 'food:close',
-      color: 'error',
-      description: '...',
-      duration: 3000,
-      ui: {
-        icon: '',
-      },
     })
-  }
 
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.link-updated'))
     emit('success')
-    toast.update(operationId, {
-      title: t('toast.link-updated'),
-      description: undefined,
-      icon: 'food:check',
-      color: 'success',
-      duration: 3000,
-      ui: {
-        icon: '',
-      },
-    })
-    resetState()
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>

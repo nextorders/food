@@ -61,7 +61,7 @@ const { categoryId } = defineProps<{
 const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 const category = channel.getMenuCategory(categoryId)
 
@@ -84,26 +84,21 @@ function resetState() {
 }
 
 async function onSubmit(event: FormSubmitEvent<MenuCategoryUpdateSchema>) {
+  actionToast.start()
   emit('submitted')
 
-  const { data, error } = await useAsyncData(
-    'update-menu-category',
-    () => $fetch(`/api/category/${categoryId}`, {
+  try {
+    await $fetch(`/api/category/${categoryId}`, {
       method: 'PATCH',
       body: event.data,
-    }),
-  )
+    })
 
-  if (error.value) {
-    console.error(error.value)
-    toast.add({ title: t('error.title'), description: '...' })
-  }
-
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.category-updated'))
     emit('success')
-    toast.add({ title: t('toast.category-updated'), description: t('toast.updating-data') })
-    resetState()
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>

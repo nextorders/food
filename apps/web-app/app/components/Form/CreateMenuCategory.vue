@@ -45,10 +45,10 @@ const { menuId } = defineProps<{
   menuId: string
 }>()
 
-const emit = defineEmits(['success'])
+const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 
 const localeState = useLocalizedState(resetState, channel.defaultLocale)
@@ -68,24 +68,21 @@ function resetState() {
 }
 
 async function onSubmit(event: FormSubmitEvent<MenuCategoryCreateSchema>) {
-  const { data, error } = await useAsyncData(
-    'create-menu-category',
-    () => $fetch('/api/category', {
+  actionToast.start()
+  emit('submitted')
+
+  try {
+    await $fetch('/api/category', {
       method: 'POST',
       body: event.data,
-    }),
-  )
+    })
 
-  if (error.value) {
-    console.error(error.value)
-    toast.add({ title: t('error.title'), description: '...' })
-  }
-
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.category-created'))
     emit('success')
-    toast.add({ title: t('toast.category-created'), description: t('toast.updating-data') })
-    resetState()
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>

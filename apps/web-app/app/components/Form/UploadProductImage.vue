@@ -37,44 +37,35 @@ const { productId } = defineProps<{
   productId: string
 }>()
 
-const emit = defineEmits(['success'])
+const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 
 const state = ref<Partial<ProductImageUploadSchema>>({
   file: undefined,
 })
 
-function resetState() {
-  state.value = {
-    file: undefined,
-  }
-}
-
 async function onSubmit(event: FormSubmitEvent<ProductImageUploadSchema>) {
-  const formData = new FormData()
-  formData.append('file', event.data.file)
+  actionToast.start()
+  emit('submitted')
 
-  const { data, error } = await useAsyncData(
-    'upload-product-image',
-    () => $fetch(`/api/product/${productId}/image`, {
+  try {
+    const formData = new FormData()
+    formData.append('file', event.data.file)
+
+    await $fetch(`/api/product/${productId}/image`, {
       method: 'POST',
       body: formData,
-    }),
-  )
+    })
 
-  if (error.value) {
-    console.error(error.value)
-    toast.add({ title: t('error.title'), description: '...' })
-  }
-
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.photo-updated'))
     emit('success')
-    toast.add({ title: t('toast.photo-loaded'), description: t('toast.updating-data') })
-    resetState()
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>

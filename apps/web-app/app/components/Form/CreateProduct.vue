@@ -52,7 +52,7 @@ import { productCreateSchema } from '@next-orders/core/shared/services/product'
 const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 
 const localeState = useLocalizedState(resetState, channel.defaultLocale)
@@ -71,58 +71,22 @@ function resetState() {
   }
 }
 
-const operationId = useId()
-
 async function onSubmit(event: FormSubmitEvent<ProductCreateSchema>) {
-  toast.add({
-    id: operationId,
-    title: t('toast.in-process'),
-    description: t('toast.updating-data'),
-    icon: 'food:loader',
-    duration: 120000,
-    ui: {
-      icon: 'animate-spin',
-    },
-  })
-
+  actionToast.start()
   emit('submitted')
 
-  const { data, error } = await useAsyncData(
-    operationId,
-    () => $fetch('/api/product', {
+  try {
+    await $fetch('/api/product', {
       method: 'POST',
       body: event.data,
-    }),
-  )
-
-  if (error.value) {
-    console.error(error.value)
-    toast.update(operationId, {
-      title: t('error.title'),
-      icon: 'food:close',
-      color: 'error',
-      description: '...',
-      duration: 3000,
-      ui: {
-        icon: '',
-      },
     })
-  }
 
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.product-created'))
     emit('success')
-    toast.update(operationId, {
-      title: t('toast.product-created'),
-      description: undefined,
-      icon: 'food:check',
-      color: 'success',
-      duration: 3000,
-      ui: {
-        icon: '',
-      },
-    })
-    resetState()
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>

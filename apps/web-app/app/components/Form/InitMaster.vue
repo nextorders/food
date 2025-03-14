@@ -78,10 +78,10 @@ import type { UserCreateSchema } from '@next-orders/core/shared/services/user'
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { userCreateSchema } from '@next-orders/core/shared/services/user'
 
-const emit = defineEmits(['success'])
+const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 
 const isPasswordVisible = ref(false)
@@ -92,31 +92,24 @@ const state = ref<Partial<UserCreateSchema>>({
   name: undefined,
 })
 
-const isFormValid = computed<boolean>(() => {
-  return (
-    !!state.value.login
-    && !!state.value.password
-  )
-})
+const isFormValid = computed<boolean>(() => !!state.value.login && !!state.value.password)
 
 async function onSubmit(event: FormSubmitEvent<UserCreateSchema>) {
-  const { data, error } = await useAsyncData(
-    'create-channel-master',
-    () => $fetch('/api/channel/master', {
+  actionToast.start()
+  emit('submitted')
+
+  try {
+    await $fetch('/api/channel/master', {
       method: 'PUT',
       body: event.data,
-    }),
-  )
+    })
 
-  if (error.value) {
-    console.error(error.value)
-    toast.add({ title: t('error.title'), description: '...' })
-  }
-
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.account-configured'))
     emit('success')
-    toast.add({ title: t('toast.account-configured'), description: t('toast.updating-data') })
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>

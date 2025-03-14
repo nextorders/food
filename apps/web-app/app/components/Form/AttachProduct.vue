@@ -40,7 +40,7 @@ const { categoryId } = defineProps<{
 const emit = defineEmits(['success', 'submitted'])
 
 const { t, locale } = useI18n()
-const toast = useToast()
+const actionToast = useActionToast()
 const channel = useChannelStore()
 
 const productInCategory = channel.getProductsInCategory(categoryId)
@@ -53,69 +53,26 @@ const state = ref<MenuCategoryAttachProductSchema>({
   productId: '',
 })
 
-function resetState() {
-  state.value = {
-    categoryId,
-    productId: '',
-  }
-}
-
 watch(selectedProduct, () => {
   state.value.productId = selectedProduct.value?.value || ''
 })
 
-const operationId = useId()
-
 async function onSubmit(event: FormSubmitEvent<MenuCategoryAttachProductSchema>) {
-  toast.add({
-    id: operationId,
-    title: t('toast.in-process'),
-    description: t('toast.updating-data'),
-    icon: 'food:loader',
-    duration: 120000,
-    ui: {
-      icon: 'animate-spin',
-    },
-  })
-
+  actionToast.start()
   emit('submitted')
 
-  const { data, error } = await useAsyncData(
-    operationId,
-    () => $fetch(`/api/category/${categoryId}/product`, {
+  try {
+    await $fetch(`/api/category/${categoryId}/product`, {
       method: 'POST',
       body: event.data,
-    }),
-  )
-
-  if (error.value) {
-    console.error(error.value)
-    toast.update(operationId, {
-      title: t('error.title'),
-      icon: 'food:close',
-      color: 'error',
-      description: '...',
-      duration: 3000,
-      ui: {
-        icon: '',
-      },
     })
-  }
 
-  if (data.value) {
     await channel.update()
+    actionToast.success(t('toast.category-updated'))
     emit('success')
-    toast.update(operationId, {
-      title: t('toast.category-updated'),
-      description: undefined,
-      icon: 'food:check',
-      color: 'success',
-      duration: 3000,
-      ui: {
-        icon: '',
-      },
-    })
-    resetState()
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
   }
 }
 </script>
