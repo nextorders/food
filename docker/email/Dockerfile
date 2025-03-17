@@ -7,7 +7,7 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 COPY apps/email ./apps/email
 RUN npm install --ignore-scripts -g pnpm && \
     pnpm i --frozen-lockfile && \
-    pnpm build --filter @next-orders/email
+    pnpm build --filter @nextorders/email
 
 # Production stage
 FROM base AS production

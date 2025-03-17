@@ -47,9 +47,9 @@
 </template>
 
 <script setup lang="ts">
-import type { ChannelPaymentMethodCreateSchema } from '@next-orders/core/shared/services/channel'
+import type { ChannelPaymentMethodCreateSchema } from '@nextorders/core/shared/services/channel'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { channelPaymentMethodCreateSchema } from '@next-orders/core/shared/services/channel'
+import { channelPaymentMethodCreateSchema } from '@nextorders/core/shared/services/channel'
 
 const emit = defineEmits(['success', 'submitted'])
 

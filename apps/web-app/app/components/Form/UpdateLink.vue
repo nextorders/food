@@ -38,9 +38,9 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkUpdateSchema } from '@next-orders/core/shared/services/link'
+import type { LinkUpdateSchema } from '@nextorders/core/shared/services/link'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { linkUpdateSchema } from '@next-orders/core/shared/services/link'
+import { linkUpdateSchema } from '@nextorders/core/shared/services/link'
 import { getLinkIconsForSelect } from '../../utils/helpers'
 
 const { id } = defineProps<{

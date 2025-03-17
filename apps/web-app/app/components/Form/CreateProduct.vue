@@ -45,9 +45,9 @@
 </template>
 
 <script setup lang="ts">
-import type { ProductCreateSchema } from '@next-orders/core/shared/services/product'
+import type { ProductCreateSchema } from '@nextorders/core/shared/services/product'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { productCreateSchema } from '@next-orders/core/shared/services/product'
+import { productCreateSchema } from '@nextorders/core/shared/services/product'
 
 const emit = defineEmits(['success', 'submitted'])
 

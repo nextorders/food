@@ -128,9 +128,9 @@
 </template>
 
 <script setup lang="ts">
-import type { ProductVariantCreateSchema } from '@next-orders/core/shared/services/product'
+import type { ProductVariantCreateSchema } from '@nextorders/core/shared/services/product'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { productVariantCreateSchema } from '@next-orders/core/shared/services/product'
+import { productVariantCreateSchema } from '@nextorders/core/shared/services/product'
 
 const { productId } = defineProps<{
   productId: string

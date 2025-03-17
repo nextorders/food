@@ -61,11 +61,11 @@ export default defineNuxtConfig({
     ],
   },
   colorMode: {
-    storageKey: 'next-orders-color-mode',
+    storageKey: 'nextorders-color-mode',
   },
   icon: {
     customCollections: [
-      { prefix: 'next-orders', dir: resolvePath('./app/assets/icons') },
+      { prefix: 'nextorders', dir: resolvePath('./app/assets/icons') },
     ],
     clientBundle: {
       scan: {

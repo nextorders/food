@@ -8,7 +8,7 @@ COPY packages ./packages
 COPY apps/website ./apps/website
 RUN npm install --ignore-scripts -g pnpm && \
     pnpm i --frozen-lockfile && \
-    pnpm build --filter @next-orders/website
+    pnpm build --filter @nextorders/website
 
 # Production stage
 FROM base AS production

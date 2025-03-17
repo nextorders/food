@@ -35,9 +35,9 @@
 </template>
 
 <script setup lang="ts">
-import type { WarehouseUpdateSchema } from '@next-orders/core/shared/services/warehouse'
+import type { WarehouseUpdateSchema } from '@nextorders/core/shared/services/warehouse'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { warehouseUpdateSchema } from '@next-orders/core/shared/services/warehouse'
+import { warehouseUpdateSchema } from '@nextorders/core/shared/services/warehouse'
 
 const { warehouseId } = defineProps<{
   warehouseId: string

@@ -1,5 +1,5 @@
 {
-  "name": "next-orders",
+  "name": "nextorders",
   "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@10.6.3",
@@ -9,10 +9,10 @@
   "homepage": "https://nextorders.space",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/next-orders/food.git"
+    "url": "git+https://github.com/nextorders/food.git"
   },
   "bugs": {
-    "url": "https://github.com/next-orders/food/issues"
+    "url": "https://github.com/nextorders/food/issues"
   },
   "keywords": [
     "ecommerce",

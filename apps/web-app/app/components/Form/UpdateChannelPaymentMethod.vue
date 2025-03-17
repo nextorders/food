@@ -39,9 +39,9 @@
 </template>
 
 <script setup lang="ts">
-import type { ChannelPaymentMethodUpdateSchema } from '@next-orders/core/shared/services/channel'
+import type { ChannelPaymentMethodUpdateSchema } from '@nextorders/core/shared/services/channel'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { channelPaymentMethodUpdateSchema } from '@next-orders/core/shared/services/channel'
+import { channelPaymentMethodUpdateSchema } from '@nextorders/core/shared/services/channel'
 
 const { paymentMethodId } = defineProps<{
   paymentMethodId: string

@@ -238,7 +238,7 @@
 </template>
 
 <script setup lang="ts">
-import type { CheckoutDraft } from '@next-orders/core/shared/services/checkout'
+import type { CheckoutDraft } from '@nextorders/core/shared/services/checkout'
 
 definePageMeta({
   layout: 'checkout',

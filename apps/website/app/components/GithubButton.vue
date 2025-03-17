@@ -1,6 +1,6 @@
 <template>
   <UTooltip text="GitHub">
-    <ULink to="https://github.com/next-orders/food" target="_blank">
+    <ULink to="https://github.com/nextorders/food" target="_blank">
       <UButton
         leading-icon="food:github"
         aria-label="GitHub"

@@ -1,6 +1,6 @@
 {
   "version": "0.7.0",
-  "title": "@next-orders/email",
+  "title": "@nextorders/email",
   "description": "Easy way to send an email through a prepared service.",
   "routes": [
     {

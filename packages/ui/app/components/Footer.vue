@@ -14,5 +14,5 @@
 </template>
 
 <script setup lang="ts">
-const { projectUrl = 'https://github.com/next-orders/food' } = defineProps<{ projectUrl?: string }>()
+const { projectUrl = 'https://github.com/nextorders/food' } = defineProps<{ projectUrl?: string }>()
 </script>

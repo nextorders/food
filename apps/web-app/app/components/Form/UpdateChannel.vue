@@ -129,9 +129,9 @@
 </template>
 
 <script setup lang="ts">
-import type { ChannelUpdateSchema } from '@next-orders/core/shared/services/channel'
+import type { ChannelUpdateSchema } from '@nextorders/core/shared/services/channel'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { channelUpdateSchema } from '@next-orders/core/shared/services/channel'
+import { channelUpdateSchema } from '@nextorders/core/shared/services/channel'
 import { getLocalizedCountryCodesForSelect } from '../../utils/helpers'
 
 const emit = defineEmits(['success', 'submitted'])

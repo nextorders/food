@@ -1,4 +1,4 @@
-import type { CheckoutDraft } from '@next-orders/core/shared/services/checkout'
+import type { CheckoutDraft } from '@nextorders/core/shared/services/checkout'
 
 export const useCheckoutStore = defineStore('checkout', () => {
   const id = ref<string | null>(null)

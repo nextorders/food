@@ -29,9 +29,9 @@
 </template>
 
 <script setup lang="ts">
-import type { ProductImageUploadSchema } from '@next-orders/core/shared/services/product'
+import type { ProductImageUploadSchema } from '@nextorders/core/shared/services/product'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { productImageUploadSchema } from '@next-orders/core/shared/services/product'
+import { productImageUploadSchema } from '@nextorders/core/shared/services/product'
 
 const { productId } = defineProps<{
   productId: string

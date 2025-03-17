@@ -37,9 +37,9 @@
 </template>
 
 <script setup lang="ts">
-import type { MenuCategoryCreateSchema } from '@next-orders/core/shared/services/menu'
+import type { MenuCategoryCreateSchema } from '@nextorders/core/shared/services/menu'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { menuCategoryCreateSchema } from '@next-orders/core/shared/services/menu'
+import { menuCategoryCreateSchema } from '@nextorders/core/shared/services/menu'
 
 const { menuId } = defineProps<{
   menuId: string

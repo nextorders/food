@@ -27,9 +27,9 @@
 </template>
 
 <script setup lang="ts">
-import type { MenuCreateSchema } from '@next-orders/core/shared/services/menu'
+import type { MenuCreateSchema } from '@nextorders/core/shared/services/menu'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { menuCreateSchema } from '@next-orders/core/shared/services/menu'
+import { menuCreateSchema } from '@nextorders/core/shared/services/menu'
 
 const emit = defineEmits(['success', 'submitted'])
 

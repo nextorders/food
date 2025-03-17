@@ -38,9 +38,9 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkCreateSchema } from '@next-orders/core/shared/services/link'
+import type { LinkCreateSchema } from '@nextorders/core/shared/services/link'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { linkCreateSchema } from '@next-orders/core/shared/services/link'
+import { linkCreateSchema } from '@nextorders/core/shared/services/link'
 import { getLinkIconsForSelect } from '../../utils/helpers'
 
 const emit = defineEmits(['success', 'submitted'])

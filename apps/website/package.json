@@ -1,5 +1,5 @@
 {
-  "name": "@next-orders/website",
+  "name": "@nextorders/website",
   "type": "module",
   "version": "0.0.0",
   "private": true,
@@ -14,7 +14,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@next-orders/ui": "workspace:*"
+    "@nextorders/ui": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "catalog:",

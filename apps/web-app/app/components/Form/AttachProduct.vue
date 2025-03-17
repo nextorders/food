@@ -29,9 +29,9 @@
 </template>
 
 <script setup lang="ts">
-import type { MenuCategoryAttachProductSchema } from '@next-orders/core/shared/services/menu'
+import type { MenuCategoryAttachProductSchema } from '@nextorders/core/shared/services/menu'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { menuCategoryAttachProductSchema } from '@next-orders/core/shared/services/menu'
+import { menuCategoryAttachProductSchema } from '@nextorders/core/shared/services/menu'
 
 const { categoryId } = defineProps<{
   categoryId: string

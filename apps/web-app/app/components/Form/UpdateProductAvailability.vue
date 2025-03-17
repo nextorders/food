@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ProductUpdateSchema } from '@next-orders/core/shared/services/product'
+import type { ProductUpdateSchema } from '@nextorders/core/shared/services/product'
 
 const { isAvailableForPurchase, productId } = defineProps<{
   isAvailableForPurchase: boolean

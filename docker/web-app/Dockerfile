@@ -8,7 +8,7 @@ COPY packages ./packages
 COPY apps/web-app ./apps/web-app
 RUN npm install --ignore-scripts -g pnpm && \
     pnpm i --frozen-lockfile && \
-    pnpm build --filter @next-orders/web-app
+    pnpm build --filter @nextorders/web-app
 
 # Production stage
 FROM base AS production
@@ -29,7 +29,7 @@ USER appuser
 # Configuration
 ARG VERSION=nightly
 LABEL maintainer="hmbanan666@hotmail.com" \
-    description="NextOrders Food App" \
+    description="NextOrders: Food" \
     version=${VERSION}
 ENV VERSION=${VERSION} \
     NODE_ENV=production \

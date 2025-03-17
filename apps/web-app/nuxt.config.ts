@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  extends: ['@next-orders/core', '@next-orders/ui'],
+  extends: ['@nextorders/core', '@nextorders/ui'],
   modules: ['@pinia/nuxt'],
   future: {
     compatibilityVersion: 4,
@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     channelId: 'web-app',
     public: {
       mediaUrl: '',
-      projectUrl: 'https://github.com/next-orders/food',
+      projectUrl: 'https://github.com/nextorders/food',
     },
   },
   i18n: {

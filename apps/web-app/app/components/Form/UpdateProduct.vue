@@ -57,9 +57,9 @@
 </template>
 
 <script setup lang="ts">
-import type { ProductUpdateSchema } from '@next-orders/core/shared/services/product'
+import type { ProductUpdateSchema } from '@nextorders/core/shared/services/product'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { productUpdateSchema } from '@next-orders/core/shared/services/product'
+import { productUpdateSchema } from '@nextorders/core/shared/services/product'
 
 const { productId } = defineProps<{
   productId: string

@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  extends: '@next-orders/ui',
+  extends: '@nextorders/ui',
   future: {
     compatibilityVersion: 4,
   },

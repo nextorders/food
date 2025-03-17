@@ -1,5 +1,5 @@
 {
-  "name": "@next-orders/web-app",
+  "name": "@nextorders/web-app",
   "type": "module",
   "version": "0.0.0",
   "private": true,
@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@neoconfetti/vue": "catalog:",
-    "@next-orders/core": "workspace:*",
-    "@next-orders/ui": "workspace:*",
+    "@nextorders/core": "workspace:*",
+    "@nextorders/ui": "workspace:*",
     "@pinia/nuxt": "catalog:",
     "ioredis": "catalog:",
     "libphonenumber-js": "catalog:",

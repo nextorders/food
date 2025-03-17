@@ -2,7 +2,7 @@
   "name": "NextOrders Space",
   "dockerComposeFile": "docker-compose.yaml",
   "service": "app",
-  "workspaceFolder": "/workspaces/next-orders/${localWorkspaceFolderBasename}",
+  "workspaceFolder": "/workspaces/nextorders/${localWorkspaceFolderBasename}",
   "postCreateCommand": "npm i -g pnpm@latest && pnpm i",
   "forwardPorts": [5432],
   "customizations": {

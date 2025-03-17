@@ -1,7 +1,7 @@
 services:
   web-app:
     container_name: web-app
-    image: ghcr.io/next-orders/food/web-app:${VERSION}
+    image: ghcr.io/nextorders/food/web-app:${VERSION}
     ports:
       - 3000:3000
     restart: unless-stopped

@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       release:
-        description: 'ex: @next-orders/website-v1.0.0'
+        description: 'ex: @nextorders/website-v1.0.0'
         type: string
         required: true
       ref:
@@ -26,7 +26,7 @@ jobs:
         id: regex-match
         with:
           text: ${{ github.event.inputs.release || github.ref_name }}
-          regex: '@next-orders\/([a-z-]+)-(v[0-9]+.[0-9]+.[0-9]+)'
+          regex: '@nextorders\/([a-z-]+)-(v[0-9]+.[0-9]+.[0-9]+)'
 
       - name: Set package in env
         id: set-package

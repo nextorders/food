@@ -50,9 +50,9 @@
 </template>
 
 <script setup lang="ts">
-import type { MenuCategoryUpdateSchema } from '@next-orders/core/shared/services/menu'
+import type { MenuCategoryUpdateSchema } from '@nextorders/core/shared/services/menu'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { menuCategoryUpdateSchema } from '@next-orders/core/shared/services/menu'
+import { menuCategoryUpdateSchema } from '@nextorders/core/shared/services/menu'
 
 const { categoryId } = defineProps<{
   categoryId: string

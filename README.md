@@ -5,7 +5,7 @@ Modern e-commerce self-hosted platform: clients will be happy to order delicious
 
 🎯 [Admin panel](https://demo.nextorders.space/command-center). Use **demo** as login and password. Read only mode 🔒👮‍♂️
 
-![main-screen-desktop](https://github.com/next-orders/food/blob/main/.github/media/main-screen-desktop.jpg?raw=true)
+![main-screen-desktop](https://github.com/nextorders/food/blob/main/.github/media/main-screen-desktop.jpg?raw=true)
 
 ## 🍕 Main idea and architecture of NextOrders
 
@@ -13,7 +13,7 @@ There is a great desire to create software that is ideal for ordering and delive
 It will be a set of solutions that can work together. It is important that each element can be easily replaced later.
 So the project does not become one big monolith.
 
-![next-orders-arch](https://github.com/next-orders/food/blob/main/.github/media/next-orders-arch.png?raw=true)
+![nextorders-arch](https://github.com/nextorders/food/blob/main/.github/media/next-orders-arch.png?raw=true)
 
 I'm currently working on the first version of the website. Next year there will be a new version that will easily replace the old one as the Main API with business logic will remain the same.
 
@@ -39,7 +39,7 @@ Let's see what happens. Give the project a star ⭐. Offer your ideas and make c
 
 ## 🌎 Locales
 
-The application has [several localizations](https://github.com/next-orders/food/tree/main/apps/web-app/i18n/locales):
+The application has [several localizations](https://github.com/nextorders/food/tree/main/apps/web-app/i18n/locales):
 
 - en | English
 - ru | Russian | Русский
@@ -47,15 +47,15 @@ The application has [several localizations](https://github.com/next-orders/food/
 
 ## 🥒 Repository structure
 
-- [Web App](https://github.com/next-orders/food/tree/main/apps/web-app): Web storefront and Command Center. Client can order delicious food.
-- [Email service](https://github.com/next-orders/food/tree/main/apps/email): Easy way to build and send html emails through a prepared service.
-- [Website](https://github.com/next-orders/food/tree/main/apps/website): Info portal and documentation.
+- [Web App](https://github.com/nextorders/food/tree/main/apps/web-app): Web storefront and Command Center. Client can order delicious food.
+- [Email service](https://github.com/nextorders/food/tree/main/apps/email): Easy way to build and send html emails through a prepared service.
+- [Website](https://github.com/nextorders/food/tree/main/apps/website): Info portal and documentation.
 
 ## ☕ How to deploy
 
 ⚠️ Warn: work in progress. Be careful with updates! Your images and DB data are at risk.
 
-You can deploy @next-orders/web-app on your server (1GB+ RAM) by this:
+You can deploy @nextorders/web-app on your server (1GB+ RAM) by this:
 
 ```shell
 # Connect over SSH and use with args: version, locale, your domain, your email
@@ -70,23 +70,23 @@ Also, you can use single Docker Image to create container:
 
 ```shell
 # Use the specific version
-docker pull ghcr.io/next-orders/food/web-app:v0.7.0
+docker pull ghcr.io/nextorders/food/web-app:v0.7.0
 
 # Warn: you need an external PostgreSQL as DB
 ```
 
-Check [**.env.example**](https://github.com/next-orders/food/tree/main/apps/web-app/.env.example) for more info about required config variables.
+Check [**.env.example**](https://github.com/nextorders/food/tree/main/apps/web-app/.env.example) for more info about required config variables.
 
 ## 🍿 How to develop
 
 You can develop in isolated container with prepared options:
 
-[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/next-orders/food)
+[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/nextorders/food)
 
 Make a fork. Or clone this repo and use standard commands:
 
 ```shell
-git clone https://github.com/next-orders/food
+git clone https://github.com/nextorders/food
 pnpm i
 pnpm dev:compose
 pnpm dev:all
@@ -94,4 +94,4 @@ pnpm dev:all
 
 ## 🍰 License
 
-This project is licensed under the **MIT License** - see the [**MIT License**](https://github.com/next-orders/food/blob/main/LICENSE) file for details.
+This project is licensed under the **MIT License** - see the [**MIT License**](https://github.com/nextorders/food/blob/main/LICENSE) file for details.
