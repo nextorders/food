@@ -34,14 +34,6 @@
       />
     </UFormField>
 
-    <UFormField :label="$t('center.data.phone')" name="phone">
-      <UInput
-        v-model="state.phone"
-        size="xl"
-        class="w-full items-center justify-center"
-      />
-    </UFormField>
-
     <UFormField :label="$t('center.data.currency')" name="currencyCode">
       <USelect
         v-model="state.currencyCode"
@@ -153,7 +145,6 @@ const state = ref<Partial<ChannelUpdateSchema>>({
   description: channel.description.find((description) => description.locale === localeState.locale.value)?.value,
   conditions: channel.conditions.find((condition) => condition.locale === localeState.locale.value)?.value,
   copyright: channel.copyright.find((copyright) => copyright.locale === localeState.locale.value)?.value,
-  phone: channel.phone ?? undefined,
   countryCode: channel.countryCode,
   currencyCode: channel.currencyCode,
   defaultLocale: channel.defaultLocale,
@@ -168,7 +159,6 @@ function resetState() {
     description: channel.description.find((description) => description.locale === localeState.locale.value)?.value,
     conditions: channel.conditions.find((condition) => condition.locale === localeState.locale.value)?.value,
     copyright: channel.copyright.find((copyright) => copyright.locale === localeState.locale.value)?.value,
-    phone: channel.phone ?? undefined,
     countryCode: channel.countryCode,
     currencyCode: channel.currencyCode,
     defaultLocale: channel.defaultLocale,

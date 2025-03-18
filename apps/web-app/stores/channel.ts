@@ -20,7 +20,6 @@ export const useChannelStore = defineStore('channel', () => {
   const timeZone = ref<string>('')
   const isPickupAvailable = ref(false)
   const isDeliveryAvailable = ref(false)
-  const phone = ref<string | null>(null)
   const conditions = ref<LocaleValue[]>([])
   const copyright = ref<LocaleValue[]>([])
   const links = ref<Link[]>([])
@@ -64,7 +63,6 @@ export const useChannelStore = defineStore('channel', () => {
     timeZone.value = data.timeZone
     isPickupAvailable.value = data.isPickupAvailable
     isDeliveryAvailable.value = data.isDeliveryAvailable
-    phone.value = data.phone
     conditions.value = data.conditions
     copyright.value = data.copyright
     links.value = data.links
@@ -147,7 +145,6 @@ export const useChannelStore = defineStore('channel', () => {
     timeZone,
     isPickupAvailable,
     isDeliveryAvailable,
-    phone,
     conditions,
     copyright,
     links,

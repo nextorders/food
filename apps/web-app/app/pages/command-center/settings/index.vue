@@ -23,9 +23,6 @@
         <div v-if="channel?.description.length" class="bg-(--ui-bg-muted) rounded-2xl px-4 py-3">
           {{ t('common.description') }}: <span class="font-semibold">{{ getLocaleValue({ values: channel?.description, locale, defaultLocale: channel?.defaultLocale }) }}</span>
         </div>
-        <div v-if="channel?.phone" class="bg-(--ui-bg-muted) rounded-2xl px-4 py-3">
-          {{ t('center.data.phone') }}: <span class="font-semibold">{{ channel.phone }}</span>
-        </div>
         <div class="bg-(--ui-bg-muted) rounded-2xl px-4 py-3">
           {{ t('center.data.currency') }}: <span class="font-semibold">{{ channel.currencyCode }}</span>
         </div>

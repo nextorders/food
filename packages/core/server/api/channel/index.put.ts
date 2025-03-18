@@ -31,7 +31,6 @@ export default defineEventHandler(async (event) => {
       description: [],
       conditions: [],
       copyright: [],
-      phone: null,
       minAmountForDelivery: null,
       isActive: true,
       isDeliveryAvailable: true,

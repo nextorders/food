@@ -8,7 +8,6 @@ declare global {
     description: LocaleValue[]
     conditions: LocaleValue[]
     copyright: LocaleValue[]
-    phone: string | null
     currencyCode: CurrencyCode
     countryCode: CountryCode
     defaultLocale: Locale

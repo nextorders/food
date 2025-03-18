@@ -15,7 +15,6 @@ export const channelUpdateSchema = z.object({
   locale,
   name: z.string().min(2).max(75).optional(),
   description: z.string().min(0).max(150).optional(),
-  phone: z.string().max(20).optional(),
   currencyCode: z.string().max(3).optional(),
   countryCode: z.string().max(3).optional(),
   defaultLocale: z.string().max(5).optional(),
