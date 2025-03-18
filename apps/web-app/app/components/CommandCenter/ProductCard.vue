@@ -4,7 +4,7 @@
       <div class="relative w-full aspect-square">
         <template v-if="isWarning">
           <div class="z-10 absolute top-1 left-1 p-2 bg-(--ui-bg-muted) rounded-xl">
-            <Icon :name="icons.alert" class="size-8 text-(--ui-warning)" />
+            <UIcon name="i-lucide-triangle-alert" class="size-8 text-(--ui-warning)" />
           </div>
         </template>
 
@@ -41,7 +41,6 @@ const { productId } = defineProps<{
 }>()
 
 const { locale } = useI18n()
-const { icons } = useAppConfig()
 const channel = useChannelStore()
 const product = channel.getProduct(productId)
 const isWarning = computed(() => product.value?.variants?.length === 0 || !product.value?.isAvailableForPurchase)

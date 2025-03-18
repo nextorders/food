@@ -1,6 +1,6 @@
 <template>
   <div class="bg-(--ui-bg-muted) rounded-xl relative min-h-28 text-center flex flex-col items-center justify-center">
-    <Icon :name="icons.moneyCard" class="size-8 text-(--ui-text-dimmed)" />
+    <UIcon name="i-lucide-credit-card" class="size-8 text-(--ui-text-dimmed)" />
 
     <h3 class="text-lg font-semibold leading-tight">
       {{ getLocaleValue({ values: paymentMethod?.name, locale, defaultLocale: channel.defaultLocale }) }}
@@ -18,7 +18,6 @@ const { paymentMethodId } = defineProps<{
 }>()
 
 const { locale } = useI18n()
-const { icons } = useAppConfig()
 const channel = useChannelStore()
 const paymentMethod = computed(() => channel.paymentMethods.find((p) => p.id === paymentMethodId))
 </script>

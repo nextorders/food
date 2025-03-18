@@ -1,14 +1,13 @@
 <template>
   <div class="z-10 w-full h-full px-4 md:px-4 flex flex-row flex-nowrap justify-between content-center items-center border-b border-(--ui-border)">
-    <NuxtLink
+    <UButton
       to="/"
-      class="mr-2 md:mr-0 flex flex-row gap-2 items-center active:scale-95 lg:hover:scale-95 lg:active:scale-90 duration-200"
+      icon="i-lucide-undo-2"
+      variant="outline"
+      color="neutral"
+      size="lg"
     >
-      <Icon :name="icons.undo" size="20" /> {{ $t('common.return') }}
-    </NuxtLink>
+      {{ $t('common.return') }}
+    </UButton>
   </div>
 </template>
-
-<script setup lang="ts">
-const { icons } = useAppConfig()
-</script>
