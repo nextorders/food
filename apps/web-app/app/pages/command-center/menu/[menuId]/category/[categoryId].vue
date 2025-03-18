@@ -27,11 +27,6 @@
 <script setup lang="ts">
 import { ModalAttachProduct, ModalUpdateMenuCategory } from '#components'
 
-definePageMeta({
-  layout: 'command-center',
-  middleware: ['02-staff'],
-})
-
 const { locale } = useI18n()
 const { params } = useRoute('command-center-menu-menuId-category-categoryId')
 const channel = useChannelStore()

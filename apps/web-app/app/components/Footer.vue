@@ -1,12 +1,19 @@
 <template>
   <div class="px-4 lg:px-6 xl:px-8 my-20 flex flex-col gap-3.5">
+    <UNavigationMenu
+      color="info"
+      variant="link"
+      :items="footerMenuItems"
+      class="w-full -ml-2.5"
+    />
+
     <div class="flex flex-col lg:flex-row gap-2 justify-between lg:items-center">
       <div class="font-sans text-xs text-(--ui-text-muted) whitespace-pre-wrap">
         {{ getLocaleValue({ values: channel.copyright, locale, defaultLocale: channel.defaultLocale }) }}
       </div>
 
       <UNavigationMenu
-        :items="socialItems"
+        :items="socialMenuItems"
         orientation="horizontal"
         variant="pill"
       />
@@ -30,9 +37,16 @@ const { locale } = useI18n()
 const { public: { projectUrl } } = useRuntimeConfig()
 const channel = useChannelStore()
 
-const socialItems = computed(() => channel.links.map((link) => ({
-  icon: link.icon,
+const footerMenuItems = computed(() => channel.links.filter((link) => link.menuId === 'footer').map((link) => ({
+  label: link.label,
   to: link.to,
+  icon: link.icon ?? undefined,
+  target: link.target,
+})))
+
+const socialMenuItems = computed(() => channel.links.filter((link) => link.menuId === 'social').map((link) => ({
+  to: link.to,
+  icon: link.icon ?? undefined,
   target: '_blank',
 })))
 </script>

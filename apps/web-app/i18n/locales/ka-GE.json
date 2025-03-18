@@ -52,6 +52,9 @@
     "actions": "Actions",
     "columns": "Columns",
     "open-page": "Open page",
+    "open-on-new-tab": "Open on new tab",
+    "yes": "Yes",
+    "no": "No",
     "ok": "OK",
     "more-information": "მეტი ინფორმაცია",
     "home": "მთავარი",
@@ -254,7 +257,11 @@
       "products": "პროდუქტები",
       "product-page": "პროდუქტის გვერდი",
       "is-active": "აქტიურია, ნაჩვენებია საიტზე",
-      "is-not-active": "არ არის აქტიური, არ არის ნაჩვენები საიტზე"
+      "is-not-active": "არ არის აქტიური, არ არის ნაჩვენები საიტზე",
+      "navigation": "Navigation",
+      "navigation-main": "Main menu",
+      "navigation-footer": "Footer menu",
+      "navigation-social": "Social networks"
     },
     "create": {
       "title": "შექმნა",

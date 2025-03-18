@@ -52,6 +52,9 @@
     "actions": "Действия",
     "columns": "Столбцы",
     "open-page": "Открыть страницу",
+    "open-on-new-tab": "Открыть в новом окне",
+    "yes": "Да",
+    "no": "Нет",
     "ok": "Хорошо",
     "more-information": "Больше информации",
     "home": "Главная",
@@ -254,7 +257,11 @@
       "products": "Продукты",
       "product-page": "Страница продукта",
       "is-active": "Активное",
-      "is-not-active": "Не активное"
+      "is-not-active": "Не активное",
+      "navigation": "Навигация",
+      "navigation-main": "Главное меню",
+      "navigation-footer": "Меню в подвале",
+      "navigation-social": "Социальные сети"
     },
     "create": {
       "title": "Создать",

@@ -5,6 +5,14 @@
     class="flex flex-col gap-3"
     @submit="onSubmit"
   >
+    <UFormField :label="$t('center.data.name')" name="name">
+      <UInput
+        v-model="state.label"
+        size="xl"
+        class="w-full items-center justify-center"
+      />
+    </UFormField>
+
     <UFormField :label="$t('center.link.url')" name="to">
       <UInput
         v-model="state.to"
@@ -18,6 +26,16 @@
         v-model="iconState"
         :icon="iconState.icon"
         :items="getLinkIconsForSelect()"
+        :placeholder="$t('common.select')"
+        size="xl"
+        class="w-full"
+      />
+    </UFormField>
+
+    <UFormField :label="$t('common.open-on-new-tab')" name="target">
+      <USelect
+        v-model="state.target"
+        :items="getTargetVariantsForSelect()"
         :placeholder="$t('common.select')"
         size="xl"
         class="w-full"
@@ -61,8 +79,10 @@ const iconState = ref({
 })
 
 const state = ref<Partial<LinkUpdateSchema>>({
+  label: link?.label,
   to: link?.to,
-  icon: link?.icon,
+  icon: link?.icon ?? undefined,
+  target: link?.target,
 })
 
 watch(iconState, () => {

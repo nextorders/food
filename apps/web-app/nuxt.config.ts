@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   extends: ['@nextorders/core', '@nextorders/ui'],
-  modules: ['@pinia/nuxt'],
+  modules: ['@pinia/nuxt', 'nuxt-tiptap-editor'],
   future: {
     compatibilityVersion: 4,
   },
@@ -25,6 +25,9 @@ export default defineNuxtConfig({
   },
   pinia: {
     storesDirs: ['./stores/**'],
+  },
+  tiptap: {
+    prefix: 'Tiptap',
   },
   compatibilityDate: '2025-02-20',
 })

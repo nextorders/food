@@ -73,7 +73,7 @@ const menuItems = computed(() => [
   },
   {
     label: t('center.menu.settings'),
-    to: '/command-center/system',
+    to: '/command-center/settings',
     icon: 'food:options',
   },
 ])

@@ -19,6 +19,7 @@
     "@pinia/nuxt": "catalog:",
     "ioredis": "catalog:",
     "libphonenumber-js": "catalog:",
+    "nuxt-tiptap-editor": "catalog:",
     "pinia": "catalog:"
   },
   "devDependencies": {

@@ -52,6 +52,9 @@
     "actions": "Actions",
     "columns": "Columns",
     "open-page": "Open page",
+    "open-on-new-tab": "Open on new tab",
+    "yes": "Yes",
+    "no": "No",
     "ok": "OK",
     "more-information": "More information",
     "home": "Home",
@@ -254,7 +257,11 @@
       "products": "Products",
       "product-page": "Product Page",
       "is-active": "Is active",
-      "is-not-active": "Is not active"
+      "is-not-active": "Is not active",
+      "navigation": "Navigation",
+      "navigation-main": "Main menu",
+      "navigation-footer": "Footer menu",
+      "navigation-social": "Social networks"
     },
     "create": {
       "title": "Create",

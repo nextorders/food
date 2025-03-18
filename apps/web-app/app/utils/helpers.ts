@@ -159,8 +159,10 @@ export function getLocalizedTimezonesForSelect(): { value: string, label: string
   ]
 }
 
-export function getLinkIconsForSelect(): { value: string, icon: string, label: string }[] {
+export function getLinkIconsForSelect(): { value: string, label: string, icon?: string, type?: 'separator' }[] {
   return [
+    { value: 'i-lucide-smartphone', icon: 'i-lucide-smartphone', label: 'Phone' },
+    { type: 'separator', label: '', value: '' },
     { value: 'simple-icons:bluesky', icon: 'simple-icons:bluesky', label: 'Bluesky' },
     { value: 'simple-icons:facebook', icon: 'simple-icons:facebook', label: 'Facebook' },
     { value: 'simple-icons:github', icon: 'simple-icons:github', label: 'GitHub' },
@@ -172,5 +174,14 @@ export function getLinkIconsForSelect(): { value: string, icon: string, label: s
     { value: 'simple-icons:whatsapp', icon: 'simple-icons:whatsapp', label: 'WhatsApp' },
     { value: 'simple-icons:x', icon: 'simple-icons:x', label: 'X' },
     { value: 'simple-icons:youtube', icon: 'simple-icons:youtube', label: 'YouTube' },
+  ]
+}
+
+export function getTargetVariantsForSelect(): { value: string, label: string }[] {
+  const { t } = useI18n()
+
+  return [
+    { value: '_self', label: t('common.no') },
+    { value: '_blank', label: t('common.yes') },
   ]
 }

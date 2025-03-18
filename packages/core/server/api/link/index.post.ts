@@ -12,6 +12,7 @@ export default defineEventHandler(async (event) => {
 
     await createLink({
       id: createId(),
+      icon: data.icon ?? null,
       ...data,
     })
 

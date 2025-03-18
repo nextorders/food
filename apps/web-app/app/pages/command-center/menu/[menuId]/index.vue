@@ -19,11 +19,6 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  layout: 'command-center',
-  middleware: ['02-staff'],
-})
-
 const { params } = useRoute('command-center-menu-menuId')
 const channel = useChannelStore()
 const menu = channel.getMenu(params.menuId)

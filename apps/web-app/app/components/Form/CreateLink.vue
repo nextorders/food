@@ -5,6 +5,14 @@
     class="flex flex-col gap-3"
     @submit="onSubmit"
   >
+    <UFormField :label="$t('center.data.name')" name="name">
+      <UInput
+        v-model="state.label"
+        size="xl"
+        class="w-full items-center justify-center"
+      />
+    </UFormField>
+
     <UFormField :label="$t('center.link.url')" name="to">
       <UInput
         v-model="state.to"
@@ -18,6 +26,16 @@
         v-model="iconState"
         :icon="iconState.icon"
         :items="getLinkIconsForSelect()"
+        :placeholder="$t('common.select')"
+        size="xl"
+        class="w-full"
+      />
+    </UFormField>
+
+    <UFormField :label="$t('common.open-on-new-tab')" name="target">
+      <USelect
+        v-model="state.target"
+        :items="getTargetVariantsForSelect()"
         :placeholder="$t('common.select')"
         size="xl"
         class="w-full"
@@ -43,6 +61,10 @@ import type { FormSubmitEvent } from '@nuxt/ui'
 import { linkCreateSchema } from '@nextorders/core/shared/services/link'
 import { getLinkIconsForSelect } from '../../utils/helpers'
 
+const { menuId } = defineProps<{
+  menuId: string
+}>()
+
 const emit = defineEmits(['success', 'submitted'])
 
 const { t } = useI18n()
@@ -56,8 +78,11 @@ const iconState = ref({
 })
 
 const state = ref<Partial<LinkCreateSchema>>({
+  menuId,
+  label: '',
   to: undefined,
   icon: undefined,
+  target: undefined,
 })
 
 watch(iconState, () => {

@@ -1,8 +1,15 @@
 <template>
-  <div class="bg-(--ui-bg-muted) rounded-xl relative min-h-28 text-center flex flex-col items-center justify-center">
-    <Icon :name="link?.icon ?? 'food:link'" class="size-8 text-(--ui-text-dimmed)" />
+  <div class="bg-(--ui-bg-muted) rounded-xl relative min-h-28 text-center flex flex-col gap-1 items-center justify-center">
+    <Icon
+      v-if="link?.icon"
+      :name="link?.icon"
+      class="size-6 text-(--ui-text-dimmed)"
+    />
 
-    <p class="text-sm text-(--ui-text-muted)">
+    <p>
+      {{ link?.label }}
+    </p>
+    <p class="text-xs text-(--ui-text-muted)">
       {{ link?.to }}
     </p>
   </div>

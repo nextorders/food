@@ -13,14 +13,13 @@
     </div>
 
     <UNavigationMenu
-      v-if="channel.phone"
-      :items="phoneItems"
+      :items="mainMenuItems"
       orientation="vertical"
     />
 
     <UNavigationMenu
       v-if="checkout.id"
-      :items="menuItems"
+      :items="deliveryMenuItems"
       orientation="vertical"
     />
 
@@ -50,18 +49,14 @@ const modalDeliveryInfo = overlay.create(ModalDeliveryInfo)
 const title = computed(() => checkout.deliveryMethod === 'DELIVERY' ? t('app.cart.delivery') : t('app.cart.pickup'))
 const todayUntil = computed(() => channel.workingDay?.isActive ? channel.workingDay.close : undefined)
 
-// Remove all except numbers and +
-const preparedPhone = computed(() => channel.phone?.replace(/[^0-9+]/g, ''))
+const mainMenuItems = computed(() => channel.links.filter((link) => link.menuId === 'main').map((link) => ({
+  label: link.label,
+  to: link.to,
+  icon: link.icon ?? undefined,
+  target: link.target,
+})))
 
-const phoneItems = computed(() => [
-  {
-    label: channel.phone ?? '',
-    icon: 'food:phone',
-    to: `tel:${preparedPhone.value}`,
-  },
-])
-
-const menuItems = computed(() => [
+const deliveryMenuItems = computed(() => [
   {
     label: title.value,
     type: 'label' as const,
