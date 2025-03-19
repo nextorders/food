@@ -72,6 +72,11 @@ const menuItems = computed(() => [
     icon: 'food:warehouse',
   },
   {
+    label: t('center.menu.pages'),
+    to: '/command-center/page',
+    icon: 'i-lucide-layers-2',
+  },
+  {
     label: t('center.menu.settings'),
     to: '/command-center/settings',
     icon: 'food:options',

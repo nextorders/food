@@ -261,8 +261,10 @@
       "navigation": "Navigation",
       "navigation-main": "Main menu",
       "navigation-footer": "Footer menu",
-      "navigation-social": "Social networks"
+      "navigation-social": "Social networks",
+      "pages": "Pages"
     },
+    "save": "Save",
     "create": {
       "title": "შექმნა",
       "product": "შექმენით ახალი პროდუქტი",
@@ -271,7 +273,8 @@
       "menu-category": "შექმენით ახალი მენიუს კატეგორია",
       "warehouse": "შექმენით ახალი საწყობი",
       "payment-method": "შექმენით ახალი გადახდის მეთოდი",
-      "link": "Create new Link"
+      "link": "Create new Link",
+      "page": "Create new Page"
     },
     "attach": {
       "title": "მიმაგრება",
@@ -294,7 +297,8 @@
       "general-data": "განაახლეთ ზოგადი მონაცემები",
       "online-ordering-time": "განაახლეთ ონლაინ შეკვეთის დრო",
       "payment-method": "განაახლეთ გადახდის მეთოდი",
-      "link": "Update Link"
+      "link": "Update Link",
+      "page": "Update Page"
     },
     "delete": {
       "title": "წაშლა",
@@ -348,6 +352,9 @@
     "link-created": "Link created!",
     "link-updated": "Link updated!",
     "link-deleted": "Link deleted!",
+    "page-created": "Page created!",
+    "page-updated": "Page updated!",
+    "page-deleted": "Page deleted!",
     "warehouse-created": "საწყობი შეიქმნა!",
     "warehouse-updated": "საწყობი განახლდა!",
     "website-configured": "საიტი სწორად არის კონფიგურირებული!",

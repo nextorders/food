@@ -31,6 +31,11 @@ const protectedRoutes: ProtectedRoute[] = [
     requiredPermissions: ['MANAGE_MENUS', 'MASTER'],
   },
   {
+    path: '/api/page',
+    methods: ['POST', 'PATCH', 'DELETE'],
+    requiredPermissions: ['MANAGE_OPTIONS', 'MASTER'],
+  },
+  {
     path: '/api/product',
     methods: ['POST', 'PATCH', 'DELETE'],
     requiredPermissions: ['MANAGE_PRODUCTS', 'MASTER'],

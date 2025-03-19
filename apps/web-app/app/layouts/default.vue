@@ -7,7 +7,7 @@
     </div>
 
     <main class="flex flex-col min-w-0 min-h-svh flex-1 pt-16 xl:pr-80 overflow-auto">
-      <UContainer class="pb-10 pt-4 max-w-7xl">
+      <UContainer class="mx-0 pb-10 pt-4 max-w-7xl">
         <slot />
       </UContainer>
 

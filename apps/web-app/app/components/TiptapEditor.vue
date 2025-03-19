@@ -109,39 +109,28 @@
 </template>
 
 <script setup lang="ts">
+const { content } = defineProps<{ content: string }>()
+
+const emit = defineEmits<{
+  change: [content: string]
+}>()
+
 const editor = useEditor({
-  content: '<p>I\'m running Tiptap with Vue.js. 🎉</p>',
-  extensions: [TiptapStarterKit.configure({
-    paragraph: {
-      HTMLAttributes: {
-        class: 'text-(--ui-text) text-base',
-      },
-    },
-    bold: {
-      HTMLAttributes: {
-        class: 'font-semibold text-(--ui-text)',
-      },
-    },
-    heading: {
-      HTMLAttributes: {
-        class: 'font-semibold text-(--ui-text)',
-      },
-    },
-    code: {
-      HTMLAttributes: {
-        class: 'font-mono text-(--ui-text)',
-      },
-    },
-    codeBlock: {
-      HTMLAttributes: {
-        class: 'font-mono text-(--ui-text) text-base bg-(--ui-bg-muted)',
-      },
-    },
-  })],
+  extensions: [TiptapStarterKit],
   editorProps: {
     attributes: {
-      class: 'prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-0 focus:outline-none text-(--ui-text)',
+      class: 'prose prose-md dark:prose-invert m-0 [&_p]:my-0 focus:outline-none text-(--ui-text)',
     },
   },
+})
+
+watch(() => editor.value?.state.doc, () => {
+  emit('change', editor.value?.getHTML() as string)
+})
+
+onMounted(() => {
+  if (unref(editor)) {
+    unref(editor)?.commands.setContent(content as string)
+  }
 })
 </script>

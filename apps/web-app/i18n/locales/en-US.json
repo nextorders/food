@@ -261,8 +261,10 @@
       "navigation": "Navigation",
       "navigation-main": "Main menu",
       "navigation-footer": "Footer menu",
-      "navigation-social": "Social networks"
+      "navigation-social": "Social networks",
+      "pages": "Pages"
     },
+    "save": "Save",
     "create": {
       "title": "Create",
       "product": "Create new Product",
@@ -271,7 +273,8 @@
       "menu-category": "Create new Menu Category",
       "warehouse": "Create new Warehouse",
       "payment-method": "Create new Payment Method",
-      "link": "Create new Link"
+      "link": "Create new Link",
+      "page": "Create new Page"
     },
     "attach": {
       "title": "Attach",
@@ -294,7 +297,8 @@
       "general-data": "Update General Data",
       "online-ordering-time": "Update Online ordering time",
       "payment-method": "Update Payment Method",
-      "link": "Update Link"
+      "link": "Update Link",
+      "page": "Update Page"
     },
     "delete": {
       "title": "Delete",
@@ -348,6 +352,9 @@
     "link-created": "Link created!",
     "link-updated": "Link updated!",
     "link-deleted": "Link deleted!",
+    "page-created": "Page created!",
+    "page-updated": "Page updated!",
+    "page-deleted": "Page deleted!",
     "warehouse-created": "Warehouse created!",
     "warehouse-updated": "Warehouse updated!",
     "website-configured": "Website configured!",

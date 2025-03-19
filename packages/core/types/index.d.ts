@@ -240,6 +240,15 @@ declare global {
     name: string
     address: string
   }
+
+  interface Page {
+    id: string
+    createdAt: string
+    updatedAt: string
+    slug: string
+    title: LocaleValue[]
+    content: string
+  }
 }
 
 export {}

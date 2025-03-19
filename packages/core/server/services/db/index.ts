@@ -7,6 +7,7 @@ interface Keys {
   userKeys: string[]
   receiverKeys: string[]
   linkKeys: string[]
+  pageKeys: string[]
 }
 
 export async function getKeys(): Promise<Keys> {
@@ -18,6 +19,7 @@ export async function getKeys(): Promise<Keys> {
   const userKeys = allKeys.filter((key) => key.startsWith('user:'))
   const receiverKeys = allKeys.filter((key) => key.startsWith('receiver:'))
   const linkKeys = allKeys.filter((key) => key.startsWith('link:'))
+  const pageKeys = allKeys.filter((key) => key.startsWith('page:'))
 
   return {
     allKeys,
@@ -28,5 +30,6 @@ export async function getKeys(): Promise<Keys> {
     userKeys,
     receiverKeys,
     linkKeys,
+    pageKeys,
   }
 }

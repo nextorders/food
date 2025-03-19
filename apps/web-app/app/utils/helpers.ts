@@ -162,6 +162,8 @@ export function getLocalizedTimezonesForSelect(): { value: string, label: string
 export function getLinkIconsForSelect(): { value: string, label: string, icon?: string, type?: 'separator' }[] {
   return [
     { value: 'i-lucide-smartphone', icon: 'i-lucide-smartphone', label: 'Phone' },
+    { value: 'i-lucide-gift', icon: 'i-lucide-gift', label: 'Gift' },
+    { value: 'i-lucide-info', icon: 'i-lucide-info', label: 'Info' },
     { type: 'separator', label: '', value: '' },
     { value: 'simple-icons:bluesky', icon: 'simple-icons:bluesky', label: 'Bluesky' },
     { value: 'simple-icons:facebook', icon: 'simple-icons:facebook', label: 'Facebook' },

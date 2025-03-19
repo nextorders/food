@@ -1,7 +1,6 @@
 <template>
   <div class="px-4 lg:px-6 xl:px-8 my-20 flex flex-col gap-3.5">
     <UNavigationMenu
-      color="info"
       variant="link"
       :items="footerMenuItems"
       class="w-full -ml-2.5"
