@@ -21,21 +21,21 @@
       />
     </UFormField>
 
-    <UFormField :label="$t('common.icon')" name="icon">
-      <USelectMenu
-        v-model="iconState"
-        :icon="iconState.icon"
-        :items="getLinkIconsForSelect()"
+    <UFormField :label="$t('common.open-on-new-tab')" name="target">
+      <USelect
+        v-model="state.target"
+        :items="getTargetVariantsForSelect()"
         :placeholder="$t('common.select')"
         size="xl"
         class="w-full"
       />
     </UFormField>
 
-    <UFormField :label="$t('common.open-on-new-tab')" name="target">
-      <USelect
-        v-model="state.target"
-        :items="getTargetVariantsForSelect()"
+    <UFormField :label="$t('common.icon')" name="icon">
+      <USelectMenu
+        v-model="iconState"
+        :icon="iconState.icon"
+        :items="getLinkIconsForSelect()"
         :placeholder="$t('common.select')"
         size="xl"
         class="w-full"

@@ -73,7 +73,7 @@ export const useChannelStore = defineStore('channel', () => {
     paymentMethods.value = data.paymentMethods as PaymentMethod[]
     warehouses.value = data.warehouses
     workingDay.value = data.workingDay as WorkingDay | undefined
-    workingDays.value = data.workingDays
+    workingDays.value = data.workingDays ? data.workingDays.sort((a, b) => a.index - b.index) : null
   }
   async function updateTimeSlots() {
     const data = await $fetch('/api/channel/time-slots', {

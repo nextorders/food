@@ -1,5 +1,5 @@
 <template>
-  <form class="space-y-4" @submit="onSubmit">
+  <form class="space-y-4" @submit="(event) => { event.preventDefault(); onSubmit() }">
     <div v-for="day in workingDays" :key="day.day">
       <div class="grid grid-cols-2 gap-4">
         <UFormField :label="`${getLocalizedDayOfWeek(day.day)}, ${$t('common.time-from')}`">
@@ -42,7 +42,7 @@ const { t } = useI18n()
 const actionToast = useActionToast()
 const channel = useChannelStore()
 
-const workingDays = ref(channel.workingDays ?? [])
+const workingDays = computed(() => channel.workingDays ?? [])
 
 async function onSubmit() {
   actionToast.start()
@@ -51,7 +51,7 @@ async function onSubmit() {
   try {
     await $fetch('/api/channel/working-day', {
       method: 'PATCH',
-      body: workingDays,
+      body: workingDays.value,
     })
 
     await channel.update()
