@@ -190,6 +190,7 @@ export function getTargetVariantsForSelect(): { value: string, label: string }[]
 
 export function getCategoryIconsForSelect(): { value: string, label: string, icon?: string }[] {
   return [
+    { value: '', icon: '', label: 'No icon' },
     { value: 'fluent-emoji-flat:avocado', icon: 'fluent-emoji-flat:avocado', label: 'Avocado' },
     { value: 'fluent-emoji-flat:bacon', icon: 'fluent-emoji-flat:bacon', label: 'Bacon' },
     { value: 'fluent-emoji-flat:bagel', icon: 'fluent-emoji-flat:bagel', label: 'Bagel' },
