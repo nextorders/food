@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full prose prose-md dark:prose-invert text-(--ui-text) [&_p]:my-0" v-html="preparedPage.content" />
+  <div class="w-full prose prose-md dark:prose-invert text-(--ui-text) [&_p]:my-0 [&_h1]:font-medium [&_h2]:font-medium" v-html="preparedPage.content" />
 </template>
 
 <script setup lang="ts">

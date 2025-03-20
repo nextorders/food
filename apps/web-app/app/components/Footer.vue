@@ -2,6 +2,7 @@
   <div class="px-4 lg:px-6 xl:px-8 my-20 flex flex-col gap-3.5">
     <UNavigationMenu
       variant="link"
+      orientation="vertical"
       :items="footerMenuItems"
       class="w-full -ml-2.5"
     />
@@ -14,7 +15,8 @@
       <UNavigationMenu
         :items="socialMenuItems"
         orientation="horizontal"
-        variant="pill"
+        variant="link"
+        class="-mx-2.5"
       />
     </div>
 

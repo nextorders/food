@@ -36,6 +36,17 @@
       />
     </UFormField>
 
+    <UFormField :label="$t('common.icon')" name="icon">
+      <USelectMenu
+        v-model="iconState"
+        :icon="iconState.icon"
+        :items="getCategoryIconsForSelect()"
+        :placeholder="$t('common.select')"
+        size="xl"
+        class="w-full"
+      />
+    </UFormField>
+
     <UButton
       type="submit"
       variant="solid"
@@ -65,6 +76,12 @@ const actionToast = useActionToast()
 const channel = useChannelStore()
 const category = channel.getMenuCategory(categoryId)
 
+const iconState = ref({
+  label: getCategoryIconsForSelect().find((icon) => icon.value === category.value?.icon)?.label ?? '',
+  value: category.value?.icon ?? '',
+  icon: category.value?.icon ?? '',
+})
+
 const localeState = useLocalizedState(resetState)
 
 const defaultName = category.value?.name.find((name) => name.locale === channel.defaultLocale)?.value
@@ -73,6 +90,7 @@ const state = ref<Partial<MenuCategoryUpdateSchema>>({
   locale: localeState.locale.value,
   name: category.value?.name.find((name) => name.locale === localeState.locale.value)?.value,
   slug: category.value?.slug,
+  icon: category.value?.icon ?? undefined,
 })
 
 function resetState() {
@@ -80,8 +98,13 @@ function resetState() {
     locale: localeState.locale.value,
     name: category.value?.name.find((name) => name.locale === localeState.locale.value)?.value,
     slug: category.value?.slug,
+    icon: category.value?.icon ?? undefined,
   }
 }
+
+watch(iconState, () => {
+  state.value.icon = iconState.value.value
+})
 
 async function onSubmit(event: FormSubmitEvent<MenuCategoryUpdateSchema>) {
   actionToast.start()

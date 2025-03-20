@@ -3,7 +3,7 @@
     <div class="px-2.5">
       <NuxtLink
         href="/"
-        class="font-medium text-xl"
+        class="font-serif font-medium text-xl"
       >
         {{ getLocaleValue({ values: channel.name, locale, defaultLocale: channel.defaultLocale }) }}
       </NuxtLink>

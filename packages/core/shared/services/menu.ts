@@ -24,6 +24,7 @@ export const menuCategoryUpdateSchema = z.object({
   locale,
   name: z.string().min(2).max(50).optional(),
   slug: z.string().min(2).max(50).optional(),
+  icon: z.string().optional(),
 })
 
 export type MenuCategoryUpdateSchema = z.output<typeof menuCategoryUpdateSchema>
