@@ -29,7 +29,9 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const metadata = await sharp(file.data.buffer as ArrayBuffer).metadata()
+    const sharpStream = sharp(file.data.buffer as ArrayBuffer)
+
+    const metadata = await sharpStream.clone().metadata()
 
     if (!metadata?.format || !ACCEPTED_IMAGE_TYPES.includes(metadata?.format) || !metadata?.width || !metadata?.height) {
       throw createError({
@@ -54,22 +56,26 @@ export default defineEventHandler(async (event) => {
 
     const mediaId = createId()
 
+    // Every size
     for (const size of IMAGE_SIZES) {
-      await sharp(file.data.buffer as ArrayBuffer)
-        .resize({ width: size, height: size })
-        .toFormat('jpg', { quality: 75 })
-        .toBuffer()
-        .then((data) => {
-          storage.setItemRaw(`${productsDirectory}/${mediaId}/${size}.jpg`, data)
-        })
+      // Every format
+      for (const format of ['jpg', 'webp'] as const) {
+        let buffer: unknown = await sharpStream
+          .clone()
+          .resize({ width: size, height: size })
+          .toFormat(format, { quality: 75 })
+          .toBuffer()
 
-      await sharp(file.data.buffer as ArrayBuffer)
-        .resize({ width: size, height: size })
-        .toFormat('webp', { quality: 75 })
-        .toBuffer()
-        .then((data) => {
-          storage.setItemRaw(`${productsDirectory}/${mediaId}/${size}.webp`, data)
-        })
+        await storage.setItemRaw(`${productsDirectory}/${mediaId}/${size}.${format}`, buffer)
+
+        // Clear
+        buffer = null
+      }
+    }
+
+    // Optional: Force garbage collection
+    if (globalThis.gc) {
+      globalThis.gc()
     }
 
     await createMedia({ id: mediaId })
@@ -86,7 +92,6 @@ export default defineEventHandler(async (event) => {
     }
 
     await patchProduct(id, { mediaId })
-
     await setChannelAsUpdated(channelId)
 
     return { ok: true }

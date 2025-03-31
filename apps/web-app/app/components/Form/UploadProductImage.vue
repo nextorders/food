@@ -73,7 +73,7 @@ async function onSubmit(event: FormSubmitEvent<ProductImageUploadSchema>) {
     })
 
     await channel.update()
-    actionToast.success(t('toast.photo-updated'))
+    actionToast.success(t('toast.photo-loaded'))
     emit('success')
   } catch (error) {
     console.error(error)
