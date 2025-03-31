@@ -29,6 +29,9 @@ export default defineEventHandler(async (event) => {
       })
     }
 
+    sharp.cache(false)
+    sharp.concurrency(1)
+
     const sharpStream = sharp(file.data.buffer as ArrayBuffer)
 
     const metadata = await sharpStream.clone().metadata()
@@ -61,7 +64,6 @@ export default defineEventHandler(async (event) => {
       // Every format
       for (const format of ['jpg', 'webp'] as const) {
         let buffer: unknown = await sharpStream
-          .clone()
           .resize({ width: size, height: size })
           .toFormat(format, { quality: 75 })
           .toBuffer()
@@ -73,10 +75,7 @@ export default defineEventHandler(async (event) => {
       }
     }
 
-    // Optional: Force garbage collection
-    if (globalThis.gc) {
-      globalThis.gc()
-    }
+    sharpStream.destroy()
 
     await createMedia({ id: mediaId })
 
