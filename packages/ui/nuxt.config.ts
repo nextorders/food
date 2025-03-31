@@ -41,6 +41,9 @@ export default defineNuxtConfig({
       { code: 'en', language: 'en-US', name: 'English', file: 'en-US.json' },
       { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru-RU.json' },
     ],
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
   },
   css: [resolvePath('./app/assets/css/main.css')],
   ui: {

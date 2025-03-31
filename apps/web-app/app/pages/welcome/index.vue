@@ -11,8 +11,8 @@
       {{ $t('init.description') }}
     </p>
 
-    <div class="mt-12 px-6 py-6 max-w-sm mx-auto bg-(--ui-bg-muted) rounded-2xl">
-      <FormInitChannel v-if="!channel?.id" />
+    <div class="mt-12 px-6 py-6 max-w-sm mx-auto bg-(--ui-bg-elevated)/50 rounded-2xl">
+      <FormInitChannel v-if="!channel.id" />
       <FormInitMaster v-else-if="!channel.masterAccountExists" />
       <div v-else>
         <h2 class="mb-4 text-xl md:text-2xl font-semibold text-center">
@@ -31,8 +31,6 @@
       </div>
     </div>
   </UContainer>
-
-  <Footer />
 </template>
 
 <script setup lang="ts">
@@ -40,6 +38,12 @@ import { vConfetti } from '@neoconfetti/vue'
 
 definePageMeta({
   layout: 'empty',
+})
+
+const { t } = useI18n()
+
+useHead({
+  title: t('init.title'),
 })
 
 const { width, height } = useWindowSize()

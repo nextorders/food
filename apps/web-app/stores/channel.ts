@@ -9,7 +9,7 @@ interface ProductWithCategory extends Product {
 }
 
 export const useChannelStore = defineStore('channel', () => {
-  const id = ref('')
+  const id = ref<string | undefined>(undefined)
   const updatedAt = ref<string | undefined>(undefined)
   const isActive = ref(false)
   const name = ref<LocaleValue[]>([])
@@ -40,42 +40,50 @@ export const useChannelStore = defineStore('channel', () => {
   const allCategories = computed<MenuCategory[]>(() => menus.value.flatMap((menu) => menu.categories))
   const currencySign = computed<string>(() => currencyCode.value ? CURRENCY_SIGNS[currencyCode.value] : '')
   const isOnMaintenance = computed<boolean>(() => isActive.value === false || !activeMenu.value || (!isPickupAvailable.value && !isDeliveryAvailable.value))
-  const isInitialized = computed<boolean>(() => !!id.value && !!masterAccountExists.value)
+  const isInitialized = computed<boolean>(() => !!id.value && masterAccountExists.value)
 
   async function update() {
-    const data = await $fetch('/api/channel', {
-      lazy: true,
-      server: true,
-      cache: 'no-cache',
-      getCachedData: undefined,
-    })
-    if (!data) {
-      throw new Error('Channel data not found')
-    }
+    try {
+      const data = await $fetch('/api/channel', {
+        lazy: true,
+        server: true,
+        cache: 'no-cache',
+        getCachedData: undefined,
+      })
+      if (!data) {
+        return
+      }
 
-    id.value = data.id
-    updatedAt.value = data.updatedAt
-    isActive.value = data.isActive
-    name.value = data.name
-    description.value = data.description
-    currencyCode.value = data.currencyCode
-    countryCode.value = data.countryCode
-    defaultLocale.value = data.defaultLocale
-    timeZone.value = data.timeZone
-    isPickupAvailable.value = data.isPickupAvailable
-    isDeliveryAvailable.value = data.isDeliveryAvailable
-    conditions.value = data.conditions
-    copyright.value = data.copyright
-    links.value = data.links
-    pages.value = data.pages
-    minAmountForDelivery.value = data.minAmountForDelivery
-    masterAccountExists.value = data.masterAccountExists
-    menus.value = data.menus
-    products.value = data.products
-    paymentMethods.value = data.paymentMethods as PaymentMethod[]
-    warehouses.value = data.warehouses
-    workingDay.value = data.workingDay as WorkingDay | undefined
-    workingDays.value = data.workingDays ? data.workingDays.sort((a, b) => a.index - b.index) : null
+      id.value = data.id
+      updatedAt.value = data.updatedAt
+      isActive.value = data.isActive
+      name.value = data.name
+      description.value = data.description
+      currencyCode.value = data.currencyCode
+      countryCode.value = data.countryCode
+      defaultLocale.value = data.defaultLocale
+      timeZone.value = data.timeZone
+      isPickupAvailable.value = data.isPickupAvailable
+      isDeliveryAvailable.value = data.isDeliveryAvailable
+      conditions.value = data.conditions
+      copyright.value = data.copyright
+      links.value = data.links
+      pages.value = data.pages
+      minAmountForDelivery.value = data.minAmountForDelivery
+      masterAccountExists.value = data.masterAccountExists
+      menus.value = data.menus
+      products.value = data.products
+      paymentMethods.value = data.paymentMethods as PaymentMethod[]
+      warehouses.value = data.warehouses
+      workingDay.value = data.workingDay as WorkingDay | undefined
+      workingDays.value = data.workingDays ? data.workingDays.sort((a, b) => a.index - b.index) : null
+    } catch (error) {
+      if (error instanceof Error) {
+        if (error.message.includes('404')) {
+          // Channel is not found
+        }
+      }
+    }
   }
   async function updateTimeSlots() {
     const data = await $fetch('/api/channel/time-slots', {

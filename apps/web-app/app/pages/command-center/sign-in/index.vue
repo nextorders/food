@@ -56,6 +56,12 @@ definePageMeta({
   layout: 'empty',
 })
 
+const { t } = useI18n()
+
+useHead({
+  title: t('center.welcome-message'),
+})
+
 const { user, fetch: refreshSession } = useUserSession()
 if (user.value?.id && user.value?.isStaff) {
   await navigateTo('/command-center')

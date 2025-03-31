@@ -1,7 +1,7 @@
 import { createId } from '@paralleldrive/cuid2'
-import { hash } from 'bcrypt'
 import { setChannelAsUpdated } from '../../../server/services/db/channel'
 import { createUser, createUserCredentials, getMaster } from '../../../server/services/db/user'
+import { hash } from '../../../server/services/password'
 import { userCreateSchema } from './../../../shared/services/user'
 
 export default defineEventHandler(async (event) => {
@@ -38,7 +38,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const password = await hash(data.password, 10)
+    const password = await hash(data.password)
 
     await createUserCredentials({
       id: createId(),

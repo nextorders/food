@@ -15,12 +15,10 @@
     "@paralleldrive/cuid2": "catalog:",
     "@vueuse/core": "catalog:",
     "@vueuse/nuxt": "catalog:",
-    "aws4fetch": "catalog:",
-    "bcrypt": "catalog:"
+    "aws4fetch": "catalog:"
   },
   "devDependencies": {
     "@nuxt/image": "catalog:",
-    "@types/bcrypt": "catalog:",
     "@types/node": "catalog:",
     "nuxt": "catalog:",
     "nuxt-auth-utils": "catalog:"

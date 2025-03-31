@@ -1,5 +1,5 @@
-import { compare } from 'bcrypt'
 import { getUser, getUserCredentialsByLogin } from '../../../server/services/db/user'
+import { verify } from '../../../server/services/password'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
       throw createError({ statusCode: 401, statusMessage: 'Wrong login or password' })
     }
 
-    const isMatch = await compare(body.password, credentials.password)
+    const isMatch = await verify(body.password, credentials.password)
     if (!isMatch) {
       throw createError({ statusCode: 401, statusMessage: 'Wrong login or password' })
     }

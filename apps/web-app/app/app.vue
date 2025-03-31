@@ -15,6 +15,7 @@
 import * as locales from '@nuxt/ui/locale'
 
 const { locale } = useI18n()
+const route = useRoute()
 
 const lang = computed(() => locales[locale.value].code)
 const dir = computed(() => locales[locale.value].dir)
@@ -35,7 +36,7 @@ await Promise.all([
   checkout.update(),
 ])
 
-if (!channel.isInitialized) {
+if (!channel.isInitialized && route.path !== '/welcome') {
   await navigateTo('/welcome')
 }
 </script>
