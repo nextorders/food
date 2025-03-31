@@ -68,34 +68,18 @@
         td: 'border-b border-(--ui-border)',
       }"
     >
-      <template #select-header="{ table: { getIsSomePageRowsSelected, getIsAllPageRowsSelected, toggleAllPageRowsSelected } }">
-        <UCheckbox
-          :model-value="getIsSomePageRowsSelected() ? 'indeterminate' : getIsAllPageRowsSelected()"
-          :on-update:model-value="(value: boolean | 'indeterminate') => toggleAllPageRowsSelected(!!value)"
-          size="lg"
-          aria-label="Select all"
-        />
-      </template>
-      <template #select-cell="{ row }">
-        <UCheckbox
-          :model-value="row.getIsSelected()"
-          :on-update:model-value="(value: boolean | 'indeterminate') => row.toggleSelected(!!value)"
-          size="lg"
-          aria-label="Select row"
-        />
-      </template>
       <template #id-cell="{ row }">
         {{ row.getValue('id') }}
       </template>
       <template #mediaId-cell="{ row }">
-        <div class="size-14 ml-auto">
+        <div class="size-14">
           <ProductImage :id="row.getValue('mediaId')" size="xs" />
         </div>
       </template>
       <template #name-cell="{ row }">
-        <p class="font-medium text-(--ui-text-highlighted)">
+        <ULink :to="`/command-center/product/${row.getValue('id')}`" class="font-medium text-(--ui-text-highlighted)">
           {{ getLocaleValue({ values: row.getValue('name'), locale, defaultLocale: channel.defaultLocale }) }}
-        </p>
+        </ULink>
       </template>
       <template #variants-cell="{ row }">
         <div class="font-medium">

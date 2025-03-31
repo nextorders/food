@@ -9,7 +9,7 @@
       <UNavigationMenu
         :items="submenuItems"
         highlight
-        class="flex-1"
+        class="flex-1 -ml-2.5"
       />
 
       <UButton
