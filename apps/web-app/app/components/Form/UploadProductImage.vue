@@ -56,7 +56,7 @@ function onFileChange(e: Event) {
     return
   }
 
-  state.value.file = input.files[0]!
+  state.value.file = input.files[0]
 }
 
 async function onSubmit(event: FormSubmitEvent<ProductImageUploadSchema>) {

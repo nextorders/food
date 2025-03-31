@@ -14,7 +14,7 @@
     </div>
 
     <div v-if="variant.calories" class="flex flex-row gap-3 justify-center text-(--ui-text-muted) text-sm">
-      <div v-if="variant.calories">
+      <div>
         {{ variant.calories }}{{ $t('common.abbreviation.kcal') }}
       </div>
       <div v-if="variant.protein">
