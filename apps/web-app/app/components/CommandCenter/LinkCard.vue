@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-(--ui-bg-muted) rounded-xl relative min-h-28 text-center flex flex-col gap-1 items-center justify-center">
-    <Icon
+  <div class="bg-(--ui-bg-elevated)/50 rounded-xl relative min-h-28 text-center flex flex-col gap-1 items-center justify-center">
+    <UIcon
       v-if="link?.icon"
       :name="link?.icon"
-      class="size-6 text-(--ui-text-dimmed)"
+      class="size-8 text-(--ui-text-dimmed)"
     />
 
     <p>

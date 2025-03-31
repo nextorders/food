@@ -1,17 +1,23 @@
 <template>
   <CommandCenterContent>
-    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-7 gap-4">
-      <div
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <NuxtLink
         v-for="category in menu?.categories"
         :key="category.id"
-        class="mb-8"
+        :to="`/command-center/menu/${menu?.id}/category/${category.id}`"
+        class="h-full"
       >
-        <div class="mb-4 pb-2 border-b border-(--ui-border) flex flex-row gap-3 items-center">
-          <h2 class="text-xl lg:text-2xl">
-            {{ getLocaleValue({ values: category.name, locale, defaultLocale: channel.defaultLocale }) }}
-          </h2>
-        </div>
-      </div>
+        <CommandCenterMenuCategoryCard
+          :name="getLocaleValue({ values: category.name, locale, defaultLocale: channel.defaultLocale })"
+          :icon="category.icon"
+        />
+      </NuxtLink>
+
+      <CommandCenterCreateCard
+        icon="i-lucide-bookmark-plus"
+        :label="t('center.add.menu-category')"
+        @click="modalCreateMenuCategory.open({ menuId: menu?.id })"
+      />
     </div>
 
     <GuideMenu />
@@ -19,6 +25,8 @@
 </template>
 
 <script setup lang="ts">
+import { ModalCreateMenuCategory } from '#components'
+
 const { params } = useRoute('command-center-menu-menuId')
 const channel = useChannelStore()
 const menu = channel.getMenu(params.menuId)
@@ -26,5 +34,7 @@ if (!menu.value) {
   throw createError({ statusCode: 404, statusMessage: 'Menu not found' })
 }
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
+const overlay = useOverlay()
+const modalCreateMenuCategory = overlay.create(ModalCreateMenuCategory)
 </script>

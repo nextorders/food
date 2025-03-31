@@ -26,11 +26,6 @@
 <script setup lang="ts">
 import { ModalUpdatePage } from '#components'
 
-definePageMeta({
-  layout: 'command-center',
-  middleware: ['02-staff'],
-})
-
 const { t, locale } = useI18n()
 const { params } = useRoute('command-center-page-pageId')
 const actionToast = useActionToast()

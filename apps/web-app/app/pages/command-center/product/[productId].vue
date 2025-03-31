@@ -29,11 +29,6 @@
 <script setup lang="ts">
 import { ModalUpdateProduct } from '#components'
 
-definePageMeta({
-  layout: 'command-center',
-  middleware: ['02-staff'],
-})
-
 const { params } = useRoute('command-center-product-productId')
 const channel = useChannelStore()
 const product = channel.getProduct(params.productId)

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-(--ui-bg-muted) rounded-xl relative min-h-28 text-center flex flex-col items-center justify-center">
+  <div class="bg-(--ui-bg-elevated)/50 rounded-xl relative min-h-28 text-center flex flex-col items-center justify-center">
     <UIcon name="i-lucide-credit-card" class="size-8 text-(--ui-text-dimmed)" />
 
     <h3 class="text-lg font-semibold leading-tight">

@@ -1,9 +1,6 @@
 <template>
   <NuxtLink :to="`/command-center/page/${id}`" class="bg-(--ui-bg-elevated)/50 rounded-xl relative min-h-28 text-center flex flex-col gap-1 items-center justify-center">
-    <UIcon
-      name="i-lucide-file-text"
-      class="size-6 text-(--ui-text-dimmed)"
-    />
+    <UIcon name="i-lucide-file-text" class="size-8 text-(--ui-text-dimmed)" />
 
     <p class="text-xs text-(--ui-text-muted)">
       /{{ page?.slug }}

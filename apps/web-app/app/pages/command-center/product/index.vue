@@ -150,11 +150,6 @@ import { ModalCreateProduct } from '#components'
 import { getPaginationRowModel } from '@tanstack/table-core'
 import { upperFirst } from 'scule'
 
-definePageMeta({
-  layout: 'command-center',
-  middleware: ['02-staff'],
-})
-
 const overlay = useOverlay()
 const modalCreateProduct = overlay.create(ModalCreateProduct)
 

@@ -5,14 +5,18 @@
         {{ t('center.menu.navigation-main') }}
       </h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         <CommandCenterLinkCard
           v-for="link in mainMenuLinks"
           :id="link.id"
           :key="link.id"
           @click="modalUpdateLink.open({ id: link.id })"
         />
-        <CommandCenterLinkCreateCard @click="modalCreateLink.open({ menuId: 'main' })" />
+        <CommandCenterCreateCard
+          icon="i-lucide-link"
+          :label="t('center.create.link')"
+          @click="modalCreateLink.open({ menuId: 'main' })"
+        />
       </div>
     </div>
 
@@ -21,14 +25,18 @@
         {{ t('center.menu.navigation-footer') }}
       </h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         <CommandCenterLinkCard
           v-for="link in footerMenuLinks"
           :id="link.id"
           :key="link.id"
           @click="modalUpdateLink.open({ id: link.id })"
         />
-        <CommandCenterLinkCreateCard @click="modalCreateLink.open({ menuId: 'footer' })" />
+        <CommandCenterCreateCard
+          icon="i-lucide-link"
+          :label="t('center.create.link')"
+          @click="modalCreateLink.open({ menuId: 'footer' })"
+        />
       </div>
     </div>
 
@@ -37,14 +45,18 @@
         {{ t('center.menu.navigation-social') }}
       </h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         <CommandCenterLinkCard
           v-for="link in socialMenuLinks"
           :id="link.id"
           :key="link.id"
           @click="modalUpdateLink.open({ id: link.id })"
         />
-        <CommandCenterLinkCreateCard @click="modalCreateLink.open({ menuId: 'social' })" />
+        <CommandCenterCreateCard
+          icon="i-lucide-link"
+          :label="t('center.create.link')"
+          @click="modalCreateLink.open({ menuId: 'social' })"
+        />
       </div>
     </div>
   </CommandCenterContent>

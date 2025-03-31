@@ -39,12 +39,7 @@ const menuItems = computed(() => [
     label: t('center.menu.dashboard'),
     to: '/command-center',
     icon: 'food:dashboard',
-  },
-  {
-    label: t('center.menu.checkouts'),
-    to: '/command-center/checkout',
-    icon: 'food:checkouts',
-    badge: '4',
+    exact: true,
   },
   {
     label: t('center.menu.products'),
@@ -75,6 +70,11 @@ const menuItems = computed(() => [
     label: t('center.menu.pages'),
     to: '/command-center/page',
     icon: 'i-lucide-layers-2',
+  },
+  {
+    label: t('center.menu.checkouts'),
+    to: '/command-center/checkout',
+    icon: 'food:checkouts',
   },
   {
     label: t('center.menu.settings'),

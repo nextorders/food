@@ -7,11 +7,12 @@
   >
     <UFormField :label="$t('common.photo')" name="file">
       <UInput
-        v-model="state.file"
+        ref="fileRef"
         type="file"
         accept="image/*"
         size="xl"
         class="w-full items-center justify-center"
+        @change="onFileChange"
       />
     </UFormField>
 
@@ -46,6 +47,17 @@ const channel = useChannelStore()
 const state = ref<Partial<ProductImageUploadSchema>>({
   file: undefined,
 })
+
+const fileRef = ref<HTMLInputElement>()
+
+function onFileChange(e: Event) {
+  const input = e.target as HTMLInputElement
+  if (!input.files?.length) {
+    return
+  }
+
+  state.value.file = input.files[0]!
+}
 
 async function onSubmit(event: FormSubmitEvent<ProductImageUploadSchema>) {
   actionToast.start()

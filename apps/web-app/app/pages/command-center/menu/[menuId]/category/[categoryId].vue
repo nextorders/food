@@ -17,7 +17,9 @@
         :key="product.id"
         :product-id="product.id"
       />
-      <CommandCenterProductAttachCard
+      <CommandCenterCreateCard
+        icon="food:cooking"
+        :label="t('center.attach.product')"
         @click="modalAttachProduct.open({ categoryId: category?.id ?? '' })"
       />
     </div>
@@ -27,7 +29,7 @@
 <script setup lang="ts">
 import { ModalAttachProduct, ModalUpdateMenuCategory } from '#components'
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const { params } = useRoute('command-center-menu-menuId-category-categoryId')
 const channel = useChannelStore()
 const category = channel.getMenuCategory(params.categoryId)

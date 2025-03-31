@@ -1,19 +1,17 @@
 <template>
   <CommandCenterContent>
-    <div>
-      <h2 class="mb-4 text-xl md:text-2xl font-semibold">
-        {{ t('center.data.payment-methods-title') }}
-      </h2>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-        <CommandCenterPaymentMethodCard
-          v-for="paymentMethod in channel.paymentMethods"
-          :key="paymentMethod.id"
-          :payment-method-id="paymentMethod.id"
-          @click="modalUpdateChannelPaymentMethod.open({ paymentMethodId: paymentMethod.id })"
-        />
-        <CommandCenterPaymentMethodCreateCard @click="modalCreateChannelPaymentMethod.open()" />
-      </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      <CommandCenterPaymentMethodCard
+        v-for="paymentMethod in channel.paymentMethods"
+        :key="paymentMethod.id"
+        :payment-method-id="paymentMethod.id"
+        @click="modalUpdateChannelPaymentMethod.open({ paymentMethodId: paymentMethod.id })"
+      />
+      <CommandCenterCreateCard
+        icon="i-lucide-banknote"
+        :label="t('center.create.payment-method')"
+        @click="modalCreateChannelPaymentMethod.open()"
+      />
     </div>
   </CommandCenterContent>
 </template>

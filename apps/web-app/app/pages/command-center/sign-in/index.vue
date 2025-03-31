@@ -62,10 +62,7 @@ useHead({
   title: t('center.welcome-message'),
 })
 
-const { user, fetch: refreshSession } = useUserSession()
-if (user.value?.id && user.value?.isStaff) {
-  await navigateTo('/command-center')
-}
+const { fetch: refreshSession } = useUserSession()
 
 const toast = useToast()
 
