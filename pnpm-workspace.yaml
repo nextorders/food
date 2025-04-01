@@ -10,9 +10,9 @@ catalog:
   '@dicebear/core': ^9.2.2
   '@iconify-json/circle-flags': ^1.2.6
   '@iconify-json/fluent-emoji-flat': ^1.2.3
-  '@iconify-json/lucide': ^1.2.33
+  '@iconify-json/lucide': ^1.2.34
   '@iconify-json/pixelarticons': ^1.2.2
-  '@iconify-json/simple-icons': ^1.2.29
+  '@iconify-json/simple-icons': ^1.2.30
   '@neoconfetti/vue': ^2.2.1
   '@nuxt/devtools': ^2.3.2
   '@nuxt/image': ^1.10.0
@@ -23,11 +23,11 @@ catalog:
   '@semantic-release/exec': ^7.0.3
   '@semantic-release/git': ^10.0.1
   '@tailwindcss/typography': ^0.5.16
-  '@types/node': ^22.13.14
+  '@types/node': ^22.13.16
   '@types/nodemailer': ^6.4.17
   '@vitejs/plugin-vue': ^5.2.3
-  '@vitest/browser': ^3.0.9
-  '@vitest/coverage-v8': ^3.0.9
+  '@vitest/browser': ^3.1.1
+  '@vitest/coverage-v8': ^3.1.1
   '@vue-email/components': ^0.0.21
   '@vue-email/render': ^0.0.9
   '@vueuse/core': ^13.0.0
@@ -41,8 +41,8 @@ catalog:
   libphonenumber-js: ^1.12.6
   lint-staged: ^15.5.0
   nodemailer: ^6.10.0
-  nuxt: ^3.16.1
-  nuxt-auth-utils: ^0.5.17
+  nuxt: ^3.16.2
+  nuxt-auth-utils: ^0.5.18
   nuxt-tiptap-editor: ^2.1.4
   nuxt-zod-i18n: ^1.11.5
   pinia: ^3.0.1
@@ -51,9 +51,9 @@ catalog:
   semantic-release-monorepo: ^8.0.2
   sharp: ^0.33.5
   typescript: ^5.8.2
-  vite: ^6.2.3
+  vite: ^6.2.4
   vite-tsconfig-paths: ^5.1.4
-  vitest: ^3.0.9
+  vitest: ^3.1.1
   vitest-browser-vue: ^0.2.0
   zod: ^3.24.2
 ignoredBuiltDependencies:
