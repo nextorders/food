@@ -1,11 +1,8 @@
-import { setChannelAsUpdated } from '../../../../server/services/db/channel'
 import { getMenuCategory, patchMenuCategory } from '../../../../server/services/db/menu'
 import { menuCategoryUpdateSchema } from './../../../../shared/services/menu'
 
 export default defineEventHandler(async (event) => {
   try {
-    const { channelId } = useRuntimeConfig()
-
     const id = getRouterParam(event, 'id')
     if (!id) {
       throw createError({
@@ -31,8 +28,6 @@ export default defineEventHandler(async (event) => {
       ...data,
       name: updatedName,
     })
-
-    await setChannelAsUpdated(channelId)
 
     return {
       ok: true,

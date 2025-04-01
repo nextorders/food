@@ -1,11 +1,9 @@
 import { createId } from '@paralleldrive/cuid2'
-import { setChannelAsUpdated } from '../../../../server/services/db/channel'
 import { createProductVariant } from '../../../../server/services/db/product'
 import { productVariantCreateSchema } from './../../../../shared/services/product'
 
 export default defineEventHandler(async (event) => {
   try {
-    const { channelId } = useRuntimeConfig()
     const body = await readBody(event)
     const data = productVariantCreateSchema.parse(body)
 
@@ -20,8 +18,6 @@ export default defineEventHandler(async (event) => {
       fat: data.fat ?? null,
       carbohydrate: data.carbohydrate ?? null,
     })
-
-    await setChannelAsUpdated(channelId)
 
     return {
       ok: true,

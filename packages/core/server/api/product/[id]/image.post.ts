@@ -1,6 +1,5 @@
 import { createId } from '@paralleldrive/cuid2'
 import sharp from 'sharp'
-import { setChannelAsUpdated } from '../../../../server/services/db/channel'
 import { createMedia, deleteMedia } from '../../../../server/services/db/media'
 import { getProduct, patchProduct } from '../../../../server/services/db/product'
 
@@ -9,7 +8,7 @@ const IMAGE_SIZES = [120, 300, 600, 800]
 
 export default defineEventHandler(async (event) => {
   try {
-    const { productsDirectory, channelId } = useRuntimeConfig()
+    const { productsDirectory } = useRuntimeConfig()
     const storage = useStorage('s3')
 
     const id = getRouterParam(event, 'id')
@@ -91,7 +90,6 @@ export default defineEventHandler(async (event) => {
     }
 
     await patchProduct(id, { mediaId })
-    await setChannelAsUpdated(channelId)
 
     return { ok: true }
   } catch (error) {

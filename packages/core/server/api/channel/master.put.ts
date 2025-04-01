@@ -1,13 +1,10 @@
 import { createId } from '@paralleldrive/cuid2'
-import { setChannelAsUpdated } from '../../../server/services/db/channel'
 import { createUser, createUserCredentials, getMaster } from '../../../server/services/db/user'
 import { hash } from '../../../server/services/password'
 import { userCreateSchema } from './../../../shared/services/user'
 
 export default defineEventHandler(async (event) => {
   try {
-    const { channelId } = useRuntimeConfig()
-
     // Guard: If user already exists
     const master = await getMaster()
     if (master) {
@@ -46,8 +43,6 @@ export default defineEventHandler(async (event) => {
       login: data.login,
       password,
     })
-
-    await setChannelAsUpdated(channelId)
 
     return { ok: true }
   } catch (error) {

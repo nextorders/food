@@ -1,10 +1,8 @@
-import { setChannelAsUpdated } from '../../../server/services/db/channel'
 import { getPage, patchPage } from '../../../server/services/db/page'
 import { pageUpdateSchema } from '../../../shared/services/page'
 
 export default defineEventHandler(async (event) => {
   try {
-    const { channelId } = useRuntimeConfig()
     const id = getRouterParam(event, 'id')
     if (!id) {
       throw createError({
@@ -30,7 +28,6 @@ export default defineEventHandler(async (event) => {
       ...data,
       title: updatedTitle,
     })
-    await setChannelAsUpdated(channelId)
 
     return { ok: true }
   } catch (error) {

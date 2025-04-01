@@ -1,10 +1,8 @@
-import { setChannelAsUpdated } from '../../../server/services/db/channel'
 import { getLink, patchLink } from '../../../server/services/db/link'
 import { linkUpdateSchema } from '../../../shared/services/link'
 
 export default defineEventHandler(async (event) => {
   try {
-    const { channelId } = useRuntimeConfig()
     const id = getRouterParam(event, 'id')
     if (!id) {
       throw createError({
@@ -25,7 +23,6 @@ export default defineEventHandler(async (event) => {
     }
 
     await patchLink(id, data)
-    await setChannelAsUpdated(channelId)
 
     return { ok: true }
   } catch (error) {

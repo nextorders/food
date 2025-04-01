@@ -1,11 +1,8 @@
-import { setChannelAsUpdated } from '../../../../server/services/db/channel'
 import { getProductVariant, patchProductVariant } from '../../../../server/services/db/product'
 import { productVariantUpdateSchema } from './../../../../shared/services/product'
 
 export default defineEventHandler(async (event) => {
   try {
-    const { channelId } = useRuntimeConfig()
-
     const id = getRouterParam(event, 'id')
     if (!id) {
       throw createError({
@@ -31,8 +28,6 @@ export default defineEventHandler(async (event) => {
       ...data,
       name,
     })
-
-    await setChannelAsUpdated(channelId)
 
     return {
       ok: true,

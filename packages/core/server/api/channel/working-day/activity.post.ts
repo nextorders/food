@@ -1,11 +1,8 @@
-import { setChannelAsUpdated } from '../../../../server/services/db/channel'
 import { changeWorkingDayActivity, getWorkingDays } from '../../../../server/services/db/work'
 import { workingDayActivityUpdateSchema } from './../../../../shared/services/workingDay'
 
 export default defineEventHandler(async (event) => {
   try {
-    const { channelId } = useRuntimeConfig()
-
     const body = await readBody(event)
     const data = workingDayActivityUpdateSchema.parse(body)
 
@@ -19,8 +16,6 @@ export default defineEventHandler(async (event) => {
 
     const day = workingDays.find((workingDay) => workingDay.day === data.day)
     await changeWorkingDayActivity(data.day, !day?.isActive)
-
-    await setChannelAsUpdated(channelId)
 
     return { ok: true }
   } catch (error) {

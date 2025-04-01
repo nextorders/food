@@ -1,11 +1,8 @@
-import { setChannelAsUpdated } from '../../../../../server/services/db/channel'
 import { detachProductFromMenuCategory, getMenuCategory } from '../../../../../server/services/db/menu'
 import { menuCategoryAttachProductSchema } from './../../../../../shared/services/menu'
 
 export default defineEventHandler(async (event) => {
   try {
-    const { channelId } = useRuntimeConfig()
-
     const id = getRouterParam(event, 'id')
     if (!id) {
       throw createError({
@@ -34,8 +31,6 @@ export default defineEventHandler(async (event) => {
     }
 
     const updatedCategory = await detachProductFromMenuCategory(id, data.productId)
-
-    await setChannelAsUpdated(channelId)
 
     return {
       ok: true,
