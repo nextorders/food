@@ -1,5 +1,4 @@
 <template>
-  <CommandCenterStaffBar v-if="user?.isStaff" class="mb-4" />
   <MaintenanceMessage v-if="channel.isOnMaintenance" />
 
   <h1 class="mb-2 text-3xl md:text-4xl font-medium">
@@ -19,7 +18,6 @@
 
 <script setup lang="ts">
 const { locale } = useI18n()
-const { user } = useUserSession()
 const channel = useChannelStore()
 
 useHead({

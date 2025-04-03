@@ -1,13 +1,15 @@
 <template>
-  <NuxtLink :to="`/command-center/page/${id}`" class="bg-(--ui-bg-elevated)/50 rounded-xl relative min-h-28 text-center flex flex-col gap-1 items-center justify-center">
-    <UIcon name="i-lucide-file-text" class="size-8 text-(--ui-text-dimmed)" />
+  <NuxtLink :to="`/command-center/page/${id}`">
+    <CommandCenterActiveCard>
+      <UIcon name="i-lucide-file-text" class="size-8 text-(--ui-text-dimmed)" />
 
-    <p class="text-xs text-(--ui-text-muted)">
-      /{{ page?.slug }}
-    </p>
-    <p>
-      {{ getLocaleValue({ values: page?.title, locale, defaultLocale: channel.defaultLocale }) }}
-    </p>
+      <p class="text-xs text-(--ui-text-muted)">
+        /{{ page?.slug }}
+      </p>
+      <p>
+        {{ getLocaleValue({ values: page?.title, locale, defaultLocale: channel.defaultLocale }) }}
+      </p>
+    </CommandCenterActiveCard>
   </NuxtLink>
 </template>
 

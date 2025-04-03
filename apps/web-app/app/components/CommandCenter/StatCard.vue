@@ -1,8 +1,8 @@
 <template>
-  <CommandCenterActiveCard class="min-h-56 h-full">
+  <CommandCenterActiveCard class="min-h-52">
     <UIcon :name="icon" class="size-8 text-(--ui-text-dimmed)" />
 
-    <h3 class="text-3xl font-semibold text-center">
+    <h3 class="text-2xl font-semibold text-center">
       {{ title }}
     </h3>
 

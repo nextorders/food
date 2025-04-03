@@ -29,6 +29,8 @@
     />
   </div>
 
+  <StaffCard class="mb-4 mx-2" />
+
   <div class="shrink-0 flex items-center gap-1.5 py-2 px-2">
     <ColorModeToggle />
     <LanguageSelect />

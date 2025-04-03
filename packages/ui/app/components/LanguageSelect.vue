@@ -4,6 +4,8 @@
     :items="items"
     :search-input="{ icon: 'i-lucide-search' }"
     :icon="value?.icon"
+    color="neutral"
+    variant="outline"
     class="w-40"
     @update:model-value="value ? setLocale(value.name) : undefined"
   />

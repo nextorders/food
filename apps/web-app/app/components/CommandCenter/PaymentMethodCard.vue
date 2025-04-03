@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-(--ui-bg-elevated)/50 rounded-xl relative min-h-40 text-center flex flex-col items-center justify-center">
+  <CommandCenterActiveCard>
     <UIcon name="i-lucide-credit-card" class="size-8 text-(--ui-text-dimmed)" />
 
     <h3 class="text-lg font-semibold leading-tight">
@@ -9,7 +9,7 @@
     <p class="text-sm text-(--ui-text-muted)">
       {{ paymentMethod?.type }}
     </p>
-  </div>
+  </CommandCenterActiveCard>
 </template>
 
 <script setup lang="ts">
