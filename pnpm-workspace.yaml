@@ -23,7 +23,7 @@ catalog:
   '@semantic-release/exec': ^7.0.3
   '@semantic-release/git': ^10.0.1
   '@tailwindcss/typography': ^0.5.16
-  '@types/node': ^22.13.16
+  '@types/node': ^22.14.0
   '@types/nodemailer': ^6.4.17
   '@vitejs/plugin-vue': ^5.2.3
   '@vitest/browser': ^3.1.1
@@ -51,7 +51,7 @@ catalog:
   semantic-release-monorepo: ^8.0.2
   sharp: ^0.33.5
   typescript: ^5.8.2
-  vite: ^6.2.4
+  vite: ^6.2.5
   vite-tsconfig-paths: ^5.1.4
   vitest: ^3.1.1
   vitest-browser-vue: ^0.2.0
