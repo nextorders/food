@@ -1,5 +1,5 @@
 <template>
-  <CommandCenterActiveCard>
+  <CommandCenterActiveCard class="text-center">
     <UIcon name="i-lucide-credit-card" class="size-8 text-(--ui-text-dimmed)" />
 
     <h3 class="text-lg font-semibold leading-tight">

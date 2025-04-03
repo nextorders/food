@@ -1,5 +1,5 @@
 <template>
-  <CommandCenterActiveCard>
+  <CommandCenterActiveCard class="text-center">
     <UIcon
       v-if="link?.icon"
       :name="link?.icon"

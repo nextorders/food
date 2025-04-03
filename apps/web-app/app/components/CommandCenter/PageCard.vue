@@ -1,6 +1,6 @@
 <template>
   <NuxtLink :to="`/command-center/page/${id}`">
-    <CommandCenterActiveCard>
+    <CommandCenterActiveCard class="text-center">
       <UIcon name="i-lucide-file-text" class="size-8 text-(--ui-text-dimmed)" />
 
       <p class="text-xs text-(--ui-text-muted)">

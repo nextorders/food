@@ -1,12 +1,11 @@
 <template>
-  <CommandCenterActiveCard>
+  <CommandCenterActiveCard class="text-center">
     <UIcon name="i-lucide-map-pin-house" class="size-8 text-(--ui-text-dimmed)" />
 
     <h3 class="text-xl font-semibold">
       {{ warehouse?.name }}
     </h3>
-
-    <div>{{ warehouse?.address }}</div>
+    <p>{{ warehouse?.address }}</p>
   </CommandCenterActiveCard>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
-  <CommandCenterActiveCard>
-    <div class="text-lg font-medium md:leading-tight text-center">
+  <CommandCenterActiveCard class="text-center">
+    <div class="text-lg font-medium md:leading-tight">
       {{ getLocaleValue({ values: variant.name, locale, defaultLocale: channel.defaultLocale }) }}
     </div>
 

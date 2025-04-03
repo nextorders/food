@@ -1,6 +1,6 @@
 <template>
-  <NuxtLink :to="`/command-center/product/${productId}`">
-    <div class="bg-(--ui-bg-elevated)/50 rounded-xl flex flex-col justify-between h-full">
+  <NuxtLink :to="`/command-center/product/${productId}`" class="hover:scale-95 active:scale-90 duration-200">
+    <div class="bg-(--ui-bg-elevated)/50 rounded-xl border border-(--ui-border) flex flex-col justify-between h-full">
       <div class="relative w-full aspect-square">
         <template v-if="isWarning">
           <div class="z-10 absolute top-1 left-1 p-2 bg-(--ui-bg-muted) rounded-xl">

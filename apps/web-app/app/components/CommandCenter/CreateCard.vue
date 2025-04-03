@@ -4,7 +4,7 @@
 
     <UButton
       size="md"
-      variant="soft"
+      variant="subtle"
       color="neutral"
       :label="label"
     />
