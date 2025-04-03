@@ -247,6 +247,7 @@
     "menu": {
       "dashboard": "Control Panel",
       "title": "Menu",
+      "category": "Category",
       "menu-page": "Menu Page",
       "checkouts": "Checkouts",
       "clients": "Clients",

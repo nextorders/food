@@ -11,7 +11,7 @@
       />
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-7 gap-4">
+    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
       <CommandCenterProductCard
         v-for="product in category?.products"
         :key="product.id"

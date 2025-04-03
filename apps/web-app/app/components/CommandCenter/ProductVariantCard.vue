@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-(--ui-bg-elevated)/50 flex flex-col gap-2 justify-center rounded-xl">
+  <CommandCenterActiveCard>
     <div class="text-lg font-medium md:leading-tight text-center">
       {{ getLocaleValue({ values: variant.name, locale, defaultLocale: channel.defaultLocale }) }}
     </div>
@@ -27,7 +27,7 @@
         {{ variant.carbohydrate }}{{ $t('common.abbreviation.g') }}
       </div>
     </div>
-  </div>
+  </CommandCenterActiveCard>
 </template>
 
 <script setup lang="ts">

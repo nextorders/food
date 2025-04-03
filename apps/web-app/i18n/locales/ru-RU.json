@@ -247,6 +247,7 @@
     "menu": {
       "dashboard": "Панель управления",
       "title": "Меню",
+      "category": "Категория",
       "menu-page": "Страница меню",
       "checkouts": "Заявки",
       "clients": "Клиенты",

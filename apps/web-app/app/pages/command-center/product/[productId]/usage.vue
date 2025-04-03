@@ -85,7 +85,6 @@ import { upperFirst } from 'scule'
 import { h, resolveComponent } from 'vue'
 
 const UButton = resolveComponent('UButton')
-const UCheckbox = resolveComponent('UCheckbox')
 const UDropdownMenu = resolveComponent('UDropdownMenu')
 
 const { locale, t } = useI18n()
@@ -99,7 +98,9 @@ const columnFilters = ref([{
   id: 'id',
   value: '',
 }])
-const columnVisibility = ref()
+const columnVisibility = ref({
+  id: false,
+})
 const rowSelection = ref()
 const pagination = ref({
   pageIndex: 0,
@@ -107,22 +108,6 @@ const pagination = ref({
 })
 
 const columns: TableColumn<MenuCategory>[] = [{
-  id: 'select',
-  header: ({ table }) => h(UCheckbox, {
-    'modelValue': table.getIsSomePageRowsSelected() ? 'indeterminate' : table.getIsAllPageRowsSelected(),
-    'onUpdate:modelValue': (value: boolean | 'indeterminate') => table.toggleAllPageRowsSelected(!!value),
-    'ariaLabel': 'Select all',
-    'size': 'lg',
-  }),
-  cell: ({ row }) => h(UCheckbox, {
-    'modelValue': row.getIsSelected(),
-    'onUpdate:modelValue': (value: boolean | 'indeterminate') => row.toggleSelected(!!value),
-    'ariaLabel': 'Select row',
-    'size': 'lg',
-  }),
-  enableSorting: false,
-  enableHiding: false,
-}, {
   accessorKey: 'id',
   header: 'Id',
   cell: ({ row }) => `${row.getValue('id')}`,
@@ -132,13 +117,13 @@ const columns: TableColumn<MenuCategory>[] = [{
   cell: ({ row }) => `${row.getValue('menuId')}`,
 }, {
   accessorKey: 'name',
-  header: 'Name',
+  header: t('center.menu.category'),
   cell: ({ row }) => {
     return getLocaleValue({ values: row.getValue('name'), locale: locale.value, defaultLocale: channel.defaultLocale })
   },
 }, {
   accessorKey: 'products',
-  header: 'Products count',
+  header: t('center.menu.products'),
   cell: ({ row }) => {
     const products = row.getValue('products') as []
     return products?.length

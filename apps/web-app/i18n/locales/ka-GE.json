@@ -247,6 +247,7 @@
     "menu": {
       "dashboard": "მართვის პანელი",
       "title": "მენიუ",
+      "category": "Category",
       "menu-page": "მენიუს გვერდი",
       "checkouts": "შეკვეთები",
       "clients": "კლიენტები",

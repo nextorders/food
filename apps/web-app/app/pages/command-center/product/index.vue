@@ -153,10 +153,6 @@ const pagination = ref({
 })
 
 const columns: Ref<TableColumn<Product>[]> = ref([{
-  id: 'select',
-  enableSorting: false,
-  enableHiding: false,
-}, {
   accessorKey: 'id',
   header: 'Id',
 }, {
