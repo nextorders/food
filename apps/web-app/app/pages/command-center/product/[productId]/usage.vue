@@ -43,7 +43,6 @@
       ref="table"
       v-model:column-filters="columnFilters"
       v-model:column-visibility="columnVisibility"
-      v-model:row-selection="rowSelection"
       v-model:pagination="pagination"
       :data="data"
       :columns="columns"
@@ -101,7 +100,6 @@ const columnFilters = ref([{
 const columnVisibility = ref({
   id: false,
 })
-const rowSelection = ref()
 const pagination = ref({
   pageIndex: 0,
   pageSize: 10,
