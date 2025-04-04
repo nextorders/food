@@ -1,7 +1,7 @@
 <template>
   <UModal :title="$t('center.create.menu')">
     <template #body>
-      <FormCreateMenu @success="closeAll" />
+      <FormCreateMenu @submitted="closeAll" @success="closeAll" />
     </template>
   </UModal>
 </template>

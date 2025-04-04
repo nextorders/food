@@ -21,6 +21,11 @@ const protectedRoutes: ProtectedRoute[] = [
     requiredPermissions: ['MANAGE_CHECKOUTS', 'MASTER'],
   },
   {
+    path: '/api/checkout/receiver',
+    methods: ['POST', 'PATCH', 'DELETE'],
+    requiredPermissions: ['MANAGE_OPTIONS', 'MASTER'],
+  },
+  {
     path: '/api/link',
     methods: ['POST', 'PATCH', 'DELETE'],
     requiredPermissions: ['MANAGE_OPTIONS', 'MASTER'],

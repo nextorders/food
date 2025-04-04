@@ -6,6 +6,7 @@ import { getMenus } from '../../../server/services/db/menu'
 import { getPages } from '../../../server/services/db/page'
 import { getPaymentMethods } from '../../../server/services/db/payment'
 import { getProducts } from '../../../server/services/db/product'
+import { getCheckoutReceivers } from '../../../server/services/db/receiver'
 import { getMaster } from '../../../server/services/db/user'
 import { getWarehouses } from '../../../server/services/db/warehouse'
 import { getWorkingDays } from '../../../server/services/db/work'
@@ -61,7 +62,14 @@ export default defineCachedEventHandler(async () => {
       })
     }
 
-    const { menuKeys, productKeys, warehouseKeys, paymentMethodKeys, linkKeys, pageKeys } = await getKeys()
+    const {
+      menuKeys,
+      productKeys,
+      warehouseKeys,
+      paymentMethodKeys,
+      linkKeys,
+      pageKeys,
+    } = await getKeys()
 
     const menus = await getMenus(menuKeys)
     const products = await getProducts(productKeys)
@@ -69,6 +77,7 @@ export default defineCachedEventHandler(async () => {
     const paymentMethods = await getPaymentMethods(paymentMethodKeys)
     const links = await getLinks(linkKeys)
     const pages = await getPages(pageKeys)
+    const receivers = await getCheckoutReceivers()
 
     const workingDays = await getWorkingDays()
 
@@ -89,6 +98,7 @@ export default defineCachedEventHandler(async () => {
       paymentMethods,
       links,
       pages,
+      receivers,
     }
   } catch (error) {
     throw errorResolver(error)

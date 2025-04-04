@@ -174,32 +174,15 @@ declare global {
     productVariantId: string
   }
 
-  type CheckoutReceiver = {
+  interface CheckoutReceiver {
     id: string
     createdAt: string
     updatedAt: string
-  } & CheckoutReceiverTypes
-
-  type CheckoutReceiverTypes = CheckoutReceiverTypeEmail | CheckoutReceiverTypeHttp
-
-  interface CheckoutReceiverTypeEmail {
-    type: 'EMAIL'
-    data: {
-      url: string
-      method: 'POST'
-      token: string
-      to: string
-      template: 'NEW_CHECKOUT'
-    }
-  }
-
-  interface CheckoutReceiverTypeHttp {
-    type: 'HTTP'
-    data: {
-      url: string
-      method: 'POST'
-      token: string
-    }
+    name: string
+    url: string
+    method: 'POST' | 'PUT'
+    authorization?: string
+    body?: Record<string, string>
   }
 
   interface CheckoutRegistryItem {

@@ -24,6 +24,7 @@ export const useChannelStore = defineStore('channel', () => {
   const copyright = ref<LocaleValue[]>([])
   const links = ref<Link[]>([])
   const pages = ref<Page[]>([])
+  const receivers = ref<CheckoutReceiver[]>([])
   const minAmountForDelivery = ref<number | null>(null)
   const masterAccountExists = ref(false)
   const workingDay = ref<WorkingDay | undefined>(undefined)
@@ -69,6 +70,7 @@ export const useChannelStore = defineStore('channel', () => {
       copyright.value = data.copyright
       links.value = data.links
       pages.value = data.pages
+      receivers.value = data.receivers
       minAmountForDelivery.value = data.minAmountForDelivery
       masterAccountExists.value = data.masterAccountExists
       menus.value = data.menus
@@ -159,6 +161,7 @@ export const useChannelStore = defineStore('channel', () => {
     copyright,
     links,
     pages,
+    receivers,
     minAmountForDelivery,
     masterAccountExists,
     workingDay,
