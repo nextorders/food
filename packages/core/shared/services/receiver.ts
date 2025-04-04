@@ -15,7 +15,6 @@ export const receiverUpdateSchema = z.object({
   url: z.string().min(2).max(300).optional(),
   method: z.enum(['POST', 'PUT']).optional(),
   authorization: z.string().optional(),
-  body: z.record(z.string()).optional(),
 })
 
 export type ReceiverUpdateSchema = z.output<typeof receiverUpdateSchema>

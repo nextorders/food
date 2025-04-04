@@ -68,6 +68,8 @@
     "slug": "Human-friendly URL",
     "photo": "Photo",
     "icon": "Icon",
+    "key": "Key",
+    "value": "Value",
     "footer": {
       "copyright": "Copyright",
       "copyright-part-one": "Created with ❤️ on",
@@ -230,6 +232,11 @@
       "title": "Links",
       "url": "URL"
     },
+    "receiver": {
+      "method": "HTTP method",
+      "authorization": "Authorization header",
+      "body": "Body"
+    },
     "checkout": {
       "name": "Name",
       "phone": "Phone",
@@ -250,6 +257,7 @@
       "category": "Category",
       "menu-page": "Menu Page",
       "checkouts": "Checkouts",
+      "checkout-receivers": "Checkout receivers",
       "clients": "Clients",
       "client-page": "Client Page",
       "settings": "Settings",
@@ -268,14 +276,15 @@
     "save": "Save",
     "create": {
       "title": "Create",
-      "product": "Create new Product",
-      "product-variant": "Create new Product Variant",
-      "menu": "Create new Menu",
-      "menu-category": "Create new Menu Category",
-      "warehouse": "Create new Warehouse",
-      "payment-method": "Create new Payment Method",
-      "link": "Create new Link",
-      "page": "Create new Page"
+      "product": "Create Product",
+      "product-variant": "Create Product Variant",
+      "menu": "Create Menu",
+      "menu-category": "Create Menu Category",
+      "warehouse": "Create Warehouse",
+      "payment-method": "Create Payment Method",
+      "link": "Create Link",
+      "page": "Create Page",
+      "checkout-receiver": "Create Checkouts Receiver"
     },
     "attach": {
       "title": "Attach",
@@ -299,7 +308,8 @@
       "online-ordering-time": "Update Online ordering time",
       "payment-method": "Update Payment Method",
       "link": "Update Link",
-      "page": "Update Page"
+      "page": "Update Page",
+      "checkout-receiver": "Update Checkouts Receiver"
     },
     "delete": {
       "title": "Delete",
@@ -339,6 +349,9 @@
     "payment-method-updated": "Payment Method updated!",
     "payment-method-deleted": "Payment Method deleted!",
     "receiving-method-updated": "Method updated!",
+    "receiver-created": "Receiver created!",
+    "receiver-updated": "Receiver updated!",
+    "receiver-deleted": "Receiver deleted!",
     "menu-created": "Menu created!",
     "menu-updated": "Menu updated!",
     "category-created": "Category created!",

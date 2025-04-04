@@ -68,6 +68,8 @@
     "slug": "ადამიანის მიერ წაკითხვადი URL",
     "photo": "ფოტო",
     "icon": "Icon",
+    "key": "Key",
+    "value": "Value",
     "footer": {
       "copyright": "Copyright",
       "copyright-part-one": "შექმნილია ❤️-ით",
@@ -230,6 +232,11 @@
       "title": "Links",
       "url": "URL"
     },
+    "receiver": {
+      "method": "HTTP method",
+      "authorization": "Authorization header",
+      "body": "Body"
+    },
     "checkout": {
       "name": "სახელი",
       "phone": "ტელეფონი",
@@ -250,6 +257,7 @@
       "category": "Category",
       "menu-page": "მენიუს გვერდი",
       "checkouts": "შეკვეთები",
+      "checkout-receivers": "Checkout receivers",
       "clients": "კლიენტები",
       "client-page": "კლიენტის გვერდი",
       "settings": "პარამეტრების",
@@ -275,7 +283,8 @@
       "warehouse": "შექმენით ახალი საწყობი",
       "payment-method": "შექმენით ახალი გადახდის მეთოდი",
       "link": "Create new Link",
-      "page": "Create new Page"
+      "page": "Create new Page",
+      "checkout-receiver": "Create Checkout Receiver"
     },
     "attach": {
       "title": "მიმაგრება",
@@ -299,7 +308,8 @@
       "online-ordering-time": "განაახლეთ ონლაინ შეკვეთის დრო",
       "payment-method": "განაახლეთ გადახდის მეთოდი",
       "link": "Update Link",
-      "page": "Update Page"
+      "page": "Update Page",
+      "checkout-receiver": "Update Checkouts Receiver"
     },
     "delete": {
       "title": "წაშლა",
@@ -339,6 +349,9 @@
     "payment-method-updated": "გადახდის მეთოდი განახლდა!",
     "payment-method-deleted": "გადახდის მეთოდი წაიშალა!",
     "receiving-method-updated": "მეთოდი განახლებულია!",
+    "receiver-created": "Receiver created!",
+    "receiver-updated": "Receiver updated!",
+    "receiver-deleted": "Receiver deleted!",
     "menu-created": "მენიუ შეიქმნა!",
     "menu-updated": "მენიუ განახლდა!",
     "category-created": "კატეგორია შეიქმნა!",

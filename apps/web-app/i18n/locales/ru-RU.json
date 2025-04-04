@@ -68,6 +68,8 @@
     "slug": "Человекопонятный URL",
     "photo": "Фото",
     "icon": "Иконка",
+    "key": "Ключ",
+    "value": "Значение",
     "footer": {
       "copyright": "Копирайт",
       "copyright-part-one": "Создано с ❤️ на",
@@ -230,6 +232,11 @@
       "title": "Ссылки",
       "url": "URL"
     },
+    "receiver": {
+      "method": "HTTP метод",
+      "authorization": "Authorization заголовок",
+      "body": "Body"
+    },
     "checkout": {
       "name": "Имя",
       "phone": "Телефон",
@@ -250,6 +257,7 @@
       "category": "Категория",
       "menu-page": "Страница меню",
       "checkouts": "Заявки",
+      "checkout-receivers": "Получатели заявок",
       "clients": "Клиенты",
       "client-page": "Страница клиента",
       "settings": "Настройки",
@@ -268,14 +276,15 @@
     "save": "Сохранить",
     "create": {
       "title": "Создать",
-      "product": "Создать новый продукт",
+      "product": "Создать продукт",
       "product-variant": "Создать вариацию продукта",
       "menu": "Создать новое меню",
-      "menu-category": "Создать новую категорию",
-      "warehouse": "Создать новый склад",
+      "menu-category": "Создать категорию",
+      "warehouse": "Создать склад",
       "payment-method": "Создать метод оплаты",
-      "link": "Создать новую ссылку",
-      "page": "Создать новую страницу"
+      "link": "Создать ссылку",
+      "page": "Создать страницу",
+      "checkout-receiver": "Создать получателя заявок"
     },
     "attach": {
       "title": "Добавить",
@@ -299,7 +308,8 @@
       "online-ordering-time": "Обновить время оформления заказов",
       "payment-method": "Обновить метод оплаты",
       "link": "Обновить ссылку",
-      "page": "Обновить страницу"
+      "page": "Обновить страницу",
+      "checkout-receiver": "Обновить получателя заявок"
     },
     "delete": {
       "title": "Удалить",
@@ -339,6 +349,9 @@
     "payment-method-updated": "Метод оплаты обновлен!",
     "payment-method-deleted": "Метод оплаты удален!",
     "receiving-method-updated": "Метод обновлен!",
+    "receiver-created": "Получатель создан!",
+    "receiver-updated": "Получатель обновлен!",
+    "receiver-deleted": "Получатель удален!",
     "menu-created": "Меню создано!",
     "menu-updated": "Меню обновлено!",
     "category-created": "Категория создана!",

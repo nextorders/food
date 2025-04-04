@@ -9,7 +9,7 @@ export interface CheckoutForReceiver {
   phone: string
   note?: string
   totalPrice: number
-  lines: {
+  items: {
     id: string
     name: string
     variant: string

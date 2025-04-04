@@ -33,6 +33,10 @@ const items = ref([
     label: t('center.menu.navigation'),
     to: `/command-center/settings/navigation`,
     icon: 'i-lucide-menu',
+  }, {
+    label: t('center.menu.checkout-receivers'),
+    to: `/command-center/settings/receivers`,
+    icon: 'i-lucide-send',
   },
 ])
 </script>
