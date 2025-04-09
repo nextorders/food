@@ -1,3 +1,5 @@
+import type { H3Event } from 'h3'
+
 type ProtectedRoute = {
   path: string
   methods: ('GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE' | 'HEAD' | 'CONNECT' | 'OPTIONS' | 'TRACE')[]
@@ -53,14 +55,30 @@ const protectedRoutes: ProtectedRoute[] = [
 ]
 
 export default defineEventHandler(async (event) => {
-  const { user } = await getUserSession(event)
-  const userPermissions = user?.permissions || []
+  const token = getHeader(event, 'Authorization')
+  const permissions = token ? await getPermissionsFromKey(token) : await getPermissionsFromSession(event)
 
   for (const route of protectedRoutes) {
     if (event.path.startsWith(route.path) && route.methods.includes(event.method)) {
-      if (!route.requiredPermissions.some((permission) => userPermissions.includes(permission))) {
+      if (!route.requiredPermissions.some((permission) => permissions.includes(permission))) {
         throw errorResolver(createError({ statusCode: 403, statusMessage: 'Not allowed' }))
       }
     }
   }
 })
+
+async function getPermissionsFromKey(bearerToken: string): Promise<PermissionCode[]> {
+  const { externalApiToken } = useRuntimeConfig()
+  const [, token] = bearerToken
+
+  if (externalApiToken?.length > 0 && token === externalApiToken) {
+    return ['MASTER']
+  }
+
+  return []
+}
+
+async function getPermissionsFromSession(event: H3Event): Promise<PermissionCode[]> {
+  const { user } = await getUserSession(event)
+  return user?.permissions || []
+}

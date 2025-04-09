@@ -14,6 +14,7 @@ export default defineNuxtConfig({
       secretAccessKey: '',
     },
     redisUrl: '',
+    externalApiToken: '',
   },
   vite: {
     build: {
