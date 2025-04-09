@@ -12,6 +12,10 @@ export async function hash(password: string): Promise<string> {
 
 export async function verify(password: string, hash: string): Promise<boolean> {
   const [salt, key] = hash.split(':')
+  if (!salt || !key) {
+    return false
+  }
+
   const keyBuffer = Buffer.from(key, 'hex')
   const derivedKey = await scryptPromise(password, salt, 64)
   return timingSafeEqual(keyBuffer, derivedKey as Buffer)

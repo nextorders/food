@@ -48,7 +48,6 @@ The application has [several localizations](https://github.com/nextorders/food/t
 ## 🥒 Repository structure
 
 - [Web App](https://github.com/nextorders/food/tree/main/apps/web-app): Web storefront and Command Center. Client can order delicious food.
-- [Email service](https://github.com/nextorders/food/tree/main/apps/email): Easy way to build and send html emails through a prepared service.
 - [Website](https://github.com/nextorders/food/tree/main/apps/website): Info portal and documentation.
 
 ## ☕ How to deploy
@@ -72,7 +71,7 @@ Also, you can use single Docker Image to create container:
 # Use the specific version
 docker pull ghcr.io/nextorders/food/web-app:v0.7.0
 
-# Warn: you need an external PostgreSQL as DB
+# Warn: you need an external Redis as DB
 ```
 
 Check [**.env.example**](https://github.com/nextorders/food/tree/main/apps/web-app/.env.example) for more info about required config variables.
