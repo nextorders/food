@@ -69,7 +69,7 @@ export default defineEventHandler(async (event) => {
 
 async function getPermissionsFromKey(bearerToken: string): Promise<PermissionCode[]> {
   const { externalApiToken } = useRuntimeConfig()
-  const [, token] = bearerToken
+  const token = bearerToken.startsWith('Bearer ') ? bearerToken.substring(7) : bearerToken
 
   if (externalApiToken?.length > 0 && token === externalApiToken) {
     return ['MASTER']
