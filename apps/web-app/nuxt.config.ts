@@ -12,7 +12,6 @@ export default defineNuxtConfig({
     channelId: 'web-app',
     public: {
       mediaUrl: '',
-      projectUrl: 'https://github.com/nextorders/food',
     },
   },
   i18n: {

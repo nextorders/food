@@ -21,7 +21,6 @@
 import { ModalCreateMenu } from '#components'
 
 const { t } = useI18n()
-const { public: publicEnv } = useRuntimeConfig()
 const channel = useChannelStore()
 
 const overlay = useOverlay()
@@ -92,7 +91,7 @@ const linkItems = computed(() => [
   {
     label: t('app.tech-support-label'),
     icon: 'food:help',
-    to: publicEnv.projectUrl,
+    to: 'https://github.com/nextorders/food',
     target: '_blank',
   },
 ])

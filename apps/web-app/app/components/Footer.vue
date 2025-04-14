@@ -38,9 +38,9 @@
 
 <script setup lang="ts">
 const { locale } = useI18n()
-const { public: { projectUrl } } = useRuntimeConfig()
-
 const location = useBrowserLocation()
+
+const projectUrl = 'https://github.com/nextorders/food'
 const url = ref(projectUrl)
 
 onMounted(() => {

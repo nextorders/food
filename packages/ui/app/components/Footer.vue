@@ -3,7 +3,7 @@
     <div class="flex flex-row gap-1 justify-center items-center">
       {{ $t('common.footer.copyright-part-one') }}
       <ULink
-        :to="projectUrl"
+        to="https://github.com/nextorders/food"
         target="_blank"
         class="font-semibold"
       >
@@ -12,7 +12,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-const { projectUrl = 'https://github.com/nextorders/food' } = defineProps<{ projectUrl?: string }>()
-</script>
