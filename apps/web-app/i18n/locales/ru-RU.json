@@ -72,8 +72,8 @@
     "value": "Значение",
     "footer": {
       "copyright": "Копирайт",
-      "copyright-part-one": "Создано с ❤️ на",
-      "copyright-part-two": "{'@'}nextorders/food"
+      "copyright-part-one": "Создано с",
+      "copyright-part-two": "на"
     },
     "abbreviation": {
       "min": "мин",

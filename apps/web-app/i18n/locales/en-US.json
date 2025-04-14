@@ -72,8 +72,8 @@
     "value": "Value",
     "footer": {
       "copyright": "Copyright",
-      "copyright-part-one": "Created with ❤️ on",
-      "copyright-part-two": "{'@'}nextorders/food"
+      "copyright-part-one": "Created with",
+      "copyright-part-two": "on"
     },
     "abbreviation": {
       "min": "min",

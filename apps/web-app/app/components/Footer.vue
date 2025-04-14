@@ -22,12 +22,15 @@
 
     <div class="flex flex-row gap-1 items-center text-sm text-(--ui-text-muted)">
       {{ $t('common.footer.copyright-part-one') }}
+      <UIcon name="i-fluent-emoji-flat:red-heart" class="size-4" />
+      {{ $t('common.footer.copyright-part-two') }}
       <ULink
-        :to="projectUrl"
+        :to="url"
         target="_blank"
+        external
         class="font-medium"
       >
-        {{ $t('common.footer.copyright-part-two') }}
+        @nextorders/food
       </ULink>
     </div>
   </div>
@@ -36,6 +39,14 @@
 <script setup lang="ts">
 const { locale } = useI18n()
 const { public: { projectUrl } } = useRuntimeConfig()
+
+const location = useBrowserLocation()
+const url = ref(projectUrl)
+
+onMounted(() => {
+  url.value = `${projectUrl}?ref=${location.value.host}`
+})
+
 const channel = useChannelStore()
 
 const footerMenuItems = computed(() => channel.links.filter((link) => link.menuId === 'footer').map((link) => ({
