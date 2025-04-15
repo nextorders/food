@@ -89,7 +89,5 @@ const warehouse = computed(() => channel.warehouses.find((w) => w.id === checkou
 
 const paymentMethod = computed(() => getLocaleValue({ values: channel.paymentMethods.find((p) => p.id === checkout.value?.paymentMethodId)?.name, locale: locale.value, defaultLocale: channel.defaultLocale }))
 
-// From 1 to 10
-const randomNumber = computed(() => Math.floor(Math.random() * 10) + 1)
-const randomAvatar = computed(() => `/img/avatar/${randomNumber.value}.svg`)
+const randomAvatar = computed(() => `/img/avatar/${getRandInteger(1, 10)}.svg`)
 </script>
