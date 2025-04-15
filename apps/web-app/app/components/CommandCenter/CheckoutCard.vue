@@ -77,6 +77,8 @@
 </template>
 
 <script setup lang="ts">
+import { getRandInteger } from '@nextorders/core/shared/random'
+
 const { id } = defineProps<{
   id: string
 }>()
