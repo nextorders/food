@@ -13,17 +13,17 @@
       </div>
     </div>
 
-    <div v-if="variant.calories" class="flex flex-row gap-3 justify-center text-(--ui-text-muted) text-sm">
-      <div>
+    <div class="flex flex-row gap-3 justify-center text-(--ui-text-muted) text-sm">
+      <div v-if="variant.calories != null">
         {{ variant.calories }}{{ $t('common.abbreviation.kcal') }}
       </div>
-      <div v-if="variant.protein">
+      <div v-if="variant.protein != null">
         {{ variant.protein }}{{ $t('common.abbreviation.g') }}
       </div>
-      <div v-if="variant.fat">
+      <div v-if="variant.fat != null">
         {{ variant.fat }}{{ $t('common.abbreviation.g') }}
       </div>
-      <div v-if="variant.carbohydrate">
+      <div v-if="variant.carbohydrate != null">
         {{ variant.carbohydrate }}{{ $t('common.abbreviation.g') }}
       </div>
     </div>

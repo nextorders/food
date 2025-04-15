@@ -80,51 +80,105 @@
             step="any"
             size="xl"
             class="w-full items-center justify-center"
-          />
+            :ui="{ trailing: 'pe-2' }"
+          >
+            <template v-if="state.calories != null && state.calories >= 0" #trailing>
+              <UButton
+                color="neutral"
+                variant="link"
+                size="md"
+                icon="i-lucide-circle-x"
+                @click="state.calories = null"
+              />
+            </template>
+          </UInput>
         </UFormField>
 
         <UFormField :label="$t('common.nutrition.protein')" name="protein">
           <UInput
             v-model="state.protein"
             type="number"
-            step="any"
+            :step="0.1"
             size="xl"
             class="w-full items-center justify-center"
-          />
+            :ui="{ trailing: 'pe-2' }"
+          >
+            <template v-if="state.protein != null && state.protein >= 0" #trailing>
+              <UButton
+                color="neutral"
+                variant="link"
+                size="md"
+                icon="i-lucide-circle-x"
+                @click="state.protein = null"
+              />
+            </template>
+          </UInput>
         </UFormField>
 
         <UFormField :label="$t('common.nutrition.fat')" name="fat">
           <UInput
             v-model="state.fat"
             type="number"
-            step="any"
+            :step="0.1"
             size="xl"
             class="w-full items-center justify-center"
-          />
+            :ui="{ trailing: 'pe-2' }"
+          >
+            <template v-if="state.fat != null && state.fat >= 0" #trailing>
+              <UButton
+                color="neutral"
+                variant="link"
+                size="md"
+                icon="i-lucide-circle-x"
+                @click="state.fat = null"
+              />
+            </template>
+          </UInput>
         </UFormField>
 
         <UFormField :label="$t('common.nutrition.carbohydrate')" name="carbohydrate">
           <UInput
             v-model="state.carbohydrate"
             type="number"
-            step="any"
+            :step="0.1"
             size="xl"
             class="w-full items-center justify-center"
-          />
+            :ui="{ trailing: 'pe-2' }"
+          >
+            <template v-if="state.carbohydrate != null && state.carbohydrate >= 0" #trailing>
+              <UButton
+                color="neutral"
+                variant="link"
+                size="md"
+                icon="i-lucide-circle-x"
+                @click="state.carbohydrate = null"
+              />
+            </template>
+          </UInput>
         </UFormField>
       </div>
     </div>
 
-    <UButton
-      type="submit"
-      variant="solid"
-      color="primary"
-      size="xl"
-      block
-      class="mt-3"
-    >
-      {{ $t('center.update.title') }}
-    </UButton>
+    <div class="mt-3 flex flex-row gap-3">
+      <UButton
+        type="submit"
+        variant="solid"
+        color="primary"
+        size="xl"
+        block
+      >
+        {{ $t('center.update.title') }}
+      </UButton>
+
+      <UButton
+        variant="soft"
+        color="error"
+        size="xl"
+        icon="i-lucide-trash-2"
+        class="aspect-square justify-center"
+        @click="onDelete"
+      />
+    </div>
   </UForm>
 </template>
 
@@ -190,6 +244,24 @@ async function onSubmit(event: FormSubmitEvent<ProductVariantUpdateSchema>) {
 
     await channel.update()
     actionToast.success(t('toast.variant-updated'))
+    emit('success')
+  } catch (error) {
+    console.error(error)
+    actionToast.error()
+  }
+}
+
+async function onDelete() {
+  actionToast.start()
+  emit('submitted')
+
+  try {
+    await $fetch(`/api/product/variant/${productVariantId}`, {
+      method: 'DELETE',
+    })
+
+    await channel.update()
+    actionToast.success(t('toast.variant-deleted'))
     emit('success')
   } catch (error) {
     console.error(error)

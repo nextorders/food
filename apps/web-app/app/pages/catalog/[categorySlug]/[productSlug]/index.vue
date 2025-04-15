@@ -59,7 +59,7 @@
         </div>
       </div>
 
-      <div v-if="isNutritionShown">
+      <div v-if="selectedVariant?.calories != null">
         <div class="mb-1 font-medium text-(--ui-text-muted)">
           {{ $t('common.nutrition.value-title') }}
         </div>
@@ -127,8 +127,6 @@ const selectedVariant = computed(() => product.value?.variants.find(({ id }) => 
 const price = computed(() => new Intl.NumberFormat(locale.value).format(selectedVariant.value?.gross ?? 0))
 const weightValue = computed(() => selectedVariant.value?.weightValue)
 const weightUnit = computed(() => getWeightLocalizedUnit(selectedVariant.value?.weightUnit))
-
-const isNutritionShown = computed(() => selectedVariant.value?.calories && selectedVariant.value?.protein && selectedVariant.value?.fat && selectedVariant.value?.carbohydrate)
 
 const inCart = computed(() => {
   return checkout.lines.find((l) => l.productVariantId === selectedVariant.value?.id)

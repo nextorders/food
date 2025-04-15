@@ -1,17 +1,11 @@
 <template>
   <UModal :title="$t('center.update.product-variant')">
     <template #body>
-      <div class="space-y-3">
-        <FormUpdateProductVariant
-          :product-variant-id="productVariantId ?? ''"
-          @submitted="closeAll"
-          @success="closeAll"
-        />
-        <FormDeleteProductVariant
-          :product-variant-id="productVariantId ?? ''"
-          @success="closeAll"
-        />
-      </div>
+      <FormUpdateProductVariant
+        :product-variant-id="productVariantId ?? ''"
+        @submitted="closeAll"
+        @success="closeAll"
+      />
     </template>
   </UModal>
 </template>

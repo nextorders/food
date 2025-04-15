@@ -43,10 +43,10 @@ export const productVariantUpdateSchema = z.object({
   weightUnit: z.enum(['G', 'KG', 'ML', 'L', 'LB', 'OZ']).optional(),
   gross: z.number().optional(),
   net: z.number().optional(),
-  calories: z.coerce.number().optional(),
-  protein: z.coerce.number().optional(),
-  fat: z.coerce.number().optional(),
-  carbohydrate: z.coerce.number().optional(),
+  calories: z.coerce.number().nullable().optional(),
+  protein: z.coerce.number().nullable().optional(),
+  fat: z.coerce.number().nullable().optional(),
+  carbohydrate: z.coerce.number().nullable().optional(),
   sku: z.string().max(50).optional(),
 })
 
