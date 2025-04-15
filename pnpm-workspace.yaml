@@ -6,8 +6,6 @@ catalog:
   '@commitlint/cli': ^19.8.0
   '@commitlint/config-conventional': ^19.8.0
   '@date-fns/tz': ^1.2.0
-  '@dicebear/collection': ^9.2.2
-  '@dicebear/core': ^9.2.2
   '@iconify-json/circle-flags': ^1.2.6
   '@iconify-json/fluent-emoji-flat': ^1.2.3
   '@iconify-json/lucide': ^1.2.36

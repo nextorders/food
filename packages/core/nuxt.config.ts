@@ -1,8 +1,5 @@
 export default defineNuxtConfig({
   modules: ['@nuxtjs/i18n', 'nuxt-auth-utils', '@vueuse/nuxt'],
-  routeRules: {
-    '/api/file/**': { prerender: false },
-  },
   runtimeConfig: {
     locale: 'en',
     productsDirectory: '/products',

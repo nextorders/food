@@ -9,8 +9,6 @@
   },
   "dependencies": {
     "@date-fns/tz": "catalog:",
-    "@dicebear/collection": "catalog:",
-    "@dicebear/core": "catalog:",
     "@nuxtjs/i18n": "catalog:",
     "@paralleldrive/cuid2": "catalog:",
     "@vueuse/core": "catalog:",
