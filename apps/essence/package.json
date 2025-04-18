@@ -1,0 +1,29 @@
+{
+  "name": "@nextorders/essence",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --port 3503",
+    "preview": "PORT=3503 nuxt preview",
+    "clean": "rm -rf dist",
+    "clean:modules": "rm -rf .nuxt node_modules",
+    "typecheck": "nuxt typecheck",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nextorders/ui": "workspace:*",
+    "@pinia/nuxt": "catalog:",
+    "drizzle-cuid2": "catalog:",
+    "drizzle-orm": "catalog:",
+    "pg": "catalog:",
+    "pinia": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@types/pg": "catalog:",
+    "drizzle-kit": "catalog:",
+    "nuxt": "catalog:"
+  }
+}
