@@ -2,7 +2,7 @@
   "name": "nextorders",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@10.8.0",
+  "packageManager": "pnpm@10.8.1",
   "description": "Modern e-commerce self-hosted platform: clients will be happy to order delicious food!",
   "author": "Nick Kosarev <hmbanan666@hotmail.com>",
   "license": "MIT",
@@ -24,7 +24,7 @@
   ],
   "engines": {
     "node": ">=22.14.0",
-    "pnpm": ">=10.8.0"
+    "pnpm": ">=10.8.1"
   },
   "scripts": {
     "release": "pnpm -r --filter \"./apps/**\" --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo",
@@ -63,8 +63,8 @@
     "vitest-browser-vue": "catalog:"
   },
   "resolutions": {
-    "unimport": "4.1.1",
-    "vue-tsc": "2.2.0"
+    "unimport": "4.2.0",
+    "vue-tsc": "2.2.8"
   },
   "lint-staged": {
     "*.ts": "pnpm run lint"
