@@ -18,5 +18,12 @@ export default defineNuxtConfig({
   pinia: {
     storesDirs: ['./stores/**'],
   },
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        erasableSyntaxOnly: true,
+      },
+    },
+  },
   compatibilityDate: '2025-02-20',
 })

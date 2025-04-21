@@ -12,14 +12,13 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "migrations"
+    "dist"
   ],
   "scripts": {
     "build": "unbuild",
     "clean": "rm -rf dist",
     "clean:modules": "rm -rf node_modules",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit --erasableSyntaxOnly",
     "postinstall": "pnpm build"
   },
   "dependencies": {

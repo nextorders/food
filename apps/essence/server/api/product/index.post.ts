@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
     const name = [{ locale: data.locale, value: data.name }]
     const description = [{ locale: data.locale, value: data.description }]
 
-    await repository.product.create({
+    const product = await repository.product.create({
       ...data,
       id,
       slug,
@@ -22,6 +22,7 @@ export default defineEventHandler(async (event) => {
 
     return {
       ok: true,
+      result: product,
     }
   } catch (error) {
     throw errorResolver(error)
