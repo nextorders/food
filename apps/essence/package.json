@@ -17,6 +17,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nextorders/schema": "workspace:*",
     "@nextorders/ui": "workspace:*",
     "@pinia/nuxt": "catalog:",
     "drizzle-cuid2": "catalog:",

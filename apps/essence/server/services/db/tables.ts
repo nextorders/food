@@ -1,3 +1,4 @@
+import type { LocaleValue, WeightUnit } from '@nextorders/schema'
 import { cuid2 } from 'drizzle-cuid2/postgres'
 import { relations } from 'drizzle-orm'
 import { boolean, jsonb, numeric, pgTable, timestamp, varchar } from 'drizzle-orm/pg-core'

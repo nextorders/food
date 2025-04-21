@@ -49,11 +49,12 @@ catalog:
   semantic-release-monorepo: ^8.0.2
   sharp: ^0.33.5
   typescript: ^5.8.3
+  unbuild: ^3.5.0
   vite: ^6.2.6
   vite-tsconfig-paths: ^5.1.4
   vitest: ^3.1.1
   vitest-browser-vue: ^0.2.0
-  zod: ^3.24.2
+  zod: ^3.24.3
 ignoredBuiltDependencies:
   - '@parcel/watcher'
   - esbuild

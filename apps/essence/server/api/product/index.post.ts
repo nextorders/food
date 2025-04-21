@@ -1,6 +1,6 @@
+import { productCreateSchema } from '@nextorders/schema'
 import { createId } from '@paralleldrive/cuid2'
 import { repository } from '~~/server/services/db/repository'
-import { productCreateSchema } from '~~/shared/services/product'
 
 export default defineEventHandler(async (event) => {
   try {

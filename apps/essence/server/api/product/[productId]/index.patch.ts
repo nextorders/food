@@ -1,5 +1,5 @@
+import { productUpdateSchema, updateLocaleValues } from '@nextorders/schema'
 import { repository } from '~~/server/services/db/repository'
-import { productUpdateSchema } from '~~/shared/services/product'
 
 export default defineEventHandler(async (event) => {
   try {

@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": [
+      "ESNext",
+      "dom",
+      "dom.iterable",
+      "webworker"
+    ],
+    "moduleDetection": "force",
+    "useDefineForClassFields": true,
+    "module": "preserve",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noImplicitThis": true,
+    "noUncheckedIndexedAccess": true,
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "./dist",
+    "./node_modules"
+  ]
+}
