@@ -8,7 +8,7 @@
           </div>
         </template>
 
-        <ProductImage :id="product?.mediaId" size="sm" />
+        <ProductImage :media="product?.media" size="sm" />
       </div>
 
       <div class="px-3 py-3 h-full flex flex-col justify-between">

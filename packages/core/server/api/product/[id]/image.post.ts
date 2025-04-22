@@ -1,3 +1,4 @@
+import type { MediaItem } from '@nextorders/schema'
 import { createId } from '@paralleldrive/cuid2'
 import sharp from 'sharp'
 import { createMedia, deleteMedia } from '../../../../server/services/db/media'
@@ -8,7 +9,7 @@ const IMAGE_SIZES = [120, 300, 600, 800]
 
 export default defineEventHandler(async (event) => {
   try {
-    const { productsDirectory } = useRuntimeConfig()
+    const { productsDirectory, public: { mediaUrl } } = useRuntimeConfig()
     const storage = useStorage('s3')
 
     const id = getRouterParam(event, 'id')
@@ -57,6 +58,7 @@ export default defineEventHandler(async (event) => {
     }
 
     const mediaId = createId()
+    const items: MediaItem[] = []
 
     // Every size
     for (const size of IMAGE_SIZES) {
@@ -69,6 +71,16 @@ export default defineEventHandler(async (event) => {
 
         await storage.setItemRaw(`${productsDirectory}/${mediaId}/${size}.${format}`, buffer)
 
+        items.push({
+          id: createId(),
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          mediaId,
+          size,
+          format,
+          url: `${mediaUrl}${productsDirectory}/${mediaId}/${size}.${format}`,
+        })
+
         // Clear
         buffer = null
       }
@@ -76,7 +88,7 @@ export default defineEventHandler(async (event) => {
 
     sharpStream.destroy()
 
-    await createMedia({ id: mediaId })
+    await createMedia({ id: mediaId }, items)
 
     const product = await getProduct(id)
     if (product?.mediaId) {

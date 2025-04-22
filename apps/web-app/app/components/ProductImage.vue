@@ -1,17 +1,11 @@
 <template>
-  <picture v-if="id">
-    <source
-      type="image/webp"
-      :sizes="sizes"
-      :srcset="srcsetWebp"
-    >
+  <picture v-if="media?.items?.length">
+    <source type="image/webp" :srcset="srcWebp">
     <img
-      alt=""
       :loading="lazy ? 'lazy' : 'eager'"
+      :src="src"
+      alt=""
       class="rounded-xl w-full"
-      :src="`${finalProductUrl}/${id}/${sizePx}.jpg`"
-      :sizes="sizes"
-      :srcset="srcset"
     >
   </picture>
 
@@ -24,25 +18,34 @@
 </template>
 
 <script setup lang="ts">
-const { id, lazy = true, size = 'sm' } = defineProps<{
-  id?: string | null
+import type { MediaWithItems } from '@nextorders/core/types/food'
+import type { MediaItem } from '@nextorders/schema'
+
+const { media, lazy = true, size = 'sm' } = defineProps<{
+  media?: MediaWithItems | null
   lazy?: boolean
   size?: 'xs' | 'sm' | 'md' | 'lg'
 }>()
 
 const sizesMap = {
-  xs: '120',
-  sm: '300',
-  md: '600',
-  lg: '800',
+  xs: 120,
+  sm: 300,
+  md: 600,
+  lg: 800,
 }
 
-const sizePx = sizesMap[size]
-const sizes = `${sizePx}px`
+const src = computed(() => getNearestImageBySizeAndFormat(sizesMap[size], 'jpg', media?.items ?? [])?.url)
+const srcWebp = computed(() => getNearestImageBySizeAndFormat(sizesMap[size], 'webp', media?.items ?? [])?.url)
 
-const { public: publicEnv } = useRuntimeConfig()
-const finalProductUrl = `${publicEnv.mediaUrl}/products`
+function getNearestImageBySizeAndFormat(size: number, format: 'jpg' | 'webp', items: MediaItem[]): MediaItem | undefined {
+  if (!items?.length) {
+    return
+  }
 
-const srcset = computed(() => `${finalProductUrl}/${id}/${sizePx}.jpg ${sizePx}w`)
-const srcsetWebp = computed(() => `${finalProductUrl}/${id}/${sizePx}.webp ${sizePx}w`)
+  const filteredByFormat = items.filter((item) => item.format === format)
+
+  return filteredByFormat.reduce((prev, curr) => {
+    return Math.abs(curr.size - size) < Math.abs(prev.size - size) ? curr : prev
+  })
+}
 </script>

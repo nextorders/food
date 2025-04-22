@@ -72,12 +72,6 @@ declare global {
     WorkingDay,
   ]
 
-  interface Media {
-    id: string
-    createdAt: string
-    updatedAt: string
-  }
-
   interface Menu {
     id: string
     createdAt: string
@@ -98,37 +92,6 @@ declare global {
     products: { id: string }[]
     menuId: string
   }
-
-  interface Product {
-    id: string
-    createdAt: string
-    updatedAt: string
-    slug: string
-    name: LocaleValue[]
-    description: LocaleValue[]
-    isAvailableForPurchase: boolean
-    mediaId: string | null
-    variants: ProductVariant[]
-  }
-
-  interface ProductVariant {
-    id: string
-    createdAt: string
-    updatedAt: string
-    productId: string
-    name: LocaleValue[]
-    weightUnit: WeightUnit
-    weightValue: number
-    gross: number
-    net: number | null
-    calories: number | null
-    protein: number | null
-    fat: number | null
-    carbohydrate: number | null
-    sku: string | null
-  }
-
-  type WeightUnit = 'G' | 'KG' | 'ML' | 'L' | 'OZ' | 'LB'
 
   interface Checkout {
     id: string

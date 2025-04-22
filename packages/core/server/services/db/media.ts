@@ -1,12 +1,16 @@
-export async function getMedia(id: string): Promise<Media | null> {
-  return useStorage('db').getItem<Media>(`media:${id}`)
+import type { Media, MediaItem } from '@nextorders/schema'
+import type { MediaWithItems } from '../../../types/food'
+
+export async function getMedia(id: string): Promise<MediaWithItems | null> {
+  return useStorage('db').getItem<MediaWithItems>(`media:${id}`)
 }
 
-export async function createMedia(data: Omit<Media, 'createdAt' | 'updatedAt'>): Promise<Media | null> {
+export async function createMedia(data: Omit<Media, 'createdAt' | 'updatedAt'>, items?: MediaItem[]): Promise<Media | null> {
   await useStorage('db').setItem(`media:${data.id}`, {
     ...data,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
+    items,
   })
   return getMedia(data.id)
 }

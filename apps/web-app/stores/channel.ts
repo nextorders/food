@@ -1,10 +1,13 @@
+import type { ProductWithVariantsAndMedia } from '@nextorders/core/types/food'
+import type { ProductVariant } from '@nextorders/schema'
+
 interface TimeSlot {
   id: string
   label: string
   value: number
 }
 
-interface ProductWithCategory extends Product {
+interface ProductWithCategory extends ProductWithVariantsAndMedia {
   category: MenuCategory
 }
 
@@ -30,14 +33,14 @@ export const useChannelStore = defineStore('channel', () => {
   const workingDay = ref<WorkingDay | undefined>(undefined)
   const workingDays = ref<WorkingWeek | null>(null)
   const menus = ref<Menu[]>([])
-  const products = ref<Product[]>([])
+  const products = ref<ProductWithVariantsAndMedia[]>([])
   const paymentMethods = ref<PaymentMethod[]>([])
   const warehouses = ref<Warehouse[]>([])
   const timeSlots = ref<TimeSlot[]>([])
 
   const activeMenu = computed<Menu | null>(() => menus.value.find((menu) => menu.isActive) || null)
   const activeCategories = computed<MenuCategory[]>(() => activeMenu.value ? activeMenu.value.categories : [])
-  const activeProducts = computed<Product[]>(() => products.value)
+  const activeProducts = computed<ProductWithVariantsAndMedia[]>(() => products.value)
   const allCategories = computed<MenuCategory[]>(() => menus.value.flatMap((menu) => menu.categories))
   const currencySign = computed<string>(() => currencyCode.value ? CURRENCY_SIGNS[currencyCode.value] : '')
   const isOnMaintenance = computed<boolean>(() => isActive.value === false || !activeMenu.value || (!isPickupAvailable.value && !isDeliveryAvailable.value))
@@ -115,10 +118,10 @@ export const useChannelStore = defineStore('channel', () => {
   function getActiveMenuCategoryBySlug(slug: string): ComputedRef<MenuCategory | undefined> {
     return computed(() => activeMenu.value?.categories.find((category) => category.slug === slug))
   }
-  function getProduct(id: string): ComputedRef<Product | undefined> {
+  function getProduct(id: string): ComputedRef<ProductWithVariantsAndMedia | undefined> {
     return computed(() => products.value.find((product) => product.id === id))
   }
-  function getProductBySlug(slug: string): ComputedRef<Product | undefined> {
+  function getProductBySlug(slug: string): ComputedRef<ProductWithVariantsAndMedia | undefined> {
     return computed(() => products.value.find((product) => product.slug === slug))
   }
   function getProductVariant(id: string): ComputedRef<ProductVariant | undefined> {
@@ -140,7 +143,7 @@ export const useChannelStore = defineStore('channel', () => {
 
     return result
   }
-  function getProductsInCategory(categoryId: string): ComputedRef<Product[]> {
+  function getProductsInCategory(categoryId: string): ComputedRef<ProductWithVariantsAndMedia[]> {
     const productIds = activeMenu.value?.categories.find((category) => category.id === categoryId)?.products.map((product) => product.id) || []
     return computed(() => products.value.filter((product) => productIds.includes(product.id)))
   }

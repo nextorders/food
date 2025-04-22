@@ -1,3 +1,5 @@
+import type { WeightUnit } from '@nextorders/schema'
+
 export const CURRENCY_SIGNS: Record<CurrencyCode, string> = {
   RUB: '₽',
   USD: '$',

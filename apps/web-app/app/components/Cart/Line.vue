@@ -3,7 +3,7 @@
     <NuxtLink :to="productUrl">
       <div class="max-w-[15rem] flex flex-row gap-2 flex-nowrap items-center cursor-pointer active:scale-95 lg:hover:scale-95 lg:active:scale-90 duration-200 group">
         <div class="relative size-14 aspect-square">
-          <ProductImage :id="product?.mediaId" size="xs" />
+          <ProductImage :media="product?.media" size="xs" />
         </div>
 
         <div>

@@ -71,9 +71,9 @@
       <template #id-cell="{ row }">
         {{ row.getValue('id') }}
       </template>
-      <template #mediaId-cell="{ row }">
+      <template #media-cell="{ row }">
         <div class="size-14">
-          <ProductImage :id="row.getValue('mediaId')" size="xs" />
+          <ProductImage :media="row.getValue('media')" size="xs" />
         </div>
       </template>
       <template #name-cell="{ row }">
@@ -129,6 +129,8 @@
 </template>
 
 <script setup lang="ts">
+import type { ProductWithVariantsAndMedia } from '@nextorders/core/types/food'
+import type { Product, ProductVariant } from '@nextorders/schema'
 import type { DropdownMenuItem, TableColumn } from '@nuxt/ui'
 import { ModalCreateProduct } from '#components'
 import { getPaginationRowModel } from '@tanstack/table-core'
@@ -141,7 +143,7 @@ const { locale, t } = useI18n()
 const channel = useChannelStore()
 
 const filterValue = ref('')
-const data = computed<Product[]>(() => channel.activeProducts.filter((product) => product.name.find((name) => name.value.toLowerCase().includes(filterValue.value.toLowerCase()))))
+const data = computed(() => channel.activeProducts.filter((product) => product.name.find((name) => name.value.toLowerCase().includes(filterValue.value.toLowerCase()))))
 
 const columnVisibility = ref({
   id: false,
@@ -152,11 +154,11 @@ const pagination = ref({
   pageSize: 25,
 })
 
-const columns: Ref<TableColumn<Product>[]> = ref([{
+const columns: Ref<TableColumn<ProductWithVariantsAndMedia>[]> = ref([{
   accessorKey: 'id',
   header: 'Id',
 }, {
-  accessorKey: 'mediaId',
+  accessorKey: 'media',
   enableSorting: false,
   header: '',
 }, {

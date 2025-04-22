@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@date-fns/tz": "catalog:",
+    "@nextorders/schema": "workspace:*",
     "@nuxtjs/i18n": "catalog:",
     "@paralleldrive/cuid2": "catalog:",
     "@vueuse/core": "catalog:",

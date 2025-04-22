@@ -1,34 +1,29 @@
+import type { Product, ProductVariant } from '@nextorders/schema'
+import type { ProductWithVariantsAndMedia } from '../../../types/food'
 import { getKeys } from '.'
+import { getMedia } from './media'
 import { detachProductFromAllMenuCategories } from './menu'
 
 export async function getProduct(id: string): Promise<Product | null> {
   return useStorage('db').getItem<Product>(`product:${id}`)
 }
 
-export async function getProducts(keys: string[]): Promise<Product[]> {
+export async function getProducts(keys: string[]): Promise<ProductWithVariantsAndMedia[]> {
   const productStorage = new Map<string, unknown>(keys.map((key) => [key, useStorage('db').getItem(key)]))
-  const products: Product[] = []
+  const products: ProductWithVariantsAndMedia[] = []
 
   for (const key of keys) {
     const keyParsed = key.split(':')
 
     // product:id
     if (keyParsed[1] && !keyParsed[2]) {
-      const product = await productStorage.get(key) as Product
+      const product = await productStorage.get(key) as ProductWithVariantsAndMedia
       if (!product) {
         continue
       }
 
       // variants
-      const productVariantsKeys: string[] = []
-      for (const k of keys) {
-        const [, productId, variant, variantId] = k.split(':')
-
-        // product:id:variant:id
-        if (productId === product.id && variant === 'variant' && variantId) {
-          productVariantsKeys.push(k)
-        }
-      }
+      const productVariantsKeys: string[] = prepareProductVariantKeys(keys, product.id)
 
       product.variants = []
 
@@ -42,11 +37,30 @@ export async function getProducts(keys: string[]): Promise<Product[]> {
           product.variants.push(variant)
         }))
 
+      // media
+      if (product.mediaId) {
+        product.media = await getMedia(product.mediaId)
+      }
+
       products.push(product)
     }
   }
 
   return products
+}
+
+function prepareProductVariantKeys(keys: string[], productId: string) {
+  const productVariantsKeys: string[] = []
+  for (const k of keys) {
+    const [, id, variant, variantId] = k.split(':')
+
+    // product:id:variant:id
+    if (id === productId && variant === 'variant' && variantId) {
+      productVariantsKeys.push(k)
+    }
+  }
+
+  return productVariantsKeys
 }
 
 export async function patchProduct(id: string, data: Partial<Product>): Promise<Product | null> {

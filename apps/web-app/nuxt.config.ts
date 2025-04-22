@@ -10,9 +10,6 @@ export default defineNuxtConfig({
   css: ['~/assets/css/styles.css'],
   runtimeConfig: {
     channelId: 'web-app',
-    public: {
-      mediaUrl: '',
-    },
   },
   i18n: {
     locales: [

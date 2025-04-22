@@ -4,6 +4,7 @@
       <div class="relative w-full aspect-square">
         <ProductImage
           :id="product?.mediaId"
+          :media="product?.media"
           :lazy="false"
           size="md"
         />

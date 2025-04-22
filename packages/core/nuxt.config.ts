@@ -12,6 +12,9 @@ export default defineNuxtConfig({
     },
     redisUrl: '',
     externalApiToken: '',
+    public: {
+      mediaUrl: '',
+    },
   },
   vite: {
     build: {

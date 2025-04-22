@@ -5,7 +5,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-0 gap-y-4 sm:gap-4">
       <div class="col-span-1 relative w-full aspect-square">
         <ProductImage
-          :id="product?.mediaId"
+          :media="product?.media"
           :lazy="false"
           size="md"
         />

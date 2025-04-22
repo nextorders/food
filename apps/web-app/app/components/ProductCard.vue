@@ -7,7 +7,7 @@
     <div class="flex flex-col justify-between gap-2 h-full">
       <div class="relative w-full aspect-square">
         <ProductImage
-          :id="product?.mediaId"
+          :media="product?.media"
           :lazy="lazy"
           size="md"
         />

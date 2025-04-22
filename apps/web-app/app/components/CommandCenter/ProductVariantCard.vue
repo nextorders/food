@@ -31,6 +31,8 @@
 </template>
 
 <script setup lang="ts">
+import type { ProductVariant } from '@nextorders/schema'
+
 defineProps<{ variant: ProductVariant }>()
 
 const { locale } = useI18n()
