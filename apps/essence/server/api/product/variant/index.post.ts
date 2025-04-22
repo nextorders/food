@@ -11,6 +11,14 @@ export default defineEventHandler(async (event) => {
       throw data
     }
 
+    const product = await repository.product.find(data.productId)
+    if (!product) {
+      throw createError({
+        statusCode: 404,
+        message: 'Product not found',
+      })
+    }
+
     const variant = await repository.product.createVariant({
       ...data,
       id: createId(),

@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
     if (!productId) {
       throw createError({
         statusCode: 400,
-        statusMessage: 'Product id is required',
+        message: 'Product id is required',
       })
     }
 

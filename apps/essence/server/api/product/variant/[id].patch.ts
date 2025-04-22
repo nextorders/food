@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
     if (!id) {
       throw createError({
         statusCode: 400,
-        statusMessage: 'Missing id',
+        message: 'Missing id',
       })
     }
 
@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
     if (!variant) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Variant not found',
+        message: 'Variant not found',
       })
     }
 

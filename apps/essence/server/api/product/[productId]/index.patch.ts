@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
     if (!productId) {
       throw createError({
         statusCode: 400,
-        statusMessage: 'Product id is required',
+        message: 'Product id is required',
       })
     }
 
@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
     if (!product) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Product not found',
+        message: 'Product not found',
       })
     }
 
