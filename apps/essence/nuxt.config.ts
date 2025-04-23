@@ -1,6 +1,19 @@
 export default defineNuxtConfig({
   extends: ['@nextorders/ui'],
   modules: ['@pinia/nuxt', 'nuxt-auth-utils'],
+  runtimeConfig: {
+    s3: {
+      bucket: '',
+      region: '',
+      endpoint: '',
+      accessKeyId: '',
+      secretAccessKey: '',
+    },
+    productsDirectory: '/products',
+    public: {
+      mediaUrl: '',
+    },
+  },
   future: {
     compatibilityVersion: 4,
   },

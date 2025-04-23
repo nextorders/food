@@ -11,3 +11,6 @@ export type ProductVariantDraft = InferInsertModel<typeof tables.productVariants
 
 export type Media = InferSelectModel<typeof tables.media>
 export type MediaDraft = InferInsertModel<typeof tables.media>
+
+export type MediaItem = InferSelectModel<typeof tables.mediaItems>
+export type MediaItemDraft = InferInsertModel<typeof tables.mediaItems>

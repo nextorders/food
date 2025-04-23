@@ -20,10 +20,12 @@
     "@nextorders/schema": "workspace:*",
     "@nextorders/ui": "workspace:*",
     "@pinia/nuxt": "catalog:",
+    "aws4fetch": "catalog:",
     "drizzle-cuid2": "catalog:",
     "drizzle-orm": "catalog:",
     "pg": "catalog:",
-    "pinia": "catalog:"
+    "pinia": "catalog:",
+    "sharp": "catalog:"
   },
   "devDependencies": {
     "@types/node": "catalog:",

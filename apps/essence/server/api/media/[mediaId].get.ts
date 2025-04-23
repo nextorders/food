@@ -2,23 +2,23 @@ import { repository } from '~~/server/services/db/repository'
 
 export default defineEventHandler(async (event) => {
   try {
-    const productId = getRouterParam(event, 'productId')
-    if (!productId) {
+    const mediaId = getRouterParam(event, 'mediaId')
+    if (!mediaId) {
       throw createError({
         statusCode: 400,
-        message: 'Product id is required',
+        message: 'Media id is required',
       })
     }
 
-    const product = await repository.product.find(productId)
-    if (!product) {
+    const media = await repository.media.find(mediaId)
+    if (!media) {
       throw createError({
         statusCode: 404,
-        message: 'Product not found',
+        message: 'Media not found',
       })
     }
 
-    return product
+    return media
   } catch (error) {
     throw errorResolver(error)
   }

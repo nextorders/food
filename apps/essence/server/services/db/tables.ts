@@ -1,7 +1,7 @@
-import type { LocaleValue, WeightUnit } from '@nextorders/schema'
+import type { LocaleValue, MediaFormat, WeightUnit } from '@nextorders/schema'
 import { cuid2 } from 'drizzle-cuid2/postgres'
 import { relations } from 'drizzle-orm'
-import { boolean, jsonb, numeric, pgTable, timestamp, varchar } from 'drizzle-orm/pg-core'
+import { boolean, integer, jsonb, numeric, pgTable, timestamp, varchar } from 'drizzle-orm/pg-core'
 
 export const products = pgTable('products', {
   id: cuid2('id').defaultRandom().primaryKey(),
@@ -40,6 +40,19 @@ export const media = pgTable('media', {
   updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
 })
 
+export const mediaItems = pgTable('media_items', {
+  id: cuid2('id').defaultRandom().primaryKey(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  url: varchar('url').notNull(),
+  size: integer('size').notNull(),
+  format: varchar('format').notNull().$type<MediaFormat>(),
+  mediaId: cuid2('media_id').notNull().references(() => media.id, {
+    onDelete: 'cascade',
+    onUpdate: 'cascade',
+  }),
+})
+
 export const productRelations = relations(products, ({ one, many }) => ({
   variants: many(productVariants),
   media: one(media, { fields: [products.mediaId], references: [media.id] }),
@@ -47,4 +60,12 @@ export const productRelations = relations(products, ({ one, many }) => ({
 
 export const productVariantRelations = relations(productVariants, ({ one }) => ({
   product: one(products, { fields: [productVariants.productId], references: [products.id] }),
+}))
+
+export const mediaRelations = relations(media, ({ many }) => ({
+  items: many(mediaItems),
+}))
+
+export const mediaItemRelations = relations(mediaItems, ({ one }) => ({
+  media: one(media, { fields: [mediaItems.mediaId], references: [media.id] }),
 }))

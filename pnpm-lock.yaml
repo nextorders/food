@@ -237,6 +237,9 @@ importers:
       '@pinia/nuxt':
         specifier: 'catalog:'
         version: 0.11.0(magicast@0.3.5)(pinia@3.0.2(typescript@5.8.3)(vue@3.5.13(typescript@5.8.3)))
+      aws4fetch:
+        specifier: 'catalog:'
+        version: 1.0.20
       drizzle-cuid2:
         specifier: 'catalog:'
         version: 2.0.0(drizzle-orm@0.42.0(@types/pg@8.11.13)(pg@8.14.1))
@@ -249,6 +252,9 @@ importers:
       pinia:
         specifier: 'catalog:'
         version: 3.0.2(typescript@5.8.3)(vue@3.5.13(typescript@5.8.3))
+      sharp:
+        specifier: 'catalog:'
+        version: 0.33.5
     devDependencies:
       '@types/node':
         specifier: 'catalog:'
