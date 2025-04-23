@@ -9,6 +9,8 @@ const IMAGE_FORMATS = ['jpg', 'webp'] as const
 const ACCEPTED_IMAGE_FORMATS = ['jpeg', 'jpg', 'png', 'webp']
 
 export default defineEventHandler(async (event) => {
+  let sharpStream
+
   try {
     const { productsDirectory, public: { mediaUrl } } = useRuntimeConfig()
     const storage = useStorage('s3')
@@ -33,7 +35,7 @@ export default defineEventHandler(async (event) => {
     sharp.cache(false)
     sharp.concurrency(1)
 
-    const sharpStream = sharp(file.data.buffer as ArrayBuffer)
+    sharpStream = sharp(file.data.buffer as ArrayBuffer)
 
     const metadata = await sharpStream.clone().metadata()
 
@@ -89,8 +91,6 @@ export default defineEventHandler(async (event) => {
       }
     }
 
-    sharpStream.destroy()
-
     await createMedia({ id: mediaId }, items)
 
     const product = await getProduct(id)
@@ -111,5 +111,7 @@ export default defineEventHandler(async (event) => {
     return { ok: true }
   } catch (error) {
     throw errorResolver(error)
+  } finally {
+    sharpStream?.destroy()
   }
 })
