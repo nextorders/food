@@ -3,6 +3,7 @@
     <template #body>
       <FormUploadProductImage
         :product-id="productId ?? ''"
+        @submitted="closeAll"
         @success="closeAll"
       />
     </template>

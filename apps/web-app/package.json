@@ -15,6 +15,7 @@
   "dependencies": {
     "@neoconfetti/vue": "catalog:",
     "@nextorders/core": "workspace:*",
+    "@nextorders/schema": "workspace:*",
     "@nextorders/ui": "workspace:*",
     "@pinia/nuxt": "catalog:",
     "ioredis": "catalog:",

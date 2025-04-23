@@ -1,6 +1,6 @@
 <template>
   <UForm
-    :schema="productImageUploadSchema"
+    :schema="MediaUploadSchema"
     :state="state"
     class="flex flex-col gap-3"
     @submit="onSubmit"
@@ -30,9 +30,9 @@
 </template>
 
 <script setup lang="ts">
-import type { ProductImageUploadSchema } from '@nextorders/core/shared/services/product'
+import type { MediaUpload } from '@nextorders/schema'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { productImageUploadSchema } from '@nextorders/core/shared/services/product'
+import { MediaUploadSchema } from '@nextorders/schema'
 
 const { productId } = defineProps<{
   productId: string
@@ -44,7 +44,7 @@ const { t } = useI18n()
 const actionToast = useActionToast()
 const channel = useChannelStore()
 
-const state = ref<Partial<ProductImageUploadSchema>>({
+const state = ref<Partial<MediaUpload>>({
   file: undefined,
 })
 
@@ -59,7 +59,7 @@ function onFileChange(e: Event) {
   state.value.file = input.files[0]
 }
 
-async function onSubmit(event: FormSubmitEvent<ProductImageUploadSchema>) {
+async function onSubmit(event: FormSubmitEvent<MediaUpload>) {
   actionToast.start()
   emit('submitted')
 
