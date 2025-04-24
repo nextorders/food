@@ -29,7 +29,7 @@
   "scripts": {
     "release": "pnpm -r --filter \"./apps/**\" --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo",
     "build": "pnpm -r run build",
-    "dev:web-app:compose": "docker compose -f ./docker/web-app/docker-compose.yml up -d",
+    "dev:web-app:compose": "docker compose -f ./docker/web-app/docker-compose.yaml up -d",
     "dev:web-app": "pnpm -r --filter \"./apps/web-app\" dev",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
