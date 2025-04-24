@@ -34,7 +34,7 @@ const { lineId } = defineProps<{
 const { locale } = useI18n()
 const channel = useChannelStore()
 const checkout = useCheckoutStore()
-const line = computed(() => checkout.lines?.find((l) => l.id === lineId))
+const line = computed(() => checkout.items?.find((l) => l.id === lineId))
 const productVariant = channel.getProductVariant(line.value?.productVariantId ?? '')
 const product = channel.getProduct(productVariant.value?.productId ?? '')
 

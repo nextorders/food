@@ -1,5 +1,5 @@
 import type { Link, Page, PaymentMethod, ProductWithVariantsAndMedia } from '@nextorders/core/types/food'
-import type { Locale, LocaleValue, ProductVariant, Warehouse } from '@nextorders/schema'
+import type { Locale, LocaleValue, Menu, MenuCategory, ProductVariant, Warehouse } from '@nextorders/schema'
 
 interface TimeSlot {
   id: string
@@ -144,7 +144,7 @@ export const useChannelStore = defineStore('channel', () => {
     return result
   }
   function getProductsInCategory(categoryId: string): ComputedRef<ProductWithVariantsAndMedia[]> {
-    const productIds = activeMenu.value?.categories.find((category) => category.id === categoryId)?.products.map((product) => product.id) || []
+    const productIds = activeMenu.value?.categories.find((category) => category.id === categoryId)?.products.map((product) => product.id) ?? []
     return computed(() => products.value.filter((product) => productIds.includes(product.id)))
   }
 

@@ -129,7 +129,7 @@ const weightValue = computed(() => selectedVariant.value?.weightValue)
 const weightUnit = computed(() => getWeightLocalizedUnit(selectedVariant.value?.weightUnit))
 
 const inCart = computed(() => {
-  return checkout.lines.find((l) => l.productVariantId === selectedVariant.value?.id)
+  return checkout.items.find((l) => l.productVariantId === selectedVariant.value?.id)
 })
 
 const category = channel.getMenuCategoryByProduct(product.value.id)

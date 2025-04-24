@@ -28,5 +28,5 @@ const { lineId } = defineProps<{
 }>()
 
 const checkout = useCheckoutStore()
-const line = computed(() => checkout.lines?.find((l) => l.id === lineId))
+const line = computed(() => checkout.items?.find((l) => l.id === lineId))
 </script>

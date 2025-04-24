@@ -71,3 +71,30 @@ export const WarehouseSchema = type({
   address: 'string',
 })
 export type Warehouse = typeof WarehouseSchema.infer
+
+const MenuCategoryProductSchema = type({
+  id: 'string',
+})
+
+export const MenuCategorySchema = type({
+  id: 'string',
+  createdAt: 'string',
+  updatedAt: 'string',
+  slug: 'string',
+  icon: 'string | null',
+  name: LocaleValueSchema.array(),
+  menuId: 'string',
+  products: MenuCategoryProductSchema.array(),
+})
+export type MenuCategory = typeof MenuCategorySchema.infer
+
+export const MenuSchema = type({
+  id: 'string',
+  createdAt: 'string',
+  updatedAt: 'string',
+  slug: 'string',
+  name: 'string',
+  isActive: 'boolean',
+  categories: MenuCategorySchema.array(),
+})
+export type Menu = typeof MenuSchema.infer

@@ -179,7 +179,7 @@
         "title": "Address",
         "street": "Street and house",
         "flat": "Apt./office",
-        "doorphone": "Doorphone",
+        "intercom": "Intercom",
         "entrance": "Entrance",
         "floor": "Floor",
         "note": "Note",

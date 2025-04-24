@@ -7,9 +7,9 @@ export const useCheckoutStore = defineStore('checkout', () => {
   const status = ref<Checkout['status'] | undefined>(undefined)
   const totalPrice = ref(0)
   const deliveryMethod = ref<Checkout['deliveryMethod'] | undefined>(undefined)
-  const lines = ref<CheckoutLine[]>([])
+  const items = ref<CheckoutLine[]>([])
 
-  const isEmpty = computed(() => lines.value.length === 0)
+  const isEmpty = computed(() => items.value.length === 0)
 
   async function update() {
     try {
@@ -29,7 +29,7 @@ export const useCheckoutStore = defineStore('checkout', () => {
       status.value = data.status
       totalPrice.value = data.totalPrice
       deliveryMethod.value = data.deliveryMethod
-      lines.value = data.lines
+      items.value = data.items
     } catch (error) {
       if (error instanceof Error) {
         // its ok
@@ -39,7 +39,7 @@ export const useCheckoutStore = defineStore('checkout', () => {
   function clear() {
     id.value = null
     totalPrice.value = 0
-    lines.value = []
+    items.value = []
   }
   async function add(productVariantId: string) {
     try {
@@ -104,7 +104,7 @@ export const useCheckoutStore = defineStore('checkout', () => {
     status,
     totalPrice,
     deliveryMethod,
-    lines,
+    items,
 
     isEmpty,
 

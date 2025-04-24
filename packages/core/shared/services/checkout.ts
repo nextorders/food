@@ -7,7 +7,7 @@ export const checkoutUpdateSchema = z.object({
   warehouseId: z.string().max(50).optional(),
   street: z.string().min(2).max(80).optional(),
   flat: z.string().max(10).optional(),
-  doorphone: z.string().max(10).optional(),
+  intercom: z.string().max(10).optional(),
   entrance: z.string().max(10).optional(),
   floor: z.string().max(10).optional(),
   addressNote: z.string().max(250).optional(),

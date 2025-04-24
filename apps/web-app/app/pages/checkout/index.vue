@@ -51,9 +51,9 @@
                 />
               </UFormField>
 
-              <UFormField :label="$t('app.checkout.address.doorphone')">
+              <UFormField :label="$t('app.checkout.address.intercom')">
                 <UInput
-                  v-model="remainingCheckout.doorphone"
+                  v-model="remainingCheckout.intercom"
                   size="xl"
                 />
               </UFormField>
@@ -122,7 +122,7 @@
           </h2>
 
           <CheckoutLine
-            v-for="line in checkout?.lines"
+            v-for="line in checkout?.items"
             :key="line.id"
             :line="line"
           />
@@ -258,7 +258,7 @@ const remainingCheckout = ref<CheckoutDraft>({
   warehouseId: undefined,
   street: undefined,
   flat: undefined,
-  doorphone: undefined,
+  intercom: undefined,
   entrance: undefined,
   floor: undefined,
   addressNote: undefined,
@@ -306,7 +306,7 @@ async function updateCheckout() {
     warehouseId: remainingCheckout.value.warehouseId,
     street: remainingCheckout.value.street,
     flat: remainingCheckout.value.flat,
-    doorphone: remainingCheckout.value.doorphone,
+    intercom: remainingCheckout.value.intercom,
     entrance: remainingCheckout.value.entrance,
     floor: remainingCheckout.value.floor,
     addressNote: remainingCheckout.value.addressNote,

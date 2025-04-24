@@ -42,7 +42,7 @@ export default defineEventHandler(async (event) => {
         phone: '',
         street: '',
         flat: null,
-        doorphone: null,
+        intercom: null,
         entrance: null,
         floor: null,
         addressNote: null,
@@ -55,7 +55,7 @@ export default defineEventHandler(async (event) => {
         time: '',
         timeType: 'ASAP',
         warehouseId: null,
-        lines: [],
+        items: [],
       })
       if (!createdCheckout?.id) {
         throw createError({
@@ -85,10 +85,10 @@ export default defineEventHandler(async (event) => {
     }
 
     // Add +1 or create new line
-    const line = checkoutInDB?.lines.find((line) => line.productVariantId === body.productVariantId)
+    const line = checkoutInDB.items.find((line) => line.productVariantId === body.productVariantId)
     if (!line) {
       // Check limit
-      if (checkoutInDB?.lines?.length >= MAX_LINES_PER_CHECKOUT) {
+      if (checkoutInDB.items?.length >= MAX_LINES_PER_CHECKOUT) {
         throw createError({
           statusCode: 400,
           message: 'Limit reached',

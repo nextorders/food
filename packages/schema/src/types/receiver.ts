@@ -15,7 +15,7 @@ const CheckoutItemSchema = type({
 const CheckoutAddressSchema = type({
   street: 'string',
   flat: 'string?',
-  doorphone: 'string?',
+  intercom: 'string?',
   entrance: 'string?',
   floor: 'string?',
   addressNote: 'string?',

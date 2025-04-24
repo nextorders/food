@@ -20,7 +20,7 @@
         <CartEmpty v-if="checkout.isEmpty" />
         <template v-else>
           <CartLine
-            v-for="line in checkout.lines"
+            v-for="line in checkout.items"
             :key="line.id"
             :line-id="line.id"
           />

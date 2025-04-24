@@ -39,7 +39,7 @@
         </p>
         <p v-if="checkout?.street" class="inline">
           <span>{{ checkout?.street }} {{ checkout?.flat }}</span>
-          <span v-if="checkout?.doorphone" class="lowercase">, {{ $t('app.checkout.address.doorphone') }} {{ checkout?.doorphone }}</span>
+          <span v-if="checkout?.intercom" class="lowercase">, {{ $t('app.checkout.address.intercom') }} {{ checkout?.intercom }}</span>
           <span v-if="checkout?.entrance" class="lowercase">, {{ $t('app.checkout.address.entrance') }} {{ checkout?.entrance }}</span>
           <span v-if="checkout?.floor" class="lowercase">, {{ $t('app.checkout.address.floor') }} {{ checkout?.floor }}</span>
           <span v-if="checkout?.addressNote">. {{ checkout?.addressNote }}</span>
@@ -59,7 +59,7 @@
 
     <div class="flex flex-col gap-3">
       <CommandCenterCheckoutLine
-        v-for="line in checkout?.lines"
+        v-for="line in checkout?.items"
         :key="line.id"
         :line-id="line.id"
       />

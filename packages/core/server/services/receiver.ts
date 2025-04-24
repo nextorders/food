@@ -32,7 +32,7 @@ async function prepareCheckout(checkoutId: string): Promise<CheckoutForReceiver 
     ? {
         street: checkout.street,
         flat: checkout.flat ?? undefined,
-        doorphone: checkout.doorphone ?? undefined,
+        intercom: checkout.intercom ?? undefined,
         entrance: checkout.entrance ?? undefined,
         floor: checkout.floor ?? undefined,
         addressNote: checkout.addressNote ?? undefined,
@@ -41,12 +41,12 @@ async function prepareCheckout(checkoutId: string): Promise<CheckoutForReceiver 
   const time = new TZDate(checkout.time, channel.timeZone).toLocaleString(locale, { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false })
 
   const items = []
-  for (const line of checkout.lines) {
-    const variant = await getProductVariant(line.productVariantId)
+  for (const item of checkout.items) {
+    const variant = await getProductVariant(item.productVariantId)
     const product = await getProduct(variant?.productId ?? '')
 
     items.push({
-      ...line,
+      ...item,
       name: product?.name?.find((name) => name.locale === locale)?.value ?? '',
       variant: variant?.name.find((name) => name.locale === locale)?.value ?? '',
     })

@@ -1,3 +1,4 @@
+import type { Menu, MenuCategory } from '@nextorders/schema'
 import { getKeys } from '.'
 
 export async function getMenu(id: string): Promise<Menu | null> {

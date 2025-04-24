@@ -25,27 +25,6 @@ declare global {
     WorkingDay,
   ]
 
-  interface Menu {
-    id: string
-    createdAt: string
-    updatedAt: string
-    slug: string
-    name: string
-    isActive: boolean
-    categories: MenuCategory[]
-  }
-
-  interface MenuCategory {
-    id: string
-    createdAt: string
-    updatedAt: string
-    slug: string
-    icon: string | null
-    name: LocaleValue[]
-    products: { id: string }[]
-    menuId: string
-  }
-
   interface Checkout {
     id: string
     createdAt: string
@@ -65,12 +44,12 @@ declare global {
     warehouseId: string | null
     street: string
     flat: string | null
-    doorphone: string | null
+    intercom: string | null
     entrance: string | null
     floor: string | null
     addressNote: string | null
     channelId: string
-    lines: CheckoutLine[]
+    items: CheckoutLine[]
   }
 
   type CheckoutStatus = 'CREATED' | 'FINISHED' | 'CANCELED'

@@ -31,7 +31,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const line = checkoutInDB?.lines.find((line) => line.id === id)
+  const line = checkoutInDB.items.find((line) => line.id === id)
   if (!line) {
     throw createError({
       statusCode: 404,

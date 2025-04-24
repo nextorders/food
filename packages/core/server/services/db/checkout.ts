@@ -78,15 +78,7 @@ export async function recalculateCheckout(id: string): Promise<void> {
   }
 
   // Check if any line has no quantity
-  const updatedLines: CheckoutLine[] = []
-  for (const line of checkout.lines) {
-    if (line.quantity <= 0) {
-      // Delete line
-      continue
-    }
-
-    updatedLines.push(line)
-  }
+  const updatedLines: CheckoutLine[] = checkout.items.filter((line) => line.quantity > 0)
 
   for (const line of updatedLines) {
     const productVariant = await getProductVariant(line.productVariantId)
@@ -103,7 +95,7 @@ export async function recalculateCheckout(id: string): Promise<void> {
   }, 0)
 
   await patchCheckout(id, {
-    lines: updatedLines,
+    items: updatedLines,
     totalPrice,
   })
 }
@@ -128,7 +120,7 @@ export async function getCheckoutLine(checkoutId: string, id: string): Promise<C
     return null
   }
 
-  return checkout.lines.find((line) => line.id === id) ?? null
+  return checkout.items.find((line) => line.id === id) ?? null
 }
 
 export async function createCheckoutLine(data: Omit<CheckoutLine, 'createdAt' | 'updatedAt'>): Promise<CheckoutLine | null> {
@@ -138,8 +130,8 @@ export async function createCheckoutLine(data: Omit<CheckoutLine, 'createdAt' | 
   }
 
   await patchCheckout(data.checkoutId, {
-    lines: [
-      ...checkout.lines,
+    items: [
+      ...checkout.items,
       {
         ...data,
         createdAt: new Date().toISOString(),
@@ -158,7 +150,7 @@ export async function patchCheckoutLine(checkoutId: string, id: string, data: Pa
   }
 
   await patchCheckout(checkoutId, {
-    lines: checkout.lines.map((line) => {
+    items: checkout.items.map((line) => {
       if (line.id !== id) {
         return line
       }

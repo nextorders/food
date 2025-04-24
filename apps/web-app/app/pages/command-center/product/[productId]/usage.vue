@@ -78,6 +78,7 @@
 </template>
 
 <script setup lang="ts">
+import type { MenuCategory } from '@nextorders/schema'
 import type { TableColumn } from '@nuxt/ui'
 import { getPaginationRowModel } from '@tanstack/table-core'
 import { upperFirst } from 'scule'

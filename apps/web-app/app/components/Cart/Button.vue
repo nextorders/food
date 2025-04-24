@@ -6,7 +6,7 @@
     class="block xl:hidden"
   >
     <UChip
-      :text="checkout.lines.length"
+      :text="checkout.items.length"
       size="3xl"
       color="primary"
     >
