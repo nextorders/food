@@ -1,56 +1,9 @@
 declare global {
-  interface Channel {
-    id: string
-    createdAt: string
-    updatedAt: string
-    slug: string
-    name: LocaleValue[]
-    description: LocaleValue[]
-    conditions: LocaleValue[]
-    copyright: LocaleValue[]
-    currencyCode: CurrencyCode
-    countryCode: CountryCode
-    defaultLocale: Locale
-    timeZone: TimeZone
-    isActive: boolean
-    isDeliveryAvailable: boolean
-    isPickupAvailable: boolean
-    minAmountForDelivery: number | null
-  }
-
   type CurrencyCode = 'USD' | 'EUR' | 'RUB' | 'GEL' | 'BYN' | 'UAH' | 'KZT' | 'PLN' | 'TRY'
 
   type CountryCode = 'RU' | 'US' | 'GB' | 'GR' | 'GE' | 'UA' | 'BY' | 'KZ' | 'FR' | 'DE' | 'IT' | 'ES' | 'TR' | 'PL'
 
-  type Locale = 'ru' | 'en'
-
-  type LocaleValue = {
-    locale: Locale
-    value: string
-  }
-
-  interface Link {
-    id: string
-    createdAt: string
-    updatedAt: string
-    label: string
-    to: string
-    icon: string | null
-    target: string
-    menuId: string
-  }
-
   type TimeZone = '-12:00' | '-11:00' | '-10:00' | '-09:00' | '-08:00' | '-07:00' | '-06:00' | '-05:00' | '-04:00' | '-03:00' | '-02:00' | '-01:00' | '00:00' | '+01:00' | '+02:00' | '+03:00' | '+04:00' | '+05:00' | '+06:00' | '+07:00' | '+08:00' | '+09:00' | '+10:00' | '+11:00' | '+12:00'
-
-  interface PaymentMethod {
-    id: string
-    createdAt: string
-    updatedAt: string
-    name: LocaleValue[]
-    type: PaymentMethodType
-  }
-
-  type PaymentMethodType = 'CASH' | 'CARD' | 'CUSTOM'
 
   interface WorkingDay {
     index: 0 | 1 | 2 | 3 | 4 | 5 | 6
@@ -154,46 +107,6 @@ declare global {
     updatedAt: string
     checkoutId: string
     status: CheckoutStatus
-  }
-
-  interface User {
-    id: string
-    createdAt: string
-    updatedAt: string
-    name: string | null
-    email: string | null
-    isActive: boolean
-    isConfirmed: boolean
-    isStaff: boolean
-    permissions: PermissionCode[]
-  }
-
-  type PermissionCode = 'MASTER' | 'MANAGE_OPTIONS' | 'MANAGE_MENUS' | 'MANAGE_PRODUCTS' | 'MANAGE_CHECKOUTS' | 'MANAGE_CLIENTS' | 'MANAGE_WAREHOUSES'
-
-  interface UserCredentials {
-    id: string
-    createdAt: string
-    updatedAt: string
-    login: string
-    password: string
-    userId: string
-  }
-
-  interface Warehouse {
-    id: string
-    createdAt: string
-    updatedAt: string
-    name: string
-    address: string
-  }
-
-  interface Page {
-    id: string
-    createdAt: string
-    updatedAt: string
-    slug: string
-    title: LocaleValue[]
-    content: string
   }
 }
 

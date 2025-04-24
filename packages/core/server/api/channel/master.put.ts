@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     if (master) {
       throw createError({
         statusCode: 400,
-        statusMessage: 'Master user already exists',
+        message: 'Master user already exists',
       })
     }
 
@@ -31,7 +31,7 @@ export default defineEventHandler(async (event) => {
     if (!user) {
       throw createError({
         statusCode: 400,
-        statusMessage: 'Failed to create user',
+        message: 'Failed to create user',
       })
     }
 

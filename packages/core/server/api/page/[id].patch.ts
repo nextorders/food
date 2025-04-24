@@ -1,3 +1,4 @@
+import { updateLocaleValues } from '@nextorders/schema'
 import { getPage, patchPage } from '../../../server/services/db/page'
 import { pageUpdateSchema } from '../../../shared/services/page'
 
@@ -7,7 +8,7 @@ export default defineEventHandler(async (event) => {
     if (!id) {
       throw createError({
         statusCode: 400,
-        statusMessage: 'Missing id',
+        message: 'Missing id',
       })
     }
 
@@ -18,7 +19,7 @@ export default defineEventHandler(async (event) => {
     if (!page) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Page not found',
+        message: 'Page not found',
       })
     }
 

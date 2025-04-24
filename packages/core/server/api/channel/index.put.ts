@@ -1,3 +1,5 @@
+import type { Locale } from '@nextorders/schema'
+import { updateLocaleValues } from '@nextorders/schema'
 import { createChannel, getChannel } from '../../../server/services/db/channel'
 import { createWorkingDays } from '../../../server/services/db/work'
 import { channelCreateSchema } from './../../../shared/services/channel'
@@ -11,7 +13,7 @@ export default defineEventHandler(async (event) => {
     if (channel) {
       throw createError({
         statusCode: 400,
-        statusMessage: 'Channel already exists',
+        message: 'Channel already exists',
       })
     }
 

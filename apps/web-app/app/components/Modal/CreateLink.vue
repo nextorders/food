@@ -11,8 +11,10 @@
 </template>
 
 <script setup lang="ts">
+import type { Link } from '@nextorders/core/types/food'
+
 defineProps<{
-  menuId: string
+  menuId: Link['menuId']
 }>()
 
 const overlay = useOverlay()

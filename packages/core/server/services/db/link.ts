@@ -1,3 +1,5 @@
+import type { Link } from '../../../types/food'
+
 export async function getLink(id: string): Promise<Link | null> {
   return useStorage('db').getItem<Link>(`link:${id}`)
 }

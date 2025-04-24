@@ -15,6 +15,8 @@
 </template>
 
 <script setup lang="ts">
+import type { Locale } from '@nextorders/schema'
+
 const { locale } = useI18n()
 const l = locale.value as Locale
 

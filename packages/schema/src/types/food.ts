@@ -62,3 +62,12 @@ export const ProductVariantSchema = type({
   sku: 'string | null',
 })
 export type ProductVariant = typeof ProductVariantSchema.infer
+
+export const WarehouseSchema = type({
+  id: 'string',
+  createdAt: 'string',
+  updatedAt: 'string',
+  name: 'string',
+  address: 'string',
+})
+export type Warehouse = typeof WarehouseSchema.infer

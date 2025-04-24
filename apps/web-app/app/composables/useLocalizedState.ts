@@ -1,3 +1,5 @@
+import type { Locale } from '@nextorders/schema'
+
 interface LocalizedStateItem {
   locale: string
   label: string

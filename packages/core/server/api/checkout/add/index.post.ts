@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     if (!body.productVariantId) {
       throw createError({
         statusCode: 400,
-        statusMessage: 'Missing data',
+        message: 'Missing data',
       })
     }
 
@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
     if (!channel?.isActive || (!channel?.isPickupAvailable && !channel?.isDeliveryAvailable)) {
       throw createError({
         statusCode: 400,
-        statusMessage: 'Channel is not active',
+        message: 'Channel is not active',
       })
     }
 
@@ -60,7 +60,7 @@ export default defineEventHandler(async (event) => {
       if (!createdCheckout?.id) {
         throw createError({
           statusCode: 400,
-          statusMessage: 'Failed to create checkout',
+          message: 'Failed to create checkout',
         })
       }
 
@@ -80,7 +80,7 @@ export default defineEventHandler(async (event) => {
     if (!checkoutInDB?.id) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'No checkout',
+        message: 'No checkout',
       })
     }
 
@@ -91,7 +91,7 @@ export default defineEventHandler(async (event) => {
       if (checkoutInDB?.lines?.length >= MAX_LINES_PER_CHECKOUT) {
         throw createError({
           statusCode: 400,
-          statusMessage: 'Limit reached',
+          message: 'Limit reached',
         })
       }
 

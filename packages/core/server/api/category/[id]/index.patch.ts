@@ -1,3 +1,4 @@
+import { updateLocaleValues } from '@nextorders/schema'
 import { getMenuCategory, patchMenuCategory } from '../../../../server/services/db/menu'
 import { menuCategoryUpdateSchema } from './../../../../shared/services/menu'
 
@@ -7,7 +8,7 @@ export default defineEventHandler(async (event) => {
     if (!id) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Category not found',
+        message: 'Category not found',
       })
     }
 
@@ -18,7 +19,7 @@ export default defineEventHandler(async (event) => {
     if (!category) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Category not found',
+        message: 'Category not found',
       })
     }
 

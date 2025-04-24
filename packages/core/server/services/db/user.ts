@@ -1,3 +1,4 @@
+import type { User, UserCredentials } from '@nextorders/schema'
 import { getKeys } from '.'
 
 export async function getUser(id: string): Promise<User | null> {

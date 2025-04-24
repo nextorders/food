@@ -6,7 +6,7 @@ export default defineEventHandler(async () => {
     if (!checkouts) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'No checkouts',
+        message: 'No checkouts',
       })
     }
 

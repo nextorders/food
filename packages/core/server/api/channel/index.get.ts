@@ -58,7 +58,7 @@ export default defineCachedEventHandler(async () => {
     if (!channel) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Channel not found',
+        message: 'Channel not found',
       })
     }
 

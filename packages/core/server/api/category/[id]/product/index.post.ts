@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
     if (!id) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Category not found',
+        message: 'Category not found',
       })
     }
 
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
     if (!category) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Category not found',
+        message: 'Category not found',
       })
     }
 
@@ -26,7 +26,7 @@ export default defineEventHandler(async (event) => {
     if (category.products.some((product) => product.id === data.productId)) {
       throw createError({
         statusCode: 400,
-        statusMessage: 'Product is already in category',
+        message: 'Product is already in category',
       })
     }
 

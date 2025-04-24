@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
   try {
     const body = await readBody(event)
     if (!body?.login || !body?.password) {
-      throw createError({ statusCode: 400, statusMessage: 'Missing login or password' })
+      throw createError({ statusCode: 400, message: 'Missing login or password' })
     }
 
     const { user: userInSession } = await getUserSession(event)
@@ -15,17 +15,17 @@ export default defineEventHandler(async (event) => {
 
     const credentials = await getUserCredentialsByLogin(body.login)
     if (!credentials) {
-      throw createError({ statusCode: 401, statusMessage: 'Wrong login or password' })
+      throw createError({ statusCode: 401, message: 'Wrong login or password' })
     }
 
     const isMatch = await verify(body.password, credentials.password)
     if (!isMatch) {
-      throw createError({ statusCode: 401, statusMessage: 'Wrong login or password' })
+      throw createError({ statusCode: 401, message: 'Wrong login or password' })
     }
 
     const user = await getUser(credentials.userId)
     if (!user) {
-      throw createError({ statusCode: 401, statusMessage: 'No user found' })
+      throw createError({ statusCode: 401, message: 'No user found' })
     }
 
     await setUserSession(event, {

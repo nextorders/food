@@ -1,5 +1,5 @@
-import type { ProductWithVariantsAndMedia } from '@nextorders/core/types/food'
-import type { ProductVariant } from '@nextorders/schema'
+import type { Link, Page, PaymentMethod, ProductWithVariantsAndMedia } from '@nextorders/core/types/food'
+import type { Locale, LocaleValue, ProductVariant, Warehouse } from '@nextorders/schema'
 
 interface TimeSlot {
   id: string

@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 export const linkCreateSchema = z.object({
-  menuId: z.string().min(2).max(50),
+  menuId: z.enum(['main', 'footer', 'social']),
   label: z.string().max(50),
   to: z.string().min(2).max(250),
   icon: z.string().optional(),

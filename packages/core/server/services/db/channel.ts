@@ -1,3 +1,5 @@
+import type { Channel } from '../../../types/food'
+
 export async function getChannel(id: string): Promise<Channel | null> {
   return useStorage('db').getItem<Channel>(`channel:${id}`)
 }

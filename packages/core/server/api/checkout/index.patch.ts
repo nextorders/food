@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
     if (!secure?.checkoutId) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'No checkout',
+        message: 'No checkout',
       })
     }
 
@@ -32,7 +32,7 @@ export default defineEventHandler(async (event) => {
         if (actualCheckout.totalPrice < channel.minAmountForDelivery) {
           throw createError({
             statusCode: 400,
-            statusMessage: 'Minimum order value not reached',
+            message: 'Minimum order value not reached',
           })
         }
       }

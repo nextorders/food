@@ -57,12 +57,13 @@
 
 <script setup lang="ts">
 import type { LinkCreateSchema } from '@nextorders/core/shared/services/link'
+import type { Link } from '@nextorders/core/types/food'
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { linkCreateSchema } from '@nextorders/core/shared/services/link'
 import { getLinkIconsForSelect } from '../../utils/helpers'
 
 const { menuId } = defineProps<{
-  menuId: string
+  menuId: Link['menuId']
 }>()
 
 const emit = defineEmits(['success', 'submitted'])

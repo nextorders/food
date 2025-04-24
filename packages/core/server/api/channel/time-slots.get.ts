@@ -10,7 +10,7 @@ export default defineEventHandler(async () => {
     if (!channel) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Channel not found',
+        message: 'Channel not found',
       })
     }
 
@@ -22,7 +22,7 @@ export default defineEventHandler(async () => {
     if (!workingDay?.isActive) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Not working today',
+        message: 'Not working today',
       })
     }
 

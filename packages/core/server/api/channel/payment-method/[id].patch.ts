@@ -1,3 +1,4 @@
+import { updateLocaleValues } from '@nextorders/schema'
 import { getPaymentMethod, patchPaymentMethod } from '../../../../server/services/db/payment'
 import { channelPaymentMethodUpdateSchema } from './../../../../shared/services/channel'
 
@@ -7,7 +8,7 @@ export default defineEventHandler(async (event) => {
     if (!id) {
       throw createError({
         statusCode: 400,
-        statusMessage: 'Missing id',
+        message: 'Missing id',
       })
     }
 
@@ -18,7 +19,7 @@ export default defineEventHandler(async (event) => {
     if (!payment) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Payment method not found',
+        message: 'Payment method not found',
       })
     }
 

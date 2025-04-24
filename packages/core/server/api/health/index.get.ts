@@ -5,7 +5,7 @@ export default defineEventHandler(async () => {
   if (!channelId) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'Missing channelId',
+      message: 'Missing channelId',
     })
   }
 
@@ -13,7 +13,7 @@ export default defineEventHandler(async () => {
   if (!keys?.allKeys) {
     throw createError({
       statusCode: 500,
-      statusMessage: 'DB error',
+      message: 'DB error',
     })
   }
 

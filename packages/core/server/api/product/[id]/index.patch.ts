@@ -1,3 +1,4 @@
+import { updateLocaleValues } from '@nextorders/schema'
 import { getProduct, patchProduct } from '../../../../server/services/db/product'
 import { productUpdateSchema } from './../../../../shared/services/product'
 
@@ -7,7 +8,7 @@ export default defineEventHandler(async (event) => {
     if (!id) {
       throw createError({
         statusCode: 400,
-        statusMessage: 'Missing id',
+        message: 'Missing id',
       })
     }
 
@@ -18,7 +19,7 @@ export default defineEventHandler(async (event) => {
     if (!product) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Product not found',
+        message: 'Product not found',
       })
     }
 

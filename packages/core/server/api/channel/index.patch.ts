@@ -1,5 +1,7 @@
+import type { Channel } from '../../../types/food'
+import { updateLocaleValues } from '@nextorders/schema'
 import { getChannel, patchChannel } from '../../../server/services/db/channel'
-import { channelUpdateSchema } from './../../../shared/services/channel'
+import { channelUpdateSchema } from '../../../shared/services/channel'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -12,7 +14,7 @@ export default defineEventHandler(async (event) => {
     if (!channel) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Channel not found',
+        message: 'Channel not found',
       })
     }
 

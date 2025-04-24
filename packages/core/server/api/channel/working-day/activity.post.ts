@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     if (!workingDays) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Working day not found',
+        message: 'Working day not found',
       })
     }
 

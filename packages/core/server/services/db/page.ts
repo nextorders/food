@@ -1,3 +1,5 @@
+import type { Page } from '../../../types/food'
+
 export async function getPage(id: string): Promise<Page | null> {
   return useStorage('db').getItem<Page>(`page:${id}`)
 }

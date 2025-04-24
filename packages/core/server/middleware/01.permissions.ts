@@ -1,3 +1,4 @@
+import type { PermissionCode } from '@nextorders/schema'
 import type { H3Event } from 'h3'
 
 type ProtectedRoute = {
@@ -61,7 +62,7 @@ export default defineEventHandler(async (event) => {
   for (const route of protectedRoutes) {
     if (event.path.startsWith(route.path) && route.methods.includes(event.method)) {
       if (!route.requiredPermissions.some((permission) => permissions.includes(permission))) {
-        throw errorResolver(createError({ statusCode: 403, statusMessage: 'Not allowed' }))
+        throw errorResolver(createError({ statusCode: 403, message: 'Not allowed' }))
       }
     }
   }

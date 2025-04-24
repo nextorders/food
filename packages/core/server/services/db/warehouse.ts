@@ -1,3 +1,5 @@
+import type { Warehouse } from '@nextorders/schema'
+
 export async function getWarehouse(id: string): Promise<Warehouse | null> {
   return useStorage('db').getItem<Warehouse>(`warehouse:${id}`)
 }

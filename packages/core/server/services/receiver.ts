@@ -1,4 +1,4 @@
-import type { CheckoutForReceiver } from '../../types/receiver'
+import type { CheckoutForReceiver } from '@nextorders/schema'
 import { TZDate } from '@date-fns/tz'
 import { getKeys } from './db'
 import { getChannel } from './db/channel'

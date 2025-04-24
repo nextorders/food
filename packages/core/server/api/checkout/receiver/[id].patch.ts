@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
     if (!id) {
       throw createError({
         statusCode: 400,
-        statusMessage: 'Missing id',
+        message: 'Missing id',
       })
     }
 
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
     if (!receiver?.id) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'No receiver',
+        message: 'No receiver',
       })
     }
 

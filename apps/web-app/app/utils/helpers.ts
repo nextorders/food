@@ -1,4 +1,5 @@
-import type { WeightUnit } from '@nextorders/schema'
+import type { PaymentMethodType } from '@nextorders/core/types/food'
+import type { Locale, LocaleValue, WeightUnit } from '@nextorders/schema'
 
 export const CURRENCY_SIGNS: Record<CurrencyCode, string> = {
   RUB: '₽',
