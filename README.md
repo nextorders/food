@@ -48,6 +48,7 @@ The application has [several localizations](https://github.com/nextorders/food/t
 ## 🥒 Repository structure
 
 - [Web App](https://github.com/nextorders/food/tree/main/apps/web-app): Web storefront and Command Center. Client can order delicious food.
+- [Essence](https://github.com/nextorders/food/tree/main/apps/essence): Business data collection and data management software.
 - [Website](https://github.com/nextorders/food/tree/main/apps/website): Info portal and documentation.
 
 ## ☕ How to deploy
@@ -87,10 +88,10 @@ Make a fork. Or clone this repo and use standard commands:
 ```shell
 git clone https://github.com/nextorders/food
 pnpm i
-pnpm dev:compose
-pnpm dev:all
+pnpm dev:web-app:compose
+pnpm dev:web-app
 ```
 
 ## 🍰 License
 
-This project is licensed under the **MIT License** - see the [**MIT License**](https://github.com/nextorders/food/blob/main/LICENSE) file for details.
+This project is licensed under the **MIT License** - see the [**License**](https://github.com/nextorders/food/blob/main/LICENSE) file for details.
