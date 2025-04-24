@@ -13,6 +13,8 @@ on:
 jobs:
   determine-changes:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
@@ -52,6 +54,9 @@ jobs:
     needs: determine-changes
     if: ${{ needs.determine-changes.outputs.matrix != '[]' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     strategy:
       matrix:
         app: ${{ fromJson(needs.determine-changes.outputs.matrix) }}

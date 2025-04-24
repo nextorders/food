@@ -17,6 +17,8 @@ on:
 jobs:
   determine-changes:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     outputs:
       package: ${{ steps.set-package.outputs.package }}
       version: ${{ steps.set-package.outputs.version }}
@@ -64,6 +66,9 @@ jobs:
     needs: determine-changes
     if: ${{ needs.determine-changes.outputs.package != '' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
