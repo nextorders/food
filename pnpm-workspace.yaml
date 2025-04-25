@@ -55,6 +55,7 @@ catalog:
   vite-tsconfig-paths: ^5.1.4
   vitest: ^3.1.2
   vitest-browser-vue: ^0.2.0
+  vue-tsc: ^2.2.10
   zod: ^3.24.3
 ignoredBuiltDependencies:
   - '@parcel/watcher'

@@ -63,8 +63,7 @@
     "vitest-browser-vue": "catalog:"
   },
   "resolutions": {
-    "unimport": "4.1.1",
-    "vue-tsc": "2.2.0"
+    "unimport": "4.1.1"
   },
   "lint-staged": {
     "*.ts": "pnpm run lint"

@@ -24,6 +24,7 @@
     "@nuxt/devtools": "catalog:",
     "@nuxt/image": "catalog:",
     "@tailwindcss/typography": "catalog:",
-    "nuxt": "catalog:"
+    "nuxt": "catalog:",
+    "vue-tsc": "catalog:"
   }
 }

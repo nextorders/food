@@ -21,6 +21,7 @@
     "@nuxt/image": "catalog:",
     "@types/node": "catalog:",
     "nuxt": "catalog:",
-    "nuxt-auth-utils": "catalog:"
+    "nuxt-auth-utils": "catalog:",
+    "vue-tsc": "catalog:"
   }
 }
