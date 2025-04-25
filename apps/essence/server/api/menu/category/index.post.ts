@@ -11,6 +11,14 @@ export default defineEventHandler(async (event) => {
       throw data
     }
 
+    const menu = await repository.menu.find(data.menuId)
+    if (!menu) {
+      throw createError({
+        statusCode: 404,
+        message: 'Menu not found',
+      })
+    }
+
     const id = createId()
 
     const category = await repository.menu.createCategory({

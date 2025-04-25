@@ -10,6 +10,14 @@ export default defineEventHandler(async (event) => {
       })
     }
 
+    const menu = await repository.menu.find(menuId)
+    if (!menu) {
+      throw createError({
+        statusCode: 404,
+        message: 'Menu not found',
+      })
+    }
+
     await repository.menu.delete(menuId)
 
     return {
