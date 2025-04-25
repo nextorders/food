@@ -1,7 +1,48 @@
-import type { LocaleValue, MediaFormat, WeightUnit } from '@nextorders/schema'
+import type { CountryCode, CurrencyCode, Locale, LocaleValue, MediaFormat, TimeZone, WeightUnit } from '@nextorders/schema'
 import { cuid2 } from 'drizzle-cuid2/postgres'
 import { relations } from 'drizzle-orm'
 import { boolean, integer, jsonb, numeric, pgTable, timestamp, varchar } from 'drizzle-orm/pg-core'
+
+export const channels = pgTable('channels', {
+  id: cuid2('id').defaultRandom().primaryKey(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  slug: varchar('slug').notNull(),
+  name: jsonb('name').notNull().default([]).$type<LocaleValue[]>(),
+  description: jsonb('description').notNull().default([]).$type<LocaleValue[]>(),
+  conditions: jsonb('conditions').notNull().default([]).$type<LocaleValue[]>(),
+  copyright: jsonb('copyright').notNull().default([]).$type<LocaleValue[]>(),
+  currencyCode: varchar('currency_code').notNull().$type<CurrencyCode>(),
+  countryCode: varchar('country_code').notNull().$type<CountryCode>(),
+  defaultLocale: varchar('default_locale').notNull().$type<Locale>(),
+  timeZone: varchar('time_zone').notNull().$type<TimeZone>(),
+  isActive: boolean('is_active').notNull().default(true),
+  isDeliveryAvailable: boolean('is_delivery_available').notNull().default(true),
+  isPickupAvailable: boolean('is_pickup_available').notNull().default(true),
+  minAmountForDelivery: numeric('min_amount_for_delivery', { mode: 'number' }),
+})
+
+export const menus = pgTable('menus', {
+  id: cuid2('id').defaultRandom().primaryKey(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  slug: varchar('slug').notNull(),
+  name: varchar('name').notNull(),
+  isActive: boolean('is_active').notNull().default(false),
+})
+
+export const menuCategories = pgTable('menu_categories', {
+  id: cuid2('id').defaultRandom().primaryKey(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  slug: varchar('slug').notNull(),
+  name: jsonb('name').notNull().default([]).$type<LocaleValue[]>(),
+  icon: varchar('icon'),
+  menuId: cuid2('menu_id').notNull().references(() => menus.id, {
+    onDelete: 'cascade',
+    onUpdate: 'cascade',
+  }),
+})
 
 export const products = pgTable('products', {
   id: cuid2('id').defaultRandom().primaryKey(),
@@ -34,6 +75,20 @@ export const productVariants = pgTable('product_variants', {
   }),
 })
 
+export const productsInMenuCategories = pgTable('products_in_menu_categories', {
+  id: cuid2('id').defaultRandom().primaryKey(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  menuCategoryId: cuid2('menu_category_id').notNull().references(() => menuCategories.id, {
+    onDelete: 'cascade',
+    onUpdate: 'cascade',
+  }),
+  productId: cuid2('product_id').notNull().references(() => products.id, {
+    onDelete: 'cascade',
+    onUpdate: 'cascade',
+  }),
+})
+
 export const media = pgTable('media', {
   id: cuid2('id').defaultRandom().primaryKey(),
   createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
@@ -53,9 +108,19 @@ export const mediaItems = pgTable('media_items', {
   }),
 })
 
+export const menuRelations = relations(menus, ({ many }) => ({
+  categories: many(menuCategories),
+}))
+
+export const menuCategoryRelations = relations(menuCategories, ({ one, many }) => ({
+  menu: one(menus, { fields: [menuCategories.menuId], references: [menus.id] }),
+  products: many(productsInMenuCategories),
+}))
+
 export const productRelations = relations(products, ({ one, many }) => ({
   variants: many(productVariants),
   media: one(media, { fields: [products.mediaId], references: [media.id] }),
+  categories: many(productsInMenuCategories),
 }))
 
 export const productVariantRelations = relations(productVariants, ({ one }) => ({

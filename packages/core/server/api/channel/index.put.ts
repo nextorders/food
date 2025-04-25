@@ -1,4 +1,4 @@
-import type { Locale } from '@nextorders/schema'
+import type { CountryCode, CurrencyCode, Locale, TimeZone } from '@nextorders/schema'
 import { updateLocaleValues } from '@nextorders/schema'
 import { createChannel, getChannel } from '../../../server/services/db/channel'
 import { createWorkingDays } from '../../../server/services/db/work'

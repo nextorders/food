@@ -1,4 +1,4 @@
-import type { Locale, LocaleValue, Media, MediaItem, Product, ProductVariant } from '@nextorders/schema'
+import type { LocaleValue, Media, MediaItem, Product, ProductVariant } from '@nextorders/schema'
 
 export interface MediaWithItems extends Media {
   items: MediaItem[]
@@ -27,25 +27,6 @@ export interface Link {
   icon: string | null
   target: string
   menuId: 'main' | 'social' | 'footer'
-}
-
-export interface Channel {
-  id: string
-  createdAt: string
-  updatedAt: string
-  slug: string
-  name: LocaleValue[]
-  description: LocaleValue[]
-  conditions: LocaleValue[]
-  copyright: LocaleValue[]
-  currencyCode: CurrencyCode
-  countryCode: CountryCode
-  defaultLocale: Locale
-  timeZone: TimeZone
-  isActive: boolean
-  isDeliveryAvailable: boolean
-  isPickupAvailable: boolean
-  minAmountForDelivery: number | null
 }
 
 export interface PaymentMethod {

@@ -1,4 +1,4 @@
-import type { Channel } from '../../../types/food'
+import type { Channel } from '@nextorders/schema'
 
 export async function getChannel(id: string): Promise<Channel | null> {
   return useStorage('db').getItem<Channel>(`channel:${id}`)

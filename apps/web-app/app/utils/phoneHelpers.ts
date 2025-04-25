@@ -1,3 +1,4 @@
+import type { CountryCode } from '@nextorders/schema'
 import {
   AsYouType,
   formatIncompletePhoneNumber,

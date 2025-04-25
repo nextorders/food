@@ -1,4 +1,4 @@
-import type { Channel } from '../../../types/food'
+import type { Channel } from '@nextorders/schema'
 import { updateLocaleValues } from '@nextorders/schema'
 import { getChannel, patchChannel } from '../../../server/services/db/channel'
 import { channelUpdateSchema } from '../../../shared/services/channel'

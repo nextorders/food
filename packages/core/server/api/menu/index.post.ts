@@ -6,10 +6,9 @@ import { menuCreateSchema } from './../../../shared/services/menu'
 export default defineEventHandler(async (event) => {
   try {
     const body = await readBody(event)
-
     const data = menuCreateSchema.parse(body)
-    const id = createId()
 
+    const id = createId()
     let isActive = false
 
     // Guard: If it is the first menu

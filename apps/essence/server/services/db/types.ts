@@ -3,6 +3,15 @@ import type * as tables from './tables'
 
 export type { Database } from './connection'
 
+export type Channel = InferSelectModel<typeof tables.channels>
+export type ChannelDraft = InferInsertModel<typeof tables.channels>
+
+export type Menu = InferSelectModel<typeof tables.menus>
+export type MenuDraft = InferInsertModel<typeof tables.menus>
+
+export type MenuCategory = InferSelectModel<typeof tables.menuCategories>
+export type MenuCategoryDraft = InferInsertModel<typeof tables.menuCategories>
+
 export type Product = InferSelectModel<typeof tables.products>
 export type ProductDraft = InferInsertModel<typeof tables.products>
 

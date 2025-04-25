@@ -20,6 +20,7 @@
     "@nextorders/schema": "workspace:*",
     "@nextorders/ui": "workspace:*",
     "@pinia/nuxt": "catalog:",
+    "arktype": "catalog:",
     "aws4fetch": "catalog:",
     "drizzle-cuid2": "catalog:",
     "drizzle-orm": "catalog:",
