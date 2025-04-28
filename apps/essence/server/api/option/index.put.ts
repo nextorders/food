@@ -1,4 +1,3 @@
-import type { CountryCode, CurrencyCode, Locale, TimeZone } from '@nextorders/schema'
 import { OptionCreateSchema } from '@nextorders/schema'
 import { type } from 'arktype'
 import { repository } from '~~/server/services/db/repository'
@@ -21,11 +20,11 @@ export default defineEventHandler(async (event) => {
     }
 
     await repository.option.create({
-      name: [{ locale: data.defaultLocale as Locale, value: data.name }],
-      currencyCode: data.currencyCode as CurrencyCode,
-      countryCode: data.countryCode as CountryCode,
-      defaultLocale: data.defaultLocale as Locale,
-      timeZone: data.timeZone as TimeZone,
+      name: [{ locale: data.defaultLocale, value: data.name }],
+      currencyCode: data.currencyCode,
+      countryCode: data.countryCode,
+      defaultLocale: data.defaultLocale,
+      timeZone: data.timeZone,
     })
 
     return { ok: true }

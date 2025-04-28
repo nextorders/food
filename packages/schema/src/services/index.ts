@@ -1,3 +1,4 @@
+export * from './channel'
 export * from './locale'
 export * from './media'
 export * from './menu'
