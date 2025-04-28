@@ -37,7 +37,22 @@ export class Menu {
     return category
   }
 
+  static async findCategoryAndProductConnection(categoryId: string, productId: string) {
+    return useDatabase().query.productsInMenuCategories.findFirst({
+      where: (connections, { eq, and }) =>
+        and(
+          eq(connections.menuCategoryId, categoryId),
+          eq(connections.productId, productId),
+        ),
+    })
+  }
+
   static async attachProductToCategory(categoryId: string, productId: string) {
+    const connection = await this.findCategoryAndProductConnection(categoryId, productId)
+    if (connection) {
+      return connection
+    }
+
     const [row] = await useDatabase()
       .insert(productsInMenuCategories)
       .values({ menuCategoryId: categoryId, productId })
@@ -47,18 +62,12 @@ export class Menu {
   }
 
   static async detachProductFromCategory(categoryId: string, productId: string) {
-    const row = await useDatabase().query.productsInMenuCategories.findFirst({
-      where: (connections, { eq, and }) =>
-        and(
-          eq(connections.menuCategoryId, categoryId),
-          eq(connections.productId, productId),
-        ),
-    })
-    if (!row) {
+    const connection = await this.findCategoryAndProductConnection(categoryId, productId)
+    if (!connection) {
       return
     }
 
-    await useDatabase().delete(productsInMenuCategories).where(eq(productsInMenuCategories.id, row.id))
+    await useDatabase().delete(productsInMenuCategories).where(eq(productsInMenuCategories.id, connection.id))
   }
 
   static async update(id: string, data: Partial<MenuDraft>) {
