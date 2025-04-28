@@ -1,7 +1,7 @@
 import type { MenuCategoryDraft, MenuDraft } from '../types'
 import { eq } from 'drizzle-orm'
 import { useDatabase } from '../database'
-import { menuCategories, menus } from '../tables'
+import { menuCategories, menus, productsInMenuCategories } from '../tables'
 
 export class Menu {
   static async find(id: string) {
@@ -35,6 +35,30 @@ export class Menu {
       .returning()
 
     return category
+  }
+
+  static async attachProductToCategory(categoryId: string, productId: string) {
+    const [row] = await useDatabase()
+      .insert(productsInMenuCategories)
+      .values({ menuCategoryId: categoryId, productId })
+      .returning()
+
+    return row
+  }
+
+  static async detachProductFromCategory(categoryId: string, productId: string) {
+    const row = await useDatabase().query.productsInMenuCategories.findFirst({
+      where: (connections, { eq, and }) =>
+        and(
+          eq(connections.menuCategoryId, categoryId),
+          eq(connections.productId, productId),
+        ),
+    })
+    if (!row) {
+      return
+    }
+
+    await useDatabase().delete(productsInMenuCategories).where(eq(productsInMenuCategories.id, row.id))
   }
 
   static async update(id: string, data: Partial<MenuDraft>) {

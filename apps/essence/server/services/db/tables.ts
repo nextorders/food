@@ -1,7 +1,52 @@
-import type { CountryCode, CurrencyCode, Locale, LocaleValue, MediaFormat, TimeZone, WeightUnit } from '@nextorders/schema'
+import type { CountryCode, CurrencyCode, Locale, LocaleValue, MediaFormat, PermissionCode, TimeZone, WeightUnit } from '@nextorders/schema'
 import { cuid2 } from 'drizzle-cuid2/postgres'
 import { relations } from 'drizzle-orm'
 import { boolean, integer, jsonb, numeric, pgTable, timestamp, varchar } from 'drizzle-orm/pg-core'
+
+export const options = pgTable('options', {
+  id: cuid2('id').defaultRandom().primaryKey(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  name: jsonb('name').notNull().default([]).$type<LocaleValue[]>(),
+  description: jsonb('description').notNull().default([]).$type<LocaleValue[]>(),
+  currencyCode: varchar('currency_code').notNull().$type<CurrencyCode>(),
+  countryCode: varchar('country_code').notNull().$type<CountryCode>(),
+  defaultLocale: varchar('default_locale').notNull().$type<Locale>(),
+  timeZone: varchar('time_zone').notNull().$type<TimeZone>(),
+})
+
+export const users = pgTable('users', {
+  id: cuid2('id').defaultRandom().primaryKey(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  name: varchar('name').notNull(),
+  email: varchar('email').notNull(),
+  isActive: boolean('is_active').notNull().default(true),
+  isConfirmed: boolean('is_confirmed').notNull().default(false),
+})
+
+export const userPermissions = pgTable('user_permissions', {
+  id: cuid2('id').defaultRandom().primaryKey(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  code: varchar('code').notNull().$type<PermissionCode>(),
+  userId: cuid2('user_id').notNull().references(() => users.id, {
+    onDelete: 'cascade',
+    onUpdate: 'cascade',
+  }),
+})
+
+export const userCredentials = pgTable('user_credentials', {
+  id: cuid2('id').defaultRandom().primaryKey(),
+  createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
+  login: varchar('login').notNull(),
+  password: varchar('password').notNull(),
+  userId: cuid2('user_id').notNull().references(() => users.id, {
+    onDelete: 'cascade',
+    onUpdate: 'cascade',
+  }),
+})
 
 export const channels = pgTable('channels', {
   id: cuid2('id').defaultRandom().primaryKey(),
@@ -107,6 +152,19 @@ export const mediaItems = pgTable('media_items', {
     onUpdate: 'cascade',
   }),
 })
+
+export const userRelations = relations(users, ({ many }) => ({
+  credentials: many(userCredentials),
+  permissions: many(userPermissions),
+}))
+
+export const userPermissionRelations = relations(userPermissions, ({ one }) => ({
+  user: one(users, { fields: [userPermissions.userId], references: [users.id] }),
+}))
+
+export const userCredentialRelations = relations(userCredentials, ({ one }) => ({
+  user: one(users, { fields: [userCredentials.userId], references: [users.id] }),
+}))
 
 export const menuRelations = relations(menus, ({ many }) => ({
   categories: many(menuCategories),

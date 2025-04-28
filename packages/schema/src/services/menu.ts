@@ -22,3 +22,11 @@ export const MenuCategoryUpdateSchema = type({
   slug: '2 <= string <= 50?',
   icon: 'string?',
 })
+
+export const MenuCategoryAttachProductSchema = type({
+  productId: 'string',
+})
+
+export const MenuCategoryDetachProductSchema = type({
+  productId: 'string',
+})
