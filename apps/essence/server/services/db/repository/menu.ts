@@ -48,7 +48,7 @@ export class Menu {
   }
 
   static async attachProductToCategory(categoryId: string, productId: string) {
-    const connection = await this.findCategoryAndProductConnection(categoryId, productId)
+    const connection = await Menu.findCategoryAndProductConnection(categoryId, productId)
     if (connection) {
       return connection
     }
@@ -62,7 +62,7 @@ export class Menu {
   }
 
   static async detachProductFromCategory(categoryId: string, productId: string) {
-    const connection = await this.findCategoryAndProductConnection(categoryId, productId)
+    const connection = await Menu.findCategoryAndProductConnection(categoryId, productId)
     if (!connection) {
       return
     }
