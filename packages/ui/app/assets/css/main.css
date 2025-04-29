@@ -9,7 +9,7 @@
 
 :root {
   --ui-primary: black;
-  --ui-radius: var(--radius-lg);
+  --ui-radius: 0.5rem;
 }
 
 .dark {

@@ -1,9 +1,9 @@
 <template>
   <NuxtLink :to="`/command-center/page/${id}`">
     <CommandCenterActiveCard class="text-center">
-      <UIcon name="i-lucide-file-text" class="size-8 text-(--ui-text-dimmed)" />
+      <UIcon name="i-lucide-file-text" class="size-8 text-dimmed" />
 
-      <p class="text-xs text-(--ui-text-muted)">
+      <p class="text-xs text-muted">
         /{{ page?.slug }}
       </p>
       <p>

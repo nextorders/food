@@ -6,14 +6,14 @@
       </div>
 
       <div class="space-y-1">
-        <div class="font-medium text-(--ui-text) leading-tight line-clamp-2">
+        <div class="font-medium text-default leading-tight line-clamp-2">
           {{ getLocaleValue({ values: product?.name, locale, defaultLocale: channel.defaultLocale }) }}
         </div>
         <div class="flex flex-row gap-2 flex-nowrap items-center">
-          <p class="text-sm text-(--ui-text-muted) leading-tight">
+          <p class="text-sm text-muted leading-tight">
             {{ getLocaleValue({ values: productVariant?.name, locale, defaultLocale: channel.defaultLocale }) }}
           </p>
-          <p class="text-sm text-(--ui-text-muted)">
+          <p class="text-sm text-muted">
             {{ productVariant?.weightValue }}{{ getWeightLocalizedUnit(productVariant?.weightUnit) }}
           </p>
         </div>

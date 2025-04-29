@@ -64,8 +64,8 @@
         base: 'table-fixed border-separate border-spacing-0',
         thead: '[&>tr]:after:content-none',
         tbody: '[&>tr]:last:[&>td]:border-b-0',
-        th: 'py-1 bg-(--ui-bg-elevated)/50 first:rounded-l-[calc(var(--ui-radius)*2)] last:rounded-r-[calc(var(--ui-radius)*2)] border-y border-(--ui-border) first:border-l last:border-r',
-        td: 'border-b border-(--ui-border)',
+        th: 'py-1 bg-elevated/50 first:rounded-l-lg last:rounded-r-lg border-y border-default first:border-l last:border-r',
+        td: 'border-b border-default',
       }"
     >
       <template #id-cell="{ row }">
@@ -77,7 +77,7 @@
         </div>
       </template>
       <template #name-cell="{ row }">
-        <ULink :to="`/command-center/product/${row.getValue('id')}`" class="font-medium text-(--ui-text-highlighted)">
+        <ULink :to="`/command-center/product/${row.getValue('id')}`" class="font-medium text-highlighted">
           {{ getLocaleValue({ values: row.getValue('name'), locale, defaultLocale: channel.defaultLocale }) }}
         </ULink>
       </template>
@@ -97,7 +97,7 @@
       </template>
       <template #action-cell="{ row }">
         <UDropdownMenu
-          :items="getDropdownActions(row.original)"
+          :items="getDropdownActions(row.original as Product)"
           :content="{ align: 'end' }"
           class="ml-auto"
         >
@@ -110,8 +110,8 @@
       </template>
     </UTable>
 
-    <div class="flex items-center justify-between gap-3 border-t border-(--ui-border) pt-4 mt-auto">
-      <div class="text-sm text-(--ui-text-muted)">
+    <div class="flex items-center justify-between gap-3 border-t border-default pt-4 mt-auto">
+      <div class="text-sm text-muted">
         {{ table?.tableApi?.getFilteredSelectedRowModel().rows.length || 0 }} {{ t('common.table.rows-selected', table?.tableApi?.getFilteredSelectedRowModel().rows.length || 0) }}
         {{ $t('common.table.rows-from') }} {{ table?.tableApi?.getFilteredRowModel().rows.length || 0 }}
       </div>
@@ -121,7 +121,7 @@
           :default-page="(table?.tableApi?.getState().pagination.pageIndex || 0) + 1"
           :items-per-page="table?.tableApi?.getState().pagination.pageSize"
           :total="table?.tableApi?.getFilteredRowModel().rows.length"
-          @update:page="(p) => table?.tableApi?.setPageIndex(p - 1)"
+          @update:page="(p: number) => table?.tableApi?.setPageIndex(p - 1)"
         />
       </div>
     </div>
@@ -143,7 +143,7 @@ const { locale, t } = useI18n()
 const channel = useChannelStore()
 
 const filterValue = ref('')
-const data = computed(() => channel.activeProducts.filter((product) => product.name.find((name) => name.value.toLowerCase().includes(filterValue.value.toLowerCase()))))
+const data = computed<ProductWithVariantsAndMedia[]>(() => channel.activeProducts.filter((product) => product.name.find((name) => name.value.toLowerCase().includes(filterValue.value.toLowerCase()))))
 
 const columnVisibility = ref({
   id: false,

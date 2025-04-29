@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <div class="shrink-0 flex flex-col gap-2 px-4 py-3.5 rounded-xl xl:bg-(--ui-bg-elevated)/50">
+    <div class="shrink-0 flex flex-col gap-2 px-4 py-3.5 rounded-lg xl:bg-elevated/50">
       <UButton
         variant="link"
         color="neutral"

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-(--ui-bg-elevated)/50 rounded-xl px-4 md:px-6 py-5 space-y-6">
+  <div class="bg-elevated/50 rounded-lg px-4 md:px-6 py-5 space-y-6">
     <div>
       <div class="mb-2 flex flex-row gap-3 items-center">
         <img
@@ -7,7 +7,7 @@
           width="40"
           height="40"
           alt=""
-          class="w-12 h-12 rounded-full"
+          class="size-12 rounded-full"
         >
         <h3 class="text-xl font-semibold">
           {{ checkout?.deliveryMethod === 'WAREHOUSE' ? $t('app.cart.pickup') : $t('app.cart.delivery') }}

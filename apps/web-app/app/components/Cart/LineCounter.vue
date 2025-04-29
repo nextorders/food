@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row justify-between items-center bg-(--ui-bg-elevated) w-20 min-w-[5.5rem] min-h-12 rounded-xl px-1 py-2">
+  <div class="flex flex-row justify-between items-center bg-elevated w-20 min-w-[5.5rem] min-h-12 rounded-lg px-1 py-2">
     <UButton
       icon="i-lucide-minus"
       variant="ghost"

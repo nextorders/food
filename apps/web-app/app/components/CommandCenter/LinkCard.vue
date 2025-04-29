@@ -3,13 +3,13 @@
     <UIcon
       v-if="link?.icon"
       :name="link?.icon"
-      class="size-8 text-(--ui-text-dimmed)"
+      class="size-8 text-dimmed"
     />
 
     <p>
       {{ link?.label }}
     </p>
-    <p class="text-xs text-(--ui-text-muted)">
+    <p class="text-xs text-muted">
       {{ link?.to }}
     </p>
   </CommandCenterActiveCard>

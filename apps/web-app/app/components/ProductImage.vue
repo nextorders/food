@@ -5,7 +5,7 @@
       :loading="lazy ? 'lazy' : 'eager'"
       :src="src"
       alt=""
-      class="rounded-xl w-full"
+      class="rounded-lg w-full"
     >
   </picture>
 

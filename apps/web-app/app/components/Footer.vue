@@ -8,7 +8,7 @@
     />
 
     <div class="flex flex-col lg:flex-row gap-2 justify-between lg:items-center">
-      <div class="font-sans text-xs text-(--ui-text-muted) whitespace-pre-wrap">
+      <div class="font-sans text-xs text-muted whitespace-pre-wrap">
         {{ getLocaleValue({ values: channel.copyright, locale, defaultLocale: channel.defaultLocale }) }}
       </div>
 
@@ -20,7 +20,7 @@
       />
     </div>
 
-    <div class="flex flex-row gap-1 items-center text-sm text-(--ui-text-muted)">
+    <div class="flex flex-row gap-1 items-center text-sm text-muted">
       {{ $t('common.footer.copyright-part-one') }}
       <UIcon name="i-fluent-emoji-flat:red-heart" class="size-4" />
       {{ $t('common.footer.copyright-part-two') }}

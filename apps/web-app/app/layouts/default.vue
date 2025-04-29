@@ -2,7 +2,7 @@
   <Header />
 
   <div class="fixed inset-0 flex overflow-hidden">
-    <div class="hidden lg:flex flex-col min-w-16 w-72 mt-16 px-4 py-2 border-r border-(--ui-border) shrink-0 bg-(--ui-bg-elevated)/25">
+    <div class="hidden lg:flex flex-col min-w-16 w-72 mt-16 px-4 py-2 border-r border-default shrink-0 bg-elevated/25">
       <Navigation />
     </div>
 
@@ -16,7 +16,7 @@
   </div>
 
   <aside class="z-50 hidden w-0 xl:block fixed xl:w-74 right-6 top-4 bottom-4">
-    <div class="pt-2 rounded-xl bg-(--ui-bg) border border-(--ui-border) h-full">
+    <div class="pt-2 rounded-lg bg-default border border-default h-full">
       <Cart />
     </div>
   </aside>

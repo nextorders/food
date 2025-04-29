@@ -6,11 +6,11 @@
       </h2>
 
       <div class="space-y-2 w-full md:max-w-sm">
-        <div class="w-full flex flex-row gap-3 justify-between items-center bg-(--ui-bg-muted) rounded-2xl px-4 py-3">
+        <div class="w-full flex flex-row gap-3 justify-between items-center bg-muted rounded-2xl px-4 py-3">
           <FormUpdateChannelReceivingMethod :is-active="channel.isDeliveryAvailable" method="DELIVERY" />
         </div>
 
-        <div class="w-full flex flex-row gap-3 justify-between items-center bg-(--ui-bg-muted) rounded-2xl px-4 py-3">
+        <div class="w-full flex flex-row gap-3 justify-between items-center bg-muted rounded-2xl px-4 py-3">
           <FormUpdateChannelReceivingMethod :is-active="channel.isPickupAvailable" method="PICKUP" />
         </div>
       </div>
@@ -36,7 +36,7 @@
         <div
           v-for="workingDay in channel.workingDays"
           :key="workingDay.day"
-          class="w-full flex flex-row gap-3 justify-between items-center bg-(--ui-bg-muted) rounded-2xl px-4 py-3"
+          class="w-full flex flex-row gap-3 justify-between items-center bg-muted rounded-2xl px-4 py-3"
         >
           <FormUpdateWorkingDayActivity :is-active="workingDay.isActive" :day="workingDay.day" />
 

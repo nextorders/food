@@ -25,7 +25,7 @@
         <p v-if="product?.description">
           {{ getLocaleValue({ values: product?.description, locale, defaultLocale: channel.defaultLocale }) }}
         </p>
-        <p v-else class="text-(--ui-text-muted)">
+        <p v-else class="text-muted">
           [{{ $t('center.product.no-description-label') }}]
         </p>
       </div>

@@ -1,10 +1,10 @@
 <template>
   <NuxtLink :to="`/command-center/product/${productId}`" class="hover:scale-95 active:scale-90 duration-200">
-    <div class="bg-(--ui-bg-elevated)/50 rounded-xl border border-(--ui-border) flex flex-col justify-between h-full">
+    <div class="bg-elevated/50 rounded-lg border border-default flex flex-col justify-between h-full">
       <div class="relative w-full aspect-square">
         <template v-if="isWarning">
-          <div class="z-10 absolute top-1 left-1 p-2 bg-(--ui-bg-muted) rounded-xl">
-            <UIcon name="i-lucide-triangle-alert" class="size-8 text-(--ui-warning)" />
+          <div class="z-10 absolute top-1 left-1 p-2 bg-muted rounded-lg">
+            <UIcon name="i-lucide-triangle-alert" class="size-8 text-warning" />
           </div>
         </template>
 
@@ -22,7 +22,7 @@
             :key="variant.id"
             class="flex justify-between"
           >
-            <p class="text-(--ui-text-muted)">
+            <p class="text-muted">
               {{ variant.weightValue }}{{ getWeightLocalizedUnit(variant.weightUnit) }}
             </p>
             <p class="font-medium">

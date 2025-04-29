@@ -13,12 +13,12 @@ catalog:
   '@neoconfetti/vue': ^2.2.1
   '@nuxt/devtools': ^2.4.0
   '@nuxt/image': ^1.10.0
-  '@nuxt/ui': ^3.0.2
+  '@nuxt/ui': ^3.1.0
   '@nuxtjs/i18n': ^9.5.3
   '@paralleldrive/cuid2': ^2.2.2
   '@pinia/nuxt': ^0.11.0
   '@tailwindcss/typography': ^0.5.16
-  '@types/node': ^22.14.1
+  '@types/node': ^22.15.3
   '@types/pg': ^8.11.14
   '@vitejs/plugin-vue': ^5.2.3
   '@vitest/browser': ^3.1.2
@@ -32,7 +32,7 @@ catalog:
   dotenv-cli: ^8.0.0
   drizzle-cuid2: ^2.0.0
   drizzle-kit: ^0.31.0
-  drizzle-orm: ^0.42.0
+  drizzle-orm: ^0.43.1
   eslint: ^9.25.1
   husky: ^9.1.7
   ioredis: ^5.6.1
@@ -42,7 +42,7 @@ catalog:
   nuxt-auth-utils: ^0.5.20
   nuxt-tiptap-editor: ^2.1.4
   nuxt-zod-i18n: ^1.11.5
-  pg: ^8.15.5
+  pg: ^8.15.6
   pinia: ^3.0.2
   playwright: ^1.52.0
   sharp: ^0.33.5

@@ -12,7 +12,7 @@
       </div>
 
       <div class="col-span-2">
-        <h1 class="text-xl md:text-2xl lg:text-3xl font-medium text-(--ui-text-highlighted)">
+        <h1 class="text-xl md:text-2xl lg:text-3xl font-medium text-highlighted">
           {{ getLocaleValue({ values: product?.name, locale, defaultLocale: channel.defaultLocale }) }}
         </h1>
         <div class="mt-1 font-normal text-neutral-400 flex flex-row gap-3">
@@ -51,7 +51,7 @@
 
     <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
       <div v-if="product?.description" class="col-span-2">
-        <div class="mb-1 font-medium text-(--ui-text-muted)">
+        <div class="mb-1 font-medium text-muted">
           {{ $t('common.description') }}
         </div>
         <div class="leading-snug">
@@ -60,10 +60,10 @@
       </div>
 
       <div v-if="selectedVariant?.calories != null">
-        <div class="mb-1 font-medium text-(--ui-text-muted)">
+        <div class="mb-1 font-medium text-muted">
           {{ $t('common.nutrition.value-title') }}
         </div>
-        <div class="mt-2 p-4 w-fit flex flex-row gap-4 bg-(--ui-bg-elevated)/50 rounded-xl">
+        <div class="mt-2 p-4 w-fit flex flex-row gap-4 bg-elevated/50 rounded-lg">
           <div>
             <div class="font-medium">
               {{ selectedVariant?.calories }}

@@ -1,12 +1,12 @@
 <template>
   <CommandCenterActiveCard class="text-center">
-    <UIcon name="i-lucide-credit-card" class="size-8 text-(--ui-text-dimmed)" />
+    <UIcon name="i-lucide-credit-card" class="size-8 text-dimmed" />
 
     <h3 class="text-lg font-semibold leading-tight">
       {{ getLocaleValue({ values: paymentMethod?.name, locale, defaultLocale: channel.defaultLocale }) }}
     </h3>
 
-    <p class="text-sm text-(--ui-text-muted)">
+    <p class="text-sm text-muted">
       {{ paymentMethod?.type }}
     </p>
   </CommandCenterActiveCard>

@@ -5,15 +5,15 @@
     </div>
 
     <div class="flex flex-row flex-nowrap gap-6 items-center justify-center">
-      <div class="text-(--ui-text-muted)">
+      <div class="text-muted">
         {{ new Intl.NumberFormat(locale).format(variant.gross) }} {{ channel.currencySign }}
       </div>
-      <div class="text-(--ui-text-muted)">
+      <div class="text-muted">
         {{ variant.weightValue }}{{ getWeightLocalizedUnit(variant.weightUnit) }}
       </div>
     </div>
 
-    <div class="flex flex-row gap-3 justify-center text-(--ui-text-muted) text-sm">
+    <div class="flex flex-row gap-3 justify-center text-muted text-sm">
       <div v-if="variant.calories != null">
         {{ variant.calories }}{{ $t('common.abbreviation.kcal') }}
       </div>

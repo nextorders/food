@@ -3,13 +3,13 @@
     {{ $t('app.finish.title') }}
   </h1>
 
-  <div class="p-3 md:p-6 bg-(--ui-bg-elevated)/50 rounded-3xl space-y-6">
+  <div class="p-3 md:p-6 bg-elevated/50 rounded-3xl space-y-6">
     <h2 class="text-center font-medium text-xl">
       {{ $t('app.finish.success-message') }} {{ $t('app.finish.expect-call') }}
     </h2>
 
     <div>
-      <h3 class="mb-2 text-lg font-medium text-(--ui-text-muted)">
+      <h3 class="mb-2 text-lg font-medium text-muted">
         {{ checkoutData?.deliveryMethod === 'WAREHOUSE' ? $t('app.cart.pickup') : $t('app.cart.delivery') }}
       </h3>
 
@@ -52,7 +52,7 @@
     </div>
 
     <div class="flex flex-col gap-3">
-      <h3 class="text-lg font-medium text-(--ui-text-muted)">
+      <h3 class="text-lg font-medium text-muted">
         {{ $t('app.finish.ordered-title') }}
       </h3>
 
@@ -66,7 +66,7 @@
     </div>
 
     <div>
-      <h3 class="mb-2 text-lg font-medium text-(--ui-text-muted)">
+      <h3 class="mb-2 text-lg font-medium text-muted">
         {{ $t('app.checkout.total-title') }}
       </h3>
       <div class="flex flex-row justify-between">

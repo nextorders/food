@@ -14,7 +14,7 @@
             <div class="text-sm font-medium tracking-tight">
               {{ new Intl.NumberFormat(locale).format(productVariant?.gross ?? 0) }} <span class="text-xs">{{ channel.currencySign }}</span>
             </div>
-            <div class="text-sm text-(--ui-text-muted) font-light">
+            <div class="text-sm text-muted font-light">
               {{ productVariant?.weightValue }}{{ getWeightLocalizedUnit(productVariant?.weightUnit) }}
             </div>
           </div>

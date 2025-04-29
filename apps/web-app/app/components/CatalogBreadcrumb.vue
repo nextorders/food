@@ -2,7 +2,7 @@
   <div class="mb-6 flex flex-col md:flex-row gap-2 justify-between md:items-center">
     <UBreadcrumb :items="items">
       <template #separator>
-        <span class="mx-1 text-(--ui-text-dimmed)">/</span>
+        <span class="mx-1 text-dimmed">/</span>
       </template>
     </UBreadcrumb>
 

@@ -1,6 +1,6 @@
 <template>
   <div v-if="editor">
-    <div class="w-fit flex flex-row gap-1 p-2 rounded-xl border border-(--ui-border)">
+    <div class="w-fit flex flex-row gap-1 p-2 rounded-lg border border-default">
       <UButton
         icon="i-lucide-bold"
         :variant="editor.isActive('bold') ? 'soft' : 'ghost'"
@@ -119,7 +119,7 @@ const editor = useEditor({
   extensions: [TiptapStarterKit],
   editorProps: {
     attributes: {
-      class: 'prose prose-md dark:prose-invert m-0 [&_p]:my-0 focus:outline-none text-(--ui-text)',
+      class: 'prose prose-md dark:prose-invert m-0 [&_p]:my-0 focus:outline-none text-default',
     },
   },
 })

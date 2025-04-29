@@ -54,13 +54,13 @@
         base: 'table-fixed border-separate border-spacing-0',
         thead: '[&>tr]:after:content-none',
         tbody: '[&>tr]:last:[&>td]:border-b-0',
-        th: 'py-1 bg-(--ui-bg-elevated)/50 first:rounded-l-[calc(var(--ui-radius)*2)] last:rounded-r-[calc(var(--ui-radius)*2)] border-y border-(--ui-border) first:border-l last:border-r',
-        td: 'border-b border-(--ui-border)',
+        th: 'py-1 bg-elevated/50 first:rounded-l-lg last:rounded-r-lg border-y border-default first:border-l last:border-r',
+        td: 'border-b border-default',
       }"
     />
 
-    <div class="flex items-center justify-between gap-3 border-t border-(--ui-border) pt-4 mt-auto">
-      <div class="text-sm text-(--ui-text-muted)">
+    <div class="flex items-center justify-between gap-3 border-t border-default pt-4 mt-auto">
+      <div class="text-sm text-muted">
         {{ table?.tableApi?.getFilteredSelectedRowModel().rows.length || 0 }} {{ t('common.table.rows-selected', table?.tableApi?.getFilteredSelectedRowModel().rows.length || 0) }}
         {{ $t('common.table.rows-from') }} {{ table?.tableApi?.getFilteredRowModel().rows.length || 0 }}
       </div>
@@ -70,7 +70,7 @@
           :default-page="(table?.tableApi?.getState().pagination.pageIndex || 0) + 1"
           :items-per-page="table?.tableApi?.getState().pagination.pageSize"
           :total="table?.tableApi?.getFilteredRowModel().rows.length"
-          @update:page="(p) => table?.tableApi?.setPageIndex(p - 1)"
+          @update:page="(p: number) => table?.tableApi?.setPageIndex(p - 1)"
         />
       </div>
     </div>

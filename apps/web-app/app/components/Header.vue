@@ -1,5 +1,5 @@
 <template>
-  <header class="z-40 h-16 sticky flex items-center justify-between border-b border-(--ui-border) bg-(--ui-bg)/75 backdrop-blur px-4 sm:px-6 gap-1.5">
+  <header class="z-40 h-16 sticky flex items-center justify-between border-b border-default bg-default/75 backdrop-blur px-4 sm:px-6 gap-1.5">
     <div class="flex items-center gap-1.5 min-w-0">
       <UButton
         icon="food:menu"

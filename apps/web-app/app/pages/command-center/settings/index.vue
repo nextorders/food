@@ -17,29 +17,29 @@
       </div>
 
       <div class="w-full md:max-w-sm flex flex-col gap-2">
-        <div class="bg-(--ui-bg-muted) rounded-2xl px-4 py-3">
+        <div class="bg-muted rounded-2xl px-4 py-3">
           {{ t('center.data.name') }}: <span class="font-semibold">{{ getLocaleValue({ values: channel?.name, locale, defaultLocale: channel?.defaultLocale }) }}</span>
         </div>
-        <div v-if="channel?.description.length" class="bg-(--ui-bg-muted) rounded-2xl px-4 py-3">
+        <div v-if="channel?.description.length" class="bg-muted rounded-2xl px-4 py-3">
           {{ t('common.description') }}: <span class="font-semibold">{{ getLocaleValue({ values: channel?.description, locale, defaultLocale: channel?.defaultLocale }) }}</span>
         </div>
-        <div class="bg-(--ui-bg-muted) rounded-2xl px-4 py-3">
+        <div class="bg-muted rounded-2xl px-4 py-3">
           {{ t('center.data.currency') }}: <span class="font-semibold">{{ channel.currencyCode }}</span>
         </div>
-        <div class="bg-(--ui-bg-muted) rounded-2xl px-4 py-3">
+        <div class="bg-muted rounded-2xl px-4 py-3">
           {{ t('center.data.country') }}: <span class="font-semibold">{{ channel.countryCode }}</span>
         </div>
-        <div class="bg-(--ui-bg-muted) rounded-2xl px-4 py-3">
+        <div class="bg-muted rounded-2xl px-4 py-3">
           {{ t('common.language') }}: <span class="font-semibold">{{ channel.defaultLocale }}</span>
         </div>
-        <div class="bg-(--ui-bg-muted) rounded-2xl px-4 py-3">
+        <div class="bg-muted rounded-2xl px-4 py-3">
           {{ t('center.data.timezone') }}: <span class="font-semibold">{{ channel.timeZone }}</span>
         </div>
-        <div v-if="channel?.minAmountForDelivery" class="bg-(--ui-bg-muted) rounded-2xl px-4 py-3">
+        <div v-if="channel?.minAmountForDelivery" class="bg-muted rounded-2xl px-4 py-3">
           {{ t('app.minimum-order-value') }}: <span class="font-semibold">{{ channel.minAmountForDelivery }} {{ channel.currencySign }}</span>
         </div>
 
-        <div v-if="channel?.conditions.length" class="text-sm whitespace-pre-wrap w-full md:max-w-sm bg-(--ui-bg-muted) rounded-2xl px-4 py-3">
+        <div v-if="channel?.conditions.length" class="text-sm whitespace-pre-wrap w-full md:max-w-sm bg-muted rounded-2xl px-4 py-3">
           <p class="mb-2 text-base">
             {{ t('center.data.delivery-conditions') }}:
           </p>

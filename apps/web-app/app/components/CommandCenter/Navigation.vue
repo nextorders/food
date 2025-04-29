@@ -12,7 +12,7 @@
     />
   </div>
 
-  <div class="shrink-0 flex items-center gap-1.5 px-4 py-2 lg:border-t lg:border-(--ui-border)">
+  <div class="shrink-0 flex items-center gap-1.5 px-4 py-2 lg:border-t lg:border-default">
     <CommandCenterUserMenu />
   </div>
 </template>
