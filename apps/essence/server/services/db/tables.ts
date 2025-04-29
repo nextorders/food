@@ -20,7 +20,7 @@ export const users = pgTable('users', {
   createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
   updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).notNull().defaultNow(),
   name: varchar('name').notNull(),
-  email: varchar('email').notNull(),
+  email: varchar('email'),
   isActive: boolean('is_active').notNull().default(true),
   isConfirmed: boolean('is_confirmed').notNull().default(false),
 })

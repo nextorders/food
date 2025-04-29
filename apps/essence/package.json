@@ -32,6 +32,7 @@
     "@types/node": "catalog:",
     "@types/pg": "catalog:",
     "drizzle-kit": "catalog:",
-    "nuxt": "catalog:"
+    "nuxt": "catalog:",
+    "nuxt-auth-utils": "catalog:"
   }
 }
