@@ -13,6 +13,23 @@ export class User {
     })
   }
 
+  static async findCredentialByLogin(login: string) {
+    return useDatabase().query.userCredentials.findFirst({
+      where: (credentials, { eq }) => eq(credentials.login, login),
+    })
+  }
+
+  static async findMaster() {
+    const masterPermission = await useDatabase().query.userPermissions.findFirst({
+      where: (permissions, { eq }) => eq(permissions.code, 'MASTER'),
+    })
+    if (!masterPermission) {
+      return
+    }
+
+    return User.find(masterPermission.userId)
+  }
+
   static async create(data: UserDraft) {
     const [user] = await useDatabase()
       .insert(users)

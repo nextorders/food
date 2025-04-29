@@ -254,8 +254,10 @@ importers:
         version: 0.31.0
       nuxt:
         specifier: 'catalog:'
-        version: 3.16.2(@parcel/watcher@2.5.1)(@types/node@22.14.1)(aws4fetch@1.0.20)(db0@0.3.1(drizzle-orm@0.42.0(@types/pg@8.11.14)(pg@8.15.5)))(drizzle-orm@0.42.0(@types/pg@8.11.14)(pg@8.15.5))(eslint@9.25.1(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.29.2)(magicast@0.3.5)(meow@13.2.0)(optionator@0.9.4)(rollup@4.38.0)(terser@5.39.0)(typescript@5.8.3)(vite@6.3.3(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.1))(vue-tsc@2.2.10(typescript@5.8.3))(yaml@2.7.1)
-
+        version: 3.16.2(@parcel/watcher@2.5.1)(@types/node@22.14.1)(aws4fetch@1.0.20)(db0@0.3.1(drizzle-orm@0.42.0(@types/pg@8.11.14)(pg@8.15.5)))(drizzle-orm@0.42.0(@types/pg@8.11.14)(pg@8.15.5))(eslint@9.25.1(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.29.2)(magicast@0.3.5)(meow@13.2.0)(optionator@0.9.4)(rollup@4.38.0)(terser@5.39.0)(typescript@5.8.3)(vite@6.3.2(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.1))(vue-tsc@2.2.10(typescript@5.8.3))(yaml@2.7.1)
+      nuxt-auth-utils:
+        specifier: 'catalog:'
+        version: 0.5.20(magicast@0.3.5)
   apps/web-app:
     dependencies:
       '@neoconfetti/vue':
