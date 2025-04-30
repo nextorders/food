@@ -10,6 +10,7 @@ export default defineNuxtConfig({
       secretAccessKey: '',
     },
     productsDirectory: '/products',
+    externalApiToken: '',
     public: {
       mediaUrl: '',
     },
