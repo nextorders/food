@@ -1,6 +1,6 @@
 services:
   db:
-    image: redis:7
+    image: redis:8
     ports:
       - 6379:6379
     volumes:
