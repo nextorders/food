@@ -1,4 +1,4 @@
-import { UserCreate } from '@nextorders/schema'
+import { UserCreateSchema } from '@nextorders/schema'
 import { createId } from '@paralleldrive/cuid2'
 import { type } from 'arktype'
 import { repository } from '~~/server/services/db/repository'
@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
     }
 
     const body = await readBody(event)
-    const data = UserCreate(body)
+    const data = UserCreateSchema(body)
     if (data instanceof type.errors) {
       throw data
     }

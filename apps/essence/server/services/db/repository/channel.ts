@@ -10,6 +10,10 @@ export class Channel {
     })
   }
 
+  static async list() {
+    return useDatabase().query.channels.findMany()
+  }
+
   static async create(data: ChannelDraft) {
     const [channel] = await useDatabase()
       .insert(channels)

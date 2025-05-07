@@ -11,6 +11,7 @@ export const ChannelCreateSchema = type({
   countryCode: CountryCodeSchema,
   timeZone: TimeZoneSchema,
 })
+export type ChannelCreate = typeof ChannelCreateSchema.infer
 
 export const ChannelUpdateSchema = type({
   locale: LocaleSchema,
@@ -24,3 +25,4 @@ export const ChannelUpdateSchema = type({
   conditions: '0 <= string <= 1000?',
   copyright: '0 <= string <= 350?',
 })
+export type ChannelUpdate = typeof ChannelUpdateSchema.infer

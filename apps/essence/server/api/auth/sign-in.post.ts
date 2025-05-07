@@ -1,12 +1,12 @@
 import type { User } from '#auth-utils'
-import { UserSignIn } from '@nextorders/schema'
+import { UserSignInSchema } from '@nextorders/schema'
 import { type } from 'arktype'
 import { repository } from '~~/server/services/db/repository'
 
 export default defineEventHandler(async (event) => {
   try {
     const body = await readBody(event)
-    const data = UserSignIn(body)
+    const data = UserSignInSchema(body)
     if (data instanceof type.errors) {
       throw createError({
         statusCode: 400,

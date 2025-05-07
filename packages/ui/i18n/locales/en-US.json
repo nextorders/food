@@ -1,5 +1,6 @@
 {
   "app": {
+    "to-home": "To Home",
     "logotype": {
       "copy-symbol": "Copy Symbol as SVG",
       "copy-logo": "Copy Logo as SVG",
@@ -10,6 +11,14 @@
   "coming-soon": {
     "title": "Coming soon",
     "description": "We are working hard to bring you the best experience"
+  },
+  "toast": {
+    "in-process": "In process",
+    "updating-data": "Data is being updated"
+  },
+  "error": {
+    "title": "Error",
+    "default": "Something went wrong"
   },
   "zodI18n": {
     "errors": {

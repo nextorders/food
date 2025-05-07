@@ -7,11 +7,12 @@
 
     <UButton
       variant="solid"
+      color="neutral"
       size="xl"
       class="mt-12 w-full justify-center"
       @click="handleError"
     >
-      {{ $t('common.to-home') }}
+      {{ $t('app.to-home') }}
     </UButton>
   </div>
 </template>

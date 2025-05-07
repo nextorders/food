@@ -17,6 +17,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@neoconfetti/vue": "catalog:",
     "@nextorders/schema": "workspace:*",
     "@nextorders/ui": "workspace:*",
     "@pinia/nuxt": "catalog:",

@@ -11,3 +11,4 @@ export const OptionCreateSchema = type({
   countryCode: CountryCodeSchema,
   timeZone: TimeZoneSchema,
 })
+export type OptionCreate = typeof OptionCreateSchema.infer
