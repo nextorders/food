@@ -133,5 +133,12 @@
     "opening-hours-updated": "Opening hours updated!",
     "photo-loaded": "Photo loaded!",
     "options-updated": "Options updated!"
+  },
+  "error": {
+    "common": "Not correct",
+    "not-selected": "Not selected",
+    "length": {
+      "invalid": "Invalid character count"
+    }
   }
 }

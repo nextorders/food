@@ -1,6 +1,6 @@
 import { type } from 'arktype'
 
-export const LocaleSchema = type('"en" | "ru"')
+export const LocaleSchema = type('"en" | "ru"').describe('error.not-selected')
 export type Locale = typeof LocaleSchema.infer
 
 export const LocaleValueSchema = type({
@@ -9,7 +9,7 @@ export const LocaleValueSchema = type({
 })
 export type LocaleValue = typeof LocaleValueSchema.infer
 
-export const WeightUnitSchema = type('"G" | "KG" | "ML" | "L" | "OZ" | "LB"')
+export const WeightUnitSchema = type('"G" | "KG" | "ML" | "L" | "OZ" | "LB"').describe('error.not-selected')
 export type WeightUnit = typeof WeightUnitSchema.infer
 
 export const MediaSchema = type({

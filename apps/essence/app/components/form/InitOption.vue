@@ -9,7 +9,7 @@
 
   <UForm
     ref="form"
-    :validate="validate"
+    :validate="createValidator(OptionCreateSchema)"
     :state="state"
     class="flex flex-col gap-3"
     @submit="onSubmit"
@@ -86,9 +86,8 @@
 
 <script setup lang="ts">
 import type { OptionCreate } from '@nextorders/schema'
-import type { FormError, FormSubmitEvent } from '@nuxt/ui'
+import type { FormSubmitEvent } from '@nuxt/ui'
 import { OptionCreateSchema } from '@nextorders/schema'
-import { type } from 'arktype'
 import { getLocalizedCountryCodesForSelect } from '../../utils/helpers'
 
 const emit = defineEmits(['success', 'submitted'])
@@ -108,19 +107,6 @@ const state = ref<Partial<OptionCreate>>({
   defaultLocale: undefined,
   timeZone: undefined,
 })
-
-function validate(state: any): FormError[] {
-  const errors: FormError[] = []
-
-  const result = OptionCreateSchema(state)
-  if (result instanceof type.errors) {
-    result.forEach((error) => {
-      errors.push({ name: error.path.toString(), message: t('error.title') })
-    })
-  }
-
-  return errors
-}
 
 const isFormValid = computed<boolean>(() => {
   return (

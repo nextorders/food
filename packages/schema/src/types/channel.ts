@@ -2,10 +2,10 @@ import { type } from 'arktype'
 import { TimeZoneSchema } from './date'
 import { LocaleSchema, LocaleValueSchema } from './food'
 
-export const CurrencyCodeSchema = type('"USD" | "EUR" | "RUB" | "GEL" | "BYN" | "UAH" | "KZT" | "PLN" | "TRY"')
+export const CurrencyCodeSchema = type('"USD" | "EUR" | "RUB" | "GEL" | "BYN" | "UAH" | "KZT" | "PLN" | "TRY"').describe('error.not-selected')
 export type CurrencyCode = typeof CurrencyCodeSchema.infer
 
-export const CountryCodeSchema = type('"RU" | "US" | "GB" | "GR" | "GE" | "UA" | "BY" | "KZ" | "FR" | "DE" | "IT" | "ES" | "TR" | "PL"')
+export const CountryCodeSchema = type('"RU" | "US" | "GB" | "GR" | "GE" | "UA" | "BY" | "KZ" | "FR" | "DE" | "IT" | "ES" | "TR" | "PL"').describe('error.not-selected')
 export type CountryCode = typeof CountryCodeSchema.infer
 
 export const ChannelSchema = type({

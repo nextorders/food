@@ -9,5 +9,5 @@ const validTimeZoneSchemas = [
   type('"+08:00"'), type('"+09:00"'), type('"+10:00"'), type('"+11:00"'),
   type('"+12:00"'), type('"+13:00"'), type('"+14:00"'),
 ] as const
-export const TimeZoneSchema = type.or(...validTimeZoneSchemas)
+export const TimeZoneSchema = type.or(...validTimeZoneSchemas).describe('error.not-selected')
 export type TimeZone = typeof TimeZoneSchema.infer
