@@ -3,7 +3,7 @@
     {{ $t('app.finish.title') }}
   </h1>
 
-  <div class="p-3 md:p-6 bg-elevated/50 rounded-3xl space-y-6">
+  <div class="p-3 md:p-6 bg-elevated/50 rounded-2xl space-y-6">
     <h2 class="text-center font-medium text-xl">
       {{ $t('app.finish.success-message') }} {{ $t('app.finish.expect-call') }}
     </h2>

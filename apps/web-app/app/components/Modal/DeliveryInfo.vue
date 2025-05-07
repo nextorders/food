@@ -23,7 +23,7 @@
       <UButton
         variant="solid"
         size="lg"
-        @click="closeAll"
+        @click="overlay.closeAll"
       >
         {{ $t('common.ok') }}
       </UButton>
@@ -36,10 +36,4 @@ const { locale } = useI18n()
 const channel = useChannelStore()
 const checkout = useCheckoutStore()
 const overlay = useOverlay()
-
-function closeAll() {
-  for (const o of overlay.overlays) {
-    overlay.close(o.id)
-  }
-}
 </script>

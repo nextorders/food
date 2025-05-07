@@ -2,8 +2,8 @@
   <UModal :title="$t('center.create.page')">
     <template #body>
       <FormCreatePage
-        @submitted="closeAll"
-        @success="closeAll"
+        @submitted="overlay.closeAll"
+        @success="overlay.closeAll"
       />
     </template>
   </UModal>
@@ -11,10 +11,4 @@
 
 <script setup lang="ts">
 const overlay = useOverlay()
-
-function closeAll() {
-  for (const o of overlay.overlays) {
-    overlay.close(o.id)
-  }
-}
 </script>

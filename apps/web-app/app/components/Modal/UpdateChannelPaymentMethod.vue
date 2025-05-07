@@ -4,12 +4,13 @@
       <div class="space-y-3">
         <FormUpdateChannelPaymentMethod
           :payment-method-id="paymentMethodId"
-          @submitted="closeAll"
-          @success="closeAll"
+          @submitted="overlay.closeAll"
+          @success="overlay.closeAll"
         />
         <FormDeleteChannelPaymentMethod
           :payment-method-id="paymentMethodId"
-          @success="closeAll"
+          @submitted="overlay.closeAll"
+          @success="overlay.closeAll"
         />
       </div>
     </template>
@@ -22,10 +23,4 @@ defineProps<{
 }>()
 
 const overlay = useOverlay()
-
-function closeAll() {
-  for (const o of overlay.overlays) {
-    overlay.close(o.id)
-  }
-}
 </script>

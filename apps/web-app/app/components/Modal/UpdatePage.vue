@@ -4,14 +4,14 @@
       <div class="space-y-3">
         <FormUpdatePage
           :id="id ?? ''"
-          @submitted="closeAll"
-          @success="closeAll"
+          @submitted="overlay.closeAll"
+          @success="overlay.closeAll"
         />
         <FormDeletePage
           :id="id ?? ''"
           :redirect-to="redirectTo"
-          @submitted="closeAll"
-          @success="closeAll"
+          @submitted="overlay.closeAll"
+          @success="overlay.closeAll"
         />
       </div>
     </template>
@@ -25,10 +25,4 @@ defineProps<{
 }>()
 
 const overlay = useOverlay()
-
-function closeAll() {
-  for (const o of overlay.overlays) {
-    overlay.close(o.id)
-  }
-}
 </script>

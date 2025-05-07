@@ -1,17 +1,11 @@
 <template>
   <UModal :title="$t('center.create.menu')">
     <template #body>
-      <FormCreateMenu @submitted="closeAll" @success="closeAll" />
+      <FormCreateMenu @submitted="overlay.closeAll" @success="overlay.closeAll" />
     </template>
   </UModal>
 </template>
 
 <script setup lang="ts">
 const overlay = useOverlay()
-
-function closeAll() {
-  for (const o of overlay.overlays) {
-    overlay.close(o.id)
-  }
-}
 </script>

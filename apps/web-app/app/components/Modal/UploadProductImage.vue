@@ -3,8 +3,8 @@
     <template #body>
       <FormUploadProductImage
         :product-id="productId ?? ''"
-        @submitted="closeAll"
-        @success="closeAll"
+        @submitted="overlay.closeAll"
+        @success="overlay.closeAll"
       />
     </template>
   </UModal>
@@ -16,10 +16,4 @@ defineProps<{
 }>()
 
 const overlay = useOverlay()
-
-function closeAll() {
-  for (const o of overlay.overlays) {
-    overlay.close(o.id)
-  }
-}
 </script>
