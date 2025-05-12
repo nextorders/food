@@ -1,9 +1,10 @@
-import type { Channel, LocaleValue } from '@nextorders/schema'
+import type { Channel, Locale, LocaleValue } from '@nextorders/schema'
 
 export const useEssenceStore = defineStore('essence', () => {
   const id = ref('')
   const name = ref<LocaleValue[]>([])
   const description = ref<LocaleValue[]>([])
+  const defaultLocale = ref<Locale>()
   const masterAccountExists = ref(false)
   const channels = ref<Channel[]>([])
 
@@ -24,6 +25,7 @@ export const useEssenceStore = defineStore('essence', () => {
       id.value = data.id
       name.value = data.name
       description.value = data.description
+      defaultLocale.value = data.defaultLocale
       masterAccountExists.value = data.masterAccountExists
       channels.value = data.channels
     } catch (error) {
@@ -39,6 +41,7 @@ export const useEssenceStore = defineStore('essence', () => {
     id,
     name,
     description,
+    defaultLocale,
     masterAccountExists,
     channels,
 
