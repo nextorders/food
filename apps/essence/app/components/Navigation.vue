@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import { ModalCreateChannel } from '#components'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const essence = useEssenceStore()
 
 const overlay = useOverlay()
@@ -41,11 +41,14 @@ const menuItems = computed(() => [
     exact: true,
   },
   {
-    label: t('app.menu.title'),
+    label: t('app.menu.channels'),
     icon: 'i-lucide-layout-list',
     defaultOpen: true,
     children: [
-      ...channelItems.value,
+      ...channelItems.value.map((c) => ({
+        label: getLocaleValue({ values: c.label, locale: locale.value, defaultLocale: essence.defaultLocale }),
+        to: c.to,
+      })),
       {
         label: t('app.create.channel'),
         icon: 'i-lucide-plus',

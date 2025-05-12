@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
       throw createError({ statusCode: 401, message: 'Wrong login or password' })
     }
 
-    const isMatch = await verifyPassword(data.password, credentials.password)
+    const isMatch = await verifyPassword(credentials.password, data.password)
     if (!isMatch) {
       throw createError({ statusCode: 401, message: 'Wrong login or password' })
     }

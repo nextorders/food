@@ -72,6 +72,8 @@
       "title": "Menu",
       "category": "Category",
       "menu-page": "Menu Page",
+      "channel": "Channel",
+      "channels": "Channels",
       "checkouts": "Checkouts",
       "checkout-receivers": "Checkout receivers",
       "clients": "Clients",

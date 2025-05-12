@@ -62,7 +62,7 @@
     "finish-message": "Все готово!"
   },
   "app": {
-    "title": "Ядро",
+    "title": "Истина",
     "create": {
       "title": "Создать",
       "channel": "Создать канал продаж"
@@ -72,6 +72,8 @@
       "title": "Меню",
       "category": "Категория",
       "menu-page": "Страница меню",
+      "channel": "Канал продаж",
+      "channels": "Каналы продаж",
       "checkouts": "Заявки",
       "checkout-receivers": "Получатели заявок",
       "clients": "Клиенты",
