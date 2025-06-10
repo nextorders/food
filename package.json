@@ -2,7 +2,7 @@
   "name": "nextorders",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.12.1",
   "description": "Modern e-commerce self-hosted platform: clients will be happy to order delicious food!",
   "author": "Nick Kosarev <hmbanan666@hotmail.com>",
   "license": "MIT",
@@ -23,8 +23,8 @@
     "website"
   ],
   "engines": {
-    "node": ">=22.15.0",
-    "pnpm": ">=10.10.0"
+    "node": ">=22.16.0",
+    "pnpm": ">=10.12.1"
   },
   "scripts": {
     "release": "changelogen-monorepo --release --push",
