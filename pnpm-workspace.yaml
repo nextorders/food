@@ -29,7 +29,7 @@ catalog:
   aws4fetch: ^1.0.20
   changelogen-monorepo: ^0.5.0
   dotenv: ^16.5.0
-  dotenv-cli: ^8.0.0
+  dotenv-cli: ^9.0.0
   drizzle-cuid2: ^2.0.0
   drizzle-kit: ^0.31.1
   drizzle-orm: ^0.44.2
