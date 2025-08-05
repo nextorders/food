@@ -51,7 +51,7 @@ catalog:
   vite: ^6.3.5
   vite-tsconfig-paths: ^5.1.4
   vitest: ^3.2.3
-  vitest-browser-vue: ^0.2.0
+  vitest-browser-vue: ^1.1.0
   vue-tsc: ^2.2.10
   zod: ^3.25.57
 ignoredBuiltDependencies:
