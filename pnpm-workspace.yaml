@@ -28,7 +28,7 @@ catalog:
   arktype: ^2.1.20
   aws4fetch: ^1.0.20
   changelogen-monorepo: ^0.5.0
-  dotenv: ^16.5.0
+  dotenv: ^17.2.3
   dotenv-cli: ^8.0.0
   drizzle-cuid2: ^2.0.0
   drizzle-kit: ^0.31.1
