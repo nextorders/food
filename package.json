@@ -24,10 +24,9 @@
     "pnpm": ">=10.19.0"
   },
   "scripts": {
-    "release": "bumpp --execute=\"npm run release:prepare\" --recursive",
-    "release:prepare": "npm run build:types",
+    "release": "bumpp --execute=\"pnpm run release:prepare\" --recursive",
+    "release:prepare": "pnpm run build",
     "build": "pnpm -r run build",
-    "build:types": "tsc --emitDeclarationOnly",
     "dev:web-app:compose": "docker compose -f ./docker/web-app/docker-compose.yaml up -d",
     "dev:web-app": "pnpm -r --filter \"./apps/web-app\" dev",
     "lint": "eslint .",
