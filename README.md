@@ -49,7 +49,6 @@ The application has [several localizations](https://github.com/nextorders/food/t
 
 - [Web App](https://github.com/nextorders/food/tree/main/apps/web-app): Web storefront and Command Center. Client can order delicious food.
 - [Essence](https://github.com/nextorders/food/tree/main/apps/essence): Business data collection and data management software.
-- [Website](https://github.com/nextorders/food/tree/main/apps/website): Info portal and documentation.
 
 ## ☕ How to deploy
 
