@@ -38,6 +38,7 @@ connect.lock
 .nx/cache/
 .nx/workspace-data/
 vite.config.*.timestamp-*
+.eslintcache
 
 ### Tests ###
 /coverage/

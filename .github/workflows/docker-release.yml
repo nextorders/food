@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       release:
-        description: 'ex: @nextorders/website-v1.0.0'
+        description: 'ex: @nextorders/web-app-v1.0.0'
         type: string
         required: true
       ref:
@@ -33,7 +33,7 @@ jobs:
       - name: Set package in env
         id: set-package
         run: |
-          APPS=("essence" "web-app" "website")
+          APPS=("essence" "web-app")
           MATCH="${{ steps.regex-match.outputs.match }}"
 
           if [ -z "$MATCH" ]; then
@@ -71,7 +71,7 @@ jobs:
       packages: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ github.event.inputs.ref || github.ref_name }}
 
