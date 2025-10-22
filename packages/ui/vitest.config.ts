@@ -6,6 +6,6 @@ import baseConfig from '../../vitest.config'
 export default mergeConfig(baseConfig, defineProject({
   plugins: [tsconfigPaths(), vue()],
   test: {
-    setupFiles: ['/tests/setup.ts'],
+    setupFiles: ['/test/setup.ts'],
   },
 }))

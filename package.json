@@ -1,18 +1,15 @@
 {
-  "name": "nextorders",
+  "name": "@nextorders/monorepo",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@10.12.1",
+  "packageManager": "pnpm@10.19.0",
   "description": "Modern e-commerce self-hosted platform: clients will be happy to order delicious food!",
   "author": "Nick Kosarev <hmbanan666@hotmail.com>",
   "license": "MIT",
-  "homepage": "https://nextorders.space",
+  "homepage": "https://nextorders.ru",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextorders/food.git"
-  },
-  "bugs": {
-    "url": "https://github.com/nextorders/food/issues"
   },
   "keywords": [
     "ecommerce",
@@ -23,12 +20,14 @@
     "website"
   ],
   "engines": {
-    "node": ">=22.16.0",
-    "pnpm": ">=10.12.1"
+    "node": ">=22.21.0",
+    "pnpm": ">=10.19.0"
   },
   "scripts": {
-    "release": "changelogen-monorepo --release --push",
+    "release": "bumpp --execute=\"npm run release:prepare\" --recursive",
+    "release:prepare": "npm run build:types",
     "build": "pnpm -r run build",
+    "build:types": "tsc --emitDeclarationOnly",
     "dev:web-app:compose": "docker compose -f ./docker/web-app/docker-compose.yaml up -d",
     "dev:web-app": "pnpm -r --filter \"./apps/web-app\" dev",
     "lint": "eslint .",
@@ -48,8 +47,7 @@
     "@commitlint/config-conventional": "catalog:",
     "@vitest/browser": "catalog:",
     "@vitest/coverage-v8": "catalog:",
-    "changelogen-monorepo": "catalog:",
-    "dotenv-cli": "catalog:",
+    "bumpp": "catalog:",
     "eslint": "catalog:",
     "husky": "catalog:",
     "lint-staged": "catalog:",
@@ -63,7 +61,9 @@
     "unimport": "4.1.1"
   },
   "lint-staged": {
-    "*.ts": "eslint ."
+    "*.{js,ts,tsx,vue,md,json}": [
+      "eslint --cache --fix"
+    ]
   },
   "commitlint": {
     "extends": [
