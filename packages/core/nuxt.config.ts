@@ -30,8 +30,5 @@ export default defineNuxtConfig({
       { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru-RU.json' },
     ],
   },
-  future: {
-    compatibilityVersion: 4,
-  },
   compatibilityDate: '2025-02-10',
 })

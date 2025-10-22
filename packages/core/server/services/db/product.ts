@@ -1,5 +1,5 @@
 import type { Product, ProductVariant } from '@nextorders/schema'
-import type { ProductWithVariantsAndMedia } from '../../../types/food'
+import type { ProductWithVariantsAndMedia } from '../../../shared/types/food'
 import { getKeys } from '.'
 import { getMedia } from './media'
 import { detachProductFromAllMenuCategories } from './menu'

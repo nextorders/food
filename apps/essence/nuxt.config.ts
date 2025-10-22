@@ -15,9 +15,6 @@ export default defineNuxtConfig({
       mediaUrl: '',
     },
   },
-  future: {
-    compatibilityVersion: 4,
-  },
   devtools: {
     componentInspector: false,
   },

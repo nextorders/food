@@ -1,4 +1,4 @@
-import type { PaymentMethod } from '../../../types/food'
+import type { PaymentMethod } from '../../../shared/types/food'
 
 export async function getPaymentMethod(id: string): Promise<PaymentMethod | null> {
   return useStorage('db').getItem<PaymentMethod>(`payment:method:${id}`)

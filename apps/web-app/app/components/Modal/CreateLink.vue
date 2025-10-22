@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Link } from '@nextorders/core/types/food'
+import type { Link } from '@nextorders/core/shared/types/food'
 
 defineProps<{
   menuId: Link['menuId']

@@ -129,7 +129,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ProductWithVariantsAndMedia } from '@nextorders/core/types/food'
+import type { ProductWithVariantsAndMedia } from '@nextorders/core/shared/types/food'
 import type { Product, ProductVariant } from '@nextorders/schema'
 import type { DropdownMenuItem, TableColumn } from '@nuxt/ui'
 import { ModalCreateProduct } from '#components'

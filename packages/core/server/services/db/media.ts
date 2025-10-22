@@ -1,5 +1,5 @@
 import type { Media, MediaItem } from '@nextorders/schema'
-import type { MediaWithItems } from '../../../types/food'
+import type { MediaWithItems } from '../../../shared/types/food'
 
 export async function getMedia(id: string): Promise<MediaWithItems | null> {
   return useStorage('db').getItem<MediaWithItems>(`media:${id}`)

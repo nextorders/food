@@ -1,4 +1,4 @@
-import type { Link } from '../../../types/food'
+import type { Link } from '../../../shared/types/food'
 
 export async function getLink(id: string): Promise<Link | null> {
   return useStorage('db').getItem<Link>(`link:${id}`)

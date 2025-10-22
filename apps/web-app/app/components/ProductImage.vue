@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import type { MediaWithItems } from '@nextorders/core/types/food'
+import type { MediaWithItems } from '@nextorders/core/shared/types/food'
 import type { MediaItem } from '@nextorders/schema'
 
 const { media, lazy = true, size = 'sm' } = defineProps<{

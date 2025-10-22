@@ -1,4 +1,4 @@
-import type { PaymentMethodType } from '@nextorders/core/types/food'
+import type { PaymentMethodType } from '@nextorders/core/shared/types/food'
 import type { CurrencyCode, Locale, LocaleValue, WeightUnit } from '@nextorders/schema'
 
 export const CURRENCY_SIGNS: Record<CurrencyCode, string> = {

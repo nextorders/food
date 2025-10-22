@@ -97,7 +97,10 @@ const actionToast = useActionToast()
 const essence = useEssenceStore()
 
 const form = useTemplateRef('form')
-useClearFormI18n(form)
+
+watch(form, () => {
+  form.value?.clear()
+})
 
 const state = ref<Partial<OptionCreate>>({
   name: undefined,
