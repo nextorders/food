@@ -1,9 +1,6 @@
 export default defineNuxtConfig({
   extends: ['@nextorders/core', '@nextorders/ui'],
   modules: ['@pinia/nuxt', 'nuxt-tiptap-editor'],
-  future: {
-    compatibilityVersion: 4,
-  },
   devtools: {
     componentInspector: false,
   },

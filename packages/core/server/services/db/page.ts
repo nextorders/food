@@ -1,4 +1,4 @@
-import type { Page } from '../../../types/food'
+import type { Page } from '../../../shared/types/food'
 
 export async function getPage(id: string): Promise<Page | null> {
   return useStorage('db').getItem<Page>(`page:${id}`)

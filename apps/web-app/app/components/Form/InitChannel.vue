@@ -92,7 +92,10 @@ const actionToast = useActionToast()
 const channel = useChannelStore()
 
 const form = useTemplateRef('form')
-useClearFormI18n(form)
+
+watch(form, () => {
+  form.value?.clear()
+})
 
 const state = ref<Partial<ChannelCreateSchema>>({
   name: undefined,

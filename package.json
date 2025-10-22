@@ -27,8 +27,6 @@
     "release": "bumpp --execute=\"pnpm run release:prepare\" --recursive",
     "release:prepare": "pnpm run build",
     "build": "pnpm -r run build",
-    "dev:web-app:compose": "docker compose -f ./docker/web-app/docker-compose.yaml up -d",
-    "dev:web-app": "pnpm -r --filter \"./apps/web-app\" dev",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "clean": "pnpm -r run clean",

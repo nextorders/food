@@ -6,6 +6,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --port 3502",
+    "dev:compose": "docker compose -f ./../../docker/web-app/docker-compose.yaml up -d",
     "preview": "PORT=3502 nuxt preview",
     "clean": "rm -rf dist",
     "clean:modules": "rm -rf .nuxt node_modules",

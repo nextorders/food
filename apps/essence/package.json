@@ -6,6 +6,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --port 3503",
+    "dev:compose": "docker compose -f ./../../docker/essence/docker-compose.yaml up -d",
     "preview": "PORT=3503 nuxt preview",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
