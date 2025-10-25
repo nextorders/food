@@ -1,6 +1,6 @@
+import { db } from '@nextorders/database'
 import { ProductVariantUpdateSchema, updateLocaleValues } from '@nextorders/schema'
 import { type } from 'arktype'
-import { repository } from '~~/server/services/db/repository'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
       throw data
     }
 
-    const variant = await repository.product.findVariant(id)
+    const variant = await db.product.findVariant(id)
     if (!variant) {
       throw createError({
         statusCode: 404,
@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) => {
 
     const updatedName = data.name ? updateLocaleValues(variant.name, { locale: data.locale, value: data.name }) : variant.name
 
-    await repository.product.updateVariant(id, {
+    await db.product.updateVariant(id, {
       ...data,
       name: updatedName,
     })

@@ -1,13 +1,13 @@
 import process from 'node:process'
-import { useCreateDatabase } from '../services/db/database'
+import { useCreateDatabase } from '@nextorders/database'
 
 /**
  * DB init
  */
 export default defineNitroPlugin(async () => {
-  if (!process.env.NUXT_DATABASE_URL) {
-    throw new Error('NUXT_DATABASE_URL is not defined')
+  if (!process.env.DATABASE_URL) {
+    throw new Error('DATABASE_URL is not defined')
   }
 
-  useCreateDatabase(process.env.NUXT_DATABASE_URL)
+  useCreateDatabase(process.env.DATABASE_URL)
 })

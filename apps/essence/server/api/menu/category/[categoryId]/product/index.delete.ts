@@ -1,6 +1,6 @@
+import { db } from '@nextorders/database'
 import { MenuCategoryDetachProductSchema } from '@nextorders/schema'
 import { type } from 'arktype'
-import { repository } from '~~/server/services/db/repository'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
       throw data
     }
 
-    await repository.menu.detachProductFromCategory(categoryId, data.productId)
+    await db.menu.detachProductFromCategory(categoryId, data.productId)
 
     return {
       ok: true,

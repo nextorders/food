@@ -1,4 +1,4 @@
-import { repository } from '~~/server/services/db/repository'
+import { db } from '@nextorders/database'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    await repository.product.deleteVariant(id)
+    await db.product.deleteVariant(id)
 
     return {
       ok: true,

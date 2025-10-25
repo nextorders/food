@@ -1,4 +1,4 @@
-import { repository } from '~~/server/services/db/repository'
+import { db } from '@nextorders/database'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const category = await repository.menu.findCategory(categoryId)
+    const category = await db.menu.findCategory(categoryId)
     if (!category) {
       throw createError({
         statusCode: 404,
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    await repository.menu.deleteCategory(categoryId)
+    await db.menu.deleteCategory(categoryId)
 
     return {
       ok: true,

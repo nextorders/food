@@ -1,4 +1,4 @@
-import { repository } from '~~/server/services/db/repository'
+import { db } from '@nextorders/database'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const menu = await repository.menu.find(menuId)
+    const menu = await db.menu.find(menuId)
     if (!menu) {
       throw createError({
         statusCode: 404,
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    await repository.menu.delete(menuId)
+    await db.menu.delete(menuId)
 
     return {
       ok: true,

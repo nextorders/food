@@ -1,7 +1,7 @@
+import { db } from '@nextorders/database'
 import { MenuCreateSchema } from '@nextorders/schema'
 import { createId } from '@paralleldrive/cuid2'
 import { type } from 'arktype'
-import { repository } from '~~/server/services/db/repository'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
 
     const id = createId()
 
-    const menu = await repository.menu.create({
+    const menu = await db.menu.create({
       id,
       slug: id,
       name: data.name,

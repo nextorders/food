@@ -1,6 +1,6 @@
+import { db } from '@nextorders/database'
 import { ChannelUpdateSchema, updateLocaleValues } from '@nextorders/schema'
 import { type } from 'arktype'
-import { repository } from '~~/server/services/db/repository'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
       throw data
     }
 
-    const channel = await repository.channel.find(channelId)
+    const channel = await db.channel.find(channelId)
     if (!channel) {
       throw createError({
         statusCode: 404,
@@ -31,7 +31,7 @@ export default defineEventHandler(async (event) => {
     const updatedConditions = data.conditions ? updateLocaleValues(channel.conditions, { locale: data.locale, value: data.conditions }) : channel.conditions
     const updatedCopyright = data.copyright ? updateLocaleValues(channel.copyright, { locale: data.locale, value: data.copyright }) : channel.copyright
 
-    await repository.channel.update(channelId, {
+    await db.channel.update(channelId, {
       ...data,
       name: updatedName,
       description: updatedDescription,

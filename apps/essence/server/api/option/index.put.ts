@@ -1,11 +1,11 @@
+import { db } from '@nextorders/database'
 import { OptionCreateSchema } from '@nextorders/schema'
 import { type } from 'arktype'
-import { repository } from '~~/server/services/db/repository'
 
 export default defineEventHandler(async (event) => {
   try {
     // Guard: If option already exists
-    const options = await repository.option.list()
+    const options = await db.option.list()
     if (options?.length) {
       throw createError({
         statusCode: 400,
@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
       throw data
     }
 
-    await repository.option.create({
+    await db.option.create({
       name: [{ locale: data.defaultLocale, value: data.name }],
       currencyCode: data.currencyCode,
       countryCode: data.countryCode,

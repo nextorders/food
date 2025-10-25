@@ -1,6 +1,6 @@
+import { db } from '@nextorders/database'
 import { MenuUpdateSchema } from '@nextorders/schema'
 import { type } from 'arktype'
-import { repository } from '~~/server/services/db/repository'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
       throw data
     }
 
-    const menu = await repository.menu.update(menuId, data)
+    const menu = await db.menu.update(menuId, data)
     if (!menu) {
       throw createError({
         statusCode: 404,

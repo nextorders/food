@@ -1,4 +1,4 @@
-import { repository } from '~~/server/services/db/repository'
+import { db } from '@nextorders/database'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const product = await repository.product.find(productId)
+    const product = await db.product.find(productId)
     if (!product) {
       throw createError({
         statusCode: 404,

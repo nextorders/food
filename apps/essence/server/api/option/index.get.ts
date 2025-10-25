@@ -1,8 +1,8 @@
-import { repository } from '~~/server/services/db/repository'
+import { db } from '@nextorders/database'
 
 export default defineEventHandler(async () => {
   try {
-    const options = await repository.option.list()
+    const options = await db.option.list()
     if (!options?.length || !options[0]) {
       throw createError({
         statusCode: 404,
@@ -11,9 +11,9 @@ export default defineEventHandler(async () => {
     }
     const option = options[0]
 
-    const master = await repository.user.findMaster()
+    const master = await db.user.findMaster()
 
-    const channels = await repository.channel.list()
+    const channels = await db.channel.list()
 
     return {
       ...option,

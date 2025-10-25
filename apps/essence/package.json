@@ -8,33 +8,25 @@
     "dev": "nuxt dev --port 3503",
     "dev:compose": "docker compose -f ./../../docker/essence/docker-compose.yaml up -d",
     "preview": "PORT=3503 nuxt preview",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate",
-    "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio",
     "clean": "rm -rf dist",
     "clean:modules": "rm -rf .nuxt node_modules",
     "typecheck": "nuxt typecheck",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@neoconfetti/vue": "catalog:",
+    "@neoconfetti/vue": "catalog:integrations",
+    "@nextorders/database": "workspace:*",
     "@nextorders/schema": "workspace:*",
     "@nextorders/ui": "workspace:*",
-    "@pinia/nuxt": "catalog:",
-    "arktype": "catalog:",
-    "aws4fetch": "catalog:",
-    "drizzle-cuid2": "catalog:",
-    "drizzle-orm": "catalog:",
-    "pg": "catalog:",
-    "pinia": "catalog:",
-    "sharp": "catalog:"
+    "@pinia/nuxt": "catalog:integrations",
+    "arktype": "catalog:integrations",
+    "aws4fetch": "catalog:integrations",
+    "pinia": "catalog:integrations",
+    "sharp": "catalog:integrations"
   },
   "devDependencies": {
-    "@types/node": "catalog:",
-    "@types/pg": "catalog:",
-    "drizzle-kit": "catalog:",
-    "nuxt": "catalog:",
-    "nuxt-auth-utils": "catalog:"
+    "@types/node": "catalog:types",
+    "nuxt": "catalog:dev",
+    "nuxt-auth-utils": "catalog:dev"
   }
 }

@@ -1,7 +1,7 @@
 import type { MediaItem } from '@nextorders/schema'
+import { db } from '@nextorders/database'
 import { createId } from '@paralleldrive/cuid2'
 import sharp from 'sharp'
-import { repository } from '~~/server/services/db/repository'
 
 const IMAGE_SIZES = [120, 300, 600, 800]
 const IMAGE_FORMATS = ['jpg', 'webp'] as const
@@ -90,22 +90,22 @@ export default defineEventHandler(async (event) => {
       }
     }
 
-    await repository.media.create({ id: mediaId }, items)
+    await db.media.create({ id: mediaId }, items)
 
-    const product = await repository.product.find(productId)
+    const product = await db.product.find(productId)
     if (product?.mediaId) {
-      const media = await repository.media.find(product.mediaId)
+      const media = await db.media.find(product.mediaId)
       if (media) {
         // Remove old images
         for (const item of media.items) {
           await storage.removeItem(`${productsDirectory}/${item.mediaId}/${item.id}.${item.format}`)
         }
 
-        await repository.media.delete(media.id)
+        await db.media.delete(media.id)
       }
     }
 
-    await repository.product.update(productId, { mediaId })
+    await db.product.update(productId, { mediaId })
 
     return { ok: true }
   } catch (error) {
