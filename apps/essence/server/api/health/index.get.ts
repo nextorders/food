@@ -1,8 +1,8 @@
-import { repository } from '~~/server/services/db/repository'
+import { db } from '@nextorders/database'
 
 export default defineEventHandler(async () => {
   try {
-    await repository.checkHealth()
+    await db.checkHealth()
 
     return {
       ok: true,

@@ -1,4 +1,4 @@
-import { repository } from '~~/server/services/db/repository'
+import { db } from '@nextorders/database'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const media = await repository.media.find(mediaId)
+    const media = await db.media.find(mediaId)
     if (!media) {
       throw createError({
         statusCode: 404,

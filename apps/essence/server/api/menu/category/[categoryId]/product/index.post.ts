@@ -1,6 +1,6 @@
+import { db } from '@nextorders/database'
 import { MenuCategoryAttachProductSchema } from '@nextorders/schema'
 import { type } from 'arktype'
-import { repository } from '~~/server/services/db/repository'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
       throw data
     }
 
-    const row = await repository.menu.attachProductToCategory(categoryId, data.productId)
+    const row = await db.menu.attachProductToCategory(categoryId, data.productId)
     if (!row) {
       throw createError({
         statusCode: 404,

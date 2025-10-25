@@ -14,18 +14,18 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@neoconfetti/vue": "catalog:",
+    "@neoconfetti/vue": "catalog:integrations",
     "@nextorders/core": "workspace:*",
     "@nextorders/schema": "workspace:*",
     "@nextorders/ui": "workspace:*",
-    "@pinia/nuxt": "catalog:",
-    "ioredis": "catalog:",
-    "libphonenumber-js": "catalog:",
-    "nuxt-tiptap-editor": "catalog:",
-    "pinia": "catalog:"
+    "@pinia/nuxt": "catalog:integrations",
+    "ioredis": "catalog:integrations",
+    "libphonenumber-js": "catalog:integrations",
+    "nuxt-tiptap-editor": "catalog:integrations",
+    "pinia": "catalog:integrations"
   },
   "devDependencies": {
-    "@types/node": "catalog:",
-    "nuxt": "catalog:"
+    "@types/node": "catalog:types",
+    "nuxt": "catalog:dev"
   }
 }

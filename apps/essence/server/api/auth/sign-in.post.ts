@@ -1,7 +1,7 @@
 import type { User } from '#auth-utils'
+import { db } from '@nextorders/database'
 import { UserSignInSchema } from '@nextorders/schema'
 import { type } from 'arktype'
-import { repository } from '~~/server/services/db/repository'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
       return sendRedirect(event, '/')
     }
 
-    const credentials = await repository.user.findCredentialByLogin(data.login)
+    const credentials = await db.user.findCredentialByLogin(data.login)
     if (!credentials) {
       throw createError({ statusCode: 401, message: 'Wrong login or password' })
     }
@@ -30,7 +30,7 @@ export default defineEventHandler(async (event) => {
       throw createError({ statusCode: 401, message: 'Wrong login or password' })
     }
 
-    const user = await repository.user.find(credentials.userId)
+    const user = await db.user.find(credentials.userId)
     if (!user) {
       throw createError({ statusCode: 401, message: 'No user found' })
     }

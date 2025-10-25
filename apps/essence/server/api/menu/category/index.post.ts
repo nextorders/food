@@ -1,7 +1,7 @@
+import { db } from '@nextorders/database'
 import { MenuCategoryCreateSchema } from '@nextorders/schema'
 import { createId } from '@paralleldrive/cuid2'
 import { type } from 'arktype'
-import { repository } from '~~/server/services/db/repository'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
       throw data
     }
 
-    const menu = await repository.menu.find(data.menuId)
+    const menu = await db.menu.find(data.menuId)
     if (!menu) {
       throw createError({
         statusCode: 404,
@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
 
     const id = createId()
 
-    const category = await repository.menu.createCategory({
+    const category = await db.menu.createCategory({
       id,
       slug: id,
       menuId: data.menuId,

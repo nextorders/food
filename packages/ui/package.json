@@ -8,23 +8,23 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/ui": "catalog:",
-    "@nuxtjs/i18n": "catalog:",
-    "@vueuse/core": "catalog:",
-    "@vueuse/nuxt": "catalog:",
-    "arktype": "catalog:",
-    "nuxt-zod-i18n": "catalog:",
-    "zod": "catalog:"
+    "@nuxt/ui": "catalog:integrations",
+    "@vueuse/core": "catalog:integrations",
+    "@vueuse/nuxt": "catalog:integrations",
+    "arktype": "catalog:integrations",
+    "nuxt-zod-i18n": "catalog:integrations",
+    "zod": "catalog:integrations"
   },
   "devDependencies": {
-    "@iconify-json/circle-flags": "catalog:",
-    "@iconify-json/fluent-emoji-flat": "catalog:",
-    "@iconify-json/lucide": "catalog:",
-    "@iconify-json/simple-icons": "catalog:",
-    "@nuxt/devtools": "catalog:",
-    "@nuxt/image": "catalog:",
-    "@tailwindcss/typography": "catalog:",
-    "nuxt": "catalog:",
-    "vue-tsc": "catalog:"
+    "@iconify-json/circle-flags": "catalog:dev",
+    "@iconify-json/fluent-emoji-flat": "catalog:dev",
+    "@iconify-json/lucide": "catalog:dev",
+    "@iconify-json/simple-icons": "catalog:dev",
+    "@nuxt/devtools": "catalog:dev",
+    "@nuxt/image": "catalog:dev",
+    "@nuxtjs/i18n": "catalog:dev",
+    "@tailwindcss/typography": "catalog:dev",
+    "nuxt": "catalog:dev",
+    "vue-tsc": "catalog:dev"
   }
 }

@@ -1,6 +1,6 @@
+import { db } from '@nextorders/database'
 import { MenuCategoryUpdateSchema, updateLocaleValues } from '@nextorders/schema'
 import { type } from 'arktype'
-import { repository } from '~~/server/services/db/repository'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
       throw data
     }
 
-    const category = await repository.menu.findCategory(categoryId)
+    const category = await db.menu.findCategory(categoryId)
     if (!category) {
       throw createError({
         statusCode: 404,
@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) => {
 
     const updatedName = data.name ? updateLocaleValues(category.name, { locale: data.locale, value: data.name }) : category.name
 
-    await repository.menu.updateCategory(categoryId, {
+    await db.menu.updateCategory(categoryId, {
       ...data,
       name: updatedName,
     })

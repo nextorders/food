@@ -39,20 +39,19 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "catalog:",
-    "@commitlint/cli": "catalog:",
-    "@commitlint/config-conventional": "catalog:",
-    "@vitest/browser": "catalog:",
-    "@vitest/coverage-v8": "catalog:",
-    "bumpp": "catalog:",
-    "eslint": "catalog:",
-    "husky": "catalog:",
-    "lint-staged": "catalog:",
-    "playwright": "catalog:",
-    "vite": "catalog:",
-    "vite-tsconfig-paths": "catalog:",
-    "vitest": "catalog:",
-    "vitest-browser-vue": "catalog:"
+    "@antfu/eslint-config": "catalog:dev",
+    "@commitlint/cli": "catalog:dev",
+    "@commitlint/config-conventional": "catalog:dev",
+    "@vitest/browser": "catalog:test",
+    "@vitest/coverage-v8": "catalog:test",
+    "bumpp": "catalog:dev",
+    "eslint": "catalog:dev",
+    "husky": "catalog:dev",
+    "lint-staged": "catalog:dev",
+    "playwright": "catalog:test",
+    "vite": "catalog:dev",
+    "vitest": "catalog:test",
+    "vitest-browser-vue": "catalog:test"
   },
   "resolutions": {
     "unimport": "4.1.1"

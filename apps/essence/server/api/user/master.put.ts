@@ -1,12 +1,12 @@
+import { db } from '@nextorders/database'
 import { UserCreateSchema } from '@nextorders/schema'
 import { createId } from '@paralleldrive/cuid2'
 import { type } from 'arktype'
-import { repository } from '~~/server/services/db/repository'
 
 export default defineEventHandler(async (event) => {
   try {
     // Guard: If user already exists
-    const master = await repository.user.findMaster()
+    const master = await db.user.findMaster()
     if (master) {
       throw createError({
         statusCode: 400,
@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
       throw data
     }
 
-    const user = await repository.user.create({
+    const user = await db.user.create({
       name: data.name ?? '',
       email: null,
       isActive: true,
@@ -33,7 +33,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    await repository.user.createPermission({
+    await db.user.createPermission({
       id: createId(),
       userId: user.id,
       code: 'MASTER',
@@ -41,7 +41,7 @@ export default defineEventHandler(async (event) => {
 
     const password = await hashPassword(data.password)
 
-    await repository.user.createCredential({
+    await db.user.createCredential({
       id: createId(),
       userId: user.id,
       login: data.login,

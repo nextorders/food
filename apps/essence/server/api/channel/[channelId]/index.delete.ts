@@ -1,4 +1,4 @@
-import { repository } from '~~/server/services/db/repository'
+import { db } from '@nextorders/database'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const channel = await repository.channel.find(channelId)
+    const channel = await db.channel.find(channelId)
     if (!channel) {
       throw createError({
         statusCode: 404,
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    await repository.channel.delete(channelId)
+    await db.channel.delete(channelId)
 
     return {
       ok: true,

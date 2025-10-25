@@ -22,11 +22,11 @@
     "postinstall": "pnpm build"
   },
   "dependencies": {
-    "arktype": "catalog:"
+    "arktype": "catalog:integrations"
   },
   "devDependencies": {
-    "@types/node": "catalog:",
-    "typescript": "catalog:",
-    "unbuild": "catalog:"
+    "@types/node": "catalog:types",
+    "typescript": "catalog:dev",
+    "unbuild": "catalog:dev"
   }
 }

@@ -1,7 +1,7 @@
+import { db } from '@nextorders/database'
 import { ChannelCreateSchema } from '@nextorders/schema'
 import { createId } from '@paralleldrive/cuid2'
 import { type } from 'arktype'
-import { repository } from '~~/server/services/db/repository'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
 
     const id = createId()
 
-    const channel = await repository.channel.create({
+    const channel = await db.channel.create({
       ...data,
       id,
       slug: id,

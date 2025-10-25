@@ -1,7 +1,7 @@
+import { db } from '@nextorders/database'
 import { ProductVariantCreateSchema } from '@nextorders/schema'
 import { createId } from '@paralleldrive/cuid2'
 import { type } from 'arktype'
-import { repository } from '~~/server/services/db/repository'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
       throw data
     }
 
-    const product = await repository.product.find(data.productId)
+    const product = await db.product.find(data.productId)
     if (!product) {
       throw createError({
         statusCode: 404,
@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const variant = await repository.product.createVariant({
+    const variant = await db.product.createVariant({
       ...data,
       id: createId(),
       name: [{ locale: data.locale, value: data.name }],

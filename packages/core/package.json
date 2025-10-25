@@ -8,20 +8,20 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@date-fns/tz": "catalog:",
+    "@date-fns/tz": "catalog:integrations",
     "@nextorders/schema": "workspace:*",
-    "@nuxtjs/i18n": "catalog:",
-    "@paralleldrive/cuid2": "catalog:",
-    "@vueuse/core": "catalog:",
-    "@vueuse/nuxt": "catalog:",
-    "aws4fetch": "catalog:",
-    "sharp": "catalog:"
+    "@paralleldrive/cuid2": "catalog:integrations",
+    "@vueuse/core": "catalog:integrations",
+    "@vueuse/nuxt": "catalog:integrations",
+    "aws4fetch": "catalog:integrations",
+    "sharp": "catalog:integrations"
   },
   "devDependencies": {
-    "@nuxt/image": "catalog:",
-    "@types/node": "catalog:",
-    "nuxt": "catalog:",
-    "nuxt-auth-utils": "catalog:",
-    "vue-tsc": "catalog:"
+    "@nuxt/image": "catalog:dev",
+    "@nuxtjs/i18n": "catalog:dev",
+    "@types/node": "catalog:types",
+    "nuxt": "catalog:dev",
+    "nuxt-auth-utils": "catalog:dev",
+    "vue-tsc": "catalog:dev"
   }
 }
