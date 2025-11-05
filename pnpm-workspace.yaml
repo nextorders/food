@@ -12,7 +12,7 @@ catalogs:
     '@iconify-json/lucide': ^1.2.71
     '@iconify-json/simple-icons': ^1.2.55
     '@nuxt/devtools': ^2.6.5
-    '@nuxt/image': ^1.11.0
+    '@nuxt/image': ^2.0.0
     '@nuxtjs/i18n': ^10.1.1
     '@tailwindcss/typography': ^0.5.19
     bumpp: ^10.3.1
