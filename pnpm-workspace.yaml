@@ -31,8 +31,8 @@ catalogs:
     '@nuxt/ui': ^4.1.0
     '@paralleldrive/cuid2': 2.2.2
     '@pinia/nuxt': ^0.11.2
-    '@vueuse/core': 13.9.0
-    '@vueuse/nuxt': 13.9.0
+    '@vueuse/core': 14.1.0
+    '@vueuse/nuxt': 14.1.0
     arktype: ^2.1.20
     aws4fetch: ^1.0.20
     ioredis: ^5.8.2
