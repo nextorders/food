@@ -37,7 +37,7 @@ catalogs:
     aws4fetch: ^1.0.20
     ioredis: ^5.8.2
     libphonenumber-js: ^1.12.25
-    nuxt-tiptap-editor: ^2.3.1
+    nuxt-tiptap-editor: ^3.2.0
     nuxt-zod-i18n: ^1.12.1
     pinia: ^3.0.3
     sharp: ^0.34.4
