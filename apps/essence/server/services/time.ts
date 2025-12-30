@@ -257,7 +257,15 @@ function getEarliestTime(hours: TimePeriod[]): string {
     return ''
   }
 
+  const firstPeriod = hours[0] as TimePeriod
+  if (typeof firstPeriod?.start !== 'string' || firstPeriod.start === '') {
+    return ''
+  }
+
   return hours.reduce((min, period) => {
+    if (typeof period.start !== 'string' || period.start === '') {
+      return min
+    }
     return period.start < min ? period.start : min
-  }, '')
+  }, firstPeriod.start as string)
 }

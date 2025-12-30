@@ -33,7 +33,7 @@ jobs:
       - name: Set package in env
         id: set-package
         run: |
-          APPS=("web-app" "web-app-selector")
+          APPS=("web-app" "web-app-selector" "essence")
           MATCH="${{ steps.regex-match.outputs.match }}"
 
           if [ -z "$MATCH" ]; then

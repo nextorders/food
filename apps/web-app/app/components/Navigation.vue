@@ -71,7 +71,7 @@ const todayUntil = computed<string>(() => {
   return status?.todayEndAt ?? ''
 })
 
-const asideMenuItems = computed(() => channelStore.links?.aside.map((link) => ({
+const asideMenuItems = computed(() => channelStore.links?.aside?.map((link) => ({
   label: optionsStore.getLocaleValue(link.label, locale.value),
   to: link.to,
   icon: link.icon,
