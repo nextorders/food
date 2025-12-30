@@ -1,14 +1,17 @@
 <template>
-  <div class="flex flex-row justify-between items-center bg-elevated w-20 min-w-[5.5rem] min-h-12 rounded-lg px-1 py-2">
+  <div class="shrink-0 flex flex-row justify-between items-center bg-elevated w-24 min-h-12 rounded-lg px-1.5 py-2">
     <UButton
       icon="i-lucide-minus"
       variant="ghost"
       size="md"
       aria-label="Minus"
-      @click="checkout.changeLineQuantity(lineId, 'decrement')"
+      @click="orderStore.changeItem({
+        itemId: line.id,
+        method: 'decrement',
+      })"
     />
 
-    <div class="text-base">
+    <div class="text-base font-medium">
       {{ line?.quantity }}
     </div>
 
@@ -17,16 +20,20 @@
       variant="ghost"
       size="md"
       aria-label="Plus"
-      @click="checkout.changeLineQuantity(lineId, 'increment')"
+      @click="orderStore.changeItem({
+        itemId: line.id,
+        method: 'increment',
+      })"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-const { lineId } = defineProps<{
-  lineId: string
+import type { OrderItem } from '@nextorders/food-schema'
+
+const { line } = defineProps<{
+  line: OrderItem
 }>()
 
-const checkout = useCheckoutStore()
-const line = computed(() => checkout.items?.find((l) => l.id === lineId))
+const orderStore = useOrderStore()
 </script>

@@ -6,7 +6,6 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --port 3503",
-    "dev:compose": "docker compose -f ./../../docker/essence/docker-compose.yaml up -d",
     "preview": "PORT=3503 nuxt preview",
     "clean": "rm -rf dist",
     "clean:modules": "rm -rf .nuxt node_modules",
@@ -14,19 +13,12 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@neoconfetti/vue": "catalog:integrations",
-    "@nextorders/database": "workspace:*",
-    "@nextorders/schema": "workspace:*",
-    "@nextorders/ui": "workspace:*",
-    "@pinia/nuxt": "catalog:integrations",
-    "arktype": "catalog:integrations",
-    "aws4fetch": "catalog:integrations",
-    "pinia": "catalog:integrations",
-    "sharp": "catalog:integrations"
+    "@date-fns/tz": "catalog:integrations",
+    "@nextorders/core": "workspace:*",
+    "@nextorders/food-schema": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "catalog:types",
-    "nuxt": "catalog:dev",
-    "nuxt-auth-utils": "catalog:dev"
+    "nuxt": "catalog:dev"
   }
 }

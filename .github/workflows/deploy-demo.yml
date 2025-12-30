@@ -1,10 +1,10 @@
 name: Deploy Demo Web App
 
 on:
-  workflow_run:
-    workflows: ["Docker Nightly", "Docker Release"]
-    types:
-      - completed
+  # workflow_run:
+  #   workflows: ["Docker Nightly", "Docker Release"]
+  #   types:
+  #     - completed
   workflow_dispatch:
 
 jobs:

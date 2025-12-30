@@ -1,6 +1,6 @@
 <template>
-  <div class="text-sm leading-tight flex flex-row flex-nowrap gap-2 items-center">
-    <Icon :name="getIconName()" class="size-8 flex-shrink-0 text-dimmed" />
+  <div class="text-sm/4 flex flex-row flex-nowrap gap-2 items-center motion-preset-slide-left-sm">
+    <Icon :name="getIconName()" class="size-8 shrink-0 text-secondary" />
     <p>{{ message }}</p>
   </div>
 </template>
@@ -14,9 +14,9 @@ const { icon } = defineProps<{
 function getIconName() {
   switch (icon) {
     case 'info':
-      return 'food:info'
+      return 'lucide:info'
     case 'alert':
-      return 'food:alert'
+      return 'lucide:triangle-alert'
   }
 }
 </script>

@@ -1,60 +1,80 @@
 <template>
   <div class="flex flex-col gap-4 flex-1 overflow-y-auto py-2">
-    <div class="px-2.5">
-      <NuxtLink
-        href="/"
-        class="font-serif font-medium text-xl"
-      >
-        {{ getLocaleValue({ values: channel.name, locale, defaultLocale: channel.defaultLocale }) }}
+    <UButton
+      v-if="channelStore.list.length > 1"
+      variant="link"
+      color="secondary"
+      size="md"
+      class="px-2.5 py-0 text-lg font-semibold cursor-pointer"
+      :label="optionsStore.getLocaleValue(channelStore.selectorTitle, locale)"
+      @click="modalChannelSelector.open({ dismissible: true })"
+    />
+
+    <div class="px-2.5 flex flex-col gap-1.5">
+      <NuxtLink href="/">
+        <h4 class="font-semibold text-xl/5">
+          {{ optionsStore.getLocaleValue(channelStore.title, locale) }}
+        </h4>
       </NuxtLink>
-      <div class="mt-1 text-sm leading-tight">
-        {{ getLocaleValue({ values: channel.description, locale, defaultLocale: channel.defaultLocale }) }}
+      <div class="text-sm/4">
+        {{ optionsStore.getLocaleValue(channelStore.description, locale) }}
       </div>
     </div>
 
     <UNavigationMenu
-      :items="mainMenuItems"
+      :items="asideMenuItems"
       orientation="vertical"
+      class="motion-preset-slide-down"
     />
 
     <UNavigationMenu
-      v-if="checkout.id"
+      v-if="orderStore.id"
       :items="deliveryMenuItems"
       orientation="vertical"
+      class="motion-preset-slide-down"
     />
 
     <UNavigationMenu
       :items="catalogItems"
       orientation="vertical"
+      class="motion-preset-slide-down"
     />
   </div>
 
-  <StaffCard class="mb-4 mx-2" />
-
   <div class="shrink-0 flex items-center gap-1.5 py-2 px-2">
-    <ColorModeToggle />
-    <LanguageSelect />
+    <UColorModeButton variant="outline" />
+    <LanguageSelect :available-locales="optionsStore.availableLocales" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ModalDeliveryInfo } from '#components'
+import { ModalChannelSelector, ModalDeliveryInfo, ModalDeliverySchedule } from '#components'
+import { useChannelStore } from '@nextorders/core/app/stores/channel'
+import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
-const { locale, t } = useI18n()
+const { t, locale } = useI18n()
 const route = useRoute()
-const channel = useChannelStore()
-const checkout = useCheckoutStore()
+
+const optionsStore = useOptionsStore()
+const channelStore = useChannelStore()
+const orderStore = useOrderStore()
+const menuStore = useMenuStore()
 
 const overlay = useOverlay()
 const modalDeliveryInfo = overlay.create(ModalDeliveryInfo)
+const modalDeliverySchedule = overlay.create(ModalDeliverySchedule)
+const modalChannelSelector = overlay.create(ModalChannelSelector)
 
-const title = computed(() => checkout.deliveryMethod === 'DELIVERY' ? t('app.cart.delivery') : t('app.cart.pickup'))
-const todayUntil = computed(() => channel.workingDay?.isActive ? channel.workingDay.close : undefined)
+const title = computed(() => orderStore.deliveryMethod === 'deliveryByCourier' ? t('web-app.cart.delivery') : t('web-app.cart.pickup'))
+const todayUntil = computed<string>(() => {
+  const status = orderStore.deliveryMethod === 'deliveryByCourier' ? channelStore.deliveryOpeningStatus : channelStore.selfPickupOpeningStatus
+  return status?.todayEndAt ?? ''
+})
 
-const mainMenuItems = computed(() => channel.links.filter((link) => link.menuId === 'main').map((link) => ({
-  label: link.label,
+const asideMenuItems = computed(() => channelStore.links?.aside.map((link) => ({
+  label: optionsStore.getLocaleValue(link.label, locale.value),
   to: link.to,
-  icon: link.icon ?? undefined,
+  icon: link.icon,
   target: link.target,
 })))
 
@@ -64,31 +84,33 @@ const deliveryMenuItems = computed(() => [
     type: 'label' as const,
   },
   {
-    label: `${t('app.cart.today-until')} ${todayUntil.value}`,
-    icon: 'food:clock',
+    label: `${t('web-app.cart.today-until')} ${todayUntil.value}`,
+    icon: 'lucide:clock',
+    onSelect: () => modalDeliverySchedule.open(),
   },
   {
-    label: `${t('app.cart.from')} ${channel.minAmountForDelivery} ${channel.currencySign}`,
-    icon: 'food:delivery',
-    class: (checkout.deliveryMethod === 'DELIVERY' && channel.minAmountForDelivery) ? undefined : 'hidden',
+    label: `${t('web-app.cart.from')} ${channelStore.deliveryByCourier?.minAmountForDelivery} ${optionsStore.currencySign}`,
+    icon: 'lucide:car',
+    class: (orderStore.deliveryMethod === 'deliveryByCourier' && channelStore.deliveryByCourier?.minAmountForDelivery) ? undefined : 'hidden',
     onSelect: () => modalDeliveryInfo.open(),
   },
   {
-    label: t('app.show-details-label'),
-    icon: 'food:info',
+    label: t('web-app.show-details-label'),
+    icon: 'lucide:info',
     onSelect: () => modalDeliveryInfo.open(),
   },
 ])
 
-const catalogItems = computed(() => [{
-  label: t('app.catalog'),
-  type: 'label' as const,
-}, ...channel.activeCategories.map((c) => {
-  return {
-    label: getLocaleValue({ values: c.name, locale: locale.value, defaultLocale: channel.defaultLocale }),
-    to: `/catalog/${c.slug}`,
-    active: route.path.startsWith(`/catalog/${c.slug}`),
-    icon: c.icon ?? 'food:bookmark',
-  }
-})])
+const catalogItems = computed(() => [
+  {
+    label: t('web-app.catalog'),
+    type: 'label' as const,
+  },
+  ...menuStore.categories.map((c) => ({
+    label: optionsStore.getLocaleValue(c.title, locale.value),
+    to: `/${c.slug}`,
+    active: route.path.startsWith(`/${c.slug}`),
+    icon: c.icon ?? 'lucide:bookmark',
+  })),
+])
 </script>

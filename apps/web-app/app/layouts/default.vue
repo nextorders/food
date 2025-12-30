@@ -6,7 +6,7 @@
       <Navigation />
     </div>
 
-    <main class="flex flex-col min-w-0 min-h-svh flex-1 pt-16 xl:pr-80 overflow-auto">
+    <main :ref="mainContentRefTitle" class="flex flex-col min-w-0 min-h-svh flex-1 pt-16 xl:pr-80 overflow-auto">
       <UContainer class="mx-0 pb-10 pt-4 max-w-7xl">
         <slot />
       </UContainer>
@@ -16,7 +16,7 @@
   </div>
 
   <aside class="z-50 hidden w-0 xl:block fixed xl:w-74 right-6 top-4 bottom-4">
-    <div class="pt-2 rounded-lg bg-default border border-default h-full">
+    <div class="pt-2 rounded-lg bg-default border border-default h-full max-h-240">
       <Cart />
     </div>
   </aside>
@@ -28,7 +28,7 @@
     <template #header>
       <div class="flex flex-row items-center">
         <UButton
-          icon="food:close"
+          icon="i-lucide-x"
           color="neutral"
           variant="outline"
           @click="isNavbarOpened = false"
@@ -44,4 +44,5 @@
 
 <script setup lang="ts">
 const { isNavbarOpened } = useApp()
+const { mainContentRefTitle } = useScroll()
 </script>

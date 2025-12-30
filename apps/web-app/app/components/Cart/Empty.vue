@@ -1,12 +1,11 @@
 <template>
-  <div class="mt-8">
-    <NuxtImg
-      src="/img/eggs-192.png"
-      alt=""
-      class="mx-auto mb-2 size-24 opacity-60 grayscale"
+  <div class="mt-8 md:mt-12 flex flex-col gap-2 items-center justify-center">
+    <UIcon
+      name="i-lucide-shopping-basket"
+      class="mx-auto size-24 text-dimmed/25"
     />
-    <div class="text-lg text-center font-normal text-muted">
-      {{ $t('app.cart.empty-label') }}
-    </div>
+    <p class="text-lg text-center font-normal italic text-dimmed">
+      {{ $t('web-app.cart.empty-label') }}
+    </p>
   </div>
 </template>

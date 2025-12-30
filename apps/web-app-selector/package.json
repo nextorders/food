@@ -1,0 +1,24 @@
+{
+  "name": "@nextorders/web-app-selector",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --port 3502",
+    "preview": "PORT=3502 nuxt preview",
+    "clean": "rm -rf dist",
+    "clean:modules": "rm -rf .nuxt node_modules",
+    "typecheck": "nuxt typecheck",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nextorders/core": "workspace:*",
+    "@nextorders/food-schema": "workspace:*",
+    "@nextorders/ui": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:types",
+    "nuxt": "catalog:dev"
+  }
+}

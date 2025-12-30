@@ -1,39 +1,41 @@
 <template>
-  <UModal :title="checkout?.deliveryMethod === 'DELIVERY' ? $t('app.cart.delivery-details') : $t('app.cart.pickup-details')" :ui="{ footer: 'justify-end' }">
+  <UModal
+    :title="orderStore?.deliveryMethod === 'deliveryByCourier' ? $t('web-app.cart.delivery-details') : $t('web-app.cart.pickup-details')"
+  >
     <template #body>
-      <div class="font-sans whitespace-pre-wrap">
-        {{ getLocaleValue({ values: channel.conditions, locale, defaultLocale: channel.defaultLocale }) }}
+      <div class="text-base/5 font-sans whitespace-pre-wrap">
+        <template v-if="orderStore?.deliveryMethod === 'deliveryByCourier'">
+          {{ optionsStore.getLocaleValue(channelStore.deliveryByCourier?.conditions, locale) }}
+        </template>
+
+        <template v-if="orderStore?.deliveryMethod === 'selfPickup'">
+          {{ optionsStore.getLocaleValue(channelStore.selfPickup?.conditions, locale) }}
+        </template>
       </div>
 
-      <div v-if="channel.minAmountForDelivery && checkout?.deliveryMethod === 'DELIVERY'">
-        <h3 class="mt-8 mb-2 text-xl font-medium">
+      <div v-if="orderStore?.deliveryMethod === 'deliveryByCourier' && channelStore.deliveryByCourier?.minAmountForDelivery">
+        <h3 class="mt-8 mb-2 text-lg font-semibold">
           {{ $t('common.more-information') }}
         </h3>
 
-        <div class="mb-2 flex flex-row justify-between">
-          <div>{{ $t('app.minimum-order-value') }}</div>
+        <div class="flex flex-row justify-between">
+          <div>{{ $t('web-app.minimum-order-value') }}</div>
           <div>
-            {{ channel.minAmountForDelivery }} <span class="text-sm">{{ channel.currencySign }}</span>
+            {{ channelStore.deliveryByCourier.minAmountForDelivery }} <span class="text-sm">{{ optionsStore.currencySign }}</span>
           </div>
         </div>
       </div>
-    </template>
-
-    <template #footer>
-      <UButton
-        variant="solid"
-        size="lg"
-        @click="overlay.closeAll"
-      >
-        {{ $t('common.ok') }}
-      </UButton>
     </template>
   </UModal>
 </template>
 
 <script setup lang="ts">
+import { useChannelStore } from '@nextorders/core/app/stores/channel'
+import { useOptionsStore } from '@nextorders/core/app/stores/options'
+
 const { locale } = useI18n()
-const channel = useChannelStore()
-const checkout = useCheckoutStore()
-const overlay = useOverlay()
+
+const optionsStore = useOptionsStore()
+const channelStore = useChannelStore()
+const orderStore = useOrderStore()
 </script>

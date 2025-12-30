@@ -1,8 +1,8 @@
 <template>
-  <div class="mb-6 px-4 py-4 flex flex-col lg:flex-row gap-2 items-center bg-elevated rounded-lg text-warning">
-    <UIcon name="i-lucide-traffic-cone" class="size-12" />
-    <p class="text-lg text-center md:text-left font-semibold">
-      {{ $t('app.maintenance-message') }}
+  <div class="mb-6 px-4 py-4 flex flex-col lg:flex-row gap-3 items-center bg-secondary text-inverted rounded-lg">
+    <UIcon name="i-lucide-triangle-alert" class="size-10" />
+    <p class="text-base/5 md:text-lg/5 text-center md:text-left font-semibold">
+      {{ $t('web-app.maintenance-message') }}
     </p>
   </div>
 </template>

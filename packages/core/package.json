@@ -8,20 +8,15 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@date-fns/tz": "catalog:integrations",
-    "@nextorders/schema": "workspace:*",
+    "@nextorders/food-schema": "workspace:*",
     "@paralleldrive/cuid2": "catalog:integrations",
-    "@vueuse/core": "catalog:integrations",
-    "@vueuse/nuxt": "catalog:integrations",
-    "aws4fetch": "catalog:integrations",
-    "sharp": "catalog:integrations"
+    "@pinia/nuxt": "catalog:integrations",
+    "pinia": "catalog:integrations"
   },
   "devDependencies": {
-    "@nuxt/image": "catalog:dev",
     "@nuxtjs/i18n": "catalog:dev",
     "@types/node": "catalog:types",
     "nuxt": "catalog:dev",
-    "nuxt-auth-utils": "catalog:dev",
-    "vue-tsc": "catalog:dev"
+    "nuxt-auth-utils": "catalog:dev"
   }
 }

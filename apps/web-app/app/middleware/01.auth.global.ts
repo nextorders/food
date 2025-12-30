@@ -3,6 +3,6 @@ export default defineNuxtRouteMiddleware(async () => {
 
   if (!loggedIn.value) {
     // Create a new session
-    await useFetch('/api/auth/session', { method: 'POST' })
+    await fetch('/api/auth/session', { method: 'POST' })
   }
 })

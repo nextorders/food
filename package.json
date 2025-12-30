@@ -1,8 +1,8 @@
 {
-  "name": "@nextorders/monorepo",
+  "name": "@nextorders/food-monorepo",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@10.19.0",
+  "packageManager": "pnpm@10.26.0",
   "description": "Modern e-commerce self-hosted platform: clients will be happy to order delicious food!",
   "author": "Nick Kosarev <hmbanan666@hotmail.com>",
   "license": "MIT",
@@ -20,15 +20,15 @@
     "website"
   ],
   "engines": {
-    "node": ">=22.21.0",
-    "pnpm": ">=10.19.0"
+    "node": ">=24.12.0",
+    "pnpm": ">=10.26.0"
   },
   "scripts": {
     "release": "bumpp --execute=\"pnpm run release:prepare\" --recursive",
     "release:prepare": "pnpm run build",
     "build": "pnpm -r run build",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
     "clean": "pnpm -r run clean",
     "clean:modules": "pnpm -r run clean:modules && rm -rf node_modules",
     "typecheck": "pnpm -r run typecheck",
@@ -42,7 +42,7 @@
     "@antfu/eslint-config": "catalog:dev",
     "@commitlint/cli": "catalog:dev",
     "@commitlint/config-conventional": "catalog:dev",
-    "@vitest/browser": "catalog:test",
+    "@vitest/browser-playwright": "catalog:test",
     "@vitest/coverage-v8": "catalog:test",
     "bumpp": "catalog:dev",
     "eslint": "catalog:dev",
@@ -51,10 +51,7 @@
     "playwright": "catalog:test",
     "vite": "catalog:dev",
     "vitest": "catalog:test",
-    "vitest-browser-vue": "catalog:test"
-  },
-  "resolutions": {
-    "unimport": "4.1.1"
+    "vue-tsc": "catalog:dev"
   },
   "lint-staged": {
     "*.{js,ts,tsx,vue,md,json}": [
