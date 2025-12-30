@@ -3,8 +3,6 @@ Modern e-commerce self-hosted platform: clients will be happy to order delicious
 
 👉 [Check out demo website](https://demo.nextorders.space/)
 
-🎯 [Admin panel](https://demo.nextorders.space/command-center). Use **demo** as login and password. Read only mode 🔒👮‍♂️
-
 ![main-screen-desktop](https://github.com/nextorders/food/blob/main/.github/media/main-screen-desktop.jpg?raw=true)
 
 ## 🍕 Main idea and architecture of NextOrders
@@ -39,7 +37,7 @@ Let's see what happens. Give the project a star ⭐. Offer your ideas and make c
 
 ## 🌎 Locales
 
-The application has [several localizations](https://github.com/nextorders/food/tree/main/apps/web-app/i18n/locales):
+The application has [several localizations](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales):
 
 - en | English
 - ru | Russian | Русский
@@ -47,34 +45,13 @@ The application has [several localizations](https://github.com/nextorders/food/t
 
 ## 🥒 Repository structure
 
-- [Web App](https://github.com/nextorders/food/tree/main/apps/web-app): Web storefront and Command Center. Client can order delicious food.
-- [Essence](https://github.com/nextorders/food/tree/main/apps/essence): Business data collection and data management software.
+- [Web App](https://github.com/nextorders/food/tree/main/apps/web-app): Web storefront. Client can order delicious food.
+- [Web App Selector](https://github.com/nextorders/food/tree/main/apps/web-app-selector): Welcome screen with a list of available storefronts.
+- [Essence](https://github.com/nextorders/food/tree/main/apps/essence): An example of a service with business logic and data.
 
 ## ☕ How to deploy
 
-⚠️ Warn: work in progress. Be careful with updates! Your images and DB data are at risk.
-
-You can deploy @nextorders/web-app on your server (1GB+ RAM) by this:
-
-```shell
-# Connect over SSH and use with args: version, locale, your domain, your email
-curl -fsSL https://nextorders.space/food/install.sh | bash -s -- "v0.7.0" "en" "test.nextorders.space" "resolve@nextorders.space"
-
-# It will install Docker, Docker Compose and download latest docker-compose.yaml
-# After, it will bring up Traefik to serve web requests, create and autoupdate SSL certificate
-# Food app, DB, migrations... You are ready to check your domain!
-```
-
-Also, you can use single Docker Image to create container:
-
-```shell
-# Use the specific version
-docker pull ghcr.io/nextorders/food/web-app:v0.7.0
-
-# Warn: you need an external Redis as DB
-```
-
-Check [**.env.example**](https://github.com/nextorders/food/tree/main/apps/web-app/.env.example) for more info about required config variables.
+⚠️ Warn: work in progress.
 
 ## 🍿 How to develop
 
@@ -87,8 +64,6 @@ Make a fork. Or clone this repo and use standard commands:
 ```shell
 git clone https://github.com/nextorders/food
 pnpm i
-pnpm dev:web-app:compose
-pnpm dev:web-app
 ```
 
 ## 🍰 License
