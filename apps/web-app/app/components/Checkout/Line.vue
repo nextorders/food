@@ -1,51 +1,57 @@
 <template>
   <div class="flex flex-row gap-2 items-center justify-between">
-    <NuxtLink :to="productUrl" class="max-w-[16rem] flex flex-row gap-2 flex-nowrap items-center cursor-pointer active:scale-95 lg:hover:scale-95 lg:active:scale-90 duration-200 group">
-      <div class="relative size-12 md:size-14 aspect-square">
-        <ProductImage :media="product?.media" size="xs" />
-      </div>
+    <UTooltip :text="$t('common.open-page')">
+      <NuxtLink :to="productUrl" class="max-w-68 flex flex-row gap-2 flex-nowrap items-center cursor-pointer active:scale-98 lg:active:scale-95 lg:hover:scale-98 duration-200 group">
+        <div class="relative size-12 md:size-14 aspect-square">
+          <ProductImage :images="productVariant?.images ?? []" size="xs" />
+        </div>
 
-      <div class="space-y-1">
-        <div class="font-medium text-default leading-tight line-clamp-2">
-          {{ getLocaleValue({ values: product?.name, locale, defaultLocale: channel.defaultLocale }) }}
+        <div class="flex flex-col gap-1">
+          <div class="font-medium text-sm/4 line-clamp-2">
+            {{ optionsStore.getLocaleValue(product?.title, locale) }}
+          </div>
+          <div class="flex flex-row gap-2 flex-nowrap items-center text-sm text-muted">
+            <p>
+              {{ optionsStore.getLocaleValue(productVariant?.title, locale) }}
+            </p>
+            <p>
+              {{ productVariant?.weightValue }}{{ getWeightLocalizedUnit(productVariant?.weightUnit) }}
+            </p>
+          </div>
         </div>
-        <div class="flex flex-row gap-2 flex-nowrap items-center">
-          <p class="text-sm text-muted leading-tight">
-            {{ getLocaleValue({ values: productVariant?.name, locale, defaultLocale: channel.defaultLocale }) }}
-          </p>
-          <p class="text-sm text-muted">
-            {{ productVariant?.weightValue }}{{ getWeightLocalizedUnit(productVariant?.weightUnit) }}
-          </p>
-        </div>
-      </div>
-    </NuxtLink>
+      </NuxtLink>
+    </UTooltip>
 
     <div class="ml-auto">
       <div v-if="canBeChanged">
-        <CartLineCounter :line-id="line.id" />
+        <CartLineCounter :line="line" />
       </div>
       <div v-else class="text-lg">
         x{{ line?.quantity }}
       </div>
     </div>
 
-    <div class="min-w-[3rem] ml-0 md:ml-4 text-base md:text-lg text-right tracking-tight">
-      {{ totalAmount }} <span class="text-xs">{{ channel.currencySign }}</span>
+    <div class="min-w-14 ml-0 md:ml-4 text-base md:text-lg text-right tracking-tight">
+      {{ new Intl.NumberFormat(locale).format(line.totalPrice) }} <span class="text-xs">{{ optionsStore.currencySign }}</span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import type { OrderItem } from '@nextorders/food-schema'
+import { useOptionsStore } from '@nextorders/core/app/stores/options'
+
 const { line, canBeChanged = true } = defineProps<{
-  line: CheckoutLine
+  line: OrderItem
   canBeChanged?: boolean
 }>()
 
 const { locale } = useI18n()
-const channel = useChannelStore()
-const productVariant = channel.getProductVariant(line.productVariantId ?? '')
-const product = channel.getProduct(productVariant.value?.productId ?? '')
-const category = channel.getMenuCategoryByProduct(product.value?.id ?? '')
-const productUrl = computed(() => `/catalog/${category?.slug}/${product.value?.slug}`)
-const totalAmount = computed(() => new Intl.NumberFormat(locale.value).format(productVariant.value?.gross ? productVariant.value?.gross * line.quantity : 0))
+
+const optionsStore = useOptionsStore()
+const menuStore = useMenuStore()
+
+const product = menuStore.getProduct(line.productId)
+const productVariant = menuStore.getProductVariant(line.variantId)
+const productUrl = computed(() => `/${line.categorySlug}/${line.productSlug}`)
 </script>

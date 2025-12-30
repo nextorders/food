@@ -1,3 +1,4 @@
+import { playwright } from '@vitest/browser-playwright'
 import { coverageConfigDefaults, defineConfig } from 'vitest/config'
 
 export default defineConfig({
@@ -23,7 +24,7 @@ export default defineConfig({
           ],
           name: 'browser',
           browser: {
-            provider: 'playwright',
+            provider: playwright(),
             enabled: true,
             headless: true,
             instances: [

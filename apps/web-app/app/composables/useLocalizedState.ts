@@ -1,4 +1,4 @@
-import type { Locale } from '@nextorders/schema'
+import type { Locale } from '@nextorders/food-schema'
 
 interface LocalizedStateItem {
   locale: string
@@ -26,7 +26,7 @@ export function useLocalizedState(onUpdate: () => void, oneLocaleOnly?: Locale) 
     return {
       locale: l.code,
       label: l.name ?? '',
-      icon: `food:flag-${l.code}`,
+      icon: `circle-flags:${l.code}`,
       onSelect: () => {
         locale.value = l.code
       },

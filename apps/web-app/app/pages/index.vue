@@ -1,31 +1,39 @@
 <template>
-  <MaintenanceMessage v-if="channel.isOnMaintenance" />
+  <MaintenanceMessage v-if="channelStore.isOnMaintenance" />
 
-  <h1 class="mb-2 text-3xl md:text-4xl font-medium">
-    {{ getLocaleValue({ values: channel.name, locale, defaultLocale: channel.defaultLocale }) }}
-  </h1>
-  <div class="mb-8">
-    {{ getLocaleValue({ values: channel.description, locale, defaultLocale: channel.defaultLocale }) }}
-  </div>
+  <div class="md:mt-2" />
 
   <CategoryBlock
-    v-for="category in channel.activeCategories"
+    v-for="(category, index) in menuStore.categories"
     :key="category.id"
-    :category-id="category.id"
-    :is-first="channel.activeCategories.indexOf(category) === 0"
+    :category="category"
+    :is-first="index === 0"
   />
+
+  <h1 class="mt-18 mb-2 text-3xl md:text-4xl font-semibold">
+    {{ optionsStore.getLocaleValue(channelStore.title, locale) }}
+  </h1>
+  <div class="mb-8">
+    {{ optionsStore.getLocaleValue(channelStore.description, locale) }}
+  </div>
 </template>
 
 <script setup lang="ts">
+import { useChannelStore } from '@nextorders/core/app/stores/channel'
+import { useOptionsStore } from '@nextorders/core/app/stores/options'
+
 const { locale } = useI18n()
-const channel = useChannelStore()
+
+const optionsStore = useOptionsStore()
+const channelStore = useChannelStore()
+const menuStore = useMenuStore()
 
 useHead({
-  title: getLocaleValue({ values: channel.name, locale: locale.value, defaultLocale: channel.defaultLocale }),
+  title: optionsStore.getLocaleValue(channelStore.title, locale.value),
   meta: [
     {
       name: 'description',
-      content: getLocaleValue({ values: channel.description, locale: locale.value, defaultLocale: channel.defaultLocale }),
+      content: optionsStore.getLocaleValue(channelStore.description, locale.value),
     },
   ],
 })

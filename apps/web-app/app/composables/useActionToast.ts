@@ -7,9 +7,9 @@ function _useActionToast() {
   function start() {
     toast.add({
       id: id.value,
-      title: t('toast.in-process'),
-      description: t('toast.updating-data'),
-      icon: 'food:loader',
+      title: t('web-app.toast.in-process'),
+      description: t('web-app.toast.updating-data'),
+      icon: 'lucide:loader-circle',
       duration: 120000,
       ui: {
         icon: 'animate-spin',
@@ -21,7 +21,7 @@ function _useActionToast() {
     toast.update(id.value, {
       title,
       description: undefined,
-      icon: 'food:check',
+      icon: 'lucide:circle-check',
       color: 'success',
       duration: 3000,
       ui: {
@@ -33,7 +33,7 @@ function _useActionToast() {
   function error(description: string = t('error.default')) {
     toast.update(id.value, {
       title: t('error.title'),
-      icon: 'food:close',
+      icon: 'lucide:x',
       color: 'error',
       description,
       duration: 5000,

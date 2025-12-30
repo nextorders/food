@@ -1,0 +1,41 @@
+{
+  "name": "@nextorders/food-schema",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "All types and schemas for @nextorders/food",
+  "license": "MIT",
+  "homepage": "https://nextorders.ru",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextorders/food.git",
+    "directory": "packages/food-schema"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "prepack": "pnpm run build",
+    "publish": "pnpm publish --no-git-checks",
+    "clean": "rm -rf dist",
+    "clean:modules": "rm -rf node_modules",
+    "typecheck": "tsc --noEmit --erasableSyntaxOnly",
+    "postinstall": "pnpm build"
+  },
+  "dependencies": {
+    "zod": "catalog:integrations"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:types",
+    "typescript": "catalog:dev",
+    "unbuild": "catalog:dev"
+  }
+}

@@ -6,8 +6,9 @@
       variant="outline"
       color="neutral"
       size="lg"
-    >
-      {{ $t('common.return') }}
-    </UButton>
+      :label="$t('common.return')"
+    />
+
+    <UColorModeButton variant="outline" />
   </div>
 </template>

@@ -1,18 +1,17 @@
 <template>
   <div class="mb-4 flex flex-row justify-between items-center gap-2">
-    <h2 class="text-2xl md:text-3xl font-medium">
-      {{ getLocaleValue({ values: category?.name, locale, defaultLocale: channel.defaultLocale }) }}
+    <h2 class="text-2xl/6 md:text-3xl font-semibold">
+      {{ optionsStore.getLocaleValue(category?.title, locale) }}
     </h2>
 
     <UButton
-      :to="`/catalog/${category?.slug}`"
+      :to="`/${category?.slug}`"
       size="lg"
       variant="soft"
       color="neutral"
-      trailing-icon="food:arrow-right"
-    >
-      {{ $t('app.open-category') }}
-    </UButton>
+      trailing-icon="lucide:arrow-right"
+      :label="$t('web-app.open-category')"
+    />
   </div>
 
   <div
@@ -21,7 +20,7 @@
     <ProductCard
       v-for="product in products"
       :key="product.id"
-      :product-id="product.id"
+      :product="product"
       :category-slug="category?.slug ?? ''"
       :lazy="!isFirst"
     />
@@ -29,13 +28,17 @@
 </template>
 
 <script setup lang="ts">
-const { categoryId } = defineProps<{
-  categoryId: string
+import type { MenuCategory } from '@nextorders/food-schema'
+import { useOptionsStore } from '@nextorders/core/app/stores/options'
+
+const { category } = defineProps<{
+  category: MenuCategory
   isFirst?: boolean
 }>()
 
 const { locale } = useI18n()
-const channel = useChannelStore()
-const category = channel.getActiveMenuCategory(categoryId)
-const products = channel.getProductsInCategory(categoryId).value.filter((p) => p.isAvailableForPurchase && p.variants.length).slice(0, 8)
+
+const optionsStore = useOptionsStore()
+
+const products = computed(() => category?.products.filter((p) => p.isAvailableForPurchase && p.variants?.length).slice(0, 12))
 </script>

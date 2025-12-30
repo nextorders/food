@@ -1,4 +1,4 @@
-FROM node:22.21.0-alpine AS base
+FROM node:24.12.0-alpine AS base
 
 # Builder stage
 FROM base AS builder

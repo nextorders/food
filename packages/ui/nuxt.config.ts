@@ -10,24 +10,15 @@ function resolvePath(path: string) {
 export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',
-    'nuxt-zod-i18n', // must be before i18n
     '@nuxtjs/i18n',
-    '@nuxt/image',
     '@vueuse/nuxt',
   ],
   experimental: {
     typedPages: true,
   },
-  zodI18n: {
-    localeCodesMapping: {
-      'en-GB': 'en',
-      'en-US': 'en',
-      'ru-RU': 'ru',
-      // 'ka-GE': 'ka',
-    },
-  },
   i18n: {
     langDir: 'locales',
+    strategy: 'no_prefix',
     defaultLocale: 'en',
     vueI18n: resolvePath('./i18n/vue-i18n.options.ts'),
     detectBrowserLanguage: {
@@ -37,6 +28,7 @@ export default defineNuxtConfig({
     locales: [
       { code: 'en', language: 'en-US', name: 'English', file: 'en-US.json' },
       { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru-RU.json' },
+      { code: 'ka', language: 'ka-GE', name: 'ქართული', file: 'ka-GE.json' },
     ],
   },
   css: [resolvePath('./app/assets/css/main.css')],

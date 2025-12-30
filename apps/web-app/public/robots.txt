@@ -3,5 +3,3 @@ User-agent: *
 Allow: /
 Disallow: /checkout
 Disallow: /finish
-Disallow: /command-center
-Disallow: /welcome

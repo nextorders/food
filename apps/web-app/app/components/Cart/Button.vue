@@ -1,20 +1,24 @@
 <template>
   <UDrawer
-    v-if="!checkout.isEmpty"
+    v-if="!orderStore.isEmpty"
     v-model:open="isCartDrawerOpened"
     direction="right"
     class="block xl:hidden"
   >
     <UChip
-      :text="checkout.items.length"
+      :text="orderStore.items.length"
       size="3xl"
-      color="primary"
+      color="secondary"
+      :ui="{
+        base: 'p-2 w-fit right-1.75 font-semibold',
+      }"
     >
       <UButton
-        variant="gradient"
+        variant="solid"
+        color="secondary"
         size="lg"
         class="min-w-16 justify-center"
-        :label="$t('app.cart.title')"
+        :label="$t('web-app.cart.title')"
       />
     </UChip>
 
@@ -28,5 +32,6 @@
 
 <script setup lang="ts">
 const { isCartDrawerOpened } = useApp()
-const checkout = useCheckoutStore()
+
+const orderStore = useOrderStore()
 </script>

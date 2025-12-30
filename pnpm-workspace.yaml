@@ -1,55 +1,59 @@
+catalogMode: prefer
+
+shamefullyHoist: true
+shellEmulator: true
+
+supportedArchitectures:
+  cpu: [x64, arm64]
+  os: [linux, darwin, win32]
+
+trustPolicy: no-downgrade
+
 packages:
   - apps/*
   - packages/*
 
 catalogs:
   dev:
-    '@antfu/eslint-config': ^6.0.0
-    '@commitlint/cli': ^20.1.0
-    '@commitlint/config-conventional': ^20.0.0
+    '@antfu/eslint-config': ^6.7.3
+    '@commitlint/cli': ^20.2.0
+    '@commitlint/config-conventional': ^20.2.0
     '@iconify-json/circle-flags': ^1.2.10
     '@iconify-json/fluent-emoji-flat': ^1.2.5
-    '@iconify-json/lucide': ^1.2.71
-    '@iconify-json/simple-icons': ^1.2.55
-    '@nuxt/devtools': ^2.6.5
-    '@nuxt/image': ^1.11.0
-    '@nuxtjs/i18n': ^10.1.1
+    '@iconify-json/lucide': ^1.2.82
+    '@iconify-json/simple-icons': ^1.2.64
+    '@nuxt/devtools': ^3.1.1
+    '@nuxtjs/i18n': ^10.2.1
     '@tailwindcss/typography': ^0.5.19
-    bumpp: ^10.3.1
-    eslint: ^9.38.0
+    bumpp: ^10.3.2
+    eslint: ^9.39.2
     husky: ^9.1.7
-    lint-staged: ^16.2.6
-    nuxt: ^4.2.0
-    nuxt-auth-utils: ^0.5.25
+    lint-staged: ^16.2.7
+    nuxt: ^4.2.2
+    nuxt-auth-utils: ^0.5.26
+    tailwindcss-motion: ^1.1.1
     typescript: ^5.9.3
     unbuild: ^3.6.1
-    vite: ^7.1.12
-    vue-tsc: ^3.1.2
+    vite: ^7.3.0
+    vue-tsc: ^3.2.1
   integrations:
     '@date-fns/tz': ^1.4.1
     '@neoconfetti/vue': ^2.2.1
-    '@nuxt/ui': ^4.1.0
+    '@nuxt/ui': ^4.3.0
     '@paralleldrive/cuid2': 2.2.2
-    '@pinia/nuxt': ^0.11.2
-    '@vueuse/core': 13.9.0
-    '@vueuse/nuxt': 13.9.0
-    arktype: ^2.1.20
-    aws4fetch: ^1.0.20
-    ioredis: ^5.8.2
-    libphonenumber-js: ^1.12.25
-    nuxt-tiptap-editor: ^2.3.1
-    nuxt-zod-i18n: ^1.12.1
-    pinia: ^3.0.3
-    sharp: ^0.34.4
-    zod: ^3.25.57
+    '@pinia/nuxt': ^0.11.3
+    '@vueuse/core': ^14.1.0
+    '@vueuse/nuxt': ^14.1.0
+    libphonenumber-js: ^1.12.33
+    pinia: ^3.0.4
+    zod: ^4.2.1
   test:
-    '@vitest/browser': ^3.2.4
-    '@vitest/coverage-v8': ^3.2.4
-    playwright: ^1.56.1
-    vitest: ^3.2.4
-    vitest-browser-vue: ^1.1.0
+    '@vitest/browser-playwright': ^4.0.16
+    '@vitest/coverage-v8': ^4.0.16
+    playwright: ^1.57.0
+    vitest: ^4.0.16
   types:
-    '@types/node': ^24.9.1
+    '@types/node': ^25.0.3
 
 ignoredBuiltDependencies:
   - '@parcel/watcher'
@@ -60,9 +64,4 @@ ignoredBuiltDependencies:
 onlyBuiltDependencies:
   - sharp
 
-supportedArchitectures:
-  cpu: [x64, arm64]
-  os: [linux, darwin, win32]
-
 autoInstallPeers: true
-shamefullyHoist: true

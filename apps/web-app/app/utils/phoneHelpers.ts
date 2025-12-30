@@ -1,4 +1,4 @@
-import type { CountryCode } from '@nextorders/schema'
+import type { CountryCode } from '@nextorders/food-schema'
 import {
   AsYouType,
   formatIncompletePhoneNumber,
@@ -11,13 +11,15 @@ export function getPhoneNumberFormatter(countryCode?: CountryCode) {
 }
 
 export function formatPhoneNumber(value: string, countryCode?: CountryCode) {
-  if (value.length > 10) {
+  if (value.length > 12) {
     try {
       const parsed = parsePhoneNumberWithError(value, countryCode)
       if (parsed) {
         return parsed.format('INTERNATIONAL', {
-          humanReadable: true,
           fromCountry: countryCode,
+          humanReadable: true,
+          nationalPrefix: true,
+          v2: true,
         })
       }
     } catch (err) {

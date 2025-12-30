@@ -8,12 +8,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nextorders/food-schema": "workspace:*",
     "@nuxt/ui": "catalog:integrations",
     "@vueuse/core": "catalog:integrations",
-    "@vueuse/nuxt": "catalog:integrations",
-    "arktype": "catalog:integrations",
-    "nuxt-zod-i18n": "catalog:integrations",
-    "zod": "catalog:integrations"
+    "@vueuse/nuxt": "catalog:integrations"
   },
   "devDependencies": {
     "@iconify-json/circle-flags": "catalog:dev",
@@ -21,10 +19,9 @@
     "@iconify-json/lucide": "catalog:dev",
     "@iconify-json/simple-icons": "catalog:dev",
     "@nuxt/devtools": "catalog:dev",
-    "@nuxt/image": "catalog:dev",
     "@nuxtjs/i18n": "catalog:dev",
     "@tailwindcss/typography": "catalog:dev",
     "nuxt": "catalog:dev",
-    "vue-tsc": "catalog:dev"
+    "tailwindcss-motion": "catalog:dev"
   }
 }

@@ -8,57 +8,68 @@
     />
 
     <div class="flex flex-col lg:flex-row gap-2 justify-between lg:items-center">
-      <div class="font-sans text-xs text-muted whitespace-pre-wrap">
-        {{ getLocaleValue({ values: channel.copyright, locale, defaultLocale: channel.defaultLocale }) }}
+      <div v-if="channelStore.copyright" class="font-sans text-xs text-muted whitespace-pre-wrap">
+        {{ optionsStore.getLocaleValue(channelStore.copyright, locale) }}
       </div>
 
       <UNavigationMenu
         :items="socialMenuItems"
+        :ui="{
+          linkLeadingIcon: 'size-8',
+        }"
         orientation="horizontal"
         variant="link"
         class="-mx-2.5"
       />
     </div>
 
-    <div class="flex flex-row gap-1 items-center text-sm text-muted">
+    <div class="mt-4 flex flex-row gap-1.5 items-center text-sm text-muted">
       {{ $t('common.footer.copyright-part-one') }}
-      <UIcon name="i-fluent-emoji-flat:red-heart" class="size-4" />
+      <UIcon name="i-lucide-heart" class="size-4" />
       {{ $t('common.footer.copyright-part-two') }}
+
       <ULink
         :to="url"
         target="_blank"
         external
-        class="font-medium"
+        class="font-medium flex flex-row gap-1 items-center"
       >
-        @nextorders/food
+        <UIcon name="simple-icons:github" class="size-4" />
+        {{ projectTitle }}
       </ULink>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useChannelStore } from '@nextorders/core/app/stores/channel'
+import { useOptionsStore } from '@nextorders/core/app/stores/options'
+
 const { locale } = useI18n()
 const location = useBrowserLocation()
 
 const projectUrl = 'https://github.com/nextorders/food'
+const projectTitle = 'nextorders/food'
 const url = ref(projectUrl)
 
 onMounted(() => {
   url.value = `${projectUrl}?ref=${location.value.host}`
 })
 
-const channel = useChannelStore()
+const optionsStore = useOptionsStore()
+const channelStore = useChannelStore()
 
-const footerMenuItems = computed(() => channel.links.filter((link) => link.menuId === 'footer').map((link) => ({
-  label: link.label,
+const footerMenuItems = computed(() => channelStore.links?.footer.map((link) => ({
+  label: optionsStore.getLocaleValue(link.label, locale.value),
   to: link.to,
-  icon: link.icon ?? undefined,
+  icon: link.icon,
   target: link.target,
 })))
 
-const socialMenuItems = computed(() => channel.links.filter((link) => link.menuId === 'social').map((link) => ({
+const socialMenuItems = computed(() => channelStore.links?.social.map((link) => ({
   to: link.to,
-  icon: link.icon ?? undefined,
-  target: '_blank',
+  icon: link.icon,
+  target: link.target,
+  size: 'xl',
 })))
 </script>
