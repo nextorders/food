@@ -327,7 +327,7 @@ OGRN 12345, INN 12345
 ]
 
 const channels: Channel[] = [{
-  id: 'one-city',
+  id: 'moscow',
   selectorTitle: [
     {
       locale: 'ru',
@@ -370,7 +370,7 @@ const channels: Channel[] = [{
       value: 'დატკბით უნიკალური გემოებით და სასიამოვნო გარემოთი',
     },
   ],
-  url: 'https://demo.nextorders.space',
+  url: 'https://demo.nextorders.space/moscow',
   timeZone: '+03:00',
   isActive: true,
   deliveryByCourier: {
@@ -532,7 +532,7 @@ The establishment reserves the right to refuse in-store pickup if it is overbook
   links,
 },
 {
-  id: 'other-city',
+  id: 'peterburg',
   selectorTitle: [
     {
       locale: 'ru',
@@ -575,7 +575,7 @@ The establishment reserves the right to refuse in-store pickup if it is overbook
       value: 'დატკბით უნიკალური გემოებით და სასიამოვნო გარემოთი',
     },
   ],
-  url: 'https://demo.nextorders.space',
+  url: 'https://demo.nextorders.space/peterburg',
   timeZone: '+03:00',
   isActive: true,
   deliveryByCourier: {

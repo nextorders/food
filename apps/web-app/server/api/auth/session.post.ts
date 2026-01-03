@@ -1,3 +1,5 @@
+import { createId } from '@paralleldrive/cuid2'
+
 export default defineEventHandler(async (event) => {
   try {
     const { user } = await getUserSession(event)
@@ -7,7 +9,7 @@ export default defineEventHandler(async (event) => {
 
     await setUserSession(event, {
       user: {
-        id: crypto.randomUUID(),
+        id: createId(),
       },
     })
 
