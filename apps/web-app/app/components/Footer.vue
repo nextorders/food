@@ -24,9 +24,9 @@
     </div>
 
     <div class="mt-4 flex flex-row gap-1.5 items-center text-sm text-muted">
-      {{ $t('common.footer.copyright-part-one') }}
+      {{ $dict('common.footer.copyright-part-one') }}
       <UIcon name="i-lucide-heart" class="size-4" />
-      {{ $t('common.footer.copyright-part-two') }}
+      {{ $dict('common.footer.copyright-part-two') }}
 
       <ULink
         :to="url"

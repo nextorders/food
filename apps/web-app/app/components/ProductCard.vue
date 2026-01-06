@@ -16,7 +16,7 @@
 
         <div>
           <div class="text-xl font-medium">
-            <span v-if="!withSingleVariant" class="pr-1">{{ $t('web-app.cart.from') }}</span>
+            <span v-if="!withSingleVariant" class="pr-1">{{ $dict('web-app.cart.from') }}</span>
             <span>{{ price }}</span>
             <span class="pl-1 text-lg">{{ optionsStore.currencySign }}</span>
           </div>
@@ -24,7 +24,7 @@
             {{ optionsStore.getLocaleValue(product?.title, locale as Locale) }}
           </p>
           <div class="mt-2 font-light text-muted">
-            <span v-if="!withSingleVariant" class="pr-1">{{ $t('web-app.cart.from') }}</span>
+            <span v-if="!withSingleVariant" class="pr-1">{{ $dict('web-app.cart.from') }}</span>
             <span>{{ weightValue }}{{ weightUnit }}</span>
           </div>
         </div>
@@ -36,7 +36,7 @@
         size="xl"
         icon="lucide:plus"
         class="justify-center items-center font-normal"
-        :label="$t('web-app.cart.add')"
+        :label="$dict('web-app.cart.add')"
       />
     </div>
   </ULink>

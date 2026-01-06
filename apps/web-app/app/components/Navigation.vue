@@ -52,7 +52,8 @@ import { ModalChannelSelector, ModalDeliveryInfo, ModalDeliverySchedule } from '
 import { useChannelStore } from '@nextorders/core/app/stores/channel'
 import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
-const { t, locale } = useI18n()
+const { locale } = useI18n()
+const { dict } = useDictionary()
 const route = useRoute()
 
 const optionsStore = useOptionsStore()
@@ -65,7 +66,7 @@ const modalDeliveryInfo = overlay.create(ModalDeliveryInfo)
 const modalDeliverySchedule = overlay.create(ModalDeliverySchedule)
 const modalChannelSelector = overlay.create(ModalChannelSelector)
 
-const title = computed(() => orderStore.deliveryMethod === 'deliveryByCourier' ? t('web-app.cart.delivery') : t('web-app.cart.pickup'))
+const title = computed(() => orderStore.deliveryMethod === 'deliveryByCourier' ? dict('web-app.cart.delivery') : dict('web-app.cart.pickup'))
 const todayUntil = computed<string>(() => {
   const status = orderStore.deliveryMethod === 'deliveryByCourier' ? channelStore.deliveryOpeningStatus : channelStore.selfPickupOpeningStatus
   return status?.todayEndAt ?? ''
@@ -84,18 +85,18 @@ const deliveryMenuItems = computed(() => [
     type: 'label' as const,
   },
   {
-    label: `${t('web-app.cart.today-until')} ${todayUntil.value}`,
+    label: `${dict('web-app.cart.today-until')} ${todayUntil.value}`,
     icon: 'lucide:clock',
     onSelect: () => modalDeliverySchedule.open(),
   },
   {
-    label: `${t('web-app.cart.from')} ${channelStore.deliveryByCourier?.minAmountForDelivery} ${optionsStore.currencySign}`,
+    label: `${dict('web-app.cart.from')} ${channelStore.deliveryByCourier?.minAmountForDelivery} ${optionsStore.currencySign}`,
     icon: 'lucide:car',
     class: (orderStore.deliveryMethod === 'deliveryByCourier' && channelStore.deliveryByCourier?.minAmountForDelivery) ? undefined : 'hidden',
     onSelect: () => modalDeliveryInfo.open(),
   },
   {
-    label: t('web-app.show-details-label'),
+    label: dict('web-app.show-details-label'),
     icon: 'lucide:info',
     onSelect: () => modalDeliveryInfo.open(),
   },
@@ -103,7 +104,7 @@ const deliveryMenuItems = computed(() => [
 
 const catalogItems = computed(() => [
   {
-    label: t('web-app.catalog'),
+    label: dict('web-app.catalog'),
     type: 'label' as const,
   },
   ...menuStore.categories.map((c) => ({

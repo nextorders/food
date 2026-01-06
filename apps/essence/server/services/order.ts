@@ -1,4 +1,5 @@
 import type { GatewayAddOrderItemRequest, GatewayAddOrderItemResponse, GatewayCreateOrderResponse, GatewayDecrementOrderItemQuantityRequest, GatewayDecrementOrderItemQuantityResponse, GatewayGetOrderRequest, GatewayGetOrderResponse, GatewayIncrementOrderItemQuantityRequest, GatewayIncrementOrderItemQuantityResponse, GatewayUpdateOrderRequest, GatewayUpdateOrderResponse, Order, OrderItem } from '@nextorders/food-schema'
+import { createId } from '@paralleldrive/cuid2'
 import { handleGetMenu } from './menu'
 
 const logger = useLogger('order')
@@ -11,7 +12,7 @@ function findOrder(id: string): Order | undefined {
 
 function createOrder(): Order {
   const newOrder: Order = {
-    id: crypto.randomUUID(),
+    id: createId(),
     status: 'draft',
     createdAt: new Date().toISOString(),
     readyBy: '',
@@ -142,7 +143,7 @@ export function handleAddOrderItem({ orderId, variantId }: GatewayAddOrderItemRe
   const newItem: OrderItem = {
     variantId,
     orderId,
-    id: crypto.randomUUID(),
+    id: createId(),
     categoryId: category.id,
     categorySlug: category.slug,
     productId: product.id,

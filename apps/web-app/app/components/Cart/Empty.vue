@@ -5,7 +5,7 @@
       class="mx-auto size-24 text-dimmed/25"
     />
     <p class="text-lg text-center font-normal italic text-dimmed">
-      {{ $t('web-app.cart.empty-label') }}
+      {{ $dict('web-app.cart.empty-label') }}
     </p>
   </div>
 </template>

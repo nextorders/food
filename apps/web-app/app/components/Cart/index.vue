@@ -5,7 +5,7 @@
         <div class="flex flex-col gap-4 flex-1 overflow-y-auto px-4 py-2">
           <div class="flex flex-row justify-between items-center">
             <h3 class="text-2xl font-semibold">
-              {{ $t('web-app.cart.title') }}
+              {{ $dict('web-app.cart.title') }}
             </h3>
 
             <UButton
@@ -36,7 +36,7 @@
             color="neutral"
             icon="lucide:info"
             class="px-0"
-            :label="$t('web-app.cart.conditions')"
+            :label="$dict('web-app.cart.conditions')"
             @click="modalDeliveryInfo.open()"
           />
 
@@ -50,7 +50,7 @@
             class="justify-between motion-preset-slide-up-sm"
           >
             <p class="font-medium">
-              {{ $t('web-app.cart.next-label') }}
+              {{ $dict('web-app.cart.next-label') }}
             </p>
             <p class="text-lg tracking-tight">
               {{ new Intl.NumberFormat(locale).format(orderStore.totalPrice) }} <span class="text-base">{{ optionsStore.currencySign }}</span>

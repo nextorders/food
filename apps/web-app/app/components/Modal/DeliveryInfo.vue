@@ -1,6 +1,6 @@
 <template>
   <UModal
-    :title="orderStore?.deliveryMethod === 'deliveryByCourier' ? $t('web-app.cart.delivery-details') : $t('web-app.cart.pickup-details')"
+    :title="orderStore?.deliveryMethod === 'deliveryByCourier' ? $dict('web-app.cart.delivery-details') : $dict('web-app.cart.pickup-details')"
   >
     <template #body>
       <div class="text-base/5 font-sans whitespace-pre-wrap">
@@ -15,11 +15,11 @@
 
       <div v-if="orderStore?.deliveryMethod === 'deliveryByCourier' && channelStore.deliveryByCourier?.minAmountForDelivery">
         <h3 class="mt-8 mb-2 text-lg font-semibold">
-          {{ $t('common.more-information') }}
+          {{ $dict('common.more-information') }}
         </h3>
 
         <div class="flex flex-row justify-between">
-          <div>{{ $t('web-app.minimum-order-value') }}</div>
+          <div>{{ $dict('web-app.minimum-order-value') }}</div>
           <div>
             {{ channelStore.deliveryByCourier.minAmountForDelivery }} <span class="text-sm">{{ optionsStore.currencySign }}</span>
           </div>

@@ -14,6 +14,10 @@ const options: Options = {
       locale: 'ka',
       value: 'გასინჯვა სირბილის დროს',
     },
+    {
+      locale: 'de',
+      value: 'Geschmack für unterwegs',
+    },
   ],
   selectorDescription: [
     {
@@ -28,10 +32,14 @@ const options: Options = {
       locale: 'ka',
       value: 'დატკბით უნიკალური გემოებით და სასიამოვნო გარემოთი',
     },
+    {
+      locale: 'de',
+      value: 'Genießen Sie einzigartige Geschmackserlebnisse und eine angenehme Atmosphäre',
+    },
   ],
   logoUrl: 'https://storage.yandexcloud.net/next-orders-food-demo/nextorders-food-logo.jpg',
   defaultLocale: 'ru',
-  availableLocales: ['ru', 'en', 'ka'],
+  availableLocales: ['ru', 'en', 'ka', 'de'],
   countryCode: 'RU',
   currencyCode: 'RUB',
   headLinks: [

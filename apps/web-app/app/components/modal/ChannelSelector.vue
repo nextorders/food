@@ -30,7 +30,7 @@
 
         <UInput
           v-model="search"
-          :placeholder="$t('web-app-selector.search')"
+          :placeholder="$dict('web-app-selector.search')"
           size="lg"
           block
         />
@@ -51,7 +51,7 @@
       </div>
 
       <div v-else class="text-sm/4 text-muted">
-        {{ $t('web-app-selector.not-found') }}
+        {{ $dict('web-app-selector.not-found') }}
       </div>
     </template>
 

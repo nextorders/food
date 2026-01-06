@@ -40,8 +40,9 @@ Let's see what happens. Give the project a star ⭐. Offer your ideas and make c
 The application has [several localizations](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales):
 
 - en | English
-- ru | Russian | Русский
+- de | German | Deutsch
 - ka | Georgian | ქართული
+- ru | Russian | Русский
 
 ## 🥒 Repository structure
 

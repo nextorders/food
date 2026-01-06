@@ -5,7 +5,7 @@
     {{ optionsStore.getLocaleValue(category?.title, locale) }}
   </h1>
   <div class="text-base/5">
-    {{ $t('web-app.category-page-description') }}
+    {{ $dict('web-app.category-page-description') }}
   </div>
 
   <div class="mt-4 max-w-7xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-6">
@@ -23,7 +23,8 @@ import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
 const { params } = useRoute('categorySlug')
 
-const { t, locale } = useI18n()
+const { locale } = useI18n()
+const { dict } = useDictionary()
 
 const optionsStore = useOptionsStore()
 const menuStore = useMenuStore()
@@ -43,7 +44,7 @@ useHead({
 })
 
 const breadcrumbs = computed(() => [
-  { label: t('common.home'), icon: 'lucide:house', to: '/' },
+  { label: dict('common.home'), icon: 'lucide:house', to: '/' },
   { label: optionsStore.getLocaleValue(category?.title, locale.value) },
 ])
 </script>

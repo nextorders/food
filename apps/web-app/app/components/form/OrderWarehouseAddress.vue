@@ -1,11 +1,11 @@
 <template>
   <div class="flex flex-col gap-2">
     <h2 class="text-lg md:text-2xl font-semibold">
-      {{ $t('web-app.checkout.pickup-address') }}
+      {{ $dict('web-app.checkout.pickup-address') }}
     </h2>
 
     <UFormField
-      :label="$t('web-app.checkout.address.street')"
+      :label="$dict('web-app.checkout.address.street')"
       :ui="{
         label: 'after:text-secondary',
       }"
@@ -14,7 +14,7 @@
       <USelect
         v-model="state.id"
         :items="items"
-        :placeholder="$t('common.select')"
+        :placeholder="$dict('common.select')"
         :ui="{
           leadingIcon: orderStore.isValidPickupAddress && 'text-secondary',
         }"
