@@ -4,9 +4,14 @@ export default defineNuxtPlugin({
   async setup() {
     return {
       provide: {
-        dict: (key: DictionaryKey, ...args: any[]): string => {
+        dict: (key: DictionaryKey, plural?: number): string => {
           const { t } = useI18n()
-          return t(key, args)
+
+          if (!plural) {
+            return t(key)
+          }
+
+          return t(key, plural)
         },
       },
     }

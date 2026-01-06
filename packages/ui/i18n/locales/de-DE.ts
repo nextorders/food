@@ -88,9 +88,7 @@ export const de: Dictionary = {
   },
   'common': {
     'time': {
-      hour: 'Stunde | Stunden',
-      minute: 'Minute | Minuten',
-      second: 'Sekunde | Sekunden',
+      minute: '{n} Minute | {n} Minuten',
     },
     'time-ago': {
       'just-now': 'gerade eben',

@@ -88,9 +88,7 @@ export const en = {
   },
   'common': {
     'time': {
-      hour: 'hour | hours',
-      minute: 'minute | minutes',
-      second: 'second | seconds',
+      minute: '{n} minute | {n} minutes',
     },
     'time-ago': {
       'just-now': 'just now',

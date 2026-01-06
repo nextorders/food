@@ -59,7 +59,7 @@
           {{ orderStore.deliveryMethod === 'deliveryByCourier' ? $dict('web-app.cart.delivery-available-until') : $dict('web-app.cart.pickup-available-until') }} {{ status?.todayEndAt }}
         </p>
         <p v-if="status?.todayEndInMinutes">
-          {{ $dict('web-app.cart.left') }}: {{ status?.todayEndInMinutes }} {{ $dict('common.time.minute', status?.todayEndInMinutes || 0) }}
+          {{ $dict('web-app.cart.left') }}: {{ $dict('common.time.minute', status?.todayEndInMinutes || 0) }}
         </p>
       </div>
     </template>

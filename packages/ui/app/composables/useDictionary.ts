@@ -1,8 +1,12 @@
 function _useDictionary() {
   const { t } = useI18n()
 
-  function dict(key: DictionaryKey, ...args: any[]): string {
-    return t(key, args)
+  function dict(key: DictionaryKey, plural?: number): string {
+    if (!plural) {
+      return t(key)
+    }
+
+    return t(key, plural)
   }
 
   return {

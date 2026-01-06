@@ -88,9 +88,7 @@ export const ka: Dictionary = {
   },
   'common': {
     'time': {
-      hour: 'საათი | საათები',
-      minute: 'წუთი | წუთები',
-      second: 'წამი | წაკები',
+      minute: '{n} წუთი | {n} წუთები',
     },
     'time-ago': {
       'just-now': 'ახლა',
