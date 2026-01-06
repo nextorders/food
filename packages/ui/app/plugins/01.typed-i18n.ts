@@ -7,7 +7,7 @@ export default defineNuxtPlugin({
         dict: (key: DictionaryKey, plural?: number): string => {
           const { t } = useI18n()
 
-          if (!plural) {
+          if (plural === undefined || plural === null) {
             return t(key)
           }
 
