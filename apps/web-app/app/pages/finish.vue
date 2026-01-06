@@ -1,25 +1,25 @@
 <template>
   <h1 class="pt-8 mb-4 md:mb-8 text-3xl md:text-4xl font-medium text-center">
-    {{ $t('web-app.finish.title') }}
+    {{ $dict('web-app.finish.title') }}
   </h1>
 
   <div class="p-3 md:p-6 bg-elevated/50 rounded-xl flex flex-col gap-6 motion-preset-slide-left-sm">
     <h2 class="text-center font-medium text-xl">
-      {{ $t('web-app.finish.success-message') }} {{ $t('web-app.finish.expect-call') }}
+      {{ $dict('web-app.finish.success-message') }} {{ $dict('web-app.finish.expect-call') }}
     </h2>
 
     <div>
       <h3 class="mb-2 text-lg font-medium text-muted">
-        {{ order?.deliveryMethod === 'selfPickup' ? $t('web-app.cart.pickup') : $t('web-app.cart.delivery') }}
+        {{ order?.deliveryMethod === 'selfPickup' ? $dict('web-app.cart.pickup') : $dict('web-app.cart.delivery') }}
       </h3>
 
-      <p>{{ $t('web-app.checkout.your-name') }}: <span class="font-medium">{{ order?.name }}</span></p>
+      <p>{{ $dict('web-app.checkout.your-name') }}: <span class="font-medium">{{ order?.name }}</span></p>
       <p class="mb-2">
-        {{ $t('web-app.checkout.your-phone') }}: <span class="font-medium">{{ order?.phone }}</span>
+        {{ $dict('web-app.checkout.your-phone') }}: <span class="font-medium">{{ order?.phone }}</span>
       </p>
 
       <p v-if="order?.readyBy">
-        {{ $t('web-app.checkout.time-title') }}: <span class="font-medium">{{ order.readyType === 'asap' ? $t('web-app.checkout.as-soon-as-possible') : new Date(order.readyBy).toLocaleString(undefined, {
+        {{ $dict('web-app.checkout.time-title') }}: <span class="font-medium">{{ order.readyType === 'asap' ? $dict('web-app.checkout.as-soon-as-possible') : new Date(order.readyBy).toLocaleString(undefined, {
           year: 'numeric',
           month: 'numeric',
           day: 'numeric',
@@ -29,31 +29,31 @@
         }) }}</span>
       </p>
       <div>
-        {{ $t('web-app.checkout.address.title') }}:
+        {{ $dict('web-app.checkout.address.title') }}:
         <p v-if="warehouse?.address" class="inline font-medium">
           {{ optionsStore.getLocaleValue(warehouse.address.street, locale) }}
         </p>
         <p v-if="deliveryAddress?.street" class="inline font-medium">
           <span>{{ deliveryAddress?.street }} {{ deliveryAddress?.flat }}</span>
-          <span v-if="deliveryAddress?.intercom" class="lowercase">, {{ $t('web-app.checkout.address.intercom') }} {{ deliveryAddress?.intercom }}</span>
-          <span v-if="deliveryAddress?.entrance" class="lowercase">, {{ $t('web-app.checkout.address.entrance') }} {{ deliveryAddress?.entrance }}</span>
-          <span v-if="deliveryAddress?.floor" class="lowercase">, {{ $t('web-app.checkout.address.floor') }} {{ deliveryAddress?.floor }}</span>
+          <span v-if="deliveryAddress?.intercom" class="lowercase">, {{ $dict('web-app.checkout.address.intercom') }} {{ deliveryAddress?.intercom }}</span>
+          <span v-if="deliveryAddress?.entrance" class="lowercase">, {{ $dict('web-app.checkout.address.entrance') }} {{ deliveryAddress?.entrance }}</span>
+          <span v-if="deliveryAddress?.floor" class="lowercase">, {{ $dict('web-app.checkout.address.floor') }} {{ deliveryAddress?.floor }}</span>
           <span v-if="deliveryAddress?.addressNote">. {{ deliveryAddress?.addressNote }}</span>
         </p>
       </div>
 
-      <p>{{ $t('web-app.checkout.payment-title') }}: <span class="font-medium">{{ optionsStore.getLocaleValue(paymentMethod, locale) }}</span></p>
+      <p>{{ $dict('web-app.checkout.payment-title') }}: <span class="font-medium">{{ optionsStore.getLocaleValue(paymentMethod, locale) }}</span></p>
       <p v-if="order?.changeFrom">
-        {{ $t('web-app.checkout.change-label') }}: <span class="font-medium">{{ order.changeFrom }} {{ optionsStore.currencySign }}</span>
+        {{ $dict('web-app.checkout.change-label') }}: <span class="font-medium">{{ order.changeFrom }} {{ optionsStore.currencySign }}</span>
       </p>
       <p v-if="order?.note">
-        {{ $t('web-app.checkout.order-note') }}: <span class="font-medium">{{ order.note }}</span>
+        {{ $dict('web-app.checkout.order-note') }}: <span class="font-medium">{{ order.note }}</span>
       </p>
     </div>
 
     <div class="flex flex-col gap-3">
       <h3 class="text-lg font-medium text-muted">
-        {{ $t('web-app.finish.ordered-title') }}
+        {{ $dict('web-app.finish.ordered-title') }}
       </h3>
 
       <CheckoutLine
@@ -67,10 +67,10 @@
 
     <div>
       <h3 class="mb-2 text-lg font-medium text-muted">
-        {{ $t('web-app.checkout.total-title') }}
+        {{ $dict('web-app.checkout.total-title') }}
       </h3>
       <div class="flex flex-row justify-between">
-        <div>{{ $t('web-app.checkout.cost.products') }}</div>
+        <div>{{ $dict('web-app.checkout.cost.products') }}</div>
         <div class="tracking-tight text-lg">
           {{ order?.totalPrice }} <span class="text-sm">{{ optionsStore.currencySign }}</span>
         </div>
@@ -83,7 +83,7 @@
       color="secondary"
       size="xl"
       block
-      :label="$t('common.to-home')"
+      :label="$dict('common.to-home')"
     />
   </div>
 </template>

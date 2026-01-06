@@ -10,7 +10,7 @@
       variant="soft"
       color="neutral"
       trailing-icon="lucide:arrow-right"
-      :label="$t('web-app.open-category')"
+      :label="$dict('web-app.open-category')"
     />
   </div>
 

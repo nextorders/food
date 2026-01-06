@@ -1,6 +1,6 @@
 <template>
   <UModal
-    :title="$t('web-app.cart.schedule')"
+    :title="$dict('web-app.cart.schedule')"
     :ui="{
       body: 'flex flex-col gap-6',
     }"
@@ -9,7 +9,7 @@
     <template #body>
       <div v-if="channelStore.deliveryByCourier?.schedule">
         <h3 class="mb-2 text-lg font-semibold">
-          {{ $t('web-app.cart.delivery') }}
+          {{ $dict('web-app.cart.delivery') }}
         </h3>
         <div class="flex flex-col gap-0.5">
           <div
@@ -31,7 +31,7 @@
 
       <div v-if="channelStore.selfPickup?.schedule">
         <h3 class="mb-2 text-lg font-semibold">
-          {{ $t('web-app.cart.pickup') }}
+          {{ $dict('web-app.cart.pickup') }}
         </h3>
         <div class="flex flex-col gap-0.5">
           <div
@@ -53,13 +53,13 @@
 
       <div class="flex flex-col gap-0.5 text-muted text-sm italic">
         <p v-if="status?.currentTime">
-          {{ $t('web-app.cart.now') }} {{ status?.currentTime }}
+          {{ $dict('web-app.cart.now') }} {{ status?.currentTime }}
         </p>
         <p v-if="status?.todayEndAt">
-          {{ orderStore.deliveryMethod === 'deliveryByCourier' ? $t('web-app.cart.delivery-available-until') : $t('web-app.cart.pickup-available-until') }} {{ status?.todayEndAt }}
+          {{ orderStore.deliveryMethod === 'deliveryByCourier' ? $dict('web-app.cart.delivery-available-until') : $dict('web-app.cart.pickup-available-until') }} {{ status?.todayEndAt }}
         </p>
         <p v-if="status?.todayEndInMinutes">
-          {{ $t('web-app.cart.left') }}: {{ status?.todayEndInMinutes }} {{ $t('common.time.minute', status?.todayEndInMinutes || 0) }}
+          {{ $dict('web-app.cart.left') }}: {{ status?.todayEndInMinutes }} {{ $dict('common.time.minute', status?.todayEndInMinutes || 0) }}
         </p>
       </div>
     </template>

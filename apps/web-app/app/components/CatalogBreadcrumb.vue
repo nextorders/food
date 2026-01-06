@@ -13,7 +13,7 @@
       size="lg"
       icon="lucide:undo-2"
       class="w-full md:w-auto mx-auto md:mx-0 justify-center"
-      :label="$t('common.return')"
+      :label="$dict('common.return')"
       @click="router.back()"
     />
   </div>

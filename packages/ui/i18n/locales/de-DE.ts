@@ -1,5 +1,3 @@
-import type { Dictionary } from './en-US'
-
 export const de: Dictionary = {
   'web-app': {
     'cart': {
@@ -247,5 +245,3 @@ export const de: Dictionary = {
     'invalid-credentials': 'Ungültige Zugangsdaten',
   },
 }
-
-export default de

@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-row gap-2 items-center justify-between">
-    <UTooltip :text="$t('common.open-page')">
+    <UTooltip :text="$dict('common.open-page')">
       <NuxtLink :to="productUrl" class="max-w-68 flex flex-row gap-2 flex-nowrap items-center cursor-pointer active:scale-98 lg:active:scale-95 lg:hover:scale-98 duration-200 group">
         <div class="relative size-12 md:size-14 aspect-square">
           <ProductImage :images="productVariant?.images ?? []" size="xs" />

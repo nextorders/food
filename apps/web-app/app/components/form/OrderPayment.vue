@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-2">
     <h3 class="text-lg md:text-xl font-semibold">
-      {{ $t('web-app.checkout.payment-title') }}
+      {{ $dict('web-app.checkout.payment-title') }}
     </h3>
 
     <USelect
@@ -10,13 +10,13 @@
       :ui="{
         leadingIcon: !!state.paymentMethodId && 'text-secondary',
       }"
-      :placeholder="$t('common.select')"
+      :placeholder="$dict('common.select')"
       size="xl"
       icon="lucide:banknote-arrow-up"
       class="w-full"
     />
 
-    <UFormField v-if="selectedPaymentMethod?.type === 'cash'" :label="$t('web-app.checkout.change-label')">
+    <UFormField v-if="selectedPaymentMethod?.type === 'cash'" :label="$dict('web-app.checkout.change-label')">
       <UInputNumber
         v-model="state.changeFrom"
         size="xl"

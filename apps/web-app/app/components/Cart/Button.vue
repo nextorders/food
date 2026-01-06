@@ -18,7 +18,7 @@
         color="secondary"
         size="lg"
         class="min-w-16 justify-center"
-        :label="$t('web-app.cart.title')"
+        :label="$dict('web-app.cart.title')"
       />
     </UChip>
 

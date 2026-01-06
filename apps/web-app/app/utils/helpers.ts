@@ -1,44 +1,44 @@
 import type { WeekDay, WeightUnit } from '@nextorders/food-schema'
 
 export function getWeightLocalizedUnit<WeightUnitLiteral = string & object>(unit?: WeightUnit | WeightUnitLiteral): string {
-  const { t } = useI18n()
+  const { dict } = useDictionary()
 
   switch (unit as WeightUnit) {
     case 'g':
-      return t('common.abbreviation.g')
+      return dict('common.abbreviation.g')
     case 'kg':
-      return t('common.abbreviation.kg')
+      return dict('common.abbreviation.kg')
     case 'ml':
-      return t('common.abbreviation.ml')
+      return dict('common.abbreviation.ml')
     case 'l':
-      return t('common.abbreviation.l')
+      return dict('common.abbreviation.l')
     case 'lb':
-      return t('common.abbreviation.lb')
+      return dict('common.abbreviation.lb')
     case 'oz':
-      return t('common.abbreviation.oz')
+      return dict('common.abbreviation.oz')
     default:
       return ''
   }
 }
 
 export function getLocalizedWeekDay(day: WeekDay): string {
-  const { t } = useI18n()
+  const { dict } = useDictionary()
 
   switch (day) {
     case 'mon':
-      return t('common.day.monday')
+      return dict('common.day.monday')
     case 'tue':
-      return t('common.day.tuesday')
+      return dict('common.day.tuesday')
     case 'wed':
-      return t('common.day.wednesday')
+      return dict('common.day.wednesday')
     case 'thu':
-      return t('common.day.thursday')
+      return dict('common.day.thursday')
     case 'fri':
-      return t('common.day.friday')
+      return dict('common.day.friday')
     case 'sat':
-      return t('common.day.saturday')
+      return dict('common.day.saturday')
     case 'sun':
-      return t('common.day.sunday')
+      return dict('common.day.sunday')
     default:
       return ''
   }

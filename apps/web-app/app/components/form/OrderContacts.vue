@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col gap-2">
     <h2 class="text-lg md:text-2xl font-semibold">
-      {{ $t('web-app.checkout.contacts') }}
+      {{ $dict('web-app.checkout.contacts') }}
     </h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
       <UFormField
-        :label="$t('web-app.checkout.your-phone')"
+        :label="$dict('web-app.checkout.your-phone')"
         :ui="{
           label: 'after:text-secondary',
         }"
@@ -21,7 +21,7 @@
           :ui="{
             trailingIcon: 'text-secondary',
           }"
-          :placeholder="$t('common.required')"
+          :placeholder="$dict('common.required')"
           class="w-full"
           @change="handlePhoneChange()"
           @blur="handlePhoneChange()"
@@ -30,7 +30,7 @@
       </UFormField>
 
       <UFormField
-        :label="$t('web-app.checkout.your-name')"
+        :label="$dict('web-app.checkout.your-name')"
         :ui="{
           label: 'after:text-secondary',
         }"
@@ -39,7 +39,7 @@
         <UInput
           v-model="state.name"
           size="xl"
-          :placeholder="$t('common.required')"
+          :placeholder="$dict('common.required')"
           class="w-full"
         />
       </UFormField>

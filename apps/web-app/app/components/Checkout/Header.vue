@@ -6,7 +6,7 @@
       variant="outline"
       color="neutral"
       size="lg"
-      :label="$t('common.return')"
+      :label="$dict('common.return')"
     />
 
     <UColorModeButton variant="outline" />

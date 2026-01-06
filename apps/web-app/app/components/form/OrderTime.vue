@@ -1,13 +1,13 @@
 <template>
   <div class="flex flex-col gap-2">
     <h2 class="text-lg md:text-2xl font-semibold">
-      {{ $t('web-app.checkout.time-title') }}
+      {{ $dict('web-app.checkout.time-title') }}
     </h2>
 
     <USelect
       v-model="state"
       :items="[
-        { label: $t('web-app.checkout.as-soon-as-possible'), value: '0' },
+        { label: $dict('web-app.checkout.as-soon-as-possible'), value: '0' },
         ...channelStore.timeSlots.map((slot) => (
           {
             label: `${slot.start} - ${slot.end}`,

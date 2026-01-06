@@ -46,7 +46,7 @@
               variant="solid"
               color="secondary"
               icon="lucide:shopping-basket"
-              :label="$t('web-app.cart.add-to-cart')"
+              :label="$dict('web-app.cart.add-to-cart')"
               :ui="{
                 leadingIcon: 'hidden md:block',
               }"
@@ -61,7 +61,7 @@
     <div class="mt-6 grid grid-cols-1 md:grid-cols-5 gap-y-8 md:gap-6">
       <div v-if="product?.description" class="col-span-3">
         <div class="mb-1 font-medium text-muted">
-          {{ $t('common.description') }}
+          {{ $dict('common.description') }}
         </div>
         <div class="text-base/5">
           {{ optionsStore.getLocaleValue(product?.description, locale) }}
@@ -70,7 +70,7 @@
 
       <div v-if="selectedVariant?.nutritionFacts" class="col-span-2">
         <div class="mb-1 font-medium text-muted">
-          {{ $t('common.nutrition.value-title') }}
+          {{ $dict('common.nutrition.value-title') }}
         </div>
         <div class="mt-2 p-4 w-fit flex flex-row gap-4 lg:gap-5 bg-elevated/50 rounded-lg">
           <div>
@@ -78,34 +78,34 @@
               {{ selectedVariant.nutritionFacts.calories }}
             </div>
             <div class="lowercase text-muted">
-              {{ $t('common.nutrition.kcal') }}
+              {{ $dict('common.nutrition.kcal') }}
             </div>
           </div>
           <div>
             <div class="flex flex-row gap-0.5 font-medium">
               {{ selectedVariant.nutritionFacts.protein }}
-              <span>{{ $t('common.abbreviation.g') }}</span>
+              <span>{{ $dict('common.abbreviation.g') }}</span>
             </div>
             <div class="lowercase text-muted">
-              {{ $t('common.nutrition.protein') }}
+              {{ $dict('common.nutrition.protein') }}
             </div>
           </div>
           <div>
             <div class="flex flex-row gap-0.5 font-medium">
               {{ selectedVariant.nutritionFacts.fat }}
-              <span>{{ $t('common.abbreviation.g') }}</span>
+              <span>{{ $dict('common.abbreviation.g') }}</span>
             </div>
             <div class="lowercase text-muted">
-              {{ $t('common.nutrition.fat') }}
+              {{ $dict('common.nutrition.fat') }}
             </div>
           </div>
           <div>
             <div class="flex flex-row gap-0.5 font-medium">
               {{ selectedVariant.nutritionFacts.carbohydrate }}
-              <span>{{ $t('common.abbreviation.g') }}</span>
+              <span>{{ $dict('common.abbreviation.g') }}</span>
             </div>
             <div class="lowercase text-muted">
-              {{ $t('common.nutrition.carbohydrate') }}
+              {{ $dict('common.nutrition.carbohydrate') }}
             </div>
           </div>
         </div>
@@ -117,7 +117,8 @@
 <script setup lang="ts">
 import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
-const { t, locale } = useI18n()
+const { locale } = useI18n()
+const { dict } = useDictionary()
 const { params } = useRoute('categorySlug-productSlug')
 
 const orderStore = useOrderStore()
@@ -151,7 +152,7 @@ const line = computed(() => orderStore.items.find((l) => l.variantId === selecte
 const category = menuStore.getCategoryByProductId(product.id)
 
 const breadcrumbs = computed(() => [
-  { label: t('common.home'), icon: 'lucide:house', to: '/' },
+  { label: dict('common.home'), icon: 'lucide:house', to: '/' },
   {
     label: optionsStore.getLocaleValue(category?.title, locale.value),
     to: `/${category?.slug}`,

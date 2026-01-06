@@ -1,5 +1,3 @@
-export type Dictionary = typeof en
-
 export const en = {
   'web-app': {
     'cart': {
@@ -246,6 +244,6 @@ export const en = {
     'default': 'Something went wrong',
     'invalid-credentials': 'Invalid credentials',
   },
-}
+} as const
 
-export default en
+// export default en

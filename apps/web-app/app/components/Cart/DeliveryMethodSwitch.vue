@@ -16,7 +16,7 @@
 import type { DeliveryMethod } from '@nextorders/food-schema'
 import { useChannelStore } from '@nextorders/core/app/stores/channel'
 
-const { t } = useI18n()
+const { dict } = useDictionary()
 const channelStore = useChannelStore()
 const orderStore = useOrderStore()
 
@@ -28,12 +28,12 @@ type TabItem = {
 
 const tabItems = computed<TabItem[]>(() => [
   {
-    label: t('web-app.cart.delivery'),
+    label: dict('web-app.cart.delivery'),
     value: 'deliveryByCourier',
     disabled: !channelStore.deliveryByCourier?.isAvailable,
   },
   {
-    label: t('web-app.cart.pickup'),
+    label: dict('web-app.cart.pickup'),
     value: 'selfPickup',
     disabled: !channelStore.selfPickup?.isAvailable,
   },

@@ -7,7 +7,7 @@
 
   <template v-else-if="!orderStore.isEmpty && !channelStore.isOnMaintenance">
     <h1 class="pt-8 mb-4 md:mb-8 text-3xl md:text-4xl font-semibold">
-      {{ $t('web-app.checkout.title') }}
+      {{ $dict('web-app.checkout.title') }}
     </h1>
 
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
@@ -40,11 +40,11 @@
 
           <div class="flex flex-col gap-2">
             <h3 class="text-lg md:text-xl font-semibold">
-              {{ $t('web-app.checkout.total-title') }}
+              {{ $dict('web-app.checkout.total-title') }}
             </h3>
 
             <div class="flex flex-row justify-between text-lg">
-              <div>{{ $t('web-app.checkout.cost.products') }}</div>
+              <div>{{ $dict('web-app.checkout.cost.products') }}</div>
               <div class="tracking-tight">
                 {{ new Intl.NumberFormat(locale).format(orderStore.totalPrice) }} <span class="text-sm">{{ optionsStore.currencySign }}</span>
               </div>
@@ -55,22 +55,22 @@
             <CheckoutInfoMessage
               v-if="orderStore?.deliveryMethod === 'deliveryByCourier'"
               icon="info"
-              :message="$t('web-app.checkout.info-shipping-price')"
+              :message="$dict('web-app.checkout.info-shipping-price')"
             />
             <CheckoutInfoMessage
               v-if="!orderStore.isReadyToCheckout && !orderStore.isValidCheckoutData"
               icon="alert"
-              :message="$t('web-app.checkout.warning-data')"
+              :message="$dict('web-app.checkout.warning-data')"
             />
             <CheckoutInfoMessage
               v-if="!orderStore.isReadyToCheckout && !orderStore.isValidTotalPrice"
               icon="alert"
-              :message="`${$t('web-app.minimum-order-value')}: ${channelStore.deliveryByCourier?.minAmountForDelivery} ${optionsStore.currencySign}`"
+              :message="`${$dict('web-app.minimum-order-value')}: ${channelStore.deliveryByCourier?.minAmountForDelivery} ${optionsStore.currencySign}`"
             />
           </div>
 
           <div class="flex flex-row flex-nowrap gap-4 items-center">
-            <UTooltip :text="!orderStore.isReadyToCheckout ? $t('web-app.checkout.warning-data') : undefined">
+            <UTooltip :text="!orderStore.isReadyToCheckout ? $dict('web-app.checkout.warning-data') : undefined">
               <UButton
                 size="xl"
                 variant="solid"
@@ -82,7 +82,7 @@
                 ]"
                 :loading="orderStore.isLoading"
                 :disabled="!orderStore.isReadyToCheckout || orderStore.isLoading"
-                :label="$t('web-app.checkout.create-order')"
+                :label="$dict('web-app.checkout.create-order')"
                 @click="updateCheckout()"
               />
             </UTooltip>
@@ -99,7 +99,7 @@
   <template v-else>
     <div class="text-center pt-16 pb-32">
       <h1 class="pt-8 mb-4 md:mb-8 text-3xl md:text-4xl font-semibold text-center">
-        {{ $t('web-app.cart.empty-label') }}
+        {{ $dict('web-app.cart.empty-label') }}
       </h1>
 
       <UButton
@@ -107,7 +107,7 @@
         size="xl"
         variant="solid"
         color="secondary"
-        :label="$t('common.to-home')"
+        :label="$dict('common.to-home')"
       />
     </div>
   </template>
@@ -121,7 +121,8 @@ definePageMeta({
   layout: 'checkout',
 })
 
-const { locale, t } = useI18n()
+const { locale } = useI18n()
+const { dict } = useDictionary()
 
 const channelStore = useChannelStore()
 const orderStore = useOrderStore()
@@ -154,6 +155,6 @@ async function updateCheckout() {
 }
 
 useHead({
-  title: `${t('web-app.checkout.title')} | ${optionsStore.getLocaleValue(channelStore.title, locale.value)}`,
+  title: `${dict('web-app.checkout.title')} | ${optionsStore.getLocaleValue(channelStore.title, locale.value)}`,
 })
 </script>

@@ -1,5 +1,3 @@
-import type { Dictionary } from './en-US'
-
 export const ka: Dictionary = {
   'web-app': {
     'cart': {
@@ -247,5 +245,3 @@ export const ka: Dictionary = {
     'invalid-credentials': 'არასწორი ანგარიშის რწმუნებათა სიგელები',
   },
 }
-
-export default ka

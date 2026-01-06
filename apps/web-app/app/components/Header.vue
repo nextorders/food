@@ -13,7 +13,7 @@
       <div class="relative mr-auto group">
         <UModal v-if="products.length" v-model:open="isModalOpened">
           <UButton
-            :label="$t('web-app.search.placeholder')"
+            :label="$dict('web-app.search.placeholder')"
             icon="lucide:search"
             color="neutral"
             variant="outline"
@@ -25,7 +25,7 @@
             <UCommandPalette
               v-model="value"
               :groups="groups"
-              :placeholder="$t('web-app.search.placeholder')"
+              :placeholder="$dict('web-app.search.placeholder')"
               class="h-80"
             />
           </template>

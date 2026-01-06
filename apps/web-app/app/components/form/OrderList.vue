@@ -1,6 +1,6 @@
 <template>
   <h2 class="text-lg md:text-2xl font-semibold">
-    {{ $t('web-app.checkout.order-title') }}
+    {{ $dict('web-app.checkout.order-title') }}
   </h2>
 
   <CheckoutLine
@@ -9,12 +9,12 @@
     :line="line"
   />
 
-  <UFormField :label="$t('web-app.checkout.order-note')">
+  <UFormField :label="$dict('web-app.checkout.order-note')">
     <UTextarea
       v-model="orderStore.note"
       size="xl"
       class="w-full"
-      :placeholder="$t('web-app.checkout.order-note-placeholder')"
+      :placeholder="$dict('web-app.checkout.order-note-placeholder')"
     />
   </UFormField>
 </template>
