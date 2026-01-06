@@ -17,6 +17,10 @@ const burgers: Product[] = [
         locale: 'ka',
         value: 'ველური დასავლეთის ბურგერი',
       },
+      {
+        locale: 'de',
+        value: 'Der Wildwest-Burger',
+      },
     ],
     description: [
       {
@@ -30,6 +34,10 @@ const burgers: Product[] = [
       {
         locale: 'ka',
         value: 'მოემზადეთ ველურ დასავლეთში მოგზაურობისთვის ჩვენი წარმოუდგენელი ბურგერით! ნაზი ხორცი, წვნიანი ბოსტნეული და ხრაშუნა ფუნთუშა კოვბოებისა და ინდიელების სამყაროში გადაგიყვანთ. ჩაეფლეთ თავგადასავლების ატმოსფეროში და დატკბით ველური დასავლეთის ნამდვილი გემოთი!',
+      },
+      {
+        locale: 'de',
+        value: 'Machen Sie sich bereit für eine Reise in den Wilden Westen mit unserem unglaublichen Burger! Zartes Fleisch, saftiges Gemüse und eine knusprige Brötchenhülle werden Sie in die Welt der Cowboys und Indianer versetzen. Tauchen Sie ein in die Atmosphäre der Abenteuer und genießen Sie den wahren Geschmack des Wilden Westens!',
       },
     ],
     isAvailableForPurchase: true,
@@ -48,6 +56,10 @@ const burgers: Product[] = [
           {
             locale: 'ka',
             value: 'სტანდარტული',
+          },
+          {
+            locale: 'de',
+            value: 'Standard',
           },
         ],
         images: [
@@ -94,6 +106,10 @@ const burgers: Product[] = [
         locale: 'ka',
         value: 'ნაზი ღრუბლების ბურგერი',
       },
+      {
+        locale: 'de',
+        value: 'Der zarte Wolken-Burger',
+      },
     ],
     description: [
       {
@@ -107,6 +123,10 @@ const burgers: Product[] = [
       {
         locale: 'ka',
         value: 'იგრძენით ღრუბლების სინაზე ჩვენი განსაკუთრებული ბურგერით! ჰაეროვანი ლურჯი ყველის, წვნიანი ბოსტნეულისა და არომატული ხორცის კომბინაცია გულგრილს არ დაგტოვებთ. გემოსა და სიამოვნების იდეალური ბალანსი ყოველ ლუკმაში!',
+      },
+      {
+        locale: 'de',
+        value: 'Genießen Sie die Zartheit unseres Spezialburgers! Die Kombination aus luftigem Blauschimmelkäse, saftigem Gemüse und aromatischem Fleisch wird Sie begeistern. Ein perfekter Genuss in jedem Bissen!',
       },
     ],
     isAvailableForPurchase: true,
@@ -125,6 +145,10 @@ const burgers: Product[] = [
           {
             locale: 'ka',
             value: 'სტანდარტული',
+          },
+          {
+            locale: 'de',
+            value: 'Standard',
           },
         ],
         images: [
@@ -171,6 +195,10 @@ const burgers: Product[] = [
         locale: 'ka',
         value: 'ვეგეტარიანული სამოთხე: ვეგეტარიანული ბურგერი',
       },
+      {
+        locale: 'de',
+        value: 'Vegetarisches Paradies: Veggie-Burger',
+      },
     ],
     description: [
       {
@@ -184,6 +212,10 @@ const burgers: Product[] = [
       {
         locale: 'ka',
         value: 'ისიამოვნეთ ვეგეტარიანული სამოთხით ჩვენი განსაკუთრებული ვეგეტარიანული ბურგერით! ბოსტნეულის, მწვანილისა და მკვებავი ინგრედიენტების გემრიელი კომბინაცია დაუვიწყარ გემოს გამოცდილებას მოგცემთ. იგრძენით ბუნების სიახლე ჩვენი ვეგეტარიანული ბურგერის ყოველ ლუკმაში!',
+      },
+      {
+        locale: 'de',
+        value: 'Genießen Sie ein vegetarisches Paradies mit unserem speziellen Veggie-Burger! Eine köstliche Kombination aus Gemüse, Kräutern und nahrhaften Zutaten sorgt für ein unvergessliches Geschmackserlebnis. Spüren Sie die Frische der Natur in jedem Bissen unseres Veggie-Burgers!',
       },
     ],
     isAvailableForPurchase: true,
@@ -202,6 +234,10 @@ const burgers: Product[] = [
           {
             locale: 'ka',
             value: 'სტანდარტული',
+          },
+          {
+            locale: 'de',
+            value: 'Standard',
           },
         ],
         images: [
@@ -248,6 +284,10 @@ const burgers: Product[] = [
         locale: 'ka',
         value: 'გემრიელი ხახვის ბურგერი',
       },
+      {
+        locale: 'de',
+        value: 'Köstlicher Zwiebelburger',
+      },
     ],
     description: [
       {
@@ -261,6 +301,10 @@ const burgers: Product[] = [
       {
         locale: 'ka',
         value: 'აღმოაჩინეთ გემოების საოცარი სამყარო ჩვენი ბურგერით, სადაც ნაზი ხორცი, ახალი ბოსტნეული და არომატული შემწვარი ხახვი უნიკალურ კომბინაციაში ერწყმის ერთმანეთს. დააგემოვნეთ ყოველი ლუკმა და ჩაეფლეთ ნამდვილი გასტრონომიული სიამოვნების ატმოსფეროში!',
+      },
+      {
+        locale: 'de',
+        value: 'Entdecken Sie mit unserem Burger eine faszinierende Geschmackswelt: Zartes Fleisch, frisches Gemüse und aromatische Röstzwiebeln vereinen sich zu einer einzigartigen Kombination. Genießen Sie jeden Bissen und tauchen Sie ein in ein wahres Fest für die Sinne!',
       },
     ],
     isAvailableForPurchase: true,
@@ -279,6 +323,10 @@ const burgers: Product[] = [
           {
             locale: 'ka',
             value: 'სტანდარტული',
+          },
+          {
+            locale: 'de',
+            value: 'Standard',
           },
         ],
         images: [
@@ -325,6 +373,10 @@ const burgers: Product[] = [
         locale: 'ka',
         value: 'გალაქტიკური ბურგერი',
       },
+      {
+        locale: 'de',
+        value: 'Galaktischer Burger',
+      },
     ],
     description: [
       {
@@ -338,6 +390,10 @@ const burgers: Product[] = [
       {
         locale: 'ka',
         value: 'აღმოაჩინეთ გალაქტიკური ბურგერი - წვნიანი ბოსტნეულის, მადისაღმძვრელი ხორცისა და ხრაშუნა ფუნთუშას წარმოუდგენელი კომბინაცია. განიცადეთ შორეული ვარსკვლავების უნიკალური გემო და ჩაეფლეთ კოსმოსური თავგადასავლების სამყაროში პირდაპირ მაგიდასთან!',
+      },
+      {
+        locale: 'de',
+        value: 'Entdecken Sie den galaktischen Burger – eine unglaubliche Kombination aus saftigem Gemüse, zartem Fleisch und knusprigem Brötchen. Erleben Sie den einzigartigen Geschmack ferner Sterne und tauchen Sie direkt am Tisch in die Welt der Weltraumabenteuer ein!',
       },
     ],
     isAvailableForPurchase: true,
@@ -356,6 +412,10 @@ const burgers: Product[] = [
           {
             locale: 'ka',
             value: 'სტანდარტული',
+          },
+          {
+            locale: 'de',
+            value: 'Standard',
           },
         ],
         images: [
@@ -402,6 +462,10 @@ const burgers: Product[] = [
         locale: 'ka',
         value: 'სოკოს ბუმი: ბურგერი საიდუმლოთი',
       },
+      {
+        locale: 'de',
+        value: 'Pilzboom: Ein Burger mit Geheimnis',
+      },
     ],
     description: [
       {
@@ -415,6 +479,10 @@ const burgers: Product[] = [
       {
         locale: 'ka',
         value: 'აღმოაჩინეთ გემოების საოცარი სამყარო ჩვენი ახალი ბურგერით! ნაზი ხორცი, წვნიანი სოკო და ხრაშუნა ფუნთუშა - ეს კომბინაცია აუცილებლად მოიგებს თქვენს გულს. განიცადეთ ნამდვილი სოკოს სიამოვნების უნიკალური გემო!',
+      },
+      {
+        locale: 'de',
+        value: 'Entdecken Sie mit unserem neuen Burger eine wunderbare Geschmackswelt! Zartes Fleisch, saftige Champignons und ein knuspriges Brötchen – diese Kombination wird Sie begeistern. Erleben Sie den einzigartigen Geschmack eines echten Champignon-Genusses!',
       },
     ],
     isAvailableForPurchase: true,
@@ -433,6 +501,10 @@ const burgers: Product[] = [
           {
             locale: 'ka',
             value: 'სტანდარტული',
+          },
+          {
+            locale: 'de',
+            value: 'Standard',
           },
         ],
         images: [
@@ -479,6 +551,10 @@ const burgers: Product[] = [
         locale: 'ka',
         value: 'ჯარდინის ბურგერი',
       },
+      {
+        locale: 'de',
+        value: 'Jardines Burger',
+      },
     ],
     description: [
       {
@@ -492,6 +568,10 @@ const burgers: Product[] = [
       {
         locale: 'ka',
         value: 'განიცადეთ წვნიანი შემწვარი ინდაურის კატლეტის უნიკალური არომატი ხრაშუნა ფუნთუშასთან და ახალ ბოსტნეულთან ერთად. ნაზი ინდაურის ხორცი, არომატული სანელებლებითა და სანელებლებით, ნამდვილი აღმოჩენა იქნება ხორცის მოყვარულთათვის!',
+      },
+      {
+        locale: 'de',
+        value: 'Genießen Sie den einzigartigen Geschmack eines saftigen, gegrillten Putenschnitzels auf einem knusprigen Brötchen mit frischem Gemüse. Zartes Putenfleisch, verfeinert mit aromatischen Gewürzen, ist eine wahre Entdeckung für Fleischliebhaber!',
       },
     ],
     isAvailableForPurchase: true,
@@ -510,6 +590,10 @@ const burgers: Product[] = [
           {
             locale: 'ka',
             value: 'სტანდარტული',
+          },
+          {
+            locale: 'de',
+            value: 'Standard',
           },
         ],
         images: [
@@ -556,6 +640,10 @@ const burgers: Product[] = [
         locale: 'ka',
         value: 'ცხელი ტეხასური ბურგერი',
       },
+      {
+        locale: 'de',
+        value: 'Heißer Texas-Burger',
+      },
     ],
     description: [
       {
@@ -569,6 +657,10 @@ const burgers: Product[] = [
       {
         locale: 'ka',
         value: 'თქვენი გზა ნამდვილი ტეხასური არომატისკენ! ნაზი ხორცი, ახალი ბოსტნეული და მადისაღმძვრელი ფუნთუშა - ეს ბურგერი ნამდვილად არ დაგტოვებთ გულგრილს!',
+      },
+      {
+        locale: 'de',
+        value: 'So erleben Sie echten Texas-Geschmack! Zartes Fleisch, frisches Gemüse und ein appetitliches Brötchen – dieser Burger wird Sie garantiert begeistern!',
       },
     ],
     isAvailableForPurchase: true,
@@ -587,6 +679,10 @@ const burgers: Product[] = [
           {
             locale: 'ka',
             value: 'სტანდარტული',
+          },
+          {
+            locale: 'de',
+            value: 'Standard',
           },
         ],
         images: [
@@ -633,6 +729,10 @@ const burgers: Product[] = [
         locale: 'ka',
         value: 'ნაზი ბეკონის ბურგერი',
       },
+      {
+        locale: 'de',
+        value: 'Zarter Bacon-Burger',
+      },
     ],
     description: [
       {
@@ -646,6 +746,10 @@ const burgers: Product[] = [
       {
         locale: 'ka',
         value: 'ჩაეფლეთ ბეკონის სინაზეში: გასინჯეთ ჩვენი ბურგერი! არომატული ბეკონი, წვნიანი კატლეტი და ახალი ბოსტნეული - არომატების აფეთქება ნამდვილი გურმანებისთვის.',
+      },
+      {
+        locale: 'de',
+        value: 'Tauchen Sie ein in die Zartheit von Speck: Probieren Sie unseren Burger! Duftender Speck, saftiges Patty und frisches Gemüse – eine Geschmacksexplosion für echte Feinschmecker.',
       },
     ],
     isAvailableForPurchase: true,
@@ -664,6 +768,10 @@ const burgers: Product[] = [
           {
             locale: 'ka',
             value: 'სტანდარტული',
+          },
+          {
+            locale: 'de',
+            value: 'Standard',
           },
         ],
         images: [
@@ -713,6 +821,10 @@ const snacks: Product[] = [
         locale: 'ka',
         value: 'ბედნიერების ფრთები: ბუფალოს ცხელი სუნთქვა',
       },
+      {
+        locale: 'de',
+        value: 'Flügel des Glücks: Buffalo Hot Breath',
+      },
     ],
     description: [
       {
@@ -726,6 +838,10 @@ const snacks: Product[] = [
       {
         locale: 'ka',
         value: 'ბუფალოს შემწვარი ფრთები - ცხარე, წვნიანი და წარმოუდგენლად გემრიელი! იდეალური არჩევანია გართობის წვეულებისთვის.',
+      },
+      {
+        locale: 'de',
+        value: 'Buffalo Fried Wings – würzig, saftig und unglaublich lecker! Die perfekte Wahl für eine gelungene Party.',
       },
     ],
     isAvailableForPurchase: true,
@@ -744,6 +860,10 @@ const snacks: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -790,6 +910,10 @@ const snacks: Product[] = [
         locale: 'ka',
         value: 'ბოსტნეულის სიუხვე',
       },
+      {
+        locale: 'de',
+        value: 'Gemüsereichtum',
+      },
     ],
     description: [
       {
@@ -803,6 +927,10 @@ const snacks: Product[] = [
       {
         locale: 'ka',
         value: 'დატკბით ახალი ბოსტნეულის არომატით ჩვენს ბოსტნეულის კესადილიაში! ეს არის წვნიანი ინგრედიენტების იდეალური კომბინაცია, რომელიც არომატული სანელებლებით არის შეზავებული. არ გამოტოვოთ შესაძლებლობა, გასინჯოთ ჩვენი ბოსტნეულის კესადილია და მიიღოთ ენერგია ნათელი არომატებით!',
+      },
+      {
+        locale: 'de',
+        value: 'Genießen Sie den Geschmack von frischem Gemüse in unserer Gemüse-Quesadilla! Saftige Zutaten, verfeinert mit aromatischen Gewürzen, machen sie zur perfekten Kombination. Lassen Sie sich die Gelegenheit nicht entgehen, unsere Gemüse-Quesadilla zu probieren und sich von den leuchtenden Aromen beleben zu lassen!',
       },
     ],
     isAvailableForPurchase: true,
@@ -821,6 +949,10 @@ const snacks: Product[] = [
           {
             locale: 'ka',
             value: 'პორტისთვის',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -867,6 +999,10 @@ const snacks: Product[] = [
         locale: 'ka',
         value: 'ჩიზბურგერები',
       },
+      {
+        locale: 'de',
+        value: 'Cheeseburgerettes',
+      },
     ],
     description: [
       {
@@ -880,6 +1016,10 @@ const snacks: Product[] = [
       {
         locale: 'ka',
         value: 'ნაზი მინი ჩიზბურგერები - იდეალური საჭმელი მთელი ოჯახისთვის! გემრიელი მინი ბურგერები ნამდვილი ამერიკული ყველით, წვნიანი კატლეტით და ახალი ბოსტნეულით. იგრძენით ნამდვილი ამერიკული რესტორნის ატმოსფერო აქ და ახლა!',
+      },
+      {
+        locale: 'de',
+        value: 'Zarte Mini-Cheeseburger – der perfekte Snack für die ganze Familie! Köstliche Mini-Burger mit echtem amerikanischen Käse, saftigem Patty und frischem Gemüse. Erleben Sie jetzt die Atmosphäre eines echten amerikanischen Restaurants!',
       },
     ],
     isAvailableForPurchase: true,
@@ -898,6 +1038,10 @@ const snacks: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -944,6 +1088,10 @@ const snacks: Product[] = [
         locale: 'ka',
         value: 'ცხელი ყველი და ბეკონი',
       },
+      {
+        locale: 'de',
+        value: 'Heißer Käse und Speck',
+      },
     ],
     description: [
       {
@@ -957,6 +1105,10 @@ const snacks: Product[] = [
       {
         locale: 'ka',
         value: 'განიცადეთ კარტოფილი ფრის უნიკალური გემო ჩედარის ყველით და ბეკონით ჩვენს რესტორანში! ეს ნამდვილი გურმანებისთვის იდეალური კომბინაციაა.',
+      },
+      {
+        locale: 'de',
+        value: 'Erleben Sie den einzigartigen Geschmack von Pommes frites mit Cheddar-Käse und Speck in unserem Restaurant! Die perfekte Kombination für echte Feinschmecker.',
       },
     ],
     isAvailableForPurchase: true,
@@ -975,6 +1127,10 @@ const snacks: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -1021,6 +1177,10 @@ const snacks: Product[] = [
         locale: 'ka',
         value: 'ყველის თავგადასავლები: ნაჩოსი სამი სახეობის ყველით',
       },
+      {
+        locale: 'de',
+        value: 'Käseabenteuer: Nachos mit drei Käsesorten',
+      },
     ],
     description: [
       {
@@ -1034,6 +1194,10 @@ const snacks: Product[] = [
       {
         locale: 'ka',
         value: 'გეპატიჟებით, ჩაეფლოთ ნამდვილი მექსიკური დღესასწაულის ატმოსფეროში ჩვენი უნიკალური ნაჩოსით ყველით! სამი სახეობის ყველის ნაზი კომბინაცია და ხრაშუნა სიმინდის ტორტილია გულგრილს არ დატოვებს ყველაზე დახვეწილ გურმანსაც კი. მიირთვით ცხარე სოუსთან ან სალსასთან ერთად - იდეალური კომბინაცია მეგობრებთან და ოჯახთან ერთად დაუვიწყარი საღამოსთვის.',
+      },
+      {
+        locale: 'de',
+        value: 'Tauchen Sie ein in die Atmosphäre eines echten mexikanischen Urlaubs mit unseren einzigartigen Käse-Nachos! Die zarte Kombination aus drei Käsesorten und knuspriger Maistortilla wird selbst anspruchsvollste Feinschmecker begeistern. Servieren Sie dazu scharfe Sauce oder Salsa – die perfekte Kombination für einen unvergesslichen Abend mit Freunden und Familie.',
       },
     ],
     isAvailableForPurchase: true,
@@ -1052,6 +1216,10 @@ const snacks: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -1098,6 +1266,10 @@ const snacks: Product[] = [
         locale: 'ka',
         value: 'ბეკონის ექსტრავაგანზა',
       },
+      {
+        locale: 'de',
+        value: 'Speck-Extravaganza',
+      },
     ],
     description: [
       {
@@ -1111,6 +1283,10 @@ const snacks: Product[] = [
       {
         locale: 'ka',
         value: 'აღმოაჩინეთ სიამოვნების ახალი დონე ჩვენი სპეციალური პიცადილასთან ერთად! თხელი ცომი, მადისაღმძვრელი ბეკონი და ყველი - ეს კომბინაცია აუცილებლად მოიგებს თქვენს გულს. არ გამოტოვოთ შესაძლებლობა, დატკბეთ ამ წარმოუდგენელი გემოთი ჩვენი რესტორნის მყუდრო ატმოსფეროში!',
+      },
+      {
+        locale: 'de',
+        value: 'Entdecken Sie mit unserer Spezialität, der Pizzadilla, ein ganz neues Genusserlebnis! Dünner Teig, herzhafter Speck und Käse – diese Kombination wird Sie begeistern. Lassen Sie sich die Gelegenheit nicht entgehen, diesen unglaublichen Geschmack in der gemütlichen Atmosphäre unseres Restaurants zu genießen!',
       },
     ],
     isAvailableForPurchase: true,
@@ -1129,6 +1305,10 @@ const snacks: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -1175,6 +1355,10 @@ const snacks: Product[] = [
         locale: 'ka',
         value: 'გუდას ჯადოსნური ძაფები',
       },
+      {
+        locale: 'de',
+        value: 'Die magischen Fäden von Gouda',
+      },
     ],
     description: [
       {
@@ -1188,6 +1372,10 @@ const snacks: Product[] = [
       {
         locale: 'ka',
         value: 'აღმოაჩინეთ არომატების საოცარი სამყარო გურმანული ყველებით, რომლებიც ყოველი ლუკმის შემდეგ დაუვიწყარ გამოცდილებას მოგანიჭებთ.',
+      },
+      {
+        locale: 'de',
+        value: 'Entdecken Sie eine faszinierende Welt der Aromen mit Gourmet-Käsesorten, die Ihnen mit jedem Bissen ein unvergessliches Geschmackserlebnis bieten.',
       },
     ],
     isAvailableForPurchase: true,
@@ -1206,6 +1394,10 @@ const snacks: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -1252,6 +1444,10 @@ const snacks: Product[] = [
         locale: 'ka',
         value: 'ცეცხლოვანი კესადილია: ცხარე ქათმის ნაჭრები',
       },
+      {
+        locale: 'de',
+        value: 'Flambierte Quesadilla: Würzige Hähnchenscheiben',
+      },
     ],
     description: [
       {
@@ -1265,6 +1461,10 @@ const snacks: Product[] = [
       {
         locale: 'ka',
         value: 'გეპატიჟებით ჩვენს რესტორანში დააგემოვნოთ დახვეწილი ქათმის კესადილია! ნაზი ქათმის ფილე, არომატული სანელებლები და ოქროსფერი ყველი - ეს კომბინაცია აუცილებლად მოიგებს თქვენს გულს. მიირთმევენ ბოსტნეულთან და სალსას სოუსთან ერთად. იგრძენით ნამდვილი მექსიკური სამზარეულოს უნიკალური გემო ჩვენი რესტორნის მყუდრო ატმოსფეროში!',
+      },
+      {
+        locale: 'de',
+        value: 'Genießen Sie in unserem Restaurant eine köstliche Hähnchen-Quesadilla! Zartes Hähnchenfilet, duftende Gewürze und goldgelber Käse – diese Kombination wird Sie begeistern. Serviert mit Gemüse und Salsa-Sauce. Erleben Sie den einzigartigen Geschmack authentischer mexikanischer Küche in der gemütlichen Atmosphäre unseres Restaurants!',
       },
     ],
     isAvailableForPurchase: true,
@@ -1283,6 +1483,10 @@ const snacks: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -1332,6 +1536,10 @@ const desserts: Product[] = [
         locale: 'ka',
         value: 'ვაშლის ექსტრავაგანზა',
       },
+      {
+        locale: 'de',
+        value: 'Apple-Spektakel',
+      },
     ],
     description: [
       {
@@ -1345,6 +1553,10 @@ const desserts: Product[] = [
       {
         locale: 'ka',
         value: 'გემრიელი ღვეზელი, რომელიც დაუვიწყარ გემოს მოგზაურობას გაჩუქებთ! ნაზი ცომი, არომატული ვაშლი და ხრაშუნა ცომი - ეს კომბინაცია აუცილებლად მოიგებს თქვენს გულს. ჩაეფლეთ სადღესასწაულო ატმოსფეროში ამ წარმოუდგენელი ღვეზელით!',
+      },
+      {
+        locale: 'de',
+        value: 'Ein köstlicher Kuchen, der Sie auf eine unvergessliche Geschmacksreise mitnimmt! Zarter Teig, duftende Äpfel und knusprige Kruste – diese Kombination wird Sie begeistern. Tauchen Sie mit diesem unglaublichen Kuchen in die festliche Stimmung ein!',
       },
     ],
     isAvailableForPurchase: true,
@@ -1363,6 +1575,10 @@ const desserts: Product[] = [
           {
             locale: 'ka',
             value: 'ნაჭერი',
+          },
+          {
+            locale: 'de',
+            value: 'Schneiden',
           },
         ],
         images: [
@@ -1400,6 +1616,10 @@ const desserts: Product[] = [
             locale: 'ka',
             value: '2 ნაჭერი',
           },
+          {
+            locale: 'de',
+            value: '2 Scheiben',
+          },
         ],
         images: [
           {
@@ -1435,6 +1655,10 @@ const desserts: Product[] = [
           {
             locale: 'ka',
             value: 'მთლიანი ღვეზელი',
+          },
+          {
+            locale: 'de',
+            value: 'Ganzer Kuchen',
           },
         ],
         images: [
@@ -1475,6 +1699,10 @@ const desserts: Product[] = [
         locale: 'ka',
         value: 'ნიუ-იორკული შიკ ჩიზქეიქი',
       },
+      {
+        locale: 'de',
+        value: 'New Yorker Chic-Käsekuchen',
+      },
     ],
     description: [
       {
@@ -1488,6 +1716,10 @@ const desserts: Product[] = [
       {
         locale: 'ka',
         value: 'განიცადეთ ნამდვილი ნიუ-იორკული ჩიზქეიქის უნიკალური გემო! ნაღების ყველის, ხრაშუნა ცომისა და ახალი ხილის ნაზი კომბინაცია დაუვიწყარ გემოს შეგრძნებას მოგანიჭებთ. სიყვარულით მომზადებული ეს დესერტი თქვენი საღამოს იდეალურ დასასრულს ან მეგობრული შეხვედრის შესანიშნავ დამატებას წარმოადგენს.',
+      },
+      {
+        locale: 'de',
+        value: 'Erleben Sie den einzigartigen Geschmack eines echten New Yorker Käsekuchens! Die feine Kombination aus Frischkäse, knusprigem Boden und frischen Früchten wird Ihnen ein unvergessliches Geschmackserlebnis bescheren. Mit Liebe zubereitet, ist dieses Dessert der perfekte Abschluss eines gelungenen Abends oder eine wunderbare Bereicherung für ein Treffen mit Freunden.',
       },
     ],
     isAvailableForPurchase: true,
@@ -1506,6 +1738,10 @@ const desserts: Product[] = [
           {
             locale: 'ka',
             value: 'ნაჭერი',
+          },
+          {
+            locale: 'de',
+            value: 'Schlitzer',
           },
         ],
         images: [
@@ -1552,6 +1788,10 @@ const desserts: Product[] = [
         locale: 'ka',
         value: 'მანგოს სვირინგი',
       },
+      {
+        locale: 'de',
+        value: 'Mangowirbel',
+      },
     ],
     description: [
       {
@@ -1565,6 +1805,10 @@ const desserts: Product[] = [
       {
         locale: 'ka',
         value: 'განიცადეთ ნამდვილი ტროპიკული არომატის აფეთქება ჩვენი უნიკალური დესერტით! მწიფე მანგოს, ნაღებისებრი კრემისა და ხრაშუნა ორცხობილების ნაზი კომბინაცია დაუვიწყარ სიამოვნებას მოგანიჭებთ. ამ საოცარი ნუგბარის ყოველი ლუკმისას ჩაეფლეთ სითბოსა და მზის ატმოსფეროში.',
+      },
+      {
+        locale: 'de',
+        value: 'Erleben Sie mit unserem einzigartigen Dessert eine wahre Geschmacksexplosion der Tropen! Die delikate Kombination aus reifer Mango, cremiger Sahne und knusprigen Keksen wird Ihnen unvergesslichen Genuss bereiten. Tauchen Sie mit jedem Bissen dieser Köstlichkeit in eine warme, sonnige Atmosphäre ein.',
       },
     ],
     isAvailableForPurchase: true,
@@ -1583,6 +1827,10 @@ const desserts: Product[] = [
           {
             locale: 'ka',
             value: 'ნაჭერი',
+          },
+          {
+            locale: 'de',
+            value: 'Schlitzer',
           },
         ],
         images: [
@@ -1632,6 +1880,10 @@ const hotMeals: Product[] = [
         locale: 'ka',
         value: 'საიდუმლო გატაცება: ქათამი და კრევეტები',
       },
+      {
+        locale: 'de',
+        value: 'Geheime Leidenschaft: Hühnchen und Garnelen',
+      },
     ],
     description: [
       {
@@ -1645,6 +1897,10 @@ const hotMeals: Product[] = [
       {
         locale: 'ka',
         value: 'ქათამი და კრევეტები - ნაზი და დახვეწილი კომბინაცია ნამდვილი გურმანებისთვის. შემწვარი ქათმის ფილე და ნაღების სოუსში შეზავებული ვეფხვისებრი კრევეტები იდეალური ძირითადი კერძი ან გარნირის დამატება იქნება. გაახარეთ საკუთარი თავი და თქვენი საყვარელი ადამიანები ამ გემრიელი და არომატული ცხელი კერძით!',
+      },
+      {
+        locale: 'de',
+        value: 'Hähnchen und Garnelen – eine delikate und exquisite Kombination für wahre Feinschmecker. Gebratenes Hähnchenfilet und Riesengarnelen in Sahnesauce eignen sich perfekt als Hauptgericht oder Beilage. Verwöhnen Sie sich und Ihre Lieben mit diesem köstlichen und aromatischen Gericht!',
       },
     ],
     isAvailableForPurchase: true,
@@ -1663,6 +1919,10 @@ const hotMeals: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -1709,6 +1969,10 @@ const hotMeals: Product[] = [
         locale: 'ka',
         value: '„ტრიუმფალური ტრიო“: სამი კვერცხისგან შემდგარი კერძი',
       },
+      {
+        locale: 'de',
+        value: '"Triumphierendes Trio": ein Gericht aus drei Eiern',
+      },
     ],
     description: [
       {
@@ -1722,6 +1986,10 @@ const hotMeals: Product[] = [
       {
         locale: 'ka',
         value: 'ოქროსფერ ქერქამდე შემწვარი სამი კვერცხის, არომატული მწვანილებისა და ნაზი ნაღების იდეალური კომბინაცია. ეს კერძი თქვენი გემოვნებისთვის ნამდვილი აღმოჩენა იქნება და დაუვიწყარ გამოცდილებას მოგანიჭებთ!',
+      },
+      {
+        locale: 'de',
+        value: 'Drei goldbraun gebratene Eier, verfeinert mit aromatischen Kräutern und zarter Sahne, bilden die perfekte Kombination. Dieses Gericht wird Ihren Gaumen verwöhnen und Ihnen ein unvergessliches Geschmackserlebnis bescheren!',
       },
     ],
     isAvailableForPurchase: true,
@@ -1740,6 +2008,10 @@ const hotMeals: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -1786,6 +2058,10 @@ const hotMeals: Product[] = [
         locale: 'ka',
         value: 'ცეცხლოვანი ჩიტის ფახიტასი',
       },
+      {
+        locale: 'de',
+        value: 'Firebird fajitas',
+      },
     ],
     description: [
       {
@@ -1799,6 +2075,10 @@ const hotMeals: Product[] = [
       {
         locale: 'ka',
         value: 'განიცადეთ მექსიკის უნიკალური გემო ჩვენი არომატული ქათმის ფახიტასით! ბოსტნეულითა და სანელებლებით შემწვარი ნაზი ქათმის ხორცი შესანიშნავი დამატება იქნება თქვენი საყვარელი ტორტილიებისთვის. დატკბით ნათელი არომატით და მიიღეთ ენერგია მზისგან!',
+      },
+      {
+        locale: 'de',
+        value: 'Erleben Sie den einzigartigen Geschmack Mexikos mit unseren köstlichen Hähnchen-Fajitas! Zartes Hähnchenfleisch, gebraten mit Gemüse und Gewürzen, ist die perfekte Ergänzung zu Ihren Lieblingstortillas. Genießen Sie den frischen Geschmack und tanken Sie neue Energie!',
       },
     ],
     isAvailableForPurchase: true,
@@ -1817,6 +2097,10 @@ const hotMeals: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -1863,6 +2147,10 @@ const hotMeals: Product[] = [
         locale: 'ka',
         value: 'გრილზე შემწვარი ორაგული ჩიმიჩურით',
       },
+      {
+        locale: 'de',
+        value: 'Gegrillter Lachs mit Chimichurri',
+      },
     ],
     description: [
       {
@@ -1876,6 +2164,10 @@ const hotMeals: Product[] = [
       {
         locale: 'ka',
         value: 'განიცადეთ არომატების აფეთქება ჩვენი ცხელი კერძით: გრილზე შემწვარი ორაგული ჩიმიჩურით! არომატული სანელებლებით შეზავებული ორაგული იწვება ოქროსფერ შეფერილობამდე და შემდეგ მიირთმევა გამაგრილებელ ჩიმიჩურის სოუსთან ერთად. გემოსა და არომატის იდეალური ბალანსი თქვენი სიამოვნებისთვის!',
+      },
+      {
+        locale: 'de',
+        value: 'Genießen Sie ein wahres Geschmackserlebnis mit unserem warmen Gericht: Gegrillter Lachs mit Chimichurri! Der aromatische, gewürzte Lachs wird goldbraun gegrillt und anschließend mit einer erfrischenden Chimichurri-Sauce serviert. Die perfekte Balance aus Geschmack und Aroma – ein Genuss für Ihren Gaumen!',
       },
     ],
     isAvailableForPurchase: true,
@@ -1894,6 +2186,10 @@ const hotMeals: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -1940,6 +2236,10 @@ const hotMeals: Product[] = [
         locale: 'ka',
         value: 'ზღვის პროდუქტების სამეფო',
       },
+      {
+        locale: 'de',
+        value: 'Meeresfrüchte-Königreich',
+      },
     ],
     description: [
       {
@@ -1953,6 +2253,10 @@ const hotMeals: Product[] = [
       {
         locale: 'ka',
         value: 'ნაზი შემწვარი ვირთევზა და კრევეტები - ზღვის პროდუქტების არომატების დახვეწილი კომბინაცია არომატულ პომიდვრის სოუსში. ეს ცხელი კერძი თქვენი სუფრის ნამდვილ დეკორაციად იქცევა და სტუმრებს აღაფრთოვანებს!',
+      },
+      {
+        locale: 'de',
+        value: 'Zart gebratener Kabeljau und Garnelen – eine exquisite Kombination aus Meeresfrüchtearomen in einer duftenden Tomatensoße. Dieses warme Gericht wird Ihre Tafel schmücken und Ihre Gäste begeistern!',
       },
     ],
     isAvailableForPurchase: true,
@@ -1971,6 +2275,10 @@ const hotMeals: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -2017,6 +2325,10 @@ const hotMeals: Product[] = [
         locale: 'ka',
         value: 'ჯამბალაია ქათმის ხორცითა და კრევეტებით კანჯუნის სტილში',
       },
+      {
+        locale: 'de',
+        value: 'Jambalaya mit Hühnchen und Garnelen nach Kanjun-Art',
+      },
     ],
     description: [
       {
@@ -2030,6 +2342,10 @@ const hotMeals: Product[] = [
       {
         locale: 'ka',
         value: 'აღმოაჩინეთ ჯამბალაიას უნიკალური არომატი ქათმით და კრევეტებით კანჯუნის სტილში! ეს ცხელი კერძი აერთიანებს ფრანგულ და ესპანურ კულინარიულ ტრადიციებს და მოეწონება ყველაზე მომთხოვნი გურმანებსაც კი. გასინჯეთ და თავად დარწმუნდით!',
+      },
+      {
+        locale: 'de',
+        value: 'Entdecken Sie den einzigartigen Geschmack von Jambalaya mit Hühnchen und Garnelen nach Kanjun-Art! Dieses pikante Gericht vereint französische und spanische Kochtraditionen und wird selbst anspruchsvollste Feinschmecker begeistern. Probieren Sie es selbst!',
       },
     ],
     isAvailableForPurchase: true,
@@ -2048,6 +2364,10 @@ const hotMeals: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -2097,6 +2417,10 @@ const salads: Product[] = [
         locale: 'ka',
         value: 'ცხარე მადისაღმძვრელი: სალათი შემწვარი ქათმით',
       },
+      {
+        locale: 'de',
+        value: 'Pikante Vorspeise: Salat mit gegrilltem Hähnchen',
+      },
     ],
     description: [
       {
@@ -2110,6 +2434,10 @@ const salads: Product[] = [
       {
         locale: 'ka',
         value: 'გეპატიჟებით გემრიელი მადისაღმძვრელის დასაგემოვნებლად! ჩვენი ფირმული სალათი შემწვარი ქათმით წვნიანი ქათმის, ახალი ბოსტნეულისა და არომატული სოუსის იდეალური კომბინაციაა. არ გამოტოვოთ შესაძლებლობა, დააგემოვნოთ ეს დახვეწილი კერძი ჩვენს რესტორანში და მთელი დღის განმავლობაში ენერგიით აღსავსე იყოთ!',
+      },
+      {
+        locale: 'de',
+        value: 'Genießen Sie eine köstliche Vorspeise! Unser Salat mit gegrilltem Hähnchen ist die perfekte Kombination aus saftigem Hähnchenfleisch, frischem Gemüse und einer aromatischen Sauce. Lassen Sie sich dieses exquisite Gericht nicht entgehen und starten Sie gestärkt in den Tag!',
       },
     ],
     isAvailableForPurchase: true,
@@ -2128,6 +2456,10 @@ const salads: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -2174,6 +2506,10 @@ const salads: Product[] = [
         locale: 'ka',
         value: '„ცეცხლოვანი ტრიალი“: ბუფალოს ქათმის სალათი',
       },
+      {
+        locale: 'de',
+        value: '"Feuerwirbel": Büffel-Hühnersalat',
+      },
     ],
     description: [
       {
@@ -2187,6 +2523,10 @@ const salads: Product[] = [
       {
         locale: 'ka',
         value: 'გეპატიჟებით ჩვენს რესტორანში დააგემოვნოთ ბუფალოს ქათმის სალათის დახვეწილი გემო! ცხარე სოუსში მარინირებული ნაზი ქათმის ხორცი იდეალურად ერწყმის სალათის ფურცლებს, სტაფილოს, ნიახურს და ორიგინალურ ცისფერი ყველის სოუსს. ეს კერძი ნამდვილი აღმოჩენა იქნება ცხარე და უჩვეულო არომატული კომბინაციების მოყვარულთათვის!',
+      },
+      {
+        locale: 'de',
+        value: 'Genießen Sie den exquisiten Geschmack unseres Buffalo Chicken Salats in unserem Restaurant! Zartes Hähnchenfleisch, mariniert in pikanter Sauce, harmoniert perfekt mit Salatblättern, Karotten, Sellerie und unserem originellen Blauschimmelkäse-Dressing. Dieses Gericht ist eine wahre Entdeckung für alle Liebhaber von würzigen und außergewöhnlichen Geschmackskombinationen!',
       },
     ],
     isAvailableForPurchase: true,
@@ -2205,6 +2545,10 @@ const salads: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -2251,6 +2595,10 @@ const salads: Product[] = [
         locale: 'ka',
         value: 'მომხიბვლელი კრევეტები: კეისრის სალათი',
       },
+      {
+        locale: 'de',
+        value: 'Charmante Garnelen: Caesar-Salat',
+      },
     ],
     description: [
       {
@@ -2264,6 +2612,10 @@ const salads: Product[] = [
       {
         locale: 'ka',
         value: 'ჩვენს რესტორანში დააგემოვნეთ კრევეტებით შეზავებული ცეზარის სალათის უნიკალური გემო! წვნიანი კრევეტების, ხრაშუნა სალათის ფოთლებისა და არომატული სოუსის ნაზი კომბინაცია თქვენს გულს მოიგებს. იდეალური არჩევანია რომანტიკული ვახშმისთვის ან მეგობრული შეხვედრისთვის.',
+      },
+      {
+        locale: 'de',
+        value: 'Genießen Sie den einzigartigen Geschmack unseres Caesar Salad mit Garnelen! Die zarte Kombination aus saftigen Garnelen, knackigen Salatblättern und aromatischer Sauce wird Sie begeistern. Die perfekte Wahl für ein romantisches Abendessen oder ein Treffen mit Freunden.',
       },
     ],
     isAvailableForPurchase: true,
@@ -2282,6 +2634,10 @@ const salads: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -2328,6 +2684,10 @@ const salads: Product[] = [
         locale: 'ka',
         value: '„ბარბექიუ ფლიპი“: გემოსა და არომატის აფეთქება',
       },
+      {
+        locale: 'de',
+        value: '"Barbecue Flip": eine Geschmacks- und Aromaexplosion',
+      },
     ],
     description: [
       {
@@ -2341,6 +2701,10 @@ const salads: Product[] = [
       {
         locale: 'ka',
         value: 'გასინჯეთ ჩვენი ფირმული BBQ ქათმის სალათი - წვნიანი ქათმის, ბეკონის, პომიდვრისა და კვერცხის იდეალური კომბინაცია BBQ სოუსთან ერთად. ამ კერძის ნაზი გემო და არომატი დიდხანს დაგამახსოვრდებათ!',
+      },
+      {
+        locale: 'de',
+        value: 'Probieren Sie unseren einzigartigen BBQ-Hähnchensalat – eine perfekte Kombination aus saftigem Hähnchen, Speck, Tomaten und Eiern mit BBQ-Sauce. Der feine Geschmack dieses Gerichts wird Ihnen noch lange in Erinnerung bleiben!',
       },
     ],
     isAvailableForPurchase: true,
@@ -2359,6 +2723,10 @@ const salads: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -2405,6 +2773,10 @@ const salads: Product[] = [
         locale: 'ka',
         value: 'კობის შიკი',
       },
+      {
+        locale: 'de',
+        value: 'Cobbs schick',
+      },
     ],
     description: [
       {
@@ -2418,6 +2790,10 @@ const salads: Product[] = [
       {
         locale: 'ka',
         value: 'აღმოაჩინეთ ლეგენდარული კობის სალათის დახვეწილი გემო ჩვენს რესტორანში! ნაზი ქათმის, წვნიანი ავოკადოს, ახალი პომიდვრის, ხრაშუნა ბეკონისა და არომატული ლურჯი ყველის ეს კომბინაცია გულგრილს არ დაგტოვებთ. იდეალური არჩევანია მათთვის, ვინც აფასებს ნამდვილ ამერიკულ სამზარეულოს და სურს დატკბეს უნიკალური არომატით.',
+      },
+      {
+        locale: 'de',
+        value: 'Entdecken Sie den unvergleichlichen Geschmack des legendären Cobb-Salats in unserem Restaurant! Diese Kombination aus zartem Hähnchenfleisch, saftiger Avocado, frischen Tomaten, knusprigem Speck und aromatischem Blauschimmelkäse wird Sie begeistern. Die ideale Wahl für alle, die authentische amerikanische Küche schätzen und den einzigartigen Geschmack genießen möchten.',
       },
     ],
     isAvailableForPurchase: true,
@@ -2436,6 +2812,10 @@ const salads: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -2482,6 +2862,10 @@ const salads: Product[] = [
         locale: 'ka',
         value: 'იმპერიული კეისარი',
       },
+      {
+        locale: 'de',
+        value: 'Kaiserlicher Cäsar',
+      },
     ],
     description: [
       {
@@ -2495,6 +2879,10 @@ const salads: Product[] = [
       {
         locale: 'ka',
         value: 'განიცადეთ კლასიკური ცეზარის სალათის უნიკალური გემო ჩვენს რესტორანში! წვნიანი სალათის ფოთლების, არომატული პარმეზანისა და ოქროსფერი კრუტონების ნაზი კომბინაცია, რომელიც განსაკუთრებული ვუსტერის სოუსით არის შეზავებული, დაუვიწყარ გასტრონომიულ სიამოვნებას მოგანიჭებთ.',
+      },
+      {
+        locale: 'de',
+        value: 'Erleben Sie den einzigartigen Geschmack des klassischen Caesar Salad in unserem Restaurant! Die zarte Kombination aus saftigen Salatblättern, duftendem Parmesan und goldbraunen Croutons, verfeinert mit einer speziellen Worcester-Sauce, wird Ihnen ein unvergessliches Geschmackserlebnis bescheren.',
       },
     ],
     isAvailableForPurchase: true,
@@ -2513,6 +2901,10 @@ const salads: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -2559,6 +2951,10 @@ const salads: Product[] = [
         locale: 'ka',
         value: 'არომატების კოსმიური აფეთქება',
       },
+      {
+        locale: 'de',
+        value: 'Kosmische Geschmacksexplosion',
+      },
     ],
     description: [
       {
@@ -2572,6 +2968,10 @@ const salads: Product[] = [
       {
         locale: 'ka',
         value: 'აღმოაჩინეთ ახალი ბოსტნეულის, ნაზი ქათმისა და არომატული სანელებლების საოცარი კომბინაცია. დატკბით უნიკალური გემოთი და გაამდიდრეთ თქვენი სუფრის კაშკაშა ვარსკვლავები ენერგიით!',
+      },
+      {
+        locale: 'de',
+        value: 'Entdecken Sie eine fantastische Kombination aus frischem Gemüse, zartem Hähnchen und duftenden Gewürzen. Genießen Sie den einzigartigen Geschmack und bringen Sie Ihre Gäste zum Strahlen!',
       },
     ],
     isAvailableForPurchase: true,
@@ -2590,6 +2990,10 @@ const salads: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -2636,6 +3040,10 @@ const salads: Product[] = [
         locale: 'ka',
         value: 'არომატების ბერძნული ოაზისი',
       },
+      {
+        locale: 'de',
+        value: 'Griechische Geschmacksoase',
+      },
     ],
     description: [
       {
@@ -2649,6 +3057,10 @@ const salads: Product[] = [
       {
         locale: 'ka',
         value: 'ბერძნული სალათი სიახლისა და ვიტამინების კლასიკური წყაროა. ისიამოვნეთ მწიფე პომიდვრის, ხრაშუნა კიტრის, ტკბილი წიწაკის, წითელი ხახვისა და ნაზი ზეთისხილის იდეალური კომბინაციით. შეაზავეთ არომატული ზეითუნის ზეთით და დაუმატეთ ორიგინალური ფეტა - და თქვენი სუფრა ნამდვილ გემოს ნადიმად გადაიქცევა!',
+      },
+      {
+        locale: 'de',
+        value: 'Griechischer Salat ist ein Klassiker voller Frische und Vitamine. Genießen Sie die perfekte Kombination aus reifen Tomaten, knackigen Gurken, Paprika, roten Zwiebeln und zarten Oliven. Würzen Sie alles mit duftendem Olivenöl und fügen Sie originalen Feta hinzu – und Ihr Tisch wird zu einem wahren Festmahl für den Gaumen!',
       },
     ],
     isAvailableForPurchase: true,
@@ -2667,6 +3079,10 @@ const salads: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -2716,6 +3132,10 @@ const soups: Product[] = [
         locale: 'ka',
         value: 'უხვი ბორშტი',
       },
+      {
+        locale: 'de',
+        value: 'Großzügiger Borschtsch',
+      },
     ],
     description: [
       {
@@ -2729,6 +3149,10 @@ const soups: Product[] = [
       {
         locale: 'ka',
         value: 'ნამდვილი გურმანებისთვის დახვეწილი კერძი. ნაზი ხორცი, არომატული ბოსტნეული და სქელი არაჟანი ქმნის უნიკალურ გემოს, რომელიც დიდხანს დაგამახსოვრდებათ.',
+      },
+      {
+        locale: 'de',
+        value: 'Ein exquisites Gericht für wahre Feinschmecker. Zartes Fleisch, duftendes Gemüse und dicke Sauerrahm ergeben einen einzigartigen Geschmack, der Ihnen lange in Erinnerung bleiben wird.',
       },
     ],
     isAvailableForPurchase: true,
@@ -2747,6 +3171,10 @@ const soups: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -2793,6 +3221,10 @@ const soups: Product[] = [
         locale: 'ka',
         value: 'ლუარის ხიბლი',
       },
+      {
+        locale: 'de',
+        value: 'Der Charme der Loire',
+      },
     ],
     description: [
       {
@@ -2806,6 +3238,10 @@ const soups: Product[] = [
       {
         locale: 'ka',
         value: 'აღმოაჩინეთ ნამდვილი ფრანგული ხახვის წვნიანი ჩვენს რესტორანში! ნაზი კრემისებრი ბულიონი, ოქროსფერი ხახვი და ცხარე თიამი ქმნის უნიკალურ არომატულ კომბინაციას. გასინჯეთ ეს დახვეწილი წვნიანი და იგრძენით საფრანგეთის ატმოსფერო აქ, ჩვენს მყუდრო ადგილას!',
+      },
+      {
+        locale: 'de',
+        value: 'Entdecken Sie die echte französische Zwiebelsuppe in unserem Restaurant! Zarte, cremige Brühe, goldgelbe Zwiebeln und würziger Thymian ergeben eine einzigartige Geschmackskombination. Genießen Sie diese exquisite Suppe und erleben Sie französisches Flair in unserem gemütlichen Restaurant!',
       },
     ],
     isAvailableForPurchase: true,
@@ -2824,6 +3260,10 @@ const soups: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -2870,6 +3310,10 @@ const soups: Product[] = [
         locale: 'ka',
         value: 'მეგობრობა! სენდვიჩი! კლუბი!',
       },
+      {
+        locale: 'de',
+        value: 'Freundschaft! Sandwich! Club!',
+      },
     ],
     description: [
       {
@@ -2883,6 +3327,10 @@ const soups: Product[] = [
       {
         locale: 'ka',
         value: 'გასინჯეთ ჩვენი გემრიელი და გულიანი ქათმის ლაფშითა და ფუნთუშით შეზავებული სენდვიჩი! ნაზი ქათმის ხორცი, წვნიანი ბოსტნეული და ხრაშუნა ფუნთუშა - შესანიშნავი არჩევანი თქვენი სადილისა თუ ვახშმისთვის. განიცადეთ ხელნაკეთი კერძების უნიკალური გემო ჩვენი რესტორნის მყუდრო ატმოსფეროში!',
+      },
+      {
+        locale: 'de',
+        value: 'Probieren Sie unser köstliches und herzhaftes Hühnernudel-Sandwich! Zartes Hühnerfleisch, saftiges Gemüse und ein knuspriges Brötchen – eine hervorragende Wahl für Ihr Mittag- oder Abendessen. Genießen Sie den einzigartigen Geschmack hausgemachter Küche in der gemütlichen Atmosphäre unseres Restaurants!',
       },
     ],
     isAvailableForPurchase: true,
@@ -2901,6 +3349,10 @@ const soups: Product[] = [
           {
             locale: 'ka',
             value: 'ნაწილი',
+          },
+          {
+            locale: 'de',
+            value: 'Portion',
           },
         ],
         images: [
@@ -2950,6 +3402,10 @@ const categories: Menu['categories'] = [
         locale: 'ka',
         value: 'ბურგერები',
       },
+      {
+        locale: 'de',
+        value: 'Burger',
+      },
     ],
     icon: 'i-fluent-emoji-flat:hamburger',
     products: burgers,
@@ -2969,6 +3425,10 @@ const categories: Menu['categories'] = [
       {
         locale: 'ka',
         value: 'ცხელი კერძები',
+      },
+      {
+        locale: 'de',
+        value: 'Warme Mahlzeiten',
       },
     ],
     icon: 'i-fluent-emoji-flat:spaghetti',
@@ -2990,6 +3450,10 @@ const categories: Menu['categories'] = [
         locale: 'ka',
         value: 'სალათები',
       },
+      {
+        locale: 'de',
+        value: 'Salate',
+      },
     ],
     icon: 'i-fluent-emoji-flat:green-salad',
     products: salads,
@@ -3009,6 +3473,10 @@ const categories: Menu['categories'] = [
       {
         locale: 'ka',
         value: 'სუპები',
+      },
+      {
+        locale: 'de',
+        value: 'Suppen',
       },
     ],
     icon: 'i-fluent-emoji-flat:pot-of-food',
@@ -3030,6 +3498,10 @@ const categories: Menu['categories'] = [
         locale: 'ka',
         value: 'სასუსნავები',
       },
+      {
+        locale: 'de',
+        value: 'Snacks',
+      },
     ],
     icon: 'i-fluent-emoji-flat:sandwich',
     products: snacks,
@@ -3049,6 +3521,10 @@ const categories: Menu['categories'] = [
       {
         locale: 'ka',
         value: 'დესერტები',
+      },
+      {
+        locale: 'de',
+        value: 'Desserts',
       },
     ],
     icon: 'i-fluent-emoji-flat:shortcake',
@@ -3070,6 +3546,10 @@ const menu: Menu = {
     {
       locale: 'ka',
       value: 'ნაგულისხმევი მენიუ',
+    },
+    {
+      locale: 'de',
+      value: 'Standardmenü',
     },
   ],
   slug: 'default-menu',

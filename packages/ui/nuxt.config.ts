@@ -17,18 +17,17 @@ export default defineNuxtConfig({
     typedPages: true,
   },
   i18n: {
-    langDir: 'locales',
     strategy: 'no_prefix',
     defaultLocale: 'en',
-    vueI18n: resolvePath('./i18n/vue-i18n.options.ts'),
     detectBrowserLanguage: {
       useCookie: true,
       alwaysRedirect: true,
     },
     locales: [
-      { code: 'en', language: 'en-US', name: 'English', file: 'en-US.json' },
-      { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru-RU.json' },
-      { code: 'ka', language: 'ka-GE', name: 'ქართული', file: 'ka-GE.json' },
+      { code: 'de', language: 'de-DE', name: 'Deutsch' },
+      { code: 'en', language: 'en-US', name: 'English' },
+      { code: 'ka', language: 'ka-GE', name: 'ქართული' },
+      { code: 'ru', language: 'ru-RU', name: 'Русский' },
     ],
   },
   css: [resolvePath('./app/assets/css/main.css')],
@@ -53,9 +52,6 @@ export default defineNuxtConfig({
     storageKey: 'nextorders-color-mode',
   },
   icon: {
-    customCollections: [
-      { prefix: 'nextorders', dir: resolvePath('./app/assets/icons') },
-    ],
     clientBundle: {
       scan: {
         globInclude: ['app/**/*.{vue,ts}'],

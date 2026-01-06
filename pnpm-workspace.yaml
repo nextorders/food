@@ -16,8 +16,8 @@ packages:
 catalogs:
   dev:
     '@antfu/eslint-config': ^6.7.3
-    '@commitlint/cli': ^20.2.0
-    '@commitlint/config-conventional': ^20.2.0
+    '@commitlint/cli': ^20.3.0
+    '@commitlint/config-conventional': ^20.3.0
     '@iconify-json/circle-flags': ^1.2.10
     '@iconify-json/fluent-emoji-flat': ^1.2.5
     '@iconify-json/lucide': ^1.2.82
@@ -46,7 +46,7 @@ catalogs:
     '@vueuse/nuxt': ^14.1.0
     libphonenumber-js: ^1.12.33
     pinia: ^3.0.4
-    zod: ^4.2.1
+    zod: ^4.3.5
   test:
     '@vitest/browser-playwright': ^4.0.16
     '@vitest/coverage-v8': ^4.0.16
@@ -54,14 +54,5 @@ catalogs:
     vitest: ^4.0.16
   types:
     '@types/node': ^25.0.3
-
-ignoredBuiltDependencies:
-  - '@parcel/watcher'
-  - esbuild
-  - msw
-  - vue-demi
-
-onlyBuiltDependencies:
-  - sharp
 
 autoInstallPeers: true

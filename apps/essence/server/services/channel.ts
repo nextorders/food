@@ -18,6 +18,10 @@ const paymentMethodsForDelivery: PaymentMethod[] = [
         locale: 'ka',
         value: 'ნაღდი ფული კურიერთან',
       },
+      {
+        locale: 'de',
+        value: 'Bargeld an den Kurier',
+      },
     ],
   },
   {
@@ -35,6 +39,10 @@ const paymentMethodsForDelivery: PaymentMethod[] = [
       {
         locale: 'ka',
         value: 'კარდი კურიერთან',
+      },
+      {
+        locale: 'de',
+        value: 'Karte an den Kurier',
       },
     ],
   },
@@ -56,6 +64,10 @@ const paymentMethodsForSelfPickup: PaymentMethod[] = [
       {
         locale: 'ka',
         value: 'ნაღდი',
+      },
+      {
+        locale: 'de',
+        value: 'Bargeld',
       },
     ],
   },
@@ -223,6 +235,10 @@ const links: Channel['links'] = {
           locale: 'ka',
           value: '8 800 123-45-69',
         },
+        {
+          locale: 'de',
+          value: '8 800 123-45-69',
+        },
       ],
       to: 'tel:88001234569',
       icon: 'i-lucide-phone-call',
@@ -243,6 +259,10 @@ const links: Channel['links'] = {
           locale: 'ka',
           value: 'საჯარო შეთავაზება',
         },
+        {
+          locale: 'de',
+          value: 'Öffentliches Angebot',
+        },
       ],
       to: '#',
     },
@@ -260,6 +280,10 @@ const links: Channel['links'] = {
           locale: 'ka',
           value: 'კონფიდენციალურობის პოლიტიკა',
         },
+        {
+          locale: 'de',
+          value: 'Datenschutzrichtlinie',
+        },
       ],
       to: '#',
     },
@@ -276,6 +300,10 @@ const links: Channel['links'] = {
         {
           locale: 'ka',
           value: 'პროგრამული უზრუნველყოფა ელექტრონული კომერციისთვის',
+        },
+        {
+          locale: 'de',
+          value: 'Software für den E-Commerce',
         },
       ],
       to: 'https://nextorders.ru/',
@@ -324,6 +352,15 @@ OGRN 12345, INN 12345
 ამ ვებსაიტზე განთავსებული ინფორმაცია არ წარმოადგენს საჯარო შეთავაზებას.
 პროდუქტის სურათები შეიძლება განსხვავდებოდეს ორიგინალისგან.`,
   },
+  {
+    locale: 'de',
+    value: `© 2024–2025 Fictitious Company LLC
+OGRN 12345, INN 12345
+236000 Kaliningrad Oblast, Kaliningrad, Teatralnaya Str. 33A
+
+Die Informationen auf dieser Website stellen kein öffentliches Angebot dar. 
+Produktabbildungen können vom Original abweichen.`,
+  },
 ]
 
 const channels: Channel[] = [{
@@ -341,6 +378,10 @@ const channels: Channel[] = [{
       locale: 'ka',
       value: 'მოსკოვი',
     },
+    {
+      locale: 'de',
+      value: 'Moskau',
+    },
   ],
   title: [
     {
@@ -355,6 +396,10 @@ const channels: Channel[] = [{
       locale: 'ka',
       value: 'გასინჯვა მოსკოვში',
     },
+    {
+      locale: 'de',
+      value: 'Geschmackserlebnisse für unterwegs in Moskau',
+    },
   ],
   description: [
     {
@@ -368,6 +413,10 @@ const channels: Channel[] = [{
     {
       locale: 'ka',
       value: 'დატკბით უნიკალური გემოებით და სასიამოვნო გარემოთი',
+    },
+    {
+      locale: 'de',
+      value: 'Genießen Sie einzigartige Geschmackserlebnisse und eine angenehme Atmosphäre',
     },
   ],
   url: 'https://demo.nextorders.space/moscow',
@@ -418,6 +467,20 @@ The institution reserves the right to refuse delivery in case of a large number 
 
 დაწესებულება იტოვებს უფლებას უარი თქვას მიწოდებაზე შეკვეთების დიდი რაოდენობის ან ტექნიკური პრობლემების შემთხვევაში.`,
       },
+      {
+        locale: 'de',
+        value: `Die Lieferung erfolgt innerhalb von 1–2 Stunden nach Bestelleingang.
+
+Der Mindestbestellwert für kostenlose Lieferung beträgt 1500 Rubel.
+
+Die Lieferkosten richten sich nach der Entfernung zum Lieferort bzw. zur Lieferadresse und betragen zwischen 0 und 1000 Rubel.
+
+Die Bezahlung kann bei Erhalt bar oder per Karte erfolgen.
+
+Bei Stornierung oder Änderung der Bestellung ist der volle Lieferpreis zu entrichten.
+
+Das Unternehmen behält sich das Recht vor, die Lieferung bei hohem Bestellaufkommen oder technischen Problemen zu verweigern.`,
+      },
     ],
     minAmountForDelivery: 800,
     schedule: deliverySchedule,
@@ -456,6 +519,16 @@ The establishment reserves the right to refuse in-store pickup if it is overbook
 
 დაწესებულებას უფლება აქვს უარი თქვას მაღაზიაში ასაღებად, თუ ის გადატვირთულია ან თუ ტექნიკური პრობლემები გავლენას ახდენს შეკვეთის დამუშავებაზე.`,
       },
+      {
+        locale: 'de',
+        value: `Bei Abholung im Geschäft ist Ihre Bestellung innerhalb von 1–2 Stunden abholbereit.
+
+Es gibt keinen Mindestbestellwert für die Abholung im Geschäft – Sie können beliebig viel bestellen. Die Abholung ist kostenlos und es fallen keine zusätzlichen Gebühren an.
+
+Sie können Ihre Bestellung bei Abholung bar oder mit Kreditkarte bezahlen. Wenn Sie Ihre Bestellung stornieren oder ändern, wird Ihre Vorauszahlung, falls vorhanden, vollständig zurückerstattet.
+
+Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, falls es überbucht ist oder technische Probleme die Bestellabwicklung beeinträchtigen.`,
+      },
     ],
     schedule: selfPickupSchedule,
     warehouses: [
@@ -474,6 +547,10 @@ The establishment reserves the right to refuse in-store pickup if it is overbook
             locale: 'ka',
             value: 'კოლოტუშკინა 12',
           },
+          {
+            locale: 'de',
+            value: 'Kolotushkina 12',
+          },
         ],
         address: {
           street: [
@@ -488,6 +565,10 @@ The establishment reserves the right to refuse in-store pickup if it is overbook
             {
               locale: 'ka',
               value: 'კოლოტუშკინა 12',
+            },
+            {
+              locale: 'de',
+              value: 'Kolotushkina 12',
             },
           ],
         },
@@ -507,6 +588,10 @@ The establishment reserves the right to refuse in-store pickup if it is overbook
             locale: 'ka',
             value: 'ლენინა 46',
           },
+          {
+            locale: 'de',
+            value: 'Lenina 46',
+          },
         ],
         address: {
           street: [
@@ -521,6 +606,10 @@ The establishment reserves the right to refuse in-store pickup if it is overbook
             {
               locale: 'ka',
               value: 'ლენინა 46',
+            },
+            {
+              locale: 'de',
+              value: 'Lenina 46',
             },
           ],
         },
@@ -546,6 +635,10 @@ The establishment reserves the right to refuse in-store pickup if it is overbook
       locale: 'ka',
       value: 'სანქტ-პეტერბურგი',
     },
+    {
+      locale: 'de',
+      value: 'Sankt Petersburg',
+    },
   ],
   title: [
     {
@@ -560,6 +653,10 @@ The establishment reserves the right to refuse in-store pickup if it is overbook
       locale: 'ka',
       value: 'გასინჯეთ სანქტ-პეტერბურგში',
     },
+    {
+      locale: 'de',
+      value: 'Geschmackserlebnisse für unterwegs in Sankt Petersburg',
+    },
   ],
   description: [
     {
@@ -573,6 +670,10 @@ The establishment reserves the right to refuse in-store pickup if it is overbook
     {
       locale: 'ka',
       value: 'დატკბით უნიკალური გემოებით და სასიამოვნო გარემოთი',
+    },
+    {
+      locale: 'de',
+      value: 'Genießen Sie einzigartige Geschmackserlebnisse und eine angenehme Atmosphäre',
     },
   ],
   url: 'https://demo.nextorders.space/peterburg',

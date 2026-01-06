@@ -1,6 +1,17 @@
+import de from './locales/de-DE'
+import en from './locales/en-US'
+import ka from './locales/ka-GE'
+import ru from './locales/ru-RU'
+
 export default defineI18nConfig(() => ({
   legacy: false,
   fallbackLocale: 'en',
+  messages: {
+    de,
+    en,
+    ka,
+    ru,
+  },
   pluralRules: {
     ru(choice, choicesLength) {
       if (choice === 0) {
