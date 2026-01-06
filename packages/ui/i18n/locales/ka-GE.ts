@@ -90,7 +90,7 @@ export const ka: Dictionary = {
     'time': {
       hour: 'საათი | საათები',
       minute: 'წუთი | წუთები',
-      second: 'წაკი | წაკები',
+      second: 'წამი | წაკები',
     },
     'time-ago': {
       'just-now': 'ახლა',

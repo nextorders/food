@@ -187,7 +187,7 @@ export const de: Dictionary = {
       lb: 'Pfund',
     },
     'nutrition': {
-      'value-title': 'Nährwert pro 100 gramm',
+      'value-title': 'Nährwert pro 100 Gramm',
       'calories': 'Kalorien',
       'kcal': 'kcal',
       'protein': 'Protein',

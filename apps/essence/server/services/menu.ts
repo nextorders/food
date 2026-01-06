@@ -1578,7 +1578,7 @@ const desserts: Product[] = [
           },
           {
             locale: 'de',
-            value: 'Schneiden',
+            value: 'Scheibe',
           },
         ],
         images: [
@@ -1741,7 +1741,7 @@ const desserts: Product[] = [
           },
           {
             locale: 'de',
-            value: 'Schlitzer',
+            value: 'Scheibe',
           },
         ],
         images: [

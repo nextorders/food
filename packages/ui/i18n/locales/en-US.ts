@@ -206,7 +206,7 @@ export const en = {
     'time-from': 'Time from',
     'time-to': 'Time to',
     'payment-type': {
-      cash: 'Сash',
+      cash: 'Cash',
       card: 'Card',
       custom: 'Custom',
     },
