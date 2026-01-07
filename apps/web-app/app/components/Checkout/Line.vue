@@ -8,11 +8,11 @@
 
         <div class="flex flex-col gap-1">
           <div class="font-medium text-sm/4 line-clamp-2">
-            {{ optionsStore.getLocaleValue(product?.title, locale) }}
+            {{ optionsStore.getLocaleValue(product?.title) }}
           </div>
           <div class="flex flex-row gap-2 flex-nowrap items-center text-sm text-muted">
             <p>
-              {{ optionsStore.getLocaleValue(productVariant?.title, locale) }}
+              {{ optionsStore.getLocaleValue(productVariant?.title) }}
             </p>
             <p>
               {{ productVariant?.weightValue }}{{ getWeightLocalizedUnit(productVariant?.weightUnit) }}
@@ -32,7 +32,7 @@
     </div>
 
     <div class="min-w-14 ml-0 md:ml-4 text-base md:text-lg text-right tracking-tight">
-      {{ new Intl.NumberFormat(locale).format(line.totalPrice) }} <span class="text-xs">{{ optionsStore.currencySign }}</span>
+      {{ optionsStore.formatCurrency(line.totalPrice) }} <span class="text-xs">{{ optionsStore.currencySign }}</span>
     </div>
   </div>
 </template>
@@ -45,8 +45,6 @@ const { line, canBeChanged = true } = defineProps<{
   line: OrderItem
   canBeChanged?: boolean
 }>()
-
-const { locale } = useI18n()
 
 const optionsStore = useOptionsStore()
 const menuStore = useMenuStore()

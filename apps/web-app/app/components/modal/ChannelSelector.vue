@@ -44,7 +44,7 @@
           :key="c.id"
           variant="link"
           size="sm"
-          :label="optionsStore.getLocaleValue(c.selectorTitle, locale as Locale)"
+          :label="optionsStore.getLocaleValue(c.selectorTitle)"
           class="p-0 text-md font-semibold cursor-pointer"
           @click="channelStore.select(c.id)"
         />
@@ -63,7 +63,6 @@
 </template>
 
 <script setup lang="ts">
-import type { Locale } from '@nextorders/food-schema'
 import { useChannelStore } from '@nextorders/core/app/stores/channel'
 import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
@@ -74,12 +73,10 @@ const { dismissible = true } = defineProps<{
 const optionsStore = useOptionsStore()
 const channelStore = useChannelStore()
 
-const { locale } = useI18n()
-
 const search = ref('')
 const filteredChannels = computed(() =>
   channelStore.list.filter((c) => {
-    const title = optionsStore.getLocaleValue(c.selectorTitle, locale.value as Locale).toLowerCase()
+    const title = optionsStore.getLocaleValue(c.selectorTitle).toLowerCase()
     return title.includes(search.value.toLowerCase())
   }),
 )

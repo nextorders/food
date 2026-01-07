@@ -36,14 +36,12 @@ import type { Order, PaymentMethod } from '@nextorders/food-schema'
 import { useChannelStore } from '@nextorders/core/app/stores/channel'
 import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
-const { locale } = useI18n()
-
 const optionsStore = useOptionsStore()
 const channelStore = useChannelStore()
 const orderStore = useOrderStore()
 
 const paymentMethods = computed(() => orderStore.deliveryMethod === 'deliveryByCourier' ? channelStore.deliveryByCourier?.paymentMethods : channelStore.selfPickup?.paymentMethods)
-const items = computed(() => paymentMethods.value?.map((p) => ({ label: optionsStore.getLocaleValue(p.title, locale.value), value: p.id })))
+const items = computed(() => paymentMethods.value?.map((p) => ({ label: optionsStore.getLocaleValue(p.title), value: p.id })))
 
 const state = ref<Pick<Order, 'paymentMethodId' | 'changeFrom'>>({
   paymentMethodId: '',

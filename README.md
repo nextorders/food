@@ -35,20 +35,22 @@ Let's see what happens. Give the project a star ⭐. Offer your ideas and make c
 
 [Check out PageSpeed Insights](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fdemo.nextorders.space%2F). Maybe it's showing all 100s 😉
 
-## 🌎 Locales
+## 🌎 Supported Locales
 
-The application has [several localizations](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales):
+The application currently supports [different languages](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales):
 
-- en | English
-- de | German | Deutsch
-- ka | Georgian | ქართული
-- ru | Russian | Русский
+* `en` | 🇺🇸 English [en-US](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/en-US.ts)
+* `de` | 🇩🇪 German | Deutsch [de-DE](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/de-DE.ts)
+* `ka` | 🇬🇪 Georgian | ქართული [ka-GE](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ka-GE.ts)
+* `ru` | 🇷🇺 Russian | Русский [ru-RU](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ru-RU.ts)
+* `zh_cn` | 🇨🇳 Chinese | 中文 [zh-CN](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/zh-CN.ts)
 
 ## 🥒 Repository structure
 
+- [Food Schema](https://github.com/nextorders/food/tree/main/packages/food-schema): All types and schemas for the project. Here you can understand main data structures.
 - [Web App](https://github.com/nextorders/food/tree/main/apps/web-app): Web storefront. Client can order delicious food.
 - [Web App Selector](https://github.com/nextorders/food/tree/main/apps/web-app-selector): Welcome screen with a list of available storefronts.
-- [Essence](https://github.com/nextorders/food/tree/main/apps/essence): An example of a service with business logic and data.
+- [Essence](https://github.com/nextorders/food/tree/main/apps/essence): An example of a service with business logic and data. Web App and Web App Selector use it via API.
 
 ## ☕ How to deploy
 

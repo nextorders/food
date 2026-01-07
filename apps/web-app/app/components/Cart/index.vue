@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col h-full shrink-0">
     <template v-if="orderStore.id">
-      <div class="flex flex-col h-full shrink-0 motion-preset-slide-left">
+      <div class="flex flex-col h-full shrink-0 md:motion-preset-slide-left">
         <div class="flex flex-col gap-4 flex-1 overflow-y-auto px-4 py-2">
           <div class="flex flex-row justify-between items-center">
             <h3 class="text-2xl font-semibold">
@@ -47,13 +47,13 @@
             color="secondary"
             size="xl"
             block
-            class="justify-between motion-preset-slide-up-sm"
+            class="min-h-14 items-center justify-between motion-preset-slide-up-sm"
           >
-            <p class="font-medium">
+            <p class="text-base/5 font-medium">
               {{ $dict('web-app.cart.next-label') }}
             </p>
-            <p class="text-lg tracking-tight">
-              {{ new Intl.NumberFormat(locale).format(orderStore.totalPrice) }} <span class="text-base">{{ optionsStore.currencySign }}</span>
+            <p class="shrink-0 text-center text-lg/4">
+              {{ optionsStore.formatCurrency(orderStore.totalPrice) }} <span class="text-base">{{ optionsStore.currencySign }}</span>
             </p>
           </UButton>
         </div>
@@ -61,7 +61,7 @@
     </template>
 
     <template v-else>
-      <UIcon name="i-lucide-shopping-basket" class="my-auto size-24 text-dimmed/25 self-center" />
+      <UIcon name="i-lucide-shopping-basket" class="my-auto size-24 text-dimmed/25 self-center motion-preset-pop" />
     </template>
   </div>
 </template>
@@ -70,7 +70,6 @@
 import { ModalDeliveryInfo } from '#components'
 import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
-const { locale } = useI18n()
 const { isCartDrawerOpened } = useApp()
 
 const overlay = useOverlay()

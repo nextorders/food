@@ -31,8 +31,6 @@ import type { OrderWarehouseAddress } from '@nextorders/food-schema'
 import { useChannelStore } from '@nextorders/core/app/stores/channel'
 import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
-const { locale } = useI18n()
-
 const channelStore = useChannelStore()
 const optionsStore = useOptionsStore()
 const orderStore = useOrderStore()
@@ -47,5 +45,5 @@ watch(state, () => {
   orderStore.address = state.value
 }, { deep: true })
 
-const items = computed(() => channelStore.selfPickup?.warehouses?.map((warehouse) => ({ label: optionsStore.getLocaleValue(warehouse.address.street, locale.value), value: warehouse.id })))
+const items = computed(() => channelStore.selfPickup?.warehouses?.map((warehouse) => ({ label: optionsStore.getLocaleValue(warehouse.address.street), value: warehouse.id })))
 </script>

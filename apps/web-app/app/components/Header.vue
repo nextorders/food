@@ -18,7 +18,7 @@
             color="neutral"
             variant="outline"
             size="lg"
-            class="motion-preset-slide-right"
+            class="motion-preset-slide-down"
           />
 
           <template #content>
@@ -42,7 +42,6 @@
 <script setup lang="ts">
 import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
-const { locale } = useI18n()
 const { isNavbarOpened } = useApp()
 
 const optionsStore = useOptionsStore()
@@ -55,8 +54,8 @@ const groups = computed(() => [
   {
     id: 'products',
     items: products.value.map((product) => ({
-      label: optionsStore.getLocaleValue(product.title, locale.value),
-      suffix: optionsStore.getLocaleValue(product.category.title, locale.value),
+      label: optionsStore.getLocaleValue(product.title),
+      suffix: optionsStore.getLocaleValue(product.category.title),
       onSelect: () => {
         isModalOpened.value = false
         navigateTo(`/${product.category.slug}/${product.slug}`)

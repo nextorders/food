@@ -17,11 +17,11 @@
         <div>
           <div class="text-xl font-medium">
             <span v-if="!withSingleVariant" class="pr-1">{{ $dict('web-app.cart.from') }}</span>
-            <span>{{ price }}</span>
+            <span>{{ optionsStore.formatCurrency(smallestVariant?.gross ?? 0) }}</span>
             <span class="pl-1 text-lg">{{ optionsStore.currencySign }}</span>
           </div>
           <p class="text-base/5 line-clamp-2">
-            {{ optionsStore.getLocaleValue(product?.title, locale as Locale) }}
+            {{ optionsStore.getLocaleValue(product?.title) }}
           </p>
           <div class="mt-2 font-light text-muted">
             <span v-if="!withSingleVariant" class="pr-1">{{ $dict('web-app.cart.from') }}</span>
@@ -43,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Locale, Product } from '@nextorders/food-schema'
+import type { Product } from '@nextorders/food-schema'
 import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
 const { product, categorySlug } = defineProps<{
@@ -52,14 +52,11 @@ const { product, categorySlug } = defineProps<{
   lazy?: boolean
 }>()
 
-const { locale } = useI18n()
-
 const optionsStore = useOptionsStore()
 
 const withSingleVariant = computed<boolean>(() => product.variants.length === 1)
 const smallestVariant = computed(() => product.variants[0])
 
-const price = computed(() => new Intl.NumberFormat(locale.value).format(smallestVariant.value?.gross ?? 0))
 const weightValue = computed(() => smallestVariant.value?.weightValue)
 const weightUnit = computed(() => getWeightLocalizedUnit(smallestVariant.value?.weightUnit))
 const productUrl = computed(() => `/${categorySlug}/${product.slug}`)

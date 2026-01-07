@@ -19,12 +19,20 @@ const { availableLocales } = defineProps<{ availableLocales: Locale[] }>()
 
 const { locale, locales, setLocale } = useI18n()
 
-const items = ref(locales.value.filter((l) => availableLocales.includes(l.code)).map((l) => ({
-  isActive: l.code === locale.value,
-  name: l.code,
-  label: l.name,
-  icon: `circle-flags:${l.code}`,
-})))
+const items = ref(locales.value.filter((l) => availableLocales.includes(l.code)).map((l) => {
+  // Guard: If locale is with _, remove it
+  let codeForIcon: string = l.code
+  if (l.code.includes('_')) {
+    codeForIcon = l.code.split('_')[0] ?? ''
+  }
+
+  return {
+    isActive: l.code === locale.value,
+    name: l.code,
+    label: l.name,
+    icon: `circle-flags:${codeForIcon}`,
+  }
+}))
 
 const value = ref(items.value.find((l) => l.isActive))
 </script>

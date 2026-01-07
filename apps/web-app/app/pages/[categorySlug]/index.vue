@@ -2,7 +2,7 @@
   <CatalogBreadcrumb :items="breadcrumbs" />
 
   <h1 class="text-2xl md:text-3xl font-semibold">
-    {{ optionsStore.getLocaleValue(category?.title, locale) }}
+    {{ optionsStore.getLocaleValue(category?.title) }}
   </h1>
   <div class="text-base/5">
     {{ $dict('web-app.category-page-description') }}
@@ -23,7 +23,6 @@ import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
 const { params } = useRoute('categorySlug')
 
-const { locale } = useI18n()
 const { dict } = useDictionary()
 
 const optionsStore = useOptionsStore()
@@ -40,11 +39,11 @@ if (!category) {
 const products = menuStore.getProductsInCategory(category.id).filter((p) => p.isAvailableForPurchase && p.variants.length)
 
 useHead({
-  title: optionsStore.getLocaleValue(category?.title, locale.value),
+  title: optionsStore.getLocaleValue(category?.title),
 })
 
 const breadcrumbs = computed(() => [
   { label: dict('common.home'), icon: 'lucide:house', to: '/' },
-  { label: optionsStore.getLocaleValue(category?.title, locale.value) },
+  { label: optionsStore.getLocaleValue(category?.title) },
 ])
 </script>

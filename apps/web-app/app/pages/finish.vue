@@ -31,7 +31,7 @@
       <div>
         {{ $dict('web-app.checkout.address.title') }}:
         <p v-if="warehouse?.address" class="inline font-medium">
-          {{ optionsStore.getLocaleValue(warehouse.address.street, locale) }}
+          {{ optionsStore.getLocaleValue(warehouse.address.street) }}
         </p>
         <p v-if="deliveryAddress?.street" class="inline font-medium">
           <span>{{ deliveryAddress?.street }} {{ deliveryAddress?.flat }}</span>
@@ -42,7 +42,7 @@
         </p>
       </div>
 
-      <p>{{ $dict('web-app.checkout.payment-title') }}: <span class="font-medium">{{ optionsStore.getLocaleValue(paymentMethod, locale) }}</span></p>
+      <p>{{ $dict('web-app.checkout.payment-title') }}: <span class="font-medium">{{ optionsStore.getLocaleValue(paymentMethod) }}</span></p>
       <p v-if="order?.changeFrom">
         {{ $dict('web-app.checkout.change-label') }}: <span class="font-medium">{{ order.changeFrom }} {{ optionsStore.currencySign }}</span>
       </p>
@@ -97,7 +97,6 @@ definePageMeta({
 })
 
 const route = useRoute()
-const { locale } = useI18n()
 
 const channelStore = useChannelStore()
 const orderStore = useOrderStore()

@@ -21,6 +21,10 @@ const burgers: Product[] = [
         locale: 'de',
         value: 'Der Wildwest-Burger',
       },
+      {
+        locale: 'zh_cn',
+        value: '西部汉堡',
+      },
     ],
     description: [
       {
@@ -38,6 +42,10 @@ const burgers: Product[] = [
       {
         locale: 'de',
         value: 'Machen Sie sich bereit für eine Reise in den Wilden Westen mit unserem unglaublichen Burger! Zartes Fleisch, saftiges Gemüse und eine knusprige Brötchenhülle werden Sie in die Welt der Cowboys und Indianer versetzen. Tauchen Sie ein in die Atmosphäre der Abenteuer und genießen Sie den wahren Geschmack des Wilden Westens!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '准备好用我们美味的汉堡开启一段狂野西部之旅吧！鲜嫩多汁的牛肉饼、爽口的蔬菜和酥脆的面包，带你进入牛仔和印第安人的世界。沉浸在冒险的氛围中，尽享真正的西部风味！',
       },
     ],
     isAvailableForPurchase: true,
@@ -60,6 +68,10 @@ const burgers: Product[] = [
           {
             locale: 'de',
             value: 'Standard',
+          },
+          {
+            locale: 'zh_cn',
+            value: '标准',
           },
         ],
         images: [
@@ -110,6 +122,10 @@ const burgers: Product[] = [
         locale: 'de',
         value: 'Der zarte Wolken-Burger',
       },
+      {
+        locale: 'zh_cn',
+        value: '嫩云汉堡',
+      },
     ],
     description: [
       {
@@ -127,6 +143,10 @@ const burgers: Product[] = [
       {
         locale: 'de',
         value: 'Genießen Sie die Zartheit unseres Spezialburgers! Die Kombination aus luftigem Blauschimmelkäse, saftigem Gemüse und aromatischem Fleisch wird Sie begeistern. Ein perfekter Genuss in jedem Bissen!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '感受我们特制汉堡如云朵般柔软的口感！轻盈的蓝纹奶酪、鲜嫩多汁的蔬菜和风味浓郁的肉饼完美融合，定会让您回味无穷。每一口都是味蕾的极致享受！',
       },
     ],
     isAvailableForPurchase: true,
@@ -149,6 +169,10 @@ const burgers: Product[] = [
           {
             locale: 'de',
             value: 'Standard',
+          },
+          {
+            locale: 'zh_cn',
+            value: '标准',
           },
         ],
         images: [
@@ -199,6 +223,10 @@ const burgers: Product[] = [
         locale: 'de',
         value: 'Vegetarisches Paradies: Veggie-Burger',
       },
+      {
+        locale: 'zh_cn',
+        value: '素食者的天堂：素汉堡',
+      },
     ],
     description: [
       {
@@ -216,6 +244,10 @@ const burgers: Product[] = [
       {
         locale: 'de',
         value: 'Genießen Sie ein vegetarisches Paradies mit unserem speziellen Veggie-Burger! Eine köstliche Kombination aus Gemüse, Kräutern und nahrhaften Zutaten sorgt für ein unvergessliches Geschmackserlebnis. Spüren Sie die Frische der Natur in jedem Bissen unseres Veggie-Burgers!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '来品尝我们特制的素食汉堡，享受素食者的天堂！蔬菜、香草和营养食材的美味组合，将带给您难忘的味蕾体验。每一口都让您感受到大自然的清新！',
       },
     ],
     isAvailableForPurchase: true,
@@ -238,6 +270,10 @@ const burgers: Product[] = [
           {
             locale: 'de',
             value: 'Standard',
+          },
+          {
+            locale: 'zh_cn',
+            value: '标准',
           },
         ],
         images: [
@@ -288,6 +324,10 @@ const burgers: Product[] = [
         locale: 'de',
         value: 'Köstlicher Zwiebelburger',
       },
+      {
+        locale: 'zh_cn',
+        value: '美味的洋葱汉堡',
+      },
     ],
     description: [
       {
@@ -305,6 +345,10 @@ const burgers: Product[] = [
       {
         locale: 'de',
         value: 'Entdecken Sie mit unserem Burger eine faszinierende Geschmackswelt: Zartes Fleisch, frisches Gemüse und aromatische Röstzwiebeln vereinen sich zu einer einzigartigen Kombination. Genießen Sie jeden Bissen und tauchen Sie ein in ein wahres Fest für die Sinne!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '品尝我们汉堡带来的奇妙味觉体验，鲜嫩的肉饼、新鲜的蔬菜和香气四溢的炸洋葱完美融合，带来独一无二的味觉享受。细细品味每一口，沉浸在真正的美食盛宴中！',
       },
     ],
     isAvailableForPurchase: true,
@@ -327,6 +371,10 @@ const burgers: Product[] = [
           {
             locale: 'de',
             value: 'Standard',
+          },
+          {
+            locale: 'zh_cn',
+            value: '标准',
           },
         ],
         images: [
@@ -377,6 +425,10 @@ const burgers: Product[] = [
         locale: 'de',
         value: 'Galaktischer Burger',
       },
+      {
+        locale: 'zh_cn',
+        value: '银河汉堡',
+      },
     ],
     description: [
       {
@@ -394,6 +446,10 @@ const burgers: Product[] = [
       {
         locale: 'de',
         value: 'Entdecken Sie den galaktischen Burger – eine unglaubliche Kombination aus saftigem Gemüse, zartem Fleisch und knusprigem Brötchen. Erleben Sie den einzigartigen Geschmack ferner Sterne und tauchen Sie direkt am Tisch in die Welt der Weltraumabenteuer ein!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '探索银河汉堡——鲜嫩多汁的蔬菜、诱人的肉饼和酥脆的面包完美融合。品尝来自遥远星辰的独特滋味，在餐桌上即可沉浸于太空冒险的世界！',
       },
     ],
     isAvailableForPurchase: true,
@@ -416,6 +472,10 @@ const burgers: Product[] = [
           {
             locale: 'de',
             value: 'Standard',
+          },
+          {
+            locale: 'zh_cn',
+            value: '标准',
           },
         ],
         images: [
@@ -466,6 +526,10 @@ const burgers: Product[] = [
         locale: 'de',
         value: 'Pilzboom: Ein Burger mit Geheimnis',
       },
+      {
+        locale: 'zh_cn',
+        value: '蘑菇热潮：一款蕴藏秘密的汉堡',
+      },
     ],
     description: [
       {
@@ -483,6 +547,10 @@ const burgers: Product[] = [
       {
         locale: 'de',
         value: 'Entdecken Sie mit unserem neuen Burger eine wunderbare Geschmackswelt! Zartes Fleisch, saftige Champignons und ein knuspriges Brötchen – diese Kombination wird Sie begeistern. Erleben Sie den einzigartigen Geschmack eines echten Champignon-Genusses!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '用我们全新推出的汉堡，探索美妙的味蕾世界！鲜嫩的牛肉饼、多汁的蘑菇和酥脆的面包——这样的组合定能俘获您的味蕾。体验真正蘑菇带来的独特美味！',
       },
     ],
     isAvailableForPurchase: true,
@@ -505,6 +573,10 @@ const burgers: Product[] = [
           {
             locale: 'de',
             value: 'Standard',
+          },
+          {
+            locale: 'zh_cn',
+            value: '标准',
           },
         ],
         images: [
@@ -555,6 +627,10 @@ const burgers: Product[] = [
         locale: 'de',
         value: 'Jardines Burger',
       },
+      {
+        locale: 'zh_cn',
+        value: '贾丁汉堡',
+      },
     ],
     description: [
       {
@@ -572,6 +648,10 @@ const burgers: Product[] = [
       {
         locale: 'de',
         value: 'Genießen Sie den einzigartigen Geschmack eines saftigen, gegrillten Putenschnitzels auf einem knusprigen Brötchen mit frischem Gemüse. Zartes Putenfleisch, verfeinert mit aromatischen Gewürzen, ist eine wahre Entdeckung für Fleischliebhaber!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '体验鲜嫩多汁的烤火鸡排搭配酥脆面包和新鲜蔬菜的独特风味。鲜嫩的火鸡肉佐以香气四溢的香料，必将为肉食爱好者带来真正的味觉盛宴！',
       },
     ],
     isAvailableForPurchase: true,
@@ -594,6 +674,10 @@ const burgers: Product[] = [
           {
             locale: 'de',
             value: 'Standard',
+          },
+          {
+            locale: 'zh_cn',
+            value: '标准',
           },
         ],
         images: [
@@ -644,6 +728,10 @@ const burgers: Product[] = [
         locale: 'de',
         value: 'Heißer Texas-Burger',
       },
+      {
+        locale: 'zh_cn',
+        value: '德州辣汉堡',
+      },
     ],
     description: [
       {
@@ -661,6 +749,10 @@ const burgers: Product[] = [
       {
         locale: 'de',
         value: 'So erleben Sie echten Texas-Geschmack! Zartes Fleisch, frisches Gemüse und ein appetitliches Brötchen – dieser Burger wird Sie garantiert begeistern!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '带你体验真正的德州风味！鲜嫩的肉饼、新鲜的蔬菜和美味的面包——这款汉堡绝对会让你赞不绝口！',
       },
     ],
     isAvailableForPurchase: true,
@@ -683,6 +775,10 @@ const burgers: Product[] = [
           {
             locale: 'de',
             value: 'Standard',
+          },
+          {
+            locale: 'zh_cn',
+            value: '标准',
           },
         ],
         images: [
@@ -733,6 +829,10 @@ const burgers: Product[] = [
         locale: 'de',
         value: 'Zarter Bacon-Burger',
       },
+      {
+        locale: 'zh_cn',
+        value: '嫩培根汉堡',
+      },
     ],
     description: [
       {
@@ -750,6 +850,10 @@ const burgers: Product[] = [
       {
         locale: 'de',
         value: 'Tauchen Sie ein in die Zartheit von Speck: Probieren Sie unseren Burger! Duftender Speck, saftiges Patty und frisches Gemüse – eine Geschmacksexplosion für echte Feinschmecker.',
+      },
+      {
+        locale: 'zh_cn',
+        value: '尽情享受培根的鲜嫩美味：尝尝我们的汉堡吧！香气四溢的培根、鲜嫩多汁的肉饼和新鲜蔬菜——为真正的美食家带来味蕾的盛宴。',
       },
     ],
     isAvailableForPurchase: true,
@@ -772,6 +876,10 @@ const burgers: Product[] = [
           {
             locale: 'de',
             value: 'Standard',
+          },
+          {
+            locale: 'zh_cn',
+            value: '标准',
           },
         ],
         images: [
@@ -825,6 +933,10 @@ const snacks: Product[] = [
         locale: 'de',
         value: 'Flügel des Glücks: Buffalo Hot Breath',
       },
+      {
+        locale: 'zh_cn',
+        value: '幸福之翼：布法罗热气',
+      },
     ],
     description: [
       {
@@ -842,6 +954,10 @@ const snacks: Product[] = [
       {
         locale: 'de',
         value: 'Buffalo Fried Wings – würzig, saftig und unglaublich lecker! Die perfekte Wahl für eine gelungene Party.',
+      },
+      {
+        locale: 'zh_cn',
+        value: '布法罗炸鸡翅——香辣多汁，美味无比！是派对狂欢的完美之选。',
       },
     ],
     isAvailableForPurchase: true,
@@ -864,6 +980,10 @@ const snacks: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -914,6 +1034,10 @@ const snacks: Product[] = [
         locale: 'de',
         value: 'Gemüsereichtum',
       },
+      {
+        locale: 'zh_cn',
+        value: '蔬菜丰收',
+      },
     ],
     description: [
       {
@@ -931,6 +1055,10 @@ const snacks: Product[] = [
       {
         locale: 'de',
         value: 'Genießen Sie den Geschmack von frischem Gemüse in unserer Gemüse-Quesadilla! Saftige Zutaten, verfeinert mit aromatischen Gewürzen, machen sie zur perfekten Kombination. Lassen Sie sich die Gelegenheit nicht entgehen, unsere Gemüse-Quesadilla zu probieren und sich von den leuchtenden Aromen beleben zu lassen!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '品尝我们新鲜蔬菜墨西哥薄饼，感受蔬菜的美味！多汁的食材搭配芳香的香料，完美融合。千万别错过我们的蔬菜墨西哥薄饼，让清新爽口的滋味为您注入活力！',
       },
     ],
     isAvailableForPurchase: true,
@@ -953,6 +1081,10 @@ const snacks: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -1003,6 +1135,10 @@ const snacks: Product[] = [
         locale: 'de',
         value: 'Cheeseburgerettes',
       },
+      {
+        locale: 'zh_cn',
+        value: '芝士汉堡',
+      },
     ],
     description: [
       {
@@ -1020,6 +1156,10 @@ const snacks: Product[] = [
       {
         locale: 'de',
         value: 'Zarte Mini-Cheeseburger – der perfekte Snack für die ganze Familie! Köstliche Mini-Burger mit echtem amerikanischen Käse, saftigem Patty und frischem Gemüse. Erleben Sie jetzt die Atmosphäre eines echten amerikanischen Restaurants!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '鲜嫩迷你芝士汉堡——全家共享的完美小吃！美味的迷你汉堡，搭配正宗美式芝士、多汁肉饼和新鲜蔬菜。现在就来感受正宗美式餐厅的氛围吧！',
       },
     ],
     isAvailableForPurchase: true,
@@ -1042,6 +1182,10 @@ const snacks: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -1092,6 +1236,10 @@ const snacks: Product[] = [
         locale: 'de',
         value: 'Heißer Käse und Speck',
       },
+      {
+        locale: 'zh_cn',
+        value: '热奶酪和培根',
+      },
     ],
     description: [
       {
@@ -1109,6 +1257,10 @@ const snacks: Product[] = [
       {
         locale: 'de',
         value: 'Erleben Sie den einzigartigen Geschmack von Pommes frites mit Cheddar-Käse und Speck in unserem Restaurant! Die perfekte Kombination für echte Feinschmecker.',
+      },
+      {
+        locale: 'zh_cn',
+        value: '来我们餐厅体验一下薯条配切达奶酪和培根的独特风味吧！这可是真正美食家的完美组合。',
       },
     ],
     isAvailableForPurchase: true,
@@ -1131,6 +1283,10 @@ const snacks: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -1181,6 +1337,10 @@ const snacks: Product[] = [
         locale: 'de',
         value: 'Käseabenteuer: Nachos mit drei Käsesorten',
       },
+      {
+        locale: 'zh_cn',
+        value: '奶酪探险：三种奶酪玉米片',
+      },
     ],
     description: [
       {
@@ -1198,6 +1358,10 @@ const snacks: Product[] = [
       {
         locale: 'de',
         value: 'Tauchen Sie ein in die Atmosphäre eines echten mexikanischen Urlaubs mit unseren einzigartigen Käse-Nachos! Die zarte Kombination aus drei Käsesorten und knuspriger Maistortilla wird selbst anspruchsvollste Feinschmecker begeistern. Servieren Sie dazu scharfe Sauce oder Salsa – die perfekte Kombination für einen unvergesslichen Abend mit Freunden und Familie.',
+      },
+      {
+        locale: 'zh_cn',
+        value: '我们诚邀您品尝我们独具特色的芝士玉米片，感受浓郁的墨西哥节日氛围！三种芝士的柔滑组合搭配酥脆的玉米饼，即使是最挑剔的美食家也会为之倾倒。佐以辣酱或莎莎酱，与亲朋好友共度难忘夜晚，堪称完美搭配。',
       },
     ],
     isAvailableForPurchase: true,
@@ -1220,6 +1384,10 @@ const snacks: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -1270,6 +1438,10 @@ const snacks: Product[] = [
         locale: 'de',
         value: 'Speck-Extravaganza',
       },
+      {
+        locale: 'zh_cn',
+        value: '培根盛宴',
+      },
     ],
     description: [
       {
@@ -1287,6 +1459,10 @@ const snacks: Product[] = [
       {
         locale: 'de',
         value: 'Entdecken Sie mit unserer Spezialität, der Pizzadilla, ein ganz neues Genusserlebnis! Dünner Teig, herzhafter Speck und Käse – diese Kombination wird Sie begeistern. Lassen Sie sich die Gelegenheit nicht entgehen, diesen unglaublichen Geschmack in der gemütlichen Atmosphäre unseres Restaurants zu genießen!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '品尝我们特色披萨卷饼，体验全新味蕾享受！薄脆的饼皮，鲜嫩的培根和香浓的芝士——这绝妙的组合定能俘获您的味蕾。千万别错过在我们餐厅舒适温馨的氛围中，尽情享受这令人难以抗拒的美味！',
       },
     ],
     isAvailableForPurchase: true,
@@ -1309,6 +1485,10 @@ const snacks: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -1359,6 +1539,10 @@ const snacks: Product[] = [
         locale: 'de',
         value: 'Die magischen Fäden von Gouda',
       },
+      {
+        locale: 'zh_cn',
+        value: '豪达奶酪的魔力丝线',
+      },
     ],
     description: [
       {
@@ -1376,6 +1560,10 @@ const snacks: Product[] = [
       {
         locale: 'de',
         value: 'Entdecken Sie eine faszinierende Welt der Aromen mit Gourmet-Käsesorten, die Ihnen mit jedem Bissen ein unvergessliches Geschmackserlebnis bieten.',
+      },
+      {
+        locale: 'zh_cn',
+        value: '探索美妙的味觉世界，品尝各种美味奶酪，每一口都将带给您难忘的体验。',
       },
     ],
     isAvailableForPurchase: true,
@@ -1398,6 +1586,10 @@ const snacks: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -1448,6 +1640,10 @@ const snacks: Product[] = [
         locale: 'de',
         value: 'Flambierte Quesadilla: Würzige Hähnchenscheiben',
       },
+      {
+        locale: 'zh_cn',
+        value: '火焰墨西哥薄饼：辣味鸡肉片',
+      },
     ],
     description: [
       {
@@ -1465,6 +1661,10 @@ const snacks: Product[] = [
       {
         locale: 'de',
         value: 'Genießen Sie in unserem Restaurant eine köstliche Hähnchen-Quesadilla! Zartes Hähnchenfilet, duftende Gewürze und goldgelber Käse – diese Kombination wird Sie begeistern. Serviert mit Gemüse und Salsa-Sauce. Erleben Sie den einzigartigen Geschmack authentischer mexikanischer Küche in der gemütlichen Atmosphäre unseres Restaurants!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '诚邀您光临本店，品尝我们美味的鸡肉墨西哥薄饼！鲜嫩的鸡胸肉、芬芳的香料和金黄的芝士——这绝妙的组合定会让您爱不释手。搭配蔬菜和莎莎酱，美味不容错过。在温馨舒适的餐厅氛围中，感受正宗墨西哥美食的独特魅力！',
       },
     ],
     isAvailableForPurchase: true,
@@ -1487,6 +1687,10 @@ const snacks: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -1540,6 +1744,10 @@ const desserts: Product[] = [
         locale: 'de',
         value: 'Apple-Spektakel',
       },
+      {
+        locale: 'zh_cn',
+        value: '苹果盛会',
+      },
     ],
     description: [
       {
@@ -1557,6 +1765,10 @@ const desserts: Product[] = [
       {
         locale: 'de',
         value: 'Ein köstlicher Kuchen, der Sie auf eine unvergessliche Geschmacksreise mitnimmt! Zarter Teig, duftende Äpfel und knusprige Kruste – diese Kombination wird Sie begeistern. Tauchen Sie mit diesem unglaublichen Kuchen in die festliche Stimmung ein!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '一款美味的馅饼，将带给你难忘的味蕾之旅！松软的饼皮、香甜的苹果和酥脆的饼皮——这样的组合定能俘获你的心。快来品尝这款令人惊艳的馅饼，沉浸在浓浓的节日氛围中吧！',
       },
     ],
     isAvailableForPurchase: true,
@@ -1579,6 +1791,10 @@ const desserts: Product[] = [
           {
             locale: 'de',
             value: 'Scheibe',
+          },
+          {
+            locale: 'zh_cn',
+            value: '片',
           },
         ],
         images: [
@@ -1620,6 +1836,10 @@ const desserts: Product[] = [
             locale: 'de',
             value: '2 Scheiben',
           },
+          {
+            locale: 'zh_cn',
+            value: '2 片',
+          },
         ],
         images: [
           {
@@ -1659,6 +1879,10 @@ const desserts: Product[] = [
           {
             locale: 'de',
             value: 'Ganzer Kuchen',
+          },
+          {
+            locale: 'zh_cn',
+            value: '整个馅饼',
           },
         ],
         images: [
@@ -1703,6 +1927,10 @@ const desserts: Product[] = [
         locale: 'de',
         value: 'New Yorker Chic-Käsekuchen',
       },
+      {
+        locale: 'zh_cn',
+        value: '纽约时尚芝士蛋糕',
+      },
     ],
     description: [
       {
@@ -1720,6 +1948,10 @@ const desserts: Product[] = [
       {
         locale: 'de',
         value: 'Erleben Sie den einzigartigen Geschmack eines echten New Yorker Käsekuchens! Die feine Kombination aus Frischkäse, knusprigem Boden und frischen Früchten wird Ihnen ein unvergessliches Geschmackserlebnis bescheren. Mit Liebe zubereitet, ist dieses Dessert der perfekte Abschluss eines gelungenen Abends oder eine wunderbare Bereicherung für ein Treffen mit Freunden.',
+      },
+      {
+        locale: 'zh_cn',
+        value: '体验正宗纽约芝士蛋糕的独特风味！奶油芝士、酥脆饼底和新鲜水果的完美融合，将带给您难以忘怀的味觉享受。这款用心制作的甜点，是您夜晚的完美收尾，也是朋友聚会的绝佳之选。',
       },
     ],
     isAvailableForPurchase: true,
@@ -1742,6 +1974,10 @@ const desserts: Product[] = [
           {
             locale: 'de',
             value: 'Scheibe',
+          },
+          {
+            locale: 'zh_cn',
+            value: '片',
           },
         ],
         images: [
@@ -1792,6 +2028,10 @@ const desserts: Product[] = [
         locale: 'de',
         value: 'Mangowirbel',
       },
+      {
+        locale: 'zh_cn',
+        value: '芒果漩涡',
+      },
     ],
     description: [
       {
@@ -1809,6 +2049,10 @@ const desserts: Product[] = [
       {
         locale: 'de',
         value: 'Erleben Sie mit unserem einzigartigen Dessert eine wahre Geschmacksexplosion der Tropen! Die delikate Kombination aus reifer Mango, cremiger Sahne und knusprigen Keksen wird Ihnen unvergesslichen Genuss bereiten. Tauchen Sie mit jedem Bissen dieser Köstlichkeit in eine warme, sonnige Atmosphäre ein.',
+      },
+      {
+        locale: 'zh_cn',
+        value: '品尝我们独具特色的甜点，体验真正的热带风味盛宴！成熟芒果、香浓奶油和酥脆饼干的完美融合，将带给您难以忘怀的愉悦享受。每一口都仿佛置身于温暖阳光的氛围中。',
       },
     ],
     isAvailableForPurchase: true,
@@ -1831,6 +2075,10 @@ const desserts: Product[] = [
           {
             locale: 'de',
             value: 'Schlitzer',
+          },
+          {
+            locale: 'zh_cn',
+            value: '片',
           },
         ],
         images: [
@@ -1884,6 +2132,10 @@ const hotMeals: Product[] = [
         locale: 'de',
         value: 'Geheime Leidenschaft: Hühnchen und Garnelen',
       },
+      {
+        locale: 'zh_cn',
+        value: '秘密爱好：鸡肉和虾',
+      },
     ],
     description: [
       {
@@ -1901,6 +2153,10 @@ const hotMeals: Product[] = [
       {
         locale: 'de',
         value: 'Hähnchen und Garnelen – eine delikate und exquisite Kombination für wahre Feinschmecker. Gebratenes Hähnchenfilet und Riesengarnelen in Sahnesauce eignen sich perfekt als Hauptgericht oder Beilage. Verwöhnen Sie sich und Ihre Lieben mit diesem köstlichen und aromatischen Gericht!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '鸡肉和虾仁——精致美味的组合，专为真正的美食家打造。烤鸡胸肉配奶油虎虾，既可作为完美的主菜，也可作为配菜。这道美味可口的热菜，定能让您和家人朋友大饱口福！',
       },
     ],
     isAvailableForPurchase: true,
@@ -1923,6 +2179,10 @@ const hotMeals: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -1973,6 +2233,10 @@ const hotMeals: Product[] = [
         locale: 'de',
         value: '"Triumphierendes Trio": ein Gericht aus drei Eiern',
       },
+      {
+        locale: 'zh_cn',
+        value: '“凯旋三重奏”：一道三蛋菜肴',
+      },
     ],
     description: [
       {
@@ -1990,6 +2254,10 @@ const hotMeals: Product[] = [
       {
         locale: 'de',
         value: 'Drei goldbraun gebratene Eier, verfeinert mit aromatischen Kräutern und zarter Sahne, bilden die perfekte Kombination. Dieses Gericht wird Ihren Gaumen verwöhnen und Ihnen ein unvergessliches Geschmackserlebnis bescheren!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '三个煎至金黄酥脆的鸡蛋，搭配芬芳的香草和细腻的奶油，堪称完美组合。这道菜将带给您真正的味蕾惊喜，让您拥有难忘的体验！',
       },
     ],
     isAvailableForPurchase: true,
@@ -2012,6 +2280,10 @@ const hotMeals: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -2062,6 +2334,10 @@ const hotMeals: Product[] = [
         locale: 'de',
         value: 'Firebird fajitas',
       },
+      {
+        locale: 'zh_cn',
+        value: '火鸟法士达',
+      },
     ],
     description: [
       {
@@ -2079,6 +2355,10 @@ const hotMeals: Product[] = [
       {
         locale: 'de',
         value: 'Erleben Sie den einzigartigen Geschmack Mexikos mit unseren köstlichen Hähnchen-Fajitas! Zartes Hähnchenfleisch, gebraten mit Gemüse und Gewürzen, ist die perfekte Ergänzung zu Ihren Lieblingstortillas. Genießen Sie den frischen Geschmack und tanken Sie neue Energie!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '品尝我们风味独特的墨西哥鸡肉法士达！鲜嫩的鸡肉与蔬菜和香料一起翻炒，搭配您最爱的玉米饼，美味无比。享受这清新爽口的滋味，感受阳光般的活力！',
       },
     ],
     isAvailableForPurchase: true,
@@ -2101,6 +2381,10 @@ const hotMeals: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -2151,6 +2435,10 @@ const hotMeals: Product[] = [
         locale: 'de',
         value: 'Gegrillter Lachs mit Chimichurri',
       },
+      {
+        locale: 'zh_cn',
+        value: '烤三文鱼配阿根廷青酱',
+      },
     ],
     description: [
       {
@@ -2168,6 +2456,10 @@ const hotMeals: Product[] = [
       {
         locale: 'de',
         value: 'Genießen Sie ein wahres Geschmackserlebnis mit unserem warmen Gericht: Gegrillter Lachs mit Chimichurri! Der aromatische, gewürzte Lachs wird goldbraun gegrillt und anschließend mit einer erfrischenden Chimichurri-Sauce serviert. Die perfekte Balance aus Geschmack und Aroma – ein Genuss für Ihren Gaumen!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '品尝我们热腾腾的烤三文鱼配阿根廷青酱，感受味蕾的极致享受！香辣三文鱼烤至金黄酥脆，佐以清爽的阿根廷青酱，风味与香气完美融合，令人回味无穷！',
       },
     ],
     isAvailableForPurchase: true,
@@ -2190,6 +2482,10 @@ const hotMeals: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -2240,6 +2536,10 @@ const hotMeals: Product[] = [
         locale: 'de',
         value: 'Meeresfrüchte-Königreich',
       },
+      {
+        locale: 'zh_cn',
+        value: '海鲜王国',
+      },
     ],
     description: [
       {
@@ -2257,6 +2557,10 @@ const hotMeals: Product[] = [
       {
         locale: 'de',
         value: 'Zart gebratener Kabeljau und Garnelen – eine exquisite Kombination aus Meeresfrüchtearomen in einer duftenden Tomatensoße. Dieses warme Gericht wird Ihre Tafel schmücken und Ihre Gäste begeistern!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '鲜嫩的鳕鱼和虾仁，搭配香气四溢的番茄酱汁，海鲜风味完美融合。这道热菜不仅会成为餐桌上的一道亮丽风景，更会让您的客人赞不绝口！',
       },
     ],
     isAvailableForPurchase: true,
@@ -2279,6 +2583,10 @@ const hotMeals: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -2329,6 +2637,10 @@ const hotMeals: Product[] = [
         locale: 'de',
         value: 'Jambalaya mit Hühnchen und Garnelen nach Kanjun-Art',
       },
+      {
+        locale: 'zh_cn',
+        value: '坎君风味鸡肉虾仁什锦饭',
+      },
     ],
     description: [
       {
@@ -2346,6 +2658,10 @@ const hotMeals: Product[] = [
       {
         locale: 'de',
         value: 'Entdecken Sie den einzigartigen Geschmack von Jambalaya mit Hühnchen und Garnelen nach Kanjun-Art! Dieses pikante Gericht vereint französische und spanische Kochtraditionen und wird selbst anspruchsvollste Feinschmecker begeistern. Probieren Sie es selbst!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '来尝尝康俊风味鸡肉虾仁什锦饭的独特滋味吧！这道热气腾腾的菜肴融合了法国和西班牙的烹饪传统，即使是最挑剔的美食家也会赞不绝口。快来亲自品尝吧！',
       },
     ],
     isAvailableForPurchase: true,
@@ -2368,6 +2684,10 @@ const hotMeals: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -2421,6 +2741,10 @@ const salads: Product[] = [
         locale: 'de',
         value: 'Pikante Vorspeise: Salat mit gegrilltem Hähnchen',
       },
+      {
+        locale: 'zh_cn',
+        value: '香辣开胃菜：烤鸡肉沙拉',
+      },
     ],
     description: [
       {
@@ -2438,6 +2762,10 @@ const salads: Product[] = [
       {
         locale: 'de',
         value: 'Genießen Sie eine köstliche Vorspeise! Unser Salat mit gegrilltem Hähnchen ist die perfekte Kombination aus saftigem Hähnchenfleisch, frischem Gemüse und einer aromatischen Sauce. Lassen Sie sich dieses exquisite Gericht nicht entgehen und starten Sie gestärkt in den Tag!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '我们诚邀您品尝美味开胃菜！我们的招牌烤鸡沙拉完美融合了鲜嫩多汁的鸡肉、新鲜蔬菜和浓郁酱汁。千万不要错过在我们餐厅品尝这道美味佳肴的机会，让您活力满满地迎接新的一天！',
       },
     ],
     isAvailableForPurchase: true,
@@ -2460,6 +2788,10 @@ const salads: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -2510,6 +2842,10 @@ const salads: Product[] = [
         locale: 'de',
         value: '"Feuerwirbel": Büffel-Hühnersalat',
       },
+      {
+        locale: 'zh_cn',
+        value: '“火焰旋风”：布法罗鸡肉沙拉',
+      },
     ],
     description: [
       {
@@ -2527,6 +2863,10 @@ const salads: Product[] = [
       {
         locale: 'de',
         value: 'Genießen Sie den exquisiten Geschmack unseres Buffalo Chicken Salats in unserem Restaurant! Zartes Hähnchenfleisch, mariniert in pikanter Sauce, harmoniert perfekt mit Salatblättern, Karotten, Sellerie und unserem originellen Blauschimmelkäse-Dressing. Dieses Gericht ist eine wahre Entdeckung für alle Liebhaber von würzigen und außergewöhnlichen Geschmackskombinationen!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '我们诚邀您来本店品尝美味的布法罗鸡肉沙拉！鲜嫩的鸡肉用香辣酱汁腌制，搭配生菜叶、胡萝卜、芹菜和特制蓝纹奶酪酱，风味绝佳。这道菜一定会让喜爱辛辣和独特口味组合的食客们眼前一亮！',
       },
     ],
     isAvailableForPurchase: true,
@@ -2549,6 +2889,10 @@ const salads: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -2599,6 +2943,10 @@ const salads: Product[] = [
         locale: 'de',
         value: 'Charmante Garnelen: Caesar-Salat',
       },
+      {
+        locale: 'zh_cn',
+        value: '迷人的虾仁：凯撒沙拉',
+      },
     ],
     description: [
       {
@@ -2616,6 +2964,10 @@ const salads: Product[] = [
       {
         locale: 'de',
         value: 'Genießen Sie den einzigartigen Geschmack unseres Caesar Salad mit Garnelen! Die zarte Kombination aus saftigen Garnelen, knackigen Salatblättern und aromatischer Sauce wird Sie begeistern. Die perfekte Wahl für ein romantisches Abendessen oder ein Treffen mit Freunden.',
+      },
+      {
+        locale: 'zh_cn',
+        value: '来我们餐厅品尝凯撒沙拉配鲜虾的独特风味吧！鲜嫩多汁的虾仁、爽脆的沙拉叶和浓郁的酱汁完美融合，定会让您爱不释手。无论是浪漫晚餐还是朋友聚会，都是绝佳之选。',
       },
     ],
     isAvailableForPurchase: true,
@@ -2638,6 +2990,10 @@ const salads: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -2688,6 +3044,10 @@ const salads: Product[] = [
         locale: 'de',
         value: '"Barbecue Flip": eine Geschmacks- und Aromaexplosion',
       },
+      {
+        locale: 'zh_cn',
+        value: '“烧烤翻转”：风味和香气的爆发',
+      },
     ],
     description: [
       {
@@ -2705,6 +3065,10 @@ const salads: Product[] = [
       {
         locale: 'de',
         value: 'Probieren Sie unseren einzigartigen BBQ-Hähnchensalat – eine perfekte Kombination aus saftigem Hähnchen, Speck, Tomaten und Eiern mit BBQ-Sauce. Der feine Geschmack dieses Gerichts wird Ihnen noch lange in Erinnerung bleiben!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '试试我们的招牌烧烤鸡肉沙拉——鲜嫩多汁的鸡肉、培根、番茄和鸡蛋，搭配烧烤酱，完美融合。这道菜的美味和口感定会让您回味无穷！',
       },
     ],
     isAvailableForPurchase: true,
@@ -2727,6 +3091,10 @@ const salads: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -2777,6 +3145,10 @@ const salads: Product[] = [
         locale: 'de',
         value: 'Cobbs schick',
       },
+      {
+        locale: 'zh_cn',
+        value: '科布的时尚',
+      },
     ],
     description: [
       {
@@ -2794,6 +3166,10 @@ const salads: Product[] = [
       {
         locale: 'de',
         value: 'Entdecken Sie den unvergleichlichen Geschmack des legendären Cobb-Salats in unserem Restaurant! Diese Kombination aus zartem Hähnchenfleisch, saftiger Avocado, frischen Tomaten, knusprigem Speck und aromatischem Blauschimmelkäse wird Sie begeistern. Die ideale Wahl für alle, die authentische amerikanische Küche schätzen und den einzigartigen Geschmack genießen möchten.',
+      },
+      {
+        locale: 'zh_cn',
+        value: '来我们餐厅品尝传奇科布沙拉的绝妙滋味吧！鲜嫩鸡肉、多汁牛油果、新鲜番茄、香脆培根和浓郁蓝纹奶酪的完美组合，定会让您回味无穷。对于喜爱正宗美式佳肴并想体验独特风味的食客来说，这绝对是理想之选。',
       },
     ],
     isAvailableForPurchase: true,
@@ -2816,6 +3192,10 @@ const salads: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -2866,6 +3246,10 @@ const salads: Product[] = [
         locale: 'de',
         value: 'Kaiserlicher Cäsar',
       },
+      {
+        locale: 'zh_cn',
+        value: '帝国凯撒',
+      },
     ],
     description: [
       {
@@ -2883,6 +3267,10 @@ const salads: Product[] = [
       {
         locale: 'de',
         value: 'Erleben Sie den einzigartigen Geschmack des klassischen Caesar Salad in unserem Restaurant! Die zarte Kombination aus saftigen Salatblättern, duftendem Parmesan und goldbraunen Croutons, verfeinert mit einer speziellen Worcester-Sauce, wird Ihnen ein unvergessliches Geschmackserlebnis bescheren.',
+      },
+      {
+        locale: 'zh_cn',
+        value: '来我们餐厅体验经典凯撒沙拉的独特风味吧！鲜嫩多汁的沙拉叶、香气四溢的帕玛森芝士和金黄酥脆的烤面包丁，淋上特制伍斯特沙司，定会带给您难忘的美食享受。',
       },
     ],
     isAvailableForPurchase: true,
@@ -2905,6 +3293,10 @@ const salads: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -2955,6 +3347,10 @@ const salads: Product[] = [
         locale: 'de',
         value: 'Kosmische Geschmacksexplosion',
       },
+      {
+        locale: 'zh_cn',
+        value: '宇宙级的味觉爆炸',
+      },
     ],
     description: [
       {
@@ -2972,6 +3368,10 @@ const salads: Product[] = [
       {
         locale: 'de',
         value: 'Entdecken Sie eine fantastische Kombination aus frischem Gemüse, zartem Hähnchen und duftenden Gewürzen. Genießen Sie den einzigartigen Geschmack und bringen Sie Ihre Gäste zum Strahlen!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '探索新鲜蔬菜、鲜嫩鸡肉和芬芳香料的绝妙组合。尽享独特美味，为您的餐桌增添活力！',
       },
     ],
     isAvailableForPurchase: true,
@@ -2994,6 +3394,10 @@ const salads: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -3044,6 +3448,10 @@ const salads: Product[] = [
         locale: 'de',
         value: 'Griechische Geschmacksoase',
       },
+      {
+        locale: 'zh_cn',
+        value: '希腊风味绿洲',
+      },
     ],
     description: [
       {
@@ -3061,6 +3469,10 @@ const salads: Product[] = [
       {
         locale: 'de',
         value: 'Griechischer Salat ist ein Klassiker voller Frische und Vitamine. Genießen Sie die perfekte Kombination aus reifen Tomaten, knackigen Gurken, Paprika, roten Zwiebeln und zarten Oliven. Würzen Sie alles mit duftendem Olivenöl und fügen Sie originalen Feta hinzu – und Ihr Tisch wird zu einem wahren Festmahl für den Gaumen!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '希腊沙拉是清新爽口、富含维生素的经典之选。饱满多汁的番茄、清脆爽口的黄瓜、香甜的甜椒、鲜红的洋葱和鲜嫩的橄榄完美融合，淋上芬芳的橄榄油，再撒上正宗的菲达奶酪——您的餐桌将瞬间变成一场味蕾盛宴！',
       },
     ],
     isAvailableForPurchase: true,
@@ -3083,6 +3495,10 @@ const salads: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -3136,6 +3552,10 @@ const soups: Product[] = [
         locale: 'de',
         value: 'Großzügiger Borschtsch',
       },
+      {
+        locale: 'zh_cn',
+        value: '丰盛的罗宋汤',
+      },
     ],
     description: [
       {
@@ -3153,6 +3573,10 @@ const soups: Product[] = [
       {
         locale: 'de',
         value: 'Ein exquisites Gericht für wahre Feinschmecker. Zartes Fleisch, duftendes Gemüse und dicke Sauerrahm ergeben einen einzigartigen Geschmack, der Ihnen lange in Erinnerung bleiben wird.',
+      },
+      {
+        locale: 'zh_cn',
+        value: '一道专为美食家打造的精致佳肴。鲜嫩的肉质、芬芳的蔬菜和浓郁的酸奶油，共同造就了令人难忘的独特风味。',
       },
     ],
     isAvailableForPurchase: true,
@@ -3175,6 +3599,10 @@ const soups: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -3225,6 +3653,10 @@ const soups: Product[] = [
         locale: 'de',
         value: 'Der Charme der Loire',
       },
+      {
+        locale: 'zh_cn',
+        value: '卢瓦尔河谷的魅力',
+      },
     ],
     description: [
       {
@@ -3242,6 +3674,10 @@ const soups: Product[] = [
       {
         locale: 'de',
         value: 'Entdecken Sie die echte französische Zwiebelsuppe in unserem Restaurant! Zarte, cremige Brühe, goldgelbe Zwiebeln und würziger Thymian ergeben eine einzigartige Geschmackskombination. Genießen Sie diese exquisite Suppe und erleben Sie französisches Flair in unserem gemütlichen Restaurant!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '来我们餐厅品尝正宗的法式洋葱汤吧！鲜嫩浓郁的汤底、金黄的洋葱和辛香的百里香，完美融合，带来独一无二的美味体验。快来品尝这道精致的汤品，在我们温馨舒适的餐厅里感受浓郁的法式风情！',
       },
     ],
     isAvailableForPurchase: true,
@@ -3264,6 +3700,10 @@ const soups: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -3314,6 +3754,10 @@ const soups: Product[] = [
         locale: 'de',
         value: 'Freundschaft! Sandwich! Club!',
       },
+      {
+        locale: 'zh_cn',
+        value: '友谊！三明治！俱乐部！',
+      },
     ],
     description: [
       {
@@ -3331,6 +3775,10 @@ const soups: Product[] = [
       {
         locale: 'de',
         value: 'Probieren Sie unser köstliches und herzhaftes Hühnernudel-Sandwich! Zartes Hühnerfleisch, saftiges Gemüse und ein knuspriges Brötchen – eine hervorragende Wahl für Ihr Mittag- oder Abendessen. Genießen Sie den einzigartigen Geschmack hausgemachter Küche in der gemütlichen Atmosphäre unseres Restaurants!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '快来尝尝我们美味又营养的鸡肉面条包！鲜嫩的鸡肉、多汁的蔬菜和酥脆的面包——是您午餐或晚餐的绝佳选择。在我们餐厅温馨舒适的氛围中，体验家常菜的独特风味！',
       },
     ],
     isAvailableForPurchase: true,
@@ -3353,6 +3801,10 @@ const soups: Product[] = [
           {
             locale: 'de',
             value: 'Portion',
+          },
+          {
+            locale: 'zh_cn',
+            value: '部分',
           },
         ],
         images: [
@@ -3406,6 +3858,10 @@ const categories: Menu['categories'] = [
         locale: 'de',
         value: 'Burger',
       },
+      {
+        locale: 'zh_cn',
+        value: '汉堡',
+      },
     ],
     icon: 'i-fluent-emoji-flat:hamburger',
     products: burgers,
@@ -3429,6 +3885,10 @@ const categories: Menu['categories'] = [
       {
         locale: 'de',
         value: 'Warme Mahlzeiten',
+      },
+      {
+        locale: 'zh_cn',
+        value: '热餐',
       },
     ],
     icon: 'i-fluent-emoji-flat:spaghetti',
@@ -3454,6 +3914,10 @@ const categories: Menu['categories'] = [
         locale: 'de',
         value: 'Salate',
       },
+      {
+        locale: 'zh_cn',
+        value: '沙拉',
+      },
     ],
     icon: 'i-fluent-emoji-flat:green-salad',
     products: salads,
@@ -3477,6 +3941,10 @@ const categories: Menu['categories'] = [
       {
         locale: 'de',
         value: 'Suppen',
+      },
+      {
+        locale: 'zh_cn',
+        value: '汤',
       },
     ],
     icon: 'i-fluent-emoji-flat:pot-of-food',
@@ -3502,6 +3970,10 @@ const categories: Menu['categories'] = [
         locale: 'de',
         value: 'Snacks',
       },
+      {
+        locale: 'zh_cn',
+        value: '零食',
+      },
     ],
     icon: 'i-fluent-emoji-flat:sandwich',
     products: snacks,
@@ -3525,6 +3997,10 @@ const categories: Menu['categories'] = [
       {
         locale: 'de',
         value: 'Desserts',
+      },
+      {
+        locale: 'zh_cn',
+        value: '甜点',
       },
     ],
     icon: 'i-fluent-emoji-flat:shortcake',
@@ -3550,6 +4026,10 @@ const menu: Menu = {
     {
       locale: 'de',
       value: 'Standardmenü',
+    },
+    {
+      locale: 'zh_cn',
+      value: '默认菜单',
     },
   ],
   slug: 'default-menu',

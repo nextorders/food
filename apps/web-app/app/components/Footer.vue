@@ -9,7 +9,7 @@
 
     <div class="flex flex-col lg:flex-row gap-2 justify-between lg:items-center">
       <div v-if="channelStore.copyright" class="font-sans text-xs text-muted whitespace-pre-wrap">
-        {{ optionsStore.getLocaleValue(channelStore.copyright, locale) }}
+        {{ optionsStore.getLocaleValue(channelStore.copyright) }}
       </div>
 
       <UNavigationMenu
@@ -45,7 +45,6 @@
 import { useChannelStore } from '@nextorders/core/app/stores/channel'
 import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
-const { locale } = useI18n()
 const location = useBrowserLocation()
 
 const projectUrl = 'https://github.com/nextorders/food'
@@ -60,7 +59,7 @@ const optionsStore = useOptionsStore()
 const channelStore = useChannelStore()
 
 const footerMenuItems = computed(() => channelStore.links?.footer.map((link) => ({
-  label: optionsStore.getLocaleValue(link.label, locale.value),
+  label: optionsStore.getLocaleValue(link.label),
   to: link.to,
   icon: link.icon,
   target: link.target,

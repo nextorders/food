@@ -1,7 +1,7 @@
 <template>
   <div class="mb-4 flex flex-row justify-between items-center gap-2">
     <h2 class="text-2xl/6 md:text-3xl font-semibold">
-      {{ optionsStore.getLocaleValue(category?.title, locale) }}
+      {{ optionsStore.getLocaleValue(category?.title) }}
     </h2>
 
     <UButton
@@ -35,8 +35,6 @@ const { category } = defineProps<{
   category: MenuCategory
   isFirst?: boolean
 }>()
-
-const { locale } = useI18n()
 
 const optionsStore = useOptionsStore()
 

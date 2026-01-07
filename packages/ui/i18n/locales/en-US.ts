@@ -191,33 +191,6 @@ export const en = {
       custom: 'Custom',
     },
     'language': 'Language',
-    'country': {
-      us: 'United States',
-      ru: 'Russia',
-      fr: 'France',
-      de: 'Germany',
-      it: 'Italy',
-      es: 'Spain',
-      tr: 'Turkey',
-      pl: 'Poland',
-      ua: 'Ukraine',
-      kz: 'Kazakhstan',
-      by: 'Belarus',
-      ge: 'Georgia',
-      gr: 'Greece',
-      gb: 'Great Britain',
-    },
-    'currency': {
-      usd: 'US Dollar',
-      rub: 'Russian Ruble',
-      eur: 'Euro',
-      gel: 'Georgian Lari',
-      byn: 'Belarusian Ruble',
-      uah: 'Ukrainian Hryvnia',
-      kzt: 'Kazakhstani Tenge',
-      pln: 'Polish Zloty',
-      try: 'Turkish Lira',
-    },
   },
   'error': {
     'title': 'Error',
@@ -225,5 +198,3 @@ export const en = {
     'invalid-credentials': 'Invalid credentials',
   },
 } as const
-
-// export default en
