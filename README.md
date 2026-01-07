@@ -39,11 +39,11 @@ Let's see what happens. Give the project a star ⭐. Offer your ideas and make c
 
 The application currently supports [different languages](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales):
 
-* `en` | English [🇺🇸 en-US](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/en-US.ts)
-* `de` | German | Deutsch [🇩🇪 de-DE](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/de-DE.ts)
-* `ka` | Georgian | ქართული [🇬🇪 ka-GE](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ka-GE.ts)
-* `ru` | Russian | Русский [🇷🇺 ru-RU](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ru-RU.ts)
-* `zh_cn` | Chinese | 中文 [🇨🇳 zh-CN](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/zh-CN.ts)
+* `en` | 🇺🇸 English [en-US](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/en-US.ts)
+* `de` | 🇩🇪 German | Deutsch [de-DE](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/de-DE.ts)
+* `ka` | 🇬🇪 Georgian | ქართული [ka-GE](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ka-GE.ts)
+* `ru` | 🇷🇺 Russian | Русский [ru-RU](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ru-RU.ts)
+* `zh_cn` | 🇨🇳 Chinese | 中文 [zh-CN](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/zh-CN.ts)
 
 ## 🥒 Repository structure
 
