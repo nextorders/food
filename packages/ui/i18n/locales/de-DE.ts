@@ -191,17 +191,6 @@ export const de: Dictionary = {
       custom: 'Anderes',
     },
     'language': 'Sprache',
-    'currency': {
-      usd: 'US Dollar',
-      rub: 'Russischer Rubel',
-      eur: 'Euro',
-      gel: 'Georgischer Lari',
-      byn: 'Belarussischer Rubel',
-      uah: 'Ukrainische Hrywnja',
-      kzt: 'Kasachstani Tenge',
-      pln: 'Polnischer Złoty',
-      try: 'Türkische Lira',
-    },
   },
   'error': {
     'title': 'Fehler',

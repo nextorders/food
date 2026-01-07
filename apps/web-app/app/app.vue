@@ -14,7 +14,8 @@ import * as locales from '@nuxt/ui/locale'
 
 const { locale } = useI18n()
 
-const appLocale = computed(() => locales[locale.value])
+const lang = computed(() => locales[locale.value].code)
+const dir = computed(() => locales[locale.value].dir)
 
 // Init Stores
 const optionsStore = useOptionsStore()
@@ -53,8 +54,8 @@ onBeforeUnmount(() => {
 
 useHead({
   htmlAttrs: {
-    lang: appLocale.value.code,
-    dir: appLocale.value.dir,
+    lang,
+    dir,
   },
   link: optionsStore.headLinks,
   style: optionsStore.headStyles,

@@ -191,17 +191,6 @@ export const en = {
       custom: 'Custom',
     },
     'language': 'Language',
-    'currency': {
-      usd: 'US Dollar',
-      rub: 'Russian Ruble',
-      eur: 'Euro',
-      gel: 'Georgian Lari',
-      byn: 'Belarusian Ruble',
-      uah: 'Ukrainian Hryvnia',
-      kzt: 'Kazakhstani Tenge',
-      pln: 'Polish Zloty',
-      try: 'Turkish Lira',
-    },
   },
   'error': {
     'title': 'Error',

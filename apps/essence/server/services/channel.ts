@@ -50,7 +50,7 @@ const paymentMethodsForDelivery: PaymentMethod[] = [
       },
       {
         locale: 'zh_cn',
-        value: '给快递员的卡片',
+        value: '刷卡付给快递员',
       },
     ],
   },

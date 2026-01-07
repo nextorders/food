@@ -191,17 +191,6 @@ export const zh_cn: Dictionary = {
       custom: '其他方式',
     },
     'language': '语言',
-    'currency': {
-      usd: '美元',
-      rub: '俄罗斯卢布',
-      eur: '欧元',
-      gel: '格鲁吉亚拉里',
-      byn: '白俄罗斯卢布',
-      uah: '乌克兰格里夫纳',
-      kzt: '哈萨克斯坦坚戈',
-      pln: '波兰兹罗提',
-      try: '土耳其里拉',
-    },
   },
   'error': {
     'title': '错误',
