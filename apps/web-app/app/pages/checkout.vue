@@ -46,7 +46,7 @@
             <div class="flex flex-row justify-between text-lg">
               <div>{{ $dict('web-app.checkout.cost.products') }}</div>
               <div class="tracking-tight">
-                {{ new Intl.NumberFormat(locale).format(orderStore.totalPrice) }} <span class="text-sm">{{ optionsStore.currencySign }}</span>
+                {{ optionsStore.formatCurrency(orderStore.totalPrice) }} <span class="text-sm">{{ optionsStore.currencySign }}</span>
               </div>
             </div>
           </div>
@@ -88,7 +88,7 @@
             </UTooltip>
 
             <div class="font-medium text-right text-2xl min-w-24 tracking-tight">
-              {{ new Intl.NumberFormat(locale).format(orderStore.totalPrice) }} <span class="text-base">{{ optionsStore.currencySign }}</span>
+              {{ optionsStore.formatCurrency(orderStore.totalPrice) }} <span class="text-base">{{ optionsStore.currencySign }}</span>
             </div>
           </div>
         </div>
@@ -121,7 +121,6 @@ definePageMeta({
   layout: 'checkout',
 })
 
-const { locale } = useI18n()
 const { dict } = useDictionary()
 
 const channelStore = useChannelStore()
@@ -155,6 +154,6 @@ async function updateCheckout() {
 }
 
 useHead({
-  title: `${dict('web-app.checkout.title')} | ${optionsStore.getLocaleValue(channelStore.title, locale.value)}`,
+  title: `${dict('web-app.checkout.title')} | ${optionsStore.getLocaleValue(channelStore.title)}`,
 })
 </script>

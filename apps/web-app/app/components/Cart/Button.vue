@@ -3,7 +3,7 @@
     v-if="!orderStore.isEmpty"
     v-model:open="isCartDrawerOpened"
     direction="right"
-    class="block xl:hidden"
+    class="block xl:hidden motion-preset-slide-down"
   >
     <UChip
       :text="orderStore.items.length"

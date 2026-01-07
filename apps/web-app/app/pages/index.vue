@@ -11,10 +11,10 @@
   />
 
   <h1 class="mt-18 mb-2 text-3xl md:text-4xl font-semibold">
-    {{ optionsStore.getLocaleValue(channelStore.title, locale) }}
+    {{ optionsStore.getLocaleValue(channelStore.title) }}
   </h1>
   <div class="mb-8">
-    {{ optionsStore.getLocaleValue(channelStore.description, locale) }}
+    {{ optionsStore.getLocaleValue(channelStore.description) }}
   </div>
 </template>
 
@@ -22,18 +22,16 @@
 import { useChannelStore } from '@nextorders/core/app/stores/channel'
 import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
-const { locale } = useI18n()
-
 const optionsStore = useOptionsStore()
 const channelStore = useChannelStore()
 const menuStore = useMenuStore()
 
 useHead({
-  title: optionsStore.getLocaleValue(channelStore.title, locale.value),
+  title: optionsStore.getLocaleValue(channelStore.title),
   meta: [
     {
       name: 'description',
-      content: optionsStore.getLocaleValue(channelStore.description, locale.value),
+      content: optionsStore.getLocaleValue(channelStore.description),
     },
   ],
 })

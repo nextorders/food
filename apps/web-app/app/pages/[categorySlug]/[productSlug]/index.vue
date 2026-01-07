@@ -13,11 +13,11 @@
 
       <div class="col-span-2">
         <h1 class="text-xl/6 md:text-2xl/7 font-semibold text-highlighted">
-          {{ optionsStore.getLocaleValue(product?.title, locale) }}
+          {{ optionsStore.getLocaleValue(product?.title) }}
         </h1>
         <div class="mt-1 font-normal text-muted flex flex-row gap-3">
           <span>{{ weightValue }}{{ weightUnit }}</span>
-          <span>{{ optionsStore.getLocaleValue(selectedVariant?.title, locale) }}</span>
+          <span>{{ optionsStore.getLocaleValue(selectedVariant?.title) }}</span>
         </div>
 
         <div v-if="!withSingleVariant" class="mt-4 mb-6">
@@ -32,7 +32,7 @@
 
         <div class="mt-4 min-h-12 flex flex-row gap-4 md:gap-6 items-center justify-between md:justify-start">
           <div class="text-xl md:text-2xl font-medium tracking-tight">
-            {{ price }} <span class="text-xl">{{ optionsStore.currencySign }}</span>
+            {{ optionsStore.formatCurrency(selectedVariant?.gross ?? 0) }} <span class="text-xl">{{ optionsStore.currencySign }}</span>
           </div>
 
           <template v-if="orderStore.isLoading">
@@ -64,7 +64,7 @@
           {{ $dict('common.description') }}
         </div>
         <div class="text-base/5">
-          {{ optionsStore.getLocaleValue(product?.description, locale) }}
+          {{ optionsStore.getLocaleValue(product?.description) }}
         </div>
       </div>
 
@@ -77,7 +77,7 @@
             <div class="font-medium">
               {{ selectedVariant.nutritionFacts.calories }}
             </div>
-            <div class="lowercase text-muted">
+            <div class="mt-1 text-base/4 lowercase text-muted">
               {{ $dict('common.nutrition.kcal') }}
             </div>
           </div>
@@ -86,7 +86,7 @@
               {{ selectedVariant.nutritionFacts.protein }}
               <span>{{ $dict('common.abbreviation.g') }}</span>
             </div>
-            <div class="lowercase text-muted">
+            <div class="mt-1 text-base/4 lowercase text-muted">
               {{ $dict('common.nutrition.protein') }}
             </div>
           </div>
@@ -95,7 +95,7 @@
               {{ selectedVariant.nutritionFacts.fat }}
               <span>{{ $dict('common.abbreviation.g') }}</span>
             </div>
-            <div class="lowercase text-muted">
+            <div class="mt-1 text-base/4 lowercase text-muted">
               {{ $dict('common.nutrition.fat') }}
             </div>
           </div>
@@ -104,7 +104,7 @@
               {{ selectedVariant.nutritionFacts.carbohydrate }}
               <span>{{ $dict('common.abbreviation.g') }}</span>
             </div>
-            <div class="lowercase text-muted">
+            <div class="mt-1 text-base/4 lowercase text-muted">
               {{ $dict('common.nutrition.carbohydrate') }}
             </div>
           </div>
@@ -117,7 +117,6 @@
 <script setup lang="ts">
 import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
-const { locale } = useI18n()
 const { dict } = useDictionary()
 const { params } = useRoute('categorySlug-productSlug')
 
@@ -134,16 +133,15 @@ if (!product) {
 }
 
 useHead({
-  title: optionsStore.getLocaleValue(product?.title, locale.value),
+  title: optionsStore.getLocaleValue(product?.title),
 })
 
-const variantItems = computed(() => product?.variants.map((variant) => ({ label: optionsStore.getLocaleValue(variant.title, locale.value), value: variant.id })))
+const variantItems = computed(() => product?.variants.map((variant) => ({ label: optionsStore.getLocaleValue(variant.title), value: variant.id })))
 
 const variantId = ref(product.variants[0]?.id)
 const withSingleVariant = computed(() => product?.variants.length === 1)
 const selectedVariant = computed(() => product?.variants.find(({ id }) => id === variantId.value))
 
-const price = computed(() => new Intl.NumberFormat(locale.value).format(selectedVariant.value?.gross ?? 0))
 const weightValue = computed(() => selectedVariant.value?.weightValue)
 const weightUnit = computed(() => getWeightLocalizedUnit(selectedVariant.value?.weightUnit))
 
@@ -154,7 +152,7 @@ const category = menuStore.getCategoryByProductId(product.id)
 const breadcrumbs = computed(() => [
   { label: dict('common.home'), icon: 'lucide:house', to: '/' },
   {
-    label: optionsStore.getLocaleValue(category?.title, locale.value),
+    label: optionsStore.getLocaleValue(category?.title),
     to: `/${category?.slug}`,
   },
 ])

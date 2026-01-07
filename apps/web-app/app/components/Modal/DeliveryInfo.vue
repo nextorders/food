@@ -5,11 +5,11 @@
     <template #body>
       <div class="text-base/5 font-sans whitespace-pre-wrap">
         <template v-if="orderStore?.deliveryMethod === 'deliveryByCourier'">
-          {{ optionsStore.getLocaleValue(channelStore.deliveryByCourier?.conditions, locale) }}
+          {{ optionsStore.getLocaleValue(channelStore.deliveryByCourier?.conditions) }}
         </template>
 
         <template v-if="orderStore?.deliveryMethod === 'selfPickup'">
-          {{ optionsStore.getLocaleValue(channelStore.selfPickup?.conditions, locale) }}
+          {{ optionsStore.getLocaleValue(channelStore.selfPickup?.conditions) }}
         </template>
       </div>
 
@@ -32,8 +32,6 @@
 <script setup lang="ts">
 import { useChannelStore } from '@nextorders/core/app/stores/channel'
 import { useOptionsStore } from '@nextorders/core/app/stores/options'
-
-const { locale } = useI18n()
 
 const optionsStore = useOptionsStore()
 const channelStore = useChannelStore()

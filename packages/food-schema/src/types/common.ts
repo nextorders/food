@@ -1,6 +1,8 @@
 import z from 'zod'
 
-export const CurrencyCodeSchema = z.enum(['USD', 'EUR', 'RUB', 'GEL', 'BYN', 'UAH', 'KZT', 'PLN', 'TRY'])
+export const CurrencyCodeSchema = z.enum([
+  'USD', 'EUR', 'RUB', 'CNY', 'GEL', 'BYN', 'UAH', 'KZT', 'PLN', 'TRY',
+])
 export type CurrencyCode = z.infer<typeof CurrencyCodeSchema>
 
 export const CountryCodeSchema = z.enum([
@@ -25,7 +27,7 @@ export const CountryCodeSchema = z.enum([
 ])
 export type CountryCode = z.infer<typeof CountryCodeSchema>
 
-export const LocaleSchema = z.enum(['ru', 'en', 'ka', 'de'])
+export const LocaleSchema = z.enum(['de', 'en', 'ka', 'ru', 'zh_cn'])
 export type Locale = z.infer<typeof LocaleSchema>
 
 export const LocaleValueSchema = z.object({

@@ -22,6 +22,10 @@ const paymentMethodsForDelivery: PaymentMethod[] = [
         locale: 'de',
         value: 'Bargeld an den Kurier',
       },
+      {
+        locale: 'zh_cn',
+        value: '现金交给快递员',
+      },
     ],
   },
   {
@@ -43,6 +47,10 @@ const paymentMethodsForDelivery: PaymentMethod[] = [
       {
         locale: 'de',
         value: 'Karte an den Kurier',
+      },
+      {
+        locale: 'zh_cn',
+        value: '给快递员的卡片',
       },
     ],
   },
@@ -68,6 +76,10 @@ const paymentMethodsForSelfPickup: PaymentMethod[] = [
       {
         locale: 'de',
         value: 'Bargeld',
+      },
+      {
+        locale: 'zh_cn',
+        value: '现金',
       },
     ],
   },
@@ -239,6 +251,10 @@ const links: Channel['links'] = {
           locale: 'de',
           value: '8 800 123-45-69',
         },
+        {
+          locale: 'zh_cn',
+          value: '8 800 123-45-69',
+        },
       ],
       to: 'tel:88001234569',
       icon: 'i-lucide-phone-call',
@@ -263,6 +279,10 @@ const links: Channel['links'] = {
           locale: 'de',
           value: 'Öffentliches Angebot',
         },
+        {
+          locale: 'zh_cn',
+          value: '公开要约',
+        },
       ],
       to: '#',
     },
@@ -284,6 +304,10 @@ const links: Channel['links'] = {
           locale: 'de',
           value: 'Datenschutzrichtlinie',
         },
+        {
+          locale: 'zh_cn',
+          value: '隐私政策',
+        },
       ],
       to: '#',
     },
@@ -304,6 +328,10 @@ const links: Channel['links'] = {
         {
           locale: 'de',
           value: 'Software für den E-Commerce',
+        },
+        {
+          locale: 'zh_cn',
+          value: '电子商务软件',
         },
       ],
       to: 'https://nextorders.ru/',
@@ -327,7 +355,7 @@ const links: Channel['links'] = {
 const copyright: Channel['copyright'] = [
   {
     locale: 'ru',
-    value: `© 2024—2025 ООО «Выдуманная компания»
+    value: `© 2024—2026 ООО «Выдуманная компания»
 ОГРН 12345, ИНН 12345
 236000, Калининградская область, г. Калининград, ул. Театральная, д. 33А
 
@@ -336,7 +364,7 @@ const copyright: Channel['copyright'] = [
   },
   {
     locale: 'en',
-    value: `© 2024—2025 Fictitious Company LLC
+    value: `© 2024—2026 Fictitious Company LLC
 OGRN 12345, INN 12345
 236000, Kaliningrad Oblast, Kaliningrad, Teatralnaya St., 33A
 
@@ -345,7 +373,7 @@ Product images may differ from the original.`,
   },
   {
     locale: 'ka',
-    value: `© 2024—2025 შპს «ფიქტიუშენ კომპანი»
+    value: `© 2024—2026 შპს «ფიქტიუშენ კომპანი»
 OGRN 12345, INN 12345
 236000, კალინინგრადის ოლქი, კალინინგრადი, თეატრალნაიას ქ., 33A
 
@@ -354,12 +382,24 @@ OGRN 12345, INN 12345
   },
   {
     locale: 'de',
-    value: `© 2024–2025 Fictitious Company LLC
+    value: `© 2024–2026 Fictitious Company LLC
 OGRN 12345, INN 12345
 236000 Kaliningrad Oblast, Kaliningrad, Teatralnaya Str. 33A
 
 Die Informationen auf dieser Website stellen kein öffentliches Angebot dar. 
 Produktabbildungen können vom Original abweichen.`,
+  },
+  {
+    locale: 'zh_cn',
+    value: `© 2024—2026 Fictitious Company LLC
+
+OGRN 12345, INN 12345
+
+236000, 加里宁格勒州, 加里宁格勒市, 剧院街33A号
+
+本网站上的信息不构成公开要约。
+
+产品图片可能与实物有所不同。`,
   },
 ]
 
@@ -382,6 +422,10 @@ const channels: Channel[] = [{
       locale: 'de',
       value: 'Moskau',
     },
+    {
+      locale: 'zh_cn',
+      value: '莫斯科',
+    },
   ],
   title: [
     {
@@ -400,6 +444,10 @@ const channels: Channel[] = [{
       locale: 'de',
       value: 'Geschmackserlebnisse für unterwegs in Moskau',
     },
+    {
+      locale: 'zh_cn',
+      value: '在莫斯科享受便捷的味觉体验',
+    },
   ],
   description: [
     {
@@ -417,6 +465,10 @@ const channels: Channel[] = [{
     {
       locale: 'de',
       value: 'Genießen Sie einzigartige Geschmackserlebnisse und eine angenehme Atmosphäre',
+    },
+    {
+      locale: 'zh_cn',
+      value: '享受独特的口味和愉悦的氛围',
     },
   ],
   url: 'https://demo.nextorders.space/moscow',
@@ -481,6 +533,20 @@ Bei Stornierung oder Änderung der Bestellung ist der volle Lieferpreis zu entri
 
 Das Unternehmen behält sich das Recht vor, die Lieferung bei hohem Bestellaufkommen oder technischen Problemen zu verweigern.`,
       },
+      {
+        locale: 'zh_cn',
+        value: `下单后1-2小时内发货。
+
+订单金额满1500卢布即可享受免运费。
+
+运费根据送货地点或送货地址的距离计算, 费用范围为0至1000卢布。
+
+订单可在收货时以现金或银行卡支付。
+
+如需取消订单或更改订单内容，需支付全额运费。
+
+如遇订单量过大或出现技术问题，本机构保留拒绝发货的权利。`,
+      },
     ],
     minAmountForDelivery: 800,
     schedule: deliverySchedule,
@@ -529,6 +595,16 @@ Sie können Ihre Bestellung bei Abholung bar oder mit Kreditkarte bezahlen. Wenn
 
 Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, falls es überbucht ist oder technische Probleme die Bestellabwicklung beeinträchtigen.`,
       },
+      {
+        locale: 'zh_cn',
+        value: `选择店内自提，您的订单将在下单后 1-2 小时内准备好。
+
+店内自提没有最低消费金额限制，您可以订购任意金额。店内自提免费，不收取任何额外费用。
+
+您可以在取货时使用现金或信用卡付款。如果您取消或更改订单，我们将全额退还您的预付款（如有）。
+
+如果店内自提订单已满或出现技术问题影响订单处理，本店保留拒绝自提订单的权利。`,
+      },
     ],
     schedule: selfPickupSchedule,
     warehouses: [
@@ -551,6 +627,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
             locale: 'de',
             value: 'Kolotushkina 12',
           },
+          {
+            locale: 'zh_cn',
+            value: 'Kolotushkina 12',
+          },
         ],
         address: {
           street: [
@@ -568,6 +648,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
             },
             {
               locale: 'de',
+              value: 'Kolotushkina 12',
+            },
+            {
+              locale: 'zh_cn',
               value: 'Kolotushkina 12',
             },
           ],
@@ -592,6 +676,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
             locale: 'de',
             value: 'Lenina 46',
           },
+          {
+            locale: 'zh_cn',
+            value: 'Lenina 46',
+          },
         ],
         address: {
           street: [
@@ -609,6 +697,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
             },
             {
               locale: 'de',
+              value: 'Lenina 46',
+            },
+            {
+              locale: 'zh_cn',
               value: 'Lenina 46',
             },
           ],
@@ -639,6 +731,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
       locale: 'de',
       value: 'Sankt Petersburg',
     },
+    {
+      locale: 'zh_cn',
+      value: '圣彼得堡',
+    },
   ],
   title: [
     {
@@ -657,6 +753,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
       locale: 'de',
       value: 'Geschmackserlebnisse für unterwegs in Sankt Petersburg',
     },
+    {
+      locale: 'zh_cn',
+      value: '在圣彼得堡享受便捷的美食之旅',
+    },
   ],
   description: [
     {
@@ -674,6 +774,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
     {
       locale: 'de',
       value: 'Genießen Sie einzigartige Geschmackserlebnisse und eine angenehme Atmosphäre',
+    },
+    {
+      locale: 'zh_cn',
+      value: '享受独特的口味和愉悦的氛围',
     },
   ],
   url: 'https://demo.nextorders.space/peterburg',

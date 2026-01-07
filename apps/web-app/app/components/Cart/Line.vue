@@ -9,13 +9,13 @@
 
           <div class="flex flex-col gap-1">
             <p class="font-medium text-xs/3 line-clamp-2">
-              {{ optionsStore.getLocaleValue(product?.title, locale) }}
+              {{ optionsStore.getLocaleValue(product?.title) }}
             </p>
             <div class="flex flex-row gap-2 flex-nowrap">
-              <div class="text-sm font-medium tracking-tight">
-                {{ new Intl.NumberFormat(locale).format(productVariant?.gross ?? 0) }} <span class="text-xs">{{ optionsStore.currencySign }}</span>
+              <div class="text-sm/4 font-medium tracking-tight">
+                {{ optionsStore.formatCurrency(productVariant?.gross ?? 0) }} <span class="text-xs">{{ optionsStore.currencySign }}</span>
               </div>
-              <div class="text-sm text-muted font-light">
+              <div class="text-sm/4 text-muted font-light">
                 {{ productVariant?.weightValue }}{{ getWeightLocalizedUnit(productVariant?.weightUnit) }}
               </div>
             </div>
@@ -35,8 +35,6 @@ import { useOptionsStore } from '@nextorders/core/app/stores/options'
 const { line } = defineProps<{
   line: OrderItem
 }>()
-
-const { locale } = useI18n()
 
 const optionsStore = useOptionsStore()
 const menuStore = useMenuStore()
