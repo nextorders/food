@@ -5,6 +5,7 @@ export const useOptionsStore = defineStore('options', () => {
   const selectorDescriptionValues = ref<Options['selectorDescription']>()
   const logoUrl = ref<Options['logoUrl']>(null)
   const headLinks = ref<Options['headLinks']>([])
+  const headScripts = ref<Options['headScripts']>([])
   const headStyles = ref<Options['headStyles']>([])
   const availableLocales = ref<Options['availableLocales']>([])
   const currencyCode = ref<Options['currencyCode']>()
@@ -30,6 +31,7 @@ export const useOptionsStore = defineStore('options', () => {
       selectorDescriptionValues.value = data.selectorDescription
       logoUrl.value = data.logoUrl
       headLinks.value = data.headLinks
+      headScripts.value = data.headScripts
       headStyles.value = data.headStyles
       availableLocales.value = data.availableLocales
       currencyCode.value = data.currencyCode
@@ -92,6 +94,7 @@ export const useOptionsStore = defineStore('options', () => {
   return {
     logoUrl,
     headLinks,
+    headScripts,
     headStyles,
     availableLocales,
     countryCode,

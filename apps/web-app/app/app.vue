@@ -34,7 +34,6 @@ await Promise.all([
 
 channelStore.update()
 
-// Interval
 let interval: NodeJS.Timeout
 
 onMounted(() => {
@@ -42,9 +41,11 @@ onMounted(() => {
   orderStore.update()
 
   interval = setInterval(() => {
-    channelStore.updateDeliveryOpeningStatus()
-    channelStore.updateSelfPickupOpeningStatus()
-    channelStore.updateTimeSlots()
+    Promise.all([
+      channelStore.updateDeliveryOpeningStatus(),
+      channelStore.updateSelfPickupOpeningStatus(),
+      channelStore.updateTimeSlots(),
+    ])
   }, 30000)
 })
 
@@ -59,5 +60,6 @@ useHead({
   },
   link: optionsStore.headLinks,
   style: optionsStore.headStyles,
+  script: optionsStore.headScripts,
 })
 </script>
