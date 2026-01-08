@@ -1,56 +1,67 @@
 # 🍔 NextOrders: Food
+
+<p>
+  <a href="https://github.com/nextorders/food/blob/main/LICENSE"><img src="https://img.shields.io/static/v1?label=License&message=MIT&colorA=18181B&colorB=FF7F50" alt="License"></a>
+  <a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/nextorders/food"><img src="https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&colorA=18181B&colorB=FF7F50" alt="Dev Containers"></a>
+  <a href="https://demo.nextorders.space/"><img src="https://img.shields.io/static/v1?label=Demo&message=Open&colorA=18181B&colorB=FF7F50" alt="Demo"></a>
+</p>
+
 Modern e-commerce self-hosted platform: clients will be happy to order delicious food!
 
-👉 [Check out demo website](https://demo.nextorders.space/)
+👉 [Demo: Select a city](https://demo.nextorders.space/)
+
+👉 [Demo: Website](https://demo.nextorders.space/moscow/)
 
 ![main-screen-desktop](https://github.com/nextorders/food/blob/main/.github/media/main-screen-desktop.jpg?raw=true)
 
-## 🍕 Main idea and architecture of NextOrders
+## 🍣 Features
 
-There is a great desire to create software that is ideal for ordering and delivering food.
-It will be a set of solutions that can work together. It is important that each element can be easily replaced later.
-So the project does not become one big monolith.
-
-![nextorders-arch](https://github.com/nextorders/food/blob/main/.github/media/next-orders-arch.png?raw=true)
-
-I'm currently working on the first version of the website. Next year there will be a new version that will easily replace the old one as the Main API with business logic will remain the same.
-
-Let's see what happens. Give the project a star ⭐. Offer your ideas and make commits.
-
-## 🍣 Customer and Seller Features (WIP)
-
-- 📱 100% adaptive layout
-- 🤹 Multi-page structure with priority on fast page loading and SEO
-- 🛒 The cart is always in sight on desktop
-- 🚚 Possibility to choose delivery or pickup
-- 🔍 Quick search in the product catalog
-- 🏷️ The client can use a promotional code
-- 📈 The best offers and promotions are shown in the desired section
-- 🏁 Quick order, without forced registration on the site
-
-## 🥪 Tech Features (WIP)
-
-- Website has its own backend, where API data does not break out
-- Most of the code is rendered on the server: less load on the client
+- ✅ **Fully responsive design** — works perfectly on any device.
+- 📄 **Multi‑page SSR** — fast loading + SEO optimization.
+- 🌐 **Multi‑language** — supports 5+ locales.
+- 🛒 **Persistent cart** — always visible on desktop.
+- 🚚 **Delivery & pickup** — flexible fulfillment options.
+- 🔍 **Instant search** — find products in the catalog.
+- 🏁 **Guest checkout** — no registration required.
 
 [Check out PageSpeed Insights](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fdemo.nextorders.space%2F). Maybe it's showing all 100s 😉
+
+## 🥪 Stack. What is used
+
+- [Nuxt](https://nuxt.com/): An open source framework that makes web development intuitive and powerful.
+- [Nuxt UI](https://ui.nuxt.com/): A collection of UI components for Nuxt.
+- [Pinia](https://pinia.vuejs.org/): A state management solution for Vue.
+- [TailwindCSS](https://tailwindcss.com/): A utility-first CSS framework for rapid UI development.
+- [TailwindCSS Motion](https://rombo.co/tailwind/): Nice animations for TailwindCSS.
+- [Iconify](https://iconify.design/): An icon library for the web.
+- [VueUse](https://vueuse.org/): A collection of essential Vue composable utilities.
+- [Zod](https://github.com/colinhacks/zod): A schema definition and validation library for TypeScript and JavaScript.
+
+All dependencies are managed by [pnpm](https://pnpm.io/). Check the [pnpm-workspace.yaml](https://github.com/nextorders/food/blob/main/pnpm-workspace.yaml) for more details.
 
 ## 🌎 Supported Locales
 
 The application currently supports [different languages](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales):
 
-* `en` | 🇺🇸 English [en-US](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/en-US.ts)
-* `de` | 🇩🇪 German | Deutsch [de-DE](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/de-DE.ts)
-* `ka` | 🇬🇪 Georgian | ქართული [ka-GE](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ka-GE.ts)
-* `ru` | 🇷🇺 Russian | Русский [ru-RU](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ru-RU.ts)
-* `zh_cn` | 🇨🇳 Chinese | 中文 [zh-CN](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/zh-CN.ts)
+| Code | Language | Native | Link |
+|------|----------|--------|------|
+| `en` 🇺🇸 | English | English | [en-US.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/en-US.ts) |
+| `de` 🇩🇪 | German | Deutsch | [de-DE.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/de-DE.ts) |
+| `ka` 🇬🇪 | Georgian | ქართული | [ka-GE.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ka-GE.ts) |
+| `ru` 🇷🇺 | Russian | Русский | [ru-RU.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ru-RU.ts) |
+| `zh_cn` 🇨🇳 | Chinese | 中文 | [zh-CN.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/zh-CN.ts) |
 
 ## 🥒 Repository structure
 
-- [Food Schema](https://github.com/nextorders/food/tree/main/packages/food-schema): All types and schemas for the project. Here you can understand main data structures.
+**There are main apps and services:**
 - [Web App](https://github.com/nextorders/food/tree/main/apps/web-app): Web storefront. Client can order delicious food.
 - [Web App Selector](https://github.com/nextorders/food/tree/main/apps/web-app-selector): Welcome screen with a list of available storefronts.
 - [Essence](https://github.com/nextorders/food/tree/main/apps/essence): An example of a service with business logic and data. Web App and Web App Selector use it via API.
+
+**There are packages:**
+- [Food Schema](https://github.com/nextorders/food/tree/main/packages/food-schema): All types and schemas for the project. Here you can understand main data structures.
+- [UI](https://github.com/nextorders/food/tree/main/packages/ui): Theme and components for all apps. It is a Nuxt Layer with @nuxt/ui.
+- [Core](https://github.com/nextorders/food/tree/main/packages/core): Shared stores and server routes. It is a Nuxt Layer.
 
 ## ☕ How to deploy
 
@@ -60,15 +71,23 @@ The application currently supports [different languages](https://github.com/next
 
 You can develop in isolated container with prepared options:
 
-[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/nextorders/food)
+<a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/nextorders/food"><img src="https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&colorA=18181B&colorB=FF7F50" alt="Dev Containers"></a>
 
-Make a fork. Or clone this repo and use standard commands:
+Make a fork. Or clone this repo and use standard command to install dependencies:
 
 ```shell
-git clone https://github.com/nextorders/food
 pnpm i
 ```
 
 ## 🍰 License
 
 This project is licensed under the **MIT License** - see the [**License**](https://github.com/nextorders/food/blob/main/LICENSE) file for details.
+
+## 🍕 Main idea and architecture of NextOrders
+
+There is a great desire to create software that is ideal for ordering and delivering food.
+It will be a set of solutions that can work together.
+
+![nextorders-arch](https://github.com/nextorders/food/blob/main/.github/media/nextorders-arch-v2.png?raw=true)
+
+Let's see what happens. Give the project a star ⭐. Offer your ideas and make commits.
