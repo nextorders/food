@@ -8,6 +8,12 @@ const HeadLinkSchema = z.object({
   href: z.string().optional(),
 })
 
+const HeadScriptSchema = z.object({
+  src: z.string().optional(),
+  type: z.string().optional(),
+  textContent: z.string().optional(),
+})
+
 export const OptionsSchema = z.object({
   selectorTitle: LocaleValueSchema.array(),
   selectorDescription: LocaleValueSchema.array().optional(),
@@ -17,6 +23,7 @@ export const OptionsSchema = z.object({
   countryCode: CountryCodeSchema,
   currencyCode: CurrencyCodeSchema,
   headLinks: HeadLinkSchema.array().optional(),
+  headScripts: HeadScriptSchema.array().optional(),
   headStyles: z.string().array().optional(),
 })
 export type Options = z.infer<typeof OptionsSchema>
