@@ -2,6 +2,9 @@
   "name": "@nextorders/food-schema",
   "type": "module",
   "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "All types and schemas for @nextorders/food",
   "license": "MIT",
   "homepage": "https://nextorders.ru",
