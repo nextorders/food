@@ -7,14 +7,13 @@
     "build": "nuxt build",
     "dev": "nuxt dev --port 3503",
     "preview": "PORT=3503 nuxt preview",
-    "clean": "rm -rf dist",
-    "clean:modules": "rm -rf .nuxt node_modules",
+    "clean": "rm -rf .nuxt .output",
+    "clean:modules": "rm -rf .nuxt .output node_modules",
     "typecheck": "nuxt typecheck",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@date-fns/tz": "catalog:integrations",
-    "@nextorders/core": "workspace:*",
     "@nextorders/food-schema": "workspace:*"
   },
   "devDependencies": {

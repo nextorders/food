@@ -167,9 +167,6 @@ importers:
       '@date-fns/tz':
         specifier: catalog:integrations
         version: 1.4.1
-      '@nextorders/core':
-        specifier: workspace:*
-        version: link:../../packages/core
       '@nextorders/food-schema':
         specifier: workspace:*
         version: link:../../packages/food-schema
