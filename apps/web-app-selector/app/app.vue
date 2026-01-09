@@ -39,5 +39,6 @@ useHead({
   },
   link: optionsStore.headLinks,
   style: optionsStore.headStyles,
+  script: optionsStore.headScripts,
 })
 </script>

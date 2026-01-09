@@ -6,7 +6,7 @@
     }"
     :close="dismissible"
     :dismissible="dismissible"
-    class="h-4/5 lg:h-2/3 max-w-md"
+    class="h-full md:h-4/5 lg:h-2/3 max-w-md"
   >
     <template #header>
       <div class="mb-3 w-full flex flex-col gap-4">
@@ -18,8 +18,8 @@
             class="h-14 w-auto rounded-md"
           >
 
-          <div class="flex flex-col gap-1.5 justify-center">
-            <h1 class="text-lg/5 font-semibold">
+          <div class="flex flex-col gap-1 justify-center">
+            <h1 class="text-xl/6 font-semibold">
               {{ optionsStore.selectorTitle }}
             </h1>
             <p v-if="optionsStore.selectorDescription" class="text-sm/4">
