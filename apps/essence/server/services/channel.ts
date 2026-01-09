@@ -75,7 +75,7 @@ const paymentMethodsForSelfPickup: PaymentMethod[] = [
       },
       {
         locale: 'es',
-        value: 'Dinero',
+        value: 'Efectivo',
       },
       {
         locale: 'ru',
@@ -814,7 +814,7 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
     },
     {
       locale: 'es',
-      value: 'Saint Petersburg',
+      value: 'San Petersburgo',
     },
     {
       locale: 'ka',
