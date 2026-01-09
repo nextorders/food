@@ -11,6 +11,10 @@ const paymentMethodsForDelivery: PaymentMethod[] = [
         value: 'Cash to the courier',
       },
       {
+        locale: 'es',
+        value: 'Efectivo al mensajero',
+      },
+      {
         locale: 'ru',
         value: 'Наличные курьеру',
       },
@@ -35,6 +39,10 @@ const paymentMethodsForDelivery: PaymentMethod[] = [
       {
         locale: 'en',
         value: 'Card to the courier',
+      },
+      {
+        locale: 'es',
+        value: 'Tarjeta al mensajero',
       },
       {
         locale: 'ru',
@@ -64,6 +72,10 @@ const paymentMethodsForSelfPickup: PaymentMethod[] = [
       {
         locale: 'en',
         value: 'Cash',
+      },
+      {
+        locale: 'es',
+        value: 'Dinero',
       },
       {
         locale: 'ru',
@@ -244,6 +256,10 @@ const links: Channel['links'] = {
           value: '8 800 123-45-69',
         },
         {
+          locale: 'es',
+          value: '8 800 123-45-69',
+        },
+        {
           locale: 'ka',
           value: '8 800 123-45-69',
         },
@@ -272,6 +288,10 @@ const links: Channel['links'] = {
           value: 'Public Offer',
         },
         {
+          locale: 'es',
+          value: 'Oferta Pública',
+        },
+        {
           locale: 'ka',
           value: 'საჯარო შეთავაზება',
         },
@@ -297,6 +317,10 @@ const links: Channel['links'] = {
           value: 'Privacy Policy',
         },
         {
+          locale: 'es',
+          value: 'Política de privacidad',
+        },
+        {
           locale: 'ka',
           value: 'კონფიდენციალურობის პოლიტიკა',
         },
@@ -320,6 +344,10 @@ const links: Channel['links'] = {
         {
           locale: 'en',
           value: 'Software for e-commerce',
+        },
+        {
+          locale: 'es',
+          value: 'Software para comercio electrónico',
         },
         {
           locale: 'ka',
@@ -372,6 +400,15 @@ The information on this website does not constitute a public offer.
 Product images may differ from the original.`,
   },
   {
+    locale: 'es',
+    value: `© 2024—2026 Fictitious Company LLC
+OGRN 12345, INN 12345
+236000, Óblast de Kaliningrado, Kaliningrado, Calle Teatralnaya, 33A
+
+La información de este sitio web no constituye una oferta pública.
+Las imágenes del producto pueden diferir del original.`,
+  },
+  {
     locale: 'ka',
     value: `© 2024—2026 შპს «ფიქტიუშენ კომპანი»
 OGRN 12345, INN 12345
@@ -415,6 +452,10 @@ const channels: Channel[] = [{
       value: 'Moscow',
     },
     {
+      locale: 'es',
+      value: 'Moscú',
+    },
+    {
       locale: 'ka',
       value: 'მოსკოვი',
     },
@@ -437,6 +478,10 @@ const channels: Channel[] = [{
       value: 'Taste on the run in Moscow',
     },
     {
+      locale: 'es',
+      value: 'Sabor sobre la marcha en Moscú',
+    },
+    {
       locale: 'ka',
       value: 'გასინჯვა მოსკოვში',
     },
@@ -457,6 +502,10 @@ const channels: Channel[] = [{
     {
       locale: 'en',
       value: 'Enjoy unique tastes and a pleasant atmosphere',
+    },
+    {
+      locale: 'es',
+      value: 'Disfrute de sabores únicos y una atmósfera agradable',
     },
     {
       locale: 'ka',
@@ -504,6 +553,20 @@ The order can be paid upon receipt in cash or by card.
 In case of canceling the order or changing its conditions, delivery is paid in full.
 
 The institution reserves the right to refuse delivery in case of a large number of orders or technical problems.`,
+      },
+      {
+        locale: 'es',
+        value: `La entrega se realiza en un plazo de 1 a 2 horas tras realizar el pedido.
+
+El importe mínimo del pedido para el envío gratuito es de 1500 rublos.
+
+El coste del envío se calcula en función de la distancia al punto o dirección de entrega y puede oscilar entre 0 y 1000 rublos.
+
+El pedido se puede pagar al recibirlo en efectivo o con tarjeta.
+
+En caso de cancelación del pedido o modificación de sus condiciones, el envío se abonará en su totalidad.
+
+El establecimiento se reserva el derecho de rechazar la entrega en caso de gran cantidad de pedidos o problemas técnicos.`,
       },
       {
         locale: 'ka',
@@ -576,6 +639,16 @@ You can pay for your order upon pickup in cash or by credit card. If you cancel 
 The establishment reserves the right to refuse in-store pickup if it is overbooked or if technical issues affect order processing.`,
       },
       {
+        locale: 'es',
+        value: `Para recoger en tienda, su pedido estará listo en 1 o 2 horas después de realizarlo.
+
+No hay un pedido mínimo para recoger en tienda; puede pedir cualquier cantidad. Recoger en tienda es gratuito y no tiene ningún cargo adicional.
+
+Puede pagar su pedido al recogerlo en efectivo o con tarjeta de crédito. Si cancela o modifica su pedido, se le reembolsará el importe total del prepago, si lo hubiera.
+
+El establecimiento se reserva el derecho de rechazar la recogida en tienda si hay overbooking o si algún problema técnico afecta al procesamiento del pedido.`,
+      },
+      {
         locale: 'ka',
         value: `მაღაზიაში ასაღებად, თქვენი შეკვეთა მზად იქნება ასაღებად მისი განთავსებიდან 1-2 საათში.
 
@@ -616,6 +689,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
             value: 'Kolotushkina 12',
           },
           {
+            locale: 'es',
+            value: 'Kolotushkina 12',
+          },
+          {
             locale: 'ru',
             value: 'Колотушкина 12',
           },
@@ -636,6 +713,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
           street: [
             {
               locale: 'en',
+              value: 'Kolotushkina 12',
+            },
+            {
+              locale: 'es',
               value: 'Kolotushkina 12',
             },
             {
@@ -665,6 +746,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
             value: 'Lenina 46',
           },
           {
+            locale: 'es',
+            value: 'Lenina 46',
+          },
+          {
             locale: 'ru',
             value: 'Ленина 46',
           },
@@ -685,6 +770,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
           street: [
             {
               locale: 'en',
+              value: 'Lenina 46',
+            },
+            {
+              locale: 'es',
               value: 'Lenina 46',
             },
             {
@@ -724,6 +813,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
       value: 'Saint Petersburg',
     },
     {
+      locale: 'es',
+      value: 'Saint Petersburg',
+    },
+    {
       locale: 'ka',
       value: 'სანქტ-პეტერბურგი',
     },
@@ -746,6 +839,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
       value: 'Taste on the run in Saint Petersburg',
     },
     {
+      locale: 'es',
+      value: 'Sabor sobre la marcha en Saint Petersburg',
+    },
+    {
       locale: 'ka',
       value: 'გასინჯეთ სანქტ-პეტერბურგში',
     },
@@ -766,6 +863,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
     {
       locale: 'en',
       value: 'Enjoy unique tastes and a pleasant atmosphere',
+    },
+    {
+      locale: 'es',
+      value: 'Disfrute de sabores únicos y una atmósfera agradable',
     },
     {
       locale: 'ka',

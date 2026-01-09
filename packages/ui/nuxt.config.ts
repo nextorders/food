@@ -26,9 +26,10 @@ export default defineNuxtConfig({
     locales: [
       { code: 'de', language: 'de-DE', name: 'Deutsch' },
       { code: 'en', language: 'en-US', name: 'English' },
+      { code: 'es', language: 'es-ES', name: 'Español' },
       { code: 'ka', language: 'ka-GE', name: 'ქართული' },
       { code: 'ru', language: 'ru-RU', name: 'Русский' },
-      { code: 'zh_cn', language: 'zh-CN', name: '中文' },
+      { code: 'zh_cn', language: 'zh-CN', name: '简体中文' },
     ],
   },
   css: [resolvePath('./app/assets/css/main.css')],

@@ -10,6 +10,10 @@ const burgers: Product[] = [
         value: 'The Wild West Burger',
       },
       {
+        locale: 'es',
+        value: 'La hamburguesa del salvaje oeste',
+      },
+      {
         locale: 'ru',
         value: 'Бургер "Приключения на Диком Западе"',
       },
@@ -30,6 +34,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Get ready for a trip to the Wild West with our incredible burger! Tender meat, juicy vegetables and crispy bun will take you to the world of cowboys and Indians. Dive into the atmosphere of adventure and enjoy the real taste of the Wild West!',
+      },
+      {
+        locale: 'es',
+        value: '¡Prepárate para un viaje al Salvaje Oeste con nuestra increíble hamburguesa! Carne tierna, verduras jugosas y pan crujiente te transportarán al mundo de los vaqueros y los indios. ¡Sumérgete en la atmósfera de aventura y disfruta del auténtico sabor del Salvaje Oeste!',
       },
       {
         locale: 'ru',
@@ -56,6 +64,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'es',
+            value: 'Estándar',
           },
           {
             locale: 'ru',
@@ -111,6 +123,10 @@ const burgers: Product[] = [
         value: 'The Tender Clouds Burger',
       },
       {
+        locale: 'es',
+        value: 'La hamburguesa Tender Clouds',
+      },
+      {
         locale: 'ru',
         value: 'Бургер "Нежные облака"',
       },
@@ -131,6 +147,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Feel the tenderness of clouds with our special burger! The combination of airy blue cheese, juicy vegetables and flavorful meat will not leave you indifferent. The perfect balance of flavor and pleasure in every bite!',
+      },
+      {
+        locale: 'es',
+        value: '¡Siente la ternura de las nubes con nuestra hamburguesa especial! La combinación de queso azul ligero, verduras jugosas y carne sabrosa no te dejará indiferente. ¡El equilibrio perfecto entre sabor y placer en cada bocado!',
       },
       {
         locale: 'ru',
@@ -157,6 +177,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'es',
+            value: 'Estándar',
           },
           {
             locale: 'ru',
@@ -212,6 +236,10 @@ const burgers: Product[] = [
         value: 'Vegetarian paradise: veggie burger',
       },
       {
+        locale: 'es',
+        value: 'Paraíso vegetariano: hamburguesa vegetariana',
+      },
+      {
         locale: 'ru',
         value: 'Рай для вегетарианцев: вегетарианский бургер',
       },
@@ -232,6 +260,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Enjoy a vegetarian paradise with our special veggie burger! A delicious combination of vegetables, herbs and nutritious ingredients will give you an unforgettable taste experience. Feel the freshness of nature in every bite of our veggie burger!',
+      },
+      {
+        locale: 'es',
+        value: '¡Disfruta de un paraíso vegetariano con nuestra hamburguesa vegetariana especial! Una deliciosa combinación de verduras, hierbas e ingredientes nutritivos te brindará una experiencia de sabor inolvidable. ¡Siente la frescura de la naturaleza en cada bocado!',
       },
       {
         locale: 'ru',
@@ -258,6 +290,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'es',
+            value: 'Estándar',
           },
           {
             locale: 'ru',
@@ -313,6 +349,10 @@ const burgers: Product[] = [
         value: 'Delicious onion burger',
       },
       {
+        locale: 'es',
+        value: 'Deliciosa hamburguesa de cebolla',
+      },
+      {
         locale: 'ru',
         value: 'Вкуснейший бургер с луком',
       },
@@ -333,6 +373,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Discover an amazing world of taste with our burger, where tender meat, fresh vegetables and aromatic fried onions come together in a unique combination. Savor every bite and immerse yourself in the atmosphere of true gastronomic pleasure!',
+      },
+      {
+        locale: 'es',
+        value: 'Descubre un mundo de sabores increíbles con nuestra hamburguesa, donde la carne tierna, las verduras frescas y la aromática cebolla frita se unen en una combinación única. ¡Saborea cada bocado y sumérgete en la atmósfera de un auténtico placer gastronómico!',
       },
       {
         locale: 'ru',
@@ -359,6 +403,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'es',
+            value: 'Estándar',
           },
           {
             locale: 'ru',
@@ -414,6 +462,10 @@ const burgers: Product[] = [
         value: 'Galactic burger',
       },
       {
+        locale: 'es',
+        value: 'Hamburguesa galáctica',
+      },
+      {
         locale: 'ru',
         value: 'Галактический бургер',
       },
@@ -434,6 +486,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Discover the galactic burger - an incredible combination of juicy vegetables, appetizing meat and crispy bun. Experience the unique taste of distant stars and immerse yourself in the world of space adventures right at the table!',
+      },
+      {
+        locale: 'es',
+        value: 'Descubre la hamburguesa galáctica: una increíble combinación de jugosas verduras, apetitosa carne y pan crujiente. ¡Siente el sabor único de las estrellas lejanas y sumérgete en el mundo de las aventuras espaciales desde la mesa!',
       },
       {
         locale: 'ru',
@@ -460,6 +516,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'es',
+            value: 'Estándar',
           },
           {
             locale: 'ru',
@@ -515,6 +575,10 @@ const burgers: Product[] = [
         value: 'Mushroom boom: a burger with a secret',
       },
       {
+        locale: 'es',
+        value: 'El boom de los hongos: una hamburguesa con un secreto',
+      },
+      {
         locale: 'ru',
         value: 'Грибной бум: бургер с секретом',
       },
@@ -535,6 +599,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Discover a wonderful world of flavor with our new burger! Tender meat, juicy mushrooms and crispy bun - this combination will surely win your heart. Experience the unique flavor of a real mushroom delight!',
+      },
+      {
+        locale: 'es',
+        value: '¡Descubre un mundo de sabores con nuestra nueva hamburguesa! Carne tierna, champiñones jugosos y pan crujiente: esta combinación te conquistará. ¡Experimenta el sabor único de una auténtica delicia de champiñones!',
       },
       {
         locale: 'ru',
@@ -561,6 +629,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'es',
+            value: 'Estándar',
           },
           {
             locale: 'ru',
@@ -616,6 +688,10 @@ const burgers: Product[] = [
         value: 'Jardine\'s Burger',
       },
       {
+        locale: 'es',
+        value: 'Hamburguesa de Jardine',
+      },
+      {
         locale: 'ru',
         value: 'Бургер "Жардин"',
       },
@@ -636,6 +712,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Experience the unique flavor of a juicy grilled turkey cutlet combined with a crispy bun and fresh vegetables. Tender turkey meat complemented with aromatic spices and spices will be a real discovery for meat lovers!',
+      },
+      {
+        locale: 'es',
+        value: 'Experimente el sabor único de una jugosa chuleta de pavo a la parrilla, combinada con un pan crujiente y verduras frescas. ¡La tierna carne de pavo, acompañada de especias aromáticas, será un verdadero descubrimiento para los amantes de la carne!',
       },
       {
         locale: 'ru',
@@ -662,6 +742,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'es',
+            value: 'Estándar',
           },
           {
             locale: 'ru',
@@ -717,6 +801,10 @@ const burgers: Product[] = [
         value: 'Hot Texas burger',
       },
       {
+        locale: 'es',
+        value: 'Hamburguesa caliente de Texas',
+      },
+      {
         locale: 'ru',
         value: 'Горячий техасский бургер',
       },
@@ -737,6 +825,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Your way to the real Texas flavor! Tender meat, fresh vegetables and an appetizing bun - this burger will definitely not leave you indifferent!',
+      },
+      {
+        locale: 'es',
+        value: '¡Tu camino al auténtico sabor texano! Carne tierna, verduras frescas y un pan apetitoso: ¡esta hamburguesa no te dejará indiferente!',
       },
       {
         locale: 'ru',
@@ -763,6 +855,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'es',
+            value: 'Estándar',
           },
           {
             locale: 'ru',
@@ -818,6 +914,10 @@ const burgers: Product[] = [
         value: 'Tender bacon burger',
       },
       {
+        locale: 'es',
+        value: 'Hamburguesa de tocino tierno',
+      },
+      {
         locale: 'ru',
         value: 'Нежный бургер с беконом',
       },
@@ -838,6 +938,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Dive into the tenderness of bacon: try our burger! Fragrant bacon, juicy patty and fresh vegetables - an explosion of flavor for real gourmets.',
+      },
+      {
+        locale: 'es',
+        value: 'Sumérgete en la ternura del tocino: ¡prueba nuestra hamburguesa! Tocino aromático, carne jugosa y verduras frescas: una explosión de sabor para los verdaderos gourmets.',
       },
       {
         locale: 'ru',
@@ -864,6 +968,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'es',
+            value: 'Estándar',
           },
           {
             locale: 'ru',
@@ -922,6 +1030,10 @@ const snacks: Product[] = [
         value: 'Wings of Happiness: Buffalo Hot Breath',
       },
       {
+        locale: 'es',
+        value: 'Alas de la felicidad: Aliento caliente de búfalo',
+      },
+      {
         locale: 'ru',
         value: 'Крылья счастья: Горячее дыхание Баффало',
       },
@@ -942,6 +1054,10 @@ const snacks: Product[] = [
       {
         locale: 'en',
         value: 'Buffalo Fried Wings - spicy, juicy and incredibly delicious! The perfect choice for a fun party.',
+      },
+      {
+        locale: 'es',
+        value: 'Alitas de pollo fritas estilo búfalo: ¡picantes, jugosas y deliciosas! La opción perfecta para una fiesta divertida.',
       },
       {
         locale: 'ru',
@@ -968,6 +1084,10 @@ const snacks: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -1023,6 +1143,10 @@ const snacks: Product[] = [
         value: 'Vegetable bounty',
       },
       {
+        locale: 'es',
+        value: 'Abundancia de verduras',
+      },
+      {
         locale: 'ru',
         value: 'Овощное изобилие',
       },
@@ -1043,6 +1167,10 @@ const snacks: Product[] = [
       {
         locale: 'en',
         value: 'Enjoy the flavor of fresh vegetables in our vegetable quesadilla! It is the perfect combination of juicy ingredients seasoned with aromatic spices. Don\'t miss the opportunity to try our vegetable quesadilla and get energized with bright flavors!',
+      },
+      {
+        locale: 'es',
+        value: '¡Disfruta del sabor de las verduras frescas en nuestra quesadilla de verduras! Es la combinación perfecta de ingredientes jugosos sazonados con especias aromáticas. ¡No te pierdas la oportunidad de probar nuestra quesadilla de verduras y recargar energías con sus sabores vibrantes!',
       },
       {
         locale: 'ru',
@@ -1069,6 +1197,10 @@ const snacks: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -1124,6 +1256,10 @@ const snacks: Product[] = [
         value: 'Cheeseburgerettes',
       },
       {
+        locale: 'es',
+        value: 'Hamburguesas con queso',
+      },
+      {
         locale: 'ru',
         value: 'Чизбургерята',
       },
@@ -1144,6 +1280,10 @@ const snacks: Product[] = [
       {
         locale: 'en',
         value: 'Tender mini cheeseburgers - the perfect snack for the whole family! Delicious mini-burgers with real American cheese, juicy patty and fresh vegetables. Feel the atmosphere of a real American restaurant right here and now!',
+      },
+      {
+        locale: 'es',
+        value: 'Tiernas minihamburguesas con queso: ¡el refrigerio perfecto para toda la familia! Deliciosas minihamburguesas con auténtico queso americano, jugosa carne y verduras frescas. ¡Siente el ambiente de un auténtico restaurante americano ahora mismo!',
       },
       {
         locale: 'ru',
@@ -1170,6 +1310,10 @@ const snacks: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -1225,6 +1369,10 @@ const snacks: Product[] = [
         value: 'Hot cheese and bacon',
       },
       {
+        locale: 'es',
+        value: 'Queso y tocino calientes',
+      },
+      {
         locale: 'ru',
         value: 'Горячий сыр с беконом',
       },
@@ -1245,6 +1393,10 @@ const snacks: Product[] = [
       {
         locale: 'en',
         value: 'Experience the unique taste of French fries with cheddar cheese and bacon in our restaurant! This is the perfect combination for real gourmets.',
+      },
+      {
+        locale: 'es',
+        value: '¡Disfruta del sabor único de las papas fritas con queso cheddar y tocino en nuestro restaurante! Es la combinación perfecta para los verdaderos gourmets.',
       },
       {
         locale: 'ru',
@@ -1271,6 +1423,10 @@ const snacks: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -1326,6 +1482,10 @@ const snacks: Product[] = [
         value: 'Cheese adventures: nachos with three kinds of cheese',
       },
       {
+        locale: 'es',
+        value: 'Aventuras de queso: nachos con tres tipos de queso',
+      },
+      {
         locale: 'ru',
         value: 'Сырные приключения: начос с тремя видами сыра',
       },
@@ -1346,6 +1506,10 @@ const snacks: Product[] = [
       {
         locale: 'en',
         value: 'We invite you to plunge into the atmosphere of a real Mexican holiday with our unique nachos with cheese! Tender combination of three kinds of cheese and crispy corn tortilla will not leave indifferent even the most sophisticated gourmet. Serve with hot sauce or salsa - the perfect combination for an unforgettable evening with friends and family.',
+      },
+      {
+        locale: 'es',
+        value: '¡Te invitamos a sumergirte en el ambiente de una auténtica fiesta mexicana con nuestros exclusivos nachos con queso! La tierna combinación de tres tipos de queso y crujiente tortilla de maíz encantará incluso al gourmet más sofisticado. Sírvelos con salsa picante: la combinación perfecta para una velada inolvidable con amigos y familiares.',
       },
       {
         locale: 'ru',
@@ -1372,6 +1536,10 @@ const snacks: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -1427,6 +1595,10 @@ const snacks: Product[] = [
         value: 'Bacon extravaganza',
       },
       {
+        locale: 'es',
+        value: 'Extravagancia de tocino',
+      },
+      {
         locale: 'ru',
         value: 'Беконная феерия',
       },
@@ -1447,6 +1619,10 @@ const snacks: Product[] = [
       {
         locale: 'en',
         value: 'Discover a new level of pleasure with our specialty pizzadilla! Thin dough, appetizing bacon and cheese - this combination is sure to win your heart. Don\'t miss the opportunity to enjoy this incredible taste in the cozy atmosphere of our restaurant!',
+      },
+      {
+        locale: 'es',
+        value: '¡Descubre un nuevo nivel de placer con nuestra pizzadilla especial! Masa fina, apetitoso tocino y queso: esta combinación te conquistará. ¡No te pierdas la oportunidad de disfrutar de este increíble sabor en el acogedor ambiente de nuestro restaurante!',
       },
       {
         locale: 'ru',
@@ -1473,6 +1649,10 @@ const snacks: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -1528,6 +1708,10 @@ const snacks: Product[] = [
         value: 'The magic threads of Gouda',
       },
       {
+        locale: 'es',
+        value: 'Los hilos mágicos de Gouda',
+      },
+      {
         locale: 'ru',
         value: 'Волшебные нити Гауды',
       },
@@ -1548,6 +1732,10 @@ const snacks: Product[] = [
       {
         locale: 'en',
         value: 'Discover an amazing world of flavors with gourmet cheeses that will give you an unforgettable experience with every bite.',
+      },
+      {
+        locale: 'es',
+        value: 'Descubre un mundo asombroso de sabores con quesos gourmet que te brindarán una experiencia inolvidable en cada bocado.',
       },
       {
         locale: 'ru',
@@ -1574,6 +1762,10 @@ const snacks: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -1629,6 +1821,10 @@ const snacks: Product[] = [
         value: 'Flaming quesadilla: Spicy chicken slices',
       },
       {
+        locale: 'es',
+        value: 'Quesadilla flameada: Rebanadas de pollo picante',
+      },
+      {
         locale: 'ru',
         value: '"Пламенная кесадилья": острые ломтики курицы',
       },
@@ -1649,6 +1845,10 @@ const snacks: Product[] = [
       {
         locale: 'en',
         value: 'We invite you to enjoy exquisite chicken quesadilla in our restaurant! Tender chicken fillet, fragrant spices and golden cheese - this combination will surely win your heart. Served with vegetables and salsa sauce. Feel the unique taste of real Mexican cuisine in the cozy atmosphere of our restaurant!',
+      },
+      {
+        locale: 'es',
+        value: '¡Te invitamos a disfrutar de una exquisita quesadilla de pollo en nuestro restaurante! Tierno filete de pollo, especias aromáticas y queso dorado: esta combinación te conquistará. Servida con verduras y salsa. ¡Siente el sabor único de la auténtica cocina mexicana en el acogedor ambiente de nuestro restaurante!',
       },
       {
         locale: 'ru',
@@ -1675,6 +1875,10 @@ const snacks: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -1733,6 +1937,10 @@ const desserts: Product[] = [
         value: 'Apple extravaganza',
       },
       {
+        locale: 'es',
+        value: 'Extravagancia de la manzana',
+      },
+      {
         locale: 'ru',
         value: 'Яблочная феерия',
       },
@@ -1753,6 +1961,10 @@ const desserts: Product[] = [
       {
         locale: 'en',
         value: 'A delicious pie that will give you an unforgettable taste journey! Tender dough, fragrant apples and crispy crust - this combination will surely win your heart. Plunge into the holiday atmosphere with this incredible pie!',
+      },
+      {
+        locale: 'es',
+        value: '¡Un delicioso pastel que te brindará una experiencia de sabor inolvidable! Masa tierna, manzanas aromáticas y corteza crujiente: esta combinación te conquistará. ¡Sumérgete en el ambiente navideño con este increíble pastel!',
       },
       {
         locale: 'ru',
@@ -1779,6 +1991,10 @@ const desserts: Product[] = [
           {
             locale: 'en',
             value: 'Slice',
+          },
+          {
+            locale: 'es',
+            value: 'Rebanada',
           },
           {
             locale: 'ru',
@@ -1825,6 +2041,10 @@ const desserts: Product[] = [
             value: '2 Slices',
           },
           {
+            locale: 'es',
+            value: '2 Rebanadas',
+          },
+          {
             locale: 'ru',
             value: '2 куска',
           },
@@ -1867,6 +2087,10 @@ const desserts: Product[] = [
           {
             locale: 'en',
             value: 'Whole pie',
+          },
+          {
+            locale: 'es',
+            value: 'Pastel entero',
           },
           {
             locale: 'ru',
@@ -1916,6 +2140,10 @@ const desserts: Product[] = [
         value: 'New York chic cheesecake',
       },
       {
+        locale: 'es',
+        value: 'Tarta de queso chic neoyorquina',
+      },
+      {
         locale: 'ru',
         value: 'Чизкейк "Нью-Йоркский шик"',
       },
@@ -1936,6 +2164,10 @@ const desserts: Product[] = [
       {
         locale: 'en',
         value: 'Experience the unique taste of a real New York cheesecake! The delicate combination of cream cheese, crunchy base and fresh fruit will give you an unforgettable taste sensation. Prepared with love, this dessert will be a perfect end to your evening or a great addition to a friendly meeting.',
+      },
+      {
+        locale: 'es',
+        value: '¡Experimenta el sabor único de una auténtica tarta de queso neoyorquina! La delicada combinación de queso crema, base crujiente y fruta fresca te brindará una experiencia inolvidable. Preparado con cariño, este postre será el broche de oro perfecto para tu velada o un complemento perfecto para una reunión de amigos.',
       },
       {
         locale: 'ru',
@@ -1962,6 +2194,10 @@ const desserts: Product[] = [
           {
             locale: 'en',
             value: 'Slice',
+          },
+          {
+            locale: 'es',
+            value: 'Rebanada',
           },
           {
             locale: 'ru',
@@ -2017,6 +2253,10 @@ const desserts: Product[] = [
         value: 'Mango swirl',
       },
       {
+        locale: 'es',
+        value: 'Remolino de mango',
+      },
+      {
         locale: 'ru',
         value: 'Манговый вихрь',
       },
@@ -2037,6 +2277,10 @@ const desserts: Product[] = [
       {
         locale: 'en',
         value: 'Experience a real tropical explosion of flavor with our unique dessert! A delicate combination of ripe mango, creamy cream and crispy cookies will give you an unforgettable pleasure. Plunge into the atmosphere of warmth and sunshine with every bite of this amazing treat.',
+      },
+      {
+        locale: 'es',
+        value: '¡Experimenta una auténtica explosión de sabor tropical con nuestro postre único! Una delicada combinación de mango maduro, crema cremosa y galletas crujientes te brindará un placer inolvidable. Sumérgete en la atmósfera cálida y soleada con cada bocado de este delicioso postre.',
       },
       {
         locale: 'ru',
@@ -2063,6 +2307,10 @@ const desserts: Product[] = [
           {
             locale: 'en',
             value: 'Slice',
+          },
+          {
+            locale: 'es',
+            value: 'Rebanada',
           },
           {
             locale: 'ru',
@@ -2121,6 +2369,10 @@ const hotMeals: Product[] = [
         value: 'Secret passion: chicken and shrimp',
       },
       {
+        locale: 'es',
+        value: 'Pasión secreta: pollo y camarones',
+      },
+      {
         locale: 'ru',
         value: 'Тайная страсть: курица и креветки',
       },
@@ -2141,6 +2393,10 @@ const hotMeals: Product[] = [
       {
         locale: 'en',
         value: 'Chicken and shrimps - a delicate and exquisite combination for real gourmets. Roasted chicken fillet and tiger shrimps in cream sauce will be a perfect main course or addition to a side dish. Delight yourself and your loved ones with this delicious and flavorful hot dish!',
+      },
+      {
+        locale: 'es',
+        value: 'Pollo y camarones: una combinación delicada y exquisita para los verdaderos gourmets. El filete de pollo asado y los camarones tigre en salsa cremosa serán un plato principal o guarnición perfectos. ¡Deléitate y deleita a tus seres queridos con este delicioso y sabroso plato caliente!',
       },
       {
         locale: 'ru',
@@ -2167,6 +2423,10 @@ const hotMeals: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -2222,6 +2482,10 @@ const hotMeals: Product[] = [
         value: '"Triumphant Trio": a three-egg dish',
       },
       {
+        locale: 'es',
+        value: '"Trío Triunfante": un plato de tres huevos',
+      },
+      {
         locale: 'ru',
         value: '"Триумфальное трио": блюдо из трех яиц',
       },
@@ -2242,6 +2506,10 @@ const hotMeals: Product[] = [
       {
         locale: 'en',
         value: 'A perfect combination of three eggs fried to a golden crust, with aromatic herbs and delicate cream. This dish will be a real discovery for your palate and will give you an unforgettable experience!',
+      },
+      {
+        locale: 'es',
+        value: 'Una combinación perfecta de tres huevos fritos hasta obtener una costra dorada, con hierbas aromáticas y una delicada crema. ¡Este plato será un verdadero descubrimiento para tu paladar y te brindará una experiencia inolvidable!',
       },
       {
         locale: 'ru',
@@ -2268,6 +2536,10 @@ const hotMeals: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -2323,6 +2595,10 @@ const hotMeals: Product[] = [
         value: 'Firebird fajitas',
       },
       {
+        locale: 'es',
+        value: 'Fajitas de pájaro de fuego',
+      },
+      {
         locale: 'ru',
         value: 'Фахитас "Жар-птица"',
       },
@@ -2343,6 +2619,10 @@ const hotMeals: Product[] = [
       {
         locale: 'en',
         value: 'Experience the unique taste of Mexico with our flavorful chicken fajitas! Tender chicken meat fried with vegetables and spices will be a great addition to your favorite tortillas. Enjoy the bright flavor and get energized by the sun!',
+      },
+      {
+        locale: 'es',
+        value: '¡Experimenta el sabor único de México con nuestras deliciosas fajitas de pollo! La tierna carne de pollo frita con verduras y especias será un excelente complemento para tus tortillas favoritas. ¡Disfruta de su intenso sabor y energízate con el sol!',
       },
       {
         locale: 'ru',
@@ -2369,6 +2649,10 @@ const hotMeals: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -2424,6 +2708,10 @@ const hotMeals: Product[] = [
         value: 'Grilled salmon with chimichurri',
       },
       {
+        locale: 'es',
+        value: 'Salmón a la plancha con chimichurri',
+      },
+      {
         locale: 'ru',
         value: 'Лосось на гриле с чимичурри',
       },
@@ -2444,6 +2732,10 @@ const hotMeals: Product[] = [
       {
         locale: 'en',
         value: 'Experience an explosion of flavor with our hot dish Grilled Salmon with chimichurri! Flavorful spiced salmon is grilled until golden and then served with a refreshing chimichurri sauce. The perfect balance of flavor and aroma for your enjoyment!',
+      },
+      {
+        locale: 'es',
+        value: 'Experimente una explosión de sabor con nuestro plato caliente de Salmón a la Plancha con Chimichurri. Este delicioso salmón especiado se asa hasta quedar dorado y se sirve con una refrescante salsa chimichurri. ¡El equilibrio perfecto de sabor y aroma para su disfrute!',
       },
       {
         locale: 'ru',
@@ -2470,6 +2762,10 @@ const hotMeals: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -2525,6 +2821,10 @@ const hotMeals: Product[] = [
         value: 'Seafood Kingdom',
       },
       {
+        locale: 'es',
+        value: 'Reino de los mariscos',
+      },
+      {
         locale: 'ru',
         value: 'Королевство морепродуктов',
       },
@@ -2545,6 +2845,10 @@ const hotMeals: Product[] = [
       {
         locale: 'en',
         value: 'Tender sautéed cod and shrimps - an exquisite combination of seafood flavors in a fragrant tomato sauce. This hot dish will become a real decoration of your table and will delight your guests!',
+      },
+      {
+        locale: 'es',
+        value: 'Tierno bacalao y camarones salteados: una exquisita combinación de sabores de mariscos en una fragante salsa de tomate. ¡Este plato caliente se convertirá en una verdadera joya de tu mesa y deleitará a tus invitados!',
       },
       {
         locale: 'ru',
@@ -2571,6 +2875,10 @@ const hotMeals: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -2626,6 +2934,10 @@ const hotMeals: Product[] = [
         value: 'Jambalaya with chicken and shrimp in kanjun style',
       },
       {
+        locale: 'es',
+        value: 'Jambalaya con pollo y camarones al estilo kanjun',
+      },
+      {
         locale: 'ru',
         value: 'Джамбалайя с курицей и креветками в стиле канжун',
       },
@@ -2646,6 +2958,10 @@ const hotMeals: Product[] = [
       {
         locale: 'en',
         value: 'Discover the unique flavor of jambalaya with chicken and shrimps in Kanjun style! This hot dish combines French and Spanish culinary traditions and will please even the most demanding gourmets. Try it and see for yourself!',
+      },
+      {
+        locale: 'es',
+        value: '¡Descubre el sabor único de la jambalaya con pollo y camarones al estilo Kanjun! Este plato picante combina las tradiciones culinarias francesa y española y encantará incluso a los gourmets más exigentes. ¡Pruébalo y compruébalo tú mismo!',
       },
       {
         locale: 'ru',
@@ -2672,6 +2988,10 @@ const hotMeals: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -2730,6 +3050,10 @@ const salads: Product[] = [
         value: 'Spicy appetizer: salad with grilled chicken',
       },
       {
+        locale: 'es',
+        value: 'Aperitivo picante: ensalada con pollo a la parrilla',
+      },
+      {
         locale: 'ru',
         value: 'Пикантная закуска: салат с курицей-гриль',
       },
@@ -2750,6 +3074,10 @@ const salads: Product[] = [
       {
         locale: 'en',
         value: 'We invite you to enjoy a savory appetizer! Our signature salad with grilled chicken is a perfect combination of juicy chicken, fresh vegetables and flavorful sauce. Don\'t miss the opportunity to try this exquisite dish in our restaurant and be energized for the whole day!',
+      },
+      {
+        locale: 'es',
+        value: '¡Te invitamos a disfrutar de un delicioso aperitivo! Nuestra ensalada de autor con pollo a la parrilla combina a la perfección pollo jugoso, verduras frescas y una salsa deliciosa. ¡No te pierdas la oportunidad de probar este exquisito plato en nuestro restaurante y recargar energías para todo el día!',
       },
       {
         locale: 'ru',
@@ -2776,6 +3104,10 @@ const salads: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -2831,6 +3163,10 @@ const salads: Product[] = [
         value: '"Fire Whirl": Buffalo Chicken Salad',
       },
       {
+        locale: 'es',
+        value: '"Remolino de fuego": Ensalada de pollo búfalo',
+      },
+      {
         locale: 'ru',
         value: '"Огненный вихрь": Салат с курицей Баффало',
       },
@@ -2851,6 +3187,10 @@ const salads: Product[] = [
       {
         locale: 'en',
         value: 'We invite you to enjoy the exquisite taste of Buffalo chicken salad in our restaurant! Tender chicken meat marinated in spicy sauce is perfectly combined with lettuce leaves, carrots, celery and original blue cheese dressing. This dish will be a real discovery for lovers of spicy and unusual flavor combinations!',
+      },
+      {
+        locale: 'es',
+        value: '¡Le invitamos a disfrutar del exquisito sabor de la ensalada de pollo Buffalo en nuestro restaurante! La tierna carne de pollo marinada en salsa picante combina a la perfección con lechuga, zanahoria, apio y el original aderezo de queso azul. ¡Este plato será un verdadero descubrimiento para los amantes de las combinaciones de sabores picantes y originales!',
       },
       {
         locale: 'ru',
@@ -2877,6 +3217,10 @@ const salads: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -2932,6 +3276,10 @@ const salads: Product[] = [
         value: 'Charming shrimp: Caesar salad',
       },
       {
+        locale: 'es',
+        value: 'Camarones encantadores: ensalada César',
+      },
+      {
         locale: 'ru',
         value: 'Очаровательные креветки: Салат "Цезарь"',
       },
@@ -2952,6 +3300,10 @@ const salads: Product[] = [
       {
         locale: 'en',
         value: 'Experience the unique taste of Caesar salad with shrimps in our restaurant! Tender combination of juicy shrimps, crispy salad leaves and flavorful sauce will win your heart. A perfect choice for a romantic dinner or a friendly meeting.',
+      },
+      {
+        locale: 'es',
+        value: '¡Disfruta del sabor único de la ensalada César con camarones en nuestro restaurante! La tierna combinación de jugosos camarones, crujientes hojas de ensalada y una salsa deliciosa te conquistará. Una opción perfecta para una cena romántica o una reunión de amigos.',
       },
       {
         locale: 'ru',
@@ -2978,6 +3330,10 @@ const salads: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -3033,6 +3389,10 @@ const salads: Product[] = [
         value: '"Barbecue Flip": an explosion of flavor and aroma',
       },
       {
+        locale: 'es',
+        value: '"Barbecue Flip": una explosión de sabor y aroma',
+      },
+      {
         locale: 'ru',
         value: '"Барбекю флип": взрыв вкуса и аромата',
       },
@@ -3053,6 +3413,10 @@ const salads: Product[] = [
       {
         locale: 'en',
         value: 'Try our signature BBQ chicken salad - a perfect combination of juicy chicken, bacon, tomatoes and eggs with BBQ sauce. The delicate taste and flavor of this dish will be remembered for a long time!',
+      },
+      {
+        locale: 'es',
+        value: 'Prueba nuestra ensalada de pollo BBQ de autor: una combinación perfecta de jugoso pollo, tocino, tomates y huevos con salsa BBQ. ¡Su delicado sabor y aroma te acompañarán por mucho tiempo!',
       },
       {
         locale: 'ru',
@@ -3079,6 +3443,10 @@ const salads: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -3134,6 +3502,10 @@ const salads: Product[] = [
         value: 'Cobb\'s chic',
       },
       {
+        locale: 'es',
+        value: 'El estilo chic de Cobb',
+      },
+      {
         locale: 'ru',
         value: 'Кобб шик',
       },
@@ -3154,6 +3526,10 @@ const salads: Product[] = [
       {
         locale: 'en',
         value: 'Discover the exquisite taste of the legendary Cobb salad in our restaurant! This combination of tender chicken, juicy avocado, fresh tomatoes, crispy bacon and fragrant blue cheese will not leave you indifferent. An ideal choice for those who appreciate real American cuisine and want to enjoy the unique flavor.',
+      },
+      {
+        locale: 'es',
+        value: '¡Descubre el exquisito sabor de la legendaria ensalada Cobb en nuestro restaurante! Esta combinación de tierno pollo, jugoso aguacate, tomates frescos, tocino crujiente y aromático queso azul no te dejará indiferente. Una opción ideal para quienes aprecian la auténtica cocina americana y desean disfrutar de su sabor único.',
       },
       {
         locale: 'ru',
@@ -3180,6 +3556,10 @@ const salads: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -3235,6 +3615,10 @@ const salads: Product[] = [
         value: 'Imperial Caesar',
       },
       {
+        locale: 'es',
+        value: 'César imperial',
+      },
+      {
         locale: 'ru',
         value: 'Имперский Цезарь',
       },
@@ -3255,6 +3639,10 @@ const salads: Product[] = [
       {
         locale: 'en',
         value: 'Experience the unique taste of classic Caesar salad in our restaurant! Tender combination of juicy salad leaves, fragrant parmesan and golden croutons seasoned with special Worcester sauce will give you an unforgettable gastronomic pleasure.',
+      },
+      {
+        locale: 'es',
+        value: '¡Disfrute del sabor único de la clásica ensalada César en nuestro restaurante! La tierna combinación de jugosas hojas de ensalada, aromático parmesano y crutones dorados, aderezados con una salsa Worcester especial, le brindará un placer gastronómico inolvidable.',
       },
       {
         locale: 'ru',
@@ -3281,6 +3669,10 @@ const salads: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -3336,6 +3728,10 @@ const salads: Product[] = [
         value: 'Cosmic explosion of flavor',
       },
       {
+        locale: 'es',
+        value: 'Explosión cósmica de sabor',
+      },
+      {
         locale: 'ru',
         value: 'Космический взрыв вкуса',
       },
@@ -3356,6 +3752,10 @@ const salads: Product[] = [
       {
         locale: 'en',
         value: 'Discover an amazing combination of fresh vegetables, tender chicken and fragrant spices. Enjoy the unique taste and energize the bright stars on your table!',
+      },
+      {
+        locale: 'es',
+        value: 'Descubre una increíble combinación de verduras frescas, pollo tierno y especias aromáticas. ¡Disfruta de su sabor único y llena de energía a las estrellas de tu mesa!',
       },
       {
         locale: 'ru',
@@ -3382,6 +3782,10 @@ const salads: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -3437,6 +3841,10 @@ const salads: Product[] = [
         value: 'Greek oasis of flavor',
       },
       {
+        locale: 'es',
+        value: 'Oasis griego de sabor',
+      },
+      {
         locale: 'ru',
         value: 'Греческий оазис вкуса',
       },
@@ -3457,6 +3865,10 @@ const salads: Product[] = [
       {
         locale: 'en',
         value: 'Greek salad is a classic source of freshness and vitamins. Enjoy the perfect combination of ripe tomatoes, crunchy cucumbers, sweet peppers, red onions and tender olives. Season it all with fragrant olive oil and add original feta - and your table will turn into a real feast of taste!',
+      },
+      {
+        locale: 'es',
+        value: 'La ensalada griega es una fuente clásica de frescura y vitaminas. Disfruta de la combinación perfecta de tomates maduros, pepinos crujientes, pimientos dulces, cebollas rojas y aceitunas tiernas. Adérala con aceite de oliva aromático y añade queso feta original, ¡y tu mesa se convertirá en un auténtico festín de sabor!',
       },
       {
         locale: 'ru',
@@ -3483,6 +3895,10 @@ const salads: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -3541,6 +3957,10 @@ const soups: Product[] = [
         value: 'Generous borscht',
       },
       {
+        locale: 'es',
+        value: 'Borscht generoso',
+      },
+      {
         locale: 'ru',
         value: 'Щедрый борщ',
       },
@@ -3561,6 +3981,10 @@ const soups: Product[] = [
       {
         locale: 'en',
         value: 'An exquisite dish for true gourmets. Tender meat, fragrant vegetables and thick sour cream create a unique taste that you will remember for a long time.',
+      },
+      {
+        locale: 'es',
+        value: 'Un plato exquisito para auténticos gourmets. Carne tierna, verduras aromáticas y una crema agria espesa crean un sabor único que recordará durante mucho tiempo.',
       },
       {
         locale: 'ru',
@@ -3587,6 +4011,10 @@ const soups: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -3642,6 +4070,10 @@ const soups: Product[] = [
         value: 'The charm of the Loire',
       },
       {
+        locale: 'es',
+        value: 'El encanto del Loira',
+      },
+      {
         locale: 'ru',
         value: 'Очарование Луары',
       },
@@ -3662,6 +4094,10 @@ const soups: Product[] = [
       {
         locale: 'en',
         value: 'Discover the real French onion soup in our restaurant! Tender creamy broth, golden onions and spicy thyme create a unique flavor combination. Try this exquisite soup and feel the atmosphere of France right here in our cozy place!',
+      },
+      {
+        locale: 'es',
+        value: '¡Descubre la auténtica sopa de cebolla francesa en nuestro restaurante! Un caldo tierno y cremoso, cebollas doradas y tomillo picante crean una combinación de sabores única. ¡Prueba esta exquisita sopa y siente el ambiente francés en nuestro acogedor restaurante!',
       },
       {
         locale: 'ru',
@@ -3688,6 +4124,10 @@ const soups: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -3743,6 +4183,10 @@ const soups: Product[] = [
         value: 'Friendship! Sandwich! Club!',
       },
       {
+        locale: 'es',
+        value: '¡Amistad! ¡Sándwich! ¡Club!',
+      },
+      {
         locale: 'ru',
         value: 'Дружба! Сэндвич! Клуб!',
       },
@@ -3763,6 +4207,10 @@ const soups: Product[] = [
       {
         locale: 'en',
         value: 'Try our delicious and hearty chicken noodle and bun sandwich! Tender chicken meat, juicy vegetables and crispy bun - a great choice for your lunch or dinner. Experience the unique taste of home cooking in the cozy atmosphere of our restaurant!',
+      },
+      {
+        locale: 'es',
+        value: '¡Prueba nuestro delicioso y sustancioso sándwich de pollo con fideos y pan! Pollo tierno, verduras jugosas y pan crujiente: una excelente opción para tu almuerzo o cena. ¡Disfruta del sabor único de la comida casera en el acogedor ambiente de nuestro restaurante!',
       },
       {
         locale: 'ru',
@@ -3789,6 +4237,10 @@ const soups: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'es',
+            value: 'Porción',
           },
           {
             locale: 'ru',
@@ -3847,6 +4299,10 @@ const categories: Menu['categories'] = [
         value: 'Burgers',
       },
       {
+        locale: 'es',
+        value: 'Hamburguesas',
+      },
+      {
         locale: 'ru',
         value: 'Бургеры',
       },
@@ -3873,6 +4329,10 @@ const categories: Menu['categories'] = [
       {
         locale: 'en',
         value: 'Hot Meals',
+      },
+      {
+        locale: 'es',
+        value: 'Comidas calientes',
       },
       {
         locale: 'ru',
@@ -3903,6 +4363,10 @@ const categories: Menu['categories'] = [
         value: 'Salads',
       },
       {
+        locale: 'es',
+        value: 'Ensaladas',
+      },
+      {
         locale: 'ru',
         value: 'Салаты',
       },
@@ -3929,6 +4393,10 @@ const categories: Menu['categories'] = [
       {
         locale: 'en',
         value: 'Soups',
+      },
+      {
+        locale: 'es',
+        value: 'Sopas',
       },
       {
         locale: 'ru',
@@ -3959,6 +4427,10 @@ const categories: Menu['categories'] = [
         value: 'Snacks',
       },
       {
+        locale: 'es',
+        value: 'Aperitivos',
+      },
+      {
         locale: 'ru',
         value: 'Закуски',
       },
@@ -3985,6 +4457,10 @@ const categories: Menu['categories'] = [
       {
         locale: 'en',
         value: 'Desserts',
+      },
+      {
+        locale: 'es',
+        value: 'Postres',
       },
       {
         locale: 'ru',
@@ -4014,6 +4490,10 @@ const menu: Menu = {
     {
       locale: 'en',
       value: 'Default Menu',
+    },
+    {
+      locale: 'es',
+      value: 'Menú predeterminado',
     },
     {
       locale: 'ru',

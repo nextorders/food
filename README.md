@@ -24,9 +24,9 @@ Modern e-commerce self-hosted platform: clients will be happy to order delicious
 - 🔍 **Instant search** — find products in the catalog.
 - 🏁 **Guest checkout** — no registration required.
 
-[Check out PageSpeed Insights](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fdemo.nextorders.space%2F). Maybe it's showing all 100s 😉
+[Check out PageSpeed Insights](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fdemo.nextorders.space%2Fmoscow%2F). Maybe it's showing all 100s 😉
 
-## 🥪 Stack. What is used
+## 🥪 Tech Stack
 
 - [Nuxt](https://nuxt.com/): An open source framework that makes web development intuitive and powerful.
 - [Nuxt UI](https://ui.nuxt.com/): A collection of UI components for Nuxt.
@@ -39,18 +39,6 @@ Modern e-commerce self-hosted platform: clients will be happy to order delicious
 
 All dependencies are managed by [pnpm](https://pnpm.io/). Check the [pnpm-workspace.yaml](https://github.com/nextorders/food/blob/main/pnpm-workspace.yaml) for more details.
 
-## 🌎 Supported Locales
-
-The application currently supports [different languages](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales):
-
-| Code | Language | Native | Link |
-|------|----------|--------|------|
-| `en` 🇺🇸 | English | English | [en-US.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/en-US.ts) |
-| `de` 🇩🇪 | German | Deutsch | [de-DE.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/de-DE.ts) |
-| `ka` 🇬🇪 | Georgian | ქართული | [ka-GE.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ka-GE.ts) |
-| `ru` 🇷🇺 | Russian | Русский | [ru-RU.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ru-RU.ts) |
-| `zh_cn` 🇨🇳 | Chinese | 中文 | [zh-CN.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/zh-CN.ts) |
-
 ## 🥒 Repository structure
 
 **There are main apps and services:**
@@ -62,6 +50,19 @@ The application currently supports [different languages](https://github.com/next
 - [Food Schema](https://github.com/nextorders/food/tree/main/packages/food-schema): All types and schemas for the project. Here you can understand main data structures.
 - [UI](https://github.com/nextorders/food/tree/main/packages/ui): Theme and components for all apps. It is a Nuxt Layer with @nuxt/ui.
 - [Core](https://github.com/nextorders/food/tree/main/packages/core): Shared stores and server routes. It is a Nuxt Layer.
+
+## 🌎 Supported Locales
+
+The application currently supports [different languages](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales):
+
+| Code | Language | Native | Link |
+|------|----------|--------|------|
+| `en` 🇺🇸 | English | English | [en-US.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/en-US.ts) |
+| `de` 🇩🇪 | German | Deutsch | [de-DE.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/de-DE.ts) |
+| `es` 🇪🇸 | Spanish | Español | [es-ES.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/es-ES.ts) |
+| `ka` 🇬🇪 | Georgian | ქართული | [ka-GE.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ka-GE.ts) |
+| `ru` 🇷🇺 | Russian | Русский | [ru-RU.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ru-RU.ts) |
+| `zh_cn` 🇨🇳 | Simplified Chinese | 简体中文 | [zh-CN.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/zh-CN.ts) |
 
 ## ☕ How to deploy
 

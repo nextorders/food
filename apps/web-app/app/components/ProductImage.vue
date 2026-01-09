@@ -9,7 +9,7 @@
       :loading="lazy ? 'lazy' : 'eager'"
       :src="src"
       alt=""
-      class="rounded-lg w-full motion-preset-slide-down-sm"
+      class="rounded-lg w-full h-full object-cover motion-preset-slide-down-sm"
     >
   </picture>
 
