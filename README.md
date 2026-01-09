@@ -19,6 +19,7 @@ Modern e-commerce self-hosted platform: clients will be happy to order delicious
 - ✅ **Fully responsive design** — works perfectly on any device.
 - 📄 **Multi‑page SSR** — fast loading + SEO optimization.
 - 🌐 **Multi‑language** — supports 5+ locales.
+- 🏙️ **Multi‑city support** — run separate storefronts for different cities/regions.
 - 🛒 **Persistent cart** — always visible on desktop.
 - 🚚 **Delivery & pickup** — flexible fulfillment options.
 - 🔍 **Instant search** — find products in the catalog.
