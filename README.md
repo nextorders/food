@@ -61,6 +61,7 @@ The application currently supports [different languages](https://github.com/next
 | `en` 🇺🇸 | English | English | [en-US.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/en-US.ts) |
 | `de` 🇩🇪 | German | Deutsch | [de-DE.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/de-DE.ts) |
 | `es` 🇪🇸 | Spanish | Español | [es-ES.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/es-ES.ts) |
+| `fr` 🇫🇷 | French | Français | [fr-FR.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/fr-FR.ts) |
 | `ka` 🇬🇪 | Georgian | ქართული | [ka-GE.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ka-GE.ts) |
 | `ru` 🇷🇺 | Russian | Русский | [ru-RU.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ru-RU.ts) |
 | `zh_cn` 🇨🇳 | Simplified Chinese | 简体中文 | [zh-CN.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/zh-CN.ts) |
