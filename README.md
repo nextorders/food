@@ -12,13 +12,15 @@ Modern e-commerce self-hosted platform: clients will be happy to order delicious
 
 👉 [Demo: Website](https://demo.nextorders.space/moscow/)
 
+> Loved the taste? Give a star ⭐ — it’s like leaving a tip for the chef!
+
 ![main-screen-desktop](https://github.com/nextorders/food/blob/main/.github/media/main-screen-desktop.jpg?raw=true)
 
 ## 🍣 Features
 
 - ✅ **Fully responsive design** — works perfectly on any device.
 - 📄 **Multi‑page SSR** — fast loading + SEO optimization.
-- 🌐 **Multi‑language** — supports 5+ locales.
+- 🌐 **Multi‑language** — supports 7+ locales.
 - 🏙️ **Multi‑city support** — run separate storefronts for different cities/regions.
 - 🛒 **Persistent cart** — always visible on desktop.
 - 🚚 **Delivery & pickup** — flexible fulfillment options.
@@ -93,4 +95,4 @@ It will be a set of solutions that can work together.
 
 ![nextorders-arch](https://github.com/nextorders/food/blob/main/.github/media/nextorders-arch-v2.png?raw=true)
 
-Let's see what happens. Give the project a star ⭐. Offer your ideas and make commits.
+Let's see what happens. Offer your ideas and make commits.
