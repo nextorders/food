@@ -12,13 +12,15 @@ Modern e-commerce self-hosted platform: clients will be happy to order delicious
 
 👉 [Demo: Website](https://demo.nextorders.space/moscow/)
 
+> Loved the taste? Give a star ⭐ — it’s like leaving a tip for the chef!
+
 ![main-screen-desktop](https://github.com/nextorders/food/blob/main/.github/media/main-screen-desktop.jpg?raw=true)
 
 ## 🍣 Features
 
 - ✅ **Fully responsive design** — works perfectly on any device.
 - 📄 **Multi‑page SSR** — fast loading + SEO optimization.
-- 🌐 **Multi‑language** — supports 5+ locales.
+- 🌐 **Multi‑language** — supports 7+ locales.
 - 🏙️ **Multi‑city support** — run separate storefronts for different cities/regions.
 - 🛒 **Persistent cart** — always visible on desktop.
 - 🚚 **Delivery & pickup** — flexible fulfillment options.
@@ -61,6 +63,7 @@ The application currently supports [different languages](https://github.com/next
 | `en` 🇺🇸 | English | English | [en-US.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/en-US.ts) |
 | `de` 🇩🇪 | German | Deutsch | [de-DE.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/de-DE.ts) |
 | `es` 🇪🇸 | Spanish | Español | [es-ES.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/es-ES.ts) |
+| `fr` 🇫🇷 | French | Français | [fr-FR.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/fr-FR.ts) |
 | `ka` 🇬🇪 | Georgian | ქართული | [ka-GE.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ka-GE.ts) |
 | `ru` 🇷🇺 | Russian | Русский | [ru-RU.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ru-RU.ts) |
 | `zh_cn` 🇨🇳 | Simplified Chinese | 简体中文 | [zh-CN.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/zh-CN.ts) |
@@ -92,4 +95,4 @@ It will be a set of solutions that can work together.
 
 ![nextorders-arch](https://github.com/nextorders/food/blob/main/.github/media/nextorders-arch-v2.png?raw=true)
 
-Let's see what happens. Give the project a star ⭐. Offer your ideas and make commits.
+Let's see what happens. Offer your ideas and make commits.

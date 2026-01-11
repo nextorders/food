@@ -15,6 +15,10 @@ const options: Options = {
       value: 'Sabor sobre la marcha',
     },
     {
+      locale: 'fr',
+      value: 'Savoureux sur le pouce',
+    },
+    {
       locale: 'ka',
       value: 'გასინჯვა სირბილის დროს',
     },
@@ -41,6 +45,10 @@ const options: Options = {
       value: 'Disfrute de sabores únicos y un ambiente agradable',
     },
     {
+      locale: 'fr',
+      value: 'Savourez des goûts uniques et une ambiance agréable',
+    },
+    {
       locale: 'ka',
       value: 'დატკბით უნიკალური გემოებით და სასიამოვნო გარემოთი',
     },
@@ -55,7 +63,7 @@ const options: Options = {
   ],
   logoUrl: 'https://storage.yandexcloud.net/next-orders-food-demo/nextorders-food-logo.jpg',
   defaultLocale: 'ru',
-  availableLocales: ['ru', 'en', 'es', 'ka', 'de', 'zh_cn'],
+  availableLocales: ['ru', 'en', 'es', 'fr', 'ka', 'de', 'zh_cn'],
   countryCode: 'RU',
   currencyCode: 'RUB',
   headLinks: [
