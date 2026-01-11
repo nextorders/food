@@ -16,12 +16,12 @@ packages:
 catalogs:
   dev:
     '@antfu/eslint-config': ^6.7.3
-    '@commitlint/cli': ^20.3.0
-    '@commitlint/config-conventional': ^20.3.0
+    '@commitlint/cli': ^20.3.1
+    '@commitlint/config-conventional': ^20.3.1
     '@iconify-json/circle-flags': ^1.2.10
     '@iconify-json/fluent-emoji-flat': ^1.2.5
-    '@iconify-json/lucide': ^1.2.82
-    '@iconify-json/simple-icons': ^1.2.64
+    '@iconify-json/lucide': ^1.2.84
+    '@iconify-json/simple-icons': ^1.2.66
     '@nuxt/devtools': ^3.1.1
     '@nuxtjs/i18n': ^10.2.1
     '@tailwindcss/typography': ^0.5.19
@@ -34,17 +34,17 @@ catalogs:
     tailwindcss-motion: ^1.1.1
     typescript: ^5.9.3
     unbuild: ^3.6.1
-    vite: ^7.3.0
-    vue-tsc: ^3.2.1
+    vite: ^7.3.1
+    vue-tsc: ^3.2.2
   integrations:
     '@date-fns/tz': ^1.4.1
     '@neoconfetti/vue': ^2.2.1
     '@nuxt/ui': ^4.3.0
-    '@paralleldrive/cuid2': 2.2.2
+    '@paralleldrive/cuid2': 2.3.1
     '@pinia/nuxt': ^0.11.3
     '@vueuse/core': ^14.1.0
     '@vueuse/nuxt': ^14.1.0
-    libphonenumber-js: ^1.12.33
+    libphonenumber-js: ^1.12.34
     pinia: ^3.0.4
     zod: ^4.3.5
   test:
@@ -53,6 +53,6 @@ catalogs:
     playwright: ^1.57.0
     vitest: ^4.0.16
   types:
-    '@types/node': ^25.0.3
+    '@types/node': ^25.0.6
 
 autoInstallPeers: true
