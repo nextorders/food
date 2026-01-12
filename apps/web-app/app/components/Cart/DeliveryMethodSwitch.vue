@@ -1,5 +1,6 @@
 <template>
   <UTabs
+    v-if="isShown"
     v-model="selectedTab"
     :items="tabItems"
     :content="false"
@@ -39,6 +40,8 @@ const tabItems = computed<TabItem[]>(() => [
   },
 ])
 const selectedTab = ref<DeliveryMethod | undefined>(orderStore.deliveryMethod)
+
+const isShown = computed(() => channelStore.deliveryByCourier?.isAvailable && channelStore.selfPickup?.isAvailable)
 
 watch (selectedTab, () => {
   orderStore.change({ deliveryMethod: selectedTab.value })
