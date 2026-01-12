@@ -12,6 +12,15 @@
             :lazy="lazy"
             size="md"
           />
+          <div v-if="product.badges?.length" class="absolute left-2.5 right-6 bottom-3.5">
+            <div class="flex flex-col gap-1.5">
+              <ProductBadge
+                v-for="badge in product.badges"
+                :key="badge.id"
+                :badge="badge"
+              />
+            </div>
+          </div>
         </div>
 
         <div>
