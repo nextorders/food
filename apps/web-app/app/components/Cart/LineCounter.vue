@@ -3,6 +3,7 @@
     <UButton
       icon="i-lucide-minus"
       variant="ghost"
+      color="primary"
       size="md"
       aria-label="Minus"
       @click="orderStore.changeItem({
@@ -11,13 +12,14 @@
       })"
     />
 
-    <div class="text-base font-medium">
+    <div class="text-lg/5 font-medium">
       {{ line?.quantity }}
     </div>
 
     <UButton
       icon="i-lucide-plus"
       variant="ghost"
+      color="primary"
       size="md"
       aria-label="Plus"
       @click="orderStore.changeItem({
