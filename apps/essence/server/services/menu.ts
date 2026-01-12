@@ -4457,7 +4457,7 @@ const salads: Product[] = [
           },
           {
             locale: 'fr',
-            value: 'Leader des préférances 🚀',
+            value: 'Leader des préférences 🚀',
           },
           {
             locale: 'ru',
