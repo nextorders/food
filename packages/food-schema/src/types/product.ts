@@ -10,6 +10,12 @@ export const NutritionFactsSchema = z.object({
 })
 export type NutritionFacts = z.infer<typeof NutritionFactsSchema>
 
+export const ProductBadgeSchema = z.object({
+  id: z.string(),
+  title: LocaleValueSchema.array(),
+})
+export type ProductBadge = z.infer<typeof ProductBadgeSchema>
+
 export const ProductVariantSchema = z.object({
   id: z.string(),
   title: LocaleValueSchema.array(),
@@ -30,5 +36,6 @@ export const ProductSchema = z.object({
   description: LocaleValueSchema.array().optional(),
   isAvailableForPurchase: z.boolean(),
   variants: ProductVariantSchema.array(),
+  badges: ProductBadgeSchema.array().optional(),
 })
 export type Product = z.infer<typeof ProductSchema>

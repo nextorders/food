@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "@date-fns/tz": "catalog:integrations",
-    "@nextorders/food-schema": "workspace:*"
+    "@nextorders/food-schema": "workspace:*",
+    "@paralleldrive/cuid2": "catalog:integrations"
   },
   "devDependencies": {
     "@types/node": "catalog:types",

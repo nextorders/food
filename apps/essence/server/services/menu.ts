@@ -125,6 +125,41 @@ const burgers: Product[] = [
         },
       },
     ],
+    badges: [
+      {
+        id: 'new',
+        title: [
+          {
+            locale: 'en',
+            value: 'New!',
+          },
+          {
+            locale: 'es',
+            value: 'Nuevo!',
+          },
+          {
+            locale: 'fr',
+            value: 'Nouveau!',
+          },
+          {
+            locale: 'ru',
+            value: 'Новинка!',
+          },
+          {
+            locale: 'ka',
+            value: 'ახალი!',
+          },
+          {
+            locale: 'de',
+            value: 'Neu!',
+          },
+          {
+            locale: 'zh_cn',
+            value: '新的!',
+          },
+        ],
+      },
+    ],
   },
   {
     id: 'tender-clouds-burger',
@@ -750,6 +785,74 @@ const burgers: Product[] = [
         },
       },
     ],
+    badges: [
+      {
+        id: 'boom',
+        title: [
+          {
+            locale: 'en',
+            value: 'Boom!',
+          },
+          {
+            locale: 'es',
+            value: '¡Boom!',
+          },
+          {
+            locale: 'fr',
+            value: 'Boom!',
+          },
+          {
+            locale: 'ru',
+            value: 'Бум!',
+          },
+          {
+            locale: 'ka',
+            value: 'ბუმი!',
+          },
+          {
+            locale: 'de',
+            value: 'Boom!',
+          },
+          {
+            locale: 'zh_cn',
+            value: '爆炸!',
+          },
+        ],
+      },
+      {
+        id: 'mushroom',
+        title: [
+          {
+            locale: 'en',
+            value: '🍄‍🟫🍄‍🟫🍄‍🟫🤩',
+          },
+          {
+            locale: 'es',
+            value: '🍄‍🟫🍄‍🟫🍄‍🟫🤩',
+          },
+          {
+            locale: 'fr',
+            value: '🍄‍🟫🍄‍🟫🍄‍🟫🤩',
+          },
+          {
+            locale: 'ru',
+            value: '🍄‍🟫🍄‍🟫🍄‍🟫🤩',
+          },
+          {
+            locale: 'ka',
+            value: '🍄‍🟫🍄‍🟫🍄‍🟫🤩',
+          },
+          {
+            locale: 'de',
+            value: '🍄‍🟫🍄‍🟫🍄‍🟫🤩',
+          },
+          {
+            locale: 'zh_cn',
+            value: '🍄‍🟫🍄‍🟫🍄‍🟫🤩',
+          },
+        ],
+      },
+    ],
   },
   {
     id: 'jardines-burger',
@@ -1251,6 +1354,41 @@ const snacks: Product[] = [
           fat: 21.0,
           carbohydrate: 4.2,
         },
+      },
+    ],
+    badges: [
+      {
+        id: 'hot',
+        title: [
+          {
+            locale: 'en',
+            value: '🔥🥵',
+          },
+          {
+            locale: 'es',
+            value: '🔥🥵',
+          },
+          {
+            locale: 'fr',
+            value: '🔥🥵',
+          },
+          {
+            locale: 'ru',
+            value: '🔥🥵',
+          },
+          {
+            locale: 'ka',
+            value: '🔥🥵',
+          },
+          {
+            locale: 'de',
+            value: '🔥🥵',
+          },
+          {
+            locale: 'zh_cn',
+            value: '🔥🥵',
+          },
+        ],
       },
     ],
   },
@@ -2857,6 +2995,41 @@ const hotMeals: Product[] = [
         },
       },
     ],
+    badges: [
+      {
+        id: 'hit',
+        title: [
+          {
+            locale: 'en',
+            value: 'Hit 🔥',
+          },
+          {
+            locale: 'es',
+            value: '¡Hit 🔥!',
+          },
+          {
+            locale: 'fr',
+            value: 'Hit 🔥',
+          },
+          {
+            locale: 'ru',
+            value: 'Хит 🔥',
+          },
+          {
+            locale: 'ka',
+            value: 'ხიტი 🔥',
+          },
+          {
+            locale: 'de',
+            value: 'Hit 🔥',
+          },
+          {
+            locale: 'zh_cn',
+            value: '热门 🔥',
+          },
+        ],
+      },
+    ],
   },
   {
     id: 'firebird-fajitas',
@@ -3735,6 +3908,41 @@ const salads: Product[] = [
         },
       },
     ],
+    badges: [
+      {
+        id: 'gastronomic-delight',
+        title: [
+          {
+            locale: 'en',
+            value: 'Gastronomic Delight',
+          },
+          {
+            locale: 'es',
+            value: 'Delicias Gastronómicas',
+          },
+          {
+            locale: 'fr',
+            value: 'Délice gastronomique',
+          },
+          {
+            locale: 'ru',
+            value: 'Гастрономическое наслаждение',
+          },
+          {
+            locale: 'ka',
+            value: 'გასტრონომიული სიამოვნება',
+          },
+          {
+            locale: 'de',
+            value: 'Kulinarischer Genuss',
+          },
+          {
+            locale: 'zh_cn',
+            value: '美食盛宴',
+          },
+        ],
+      },
+    ],
   },
   {
     id: 'barbecue-flip-salad',
@@ -4233,6 +4441,41 @@ const salads: Product[] = [
           fat: 7.8,
           carbohydrate: 10.4,
         },
+      },
+    ],
+    badges: [
+      {
+        id: 'leader',
+        title: [
+          {
+            locale: 'en',
+            value: 'Leader of preferences 🚀',
+          },
+          {
+            locale: 'es',
+            value: 'Lider de preferencias 🚀',
+          },
+          {
+            locale: 'fr',
+            value: 'Leader des préférances 🚀',
+          },
+          {
+            locale: 'ru',
+            value: 'Лидер предпочтений 🚀',
+          },
+          {
+            locale: 'ka',
+            value: 'შესახების მენტი 🚀',
+          },
+          {
+            locale: 'de',
+            value: 'Leader der Präferenzen 🚀',
+          },
+          {
+            locale: 'zh_cn',
+            value: '首选 🚀',
+          },
+        ],
       },
     ],
   },
@@ -4736,6 +4979,41 @@ const soups: Product[] = [
           fat: 11.4,
           carbohydrate: 29.2,
         },
+      },
+    ],
+    badges: [
+      {
+        id: 'profit',
+        title: [
+          {
+            locale: 'en',
+            value: 'Profitable 🤑',
+          },
+          {
+            locale: 'es',
+            value: 'Rentable 🤑',
+          },
+          {
+            locale: 'fr',
+            value: 'Profitable 🤑',
+          },
+          {
+            locale: 'ru',
+            value: 'Выгодно 🤑',
+          },
+          {
+            locale: 'ka',
+            value: 'მომგებიანი 🤑',
+          },
+          {
+            locale: 'de',
+            value: 'Profitabel 🤑',
+          },
+          {
+            locale: 'zh_cn',
+            value: '有利可图 🤑',
+          },
+        ],
       },
     ],
   },

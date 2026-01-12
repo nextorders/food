@@ -1051,8 +1051,8 @@ export function handleGetTimeSlots(data: GatewayGetTimeSlotsRequest['body']): Ga
     })
   }
 
-  const shedule = data.deliveryMethod === 'deliveryByCourier' ? channel.deliveryByCourier.schedule : channel.selfPickup.schedule
-  if (!shedule) {
+  const schedule = data.deliveryMethod === 'deliveryByCourier' ? channel.deliveryByCourier.schedule : channel.selfPickup.schedule
+  if (!schedule) {
     throw createError({
       statusCode: 404,
       message: 'Schedule not found',
@@ -1062,6 +1062,6 @@ export function handleGetTimeSlots(data: GatewayGetTimeSlotsRequest['body']): Ga
   return {
     ok: true,
     type: 'getTimeSlots',
-    result: getTimeSlotsFromNow(shedule, channel.timeZone),
+    result: getTimeSlotsFromNow(schedule, channel.timeZone),
   }
 }
