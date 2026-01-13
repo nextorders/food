@@ -22,12 +22,18 @@ export const ProductVariantSchema = z.object({
   images: ImageSchema.array(),
   weightUnit: WeightUnitSchema,
   weightValue: z.number(),
-  gross: z.number(),
-  net: z.number().nullable(),
+  price: z.number(),
   sku: z.string().nullable(),
   nutritionFacts: NutritionFactsSchema.nullable(),
 })
 export type ProductVariant = z.infer<typeof ProductVariantSchema>
+
+export const RecommendedProductSchema = z.object({
+  id: z.string(),
+  productId: z.string(),
+  productVariantId: z.string(),
+})
+export type RecommendedProduct = z.infer<typeof RecommendedProductSchema>
 
 export const ProductSchema = z.object({
   id: z.string(),
@@ -35,7 +41,9 @@ export const ProductSchema = z.object({
   title: LocaleValueSchema.array(),
   description: LocaleValueSchema.array().optional(),
   isAvailableForPurchase: z.boolean(),
+  isShownInCatalog: z.boolean(),
   variants: ProductVariantSchema.array(),
   badges: ProductBadgeSchema.array().optional(),
+  recommendedProducts: RecommendedProductSchema.array().optional(),
 })
 export type Product = z.infer<typeof ProductSchema>

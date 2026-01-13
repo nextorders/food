@@ -23,7 +23,7 @@
           <div>
             <div class="text-xl font-medium">
               <span v-if="!withSingleVariant" class="pr-1">{{ $dict('web-app.cart.from') }}</span>
-              <span>{{ optionsStore.formatCurrency(smallestVariant?.gross ?? 0) }}</span>
+              <span>{{ optionsStore.formatCurrency(smallestVariant?.price ?? 0) }}</span>
               <span class="pl-1 text-lg">{{ optionsStore.currencySign }}</span>
             </div>
             <p class="text-base/5 line-clamp-2">
@@ -61,14 +61,14 @@
 import type { Product } from '@nextorders/food-schema'
 import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
-const { product, categorySlug } = defineProps<{
+const { product } = defineProps<{
   product: Product
-  categorySlug: string
   lazy?: boolean
 }>()
 
 const optionsStore = useOptionsStore()
 const orderStore = useOrderStore()
+const menuStore = useMenuStore()
 
 const withSingleVariant = computed<boolean>(() => product.variants.length === 1)
 const inCart = computed(() => withSingleVariant.value && orderStore.items.find(({ variantId }) => variantId === product.variants[0]?.id))
@@ -77,5 +77,5 @@ const smallestVariant = computed(() => product.variants[0])
 
 const weightValue = computed(() => smallestVariant.value?.weightValue)
 const weightUnit = computed(() => getWeightLocalizedUnit(smallestVariant.value?.weightUnit))
-const productUrl = computed(() => `/${categorySlug}/${product.slug}`)
+const productUrl = computed(() => menuStore.getProductUrl(product.id))
 </script>

@@ -71,6 +71,7 @@ export const ka: Dictionary = {
     },
     'show-details-label': 'დეტალების ჩვენება',
     'catalog': 'კატალოგი',
+    'most-often-added': 'ყველაზე ხშირად დამატებული',
     'open-category': 'გახსენით კატეგორია',
     'category-page-description': 'აქ არის ყველა პროდუქტი ამ კატეგორიიდან',
     'minimum-order-value': 'შეკვეთის მინიმალური ღირებულება',

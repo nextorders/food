@@ -13,7 +13,6 @@
       v-for="product in products"
       :key="product.id"
       :product="product"
-      :category-slug="category?.slug ?? ''"
     />
   </div>
 </template>

@@ -71,6 +71,7 @@ export const en = {
     },
     'show-details-label': 'show details',
     'catalog': 'Catalog',
+    'most-often-added': 'Most often added',
     'open-category': 'Open category',
     'category-page-description': 'Here are all the products from this category',
     'minimum-order-value': 'Minimum order value',

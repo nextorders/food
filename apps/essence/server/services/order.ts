@@ -149,8 +149,8 @@ export function handleAddOrderItem({ orderId, variantId }: GatewayAddOrderItemRe
     productId: product.id,
     productSlug: product.slug,
     quantity: 1,
-    unitPrice: variant.gross,
-    totalPrice: variant.gross,
+    unitPrice: variant.price,
+    totalPrice: variant.price,
   }
 
   const order = findOrder(orderId)
