@@ -65,6 +65,7 @@ const burgers: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'wild-west-burger-standard',
@@ -114,8 +115,7 @@ const burgers: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 370,
-        gross: 670,
-        net: 0,
+        price: 670,
         sku: null,
         nutritionFacts: {
           calories: 285.5,
@@ -158,6 +158,28 @@ const burgers: Product[] = [
             value: '新的!',
           },
         ],
+      },
+    ],
+    recommendedProducts: [
+      {
+        id: 'wild-west-burger-to-cobbs-chic-standard',
+        productId: 'cobbs-chic',
+        productVariantId: 'cobbs-chic-standard',
+      },
+      {
+        id: 'wild-west-burger-to-mango-swirl-standard',
+        productId: 'mango-swirl',
+        productVariantId: 'mango-swirl-standard',
+      },
+      {
+        id: 'wild-west-burger-to-cheese-adventures-standard',
+        productId: 'cheese-adventures',
+        productVariantId: 'cheese-adventures-standard',
+      },
+      {
+        id: 'wild-west-burger-to-cosmic-explosion-of-flavor-standard',
+        productId: 'cosmic-explosion-of-flavor',
+        productVariantId: 'cosmic-explosion-of-flavor-standard',
       },
     ],
   },
@@ -225,6 +247,7 @@ const burgers: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'tender-clouds-burger-standard',
@@ -274,8 +297,7 @@ const burgers: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 370,
-        gross: 690,
-        net: 0,
+        price: 690,
         sku: null,
         nutritionFacts: {
           calories: 265.2,
@@ -350,6 +372,7 @@ const burgers: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'veggie-burger-standard',
@@ -399,8 +422,7 @@ const burgers: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 360,
-        gross: 550,
-        net: 0,
+        price: 550,
         sku: null,
         nutritionFacts: {
           calories: 245.0,
@@ -475,6 +497,7 @@ const burgers: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'delicious-onion-burger-standard',
@@ -524,8 +547,7 @@ const burgers: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 350,
-        gross: 690,
-        net: 0,
+        price: 690,
         sku: null,
         nutritionFacts: {
           calories: 295.0,
@@ -600,6 +622,7 @@ const burgers: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'galactic-burger-standard',
@@ -649,8 +672,7 @@ const burgers: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 290,
-        gross: 640,
-        net: 0,
+        price: 640,
         sku: null,
         nutritionFacts: {
           calories: 310.5,
@@ -725,6 +747,7 @@ const burgers: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'mushroom-boom-burger-standard',
@@ -774,8 +797,7 @@ const burgers: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 370,
-        gross: 480,
-        net: 0,
+        price: 480,
         sku: null,
         nutritionFacts: {
           calories: 275.0,
@@ -918,6 +940,7 @@ const burgers: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'jardines-burger-standard',
@@ -967,8 +990,7 @@ const burgers: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 340,
-        gross: 690,
-        net: 0,
+        price: 690,
         sku: null,
         nutritionFacts: {
           calories: 255.0,
@@ -1043,6 +1065,7 @@ const burgers: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'hot-texas-burger-standard',
@@ -1092,8 +1115,7 @@ const burgers: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 350,
-        gross: 720,
-        net: 0,
+        price: 720,
         sku: null,
         nutritionFacts: {
           calories: 325.0,
@@ -1168,6 +1190,7 @@ const burgers: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'tender-bacon-burger-standard',
@@ -1217,8 +1240,7 @@ const burgers: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 340,
-        gross: 680,
-        net: 0,
+        price: 680,
         sku: null,
         nutritionFacts: {
           calories: 305.0,
@@ -1296,6 +1318,7 @@ const snacks: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'wings-of-happiness-standard',
@@ -1345,8 +1368,7 @@ const snacks: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 380,
-        gross: 890,
-        net: 0,
+        price: 890,
         sku: null,
         nutritionFacts: {
           calories: 290.0,
@@ -1456,6 +1478,7 @@ const snacks: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'vegetable-bounty-1',
@@ -1505,8 +1528,7 @@ const snacks: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 320,
-        gross: 760,
-        net: 0,
+        price: 760,
         sku: null,
         nutritionFacts: {
           calories: 215.0,
@@ -1581,6 +1603,7 @@ const snacks: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'cheeseburgerettes-standard',
@@ -1630,8 +1653,7 @@ const snacks: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 280,
-        gross: 670,
-        net: 0,
+        price: 670,
         sku: null,
         nutritionFacts: {
           calories: 290.0,
@@ -1706,6 +1728,7 @@ const snacks: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'hot-cheese-and-bacon-standard',
@@ -1755,8 +1778,7 @@ const snacks: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 260,
-        gross: 560,
-        net: 0,
+        price: 560,
         sku: null,
         nutritionFacts: {
           calories: 320.0,
@@ -1831,6 +1853,7 @@ const snacks: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'cheese-adventures-standard',
@@ -1880,8 +1903,7 @@ const snacks: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 280,
-        gross: 620,
-        net: 0,
+        price: 620,
         sku: null,
         nutritionFacts: {
           calories: 310.0,
@@ -1956,6 +1978,7 @@ const snacks: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'bacon-extravaganza-standard',
@@ -2005,8 +2028,7 @@ const snacks: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 330,
-        gross: 720,
-        net: 0,
+        price: 720,
         sku: null,
         nutritionFacts: {
           calories: 295.0,
@@ -2081,6 +2103,7 @@ const snacks: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'the-magic-threads-of-gouda-standard',
@@ -2130,8 +2153,7 @@ const snacks: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 160,
-        gross: 470,
-        net: 0,
+        price: 470,
         sku: null,
         nutritionFacts: {
           calories: 356.0,
@@ -2206,6 +2228,7 @@ const snacks: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'flaming-quesadilla-standard',
@@ -2255,8 +2278,7 @@ const snacks: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 370,
-        gross: 760,
-        net: 0,
+        price: 760,
         sku: null,
         nutritionFacts: {
           calories: 285.0,
@@ -2334,6 +2356,7 @@ const desserts: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'apple-extravaganza-1',
@@ -2377,8 +2400,7 @@ const desserts: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 200,
-        gross: 250,
-        net: 0,
+        price: 250,
         sku: null,
         nutritionFacts: {
           calories: 245.0,
@@ -2429,8 +2451,7 @@ const desserts: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 400,
-        gross: 410,
-        net: 0,
+        price: 410,
         sku: null,
         nutritionFacts: {
           calories: 245.0,
@@ -2481,8 +2502,7 @@ const desserts: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 1000,
-        gross: 930,
-        net: 0,
+        price: 930,
         sku: null,
         nutritionFacts: {
           calories: 245.0,
@@ -2557,6 +2577,7 @@ const desserts: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'new-york-chic-cheesecake-standard',
@@ -2606,8 +2627,7 @@ const desserts: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 145,
-        gross: 290,
-        net: 0,
+        price: 290,
         sku: null,
         nutritionFacts: {
           calories: 320.0,
@@ -2682,6 +2702,7 @@ const desserts: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'mango-swirl-standard',
@@ -2731,8 +2752,7 @@ const desserts: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 230,
-        gross: 560,
-        net: 0,
+        price: 560,
         sku: null,
         nutritionFacts: {
           calories: 285.0,
@@ -2810,6 +2830,7 @@ const hotMeals: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'chicken-and-shrimp-standard',
@@ -2859,8 +2880,7 @@ const hotMeals: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 560,
-        gross: 1100,
-        net: 0,
+        price: 1100,
         sku: null,
         nutritionFacts: {
           calories: 215.0,
@@ -2935,6 +2955,7 @@ const hotMeals: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'triumphant-trio-standard',
@@ -2984,8 +3005,7 @@ const hotMeals: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 320,
-        gross: 460,
-        net: 0,
+        price: 460,
         sku: null,
         nutritionFacts: {
           calories: 245.0,
@@ -3095,6 +3115,7 @@ const hotMeals: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'firebird-fajitas-standard',
@@ -3144,8 +3165,7 @@ const hotMeals: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 680,
-        gross: 1290,
-        net: 0,
+        price: 1290,
         sku: null,
         nutritionFacts: {
           calories: 185.0,
@@ -3220,6 +3240,7 @@ const hotMeals: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'grilled-salmon-with-chimichurri-standard',
@@ -3269,8 +3290,7 @@ const hotMeals: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 395,
-        gross: 1890,
-        net: 0,
+        price: 1890,
         sku: null,
         nutritionFacts: {
           calories: 195.0,
@@ -3345,6 +3365,7 @@ const hotMeals: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'seafood-kingdom-standard',
@@ -3394,8 +3415,7 @@ const hotMeals: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 460,
-        gross: 1790,
-        net: 0,
+        price: 1790,
         sku: null,
         nutritionFacts: {
           calories: 175.0,
@@ -3470,6 +3490,7 @@ const hotMeals: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'jambalaya-with-chicken-standard',
@@ -3519,8 +3540,7 @@ const hotMeals: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 390,
-        gross: 990,
-        net: 0,
+        price: 990,
         sku: null,
         nutritionFacts: {
           calories: 210.0,
@@ -3598,6 +3618,7 @@ const salads: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'salad-with-grilled-chicken-standard',
@@ -3647,8 +3668,7 @@ const salads: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 340,
-        gross: 650,
-        net: 0,
+        price: 650,
         sku: null,
         nutritionFacts: {
           calories: 165.0,
@@ -3723,6 +3743,7 @@ const salads: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'fire-whirl-buffalo-chicken-salad-standard',
@@ -3772,8 +3793,7 @@ const salads: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 320,
-        gross: 780,
-        net: 0,
+        price: 780,
         sku: null,
         nutritionFacts: {
           calories: 195.0,
@@ -3848,6 +3868,7 @@ const salads: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'charming-shrimp-caesar-salad-standard',
@@ -3897,8 +3918,7 @@ const salads: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 240,
-        gross: 870,
-        net: 0,
+        price: 870,
         sku: null,
         nutritionFacts: {
           calories: 210.0,
@@ -4008,6 +4028,7 @@ const salads: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'barbecue-flip-salad-standard',
@@ -4057,8 +4078,7 @@ const salads: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 310,
-        gross: 680,
-        net: 0,
+        price: 680,
         sku: null,
         nutritionFacts: {
           calories: 240.0,
@@ -4133,6 +4153,7 @@ const salads: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'cobbs-chic-standard',
@@ -4182,8 +4203,7 @@ const salads: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 270,
-        gross: 650,
-        net: 0,
+        price: 650,
         sku: null,
         nutritionFacts: {
           calories: 235.0,
@@ -4258,6 +4278,7 @@ const salads: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'imperial-caesar-standard',
@@ -4307,8 +4328,7 @@ const salads: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 165,
-        gross: 620,
-        net: 0,
+        price: 620,
         sku: null,
         nutritionFacts: {
           calories: 225.0,
@@ -4383,6 +4403,7 @@ const salads: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'cosmic-explosion-of-flavor-standard',
@@ -4432,8 +4453,7 @@ const salads: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 240,
-        gross: 530,
-        net: 0,
+        price: 530,
         sku: null,
         nutritionFacts: {
           calories: 155.0,
@@ -4543,6 +4563,7 @@ const salads: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'greek-oasis-of-flavor-standard',
@@ -4592,8 +4613,7 @@ const salads: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 275,
-        gross: 560,
-        net: 0,
+        price: 560,
         sku: null,
         nutritionFacts: {
           calories: 135.0,
@@ -4671,6 +4691,7 @@ const soups: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'generous-borscht-standard',
@@ -4720,8 +4741,7 @@ const soups: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 340,
-        gross: 410,
-        net: 0,
+        price: 410,
         sku: null,
         nutritionFacts: {
           calories: 215.0,
@@ -4796,6 +4816,7 @@ const soups: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'the-charm-of-the-loire-standard',
@@ -4845,8 +4866,7 @@ const soups: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 290,
-        gross: 420,
-        net: 0,
+        price: 420,
         sku: null,
         nutritionFacts: {
           calories: 145.0,
@@ -4921,6 +4941,7 @@ const soups: Product[] = [
       },
     ],
     isAvailableForPurchase: true,
+    isShownInCatalog: true,
     variants: [
       {
         id: 'friendship-sandwich-club-standard',
@@ -4970,8 +4991,7 @@ const soups: Product[] = [
         ],
         weightUnit: 'g',
         weightValue: 510,
-        gross: 570,
-        net: 0,
+        price: 570,
         sku: null,
         nutritionFacts: {
           calories: 265.0,

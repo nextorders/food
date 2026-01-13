@@ -13,7 +13,7 @@
             </p>
             <div class="flex flex-row gap-2 flex-nowrap">
               <div class="text-sm/4 font-medium tracking-tight">
-                {{ optionsStore.formatCurrency(productVariant?.gross ?? 0) }} <span class="text-xs">{{ optionsStore.currencySign }}</span>
+                {{ optionsStore.formatCurrency(productVariant?.price ?? 0) }} <span class="text-xs">{{ optionsStore.currencySign }}</span>
               </div>
               <div class="text-sm/4 text-muted font-light">
                 {{ productVariant?.weightValue }}{{ getWeightLocalizedUnit(productVariant?.weightUnit) }}
@@ -41,5 +41,5 @@ const menuStore = useMenuStore()
 
 const product = computed(() => menuStore.getProduct(line.productId))
 const productVariant = computed(() => menuStore.getProductVariant(line.variantId))
-const productUrl = computed(() => `/${line.categorySlug}/${line.productSlug}`)
+const productUrl = computed(() => menuStore.getProductUrl(line.productId))
 </script>

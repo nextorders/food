@@ -51,5 +51,5 @@ const menuStore = useMenuStore()
 
 const product = menuStore.getProduct(line.productId)
 const productVariant = menuStore.getProductVariant(line.variantId)
-const productUrl = computed(() => `/${line.categorySlug}/${line.productSlug}`)
+const productUrl = computed(() => menuStore.getProductUrl(line.productId))
 </script>

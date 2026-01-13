@@ -71,6 +71,7 @@ export const ru: Dictionary = {
     },
     'show-details-label': 'показать детали',
     'catalog': 'Каталог',
+    'most-often-added': 'Чаще всего добавляют',
     'open-category': 'Открыть категорию',
     'category-page-description': 'Здесь представлены все товары из этой категории',
     'minimum-order-value': 'Минимальная стоимость заказа',

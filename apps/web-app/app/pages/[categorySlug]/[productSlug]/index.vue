@@ -41,7 +41,7 @@
 
         <div class="mt-4 min-h-12 flex flex-row gap-4 md:gap-6 items-center justify-between md:justify-start">
           <div class="text-xl md:text-2xl font-medium tracking-tight">
-            {{ optionsStore.formatCurrency(selectedVariant?.gross ?? 0) }} <span class="text-xl">{{ optionsStore.currencySign }}</span>
+            {{ optionsStore.formatCurrency(selectedVariant?.price ?? 0) }} <span class="text-xl">{{ optionsStore.currencySign }}</span>
           </div>
 
           <template v-if="orderStore.isLoading">
@@ -69,19 +69,19 @@
 
     <div class="mt-6 grid grid-cols-1 md:grid-cols-5 gap-y-8 md:gap-6">
       <div v-if="product?.description" class="col-span-3">
-        <div class="mb-1 font-medium text-muted">
+        <h2 class="mb-1 font-medium text-muted">
           {{ $dict('common.description') }}
-        </div>
+        </h2>
         <div class="text-base/5">
           {{ optionsStore.getLocaleValue(product?.description) }}
         </div>
       </div>
 
       <div v-if="selectedVariant?.nutritionFacts" class="col-span-2">
-        <div class="mb-1 font-medium text-muted">
+        <h2 class="mb-1 font-medium text-muted">
           {{ $dict('common.nutrition.value-title') }}
-        </div>
-        <div class="mt-2 p-4 w-fit flex flex-row gap-4 lg:gap-5 bg-elevated/50 rounded-lg">
+        </h2>
+        <div class="p-4 w-fit flex flex-row gap-4 lg:gap-5 bg-elevated/50 rounded-lg">
           <div>
             <div class="font-medium">
               {{ selectedVariant.nutritionFacts.calories }}
@@ -118,6 +118,20 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div v-if="product.recommendedProducts?.length" class="mt-12">
+      <h2 class="mb-2 font-medium text-muted">
+        {{ $dict('web-app.most-often-added') }}
+      </h2>
+
+      <div class="grid grid-cols-2 md:grid-cols-5 2xl:grid-cols-7 gap-4 md:gap-6">
+        <ProductRecommendedCard
+          v-for="p in product.recommendedProducts"
+          :key="p.productVariantId"
+          :product="p"
+        />
       </div>
     </div>
   </div>

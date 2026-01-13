@@ -71,6 +71,7 @@ export const zh_cn: Dictionary = {
     },
     'show-details-label': '显示详情',
     'catalog': '菜单',
+    'most-often-added': '最常添加',
     'open-category': '打开分类',
     'category-page-description': '这里是该分类下的所有商品',
     'minimum-order-value': '最低订单金额',

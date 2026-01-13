@@ -70,6 +70,20 @@ export const useMenuStore = defineStore('menu', () => {
     return result
   }
 
+  function getProductUrl(id: string): string | undefined {
+    const product = getProduct(id)
+    if (!product) {
+      return
+    }
+
+    const category = getCategoryByProductId(id)
+    if (!category) {
+      return
+    }
+
+    return `/${category.slug}/${product.slug}`
+  }
+
   return {
     categories,
     products,
@@ -82,5 +96,6 @@ export const useMenuStore = defineStore('menu', () => {
     getCategoryByProductId,
     getCategoryBySlug,
     getProductsForSearch,
+    getProductUrl,
   }
 })

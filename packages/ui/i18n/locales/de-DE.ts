@@ -71,6 +71,7 @@ export const de: Dictionary = {
     },
     'show-details-label': 'Details anzeigen',
     'catalog': 'Katalog',
+    'most-often-added': 'Am häufigsten hinzugefügt',
     'open-category': 'Kategorie öffnen',
     'category-page-description': 'Hier sind alle Produkte dieser Kategorie',
     'minimum-order-value': 'Mindestbestellwert',
