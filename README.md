@@ -22,6 +22,8 @@ Modern e-commerce self-hosted platform: clients will be happy to order delicious
 - 📄 **Multi‑page SSR** — fast loading + SEO optimization.
 - 🌐 **Multi‑language** — supports 7+ locales.
 - 🏙️ **Multi‑city support** — run separate storefronts for different cities/regions.
+- 🎞️ **Product video** - show fragment on product page to increase conversion rates.
+- 📈 **Most often added** — block shows items frequently bought together to boost cross‑sales.
 - 🛒 **Persistent cart** — always visible on desktop.
 - 🚚 **Delivery & pickup** — flexible fulfillment options.
 - 🔍 **Instant search** — find products in the catalog.
