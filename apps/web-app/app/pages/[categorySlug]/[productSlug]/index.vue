@@ -4,11 +4,19 @@
   <div>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-0 gap-y-4 sm:gap-4">
       <div class="col-span-1 relative w-full aspect-square">
-        <ProductImage
-          :images="selectedVariant?.images ?? []"
-          :lazy="false"
-          size="md"
-        />
+        <div class="relative w-full h-full">
+          <ProductImage
+            :images="selectedVariant?.images ?? []"
+            :lazy="false"
+            size="md"
+          />
+
+          <ProductVideo
+            v-if="selectedVariant?.video"
+            :video="selectedVariant.video"
+          />
+        </div>
+
         <div v-if="product.badges?.length" class="absolute left-2.5 right-6 bottom-3.5">
           <div class="flex flex-col gap-1.5">
             <ProductBadge

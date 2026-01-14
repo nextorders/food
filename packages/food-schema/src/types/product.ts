@@ -1,6 +1,7 @@
 import z from 'zod'
 import { LocaleValueSchema, WeightUnitSchema } from './common'
 import { ImageSchema } from './image'
+import { VideoSchema } from './video'
 
 export const NutritionFactsSchema = z.object({
   calories: z.number(),
@@ -20,6 +21,7 @@ export const ProductVariantSchema = z.object({
   id: z.string(),
   title: LocaleValueSchema.array(),
   images: ImageSchema.array(),
+  video: VideoSchema.optional(),
   weightUnit: WeightUnitSchema,
   weightValue: z.number(),
   price: z.number(),

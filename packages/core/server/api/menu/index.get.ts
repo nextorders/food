@@ -1,6 +1,6 @@
 import type { GatewayGetMenuRequest, GatewayGetMenuResponse } from '@nextorders/food-schema'
 
-const CACHE_MAX_AGE = 60 * 5 // 5 minutes
+const CACHE_MAX_AGE = 60 // 1 minute
 
 export default defineCachedEventHandler<Promise<GatewayGetMenuResponse['result']>>(async () => {
   try {
