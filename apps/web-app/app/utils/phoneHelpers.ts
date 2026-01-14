@@ -13,15 +13,16 @@ export function getPhoneNumberFormatter(countryCode?: CountryCode) {
 export function formatPhoneNumber(value: string, countryCode?: CountryCode) {
   if (value.length > 12) {
     try {
-      const parsed = parsePhoneNumberWithError(value, countryCode)
-      if (parsed) {
-        return parsed.format('INTERNATIONAL', {
-          fromCountry: countryCode,
-          humanReadable: true,
-          nationalPrefix: true,
-          v2: true,
-        })
+      if (!countryCode) {
+        return value
       }
+
+      const parsed = parsePhoneNumberWithError(value, countryCode)
+
+      return parsed?.format('INTERNATIONAL', {
+        fromCountry: countryCode,
+        nationalPrefix: true,
+      })
     } catch (err) {
       if (err instanceof Error) {
         return value

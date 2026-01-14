@@ -15,17 +15,17 @@ packages:
 
 catalogs:
   dev:
-    '@antfu/eslint-config': ^6.7.3
+    '@antfu/eslint-config': ^7.0.0
     '@commitlint/cli': ^20.3.1
     '@commitlint/config-conventional': ^20.3.1
     '@iconify-json/circle-flags': ^1.2.10
     '@iconify-json/fluent-emoji-flat': ^1.2.5
-    '@iconify-json/lucide': ^1.2.84
+    '@iconify-json/lucide': ^1.2.85
     '@iconify-json/simple-icons': ^1.2.66
     '@nuxt/devtools': ^3.1.1
     '@nuxtjs/i18n': ^10.2.1
     '@tailwindcss/typography': ^0.5.19
-    bumpp: ^10.3.2
+    bumpp: ^10.4.0
     eslint: ^9.39.2
     husky: ^9.1.7
     lint-staged: ^16.2.7
@@ -44,15 +44,15 @@ catalogs:
     '@pinia/nuxt': ^0.11.3
     '@vueuse/core': ^14.1.0
     '@vueuse/nuxt': ^14.1.0
-    libphonenumber-js: ^1.12.33
+    libphonenumber-js: ^1.12.34
     pinia: ^3.0.4
     zod: ^4.3.5
   test:
-    '@vitest/browser-playwright': ^4.0.16
-    '@vitest/coverage-v8': ^4.0.16
+    '@vitest/browser-playwright': ^4.0.17
+    '@vitest/coverage-v8': ^4.0.17
     playwright: ^1.57.0
-    vitest: ^4.0.16
+    vitest: ^4.0.17
   types:
-    '@types/node': ^25.0.6
+    '@types/node': ^25.0.8
 
 autoInstallPeers: true
