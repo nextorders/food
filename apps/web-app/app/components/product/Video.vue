@@ -25,6 +25,8 @@ const videoRef = ref<HTMLVideoElement | null>(null)
 const isVideoLoaded = ref(false)
 const isVideoPlaying = ref(false)
 
+let timer: NodeJS.Timeout
+
 function onCanPlayThrough() {
   isVideoLoaded.value = true
 
@@ -37,7 +39,13 @@ function onVideoEnded() {
 
 function playVideo() {
   if (isVideoLoaded.value && !isVideoPlaying.value) {
-    videoRef.value?.play()
+    try {
+      videoRef.value?.play()
+    } catch (error) {
+      console.error(error)
+      isVideoLoaded.value = false
+    }
+
     isVideoPlaying.value = true
   }
 }
@@ -52,10 +60,16 @@ onMounted(() => {
       playVideo()
     } else {
       // If the video is not loaded, check again in 1 second
-      setTimeout(checkAndPlay, 1000)
+      timer = setTimeout(checkAndPlay, 1000)
     }
   }
 
-  setTimeout(checkAndPlay, 1000) // Check after
+  timer = setTimeout(checkAndPlay, 1000) // Check after
+})
+
+onBeforeUnmount(() => {
+  if (timer) {
+    clearTimeout(timer)
+  }
 })
 </script>
