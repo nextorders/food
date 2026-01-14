@@ -24,7 +24,7 @@ Modern e-commerce self-hosted platform: clients will be happy to order delicious
 - **Multi‑city support** — run separate storefronts for different cities/regions.
 - **Most often added** — block shows items frequently bought together to boost cross‑sales.
 - **Product video** - show fragment on product page to increase conversion rates.
-- **Product composition** — it can be a list of ingredients or a product cards with information.
+- **Product composition** — it can be a list of ingredients or product cards with information.
 - **Persistent cart** — always visible on desktop.
 - **Delivery & pickup** — flexible fulfillment options.
 - **Instant search** — find products in the catalog.
