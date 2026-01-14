@@ -268,11 +268,11 @@ const burgers: Product[] = [
             },
             {
               locale: 'es',
-              value: 'Cebollitas picadas',
+              value: 'Pepinillos en vinagre',
             },
             {
               locale: 'fr',
-              value: 'Oignons picantes',
+              value: 'Cornichons',
             },
             {
               locale: 'ru',
@@ -288,7 +288,7 @@ const burgers: Product[] = [
             },
             {
               locale: 'zh_cn',
-              value: '辣椒',
+              value: '腌黄瓜',
             },
           ],
         },
