@@ -110,6 +110,7 @@ export const en = {
     'to-home': 'To Home',
     'website': 'Website',
     'description': 'Description',
+    'composition': 'Composition',
     'price': 'Price',
     'weight-or-volume': 'Weight / Volume',
     'measurement-unit': 'Measurement unit',

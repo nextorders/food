@@ -37,6 +37,23 @@ export const RecommendedProductSchema = z.object({
 })
 export type RecommendedProduct = z.infer<typeof RecommendedProductSchema>
 
+export const CompositionIngredientSchema = z.object({
+  title: LocaleValueSchema.array(),
+})
+
+export const CompositionProductSchema = z.object({
+  id: z.string(),
+  productId: z.string(),
+  productVariantId: z.string(),
+})
+export type CompositionProductItem = z.infer<typeof CompositionProductSchema>
+
+export const ProductCompositionSchema = z.object({
+  products: CompositionProductSchema.array().optional(),
+  ingredients: CompositionIngredientSchema.array().optional(),
+})
+export type ProductComposition = z.infer<typeof ProductCompositionSchema>
+
 export const ProductSchema = z.object({
   id: z.string(),
   slug: z.string(),
@@ -45,6 +62,7 @@ export const ProductSchema = z.object({
   isAvailableForPurchase: z.boolean(),
   isShownInCatalog: z.boolean(),
   variants: ProductVariantSchema.array(),
+  composition: ProductCompositionSchema.optional(),
   badges: ProductBadgeSchema.array().optional(),
   recommendedProducts: RecommendedProductSchema.array().optional(),
 })

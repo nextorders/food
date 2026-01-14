@@ -18,16 +18,17 @@ Modern e-commerce self-hosted platform: clients will be happy to order delicious
 
 ## 🍣 Features
 
-- ✅ **Fully responsive design** — works perfectly on any device.
-- 📄 **Multi‑page SSR** — fast loading + SEO optimization.
-- 🌐 **Multi‑language** — supports 7+ locales.
-- 🏙️ **Multi‑city support** — run separate storefronts for different cities/regions.
-- 🎞️ **Product video** - show fragment on product page to increase conversion rates.
-- 📈 **Most often added** — block shows items frequently bought together to boost cross‑sales.
-- 🛒 **Persistent cart** — always visible on desktop.
-- 🚚 **Delivery & pickup** — flexible fulfillment options.
-- 🔍 **Instant search** — find products in the catalog.
-- 🏁 **Guest checkout** — no registration required.
+- **Fully responsive design** — works perfectly on any device.
+- **Multi‑page SSR** — fast loading + SEO optimization.
+- **Multi‑language** — supports 7+ locales.
+- **Multi‑city support** — run separate storefronts for different cities/regions.
+- **Most often added** — block shows items frequently bought together to boost cross‑sales.
+- **Product video** - show fragment on product page to increase conversion rates.
+- **Product composition** — it can be a list of ingredients or a product cards with information.
+- **Persistent cart** — always visible on desktop.
+- **Delivery & pickup** — flexible fulfillment options.
+- **Instant search** — find products in the catalog.
+- **Guest checkout** — no registration required.
 
 [Check out PageSpeed Insights](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fdemo.nextorders.space%2Fmoscow%2F). Maybe it's showing all 100s 😉
 
