@@ -38,16 +38,18 @@ function onVideoEnded() {
 }
 
 function playVideo() {
-  if (isVideoLoaded.value && !isVideoPlaying.value) {
-    try {
-      videoRef.value?.play()
-    } catch (error) {
-      console.error(error)
-      isVideoLoaded.value = false
-    }
-
-    isVideoPlaying.value = true
+  if (!isVideoLoaded.value || isVideoPlaying.value) {
+    return
   }
+
+  try {
+    videoRef.value?.play()
+  } catch (error) {
+    console.error(error)
+    isVideoLoaded.value = false
+  }
+
+  isVideoPlaying.value = true
 }
 
 onMounted(() => {
