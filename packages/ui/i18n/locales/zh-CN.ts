@@ -110,6 +110,7 @@ export const zh_cn: Dictionary = {
     'to-home': '回到首页',
     'website': '网站',
     'description': '描述',
+    'composition': '成分',
     'price': '价格',
     'weight-or-volume': '重量 / 体积',
     'measurement-unit': '单位',

@@ -110,6 +110,7 @@ export const ru: Dictionary = {
     'to-home': 'На главную',
     'website': 'Веб-сайт',
     'description': 'Описание',
+    'composition': 'Состав',
     'price': 'Цена',
     'weight-or-volume': 'Вес / Объем',
     'measurement-unit': 'Ед. измерения',

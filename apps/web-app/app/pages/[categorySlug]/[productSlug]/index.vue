@@ -76,6 +76,10 @@
     </div>
 
     <div class="mt-6 grid grid-cols-1 md:grid-cols-5 gap-y-8 md:gap-6">
+      <div v-if="product?.composition" class="col-span-full">
+        <ProductCompositionBlock :composition="product.composition" />
+      </div>
+
       <div v-if="product?.description" class="col-span-3">
         <h2 class="mb-1 font-medium text-muted">
           {{ $dict('common.description') }}

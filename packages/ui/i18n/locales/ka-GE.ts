@@ -110,6 +110,7 @@ export const ka: Dictionary = {
     'to-home': 'სახლში',
     'website': 'საიტი',
     'description': 'აღწერა',
+    'composition': 'კომპოზიცია',
     'price': 'ფასი',
     'weight-or-volume': 'წონა / მოცულობა',
     'measurement-unit': 'საზომი ერთეული',

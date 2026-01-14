@@ -110,6 +110,7 @@ export const fr: Dictionary = {
     'to-home': 'Vers l\'accueil',
     'website': 'Site web',
     'description': 'Description',
+    'composition': 'Composition',
     'price': 'Prix',
     'weight-or-volume': 'Poids / Volume',
     'measurement-unit': 'Unité de mesure',

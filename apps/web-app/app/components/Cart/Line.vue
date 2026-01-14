@@ -12,7 +12,7 @@
               {{ optionsStore.getLocaleValue(product?.title) }}
             </p>
             <div class="flex flex-row gap-2 flex-nowrap">
-              <div class="text-sm/4 font-medium tracking-tight">
+              <div class="shrink-0 text-sm/4 font-medium tracking-tight">
                 {{ optionsStore.formatCurrency(productVariant?.price ?? 0) }} <span class="text-xs">{{ optionsStore.currencySign }}</span>
               </div>
               <div class="text-sm/4 text-muted font-light">

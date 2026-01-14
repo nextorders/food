@@ -130,6 +130,298 @@ const burgers: Product[] = [
         },
       },
     ],
+    composition: {
+      ingredients: [
+        {
+          title: [
+            {
+              locale: 'en',
+              value: 'Beef cutlet',
+            },
+            {
+              locale: 'es',
+              value: 'Corte de carne de res',
+            },
+            {
+              locale: 'fr',
+              value: 'Tranche de viande',
+            },
+            {
+              locale: 'ru',
+              value: 'Котлета из говядины',
+            },
+            {
+              locale: 'ka',
+              value: 'გრეინის კოტერა',
+            },
+            {
+              locale: 'de',
+              value: 'Rindfleisch',
+            },
+            {
+              locale: 'zh_cn',
+              value: '牛肉切块',
+            },
+          ],
+        },
+        {
+          title: [
+            {
+              locale: 'en',
+              value: 'Bread with sesame',
+            },
+            {
+              locale: 'es',
+              value: 'Pan con semilla',
+            },
+            {
+              locale: 'fr',
+              value: 'Pain au sésame',
+            },
+            {
+              locale: 'ru',
+              value: 'Булочка с кунжутом',
+            },
+            {
+              locale: 'ka',
+              value: 'კუნზიტის ბუნე',
+            },
+            {
+              locale: 'de',
+              value: 'Brot mit Sesam',
+            },
+            {
+              locale: 'zh_cn',
+              value: '有芝麻的面包',
+            },
+          ],
+        },
+        {
+          title: [
+            {
+              locale: 'en',
+              value: 'Soft cheese',
+            },
+            {
+              locale: 'es',
+              value: 'Queso suave',
+            },
+            {
+              locale: 'fr',
+              value: 'Fromage doux',
+            },
+            {
+              locale: 'ru',
+              value: 'Плавленый сыр',
+            },
+            {
+              locale: 'ka',
+              value: 'სუფერი',
+            },
+            {
+              locale: 'de',
+              value: 'Weichem Käse',
+            },
+            {
+              locale: 'zh_cn',
+              value: '软化的奶酪',
+            },
+          ],
+        },
+        {
+          title: [
+            {
+              locale: 'en',
+              value: 'Barbecue sauce',
+            },
+            {
+              locale: 'es',
+              value: 'Salsa de barbacoa',
+            },
+            {
+              locale: 'fr',
+              value: 'Sauce barbecue',
+            },
+            {
+              locale: 'ru',
+              value: 'Соус барбекю',
+            },
+            {
+              locale: 'ka',
+              value: 'ბარბაკის სასულე',
+            },
+            {
+              locale: 'de',
+              value: 'Barbecue Sauce',
+            },
+            {
+              locale: 'zh_cn',
+              value: '烧烤酱',
+            },
+          ],
+        },
+        {
+          title: [
+            {
+              locale: 'en',
+              value: 'Pickled cucumbers',
+            },
+            {
+              locale: 'es',
+              value: 'Pepinillos en vinagre',
+            },
+            {
+              locale: 'fr',
+              value: 'Cornichons',
+            },
+            {
+              locale: 'ru',
+              value: 'Маринованные огурцы',
+            },
+            {
+              locale: 'ka',
+              value: 'მარინული აგური',
+            },
+            {
+              locale: 'de',
+              value: 'Pickled cucumbers',
+            },
+            {
+              locale: 'zh_cn',
+              value: '腌黄瓜',
+            },
+          ],
+        },
+        {
+          title: [
+            {
+              locale: 'en',
+              value: 'Lettuce leaves',
+            },
+            {
+              locale: 'es',
+              value: 'Hojas de lechuga',
+            },
+            {
+              locale: 'fr',
+              value: 'Feuilles de salade',
+            },
+            {
+              locale: 'ru',
+              value: 'Листья салата',
+            },
+            {
+              locale: 'ka',
+              value: 'სალათის კონები',
+            },
+            {
+              locale: 'de',
+              value: 'Salatblaetter',
+            },
+            {
+              locale: 'zh_cn',
+              value: '生菜叶',
+            },
+          ],
+        },
+        {
+          title: [
+            {
+              locale: 'en',
+              value: 'Tomato',
+            },
+            {
+              locale: 'es',
+              value: 'Tomate',
+            },
+            {
+              locale: 'fr',
+              value: 'Tomate',
+            },
+            {
+              locale: 'ru',
+              value: 'Помидор',
+            },
+            {
+              locale: 'ka',
+              value: 'ტომანი',
+            },
+            {
+              locale: 'de',
+              value: 'Tomate',
+            },
+            {
+              locale: 'zh_cn',
+              value: '番茄',
+            },
+          ],
+        },
+        {
+          title: [
+            {
+              locale: 'en',
+              value: 'Onion',
+            },
+            {
+              locale: 'es',
+              value: 'Cebolla',
+            },
+            {
+              locale: 'fr',
+              value: 'Oignon',
+            },
+            {
+              locale: 'ru',
+              value: 'Лук репчатый',
+            },
+            {
+              locale: 'ka',
+              value: 'ლუკი',
+            },
+            {
+              locale: 'de',
+              value: 'Zwiebel',
+            },
+            {
+              locale: 'zh_cn',
+              value: '洋葱',
+            },
+          ],
+        },
+        {
+          title: [
+            {
+              locale: 'en',
+              value: 'Bacon',
+            },
+            {
+              locale: 'es',
+              value: 'Bacon',
+            },
+            {
+              locale: 'fr',
+              value: 'Bacon',
+            },
+            {
+              locale: 'ru',
+              value: 'Бекон',
+            },
+            {
+              locale: 'ka',
+              value: 'ბაკონი',
+            },
+            {
+              locale: 'de',
+              value: 'Bacon',
+            },
+            {
+              locale: 'zh_cn',
+              value: '培根',
+            },
+          ],
+        },
+      ],
+    },
     badges: [
       {
         id: 'new',
@@ -447,6 +739,155 @@ const burgers: Product[] = [
         },
       },
     ],
+  },
+  {
+    id: 'combo-burgers',
+    slug: 'combo-burgers',
+    title: [
+      {
+        locale: 'en',
+        value: 'Powerful combo: three burgers',
+      },
+      {
+        locale: 'es',
+        value: 'Combo potente: tres hamburguesas',
+      },
+      {
+        locale: 'fr',
+        value: 'Combo puissant : trois hamburgers',
+      },
+      {
+        locale: 'ru',
+        value: 'Мощное комбо: три бургера',
+      },
+      {
+        locale: 'ka',
+        value: 'ძლიერი კომბინაცია: სამი ბურგერი',
+      },
+      {
+        locale: 'de',
+        value: 'Starke Kombination: drei Burger',
+      },
+      {
+        locale: 'zh_cn',
+        value: '强力组合：三个汉堡',
+      },
+    ],
+    description: [
+      {
+        locale: 'en',
+        value: 'Each burger is a perfect harmony of crispy bun, flavorful patty, and fresh ingredients, all brought together in a unique flavor symphony. This combo will be the star of any gathering: whether it\'s a friendly evening, a picnic, or simply a feast for the senses. Indulge in the pleasure—order your combo now and get a triple helping of gastronomic delight!',
+      },
+      {
+        locale: 'es',
+        value: 'Cada hamburguesa es la armonía perfecta de pan crujiente, carne sabrosa e ingredientes frescos, todo ello combinado en una sinfonía de sabores única. Este combo será la estrella de cualquier reunión: ya sea una velada con amigos, un picnic o simplemente un deleite para los sentidos. ¡Date un capricho! ¡Pide tu combo ahora y recibe una ración triple de delicias gastronómicas!',
+      },
+      {
+        locale: 'fr',
+        value: 'Chaque burger est une harmonie parfaite entre un pain croustillant, un steak savoureux et des ingrédients frais, le tout formant une symphonie de saveurs unique. Ce combo sera la star de toutes vos réceptions : soirée entre amis, pique-nique ou simple festin pour les sens. Faites-vous plaisir – commandez votre combo dès maintenant et offrez-vous une triple dose de délice gastronomique !',
+      },
+      {
+        locale: 'ru',
+        value: 'Каждый бургер — это идеальная гармония хрустящей булочки, ароматной котлеты и свежих ингредиентов, собранных в неповторимую вкусовую симфонию. Такое комбо станет звездой любой встречи: будь то дружеский вечер, пикник или просто желание устроить праздник живота. Не отказывайте себе в удовольствии — закажите комбо прямо сейчас и получите тройную порцию гастрономического восторга!',
+      },
+      {
+        locale: 'ka',
+        value: 'თითოეული ბურგერი წარმოადგენს ხრაშუნა ფუნთუშას, არომატულ კატლეტსა და ახალ ინგრედიენტებს, რომლებიც უნიკალურ არომატულ სიმფონიაშია გაერთიანებული. ეს კომბინაცია ნებისმიერი შეკრების ვარსკვლავი გახდება: იქნება ეს მეგობრული საღამო, პიკნიკი თუ უბრალოდ გრძნობებისთვის განკუთვნილი ნადიმი. ჩაეფლეთ სიამოვნებაში - შეუკვეთეთ თქვენი კომბინაცია ახლავე და მიიღეთ გასტრონომიული სიამოვნების სამმაგი პორცია!',
+      },
+      {
+        locale: 'de',
+        value: 'Jeder Burger ist eine perfekte Harmonie aus knusprigem Brötchen, saftigem Patty und frischen Zutaten – ein einzigartiges Geschmackserlebnis. Diese Kombination wird der Star jeder Zusammenkunft sein: ob gemütlicher Abend mit Freunden, Picknick oder einfach ein Fest für die Sinne. Gönnen Sie sich den Genuss – bestellen Sie jetzt Ihre Kombi und erleben Sie dreifachen Gaumenschmaus!',
+      },
+      {
+        locale: 'zh_cn',
+        value: '每一款汉堡都完美融合了酥脆的面包、鲜嫩多汁的肉饼和新鲜的食材，谱写出一曲独特的味觉交响曲。无论是朋友小聚、野餐，还是单纯的味蕾盛宴，这款汉堡组合都将成为聚会的焦点。尽情享受吧——现在就下单，体验三重美食盛宴！',
+      },
+    ],
+    isAvailableForPurchase: true,
+    isShownInCatalog: true,
+    variants: [
+      {
+        id: 'combo-burgers-combo',
+        title: [
+          {
+            locale: 'en',
+            value: 'Combo',
+          },
+          {
+            locale: 'es',
+            value: 'Combinación',
+          },
+          {
+            locale: 'fr',
+            value: 'Combo',
+          },
+          {
+            locale: 'ru',
+            value: 'Комбо',
+          },
+          {
+            locale: 'ka',
+            value: 'კომბო',
+          },
+          {
+            locale: 'de',
+            value: 'Combo',
+          },
+          {
+            locale: 'zh_cn',
+            value: '组合',
+          },
+        ],
+        images: [
+          {
+            id: 'combo-burgers-combo-webp-md',
+            size: 'md',
+            format: 'webp',
+            url: 'https://storage.yandexcloud.net/next-orders-food-demo/products/combo/4f736c6df14411f09c603256d845a97d_1.webp',
+          },
+          {
+            id: 'combo-burgers-combo-jpeg-md',
+            size: 'md',
+            format: 'jpeg',
+            url: 'https://storage.yandexcloud.net/next-orders-food-demo/products/combo/4f736c6df14411f09c603256d845a97d_1-min.jpg',
+          },
+        ],
+        video: {
+          id: 'combo-burgers-combo-video',
+          type: 'video/mp4',
+          url: 'https://storage.yandexcloud.net/next-orders-food-demo/video/a3e05a78f14611f08accbe6545623af7.mp4',
+        },
+        weightUnit: 'g',
+        weightValue: 980,
+        price: 1990,
+        sku: null,
+        nutritionFacts: {
+          calories: 312.5,
+          protein: 12.2,
+          fat: 17.7,
+          carbohydrate: 24.4,
+        },
+      },
+    ],
+    composition: {
+      products: [
+        {
+          id: 'combo-burgers-to-delicious-onion-burger',
+          productId: 'delicious-onion-burger',
+          productVariantId: 'delicious-onion-burger-standard',
+        },
+        {
+          id: 'combo-burgers-to-galactic-burger',
+          productId: 'galactic-burger',
+          productVariantId: 'galactic-burger-standard',
+        },
+        {
+          id: 'combo-burgers-to-jardines-burger',
+          productId: 'jardines-burger',
+          productVariantId: 'jardines-burger-standard',
+        },
+      ],
+    },
   },
   {
     id: 'delicious-onion-burger',
