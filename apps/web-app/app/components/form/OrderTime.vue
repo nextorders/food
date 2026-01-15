@@ -5,7 +5,7 @@
     </h2>
 
     <USelect
-      v-model="state"
+      v-model="selectedTimeSlotValue"
       :items="[
         { label: $dict('web-app.checkout.as-soon-as-possible'), value: '0' },
         ...channelStore.timeSlots.map((slot) => (
@@ -16,7 +16,7 @@
         )),
       ]"
       :ui="{
-        leadingIcon: state !== '0' && 'text-secondary',
+        leadingIcon: state.readyBy !== '0' && 'text-secondary',
       }"
       size="xl"
       icon="lucide:clock"
@@ -26,9 +26,28 @@
 </template>
 
 <script setup lang="ts">
+import type { Order } from '@nextorders/food-schema'
 import { useChannelStore } from '@nextorders/core/app/stores/channel'
 
 const channelStore = useChannelStore()
+const orderStore = useOrderStore()
 
-const state = ref<string>('0')
+const state = ref<Pick<Order, 'readyBy' | 'readyType'>>({
+  readyBy: orderStore.readyBy?.length ? orderStore.readyBy : '0',
+  readyType: orderStore.readyType ?? 'asap',
+})
+
+const selectedTimeSlotValue = ref<string>(state.value.readyBy)
+
+watch(selectedTimeSlotValue, () => {
+  state.value.readyBy = selectedTimeSlotValue.value
+  state.value.readyType = selectedTimeSlotValue.value === '0' ? 'asap' : 'scheduled'
+}, { immediate: true })
+
+watch(state, () => {
+  orderStore.readyBy = state.value.readyBy
+  orderStore.readyType = state.value.readyType
+
+  orderStore.isSaved = false
+}, { deep: true })
 </script>

@@ -67,16 +67,18 @@ const orderStore = useOrderStore()
 
 const state = ref<OrderDeliveryAddress>({
   type: 'deliveryAddress',
-  street: '',
-  flat: '',
-  intercom: '',
-  entrance: '',
-  floor: '',
-  addressNote: '',
+  street: orderStore.address?.type === 'deliveryAddress' ? orderStore.address.street : '',
+  flat: orderStore.address?.type === 'deliveryAddress' ? orderStore.address.flat : '',
+  intercom: orderStore.address?.type === 'deliveryAddress' ? orderStore.address.intercom : '',
+  entrance: orderStore.address?.type === 'deliveryAddress' ? orderStore.address.entrance : '',
+  floor: orderStore.address?.type === 'deliveryAddress' ? orderStore.address.floor : '',
+  addressNote: orderStore.address?.type === 'deliveryAddress' ? orderStore.address.addressNote : '',
 })
 
 // If changed, update the order
 watch(state, () => {
   orderStore.address = state.value
+
+  orderStore.isSaved = false
 }, { deep: true })
 </script>

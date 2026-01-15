@@ -78,7 +78,7 @@
                 block
                 class="disabled:bg-elevated disabled:text-primary transition duration-200"
                 :class="[
-                  orderStore.isReadyToCheckout && 'motion-preset-slide-up',
+                  orderStore.isReadyToCheckout && !orderStore.isLoading && 'motion-preset-slide-up',
                 ]"
                 :loading="orderStore.isLoading"
                 :disabled="!orderStore.isReadyToCheckout || orderStore.isLoading"
@@ -127,26 +127,8 @@ const channelStore = useChannelStore()
 const orderStore = useOrderStore()
 const optionsStore = useOptionsStore()
 
-// await channelStore.updateTimeSlots()
-
 async function updateCheckout() {
   orderStore.isLoading = true
-
-  // const finishedCheckout = await orderStore.change({
-  //   phone: remainingCheckout.value.phone,
-  //   name: remainingCheckout.value.name,
-  //   warehouseId: remainingCheckout.value.warehouseId,
-  //   street: remainingCheckout.value.street,
-  //   flat: remainingCheckout.value.flat,
-  //   intercom: remainingCheckout.value.intercom,
-  //   entrance: remainingCheckout.value.entrance,
-  //   floor: remainingCheckout.value.floor,
-  //   addressNote: remainingCheckout.value.addressNote,
-  //   note: remainingCheckout.value.note,
-  //   time: remainingCheckout.value.time,
-  //   paymentMethodId: remainingCheckout.value.paymentMethodId,
-  //   change: selectedPaymentMethod.value?.type === 'CASH' ? remainingCheckout.value.change : undefined,
-  // })
 
   // await orderStore.update()
 

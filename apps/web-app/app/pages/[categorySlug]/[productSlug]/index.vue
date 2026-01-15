@@ -39,7 +39,7 @@
 
         <div v-if="!withSingleVariant" class="mt-4 mb-6">
           <USelect
-            v-model="variantId"
+            v-model="selectedVariantId"
             :items="variantItems"
             size="xl"
             icon="lucide:bookmark-check"
@@ -48,7 +48,7 @@
         </div>
 
         <div class="mt-4 min-h-12 flex flex-row gap-4 md:gap-6 items-center justify-between md:justify-start">
-          <div class="text-xl md:text-2xl font-medium tracking-tight">
+          <div class="text-2xl font-medium tracking-tight">
             {{ optionsStore.formatCurrency(selectedVariant?.price ?? 0) }} <span class="text-xl">{{ optionsStore.currencySign }}</span>
           </div>
 
@@ -58,7 +58,7 @@
           <template v-else>
             <CartLineCounter v-if="line" :line="line" />
             <UButton
-              v-else-if="variantId"
+              v-else-if="selectedVariantId"
               size="xl"
               variant="solid"
               color="secondary"
@@ -68,7 +68,7 @@
                 leadingIcon: 'hidden md:block',
               }"
               class="md:px-6 font-medium"
-              @click="orderStore.add(variantId)"
+              @click="orderStore.add(selectedVariantId)"
             />
           </template>
         </div>
@@ -93,7 +93,7 @@
         <h2 class="mb-1 font-medium text-muted">
           {{ $dict('common.nutrition.value-title') }}
         </h2>
-        <div class="p-4 w-fit flex flex-row gap-4 lg:gap-5 bg-elevated/50 rounded-lg">
+        <div class="py-3.5 px-4.5 w-fit flex flex-row gap-4 lg:gap-5 bg-elevated/50 rounded-lg">
           <div>
             <div class="font-medium">
               {{ selectedVariant.nutritionFacts.calories }}
@@ -138,7 +138,7 @@
         {{ $dict('web-app.most-often-added') }}
       </h2>
 
-      <div class="grid grid-cols-2 md:grid-cols-5 2xl:grid-cols-7 gap-4 md:gap-6">
+      <div class="grid grid-cols-2 md:grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-7 gap-4 md:gap-6">
         <ProductRecommendedCard
           v-for="p in product.recommendedProducts"
           :key="p.productVariantId"
@@ -168,14 +168,15 @@ if (!product) {
 }
 
 useHead({
-  title: optionsStore.getLocaleValue(product?.title),
+  title: optionsStore.getLocaleValue(product.title),
 })
 
-const variantItems = computed(() => product?.variants.map((variant) => ({ label: optionsStore.getLocaleValue(variant.title), value: variant.id })))
+const variantItems = computed(() => product.variants.map((variant) => ({ label: optionsStore.getLocaleValue(variant.title), value: variant.id })))
 
-const variantId = ref(product.variants[0]?.id)
-const withSingleVariant = computed(() => product?.variants.length === 1)
-const selectedVariant = computed(() => product?.variants.find(({ id }) => id === variantId.value))
+const withSingleVariant = computed<boolean>(() => product.variants.length === 1)
+
+const selectedVariantId = ref(product.variants[0]?.id)
+const selectedVariant = computed(() => product.variants.find(({ id }) => id === selectedVariantId.value))
 
 const weightValue = computed(() => selectedVariant.value?.weightValue)
 const weightUnit = computed(() => getWeightLocalizedUnit(selectedVariant.value?.weightUnit))

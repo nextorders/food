@@ -57,11 +57,16 @@ const state = ref<Pick<Order, 'name' | 'phone'>>({
   phone: orderStore.phone ?? '',
 })
 
-// If changed, update the order
 watch(state, () => {
   orderStore.name = state.value.name
   orderStore.phone = state.value.phone
+
+  orderStore.isSaved = false
 }, { deep: true })
+
+onMounted(() => {
+  handlePhoneChange()
+})
 
 function handlePhoneChange() {
   state.value.phone = orderStore.formatPhone(state.value.phone)

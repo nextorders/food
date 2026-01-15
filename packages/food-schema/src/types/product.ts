@@ -40,6 +40,7 @@ export type RecommendedProduct = z.infer<typeof RecommendedProductSchema>
 export const CompositionIngredientSchema = z.object({
   title: LocaleValueSchema.array(),
 })
+export type CompositionIngredient = z.infer<typeof CompositionIngredientSchema>
 
 export const CompositionProductSchema = z.object({
   id: z.string(),

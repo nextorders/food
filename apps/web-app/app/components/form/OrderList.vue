@@ -11,7 +11,7 @@
 
   <UFormField :label="$dict('web-app.checkout.order-note')">
     <UTextarea
-      v-model="orderStore.note"
+      v-model="note"
       size="xl"
       class="w-full"
       :placeholder="$dict('web-app.checkout.order-note-placeholder')"
@@ -20,5 +20,15 @@
 </template>
 
 <script setup lang="ts">
+import type { Order } from '@nextorders/food-schema'
+
 const orderStore = useOrderStore()
+
+const note = ref<Order['note']>(orderStore.note)
+
+watch(note, () => {
+  orderStore.note = note.value
+
+  orderStore.isSaved = false
+})
 </script>
