@@ -54,7 +54,7 @@ const orderStore = useOrderStore()
 
 const state = ref<Pick<Order, 'name' | 'phone'>>({
   name: orderStore.name ?? '',
-  phone: orderStore.phone ?? '',
+  phone: orderStore.formatPhone(orderStore.phone ?? ''),
 })
 
 watch(state, () => {
@@ -63,10 +63,6 @@ watch(state, () => {
 
   orderStore.isSaved = false
 }, { deep: true })
-
-onMounted(() => {
-  handlePhoneChange()
-})
 
 function handlePhoneChange() {
   state.value.phone = orderStore.formatPhone(state.value.phone)
