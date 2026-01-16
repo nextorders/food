@@ -67,6 +67,6 @@ watch(state, () => {
 function handlePhoneChange() {
   state.value.phone = orderStore.formatPhone(state.value.phone)
 
-  orderStore.validateAndUpdatePhone(state.value.phone)
+  orderStore.validateAndSetPhone(state.value.phone)
 }
 </script>

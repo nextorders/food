@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { ChannelSchema } from '../../src/types/channel'
 
 describe('channelSchema', () => {
-  it('will not pass', () => {
+  it('invalid channel data', () => {
     try {
       ChannelSchema.parse({
         id: 1,
@@ -16,7 +16,7 @@ describe('channelSchema', () => {
     }
   })
 
-  it('will pass', () => {
+  it('valid channel data', () => {
     const channel: Channel = {
       id: '1',
       selectorTitle: [],

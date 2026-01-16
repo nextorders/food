@@ -1,3 +1,6 @@
+import { createSharedComposable } from '@vueuse/core'
+import { useI18n } from 'vue-i18n'
+
 function _useDictionary() {
   const { t } = useI18n()
 
