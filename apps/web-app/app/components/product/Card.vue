@@ -21,10 +21,14 @@
           </div>
 
           <div>
-            <div class="text-xl font-medium">
-              <span v-if="!withSingleVariant" class="pr-1">{{ $dict('web-app.cart.from') }}</span>
-              <span>{{ optionsStore.formatCurrency(smallestVariant?.price ?? 0) }}</span>
-              <span class="pl-1 text-lg">{{ optionsStore.currencySign }}</span>
+            <div class="flex flex-row gap-2.5 items-center">
+              <div class="text-xl font-medium">
+                <span v-if="!withSingleVariant" class="pr-1">{{ $dict('web-app.cart.from') }}</span>
+                <span>{{ optionsStore.formatCurrency(smallestVariant?.price ?? 0) }}</span>
+                <span class="pl-1 text-lg">{{ optionsStore.currencySign }}</span>
+              </div>
+
+              <ProductOriginalPrice v-if="smallestVariant?.originalPrice" :price="optionsStore.formatCurrency(smallestVariant.originalPrice)" />
             </div>
             <p class="text-base/5 line-clamp-2">
               {{ optionsStore.getLocaleValue(product?.title) }}

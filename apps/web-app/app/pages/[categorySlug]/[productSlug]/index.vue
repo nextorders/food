@@ -48,8 +48,16 @@
         </div>
 
         <div class="mt-4 min-h-12 flex flex-row gap-4 md:gap-6 items-center justify-between md:justify-start">
-          <div class="text-2xl font-medium tracking-tight">
-            {{ optionsStore.formatCurrency(selectedVariant?.price ?? 0) }} <span class="text-xl">{{ optionsStore.currencySign }}</span>
+          <div class="flex flex-col gap-0.5">
+            <ProductOriginalPrice
+              v-if="selectedVariant?.originalPrice"
+              :price="optionsStore.formatCurrency(selectedVariant.originalPrice)"
+              class="w-fit"
+            />
+
+            <div class="text-2xl/6 font-medium tracking-tight">
+              {{ optionsStore.formatCurrency(selectedVariant?.price ?? 0) }} <span class="text-xl">{{ optionsStore.currencySign }}</span>
+            </div>
           </div>
 
           <template v-if="orderStore.isLoading">

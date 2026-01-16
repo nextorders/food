@@ -859,7 +859,8 @@ const burgers: Product[] = [
         },
         weightUnit: 'g',
         weightValue: 980,
-        price: 1990,
+        price: 1890,
+        originalPrice: 2020,
         sku: null,
         nutritionFacts: {
           calories: 312.5,
