@@ -1,13 +1,10 @@
 import { describe, expect, it } from 'vitest'
+import { ZodError } from 'zod'
 import { ScheduleSchema, TimeZoneSchema } from '../../src/types/time'
 
 describe('timeZoneSchema', () => {
   it('invalid timezone format', () => {
-    try {
-      TimeZoneSchema.parse('+15:00')
-    } catch (error) {
-      expect(error).toBeInstanceOf(Error)
-    }
+    expect(() => TimeZoneSchema.parse('+15:00')).toThrow(ZodError)
   })
 
   it('valid timezone format', () => {
@@ -18,20 +15,10 @@ describe('timeZoneSchema', () => {
 
 describe('scheduleSchema', () => {
   it('repeating days', () => {
-    try {
-      ScheduleSchema.parse([
-        {
-          day: 'mon',
-          isClosed: false,
-        },
-        {
-          day: 'mon',
-          isClosed: false,
-        },
-      ])
-    } catch (error) {
-      expect(error).toBeInstanceOf(Error)
-    }
+    expect(() => ScheduleSchema.parse([
+      { day: 'mon', isClosed: false },
+      { day: 'mon', isClosed: false },
+    ])).toThrow('All days of the week must be represented exactly once')
   })
 
   it('all days of the week must be represented exactly once', () => {

@@ -1,13 +1,10 @@
 import { describe, expect, it } from 'vitest'
+import { ZodError } from 'zod'
 import { GatewayActionTypeSchema } from '../../src/types/gateway'
 
 describe('gatewayActionTypeSchema', () => {
   it('invalid action type', () => {
-    try {
-      GatewayActionTypeSchema.parse('oops!')
-    } catch (error) {
-      expect(error).toBeInstanceOf(Error)
-    }
+    expect(() => GatewayActionTypeSchema.parse('oops!')).toThrow(ZodError)
   })
 
   it('valid action type', () => {

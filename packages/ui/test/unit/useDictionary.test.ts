@@ -13,17 +13,19 @@ describe('useDictionary', () => {
     const dictionary = useDictionary()
 
     expect(dictionary.dict('web-app.cart.add')).toBe('Add to cart')
-    expect(vi.mocked(mockUseI18n.t).mock.calls[0][0]).toBe('web-app.cart.add')
   })
 
   it('should translate key with plural', () => {
     const dictionary = useDictionary()
 
     expect(dictionary.dict('common.time.minute', 1)).toBe('minute')
-    expect(vi.mocked(mockUseI18n.t).mock.calls[1][0]).toBe('common.time.minute')
-
     expect(dictionary.dict('common.time.minute', 2)).toBe('minutes')
-    expect(vi.mocked(mockUseI18n.t).mock.calls[2][0]).toBe('common.time.minute')
+  })
+
+  it('should fallback to key with no plural', () => {
+    const dictionary = useDictionary()
+
+    expect(dictionary.dict('common.time.minute')).toBe('common.time.minute')
   })
 
   it('should fallback to key', () => {

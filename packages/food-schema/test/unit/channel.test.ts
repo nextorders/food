@@ -1,19 +1,16 @@
 import type { Channel } from '../../src/types/channel'
 import { describe, expect, it } from 'vitest'
+import { ZodError } from 'zod'
 import { ChannelSchema } from '../../src/types/channel'
 
 describe('channelSchema', () => {
   it('invalid channel data', () => {
-    try {
-      ChannelSchema.parse({
-        id: 1,
-        title: 1,
-        description: 1,
-        url: 1,
-      })
-    } catch (error) {
-      expect(error).toBeInstanceOf(Error)
-    }
+    expect(() => ChannelSchema.parse({
+      id: 1,
+      title: 1,
+      description: 1,
+      url: 1,
+    })).toThrow(ZodError)
   })
 
   it('valid channel data', () => {

@@ -11,9 +11,14 @@ export const mockUseI18n = {
     }
 
     const translation = translations[key]
-    if (typeof translation === 'function' && plural !== undefined) {
-      return translation(plural)
+    if (typeof translation === 'function') {
+      if (plural !== undefined && plural !== null) {
+        return translation(plural)
+      }
+
+      return key
     }
-    return translation || key // fallback
+
+    return translation || key
   }),
 }
