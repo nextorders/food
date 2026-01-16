@@ -5,6 +5,8 @@
     :items="tabItems"
     :content="false"
     :ui="{
+      list: 'min-h-11',
+      indicator: 'rounded-md',
       label: 'font-medium',
     }"
     size="md"

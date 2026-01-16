@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col gap-2">
-    <h2 class="text-lg md:text-2xl font-semibold">
+    <h3 class="text-lg md:text-xl font-semibold">
       {{ $dict('web-app.checkout.time-title') }}
-    </h2>
+    </h3>
 
     <USelect
       v-model="selectedTimeSlotValue"

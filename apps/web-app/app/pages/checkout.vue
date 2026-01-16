@@ -21,10 +21,6 @@
           <FormOrderWarehouseAddress v-if="orderStore.deliveryMethod === 'selfPickup'" />
         </CheckoutBlock>
 
-        <CheckoutBlock v-if="orderStore?.deliveryMethod">
-          <FormOrderTime />
-        </CheckoutBlock>
-
         <CheckoutBlock>
           <FormOrderList />
         </CheckoutBlock>
@@ -33,6 +29,10 @@
       <div class="col-span-full md:col-span-5 h-fit sticky top-20">
         <div class="mb-6 px-3 md:pl-6 md:pr-0 flex flex-col gap-5">
           <CartDeliveryMethodSwitch />
+
+          <div class="motion-preset-slide-left-sm">
+            <FormOrderTime />
+          </div>
 
           <div class="motion-preset-slide-left-sm">
             <FormOrderPayment />
@@ -69,14 +69,13 @@
             />
           </div>
 
-          <div class="flex flex-row flex-nowrap gap-4 items-center">
+          <div class="flex flex-row flex-nowrap gap-4 md:gap-6 justify-between items-center">
             <UTooltip :text="!orderStore.isReadyToCheckout ? $dict('web-app.checkout.warning-data') : undefined">
               <UButton
                 size="xl"
                 variant="solid"
                 color="secondary"
-                block
-                class="disabled:bg-elevated disabled:text-primary transition duration-200"
+                class="flex-1 justify-center disabled:bg-elevated disabled:text-primary transition duration-200"
                 :class="[
                   orderStore.isReadyToCheckout && !orderStore.isLoading && 'motion-preset-slide-up',
                 ]"
@@ -87,7 +86,7 @@
               />
             </UTooltip>
 
-            <div class="font-medium text-right text-2xl min-w-24 tracking-tight">
+            <div class="shrink-0 font-medium text-2xl/6 w-fit tracking-tight">
               {{ optionsStore.formatCurrency(orderStore.totalPrice) }} <span class="text-base">{{ optionsStore.currencySign }}</span>
             </div>
           </div>
