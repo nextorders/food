@@ -18,12 +18,14 @@
 </template>
 
 <script setup lang="ts">
+import { useChannelStore } from '@nextorders/core/app/stores/channel'
 import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
 const { params } = useRoute('categorySlug')
 
 const { dict } = useDictionary()
 
+const channelStore = useChannelStore()
 const optionsStore = useOptionsStore()
 const menuStore = useMenuStore()
 
@@ -38,7 +40,7 @@ if (!category) {
 const products = menuStore.getProductsInCategory(category.id).filter((p) => p.isAvailableForPurchase && p.variants.length)
 
 useHead({
-  title: optionsStore.getLocaleValue(category?.title),
+  title: `${optionsStore.getLocaleValue(category?.title)} | ${optionsStore.getLocaleValue(channelStore.title)}`,
 })
 
 const breadcrumbs = computed(() => [
