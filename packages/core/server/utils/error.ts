@@ -1,4 +1,5 @@
-import { H3Error } from 'h3'
+import { createError, H3Error } from 'h3'
+import { useLogger } from './logger'
 
 const logger = useLogger('error')
 
