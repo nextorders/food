@@ -25,6 +25,7 @@ export const ProductVariantSchema = z.object({
   weightUnit: WeightUnitSchema,
   weightValue: z.number(),
   price: z.number(),
+  originalPrice: z.number().optional(),
   sku: z.string().nullable(),
   nutritionFacts: NutritionFactsSchema.nullable(),
 })
