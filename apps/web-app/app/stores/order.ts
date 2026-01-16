@@ -71,7 +71,7 @@ export const useOrderStore = defineStore('order', () => {
     return formatPhoneNumber(phoneAsString, optionsStore.countryCode)
   }
 
-  function validateAndUpdatePhone(formattedPhone: string): void {
+  function validateAndSetPhone(formattedPhone: string): void {
     if (!formattedPhone || formattedPhone?.length > 17) {
       isValidPhone.value = false
       return
@@ -97,7 +97,6 @@ export const useOrderStore = defineStore('order', () => {
 
       id.value = data.id
       name.value = data.name
-      phone.value = data.phone
       status.value = data.status
       totalPrice.value = data.totalPrice
       deliveryMethod.value = data.deliveryMethod
@@ -108,6 +107,8 @@ export const useOrderStore = defineStore('order', () => {
       address.value = data.address
       note.value = data.note
       items.value = data.items
+
+      validateAndSetPhone(data.phone)
 
       updatedAt.value = Date.now()
     } catch (error) {
@@ -224,6 +225,6 @@ export const useOrderStore = defineStore('order', () => {
     changeItem,
     get,
     formatPhone,
-    validateAndUpdatePhone,
+    validateAndSetPhone,
   }
 })
