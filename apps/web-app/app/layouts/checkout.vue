@@ -1,5 +1,5 @@
 <template>
-  <header class="z-10 h-16 bg-default/75 fixed top-0 left-0 right-0">
+  <header class="z-10 h-16 bg-default fixed top-0 left-0 right-0">
     <CheckoutHeader />
   </header>
 

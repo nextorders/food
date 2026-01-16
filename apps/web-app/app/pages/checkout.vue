@@ -31,7 +31,7 @@
       </div>
 
       <div class="col-span-full md:col-span-5 h-fit sticky top-20">
-        <div class="mb-6 px-3 md:px-6 flex flex-col gap-5">
+        <div class="mb-6 px-3 md:pl-6 md:pr-0 flex flex-col gap-5">
           <CartDeliveryMethodSwitch />
 
           <div class="motion-preset-slide-left-sm">
