@@ -7,7 +7,7 @@
     {{ ingredients }}
   </div>
 
-  <div v-if="composition?.products" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-4 gap-y-2.5">
+  <div v-if="composition?.products" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 gap-3.5">
     <ProductCompositionCard
       v-for="item in composition?.products"
       :key="item.id"

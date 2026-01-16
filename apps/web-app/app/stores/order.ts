@@ -9,6 +9,10 @@ export const useOrderStore = defineStore('order', () => {
   const status = ref<Order['status']>()
   const totalPrice = ref<Order['totalPrice']>(0)
   const deliveryMethod = ref<Order['deliveryMethod']>()
+  const paymentMethodId = ref<Order['paymentMethodId']>()
+  const changeFrom = ref<Order['changeFrom']>()
+  const readyBy = ref<Order['readyBy']>()
+  const readyType = ref<Order['readyType']>()
   const address = ref<Order['address']>()
   const note = ref<Order['note']>()
   const items = ref<OrderItem[]>([])
@@ -31,12 +35,31 @@ export const useOrderStore = defineStore('order', () => {
       && !!phone.value
       && isValidPhone.value
       && isValidAddress.value
-      // && !!paymentMethodId
+      && !!paymentMethodId.value
   })
 
   const isReadyToCheckout = computed<boolean>(() => isValidCheckoutData.value && isValidTotalPrice.value)
 
   const isLoading = ref<boolean>(true)
+  const isSaved = ref<boolean>(true)
+
+  // Check if order is not saved
+  watch(isSaved, useDebounceFn(async () => {
+    if (!isSaved.value) {
+      await change({
+        name: name.value,
+        phone: phone.value,
+        address: address.value,
+        paymentMethodId: paymentMethodId.value,
+        changeFrom: changeFrom.value,
+        readyBy: readyBy.value,
+        readyType: readyType.value,
+        note: note.value,
+      }, false)
+
+      isSaved.value = true
+    }
+  }, 2000))
 
   function formatPhone(phoneAsString: string): string {
     if (!phoneAsString) {
@@ -78,7 +101,12 @@ export const useOrderStore = defineStore('order', () => {
       status.value = data.status
       totalPrice.value = data.totalPrice
       deliveryMethod.value = data.deliveryMethod
+      paymentMethodId.value = data.paymentMethodId
+      changeFrom.value = data.changeFrom
+      readyBy.value = data.readyBy
+      readyType.value = data.readyType
       address.value = data.address
+      note.value = data.note
       items.value = data.items
 
       updatedAt.value = Date.now()
@@ -119,7 +147,7 @@ export const useOrderStore = defineStore('order', () => {
     }
   }
 
-  async function change(order: Partial<Order>) {
+  async function change(order: Partial<Order>, isUpdateNeeded = true) {
     try {
       const data = await $fetch(
         '/api/order',
@@ -129,7 +157,9 @@ export const useOrderStore = defineStore('order', () => {
         },
       )
 
-      await update()
+      if (isUpdateNeeded) {
+        await update()
+      }
 
       return data
     } catch (error) {
@@ -169,6 +199,10 @@ export const useOrderStore = defineStore('order', () => {
     status,
     totalPrice,
     deliveryMethod,
+    paymentMethodId,
+    changeFrom,
+    readyBy,
+    readyType,
     address,
     note,
     items,
@@ -182,6 +216,7 @@ export const useOrderStore = defineStore('order', () => {
     isValidCheckoutData,
     isReadyToCheckout,
     isLoading,
+    isSaved,
 
     update,
     add,

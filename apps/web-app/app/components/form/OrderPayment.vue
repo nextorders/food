@@ -44,19 +44,20 @@ const paymentMethods = computed(() => orderStore.deliveryMethod === 'deliveryByC
 const items = computed(() => paymentMethods.value?.map((p) => ({ label: optionsStore.getLocaleValue(p.title), value: p.id })))
 
 const state = ref<Pick<Order, 'paymentMethodId' | 'changeFrom'>>({
-  paymentMethodId: '',
-  changeFrom: undefined,
+  paymentMethodId: orderStore.paymentMethodId ?? '',
+  changeFrom: orderStore.changeFrom ?? undefined,
 })
 
 const selectedPaymentMethod = ref<PaymentMethod | undefined>()
 
 watch(() => state.value.paymentMethodId, () => {
   selectedPaymentMethod.value = paymentMethods.value?.find((p) => p.id === state.value.paymentMethodId)
-})
+}, { immediate: true })
 
-// If order updated
-watch(() => orderStore.updatedAt, () => {
-  selectedPaymentMethod.value = undefined
-  state.value.paymentMethodId = ''
-})
+watch(state, () => {
+  orderStore.paymentMethodId = state.value.paymentMethodId
+  orderStore.changeFrom = state.value.changeFrom
+
+  orderStore.isSaved = false
+}, { deep: true })
 </script>

@@ -37,12 +37,14 @@ const orderStore = useOrderStore()
 
 const state = ref<OrderWarehouseAddress>({
   type: 'warehouseAddress',
-  id: '',
+  id: orderStore.address?.type === 'warehouseAddress' ? orderStore.address.id : '',
 })
 
 // If changed, update the order
 watch(state, () => {
   orderStore.address = state.value
+
+  orderStore.isSaved = false
 }, { deep: true })
 
 const items = computed(() => channelStore.selfPickup?.warehouses?.map((warehouse) => ({ label: optionsStore.getLocaleValue(warehouse.address.street), value: warehouse.id })))

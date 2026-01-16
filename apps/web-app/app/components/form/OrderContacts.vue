@@ -54,13 +54,14 @@ const orderStore = useOrderStore()
 
 const state = ref<Pick<Order, 'name' | 'phone'>>({
   name: orderStore.name ?? '',
-  phone: orderStore.phone ?? '',
+  phone: orderStore.formatPhone(orderStore.phone ?? ''),
 })
 
-// If changed, update the order
 watch(state, () => {
   orderStore.name = state.value.name
   orderStore.phone = state.value.phone
+
+  orderStore.isSaved = false
 }, { deep: true })
 
 function handlePhoneChange() {
