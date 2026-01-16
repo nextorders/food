@@ -42,6 +42,8 @@ export const ka: Dictionary = {
       },
       'time-title': 'დრო',
       'select-time-title': 'აირჩიეთ დრო',
+      'selected-time-unavailable': 'არჩეული დრო აღარ არის ხელმისაწვდომი',
+      'selected-time-unavailable-description': 'გთხოვთ, აირჩიოთ სხვა დრო',
       'on-time': 'დროზე',
       'as-soon-as-possible': 'რაც შეიძლება მალე',
       'order-title': 'თქვენ შეუკვეთეთ',

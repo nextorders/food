@@ -42,6 +42,8 @@ export const en = {
       },
       'time-title': 'Time',
       'select-time-title': 'Choose a time',
+      'selected-time-unavailable': 'Selected time is no longer available',
+      'selected-time-unavailable-description': 'Please choose another time',
       'on-time': 'On time',
       'as-soon-as-possible': 'As soon as possible',
       'order-title': 'You order',

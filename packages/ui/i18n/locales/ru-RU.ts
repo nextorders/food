@@ -42,6 +42,8 @@ export const ru: Dictionary = {
       },
       'time-title': 'Время',
       'select-time-title': 'Выберите время',
+      'selected-time-unavailable': 'Выбранное время больше недоступно',
+      'selected-time-unavailable-description': 'Пожалуйста, выберите другое время',
       'on-time': 'Ко времени',
       'as-soon-as-possible': 'Побыстрее',
       'order-title': 'Вы заказываете',

@@ -6,15 +6,7 @@
 
     <USelect
       v-model="selectedTimeSlotValue"
-      :items="[
-        { label: $dict('web-app.checkout.as-soon-as-possible'), value: '0' },
-        ...channelStore.timeSlots.map((slot) => (
-          {
-            label: `${slot.start} - ${slot.end}`,
-            value: `${slot.start} - ${slot.end}`,
-          }
-        )),
-      ]"
+      :items="items"
       :ui="{
         leadingIcon: state.readyBy !== '0' && 'text-secondary',
       }"
@@ -29,11 +21,28 @@
 import type { Order } from '@nextorders/food-schema'
 import { useChannelStore } from '@nextorders/core/app/stores/channel'
 
+const { dict } = useDictionary()
+const toast = useToast()
+
 const channelStore = useChannelStore()
 const orderStore = useOrderStore()
 
+const defaultTimeSlot = '0'
+
+const items = computed(() =>
+  [
+    { label: dict('web-app.checkout.as-soon-as-possible'), value: defaultTimeSlot },
+    ...channelStore.timeSlots.map((slot) => (
+      {
+        label: `${slot.start} - ${slot.end}`,
+        value: `${slot.start} - ${slot.end}`,
+      }
+    )),
+  ],
+)
+
 const state = ref<Pick<Order, 'readyBy' | 'readyType'>>({
-  readyBy: orderStore.readyBy?.length ? orderStore.readyBy : '0',
+  readyBy: orderStore.readyBy?.length ? orderStore.readyBy : defaultTimeSlot,
   readyType: orderStore.readyType ?? 'asap',
 })
 
@@ -41,7 +50,7 @@ const selectedTimeSlotValue = ref<string>(state.value.readyBy)
 
 watch(selectedTimeSlotValue, () => {
   state.value.readyBy = selectedTimeSlotValue.value
-  state.value.readyType = selectedTimeSlotValue.value === '0' ? 'asap' : 'scheduled'
+  state.value.readyType = selectedTimeSlotValue.value === defaultTimeSlot ? 'asap' : 'scheduled'
 }, { immediate: true })
 
 watch(state, () => {
@@ -50,4 +59,20 @@ watch(state, () => {
 
   orderStore.isSaved = false
 }, { deep: true })
+
+watch(items, () => {
+  // If there is no selected time slot, select the default
+  if (selectedTimeSlotValue.value !== defaultTimeSlot && !items.value.find((i) => i.value === selectedTimeSlotValue.value)) {
+    selectedTimeSlotValue.value = defaultTimeSlot
+
+    // Tell the user that the time slot has been reset
+    toast.add({
+      title: dict('web-app.checkout.selected-time-unavailable'),
+      description: dict('web-app.checkout.selected-time-unavailable-description'),
+      icon: 'lucide:clock',
+      color: 'error',
+      duration: 5000,
+    })
+  }
+}, { deep: true, immediate: true })
 </script>

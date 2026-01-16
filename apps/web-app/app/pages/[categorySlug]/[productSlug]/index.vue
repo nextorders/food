@@ -150,12 +150,14 @@
 </template>
 
 <script setup lang="ts">
+import { useChannelStore } from '@nextorders/core/app/stores/channel'
 import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
 const { dict } = useDictionary()
 const { params } = useRoute('categorySlug-productSlug')
 
 const orderStore = useOrderStore()
+const channelStore = useChannelStore()
 const optionsStore = useOptionsStore()
 const menuStore = useMenuStore()
 
@@ -168,7 +170,7 @@ if (!product) {
 }
 
 useHead({
-  title: optionsStore.getLocaleValue(product.title),
+  title: `${optionsStore.getLocaleValue(product.title)} | ${optionsStore.getLocaleValue(channelStore.title)}`,
 })
 
 const variantItems = computed(() => product.variants.map((variant) => ({ label: optionsStore.getLocaleValue(variant.title), value: variant.id })))

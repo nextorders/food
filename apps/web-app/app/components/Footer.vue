@@ -7,7 +7,7 @@
       class="w-full -ml-2.5"
     />
 
-    <div class="flex flex-col lg:flex-row gap-2 justify-between lg:items-center">
+    <div class="flex flex-col lg:flex-row gap-2 justify-between lg:items-start">
       <div v-if="channelStore.copyright" class="font-sans text-xs text-muted whitespace-pre-wrap">
         {{ optionsStore.getLocaleValue(channelStore.copyright) }}
       </div>

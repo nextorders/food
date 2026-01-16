@@ -42,6 +42,8 @@ export const fr: Dictionary = {
       },
       'time-title': 'Heure',
       'select-time-title': 'Choisir une heure',
+      'selected-time-unavailable': 'L\'horaire sélectionné n\'est plus disponible.',
+      'selected-time-unavailable-description': 'Veuillez choisir un autre horaire',
       'on-time': 'À l\'heure',
       'as-soon-as-possible': 'Dès que possible',
       'order-title': 'Votre commande',

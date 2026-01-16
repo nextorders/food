@@ -42,6 +42,8 @@ export const zh_cn: Dictionary = {
       },
       'time-title': '时间',
       'select-time-title': '选择时间',
+      'selected-time-unavailable': '所选时间已不可用。',
+      'selected-time-unavailable-description': '请选择其他时间',
       'on-time': '准时',
       'as-soon-as-possible': '越快越好',
       'order-title': '您的订单',

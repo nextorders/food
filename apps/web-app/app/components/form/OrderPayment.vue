@@ -60,4 +60,9 @@ watch(state, () => {
 
   orderStore.isSaved = false
 }, { deep: true })
+
+watch(() => orderStore.deliveryMethod, () => {
+  state.value.paymentMethodId = orderStore.paymentMethodId ?? ''
+  state.value.changeFrom = orderStore.changeFrom ?? undefined
+})
 </script>

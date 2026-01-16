@@ -62,5 +62,11 @@ export default defineAppConfig({
         },
       },
     },
+    toast: {
+      slots: {
+        title: 'md:text-lg/5 font-medium',
+        icon: 'md:size-8',
+      },
+    },
   },
 })
