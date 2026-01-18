@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { de } from '../../i18n/locales/de-DE'
+import { el } from '../../i18n/locales/el-GR'
 import { en } from '../../i18n/locales/en-US'
 import { es } from '../../i18n/locales/es-ES'
 import { fr } from '../../i18n/locales/fr-FR'
@@ -16,6 +17,11 @@ describe('locales', () => {
   it('en | can be imported', () => {
     expect(en).toBeDefined()
     expect(en['web-app'].cart.add).toBe('Add')
+  })
+
+  it('el | can be imported', () => {
+    expect(el).toBeDefined()
+    expect(el['web-app'].cart.add).toBe('Προσθήκη')
   })
 
   it('es | can be imported', () => {
