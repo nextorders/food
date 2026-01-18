@@ -3307,7 +3307,7 @@ const desserts: Product[] = [
       },
       {
         locale: 'it',
-        value: 'Apple extravaganza',
+        value: 'Stravaganza di mele',
       },
       {
         locale: 'ru',
@@ -3345,7 +3345,7 @@ const desserts: Product[] = [
       },
       {
         locale: 'it',
-        value: 'A delicious pie that will give you an unforgettable taste journey! Tender dough, fragrant apples and crispy crust - this combination will surely win your heart. Plunge into the holiday atmosphere with this incredible pie!',
+        value: 'Una deliziosa torta che vi regalerà un viaggio nel gusto indimenticabile! Impasto tenero, mele profumate e crosta croccante: questa combinazione vi conquisterà sicuramente. Immergetevi nell\'atmosfera natalizia con questa torta incredibile!',
       },
       {
         locale: 'ru',
@@ -3388,7 +3388,7 @@ const desserts: Product[] = [
           },
           {
             locale: 'it',
-            value: 'Slice',
+            value: 'Fetta',
           },
           {
             locale: 'ru',
@@ -3447,7 +3447,7 @@ const desserts: Product[] = [
           },
           {
             locale: 'it',
-            value: '2 Slices',
+            value: '2 fette',
           },
           {
             locale: 'ru',
@@ -3506,7 +3506,7 @@ const desserts: Product[] = [
           },
           {
             locale: 'it',
-            value: 'Whole pie',
+            value: 'Torta intera',
           },
           {
             locale: 'ru',
@@ -3568,7 +3568,7 @@ const desserts: Product[] = [
       },
       {
         locale: 'it',
-        value: 'New York chic cheesecake',
+        value: 'Cheesecake chic newyorkese',
       },
       {
         locale: 'ru',
@@ -3717,7 +3717,7 @@ const desserts: Product[] = [
       },
       {
         locale: 'it',
-        value: 'Mango swirl',
+        value: 'Vortice di mango',
       },
       {
         locale: 'ru',
@@ -3755,7 +3755,7 @@ const desserts: Product[] = [
       },
       {
         locale: 'it',
-        value: 'Experience a real tropical explosion of flavor with our unique dessert! A delicate combination of ripe mango, creamy cream and crispy cookies will give you an unforgettable pleasure. Plunge into the atmosphere of warmth and sunshine with every bite of this amazing treat.',
+        value: 'Vivi una vera esplosione di sapori tropicali con il nostro dessert unico! Una delicata combinazione di mango maturo, crema cremosa e biscotti croccanti ti regalerà un piacere indimenticabile. Immergiti in un\'atmosfera di calore e sole con ogni morso di questa straordinaria delizia.',
       },
       {
         locale: 'ru',

@@ -20,7 +20,7 @@ Modern e-commerce self-hosted platform: clients will be happy to order delicious
 
 - **Fully responsive design** — works perfectly on any device.
 - **Multi‑page SSR** — fast loading + SEO.
-- **Multi‑language** — supports 8+ locales.
+- **Multi‑language** — supports 9+ locales.
 - **Multi‑city support** — run separate storefronts for different cities/regions.
 - **Most often added** — block shows items frequently bought together to boost cross‑sales.
 - **Product video** - show fragment on product page to increase conversion rates.
