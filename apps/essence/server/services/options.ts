@@ -23,6 +23,10 @@ const options: Options = {
       value: 'Savoureux sur le pouce',
     },
     {
+      locale: 'it',
+      value: 'Gusto in movimento',
+    },
+    {
       locale: 'ka',
       value: 'გასინჯვა სირბილის დროს',
     },
@@ -57,6 +61,10 @@ const options: Options = {
       value: 'Savourez des goûts uniques et une ambiance agréable',
     },
     {
+      locale: 'it',
+      value: 'Goditi sapori unici e un’atmosfera piacevole',
+    },
+    {
       locale: 'ka',
       value: 'დატკბით უნიკალური გემოებით და სასიამოვნო გარემოთი',
     },
@@ -71,7 +79,7 @@ const options: Options = {
   ],
   logoUrl: 'https://storage.yandexcloud.net/next-orders-food-demo/nextorders-food-logo.jpg',
   defaultLocale: 'ru',
-  availableLocales: ['ru', 'el', 'en', 'es', 'fr', 'ka', 'de', 'zh_cn'],
+  availableLocales: ['ru', 'el', 'en', 'es', 'fr', 'it', 'ka', 'de', 'zh_cn'],
   countryCode: 'RU',
   currencyCode: 'RUB',
   headLinks: [
@@ -100,7 +108,7 @@ const options: Options = {
   ],
   headStyles: [
     `@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-    
+
     :root {
       --font-serif: "Nunito", sans-serif !important;
       --font-sans: "Nunito Sans", sans-serif !important;

@@ -23,6 +23,10 @@ const paymentMethodsForDelivery: PaymentMethod[] = [
         value: 'Argent comptant au coursier',
       },
       {
+        locale: 'it',
+        value: 'Contanti al corriere',
+      },
+      {
         locale: 'ru',
         value: 'Наличные курьеру',
       },
@@ -59,6 +63,10 @@ const paymentMethodsForDelivery: PaymentMethod[] = [
       {
         locale: 'fr',
         value: 'Carte au coursier',
+      },
+      {
+        locale: 'it',
+        value: 'Carta al corriere',
       },
       {
         locale: 'ru',
@@ -100,6 +108,10 @@ const paymentMethodsForSelfPickup: PaymentMethod[] = [
       {
         locale: 'fr',
         value: 'Argent comptant',
+      },
+      {
+        locale: 'it',
+        value: 'Contanti',
       },
       {
         locale: 'ru',
@@ -292,6 +304,10 @@ const links: Channel['links'] = {
           value: '8 800 123-45-69',
         },
         {
+          locale: 'it',
+          value: '8 800 123-45-69',
+        },
+        {
           locale: 'ka',
           value: '8 800 123-45-69',
         },
@@ -332,6 +348,10 @@ const links: Channel['links'] = {
           value: 'Offre publique',
         },
         {
+          locale: 'it',
+          value: 'Offerta pubblica',
+        },
+        {
           locale: 'ka',
           value: 'საჯარო შეთავაზება',
         },
@@ -369,6 +389,10 @@ const links: Channel['links'] = {
           value: 'Politique de confidentialité',
         },
         {
+          locale: 'it',
+          value: 'Informativa sulla privacy',
+        },
+        {
           locale: 'ka',
           value: 'კონფიდენციალურობის პოლიტიკა',
         },
@@ -404,6 +428,10 @@ const links: Channel['links'] = {
         {
           locale: 'fr',
           value: 'Logiciels pour le commerce électronique',
+        },
+        {
+          locale: 'it',
+          value: 'Software per l\'e-commerce',
         },
         {
           locale: 'ka',
@@ -485,6 +513,15 @@ Les informations présentes sur ce site web ne constituent pas une offre publiqu
 Les images des produits peuvent différer du produit réel.`,
   },
   {
+    locale: 'it',
+    value: `© 2024—2026 Fictitious Company LLC
+OGRN 12345, INN 12345
+236000, Oblast di Kaliningrad, Kaliningrad, Via Teatralnaya, 33A
+
+Le informazioni su questo sito non costituiscono un'offerta pubblica.
+Le immagini dei prodotti possono differire dall'originale.`,
+  },
+  {
     locale: 'ka',
     value: `© 2024—2026 შპს «ფიქტიუშენ კომპანი»
 OGRN 12345, INN 12345
@@ -499,7 +536,7 @@ OGRN 12345, INN 12345
 OGRN 12345, INN 12345
 236000 Kaliningrad Oblast, Kaliningrad, Teatralnaya Str. 33A
 
-Die Informationen auf dieser Website stellen kein öffentliches Angebot dar. 
+Die Informationen auf dieser Website stellen kein öffentliches Angebot dar.
 Produktabbildungen können vom Original abweichen.`,
   },
   {
@@ -540,6 +577,10 @@ const channels: Channel[] = [{
       value: 'Moscou',
     },
     {
+      locale: 'it',
+      value: 'Mosca',
+    },
+    {
       locale: 'ka',
       value: 'მოსკოვი',
     },
@@ -574,6 +615,10 @@ const channels: Channel[] = [{
       value: 'Savoureux sur le pouce à Moscou',
     },
     {
+      locale: 'it',
+      value: 'Gusto al volo a Mosca',
+    },
+    {
       locale: 'ka',
       value: 'გასინჯვა მოსკოვში',
     },
@@ -606,6 +651,10 @@ const channels: Channel[] = [{
     {
       locale: 'fr',
       value: 'Savourez des goûts uniques et une ambiance agréable',
+    },
+    {
+      locale: 'it',
+      value: 'Goditi sapori unici e un\'atmosfera piacevole',
     },
     {
       locale: 'ka',
@@ -697,6 +746,20 @@ En cas d'annulation ou de modification de la commande, les frais de livraison re
 L'établissement se réserve le droit de refuser une livraison en cas de volume de commandes important ou de problèmes techniques.`,
       },
       {
+        locale: 'it',
+        value: `La consegna viene effettuata entro 1-2 ore dall'ordine.
+
+L'importo minimo per la consegna gratuita è di 1500 rubli.
+
+Il costo della consegna viene calcolato in base alla distanza dal punto di consegna o dall'indirizzo di consegna e può variare da 0 a 1000 rubli.
+
+L'ordine può essere pagato alla consegna in contanti o con carta.
+
+In caso di annullamento dell'ordine o modifica delle sue condizioni, la consegna è pagata per intero.
+
+L'azienda si riserva il diritto di rifiutare la consegna in caso di un gran numero di ordini o problemi tecnici.`,
+      },
+      {
         locale: 'ka',
         value: `მიწოდება ხორციელდება შეკვეთის განთავსებიდან 1-2 საათის განმავლობაში.
 
@@ -748,11 +811,11 @@ Das Unternehmen behält sich das Recht vor, die Lieferung bei hohem Bestellaufko
     conditions: [
       {
         locale: 'ru',
-        value: `При самовывозе заказ будет готов к получению в течение 1–2 часов с момента оформления. 
+        value: `При самовывозе заказ будет готов к получению в течение 1–2 часов с момента оформления.
 
-Для самовывоза нет требования к минимальной сумме заказа — вы можете оформить заказ на любую сумму. Самовынос осуществляется бесплатно, дополнительная плата за него не взимается. 
+Для самовывоза нет требования к минимальной сумме заказа — вы можете оформить заказ на любую сумму. Самовынос осуществляется бесплатно, дополнительная плата за него не взимается.
 
-Оплатить заказ вы можете при получении как наличными, так и банковской картой. В случае отмены заказа или внесения в него изменений предварительная оплата, если она была произведена, возвращается вам полностью. 
+Оплатить заказ вы можете при получении как наличными, так и банковской картой. В случае отмены заказа или внесения в него изменений предварительная оплата, если она была произведена, возвращается вам полностью.
 
 Заведение вправе отказать в предоставлении услуги самовывоза при высокой загруженности или возникновении технических неполадок, влияющих на обработку заказов.`,
       },
@@ -795,6 +858,16 @@ Il n'y a pas de montant minimum pour le retrait en magasin: vous pouvez commande
 Vous pouvez régler votre commande en espèces ou par carte bancaire lors du retrait. En cas d'annulation ou de modification de votre commande, votre acompte, le cas échéant, vous sera intégralement remboursé.
 
 L'établissement se réserve le droit de refuser le retrait en magasin en cas de forte affluence ou de problèmes techniques affectant le traitement des commandes.`,
+      },
+      {
+        locale: 'it',
+        value: `Per il ritiro in negozio, il tuo ordine sarà pronto entro 1-2 ore dall'ordine.
+
+Non c'è un importo minimo per il ritiro in negozio: puoi ordinare qualsiasi importo. Il ritiro in negozio è gratuito e non ci sono costi aggiuntivi.
+
+Puoi pagare il tuo ordine al ritiro in contanti o con carta di credito. Se annulli o modifichi il tuo ordine, l'eventuale pagamento anticipato ti verrà rimborsato per intero.
+
+L'esercizio si riserva il diritto di rifiutare il ritiro in negozio in caso di sovraccarico o problemi tecnici che influenzano l'elaborazione degli ordini.`,
       },
       {
         locale: 'ka',
@@ -849,6 +922,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
             value: 'Kolotushkina 12',
           },
           {
+            locale: 'it',
+            value: 'Kolotushkina 12',
+          },
+          {
             locale: 'ru',
             value: 'Колотушкина 12',
           },
@@ -881,6 +958,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
             },
             {
               locale: 'fr',
+              value: 'Kolotushkina 12',
+            },
+            {
+              locale: 'it',
               value: 'Kolotushkina 12',
             },
             {
@@ -922,6 +1003,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
             value: 'Lenina 46',
           },
           {
+            locale: 'it',
+            value: 'Lenina 46',
+          },
+          {
             locale: 'ru',
             value: 'Ленина 46',
           },
@@ -954,6 +1039,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
             },
             {
               locale: 'fr',
+              value: 'Lenina 46',
+            },
+            {
+              locale: 'it',
               value: 'Lenina 46',
             },
             {
@@ -1005,6 +1094,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
       value: 'Saint-Pétersbourg',
     },
     {
+      locale: 'it',
+      value: 'San Pietroburgo',
+    },
+    {
       locale: 'ka',
       value: 'სანქტ-პეტერბურგი',
     },
@@ -1039,6 +1132,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
       value: 'Savoureux sur le pouce de Saint-Pétersbourg',
     },
     {
+      locale: 'it',
+      value: 'Gusto al volo a San Pietroburgo',
+    },
+    {
       locale: 'ka',
       value: 'გასინჯეთ სანქტ-პეტერბურგში',
     },
@@ -1071,6 +1168,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
     {
       locale: 'fr',
       value: 'Savourez des goûts uniques et une ambiance agréable',
+    },
+    {
+      locale: 'it',
+      value: 'Goditi sapori unici e un\'atmosfera piacevole',
     },
     {
       locale: 'ka',
