@@ -1,0 +1,6 @@
+[
+  {
+    "label": "full check",
+    "command": "pnpm run check:full"
+  }
+]

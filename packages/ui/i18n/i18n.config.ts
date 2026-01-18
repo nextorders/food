@@ -3,6 +3,7 @@ import { el } from './locales/el-GR'
 import { en } from './locales/en-US'
 import { es } from './locales/es-ES'
 import { fr } from './locales/fr-FR'
+import { it } from './locales/it-IT'
 import { ka } from './locales/ka-GE'
 import { ru } from './locales/ru-RU'
 import { zh_cn } from './locales/zh-CN'
@@ -16,6 +17,7 @@ export default defineI18nConfig(() => ({
     en,
     es,
     fr,
+    it,
     ka,
     ru,
     zh_cn,

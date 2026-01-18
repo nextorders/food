@@ -27,7 +27,7 @@ export const CountryCodeSchema = z.enum([
 ])
 export type CountryCode = z.infer<typeof CountryCodeSchema>
 
-export const LocaleSchema = z.enum(['de', 'el', 'en', 'es', 'fr', 'ka', 'ru', 'zh_cn'])
+export const LocaleSchema = z.enum(['de', 'el', 'en', 'es', 'fr', 'it', 'ka', 'ru', 'zh_cn'])
 export type Locale = z.infer<typeof LocaleSchema>
 
 export const LocaleValueSchema = z.object({
