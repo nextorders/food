@@ -34,7 +34,7 @@ export const el: Dictionary = {
         'title': 'Διεύθυνση',
         'street': 'Οδός και σπίτι',
         'flat': 'Διαμέρισμα/γραφείο',
-        'intercom': 'Διακομιστής',
+        'intercom': 'Θυροτηλέφωνο',
         'entrance': 'Είσοδος',
         'floor': 'Όροφος',
         'note': 'Σημειώσεις',
@@ -142,7 +142,7 @@ export const el: Dictionary = {
     'weight-unit': {
       g: 'Γραμμάριο',
       kg: 'Κιλό',
-      ml: 'Χιλιολίτρο',
+      ml: 'Χιλιοστόλιτρο',
       l: 'Λίτρο',
       pcs: 'Τεμάχιο',
       oz: 'Ουγγιά',
