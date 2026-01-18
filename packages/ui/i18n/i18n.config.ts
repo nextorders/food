@@ -1,4 +1,5 @@
 import { de } from './locales/de-DE'
+import { el } from './locales/el-GR'
 import { en } from './locales/en-US'
 import { es } from './locales/es-ES'
 import { fr } from './locales/fr-FR'
@@ -11,6 +12,7 @@ export default defineI18nConfig(() => ({
   fallbackLocale: 'en',
   messages: {
     de,
+    el,
     en,
     es,
     fr,

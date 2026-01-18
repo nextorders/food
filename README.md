@@ -20,7 +20,7 @@ Modern e-commerce self-hosted platform: clients will be happy to order delicious
 
 - **Fully responsive design** — works perfectly on any device.
 - **Multi‑page SSR** — fast loading + SEO.
-- **Multi‑language** — supports 7+ locales.
+- **Multi‑language** — supports 8+ locales.
 - **Multi‑city support** — run separate storefronts for different cities/regions.
 - **Most often added** — block shows items frequently bought together to boost cross‑sales.
 - **Product video** - show fragment on product page to increase conversion rates.
@@ -65,6 +65,7 @@ The application currently supports [different languages](https://github.com/next
 |------|----------|--------|------|
 | `en` 🇺🇸 | English | English | [en-US.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/en-US.ts) |
 | `de` 🇩🇪 | German | Deutsch | [de-DE.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/de-DE.ts) |
+| `el` 🇬🇷 | Greek | Ελληνικά | [el-GR.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/el-GR.ts) |
 | `es` 🇪🇸 | Spanish | Español | [es-ES.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/es-ES.ts) |
 | `fr` 🇫🇷 | French | Français | [fr-FR.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/fr-FR.ts) |
 | `ka` 🇬🇪 | Georgian | ქართული | [ka-GE.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ka-GE.ts) |

@@ -7,6 +7,10 @@ const options: Options = {
       value: 'Вкус на бегу',
     },
     {
+      locale: 'el',
+      value: 'Γεύση εν κινήσει',
+    },
+    {
       locale: 'en',
       value: 'Taste on the run',
     },
@@ -37,6 +41,10 @@ const options: Options = {
       value: 'Насладитесь уникальными вкусами и приятной атмосферой',
     },
     {
+      locale: 'el',
+      value: 'Απολαύστε μοναδικές γεύσεις και μια ευχάριστη ατμόσφαιρα',
+    },
+    {
       locale: 'en',
       value: 'Enjoy unique tastes and a pleasant atmosphere',
     },
@@ -63,7 +71,7 @@ const options: Options = {
   ],
   logoUrl: 'https://storage.yandexcloud.net/next-orders-food-demo/nextorders-food-logo.jpg',
   defaultLocale: 'ru',
-  availableLocales: ['ru', 'en', 'es', 'fr', 'ka', 'de', 'zh_cn'],
+  availableLocales: ['ru', 'el', 'en', 'es', 'fr', 'ka', 'de', 'zh_cn'],
   countryCode: 'RU',
   currencyCode: 'RUB',
   headLinks: [

@@ -10,6 +10,10 @@ const burgers: Product[] = [
         value: 'The Wild West Burger',
       },
       {
+        locale: 'el',
+        value: 'Το Μπέργκερ της Άγριας Δύσης',
+      },
+      {
         locale: 'es',
         value: 'La hamburguesa del salvaje oeste',
       },
@@ -38,6 +42,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Get ready for a trip to the Wild West with our incredible burger! Tender meat, juicy vegetables and crispy bun will take you to the world of cowboys and Indians. Dive into the atmosphere of adventure and enjoy the real taste of the Wild West!',
+      },
+      {
+        locale: 'el',
+        value: 'Ετοιμαστείτε για ένα ταξίδι στην Άγρια Δύση με το απίστευτο burger μας! Τρυφερό κρέας, ζουμερά λαχανικά και τραγανό ψωμάκι θα σας ταξιδέψουν στον κόσμο των καουμπόηδων και των Ινδιάνων. Βουτήξτε στην ατμόσφαιρα της περιπέτειας και απολαύστε την πραγματική γεύση της Άγριας Δύσης!',
       },
       {
         locale: 'es',
@@ -73,6 +81,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'el',
+            value: 'Πρότυπο',
           },
           {
             locale: 'es',
@@ -139,6 +151,10 @@ const burgers: Product[] = [
               value: 'Beef cutlet',
             },
             {
+              locale: 'el',
+              value: 'Μοσχαρίσια μπριζόλα',
+            },
+            {
               locale: 'es',
               value: 'Corte de carne de res',
             },
@@ -169,6 +185,10 @@ const burgers: Product[] = [
             {
               locale: 'en',
               value: 'Bread with sesame',
+            },
+            {
+              locale: 'el',
+              value: 'Ψωμί με σουσάμι',
             },
             {
               locale: 'es',
@@ -203,6 +223,10 @@ const burgers: Product[] = [
               value: 'Soft cheese',
             },
             {
+              locale: 'el',
+              value: 'Μαλακό τυρί',
+            },
+            {
               locale: 'es',
               value: 'Queso suave',
             },
@@ -233,6 +257,10 @@ const burgers: Product[] = [
             {
               locale: 'en',
               value: 'Barbecue sauce',
+            },
+            {
+              locale: 'el',
+              value: 'Σάλτσα μπάρμπεκιου',
             },
             {
               locale: 'es',
@@ -267,6 +295,10 @@ const burgers: Product[] = [
               value: 'Pickled cucumbers',
             },
             {
+              locale: 'el',
+              value: 'Αγγούρια τουρσί',
+            },
+            {
               locale: 'es',
               value: 'Pepinillos en vinagre',
             },
@@ -297,6 +329,10 @@ const burgers: Product[] = [
             {
               locale: 'en',
               value: 'Lettuce leaves',
+            },
+            {
+              locale: 'el',
+              value: 'Φύλλα μαρουλιού',
             },
             {
               locale: 'es',
@@ -331,6 +367,10 @@ const burgers: Product[] = [
               value: 'Tomato',
             },
             {
+              locale: 'el',
+              value: 'Ντομάτα',
+            },
+            {
               locale: 'es',
               value: 'Tomate',
             },
@@ -363,6 +403,10 @@ const burgers: Product[] = [
               value: 'Onion',
             },
             {
+              locale: 'el',
+              value: 'Κρεμμύδι',
+            },
+            {
               locale: 'es',
               value: 'Cebolla',
             },
@@ -393,6 +437,10 @@ const burgers: Product[] = [
             {
               locale: 'en',
               value: 'Bacon',
+            },
+            {
+              locale: 'el',
+              value: 'Μπέικον',
             },
             {
               locale: 'es',
@@ -429,6 +477,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'New!',
+          },
+          {
+            locale: 'el',
+            value: 'Νέος!',
           },
           {
             locale: 'es',
@@ -489,6 +541,10 @@ const burgers: Product[] = [
         value: 'The Tender Clouds Burger',
       },
       {
+        locale: 'el',
+        value: 'The Tender Clouds Burger',
+      },
+      {
         locale: 'es',
         value: 'La hamburguesa Tender Clouds',
       },
@@ -517,6 +573,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Feel the tenderness of clouds with our special burger! The combination of airy blue cheese, juicy vegetables and flavorful meat will not leave you indifferent. The perfect balance of flavor and pleasure in every bite!',
+      },
+      {
+        locale: 'el',
+        value: 'Νιώστε την τρυφερότητα των σύννεφων με το ξεχωριστό μας burger! Ο συνδυασμός από αφράτο μπλε τυρί, ζουμερά λαχανικά και γευστικό κρέας δεν θα σας αφήσει αδιάφορους. Η τέλεια ισορροπία γεύσης και απόλαυσης σε κάθε μπουκιά!',
       },
       {
         locale: 'es',
@@ -552,6 +612,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'el',
+            value: 'Πρότυπο',
           },
           {
             locale: 'es',
@@ -619,6 +683,10 @@ const burgers: Product[] = [
         value: 'Vegetarian paradise: veggie burger',
       },
       {
+        locale: 'el',
+        value: 'Χορτοφαγικός παράδεισος: χορτοφαγικό μπιφτέκι',
+      },
+      {
         locale: 'es',
         value: 'Paraíso vegetariano: hamburguesa vegetariana',
       },
@@ -647,6 +715,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Enjoy a vegetarian paradise with our special veggie burger! A delicious combination of vegetables, herbs and nutritious ingredients will give you an unforgettable taste experience. Feel the freshness of nature in every bite of our veggie burger!',
+      },
+      {
+        locale: 'el',
+        value: 'Απολαύστε έναν χορτοφαγικό παράδεισο με το ξεχωριστό χορτοφαγικό μας burger! Ένας νόστιμος συνδυασμός λαχανικών, βοτάνων και θρεπτικών συστατικών θα σας χαρίσει μια αξέχαστη γευστική εμπειρία. Νιώστε τη φρεσκάδα της φύσης σε κάθε μπουκιά του χορτοφαγικού μας burger!',
       },
       {
         locale: 'es',
@@ -682,6 +754,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'el',
+            value: 'Πρότυπο',
           },
           {
             locale: 'es',
@@ -749,6 +825,10 @@ const burgers: Product[] = [
         value: 'Powerful combo: three burgers',
       },
       {
+        locale: 'el',
+        value: 'Δυνατός συνδυασμός: τρία μπιφτέκια',
+      },
+      {
         locale: 'es',
         value: 'Combo potente: tres hamburguesas',
       },
@@ -777,6 +857,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Each burger is a perfect harmony of crispy bun, flavorful patty, and fresh ingredients, all brought together in a unique flavor symphony. This combo will be the star of any gathering: whether it\'s a friendly evening, a picnic, or simply a feast for the senses. Indulge in the pleasure—order your combo now and get a triple helping of gastronomic delight!',
+      },
+      {
+        locale: 'el',
+        value: 'Κάθε burger είναι μια τέλεια αρμονία από τραγανό ψωμάκι, γευστικό μπιφτέκι και φρέσκα υλικά, όλα συνδυασμένα σε μια μοναδική συμφωνία γεύσεων. Αυτός ο συνδυασμός θα είναι το αστέρι κάθε συγκέντρωσης: είτε πρόκειται για μια φιλική βραδιά, ένα πικνίκ, είτε απλώς για μια γιορτή των αισθήσεων. Αφεθείτε στην απόλαυση - παραγγείλτε τον συνδυασμό σας τώρα και απολαύστε μια τριπλή μερίδα γαστρονομικής απόλαυσης!',
       },
       {
         locale: 'es',
@@ -812,6 +896,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Combo',
+          },
+          {
+            locale: 'el',
+            value: 'Συνδυασμός',
           },
           {
             locale: 'es',
@@ -899,6 +987,10 @@ const burgers: Product[] = [
         value: 'Delicious onion burger',
       },
       {
+        locale: 'el',
+        value: 'Νόστιμο μπιφτέκι κρεμμυδιού',
+      },
+      {
         locale: 'es',
         value: 'Deliciosa hamburguesa de cebolla',
       },
@@ -927,6 +1019,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Discover an amazing world of taste with our burger, where tender meat, fresh vegetables and aromatic fried onions come together in a unique combination. Savor every bite and immerse yourself in the atmosphere of true gastronomic pleasure!',
+      },
+      {
+        locale: 'el',
+        value: 'Ανακαλύψτε έναν εκπληκτικό κόσμο γεύσεων με το burger μας, όπου το τρυφερό κρέας, τα φρέσκα λαχανικά και τα αρωματικά τηγανητά κρεμμύδια συνδυάζονται μοναδικά. Απολαύστε κάθε μπουκιά και βυθιστείτε στην ατμόσφαιρα της πραγματικής γαστρονομικής απόλαυσης!',
       },
       {
         locale: 'es',
@@ -962,6 +1058,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'el',
+            value: 'Πρότυπο',
           },
           {
             locale: 'es',
@@ -1024,6 +1124,10 @@ const burgers: Product[] = [
         value: 'Galactic burger',
       },
       {
+        locale: 'el',
+        value: 'Γαλαξιακό μπέργκερ',
+      },
+      {
         locale: 'es',
         value: 'Hamburguesa galáctica',
       },
@@ -1052,6 +1156,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Discover the galactic burger - an incredible combination of juicy vegetables, appetizing meat and crispy bun. Experience the unique taste of distant stars and immerse yourself in the world of space adventures right at the table!',
+      },
+      {
+        locale: 'el',
+        value: 'Ανακαλύψτε το γαλαξιακό μπέργκερ - έναν απίστευτο συνδυασμό ζουμερών λαχανικών, λαχταριστού κρέατος και τραγανού ψωμιού. Ζήστε τη μοναδική γεύση των μακρινών αστεριών και βυθιστείτε στον κόσμο των διαστημικών περιπετειών ακριβώς από το τραπέζι!',
       },
       {
         locale: 'es',
@@ -1087,6 +1195,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'el',
+            value: 'Πρότυπο',
           },
           {
             locale: 'es',
@@ -1149,6 +1261,10 @@ const burgers: Product[] = [
         value: 'Mushroom boom: a burger with a secret',
       },
       {
+        locale: 'el',
+        value: 'Έκρηξη μανιταριών: ένα burger με ένα μυστικό',
+      },
+      {
         locale: 'es',
         value: 'El boom de los hongos: una hamburguesa con un secreto',
       },
@@ -1177,6 +1293,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Discover a wonderful world of flavor with our new burger! Tender meat, juicy mushrooms and crispy bun - this combination will surely win your heart. Experience the unique flavor of a real mushroom delight!',
+      },
+      {
+        locale: 'el',
+        value: 'Ανακαλύψτε έναν υπέροχο κόσμο γεύσεων με το νέο μας burger! Τρυφερό κρέας, ζουμερά μανιτάρια και τραγανό ψωμάκι - αυτός ο συνδυασμός σίγουρα θα κερδίσει την καρδιά σας. Ζήστε τη μοναδική γεύση μιας πραγματικής απόλαυσης μανιταριών!',
       },
       {
         locale: 'es',
@@ -1212,6 +1332,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'el',
+            value: 'Πρότυπο',
           },
           {
             locale: 'es',
@@ -1273,6 +1397,10 @@ const burgers: Product[] = [
             value: 'Boom!',
           },
           {
+            locale: 'el',
+            value: 'Κεραία!',
+          },
+          {
             locale: 'es',
             value: '¡Boom!',
           },
@@ -1303,6 +1431,10 @@ const burgers: Product[] = [
         title: [
           {
             locale: 'en',
+            value: '🍄‍🟫🍄‍🟫🍄‍🟫🤩',
+          },
+          {
+            locale: 'el',
             value: '🍄‍🟫🍄‍🟫🍄‍🟫🤩',
           },
           {
@@ -1342,6 +1474,10 @@ const burgers: Product[] = [
         value: 'Jardine\'s Burger',
       },
       {
+        locale: 'el',
+        value: 'Jardine\'s Burger',
+      },
+      {
         locale: 'es',
         value: 'Hamburguesa de Jardine',
       },
@@ -1370,6 +1506,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Experience the unique flavor of a juicy grilled turkey cutlet combined with a crispy bun and fresh vegetables. Tender turkey meat complemented with aromatic spices and spices will be a real discovery for meat lovers!',
+      },
+      {
+        locale: 'el',
+        value: 'Ζήστε τη μοναδική γεύση ενός ζουμερού ψητού μπιφτεκιού γαλοπούλας σε συνδυασμό με ένα τραγανό ψωμάκι και φρέσκα λαχανικά. Το τρυφερό κρέας γαλοπούλας, συμπληρωμένο με αρωματικά μπαχαρικά και μπαχαρικά, θα αποτελέσει μια πραγματική ανακάλυψη για τους λάτρεις του κρέατος!',
       },
       {
         locale: 'es',
@@ -1405,6 +1545,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'el',
+            value: 'Πρότυπο',
           },
           {
             locale: 'es',
@@ -1467,6 +1611,10 @@ const burgers: Product[] = [
         value: 'Hot Texas burger',
       },
       {
+        locale: 'el',
+        value: 'Ζεστό μπέργκερ από το Τέξας',
+      },
+      {
         locale: 'es',
         value: 'Hamburguesa caliente de Texas',
       },
@@ -1495,6 +1643,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Your way to the real Texas flavor! Tender meat, fresh vegetables and an appetizing bun - this burger will definitely not leave you indifferent!',
+      },
+      {
+        locale: 'el',
+        value: 'Ο δρόμος σας για την πραγματική γεύση του Τέξας! Τρυφερό κρέας, φρέσκα λαχανικά και ένα λαχταριστό ψωμάκι - αυτό το μπιφτέκι σίγουρα δεν θα σας αφήσει αδιάφορους!',
       },
       {
         locale: 'es',
@@ -1530,6 +1682,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'el',
+            value: 'Πρότυπο',
           },
           {
             locale: 'es',
@@ -1592,6 +1748,10 @@ const burgers: Product[] = [
         value: 'Tender bacon burger',
       },
       {
+        locale: 'el',
+        value: 'Τρυφερό μπέργκερ με μπέικον',
+      },
+      {
         locale: 'es',
         value: 'Hamburguesa de tocino tierno',
       },
@@ -1620,6 +1780,10 @@ const burgers: Product[] = [
       {
         locale: 'en',
         value: 'Dive into the tenderness of bacon: try our burger! Fragrant bacon, juicy patty and fresh vegetables - an explosion of flavor for real gourmets.',
+      },
+      {
+        locale: 'el',
+        value: 'Βουτήξτε στην τρυφερότητα του μπέικον: δοκιμάστε το burger μας! Αρωματικό μπέικον, ζουμερό μπιφτέκι και φρέσκα λαχανικά - μια έκρηξη γεύσης για πραγματικούς καλοφαγάδες.',
       },
       {
         locale: 'es',
@@ -1655,6 +1819,10 @@ const burgers: Product[] = [
           {
             locale: 'en',
             value: 'Standard',
+          },
+          {
+            locale: 'el',
+            value: 'Πρότυπο',
           },
           {
             locale: 'es',
@@ -1720,6 +1888,10 @@ const snacks: Product[] = [
         value: 'Wings of Happiness: Buffalo Hot Breath',
       },
       {
+        locale: 'el',
+        value: 'Φτερά Ευτυχίας: Ζεστή Ανάσα Μπάφαλο',
+      },
+      {
         locale: 'es',
         value: 'Alas de la felicidad: Aliento caliente de búfalo',
       },
@@ -1748,6 +1920,10 @@ const snacks: Product[] = [
       {
         locale: 'en',
         value: 'Buffalo Fried Wings - spicy, juicy and incredibly delicious! The perfect choice for a fun party.',
+      },
+      {
+        locale: 'el',
+        value: 'Τηγανητές φτερούγες Buffalo - πικάντικες, ζουμερές και απίστευτα νόστιμες! Η τέλεια επιλογή για ένα διασκεδαστικό πάρτι.',
       },
       {
         locale: 'es',
@@ -1783,6 +1959,10 @@ const snacks: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -1844,6 +2024,10 @@ const snacks: Product[] = [
             value: '🔥🥵',
           },
           {
+            locale: 'el',
+            value: '🔥🥵',
+          },
+          {
             locale: 'es',
             value: '🔥🥵',
           },
@@ -1880,6 +2064,10 @@ const snacks: Product[] = [
         value: 'Vegetable bounty',
       },
       {
+        locale: 'el',
+        value: 'Λαχανικά γενναιοδωρία',
+      },
+      {
         locale: 'es',
         value: 'Abundancia de verduras',
       },
@@ -1908,6 +2096,10 @@ const snacks: Product[] = [
       {
         locale: 'en',
         value: 'Enjoy the flavor of fresh vegetables in our vegetable quesadilla! It is the perfect combination of juicy ingredients seasoned with aromatic spices. Don\'t miss the opportunity to try our vegetable quesadilla and get energized with bright flavors!',
+      },
+      {
+        locale: 'el',
+        value: 'Απολαύστε τη γεύση των φρέσκων λαχανικών στην quesadilla λαχανικών μας! Είναι ο τέλειος συνδυασμός ζουμερών συστατικών καρυκευμένων με αρωματικά μπαχαρικά. Μην χάσετε την ευκαιρία να δοκιμάσετε την quesadilla λαχανικών μας και να ενεργοποιηθείτε με λαμπερές γεύσεις!',
       },
       {
         locale: 'es',
@@ -1943,6 +2135,10 @@ const snacks: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -2005,6 +2201,10 @@ const snacks: Product[] = [
         value: 'Cheeseburgerettes',
       },
       {
+        locale: 'el',
+        value: 'Τσιζμπέργκερ',
+      },
+      {
         locale: 'es',
         value: 'Hamburguesas con queso',
       },
@@ -2033,6 +2233,10 @@ const snacks: Product[] = [
       {
         locale: 'en',
         value: 'Tender mini cheeseburgers - the perfect snack for the whole family! Delicious mini-burgers with real American cheese, juicy patty and fresh vegetables. Feel the atmosphere of a real American restaurant right here and now!',
+      },
+      {
+        locale: 'el',
+        value: 'Τρυφερά μίνι τσίζμπεργκερ - το τέλειο σνακ για όλη την οικογένεια! Νόστιμα μίνι μπιφτέκια με πραγματικό αμερικανικό τυρί, ζουμερό μπιφτέκι και φρέσκα λαχανικά. Νιώστε την ατμόσφαιρα ενός πραγματικού αμερικανικού εστιατορίου εδώ και τώρα!',
       },
       {
         locale: 'es',
@@ -2068,6 +2272,10 @@ const snacks: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -2130,6 +2338,10 @@ const snacks: Product[] = [
         value: 'Hot cheese and bacon',
       },
       {
+        locale: 'el',
+        value: 'Ζεστό τυρί και μπέικον',
+      },
+      {
         locale: 'es',
         value: 'Queso y tocino calientes',
       },
@@ -2158,6 +2370,10 @@ const snacks: Product[] = [
       {
         locale: 'en',
         value: 'Experience the unique taste of French fries with cheddar cheese and bacon in our restaurant! This is the perfect combination for real gourmets.',
+      },
+      {
+        locale: 'el',
+        value: 'Ζήστε τη μοναδική γεύση των τηγανητών πατατών με τυρί τσένταρ και μπέικον στο εστιατόριό μας! Αυτός είναι ο τέλειος συνδυασμός για τους πραγματικούς γκουρμέ.',
       },
       {
         locale: 'es',
@@ -2193,6 +2409,10 @@ const snacks: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -2255,6 +2475,10 @@ const snacks: Product[] = [
         value: 'Cheese adventures: nachos with three kinds of cheese',
       },
       {
+        locale: 'el',
+        value: 'Περιπέτειες με τυρί: νάτσος με τρία είδη τυριού',
+      },
+      {
         locale: 'es',
         value: 'Aventuras de queso: nachos con tres tipos de queso',
       },
@@ -2283,6 +2507,10 @@ const snacks: Product[] = [
       {
         locale: 'en',
         value: 'We invite you to plunge into the atmosphere of a real Mexican holiday with our unique nachos with cheese! Tender combination of three kinds of cheese and crispy corn tortilla will not leave indifferent even the most sophisticated gourmet. Serve with hot sauce or salsa - the perfect combination for an unforgettable evening with friends and family.',
+      },
+      {
+        locale: 'el',
+        value: 'Σας προσκαλούμε να βυθιστείτε στην ατμόσφαιρα πραγματικών μεξικανικών διακοπών με τα μοναδικά μας νάτσος με τυρί! Ο τρυφερός συνδυασμός τριών ειδών τυριών και η τραγανή τορτίγια καλαμποκιού δεν θα αφήσουν αδιάφορο ούτε τον πιο εκλεπτυσμένο γκουρμέ. Σερβίρετε με καυτερή σάλτσα ή σάλτσα - ο τέλειος συνδυασμός για μια αξέχαστη βραδιά με φίλους και οικογένεια.',
       },
       {
         locale: 'es',
@@ -2318,6 +2546,10 @@ const snacks: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -2380,6 +2612,10 @@ const snacks: Product[] = [
         value: 'Bacon extravaganza',
       },
       {
+        locale: 'el',
+        value: 'Φαντασμαγορία με μπέικον',
+      },
+      {
         locale: 'es',
         value: 'Extravagancia de tocino',
       },
@@ -2408,6 +2644,10 @@ const snacks: Product[] = [
       {
         locale: 'en',
         value: 'Discover a new level of pleasure with our specialty pizzadilla! Thin dough, appetizing bacon and cheese - this combination is sure to win your heart. Don\'t miss the opportunity to enjoy this incredible taste in the cozy atmosphere of our restaurant!',
+      },
+      {
+        locale: 'el',
+        value: 'Ανακαλύψτε ένα νέο επίπεδο απόλαυσης με την σπεσιαλιτέ μας pizzadilla! Λεπτή ζύμη, λαχταριστό μπέικον και τυρί - αυτός ο συνδυασμός σίγουρα θα κερδίσει την καρδιά σας. Μην χάσετε την ευκαιρία να απολαύσετε αυτή την απίστευτη γεύση στη ζεστή ατμόσφαιρα του εστιατορίου μας!',
       },
       {
         locale: 'es',
@@ -2443,6 +2683,10 @@ const snacks: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -2505,6 +2749,10 @@ const snacks: Product[] = [
         value: 'The magic threads of Gouda',
       },
       {
+        locale: 'el',
+        value: 'Τα μαγικά νήματα της Γκούντα',
+      },
+      {
         locale: 'es',
         value: 'Los hilos mágicos de Gouda',
       },
@@ -2533,6 +2781,10 @@ const snacks: Product[] = [
       {
         locale: 'en',
         value: 'Discover an amazing world of flavors with gourmet cheeses that will give you an unforgettable experience with every bite.',
+      },
+      {
+        locale: 'el',
+        value: 'Ανακαλύψτε έναν καταπληκτικό κόσμο γεύσεων με γκουρμέ τυριά που θα σας χαρίσουν μια αξέχαστη εμπειρία με κάθε μπουκιά.',
       },
       {
         locale: 'es',
@@ -2568,6 +2820,10 @@ const snacks: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -2630,6 +2886,10 @@ const snacks: Product[] = [
         value: 'Flaming quesadilla: Spicy chicken slices',
       },
       {
+        locale: 'el',
+        value: 'Φλεγόμενη quesadilla: Πικάντικες φέτες κοτόπουλου',
+      },
+      {
         locale: 'es',
         value: 'Quesadilla flameada: Rebanadas de pollo picante',
       },
@@ -2658,6 +2918,10 @@ const snacks: Product[] = [
       {
         locale: 'en',
         value: 'We invite you to enjoy exquisite chicken quesadilla in our restaurant! Tender chicken fillet, fragrant spices and golden cheese - this combination will surely win your heart. Served with vegetables and salsa sauce. Feel the unique taste of real Mexican cuisine in the cozy atmosphere of our restaurant!',
+      },
+      {
+        locale: 'el',
+        value: 'Σας προσκαλούμε να απολαύσετε εξαιρετική quesadilla κοτόπουλου στο εστιατόριό μας! Τρυφερό φιλέτο κοτόπουλου, αρωματικά μπαχαρικά και χρυσό τυρί - αυτός ο συνδυασμός σίγουρα θα κερδίσει την καρδιά σας. Σερβίρεται με λαχανικά και σάλτσα salsa. Νιώστε τη μοναδική γεύση της πραγματικής μεξικάνικης κουζίνας στη ζεστή ατμόσφαιρα του εστιατορίου μας!',
       },
       {
         locale: 'es',
@@ -2693,6 +2957,10 @@ const snacks: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -2758,6 +3026,10 @@ const desserts: Product[] = [
         value: 'Apple extravaganza',
       },
       {
+        locale: 'el',
+        value: 'Υπερβολή μήλου',
+      },
+      {
         locale: 'es',
         value: 'Extravagancia de la manzana',
       },
@@ -2786,6 +3058,10 @@ const desserts: Product[] = [
       {
         locale: 'en',
         value: 'A delicious pie that will give you an unforgettable taste journey! Tender dough, fragrant apples and crispy crust - this combination will surely win your heart. Plunge into the holiday atmosphere with this incredible pie!',
+      },
+      {
+        locale: 'el',
+        value: 'Μια νόστιμη πίτα που θα σας χαρίσει ένα αξέχαστο γευστικό ταξίδι! Τρυφερή ζύμη, αρωματικά μήλα και τραγανή ζύμη - αυτός ο συνδυασμός σίγουρα θα κερδίσει την καρδιά σας. Βυθιστείτε στην εορταστική ατμόσφαιρα με αυτή την απίστευτη πίτα!',
       },
       {
         locale: 'es',
@@ -2821,6 +3097,10 @@ const desserts: Product[] = [
           {
             locale: 'en',
             value: 'Slice',
+          },
+          {
+            locale: 'el',
+            value: 'Φέτα',
           },
           {
             locale: 'es',
@@ -2874,6 +3154,10 @@ const desserts: Product[] = [
             value: '2 Slices',
           },
           {
+            locale: 'el',
+            value: '2 φέτες',
+          },
+          {
             locale: 'es',
             value: '2 Rebanadas',
           },
@@ -2923,6 +3207,10 @@ const desserts: Product[] = [
           {
             locale: 'en',
             value: 'Whole pie',
+          },
+          {
+            locale: 'el',
+            value: 'Ολόκληρη πίτα',
           },
           {
             locale: 'es',
@@ -2979,6 +3267,10 @@ const desserts: Product[] = [
         value: 'New York chic cheesecake',
       },
       {
+        locale: 'el',
+        value: 'Σικ τσιζκέικ της Νέας Υόρκης',
+      },
+      {
         locale: 'es',
         value: 'Tarta de queso chic neoyorquina',
       },
@@ -3007,6 +3299,10 @@ const desserts: Product[] = [
       {
         locale: 'en',
         value: 'Experience the unique taste of a real New York cheesecake! The delicate combination of cream cheese, crunchy base and fresh fruit will give you an unforgettable taste sensation. Prepared with love, this dessert will be a perfect end to your evening or a great addition to a friendly meeting.',
+      },
+      {
+        locale: 'el',
+        value: 'Ζήστε τη μοναδική γεύση ενός πραγματικού τσιζκέικ Νέας Υόρκης! Ο ντελικάτος συνδυασμός τυριού κρέμας, τραγανής βάσης και φρέσκων φρούτων θα σας χαρίσει μια αξέχαστη γευστική αίσθηση. Φτιαγμένο με αγάπη, αυτό το επιδόρπιο θα αποτελέσει το τέλειο τέλος για τη βραδιά σας ή μια εξαιρετική προσθήκη σε μια φιλική συνάντηση.',
       },
       {
         locale: 'es',
@@ -3042,6 +3338,10 @@ const desserts: Product[] = [
           {
             locale: 'en',
             value: 'Slice',
+          },
+          {
+            locale: 'el',
+            value: 'Φέτα',
           },
           {
             locale: 'es',
@@ -3104,6 +3404,10 @@ const desserts: Product[] = [
         value: 'Mango swirl',
       },
       {
+        locale: 'el',
+        value: 'Στροβιλισμός μάνγκο',
+      },
+      {
         locale: 'es',
         value: 'Remolino de mango',
       },
@@ -3132,6 +3436,10 @@ const desserts: Product[] = [
       {
         locale: 'en',
         value: 'Experience a real tropical explosion of flavor with our unique dessert! A delicate combination of ripe mango, creamy cream and crispy cookies will give you an unforgettable pleasure. Plunge into the atmosphere of warmth and sunshine with every bite of this amazing treat.',
+      },
+      {
+        locale: 'el',
+        value: 'Ζήστε μια πραγματική τροπική έκρηξη γεύσεων με το μοναδικό μας επιδόρπιο! Ένας ντελικάτος συνδυασμός ώριμου μάνγκο, κρεμώδους κρέμας και τραγανών μπισκότων θα σας χαρίσει μια αξέχαστη απόλαυση. Βυθιστείτε στην ατμόσφαιρα ζεστασιάς και ηλιοφάνειας με κάθε μπουκιά αυτής της καταπληκτικής λιχουδιάς.',
       },
       {
         locale: 'es',
@@ -3167,6 +3475,10 @@ const desserts: Product[] = [
           {
             locale: 'en',
             value: 'Slice',
+          },
+          {
+            locale: 'el',
+            value: 'Φέτα',
           },
           {
             locale: 'es',
@@ -3232,6 +3544,10 @@ const hotMeals: Product[] = [
         value: 'Secret passion: chicken and shrimp',
       },
       {
+        locale: 'el',
+        value: 'Μυστικό πάθος: κοτόπουλο και γαρίδες',
+      },
+      {
         locale: 'es',
         value: 'Pasión secreta: pollo y camarones',
       },
@@ -3260,6 +3576,10 @@ const hotMeals: Product[] = [
       {
         locale: 'en',
         value: 'Chicken and shrimps - a delicate and exquisite combination for real gourmets. Roasted chicken fillet and tiger shrimps in cream sauce will be a perfect main course or addition to a side dish. Delight yourself and your loved ones with this delicious and flavorful hot dish!',
+      },
+      {
+        locale: 'el',
+        value: 'Κοτόπουλο και γαρίδες - ένας ντελικάτος και εκλεκτός συνδυασμός για πραγματικούς καλοφαγάδες. Το ψητό φιλέτο κοτόπουλου και οι γαρίδες τίγρης σε κρεμώδη σάλτσα θα αποτελέσουν ένα τέλειο κυρίως πιάτο ή μια προσθήκη σε ένα συνοδευτικό πιάτο. Απολαύστε τον εαυτό σας και τους αγαπημένους σας με αυτό το νόστιμο και γευστικό ζεστό πιάτο!',
       },
       {
         locale: 'es',
@@ -3295,6 +3615,10 @@ const hotMeals: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -3362,6 +3686,10 @@ const hotMeals: Product[] = [
         value: '"Triumphant Trio": a three-egg dish',
       },
       {
+        locale: 'el',
+        value: '"Triumphant Trio": ένα πιάτο με τρία αυγά',
+      },
+      {
         locale: 'es',
         value: '"Trío Triunfante": un plato de tres huevos',
       },
@@ -3390,6 +3718,10 @@ const hotMeals: Product[] = [
       {
         locale: 'en',
         value: 'A perfect combination of three eggs fried to a golden crust, with aromatic herbs and delicate cream. This dish will be a real discovery for your palate and will give you an unforgettable experience!',
+      },
+      {
+        locale: 'el',
+        value: 'Ένας τέλειος συνδυασμός τριών τηγανισμένων αυγών μέχρι να αποκτήσουν μια χρυσαφένια κρούστα, με αρωματικά βότανα και λεπτή κρέμα. Αυτό το πιάτο θα αποτελέσει μια πραγματική ανακάλυψη για τον ουρανίσκο σας και θα σας χαρίσει μια αξέχαστη εμπειρία!',
       },
       {
         locale: 'es',
@@ -3425,6 +3757,10 @@ const hotMeals: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -3491,6 +3827,10 @@ const hotMeals: Product[] = [
             value: 'Hit 🔥',
           },
           {
+            locale: 'el',
+            value: 'Χτύπημα 🔥',
+          },
+          {
             locale: 'es',
             value: '¡Hit 🔥!',
           },
@@ -3527,6 +3867,10 @@ const hotMeals: Product[] = [
         value: 'Firebird fajitas',
       },
       {
+        locale: 'el',
+        value: 'Φαχίτας Firebird',
+      },
+      {
         locale: 'es',
         value: 'Fajitas de pájaro de fuego',
       },
@@ -3555,6 +3899,10 @@ const hotMeals: Product[] = [
       {
         locale: 'en',
         value: 'Experience the unique taste of Mexico with our flavorful chicken fajitas! Tender chicken meat fried with vegetables and spices will be a great addition to your favorite tortillas. Enjoy the bright flavor and get energized by the sun!',
+      },
+      {
+        locale: 'el',
+        value: 'Ζήστε τη μοναδική γεύση του Μεξικού με τις γευστικές φαχίτας κοτόπουλου μας! Το τρυφερό κρέας κοτόπουλου τηγανισμένο με λαχανικά και μπαχαρικά θα αποτελέσει μια εξαιρετική προσθήκη στις αγαπημένες σας τορτίγιες. Απολαύστε τη λαμπερή γεύση και ενεργοποιηθείτε από τον ήλιο!',
       },
       {
         locale: 'es',
@@ -3590,6 +3938,10 @@ const hotMeals: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -3657,6 +4009,10 @@ const hotMeals: Product[] = [
         value: 'Grilled salmon with chimichurri',
       },
       {
+        locale: 'el',
+        value: 'Ψητός σολομός με τσιμιτσούρι',
+      },
+      {
         locale: 'es',
         value: 'Salmón a la plancha con chimichurri',
       },
@@ -3685,6 +4041,10 @@ const hotMeals: Product[] = [
       {
         locale: 'en',
         value: 'Experience an explosion of flavor with our hot dish Grilled Salmon with chimichurri! Flavorful spiced salmon is grilled until golden and then served with a refreshing chimichurri sauce. The perfect balance of flavor and aroma for your enjoyment!',
+      },
+      {
+        locale: 'el',
+        value: 'Ζήστε μια έκρηξη γεύσεων με το ζεστό μας πιάτο. Ψητός σολομός με τσιμιτσούρι! Ο γευστικός πικάντικος σολομός ψήνεται μέχρι να ροδίσει και στη συνέχεια σερβίρεται με μια δροσιστική σάλτσα τσιμιτσούρι. Η τέλεια ισορροπία γεύσης και αρώματος για την απόλαυσή σας!',
       },
       {
         locale: 'es',
@@ -3720,6 +4080,10 @@ const hotMeals: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -3782,6 +4146,10 @@ const hotMeals: Product[] = [
         value: 'Seafood Kingdom',
       },
       {
+        locale: 'el',
+        value: 'Βασίλειο Θαλασσινών',
+      },
+      {
         locale: 'es',
         value: 'Reino de los mariscos',
       },
@@ -3810,6 +4178,10 @@ const hotMeals: Product[] = [
       {
         locale: 'en',
         value: 'Tender sautéed cod and shrimps - an exquisite combination of seafood flavors in a fragrant tomato sauce. This hot dish will become a real decoration of your table and will delight your guests!',
+      },
+      {
+        locale: 'el',
+        value: 'Τρυφερός σοταρισμένος μπακαλιάρος και γαρίδες - ένας εξαιρετικός συνδυασμός θαλασσινών γεύσεων σε μια αρωματική σάλτσα ντομάτας. Αυτό το ζεστό πιάτο θα γίνει μια πραγματική διακόσμηση του τραπεζιού σας και θα ενθουσιάσει τους καλεσμένους σας!',
       },
       {
         locale: 'es',
@@ -3845,6 +4217,10 @@ const hotMeals: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -3907,6 +4283,10 @@ const hotMeals: Product[] = [
         value: 'Jambalaya with chicken and shrimp in kanjun style',
       },
       {
+        locale: 'el',
+        value: 'Jambalaya με κοτόπουλο και γαρίδες σε στυλ kanjun',
+      },
+      {
         locale: 'es',
         value: 'Jambalaya con pollo y camarones al estilo kanjun',
       },
@@ -3935,6 +4315,10 @@ const hotMeals: Product[] = [
       {
         locale: 'en',
         value: 'Discover the unique flavor of jambalaya with chicken and shrimps in Kanjun style! This hot dish combines French and Spanish culinary traditions and will please even the most demanding gourmets. Try it and see for yourself!',
+      },
+      {
+        locale: 'el',
+        value: 'Ανακαλύψτε τη μοναδική γεύση της jambalaya με κοτόπουλο και γαρίδες σε στυλ Kanjun! Αυτό το ζεστό πιάτο συνδυάζει γαλλικές και ισπανικές γαστρονομικές παραδόσεις και θα ικανοποιήσει ακόμη και τους πιο απαιτητικούς καλοφαγάδες. Δοκιμάστε το και δείτε μόνοι σας!',
       },
       {
         locale: 'es',
@@ -3970,6 +4354,10 @@ const hotMeals: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -4035,6 +4423,10 @@ const salads: Product[] = [
         value: 'Spicy appetizer: salad with grilled chicken',
       },
       {
+        locale: 'el',
+        value: 'Πικάντικο ορεκτικό: σαλάτα με ψητό κοτόπουλο',
+      },
+      {
         locale: 'es',
         value: 'Aperitivo picante: ensalada con pollo a la parrilla',
       },
@@ -4063,6 +4455,10 @@ const salads: Product[] = [
       {
         locale: 'en',
         value: 'We invite you to enjoy a savory appetizer! Our signature salad with grilled chicken is a perfect combination of juicy chicken, fresh vegetables and flavorful sauce. Don\'t miss the opportunity to try this exquisite dish in our restaurant and be energized for the whole day!',
+      },
+      {
+        locale: 'el',
+        value: 'Σας προσκαλούμε να απολαύσετε ένα αλμυρό ορεκτικό! Η χαρακτηριστική μας σαλάτα με ψητό κοτόπουλο είναι ένας τέλειος συνδυασμός ζουμερού κοτόπουλου, φρέσκων λαχανικών και γευστικής σάλτσας. Μην χάσετε την ευκαιρία να δοκιμάσετε αυτό το εξαιρετικό πιάτο στο εστιατόριό μας και να έχετε ενέργεια για όλη την ημέρα!',
       },
       {
         locale: 'es',
@@ -4098,6 +4494,10 @@ const salads: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -4165,6 +4565,10 @@ const salads: Product[] = [
         value: '"Fire Whirl": Buffalo Chicken Salad',
       },
       {
+        locale: 'el',
+        value: '"Στροβιλισμός φωτιάς": Σαλάτα με κοτόπουλο Buffalo',
+      },
+      {
         locale: 'es',
         value: '"Remolino de fuego": Ensalada de pollo búfalo',
       },
@@ -4193,6 +4597,10 @@ const salads: Product[] = [
       {
         locale: 'en',
         value: 'We invite you to enjoy the exquisite taste of Buffalo chicken salad in our restaurant! Tender chicken meat marinated in spicy sauce is perfectly combined with lettuce leaves, carrots, celery and original blue cheese dressing. This dish will be a real discovery for lovers of spicy and unusual flavor combinations!',
+      },
+      {
+        locale: 'el',
+        value: 'Σας προσκαλούμε να απολαύσετε την εξαιρετική γεύση της σαλάτας κοτόπουλου Buffalo στο εστιατόριό μας! Το τρυφερό κρέας κοτόπουλου μαριναρισμένο σε πικάντικη σάλτσα συνδυάζεται τέλεια με φύλλα μαρουλιού, καρότα, σέλινο και πρωτότυπη σάλτσα από μπλε τυρί. Αυτό το πιάτο θα αποτελέσει μια πραγματική ανακάλυψη για τους λάτρεις των πικάντικων και ασυνήθιστων γευστικών συνδυασμών!',
       },
       {
         locale: 'es',
@@ -4228,6 +4636,10 @@ const salads: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -4295,6 +4707,10 @@ const salads: Product[] = [
         value: 'Charming shrimp: Caesar salad',
       },
       {
+        locale: 'el',
+        value: 'Γοητευτικές γαρίδες: Σαλάτα του Καίσαρα',
+      },
+      {
         locale: 'es',
         value: 'Camarones encantadores: ensalada César',
       },
@@ -4323,6 +4739,10 @@ const salads: Product[] = [
       {
         locale: 'en',
         value: 'Experience the unique taste of Caesar salad with shrimps in our restaurant! Tender combination of juicy shrimps, crispy salad leaves and flavorful sauce will win your heart. A perfect choice for a romantic dinner or a friendly meeting.',
+      },
+      {
+        locale: 'el',
+        value: 'Ζήστε τη μοναδική γεύση της σαλάτας του Καίσαρα με γαρίδες στο εστιατόριό μας! Ένας τρυφερός συνδυασμός από ζουμερές γαρίδες, τραγανά φύλλα σαλάτας και γευστική σάλτσα θα κερδίσει την καρδιά σας. Μια τέλεια επιλογή για ένα ρομαντικό δείπνο ή μια φιλική συνάντηση.',
       },
       {
         locale: 'es',
@@ -4358,6 +4778,10 @@ const salads: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -4424,6 +4848,10 @@ const salads: Product[] = [
             value: 'Gastronomic Delight',
           },
           {
+            locale: 'el',
+            value: 'Γαστρονομική Απόλαυση',
+          },
+          {
             locale: 'es',
             value: 'Delicias Gastronómicas',
           },
@@ -4460,6 +4888,10 @@ const salads: Product[] = [
         value: '"Barbecue Flip": an explosion of flavor and aroma',
       },
       {
+        locale: 'el',
+        value: '"Barbecue Flip": μια έκρηξη γεύσης και αρώματος',
+      },
+      {
         locale: 'es',
         value: '"Barbecue Flip": una explosión de sabor y aroma',
       },
@@ -4488,6 +4920,10 @@ const salads: Product[] = [
       {
         locale: 'en',
         value: 'Try our signature BBQ chicken salad - a perfect combination of juicy chicken, bacon, tomatoes and eggs with BBQ sauce. The delicate taste and flavor of this dish will be remembered for a long time!',
+      },
+      {
+        locale: 'el',
+        value: 'Δοκιμάστε τη χαρακτηριστική μας σαλάτα με κοτόπουλο BBQ - έναν τέλειο συνδυασμό ζουμερού κοτόπουλου, μπέικον, ντομάτας και αυγών με σάλτσα BBQ. Η λεπτή γεύση και το άρωμα αυτού του πιάτου θα σας μείνουν αξέχαστα για πολύ καιρό!',
       },
       {
         locale: 'es',
@@ -4523,6 +4959,10 @@ const salads: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -4585,6 +5025,10 @@ const salads: Product[] = [
         value: 'Cobb\'s chic',
       },
       {
+        locale: 'el',
+        value: 'Η κομψότητα του Cobb',
+      },
+      {
         locale: 'es',
         value: 'El estilo chic de Cobb',
       },
@@ -4613,6 +5057,10 @@ const salads: Product[] = [
       {
         locale: 'en',
         value: 'Discover the exquisite taste of the legendary Cobb salad in our restaurant! This combination of tender chicken, juicy avocado, fresh tomatoes, crispy bacon and fragrant blue cheese will not leave you indifferent. An ideal choice for those who appreciate real American cuisine and want to enjoy the unique flavor.',
+      },
+      {
+        locale: 'el',
+        value: 'Ανακαλύψτε την εξαιρετική γεύση της θρυλικής σαλάτας Cobb στο εστιατόριό μας! Αυτός ο συνδυασμός από τρυφερό κοτόπουλο, ζουμερό αβοκάντο, φρέσκες ντομάτες, τραγανό μπέικον και αρωματικό μπλε τυρί δεν θα σας αφήσει αδιάφορους. Μια ιδανική επιλογή για όσους εκτιμούν την πραγματική αμερικανική κουζίνα και θέλουν να απολαύσουν τη μοναδική γεύση.',
       },
       {
         locale: 'es',
@@ -4648,6 +5096,10 @@ const salads: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -4710,6 +5162,10 @@ const salads: Product[] = [
         value: 'Imperial Caesar',
       },
       {
+        locale: 'el',
+        value: 'Αυτοκρατορικός Καίσαρας',
+      },
+      {
         locale: 'es',
         value: 'César imperial',
       },
@@ -4738,6 +5194,10 @@ const salads: Product[] = [
       {
         locale: 'en',
         value: 'Experience the unique taste of classic Caesar salad in our restaurant! Tender combination of juicy salad leaves, fragrant parmesan and golden croutons seasoned with special Worcester sauce will give you an unforgettable gastronomic pleasure.',
+      },
+      {
+        locale: 'el',
+        value: 'Ζήστε τη μοναδική γεύση της κλασικής σαλάτας του Καίσαρα στο εστιατόριό μας! Ένας τρυφερός συνδυασμός από ζουμερά φύλλα σαλάτας, αρωματική παρμεζάνα και χρυσά κρουτόν, καρυκευμένα με την ειδική σάλτσα Worcester, θα σας χαρίσει μια αξέχαστη γαστρονομική απόλαυση.',
       },
       {
         locale: 'es',
@@ -4773,6 +5233,10 @@ const salads: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -4835,6 +5299,10 @@ const salads: Product[] = [
         value: 'Cosmic explosion of flavor',
       },
       {
+        locale: 'el',
+        value: 'Κοσμική έκρηξη γεύσεων',
+      },
+      {
         locale: 'es',
         value: 'Explosión cósmica de sabor',
       },
@@ -4863,6 +5331,10 @@ const salads: Product[] = [
       {
         locale: 'en',
         value: 'Discover an amazing combination of fresh vegetables, tender chicken and fragrant spices. Enjoy the unique taste and energize the bright stars on your table!',
+      },
+      {
+        locale: 'el',
+        value: 'Ανακαλύψτε έναν καταπληκτικό συνδυασμό από φρέσκα λαχανικά, τρυφερό κοτόπουλο και αρωματικά μπαχαρικά. Απολαύστε τη μοναδική γεύση και δώστε ενέργεια στα λαμπερά αστέρια στο τραπέζι σας!',
       },
       {
         locale: 'es',
@@ -4898,6 +5370,10 @@ const salads: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -4959,6 +5435,10 @@ const salads: Product[] = [
             value: 'Leader of preferences 🚀',
           },
           {
+            locale: 'el',
+            value: 'Ηγέτης στις προτιμήσεις 🚀',
+          },
+          {
             locale: 'es',
             value: 'Lider de preferencias 🚀',
           },
@@ -4995,6 +5475,10 @@ const salads: Product[] = [
         value: 'Greek oasis of flavor',
       },
       {
+        locale: 'el',
+        value: 'Ελληνική όαση γεύσεων',
+      },
+      {
         locale: 'es',
         value: 'Oasis griego de sabor',
       },
@@ -5023,6 +5507,10 @@ const salads: Product[] = [
       {
         locale: 'en',
         value: 'Greek salad is a classic source of freshness and vitamins. Enjoy the perfect combination of ripe tomatoes, crunchy cucumbers, sweet peppers, red onions and tender olives. Season it all with fragrant olive oil and add original feta - and your table will turn into a real feast of taste!',
+      },
+      {
+        locale: 'el',
+        value: 'Η ελληνική σαλάτα είναι μια κλασική πηγή φρεσκάδας και βιταμινών. Απολαύστε τον τέλειο συνδυασμό από ώριμες ντομάτες, τραγανά αγγούρια, γλυκές πιπεριές, κόκκινα κρεμμύδια και τρυφερές ελιές. Αλατοπιπερώστε τα όλα με αρωματικό ελαιόλαδο και προσθέστε αυθεντική φέτα - και το τραπέζι σας θα μετατραπεί σε μια πραγματική πανδαισία γεύσεων!',
       },
       {
         locale: 'es',
@@ -5058,6 +5546,10 @@ const salads: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -5123,6 +5615,10 @@ const soups: Product[] = [
         value: 'Generous borscht',
       },
       {
+        locale: 'el',
+        value: 'Πλούσιο μπορς',
+      },
+      {
         locale: 'es',
         value: 'Borscht generoso',
       },
@@ -5151,6 +5647,10 @@ const soups: Product[] = [
       {
         locale: 'en',
         value: 'An exquisite dish for true gourmets. Tender meat, fragrant vegetables and thick sour cream create a unique taste that you will remember for a long time.',
+      },
+      {
+        locale: 'el',
+        value: 'Ένα εξαιρετικό πιάτο για αληθινούς γκουρμέ. Τρυφερό κρέας, αρωματικά λαχανικά και πηχτή ξινή κρέμα δημιουργούν μια μοναδική γεύση που θα θυμάστε για πολύ καιρό.',
       },
       {
         locale: 'es',
@@ -5186,6 +5686,10 @@ const soups: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -5248,6 +5752,10 @@ const soups: Product[] = [
         value: 'The charm of the Loire',
       },
       {
+        locale: 'el',
+        value: 'Η γοητεία του Λίγηρα',
+      },
+      {
         locale: 'es',
         value: 'El encanto del Loira',
       },
@@ -5276,6 +5784,10 @@ const soups: Product[] = [
       {
         locale: 'en',
         value: 'Discover the real French onion soup in our restaurant! Tender creamy broth, golden onions and spicy thyme create a unique flavor combination. Try this exquisite soup and feel the atmosphere of France right here in our cozy place!',
+      },
+      {
+        locale: 'el',
+        value: 'Ανακαλύψτε την αυθεντική γαλλική κρεμμυδόσουπα στο εστιατόριό μας! Τρυφερός κρεμώδης ζωμός, χρυσαφένια κρεμμύδια και πικάντικο θυμάρι δημιουργούν έναν μοναδικό συνδυασμό γεύσεων. Δοκιμάστε αυτή την εξαιρετική σούπα και νιώστε την ατμόσφαιρα της Γαλλίας εδώ, στον άνετο χώρο μας!',
       },
       {
         locale: 'es',
@@ -5311,6 +5823,10 @@ const soups: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -5373,6 +5889,10 @@ const soups: Product[] = [
         value: 'Friendship! Sandwich! Club!',
       },
       {
+        locale: 'el',
+        value: 'Φιλία! Σάντουιτς! Κλαμπ!',
+      },
+      {
         locale: 'es',
         value: '¡Amistad! ¡Sándwich! ¡Club!',
       },
@@ -5401,6 +5921,10 @@ const soups: Product[] = [
       {
         locale: 'en',
         value: 'Try our delicious and hearty chicken noodle and bun sandwich! Tender chicken meat, juicy vegetables and crispy bun - a great choice for your lunch or dinner. Experience the unique taste of home cooking in the cozy atmosphere of our restaurant!',
+      },
+      {
+        locale: 'el',
+        value: 'Δοκιμάστε το νόστιμο και χορταστικό σάντουιτς μας με κοτόπουλο και νουντλς! Τρυφερό κρέας κοτόπουλου, ζουμερά λαχανικά και τραγανό ψωμάκι - μια εξαιρετική επιλογή για το μεσημεριανό ή το βραδινό σας. Ζήστε τη μοναδική γεύση της σπιτικής κουζίνας στη ζεστή ατμόσφαιρα του εστιατορίου μας!',
       },
       {
         locale: 'es',
@@ -5436,6 +5960,10 @@ const soups: Product[] = [
           {
             locale: 'en',
             value: 'Portion',
+          },
+          {
+            locale: 'el',
+            value: 'Μερίδα',
           },
           {
             locale: 'es',
@@ -5497,6 +6025,10 @@ const soups: Product[] = [
             value: 'Profitable 🤑',
           },
           {
+            locale: 'el',
+            value: 'Κερδοφόρα 🤑',
+          },
+          {
             locale: 'es',
             value: 'Rentable 🤑',
           },
@@ -5536,6 +6068,10 @@ const categories: Menu['categories'] = [
         value: 'Burgers',
       },
       {
+        locale: 'el',
+        value: 'Μπιφτέκια',
+      },
+      {
         locale: 'es',
         value: 'Hamburguesas',
       },
@@ -5570,6 +6106,10 @@ const categories: Menu['categories'] = [
       {
         locale: 'en',
         value: 'Hot Meals',
+      },
+      {
+        locale: 'el',
+        value: 'Ζεστά Γεύματα',
       },
       {
         locale: 'es',
@@ -5608,6 +6148,10 @@ const categories: Menu['categories'] = [
         value: 'Salads',
       },
       {
+        locale: 'el',
+        value: 'Σαλάτες',
+      },
+      {
         locale: 'es',
         value: 'Ensaladas',
       },
@@ -5642,6 +6186,10 @@ const categories: Menu['categories'] = [
       {
         locale: 'en',
         value: 'Soups',
+      },
+      {
+        locale: 'el',
+        value: 'Σούπες',
       },
       {
         locale: 'es',
@@ -5680,6 +6228,10 @@ const categories: Menu['categories'] = [
         value: 'Snacks',
       },
       {
+        locale: 'el',
+        value: 'Σνακ',
+      },
+      {
         locale: 'es',
         value: 'Aperitivos',
       },
@@ -5714,6 +6266,10 @@ const categories: Menu['categories'] = [
       {
         locale: 'en',
         value: 'Desserts',
+      },
+      {
+        locale: 'el',
+        value: 'Επιδόρπια',
       },
       {
         locale: 'es',
@@ -5751,6 +6307,10 @@ const menu: Menu = {
     {
       locale: 'en',
       value: 'Default Menu',
+    },
+    {
+      locale: 'el',
+      value: 'Προεπιλεγμένο μενού',
     },
     {
       locale: 'es',

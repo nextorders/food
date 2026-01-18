@@ -11,6 +11,10 @@ const paymentMethodsForDelivery: PaymentMethod[] = [
         value: 'Cash to the courier',
       },
       {
+        locale: 'el',
+        value: 'Μετρητά στον courier',
+      },
+      {
         locale: 'es',
         value: 'Efectivo al mensajero',
       },
@@ -43,6 +47,10 @@ const paymentMethodsForDelivery: PaymentMethod[] = [
       {
         locale: 'en',
         value: 'Card to the courier',
+      },
+      {
+        locale: 'el',
+        value: 'Κάρτα στον κούριερ',
       },
       {
         locale: 'es',
@@ -80,6 +88,10 @@ const paymentMethodsForSelfPickup: PaymentMethod[] = [
       {
         locale: 'en',
         value: 'Cash',
+      },
+      {
+        locale: 'el',
+        value: 'Μετρητά',
       },
       {
         locale: 'es',
@@ -268,6 +280,10 @@ const links: Channel['links'] = {
           value: '8 800 123-45-69',
         },
         {
+          locale: 'el',
+          value: '8 800 123-45-69',
+        },
+        {
           locale: 'es',
           value: '8 800 123-45-69',
         },
@@ -304,6 +320,10 @@ const links: Channel['links'] = {
           value: 'Public Offer',
         },
         {
+          locale: 'el',
+          value: 'Δημόσια Προσφορά',
+        },
+        {
           locale: 'es',
           value: 'Oferta Pública',
         },
@@ -337,6 +357,10 @@ const links: Channel['links'] = {
           value: 'Privacy Policy',
         },
         {
+          locale: 'el',
+          value: 'Πολιτική Απορρήτου',
+        },
+        {
           locale: 'es',
           value: 'Política de privacidad',
         },
@@ -368,6 +392,10 @@ const links: Channel['links'] = {
         {
           locale: 'en',
           value: 'Software for e-commerce',
+        },
+        {
+          locale: 'el',
+          value: 'Λογισμικό για ηλεκτρονικό εμπόριο',
         },
         {
           locale: 'es',
@@ -426,6 +454,15 @@ OGRN 12345, INN 12345
 
 The information on this website does not constitute a public offer.
 Product images may differ from the original.`,
+  },
+  {
+    locale: 'el',
+    value: `© 2024—2026 Fictitious Company LLC
+OGRN 12345, INN 12345
+236000, Περιφέρεια Καλίνινγκραντ, Καλίνινγκραντ, Teatralnaya St., 33A
+
+Οι πληροφορίες σε αυτόν τον ιστότοπο δεν αποτελούν δημόσια προσφορά.
+Οι εικόνες προϊόντων ενδέχεται να διαφέρουν από το πρωτότυπο.`,
   },
   {
     locale: 'es',
@@ -491,6 +528,10 @@ const channels: Channel[] = [{
       value: 'Moscow',
     },
     {
+      locale: 'el',
+      value: 'Μόσχα',
+    },
+    {
       locale: 'es',
       value: 'Moscú',
     },
@@ -521,6 +562,10 @@ const channels: Channel[] = [{
       value: 'Taste on the run in Moscow',
     },
     {
+      locale: 'el',
+      value: 'Γεύση εν κινήσει στη Μόσχα',
+    },
+    {
       locale: 'es',
       value: 'Sabor sobre la marcha en Moscú',
     },
@@ -549,6 +594,10 @@ const channels: Channel[] = [{
     {
       locale: 'en',
       value: 'Enjoy unique tastes and a pleasant atmosphere',
+    },
+    {
+      locale: 'el',
+      value: 'Απολαύστε μοναδικές γεύσεις και μια ευχάριστη ατμόσφαιρα',
     },
     {
       locale: 'es',
@@ -604,6 +653,20 @@ The order can be paid upon receipt in cash or by card.
 In case of canceling the order or changing its conditions, delivery is paid in full.
 
 The institution reserves the right to refuse delivery in case of a large number of orders or technical problems.`,
+      },
+      {
+        locale: 'el',
+        value: `Η παράδοση πραγματοποιείται εντός 1-2 ωρών από την υποβολή της παραγγελίας.
+
+Το ελάχιστο ποσό παραγγελίας για δωρεάν παράδοση είναι 1500 ρούβλια.
+
+Το κόστος παράδοσης υπολογίζεται ανάλογα με την απόσταση από το σημείο παράδοσης ή τη διεύθυνση παράδοσης και μπορεί να κυμαίνεται από 0 έως 1000 ρούβλια.
+
+Η παραγγελία μπορεί να πληρωθεί κατά την παραλαβή με μετρητά ή με κάρτα.
+
+Σε περίπτωση ακύρωσης της παραγγελίας ή αλλαγής των όρων της, η παράδοση πληρώνεται πλήρως.
+
+Το ίδρυμα διατηρεί το δικαίωμα να αρνηθεί την παράδοση σε περίπτωση μεγάλου αριθμού παραγγελιών ή τεχνικών προβλημάτων.`,
       },
       {
         locale: 'es',
@@ -704,6 +767,16 @@ You can pay for your order upon pickup in cash or by credit card. If you cancel 
 The establishment reserves the right to refuse in-store pickup if it is overbooked or if technical issues affect order processing.`,
       },
       {
+        locale: 'el',
+        value: `Για παραλαβή από το κατάστημα, η παραγγελία σας θα είναι έτοιμη για παραλαβή εντός 1-2 ωρών από την τοποθέτησή της.
+
+Δεν υπάρχει ελάχιστο ποσό παραγγελίας για παραλαβή από το κατάστημα—μπορείτε να παραγγείλετε οποιοδήποτε ποσό. Η παραλαβή από το κατάστημα είναι δωρεάν και δεν υπάρχει επιπλέον χρέωση.
+
+Μπορείτε να πληρώσετε για την παραγγελία σας κατά την παραλαβή με μετρητά ή με πιστωτική κάρτα. Εάν ακυρώσετε ή αλλάξετε την παραγγελία σας, η προπληρωμή σας, εάν υπάρχει, θα σας επιστραφεί πλήρως.
+
+Το κατάστημα διατηρεί το δικαίωμα να αρνηθεί την παραλαβή από το κατάστημα εάν είναι υπεράριθμη ή εάν τεχνικά προβλήματα επηρεάζουν την επεξεργασία της παραγγελίας.`,
+      },
+      {
         locale: 'es',
         value: `Para recoger en tienda, su pedido estará listo en 1 o 2 horas después de realizarlo.
 
@@ -764,6 +837,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
             value: 'Kolotushkina 12',
           },
           {
+            locale: 'el',
+            value: 'Kolotushkina 12',
+          },
+          {
             locale: 'es',
             value: 'Kolotushkina 12',
           },
@@ -792,6 +869,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
           street: [
             {
               locale: 'en',
+              value: 'Kolotushkina 12',
+            },
+            {
+              locale: 'el',
               value: 'Kolotushkina 12',
             },
             {
@@ -829,6 +910,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
             value: 'Lenina 46',
           },
           {
+            locale: 'el',
+            value: 'Lenina 46',
+          },
+          {
             locale: 'es',
             value: 'Lenina 46',
           },
@@ -857,6 +942,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
           street: [
             {
               locale: 'en',
+              value: 'Lenina 46',
+            },
+            {
+              locale: 'el',
               value: 'Lenina 46',
             },
             {
@@ -904,6 +993,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
       value: 'Saint Petersburg',
     },
     {
+      locale: 'el',
+      value: 'Αγία Πετρούπολη',
+    },
+    {
       locale: 'es',
       value: 'San Petersburgo',
     },
@@ -934,6 +1027,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
       value: 'Taste on the run in Saint Petersburg',
     },
     {
+      locale: 'el',
+      value: 'Γεύση εν κινήσει στην Αγία Πετρούπολη',
+    },
+    {
       locale: 'es',
       value: 'Sabor sobre la marcha en Saint Petersburg',
     },
@@ -962,6 +1059,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
     {
       locale: 'en',
       value: 'Enjoy unique tastes and a pleasant atmosphere',
+    },
+    {
+      locale: 'el',
+      value: 'Απολαύστε μοναδικές γεύσεις και μια ευχάριστη ατμόσφαιρα',
     },
     {
       locale: 'es',
