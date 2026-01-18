@@ -1768,7 +1768,7 @@ const burgers: Product[] = [
       },
       {
         locale: 'it',
-        value: 'Hot Texas burger',
+        value: 'Hamburger piccante del Texas',
       },
       {
         locale: 'ru',
