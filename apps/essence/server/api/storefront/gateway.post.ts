@@ -1,8 +1,8 @@
-import type { GatewayAddOrderItemRequest, GatewayDecrementOrderItemQuantityRequest, GatewayGetDeliveryByCourierStatusRequest, GatewayGetOrderRequest, GatewayGetSelfPickupStatusRequest, GatewayGetTimeSlotsRequest, GatewayIncrementOrderItemQuantityRequest, GatewayRequest, GatewayUpdateOrderRequest } from '@nextorders/food-schema'
+import type { GatewayAddOrderItemRequest, GatewayCompleteOrderRequest, GatewayDecrementOrderItemQuantityRequest, GatewayGetDeliveryByCourierStatusRequest, GatewayGetOrderRequest, GatewayGetSelfPickupStatusRequest, GatewayGetTimeSlotsRequest, GatewayIncrementOrderItemQuantityRequest, GatewayRequest, GatewayUpdateOrderRequest } from '@nextorders/food-schema'
 import { handleGetChannels, handleGetDeliveryByCourierStatus, handleGetSelfPickupStatus, handleGetTimeSlots } from '~/server/services/channel'
 import { handleGetMenu } from '~/server/services/menu'
 import { handleGetOptions } from '~/server/services/options'
-import { handleAddOrderItem, handleChangeOrderItemQuantity, handleCreateOrder, handleGetOrder, handleUpdateOrder } from '~/server/services/order'
+import { handleAddOrderItem, handleChangeOrderItemQuantity, handleCompleteOrder, handleCreateOrder, handleGetOrder, handleUpdateOrder } from '~/server/services/order'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -21,6 +21,8 @@ export default defineEventHandler(async (event) => {
         return handleCreateOrder()
       case 'updateOrder':
         return handleUpdateOrder(request.body as GatewayUpdateOrderRequest['body'])
+      case 'completeOrder':
+        return handleCompleteOrder(request.body as GatewayCompleteOrderRequest['body'])
       case 'addOrderItem':
         return handleAddOrderItem(request.body as GatewayAddOrderItemRequest['body'])
       case 'incrementOrderItemQuantity':

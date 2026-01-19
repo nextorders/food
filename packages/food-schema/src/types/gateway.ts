@@ -14,6 +14,7 @@ export const GatewayActionTypeSchema = z.enum([
   'getOrder',
   'createOrder',
   'updateOrder',
+  'completeOrder',
   'addOrderItem',
   'incrementOrderItemQuantity',
   'decrementOrderItemQuantity',
@@ -105,6 +106,19 @@ export const GatewayUpdateOrderResponseSchema = BaseResponseSchema.extend({
   result: OrderSchema,
 })
 export type GatewayUpdateOrderResponse = z.infer<typeof GatewayUpdateOrderResponseSchema>
+
+// completeOrder
+export const GatewayCompleteOrderRequestSchema = GatewayRequestSchema.extend({
+  type: z.literal('completeOrder'),
+  body: OrderSchema.partial(),
+})
+export type GatewayCompleteOrderRequest = z.infer<typeof GatewayCompleteOrderRequestSchema>
+
+export const GatewayCompleteOrderResponseSchema = BaseResponseSchema.extend({
+  type: z.literal('completeOrder'),
+  result: OrderSchema,
+})
+export type GatewayCompleteOrderResponse = z.infer<typeof GatewayCompleteOrderResponseSchema>
 
 // addOrderItem
 export const GatewayAddOrderItemRequestSchema = GatewayRequestSchema.extend({
@@ -215,6 +229,7 @@ export const GatewayResponseSchema = z.discriminatedUnion('type', [
   GatewayGetOrderResponseSchema,
   GatewayCreateOrderResponseSchema,
   GatewayUpdateOrderResponseSchema,
+  GatewayCompleteOrderResponseSchema,
   GatewayAddOrderItemResponseSchema,
   GatewayIncrementOrderItemQuantityResponseSchema,
   GatewayDecrementOrderItemQuantityResponseSchema,
