@@ -112,8 +112,13 @@ export const useOrderStore = defineStore('order', () => {
 
       updatedAt.value = Date.now()
     } catch (error) {
-      if (error instanceof Error) {
-        // its ok
+      const statusCode = (error && typeof error === 'object' && 'statusCode' in error)
+        ? (error as { statusCode?: number }).statusCode
+        : undefined
+
+      if (statusCode === 404) {
+        // Order not found or was completed
+        clear()
       }
     } finally {
       isLoading.value = false
@@ -184,6 +189,24 @@ export const useOrderStore = defineStore('order', () => {
     }
   }
 
+  async function complete(order: Partial<Order>) {
+    try {
+      const data = await $fetch(
+        '/api/order/complete',
+        {
+          method: 'POST',
+          body: order,
+        },
+      )
+
+      await update()
+
+      return data
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   async function get(id: string) {
     try {
       const data = await $fetch(`/api/order/id/${id}`)
@@ -223,6 +246,7 @@ export const useOrderStore = defineStore('order', () => {
     add,
     change,
     changeItem,
+    complete,
     get,
     formatPhone,
     validateAndSetPhone,

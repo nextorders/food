@@ -1,4 +1,4 @@
-import type { GatewayAddOrderItemRequest, GatewayAddOrderItemResponse, GatewayCreateOrderResponse, GatewayDecrementOrderItemQuantityRequest, GatewayDecrementOrderItemQuantityResponse, GatewayGetOrderRequest, GatewayGetOrderResponse, GatewayIncrementOrderItemQuantityRequest, GatewayIncrementOrderItemQuantityResponse, GatewayUpdateOrderRequest, GatewayUpdateOrderResponse, Order, OrderItem } from '@nextorders/food-schema'
+import type { GatewayAddOrderItemRequest, GatewayAddOrderItemResponse, GatewayCompleteOrderRequest, GatewayCompleteOrderResponse, GatewayCreateOrderResponse, GatewayDecrementOrderItemQuantityRequest, GatewayDecrementOrderItemQuantityResponse, GatewayGetOrderRequest, GatewayGetOrderResponse, GatewayIncrementOrderItemQuantityRequest, GatewayIncrementOrderItemQuantityResponse, GatewayUpdateOrderRequest, GatewayUpdateOrderResponse, Order, OrderItem } from '@nextorders/food-schema'
 import { createId } from '@paralleldrive/cuid2'
 import { handleGetMenu } from './menu'
 
@@ -119,6 +119,38 @@ export function handleUpdateOrder(data: GatewayUpdateOrderRequest['body']): Gate
     ok: true,
     type: 'updateOrder',
     result: order,
+  }
+}
+
+export function handleCompleteOrder(data: GatewayCompleteOrderRequest['body']): GatewayCompleteOrderResponse {
+  if (!data.id) {
+    throw new Error('Order id is required')
+  }
+
+  const order = findOrder(data.id)
+  if (!order) {
+    throw new Error('Order not found')
+  }
+
+  // Guard: if order is not in status "draft" - can't complete it
+  if (order.status !== 'draft') {
+    throw new Error('Order is not in draft status')
+  }
+
+  const completedOrder = updateOrder(data.id, {
+    ...data,
+    status: 'created',
+  })
+  if (!completedOrder) {
+    throw new Error('Order not found')
+  }
+
+  logger.success(`Order completed: ${completedOrder.id}`, completedOrder)
+
+  return {
+    ok: true,
+    type: 'completeOrder',
+    result: completedOrder,
   }
 }
 

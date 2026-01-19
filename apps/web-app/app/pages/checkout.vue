@@ -82,7 +82,7 @@
                 :loading="orderStore.isLoading"
                 :disabled="!orderStore.isReadyToCheckout || orderStore.isLoading"
                 :label="$dict('web-app.checkout.create-order')"
-                @click="updateCheckout()"
+                @click="createOrder()"
               />
             </UTooltip>
 
@@ -126,12 +126,29 @@ const channelStore = useChannelStore()
 const orderStore = useOrderStore()
 const optionsStore = useOptionsStore()
 
-async function updateCheckout() {
+async function createOrder() {
   orderStore.isLoading = true
 
-  // await orderStore.update()
+  try {
+    const completedOrder = await orderStore.complete({
+      phone: orderStore.phone,
+      name: orderStore.name,
+      paymentMethodId: orderStore.paymentMethodId,
+      readyBy: orderStore.readyBy,
+      readyType: orderStore.readyType,
+      address: orderStore.address,
+      note: orderStore.note,
+    })
 
-  // await navigateTo(`/finish?id=${finishedCheckout?.result?.id}`)
+    if (!completedOrder?.id) {
+      await navigateTo('/')
+      return
+    }
+
+    await navigateTo(`/finish?id=${completedOrder.id}`)
+  } finally {
+    orderStore.isLoading = false
+  }
 }
 
 useHead({
