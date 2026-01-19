@@ -127,22 +127,28 @@ const orderStore = useOrderStore()
 const optionsStore = useOptionsStore()
 
 async function createOrder() {
-  const completedOrder = await orderStore.complete({
-    phone: orderStore.phone,
-    name: orderStore.name,
-    paymentMethodId: orderStore.paymentMethodId,
-    readyBy: orderStore.readyBy,
-    readyType: orderStore.readyType,
-    address: orderStore.address,
-    note: orderStore.note,
-  })
+  orderStore.isLoading = true
 
-  if (!completedOrder?.id) {
-    await navigateTo('/')
-    return
+  try {
+    const completedOrder = await orderStore.complete({
+      phone: orderStore.phone,
+      name: orderStore.name,
+      paymentMethodId: orderStore.paymentMethodId,
+      readyBy: orderStore.readyBy,
+      readyType: orderStore.readyType,
+      address: orderStore.address,
+      note: orderStore.note,
+    })
+
+    if (!completedOrder?.id) {
+      await navigateTo('/')
+      return
+    }
+
+    await navigateTo(`/finish?id=${completedOrder.id}`)
+  } finally {
+    orderStore.isLoading = false
   }
-
-  await navigateTo(`/finish?id=${completedOrder.id}`)
 }
 
 useHead({

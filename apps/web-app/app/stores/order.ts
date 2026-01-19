@@ -112,7 +112,11 @@ export const useOrderStore = defineStore('order', () => {
 
       updatedAt.value = Date.now()
     } catch (error) {
-      if (error instanceof Error) {
+      const statusCode = (error && typeof error === 'object' && 'statusCode' in error)
+        ? (error as { statusCode?: number }).statusCode
+        : undefined
+
+      if (statusCode === 404) {
         // Order not found or was completed
         clear()
       }

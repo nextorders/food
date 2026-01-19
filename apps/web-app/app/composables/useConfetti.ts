@@ -1,9 +1,13 @@
 function _useConfetti() {
   const isShown = ref(false)
+  let hideTimeout: ReturnType<typeof setTimeout> | undefined
 
   function pop() {
     isShown.value = true
-    setTimeout(() => {
+    if (hideTimeout) {
+      clearTimeout(hideTimeout)
+    }
+    hideTimeout = setTimeout(() => {
       isShown.value = false
     }, 3000)
   }
