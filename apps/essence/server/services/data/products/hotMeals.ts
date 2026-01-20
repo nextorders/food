@@ -22,6 +22,10 @@ export const hotMeals: Product[] = [
         value: 'Passion secrète : le poulet et les crevettes',
       },
       {
+        locale: 'hi',
+        value: 'सीक्रेट पैशन: चिकन और झींगा',
+      },
+      {
         locale: 'it',
         value: 'Passione segreta: pollo e gamberi',
       },
@@ -62,6 +66,10 @@ export const hotMeals: Product[] = [
       {
         locale: 'fr',
         value: 'Poulet et crevettes : une association délicate et raffinée pour les fins gourmets. Le filet de poulet rôti et les crevettes tigrées à la crème constituent un plat principal idéal ou un accompagnement parfait. Régalez-vous et vos proches avec ce plat chaud, savoureux et délicieux !',
+      },
+      {
+        locale: 'hi',
+        value: 'चिकन और श्रिम्प्स - असली खाने के शौकीनों के लिए एक नाज़ुक और बढ़िया कॉम्बिनेशन। क्रीम सॉस में रोस्टेड चिकन फ़िलेट और टाइगर श्रिम्प्स एक परफेक्ट मेन कोर्स या साइड डिश के साथ परोसे जा सकते हैं। इस स्वादिष्ट और फ्लेवर वाली हॉट डिश से खुद को और अपने प्रियजनों को खुश करें!',
       },
       {
         locale: 'it',
@@ -109,6 +117,10 @@ export const hotMeals: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -188,6 +200,10 @@ export const hotMeals: Product[] = [
         value: '« Trio triomphant » : un plat à trois œufs',
       },
       {
+        locale: 'hi',
+        value: '"ट्रायम्फेंट ट्रायो": तीन अंडों वाली डिश',
+      },
+      {
         locale: 'it',
         value: '"Trio trionfante": un piatto a base di tre uova',
       },
@@ -228,6 +244,10 @@ export const hotMeals: Product[] = [
       {
         locale: 'fr',
         value: 'L\'alliance parfaite de trois œufs frits à la perfection, dorés à souhait, agrémentés d\'herbes aromatiques et d\'une crème onctueuse. Ce plat sera une véritable révélation pour vos papilles et vous offrira une expérience inoubliable !',
+      },
+      {
+        locale: 'hi',
+        value: 'तीन अंडों का सुनहरा क्रस्ट होने तक फ्राई किया हुआ, खुशबूदार हर्ब्स और नाज़ुक क्रीम का एक परफेक्ट कॉम्बिनेशन। यह डिश आपके स्वाद के लिए एक असली खोज होगी और आपको एक यादगार अनुभव देगी!',
       },
       {
         locale: 'it',
@@ -275,6 +295,10 @@ export const hotMeals: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -353,6 +377,10 @@ export const hotMeals: Product[] = [
             value: 'Hit 🔥',
           },
           {
+            locale: 'hi',
+            value: 'हिट 🔥',
+          },
+          {
             locale: 'it',
             value: 'Hit 🔥',
           },
@@ -401,6 +429,10 @@ export const hotMeals: Product[] = [
         value: 'Fajitas Firebird',
       },
       {
+        locale: 'hi',
+        value: 'फायरबर्ड फजिटास',
+      },
+      {
         locale: 'it',
         value: 'Fajitas Firebird',
       },
@@ -441,6 +473,10 @@ export const hotMeals: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez les saveurs uniques du Mexique avec nos fajitas au poulet savoureuses ! De tendres morceaux de poulet frits avec des légumes et des épices se marieront à merveille avec vos tortillas préférées. Savourez ces arômes éclatants et faites le plein d\'énergie grâce au soleil !',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारे स्वादिष्ट चिकन फजीता के साथ मेक्सिको के अनोखे स्वाद का अनुभव करें! सब्जियों और मसालों के साथ तला हुआ नरम चिकन मीट आपके पसंदीदा टॉर्टिला के लिए एक बढ़िया चीज़ होगी। चटपटे स्वाद का आनंद लें और धूप से एनर्जी पाएं!',
       },
       {
         locale: 'it',
@@ -488,6 +524,10 @@ export const hotMeals: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -567,6 +607,10 @@ export const hotMeals: Product[] = [
         value: 'Saumon grillé avec chimichurri',
       },
       {
+        locale: 'hi',
+        value: 'चिमिचुर्री के साथ ग्रिल्ड सैल्मन',
+      },
+      {
         locale: 'it',
         value: 'Salmone alla griglia con chimichurri',
       },
@@ -607,6 +651,10 @@ export const hotMeals: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez une explosion de saveurs avec notre plat chaud : Saumon grillé au chimichurri ! Un saumon savoureux et épicé, grillé jusqu\'à obtenir une belle couleur dorée, est servi avec une sauce chimichurri rafraîchissante. Un équilibre parfait de saveurs et d\'arômes pour un pur moment de plaisir !',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारी हॉट डिश ग्रिल्ड सैल्मन विद चिमिचुर्री के साथ स्वाद का ज़बरदस्त अनुभव करें! स्वादिष्ट मसालेदार सैल्मन को सुनहरा होने तक ग्रिल किया जाता है और फिर रिफ्रेशिंग चिमिचुर्री सॉस के साथ परोसा जाता है। आपके मज़े के लिए स्वाद और खुशबू का एकदम सही बैलेंस!',
       },
       {
         locale: 'it',
@@ -654,6 +702,10 @@ export const hotMeals: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -728,6 +780,10 @@ export const hotMeals: Product[] = [
         value: 'Royaume des fruits de mer',
       },
       {
+        locale: 'hi',
+        value: 'समुद्री भोजन साम्राज्य',
+      },
+      {
         locale: 'it',
         value: 'Regno dei frutti di mare',
       },
@@ -768,6 +824,10 @@ export const hotMeals: Product[] = [
       {
         locale: 'fr',
         value: 'Morue et crevettes sautées, tendres et savoureuses : une exquise alliance de saveurs marines dans une sauce tomate parfumée. Ce plat chaud embellira votre table et ravira vos convives !',
+      },
+      {
+        locale: 'hi',
+        value: 'नरम सॉते किए हुए कॉड और श्रिम्प - खुशबूदार टमाटर सॉस में सीफ़ूड के स्वाद का एक शानदार मेल। यह गरमागरम डिश आपकी टेबल की असली सजावट बन जाएगी और आपके मेहमानों को खुश कर देगी!',
       },
       {
         locale: 'it',
@@ -815,6 +875,10 @@ export const hotMeals: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -889,6 +953,10 @@ export const hotMeals: Product[] = [
         value: 'Jambalaya au poulet et aux crevettes façon kanjun',
       },
       {
+        locale: 'hi',
+        value: 'चिकन और झींगा के साथ कंजुन स्टाइल में जंबालया',
+      },
+      {
         locale: 'it',
         value: 'Jambalaya con pollo e gamberi in stile kanjun',
       },
@@ -929,6 +997,10 @@ export const hotMeals: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez la saveur unique du jambalaya au poulet et aux crevettes, façon Kanjun ! Ce plat savoureux allie les traditions culinaires françaises et espagnoles et ravira même les palais les plus exigeants. Goûtez-y et vous serez conquis !',
+      },
+      {
+        locale: 'hi',
+        value: 'चिकन और श्रिम्प के साथ जंबालाया का अनोखा स्वाद कंजुन स्टाइल में पाएं! यह हॉट डिश फ्रेंच और स्पैनिश खाने के तरीकों को मिलाती है और सबसे ज़्यादा खाने वालों को भी पसंद आएगी। इसे ट्राई करें और खुद देखें!',
       },
       {
         locale: 'it',
@@ -976,6 +1048,10 @@ export const hotMeals: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',

@@ -23,6 +23,10 @@ const options: Options = {
       value: 'Savoureux sur le pouce',
     },
     {
+      locale: 'hi',
+      value: 'दौड़ते हुए स्वाद',
+    },
+    {
       locale: 'it',
       value: 'Gusto in movimento',
     },
@@ -65,6 +69,10 @@ const options: Options = {
       value: 'Savourez des goûts uniques et une ambiance agréable',
     },
     {
+      locale: 'hi',
+      value: 'अनोखे स्वाद और अच्छे माहौल का आनंद लें',
+    },
+    {
       locale: 'it',
       value: 'Goditi sapori unici e un’atmosfera piacevole',
     },
@@ -87,7 +95,7 @@ const options: Options = {
   ],
   logoUrl: 'https://storage.yandexcloud.net/next-orders-food-demo/nextorders-food-logo.jpg',
   defaultLocale: 'ru',
-  availableLocales: ['ru', 'el', 'en', 'es', 'fr', 'it', 'ka', 'de', 'zh_cn', 'pt'],
+  availableLocales: ['ru', 'el', 'en', 'es', 'fr', 'hi', 'it', 'ka', 'de', 'zh_cn', 'pt'],
   countryCode: 'RU',
   currencyCode: 'RUB',
   headLinks: [

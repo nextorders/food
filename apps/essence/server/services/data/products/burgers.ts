@@ -22,6 +22,10 @@ export const burgers: Product[] = [
         value: 'Le Burger du Far West',
       },
       {
+        locale: 'hi',
+        value: 'द वाइल्ड वेस्ट बर्गर',
+      },
+      {
         locale: 'it',
         value: 'L\'hamburger del selvaggio West',
       },
@@ -62,6 +66,10 @@ export const burgers: Product[] = [
       {
         locale: 'fr',
         value: 'Préparez-vous à un voyage au cœur du Far West avec notre incroyable burger ! Viande tendre, légumes juteux et pain croustillant vous transporteront dans l\'univers des cowboys et des Indiens. Plongez dans une ambiance d\'aventure et savourez les saveurs authentiques du Far West!',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारे अद्भुत बर्गर के साथ वाइल्ड वेस्ट की यात्रा के लिए तैयार हो जाइए! नरम मांस, रसदार सब्जियाँ और कुरकुरा ब्रेड आपको काउबॉय और इंडियंस की दुनिया में ले जाएगा। रोमांच की भावना में डूब जाएँ और वाइल्ड वेस्ट के असली स्वाद का आनंद लें!',
       },
       {
         locale: 'it',
@@ -109,6 +117,10 @@ export const burgers: Product[] = [
           {
             locale: 'fr',
             value: 'Standard',
+          },
+          {
+            locale: 'hi',
+            value: 'मानक',
           },
           {
             locale: 'it',
@@ -187,6 +199,10 @@ export const burgers: Product[] = [
               value: 'Tranche de viande',
             },
             {
+              locale: 'hi',
+              value: 'बीफ कटलेट',
+            },
+            {
               locale: 'it',
               value: 'Cotoletta di manzo',
             },
@@ -229,6 +245,10 @@ export const burgers: Product[] = [
             {
               locale: 'fr',
               value: 'Pain au sésame',
+            },
+            {
+              locale: 'hi',
+              value: 'तिल वाला ब्रेड',
             },
             {
               locale: 'it',
@@ -275,6 +295,10 @@ export const burgers: Product[] = [
               value: 'Fromage doux',
             },
             {
+              locale: 'hi',
+              value: 'नरम पनीर',
+            },
+            {
               locale: 'it',
               value: 'Formaggio morbido',
             },
@@ -317,6 +341,10 @@ export const burgers: Product[] = [
             {
               locale: 'fr',
               value: 'Sauce barbecue',
+            },
+            {
+              locale: 'hi',
+              value: 'बार्बेक्यू सॉस',
             },
             {
               locale: 'it',
@@ -363,6 +391,10 @@ export const burgers: Product[] = [
               value: 'Cornichons',
             },
             {
+              locale: 'hi',
+              value: 'अचार किए हुए खीरे',
+            },
+            {
               locale: 'it',
               value: 'Cetrioli sottaceto',
             },
@@ -405,6 +437,10 @@ export const burgers: Product[] = [
             {
               locale: 'fr',
               value: 'Feuilles de salade',
+            },
+            {
+              locale: 'hi',
+              value: 'सलाद पत्तियाँ',
             },
             {
               locale: 'it',
@@ -451,6 +487,10 @@ export const burgers: Product[] = [
               value: 'Tomate',
             },
             {
+              locale: 'hi',
+              value: 'टमाटर',
+            },
+            {
               locale: 'it',
               value: 'Pomodoro',
             },
@@ -495,6 +535,10 @@ export const burgers: Product[] = [
               value: 'Oignon',
             },
             {
+              locale: 'hi',
+              value: 'प्याज',
+            },
+            {
               locale: 'it',
               value: 'Cipolla',
             },
@@ -537,6 +581,10 @@ export const burgers: Product[] = [
             {
               locale: 'fr',
               value: 'Bacon',
+            },
+            {
+              locale: 'hi',
+              value: 'बेकन',
             },
             {
               locale: 'it',
@@ -585,6 +633,10 @@ export const burgers: Product[] = [
           {
             locale: 'fr',
             value: 'Nouveau!',
+          },
+          {
+            locale: 'hi',
+            value: 'नया!',
           },
           {
             locale: 'it',
@@ -657,6 +709,10 @@ export const burgers: Product[] = [
         value: 'Le burger Tender Clouds',
       },
       {
+        locale: 'hi',
+        value: 'द टेंडर क्लाउड्स बर्गर',
+      },
+      {
         locale: 'it',
         value: 'L\'hamburger Nuvole Soffici',
       },
@@ -697,6 +753,10 @@ export const burgers: Product[] = [
       {
         locale: 'fr',
         value: 'Savourez la douceur d\'un nuage avec notre burger spécial ! L\'alliance d\'un fromage bleu aérien, de légumes juteux et d\'une viande savoureuse vous séduira. Un équilibre parfait de saveurs et de plaisir à chaque bouchée!',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारे विशेष बर्गर के साथ बादलों की नरमी का अनुभव करें! हल्के नीले पनीर, रसदार सब्जियों और स्वादिष्ट मांस का संयोजन आपको प्रभावित करेगा। प्रत्येक कौर में स्वाद और आनंद का आदर्श संतुलन!',
       },
       {
         locale: 'it',
@@ -744,6 +804,10 @@ export const burgers: Product[] = [
           {
             locale: 'fr',
             value: 'Standard',
+          },
+          {
+            locale: 'hi',
+            value: 'मानक',
           },
           {
             locale: 'it',
@@ -823,6 +887,10 @@ export const burgers: Product[] = [
         value: 'Le paradis des végétariens: le burger végétarien',
       },
       {
+        locale: 'hi',
+        value: 'शाकाहारी स्वर्ग: शाकाहारी बर्गर',
+      },
+      {
         locale: 'it',
         value: 'Paradiso vegetariano: burger vegetariano',
       },
@@ -863,6 +931,10 @@ export const burgers: Product[] = [
       {
         locale: 'fr',
         value: 'Savourez un paradis végétarien avec notre burger végétarien spécial ! Un délicieux mélange de légumes, d\'herbes et d\'ingrédients nutritifs vous offrira une expérience gustative inoubliable. Goûtez à la fraîcheur de la nature à chaque bouchée de notre burger végétarien !',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारे विशेष शाकाहारी बर्गर के साथ शाकाहारी स्वर्ग का आनंद लें! सब्जियों, जड़ी-बूटियों और पौष्टिक सामग्रियों का स्वादिष्ट संयोजन आपको एक अविस्मरणीय स्वाद अनुभव देगा। हमारे शाकाहारी बर्गर के हर कौर में प्रकृति की ताजगी महसूस करें!',
       },
       {
         locale: 'it',
@@ -910,6 +982,10 @@ export const burgers: Product[] = [
           {
             locale: 'fr',
             value: 'Standard',
+          },
+          {
+            locale: 'hi',
+            value: 'मानक',
           },
           {
             locale: 'it',
@@ -989,6 +1065,10 @@ export const burgers: Product[] = [
         value: 'Combo puissant : trois hamburgers',
       },
       {
+        locale: 'hi',
+        value: 'शक्तिशाली कॉम्बो: तीन बर्गर',
+      },
+      {
         locale: 'it',
         value: 'Combinazione potente: tre hamburger',
       },
@@ -1029,6 +1109,10 @@ export const burgers: Product[] = [
       {
         locale: 'fr',
         value: 'Chaque burger est une harmonie parfaite entre un pain croustillant, un steak savoureux et des ingrédients frais, le tout formant une symphonie de saveurs unique. Ce combo sera la star de toutes vos réceptions : soirée entre amis, pique-nique ou simple festin pour les sens. Faites-vous plaisir – commandez votre combo dès maintenant et offrez-vous une triple dose de délice gastronomique !',
+      },
+      {
+        locale: 'hi',
+        value: 'प्रत्येक बर्गर कुरकुरे ब्रेड, स्वादिष्ट पैटी और ताज़ी सामग्रियों का एक आदर्श सामंजस्य है, जो सभी को एक अद्वितीय स्वाद सिंफनी में एक साथ लाए जाते हैं। यह कॉम्बो किसी भी सभा का सितारा होगा: चाहे वह एक दोस्ताना शाम हो, एक पिकनिक, या बस इंद्रियों का उत्सव। सुख में लीन हो जाएं - अभी अपना कॉम्बो ऑर्डर करें और गैस्ट्रोनोमिक आनंद की तिगुनी मदद प्राप्त करें!',
       },
       {
         locale: 'it',
@@ -1076,6 +1160,10 @@ export const burgers: Product[] = [
           {
             locale: 'fr',
             value: 'Combo',
+          },
+          {
+            locale: 'hi',
+            value: 'कॉम्बो',
           },
           {
             locale: 'it',
@@ -1175,6 +1263,10 @@ export const burgers: Product[] = [
         value: 'Délicieux burger à l\'oignon',
       },
       {
+        locale: 'hi',
+        value: 'स्वादिष्ट प्याज बर्गर',
+      },
+      {
         locale: 'it',
         value: 'Delizioso hamburger alla cipolla',
       },
@@ -1215,6 +1307,10 @@ export const burgers: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez un univers de saveurs exceptionnel avec notre burger, où viande tendre, légumes frais et oignons frits aromatiques s\'unissent dans une combinaison unique. Savourez chaque bouchée et plongez dans une atmosphère de pur plaisir gastronomique !',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारे बर्गर के साथ स्वाद की अद्भुत दुनिया की खोज करें, जहाँ नरम मांस, ताज़ी सब्जियाँ और सुगंधित तले हुए प्याज अद्वितीय संयोजन में एक साथ आते हैं। प्रत्येक कौर का स्वाद लें और सच्ची भोजनात्मक खुशी की वातावरण में डूब जाएँ!',
       },
       {
         locale: 'it',
@@ -1262,6 +1358,10 @@ export const burgers: Product[] = [
           {
             locale: 'fr',
             value: 'Standard',
+          },
+          {
+            locale: 'hi',
+            value: 'मानक',
           },
           {
             locale: 'it',
@@ -1336,6 +1436,10 @@ export const burgers: Product[] = [
         value: 'Burger galactique',
       },
       {
+        locale: 'hi',
+        value: 'गैलेक्टिक बर्गर',
+      },
+      {
         locale: 'it',
         value: 'Hamburger galattico',
       },
@@ -1376,6 +1480,10 @@ export const burgers: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez le burger galactique : une combinaison incroyable de légumes juteux, de viande savoureuse et de pain croustillant. Goûtez aux saveurs uniques des étoiles lointaines et plongez dans l’univers des aventures spatiales, directement à votre table !',
+      },
+      {
+        locale: 'hi',
+        value: 'गैलेक्टिक बर्गर की खोज करें - रसदार सब्जियों, स्वादिष्ट मांस और कुरकुरे ब्रेड का एक अविश्वसनीय संयोजन। दूर के सितारों के अनोखे स्वाद का अनुभव करें और मेज पर ही अंतरिक्ष रोमांच की दुनिया में डूब जाएँ!',
       },
       {
         locale: 'it',
@@ -1423,6 +1531,10 @@ export const burgers: Product[] = [
           {
             locale: 'fr',
             value: 'Standard',
+          },
+          {
+            locale: 'hi',
+            value: 'मानक',
           },
           {
             locale: 'it',
@@ -1497,6 +1609,10 @@ export const burgers: Product[] = [
         value: 'Le boom des champignons : un burger avec un secret',
       },
       {
+        locale: 'hi',
+        value: 'मशरूम बूम: एक रहस्य वाला बर्गर',
+      },
+      {
         locale: 'it',
         value: 'Boom di funghi: un burger con un segreto',
       },
@@ -1537,6 +1653,10 @@ export const burgers: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez un univers de saveurs exceptionnelles avec notre nouveau burger ! Viande tendre, champignons juteux et pain croustillant : cette combinaison vous séduira à coup sûr. Goûtez à la saveur unique d\'un véritable délice aux champignons !',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारे नए बर्गर के साथ स्वाद की अद्भुत दुनिया की खोज करें! नरम मांस, रसदार मशरूम और कुरकुरा ब्रेड - यह संयोजन निश्चित रूप से आपके दिल को जीतेगा। वास्तविक मशरूम सुख के अनोखे स्वाद का अनुभव करें!',
       },
       {
         locale: 'it',
@@ -1584,6 +1704,10 @@ export const burgers: Product[] = [
           {
             locale: 'fr',
             value: 'Standard',
+          },
+          {
+            locale: 'hi',
+            value: 'मानक',
           },
           {
             locale: 'it',
@@ -1657,6 +1781,10 @@ export const burgers: Product[] = [
             value: 'Boom!',
           },
           {
+            locale: 'hi',
+            value: 'बूम!',
+          },
+          {
             locale: 'it',
             value: 'Boom!',
           },
@@ -1699,6 +1827,10 @@ export const burgers: Product[] = [
           },
           {
             locale: 'fr',
+            value: '🍄‍🟫🍄‍🟫🍄‍🟫🤩',
+          },
+          {
+            locale: 'hi',
             value: '🍄‍🟫🍄‍🟫🍄‍🟫🤩',
           },
           {
@@ -1750,6 +1882,10 @@ export const burgers: Product[] = [
         value: 'Burger de Jardine',
       },
       {
+        locale: 'hi',
+        value: 'जार्डिन्स बर्गर',
+      },
+      {
         locale: 'it',
         value: 'Burger di Jardine',
       },
@@ -1790,6 +1926,10 @@ export const burgers: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez la saveur unique d\'une escalope de dinde grillée et juteuse, accompagnée d\'un pain croustillant et de légumes frais. La tendresse de la dinde, sublimée par des épices aromatiques, ravira les amateurs de viande !',
+      },
+      {
+        locale: 'hi',
+        value: 'रसदार ग्रिल किए हुए टर्की कटलेट के अनोखे स्वाद का अनुभव करें, जो कुरकुरे ब्रेड और ताज़ी सब्जियों के साथ मिलकर बनता है। सुगंधित मसालों और मसालों से भरपूर नरम टर्की मांस मांस प्रेमियों के लिए एक वास्तविक खोज होगा!',
       },
       {
         locale: 'it',
@@ -1837,6 +1977,10 @@ export const burgers: Product[] = [
           {
             locale: 'fr',
             value: 'Standard',
+          },
+          {
+            locale: 'hi',
+            value: 'मानक',
           },
           {
             locale: 'it',
@@ -1911,6 +2055,10 @@ export const burgers: Product[] = [
         value: 'Burger texan épicé',
       },
       {
+        locale: 'hi',
+        value: 'हॉट टेक्सास बर्गर',
+      },
+      {
         locale: 'it',
         value: 'Hamburger piccante del Texas',
       },
@@ -1951,6 +2099,10 @@ export const burgers: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez les vraies saveurs du Texas ! Viande tendre, légumes frais et un pain appétissant : ce burger vous séduira à coup sûr !',
+      },
+      {
+        locale: 'hi',
+        value: 'वास्तविक टेक्सास स्वाद की ओर आपका रास्ता! नरम मांस, ताज़ी सब्जियाँ और स्वादिष्ट ब्रेड - यह बर्गर निश्चित रूप से आपको प्रभावित करेगा!',
       },
       {
         locale: 'it',
@@ -1998,6 +2150,10 @@ export const burgers: Product[] = [
           {
             locale: 'fr',
             value: 'Standard',
+          },
+          {
+            locale: 'hi',
+            value: 'मानक',
           },
           {
             locale: 'it',
@@ -2072,6 +2228,10 @@ export const burgers: Product[] = [
         value: 'Burger au bacon tendre',
       },
       {
+        locale: 'hi',
+        value: 'टेंडर बेकन बर्गर',
+      },
+      {
         locale: 'it',
         value: 'Hamburger al bacon tenero',
       },
@@ -2112,6 +2272,10 @@ export const burgers: Product[] = [
       {
         locale: 'fr',
         value: 'Laissez-vous séduire par la tendresse du bacon : essayez notre burger ! Bacon parfumé, steak juteux et légumes frais – une explosion de saveurs pour les vrais gourmets.',
+      },
+      {
+        locale: 'hi',
+        value: 'बेकन की नरमी में डूब जाएँ: हमारे बर्गर का स्वाद लें! सुगंधित बेकन, रसदार पैटी और ताज़ी सब्जियाँ - असली भोजन प्रेमियों के लिए स्वाद का विस्फोट!',
       },
       {
         locale: 'it',
@@ -2159,6 +2323,10 @@ export const burgers: Product[] = [
           {
             locale: 'fr',
             value: 'Standard',
+          },
+          {
+            locale: 'hi',
+            value: 'मानक',
           },
           {
             locale: 'it',

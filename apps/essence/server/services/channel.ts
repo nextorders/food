@@ -53,6 +53,16 @@ Vous pouvez régler votre commande en espèces ou par carte bancaire lors du ret
 L'établissement se réserve le droit de refuser le retrait en magasin en cas de forte affluence ou de problèmes techniques affectant le traitement des commandes.`,
   },
   {
+    locale: 'hi',
+    value: `इन-स्टोर पिकअप के लिए, आपका ऑर्डर देने के 1-2 घंटे के अंदर पिकअप के लिए तैयार हो जाएगा।
+
+इन-स्टोर पिकअप के लिए कोई मिनिमम ऑर्डर अमाउंट नहीं है—आप कितना भी ऑर्डर कर सकते हैं। इन-स्टोर पिकअप फ़्री है, और कोई एक्स्ट्रा चार्ज नहीं है।
+
+आप पिकअप के समय अपने ऑर्डर का पेमेंट कैश या क्रेडिट कार्ड से कर सकते हैं। अगर आप अपना ऑर्डर कैंसिल करते हैं या बदलते हैं, तो आपका प्रीपेमेंट, अगर कोई हो, तो पूरा रिफ़ंड कर दिया जाएगा।
+
+अगर ओवरबुक हो जाता है या टेक्निकल दिक्कतों की वजह से ऑर्डर प्रोसेस हो जाता है, तो कंपनी इन-स्टोर पिकअप से मना करने का अधिकार रखती है।`,
+  },
+  {
     locale: 'it',
     value: `Per il ritiro in negozio, il tuo ordine sarà pronto entro 1-2 ore dall'ordine.
 
@@ -176,6 +186,20 @@ En cas d'annulation ou de modification de la commande, les frais de livraison re
 L'établissement se réserve le droit de refuser une livraison en cas de volume de commandes important ou de problèmes techniques.`,
   },
   {
+    locale: 'hi',
+    value: `ऑर्डर देने के 1-2 घंटे के अंदर डिलीवरी कर दी जाती है।
+
+फ़्री डिलीवरी के लिए कम से कम ऑर्डर अमाउंट 1500 रूबल है।
+
+डिलीवरी का खर्च डिलीवरी पॉइंट या डिलीवरी एड्रेस की दूरी के आधार पर कैलकुलेट किया जाता है और यह 0 से 1000 रूबल तक हो सकता है।
+
+ऑर्डर मिलने पर कैश या कार्ड से पेमेंट किया जा सकता है।
+
+ऑर्डर कैंसिल करने या उसकी शर्तों में बदलाव करने पर, डिलीवरी का पूरा पेमेंट किया जाता है।
+
+ज़्यादा ऑर्डर होने या टेक्निकल दिक्कतों की स्थिति में इंस्टीट्यूशन डिलीवरी से मना करने का अधिकार रखता है।`,
+  },
+  {
     locale: 'it',
     value: `La consegna viene effettuata entro 1-2 ore dall'ordine.
 
@@ -269,6 +293,10 @@ const paymentMethodsForDelivery: PaymentMethod[] = [
         value: 'Argent comptant au coursier',
       },
       {
+        locale: 'hi',
+        value: 'कूरियर को नकद',
+      },
+      {
         locale: 'it',
         value: 'Contanti al corriere',
       },
@@ -313,6 +341,10 @@ const paymentMethodsForDelivery: PaymentMethod[] = [
       {
         locale: 'fr',
         value: 'Carte au coursier',
+      },
+      {
+        locale: 'hi',
+        value: 'कूरियर को कार्ड',
       },
       {
         locale: 'it',
@@ -362,6 +394,10 @@ const paymentMethodsForSelfPickup: PaymentMethod[] = [
       {
         locale: 'fr',
         value: 'Argent comptant',
+      },
+      {
+        locale: 'hi',
+        value: 'नकद',
       },
       {
         locale: 'it',
@@ -562,6 +598,10 @@ const links: Channel['links'] = {
           value: '8 800 123-45-69',
         },
         {
+          locale: 'hi',
+          value: '8 800 123-45-69',
+        },
+        {
           locale: 'it',
           value: '8 800 123-45-69',
         },
@@ -610,6 +650,10 @@ const links: Channel['links'] = {
           value: 'Offre publique',
         },
         {
+          locale: 'hi',
+          value: 'सार्वजनिक प्रस्ताव',
+        },
+        {
           locale: 'it',
           value: 'Offerta pubblica',
         },
@@ -655,6 +699,10 @@ const links: Channel['links'] = {
           value: 'Politique de confidentialité',
         },
         {
+          locale: 'hi',
+          value: 'गोपनीयता नीति',
+        },
+        {
           locale: 'it',
           value: 'Informativa sulla privacy',
         },
@@ -698,6 +746,10 @@ const links: Channel['links'] = {
         {
           locale: 'fr',
           value: 'Logiciels pour le commerce électronique',
+        },
+        {
+          locale: 'hi',
+          value: 'ई-कॉमर्स के लिए सॉफ्टवेयर',
         },
         {
           locale: 'it',
@@ -787,6 +839,15 @@ Les informations présentes sur ce site web ne constituent pas une offre publiqu
 Les images des produits peuvent différer du produit réel.`,
   },
   {
+    locale: 'hi',
+    value: `© 2024—2026 Fictitious Company LLC
+OGRN 12345, INN 12345
+236000, Kaliningrad Oblast, Kaliningrad, Teatralnaya St., 33A
+
+इस वेबसाइट पर दी गई जानकारी पब्लिक ऑफ़र नहीं है।
+प्रोडक्ट की इमेज ओरिजिनल से अलग हो सकती हैं।`,
+  },
+  {
     locale: 'it',
     value: `© 2024—2026 Fictitious Company LLC
 OGRN 12345, INN 12345
@@ -860,6 +921,10 @@ const channels: Channel[] = [{
       value: 'Moscou',
     },
     {
+      locale: 'hi',
+      value: 'मास्को',
+    },
+    {
       locale: 'it',
       value: 'Mosca',
     },
@@ -902,6 +967,10 @@ const channels: Channel[] = [{
       value: 'Savoureux sur le pouce à Moscou',
     },
     {
+      locale: 'hi',
+      value: 'मॉस्को में दौड़ते हुए स्वाद लें',
+    },
+    {
       locale: 'it',
       value: 'Gusto al volo a Mosca',
     },
@@ -942,6 +1011,10 @@ const channels: Channel[] = [{
     {
       locale: 'fr',
       value: 'Savourez des goûts uniques et une ambiance agréable',
+    },
+    {
+      locale: 'hi',
+      value: 'अनोखे स्वाद और अच्छे माहौल का आनंद लें',
     },
     {
       locale: 'it',
@@ -999,6 +1072,10 @@ const channels: Channel[] = [{
             value: 'Kolotushkina 12',
           },
           {
+            locale: 'hi',
+            value: 'Kolotushkina 12',
+          },
+          {
             locale: 'it',
             value: 'Kolotushkina 12',
           },
@@ -1039,6 +1116,10 @@ const channels: Channel[] = [{
             },
             {
               locale: 'fr',
+              value: 'Kolotushkina 12',
+            },
+            {
+              locale: 'hi',
               value: 'Kolotushkina 12',
             },
             {
@@ -1088,6 +1169,10 @@ const channels: Channel[] = [{
             value: 'Lenina 46',
           },
           {
+            locale: 'hi',
+            value: 'Lenina 46',
+          },
+          {
             locale: 'it',
             value: 'Lenina 46',
           },
@@ -1128,6 +1213,10 @@ const channels: Channel[] = [{
             },
             {
               locale: 'fr',
+              value: 'Lenina 46',
+            },
+            {
+              locale: 'hi',
               value: 'Lenina 46',
             },
             {
@@ -1187,6 +1276,10 @@ const channels: Channel[] = [{
       value: 'Saint-Pétersbourg',
     },
     {
+      locale: 'hi',
+      value: 'सेंट पीटर्सबर्ग',
+    },
+    {
       locale: 'it',
       value: 'San Pietroburgo',
     },
@@ -1229,6 +1322,10 @@ const channels: Channel[] = [{
       value: 'Savoureux sur le pouce de Saint-Pétersbourg',
     },
     {
+      locale: 'hi',
+      value: 'सेंट पीटर्सबर्ग में दौड़ते हुए स्वाद लें',
+    },
+    {
       locale: 'it',
       value: 'Gusto al volo a San Pietroburgo',
     },
@@ -1269,6 +1366,10 @@ const channels: Channel[] = [{
     {
       locale: 'fr',
       value: 'Savourez des goûts uniques et une ambiance agréable',
+    },
+    {
+      locale: 'hi',
+      value: 'अनोखे स्वाद और अच्छे माहौल का आनंद लें',
     },
     {
       locale: 'it',

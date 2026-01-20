@@ -29,6 +29,7 @@ export default defineNuxtConfig({
       { code: 'en', language: 'en-US', name: 'English' },
       { code: 'es', language: 'es-ES', name: 'Español' },
       { code: 'fr', language: 'fr-FR', name: 'Français' },
+      { code: 'hi', language: 'hi-IN', name: 'हिंदी' },
       { code: 'it', language: 'it-IT', name: 'Italiano' },
       { code: 'ka', language: 'ka-GE', name: 'ქართული' },
       { code: 'pt', language: 'pt-PT', name: 'Português' },

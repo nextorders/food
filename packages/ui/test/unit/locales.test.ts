@@ -4,6 +4,7 @@ import { el } from '../../i18n/locales/el-GR'
 import { en } from '../../i18n/locales/en-US'
 import { es } from '../../i18n/locales/es-ES'
 import { fr } from '../../i18n/locales/fr-FR'
+import { hi } from '../../i18n/locales/hi-IN'
 import { it as it_it } from '../../i18n/locales/it-IT'
 import { ka } from '../../i18n/locales/ka-GE'
 import { pt } from '../../i18n/locales/pt-PT'
@@ -54,6 +55,11 @@ describe('locales', () => {
   it('pt | can be imported', () => {
     expect(pt).toBeDefined()
     expect(pt['web-app'].cart.add).toBe('Adicionar')
+  })
+
+  it('hi | can be imported', () => {
+    expect(hi).toBeDefined()
+    expect(hi['web-app'].cart.add).toBe('जोड़ें')
   })
 
   it('zh_cn | can be imported', () => {

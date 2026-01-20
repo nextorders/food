@@ -28,6 +28,10 @@ const categories: Menu['categories'] = [
         value: 'Burgers',
       },
       {
+        locale: 'hi',
+        value: 'बर्गर',
+      },
+      {
         locale: 'it',
         value: 'Hamburger',
       },
@@ -74,6 +78,10 @@ const categories: Menu['categories'] = [
       {
         locale: 'fr',
         value: 'Plats chauds',
+      },
+      {
+        locale: 'hi',
+        value: 'गरम भोजन',
       },
       {
         locale: 'it',
@@ -124,6 +132,10 @@ const categories: Menu['categories'] = [
         value: 'Salades',
       },
       {
+        locale: 'hi',
+        value: 'सलाद',
+      },
+      {
         locale: 'it',
         value: 'Insalate',
       },
@@ -170,6 +182,10 @@ const categories: Menu['categories'] = [
       {
         locale: 'fr',
         value: 'Soupes',
+      },
+      {
+        locale: 'hi',
+        value: 'सूप',
       },
       {
         locale: 'it',
@@ -220,6 +236,10 @@ const categories: Menu['categories'] = [
         value: 'En-cas',
       },
       {
+        locale: 'hi',
+        value: 'स्नैक्स',
+      },
+      {
         locale: 'it',
         value: 'Snack',
       },
@@ -266,6 +286,10 @@ const categories: Menu['categories'] = [
       {
         locale: 'fr',
         value: 'Desserts',
+      },
+      {
+        locale: 'hi',
+        value: 'मिठाइयाँ',
       },
       {
         locale: 'it',
@@ -315,6 +339,10 @@ const menu: Menu = {
     {
       locale: 'fr',
       value: 'Menu par défaut',
+    },
+    {
+      locale: 'hi',
+      value: 'डिफ़ॉल्ट मेनू',
     },
     {
       locale: 'it',
