@@ -1,6 +1,252 @@
 import type { Channel, GatewayGetChannelsResponse, GatewayGetDeliveryByCourierStatusRequest, GatewayGetDeliveryByCourierStatusResponse, GatewayGetSelfPickupStatusRequest, GatewayGetSelfPickupStatusResponse, GatewayGetTimeSlotsRequest, GatewayGetTimeSlotsResponse, PaymentMethod, Schedule } from '@nextorders/food-schema'
 import { getOpeningStatus, getTimeSlotsFromNow } from './time'
 
+const selfPickupConditions: Channel['selfPickup']['conditions'] = [
+  {
+    locale: 'ru',
+    value: `При самовывозе заказ будет готов к получению в течение 1–2 часов с момента оформления.
+
+Для самовывоза нет требования к минимальной сумме заказа — вы можете оформить заказ на любую сумму. Самовынос осуществляется бесплатно, дополнительная плата за него не взимается.
+
+Оплатить заказ вы можете при получении как наличными, так и банковской картой. В случае отмены заказа или внесения в него изменений предварительная оплата, если она была произведена, возвращается вам полностью.
+
+Заведение вправе отказать в предоставлении услуги самовывоза при высокой загруженности или возникновении технических неполадок, влияющих на обработку заказов.`,
+  },
+  {
+    locale: 'en',
+    value: `For in-store pickup, your order will be ready for pickup within 1-2 hours of placing it.
+
+There is no minimum order amount for in-store pickup—you can order any amount. In-store pickup is free, and there is no additional charge.
+
+You can pay for your order upon pickup in cash or by credit card. If you cancel or change your order, your prepayment, if any, will be refunded in full.
+
+The establishment reserves the right to refuse in-store pickup if it is overbooked or if technical issues affect order processing.`,
+  },
+  {
+    locale: 'el',
+    value: `Για παραλαβή από το κατάστημα, η παραγγελία σας θα είναι έτοιμη για παραλαβή εντός 1-2 ωρών από την τοποθέτησή της.
+
+Δεν υπάρχει ελάχιστο ποσό παραγγελίας για παραλαβή από το κατάστημα—μπορείτε να παραγγείλετε οποιοδήποτε ποσό. Η παραλαβή από το κατάστημα είναι δωρεάν και δεν υπάρχει επιπλέον χρέωση.
+
+Μπορείτε να πληρώσετε για την παραγγελία σας κατά την παραλαβή με μετρητά ή με πιστωτική κάρτα. Εάν ακυρώσετε ή αλλάξετε την παραγγελία σας, η προπληρωμή σας, εάν υπάρχει, θα σας επιστραφεί πλήρως.
+
+Το κατάστημα διατηρεί το δικαίωμα να αρνηθεί την παραλαβή από το κατάστημα εάν είναι υπεράριθμη ή εάν τεχνικά προβλήματα επηρεάζουν την επεξεργασία της παραγγελίας.`,
+  },
+  {
+    locale: 'es',
+    value: `Para recoger en tienda, su pedido estará listo en 1 o 2 horas después de realizarlo.
+
+No hay un pedido mínimo para recoger en tienda; puede pedir cualquier cantidad. Recoger en tienda es gratuito y no tiene ningún cargo adicional.
+
+Puede pagar su pedido al recogerlo en efectivo o con tarjeta de crédito. Si cancela o modifica su pedido, se le reembolsará el importe total del prepago, si lo hubiera.
+
+El establecimiento se reserva el derecho de rechazar la recogida en tienda si hay overbooking o si algún problema técnico afecta al procesamiento del pedido.`,
+  },
+  {
+    locale: 'fr',
+    value: `Pour un retrait en magasin, votre commande sera prête dans un délai de 1 à 2 heures après sa validation.
+
+Il n'y a pas de montant minimum pour le retrait en magasin: vous pouvez commander le montant de votre choix. Le retrait en magasin est gratuit et sans frais supplémentaires.
+
+Vous pouvez régler votre commande en espèces ou par carte bancaire lors du retrait. En cas d'annulation ou de modification de votre commande, votre acompte, le cas échéant, vous sera intégralement remboursé.
+
+L'établissement se réserve le droit de refuser le retrait en magasin en cas de forte affluence ou de problèmes techniques affectant le traitement des commandes.`,
+  },
+  {
+    locale: 'it',
+    value: `Per il ritiro in negozio, il tuo ordine sarà pronto entro 1-2 ore dall'ordine.
+
+Non c'è un importo minimo per il ritiro in negozio: puoi ordinare qualsiasi importo. Il ritiro in negozio è gratuito e non ci sono costi aggiuntivi.
+
+Puoi pagare il tuo ordine al ritiro in contanti o con carta di credito. Se annulli o modifichi il tuo ordine, l'eventuale pagamento anticipato ti verrà rimborsato per intero.
+
+L'esercizio si riserva il diritto di rifiutare il ritiro in negozio in caso di sovraccarico o problemi tecnici che influenzano l'elaborazione degli ordini.`,
+  },
+  {
+    locale: 'ka',
+    value: `მაღაზიაში ასაღებად, თქვენი შეკვეთა მზად იქნება ასაღებად მისი განთავსებიდან 1-2 საათში.
+
+მაღაზიაში ასაღებად მინიმალური შეკვეთის ოდენობა არ არსებობს - შეგიძლიათ შეუკვეთოთ ნებისმიერი თანხა. მაღაზიაში ასაღებად მომსახურება უფასოა და დამატებითი გადასახადი არ არის.
+
+შეკვეთის გადახდა შეგიძლიათ ნაღდი ფულით ან საკრედიტო ბარათით აღებისას. თუ შეკვეთას გააუქმებთ ან შეცვლით, თქვენი წინასწარი გადახდა, თუ ასეთი მოხდა, სრულად დაგიბრუნდებათ.
+
+დაწესებულებას უფლება აქვს უარი თქვას მაღაზიაში ასაღებად, თუ ის გადატვირთულია ან თუ ტექნიკური პრობლემები გავლენას ახდენს შეკვეთის დამუშავებაზე.`,
+  },
+  {
+    locale: 'de',
+    value: `Bei Abholung im Geschäft ist Ihre Bestellung innerhalb von 1–2 Stunden abholbereit.
+
+Es gibt keinen Mindestbestellwert für die Abholung im Geschäft – Sie können beliebig viel bestellen. Die Abholung ist kostenlos und es fallen keine zusätzlichen Gebühren an.
+
+Sie können Ihre Bestellung bei Abholung bar oder mit Kreditkarte bezahlen. Wenn Sie Ihre Bestellung stornieren oder ändern, wird Ihre Vorauszahlung, falls vorhanden, vollständig zurückerstattet.
+
+Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, falls es überbucht ist oder technische Probleme die Bestellabwicklung beeinträchtigen.`,
+  },
+  {
+    locale: 'zh_cn',
+    value: `选择店内自提，您的订单将在下单后 1-2 小时内准备好。
+
+店内自提没有最低消费金额限制，您可以订购任意金额。店内自提免费，不收取任何额外费用。
+
+您可以在取货时使用现金或信用卡付款。如果您取消或更改订单，我们将全额退还您的预付款（如有）。
+
+如果店内自提订单已满或出现技术问题影响订单处理，本店保留拒绝自提订单的权利。`,
+  },
+  {
+    locale: 'pt',
+    value: `Para retirada na loja, seu pedido estará pronto para retirada dentro de 1-2 horas após o pedido.
+
+Não há valor mínimo de pedido para retirada na loja - você pode pedir qualquer valor. A retirada na loja é gratuita e não há cobrança adicional.
+
+Você pode pagar seu pedido na retirada em dinheiro ou por cartão de crédito. Se você cancelar ou alterar seu pedido, seu pagamento antecipado, se houver, será reembolsado integralmente.
+
+O estabelecimento se reserva o direito de recusar a retirada na loja se estiver lotado ou se problemas técnicos afetarem o processamento do pedido.`,
+  },
+]
+
+const deliveryByCourierConditions: Channel['deliveryByCourier']['conditions'] = [
+  {
+    locale: 'ru',
+    value: `Доставка осуществляется в течение 1-2 часов после оформления заказа.
+
+Минимальная сумма заказа для бесплатной доставки составляет 1500 руб.
+
+Стоимость доставки рассчитывается в зависимости от расстояния до пункта выдачи или адреса доставки и может составлять от 0 до 1000 руб.
+
+Заказ может быть оплачен при получении наличными или картой.
+
+В случае отмены заказа или изменения его условий доставка оплачивается в полном объеме.
+
+Заведение оставляет за собой право отказать в доставке в случае большого количества заказов или технических проблем.`,
+  },
+  {
+    locale: 'en',
+    value: `Delivery is carried out within 1-2 hours after placing an order.
+
+The minimum order amount for free delivery is 1500 rubles.
+
+The cost of delivery is calculated depending on the distance to the delivery point or delivery address and can be from 0 to 1000 rubles.
+
+The order can be paid upon receipt in cash or by card.
+
+In case of canceling the order or changing its conditions, delivery is paid in full.
+
+The institution reserves the right to refuse delivery in case of a large number of orders or technical problems.`,
+  },
+  {
+    locale: 'el',
+    value: `Η παράδοση πραγματοποιείται εντός 1-2 ωρών από την υποβολή της παραγγελίας.
+
+Το ελάχιστο ποσό παραγγελίας για δωρεάν παράδοση είναι 1500 ρούβλια.
+
+Το κόστος παράδοσης υπολογίζεται ανάλογα με την απόσταση από το σημείο παράδοσης ή τη διεύθυνση παράδοσης και μπορεί να κυμαίνεται από 0 έως 1000 ρούβλια.
+
+Η παραγγελία μπορεί να πληρωθεί κατά την παραλαβή με μετρητά ή με κάρτα.
+
+Σε περίπτωση ακύρωσης της παραγγελίας ή αλλαγής των όρων της, η παράδοση πληρώνεται πλήρως.
+
+Το ίδρυμα διατηρεί το δικαίωμα να αρνηθεί την παράδοση σε περίπτωση μεγάλου αριθμού παραγγελιών ή τεχνικών προβλημάτων.`,
+  },
+  {
+    locale: 'es',
+    value: `La entrega se realiza en un plazo de 1 a 2 horas tras realizar el pedido.
+
+El importe mínimo del pedido para el envío gratuito es de 1500 rublos.
+
+El coste del envío se calcula en función de la distancia al punto o dirección de entrega y puede oscilar entre 0 y 1000 rublos.
+
+El pedido se puede pagar al recibirlo en efectivo o con tarjeta.
+
+En caso de cancelación del pedido o modificación de sus condiciones, el envío se abonará en su totalidad.
+
+El establecimiento se reserva el derecho de rechazar la entrega en caso de gran cantidad de pedidos o problemas técnicos.`,
+  },
+  {
+    locale: 'fr',
+    value: `La livraison est effectuée sous 1 à 2 heures après la commande.
+
+Le montant minimum de commande pour bénéficier de la livraison gratuite est de 1500 roubles.
+
+Les frais de livraison sont calculés en fonction de la distance jusqu'au point de livraison ou à l'adresse de livraison et peuvent varier de 0 à 1000 roubles.
+
+Le paiement peut être effectué à la réception, en espèces ou par carte.
+
+En cas d'annulation ou de modification de la commande, les frais de livraison restent dus.
+
+L'établissement se réserve le droit de refuser une livraison en cas de volume de commandes important ou de problèmes techniques.`,
+  },
+  {
+    locale: 'it',
+    value: `La consegna viene effettuata entro 1-2 ore dall'ordine.
+
+L'importo minimo per la consegna gratuita è di 1500 rubli.
+
+Il costo della consegna viene calcolato in base alla distanza dal punto di consegna o dall'indirizzo di consegna e può variare da 0 a 1000 rubli.
+
+L'ordine può essere pagato alla consegna in contanti o con carta.
+
+In caso di annullamento dell'ordine o modifica delle sue condizioni, la consegna è pagata per intero.
+
+L'azienda si riserva il diritto di rifiutare la consegna in caso di un gran numero di ordini o problemi tecnici.`,
+  },
+  {
+    locale: 'ka',
+    value: `მიწოდება ხორციელდება შეკვეთის განთავსებიდან 1-2 საათის განმავლობაში.
+
+უფასო მიწოდების მინიმალური შეკვეთის ოდენობაა 1500 რუბლი.
+
+მიწოდების ღირებულება გამოითვლება მიწოდების წერტილამდე ან მიწოდების მისამართამდე მანძილის მიხედვით და შეიძლება იყოს 0-დან 1000 რუბლამდე.
+
+შეკვეთის გადახდა შესაძლებელია მიღებისთანავე ნაღდი ფულით ან ბარათით.
+
+შეკვეთის გაუქმების ან მისი პირობების შეცვლის შემთხვევაში, მიწოდება სრულად იხდის.
+
+დაწესებულება იტოვებს უფლებას უარი თქვას მიწოდებაზე შეკვეთების დიდი რაოდენობის ან ტექნიკური პრობლემების შემთხვევაში.`,
+  },
+  {
+    locale: 'de',
+    value: `Die Lieferung erfolgt innerhalb von 1–2 Stunden nach Bestelleingang.
+
+Der Mindestbestellwert für kostenlose Lieferung beträgt 1500 Rubel.
+
+Die Lieferkosten richten sich nach der Entfernung zum Lieferort bzw. zur Lieferadresse und betragen zwischen 0 und 1000 Rubel.
+
+Die Bezahlung kann bei Erhalt bar oder per Karte erfolgen.
+
+Bei Stornierung oder Änderung der Bestellung ist der volle Lieferpreis zu entrichten.
+
+Das Unternehmen behält sich das Recht vor, die Lieferung bei hohem Bestellaufkommen oder technischen Problemen zu verweigern.`,
+  },
+  {
+    locale: 'zh_cn',
+    value: `下单后1-2小时内发货。
+
+订单金额满1500卢布即可享受免运费。
+
+运费根据送货地点或送货地址的距离计算, 费用范围为0至1000卢布。
+
+订单可在收货时以现金或银行卡支付。
+
+如需取消订单或更改订单内容，需支付全额运费。
+
+如遇订单量过大或出现技术问题，本机构保留拒绝发货的权利。`,
+  },
+  {
+    locale: 'pt',
+    value: `A entrega é realizada dentro de 1-2 horas após a realização do pedido.
+
+O valor mínimo do pedido para entrega gratuita é de 1500 rublos.
+
+O custo da entrega é calculado dependendo da distância até o ponto de entrega ou endereço de entrega e pode variar de 0 a 1000 rublos.
+
+O pedido pode ser pago na entrega em dinheiro ou por cartão.
+
+Em caso de cancelamento do pedido ou alteração das suas condições, a entrega é paga na totalidade.
+
+A instituição reserva o direito de recusar a entrega em caso de grande número de pedidos ou problemas técnicos.`,
+  },
+]
+
 const paymentMethodsForDelivery: PaymentMethod[] = [
   {
     id: 'cash',
@@ -41,6 +287,10 @@ const paymentMethodsForDelivery: PaymentMethod[] = [
       {
         locale: 'zh_cn',
         value: '现金交给快递员',
+      },
+      {
+        locale: 'pt',
+        value: 'Dinheiro ao entregador',
       },
     ],
   },
@@ -83,6 +333,10 @@ const paymentMethodsForDelivery: PaymentMethod[] = [
       {
         locale: 'zh_cn',
         value: '刷卡付给快递员',
+      },
+      {
+        locale: 'pt',
+        value: 'Cartão ao entregador',
       },
     ],
   },
@@ -128,6 +382,10 @@ const paymentMethodsForSelfPickup: PaymentMethod[] = [
       {
         locale: 'zh_cn',
         value: '现金',
+      },
+      {
+        locale: 'pt',
+        value: 'Dinheiro',
       },
     ],
   },
@@ -319,6 +577,10 @@ const links: Channel['links'] = {
           locale: 'zh_cn',
           value: '8 800 123-45-69',
         },
+        {
+          locale: 'pt',
+          value: '8 800 123-45-69',
+        },
       ],
       to: 'tel:88001234569',
       icon: 'i-lucide-phone-call',
@@ -363,6 +625,10 @@ const links: Channel['links'] = {
           locale: 'zh_cn',
           value: '公开要约',
         },
+        {
+          locale: 'pt',
+          value: 'Oferta Pública',
+        },
       ],
       to: '#',
     },
@@ -404,6 +670,10 @@ const links: Channel['links'] = {
           locale: 'zh_cn',
           value: '隐私政策',
         },
+        {
+          locale: 'pt',
+          value: 'Política de Privacidade',
+        },
       ],
       to: '#',
     },
@@ -444,6 +714,10 @@ const links: Channel['links'] = {
         {
           locale: 'zh_cn',
           value: '电子商务软件',
+        },
+        {
+          locale: 'pt',
+          value: 'Software para comércio eletrónico',
         },
       ],
       to: 'https://nextorders.ru/',
@@ -551,6 +825,15 @@ OGRN 12345, INN 12345
 
 产品图片可能与实物有所不同。`,
   },
+  {
+    locale: 'pt',
+    value: `© 2024—2026 Fictitious Company LLC
+OGRN 12345, INN 12345
+236000, Oblast de Kaliningrado, Kaliningrado, Rua Teatralnaya, 33A
+
+As informações neste site não constituem uma oferta pública.
+As imagens dos produtos podem diferir do original.`,
+  },
 ]
 
 const channels: Channel[] = [{
@@ -592,6 +875,10 @@ const channels: Channel[] = [{
       locale: 'zh_cn',
       value: '莫斯科',
     },
+    {
+      locale: 'pt',
+      value: 'Moscovo',
+    },
   ],
   title: [
     {
@@ -629,6 +916,10 @@ const channels: Channel[] = [{
     {
       locale: 'zh_cn',
       value: '在莫斯科享受便捷的味觉体验',
+    },
+    {
+      locale: 'pt',
+      value: 'Sabores rápidos em Moscovo',
     },
   ],
   description: [
@@ -668,238 +959,24 @@ const channels: Channel[] = [{
       locale: 'zh_cn',
       value: '享受独特的口味和愉悦的氛围',
     },
+    {
+      locale: 'pt',
+      value: 'Desfrute de sabores únicos e uma atmosfera agradável',
+    },
   ],
   url: 'https://demo.nextorders.space/moscow',
   timeZone: '+03:00',
   isActive: true,
   deliveryByCourier: {
     isAvailable: true,
-    conditions: [
-      {
-        locale: 'ru',
-        value: `Доставка осуществляется в течение 1-2 часов после оформления заказа.
-
-Минимальная сумма заказа для бесплатной доставки составляет 1500 руб.
-
-Стоимость доставки рассчитывается в зависимости от расстояния до пункта выдачи или адреса доставки и может составлять от 0 до 1000 руб.
-
-Заказ может быть оплачен при получении наличными или картой.
-
-В случае отмены заказа или изменения его условий доставка оплачивается в полном объеме.
-
-Заведение оставляет за собой право отказать в доставке в случае большого количества заказов или технических проблем.`,
-      },
-      {
-        locale: 'en',
-        value: `Delivery is carried out within 1-2 hours after placing an order.
-
-The minimum order amount for free delivery is 1500 rubles.
-
-The cost of delivery is calculated depending on the distance to the delivery point or delivery address and can be from 0 to 1000 rubles.
-
-The order can be paid upon receipt in cash or by card.
-
-In case of canceling the order or changing its conditions, delivery is paid in full.
-
-The institution reserves the right to refuse delivery in case of a large number of orders or technical problems.`,
-      },
-      {
-        locale: 'el',
-        value: `Η παράδοση πραγματοποιείται εντός 1-2 ωρών από την υποβολή της παραγγελίας.
-
-Το ελάχιστο ποσό παραγγελίας για δωρεάν παράδοση είναι 1500 ρούβλια.
-
-Το κόστος παράδοσης υπολογίζεται ανάλογα με την απόσταση από το σημείο παράδοσης ή τη διεύθυνση παράδοσης και μπορεί να κυμαίνεται από 0 έως 1000 ρούβλια.
-
-Η παραγγελία μπορεί να πληρωθεί κατά την παραλαβή με μετρητά ή με κάρτα.
-
-Σε περίπτωση ακύρωσης της παραγγελίας ή αλλαγής των όρων της, η παράδοση πληρώνεται πλήρως.
-
-Το ίδρυμα διατηρεί το δικαίωμα να αρνηθεί την παράδοση σε περίπτωση μεγάλου αριθμού παραγγελιών ή τεχνικών προβλημάτων.`,
-      },
-      {
-        locale: 'es',
-        value: `La entrega se realiza en un plazo de 1 a 2 horas tras realizar el pedido.
-
-El importe mínimo del pedido para el envío gratuito es de 1500 rublos.
-
-El coste del envío se calcula en función de la distancia al punto o dirección de entrega y puede oscilar entre 0 y 1000 rublos.
-
-El pedido se puede pagar al recibirlo en efectivo o con tarjeta.
-
-En caso de cancelación del pedido o modificación de sus condiciones, el envío se abonará en su totalidad.
-
-El establecimiento se reserva el derecho de rechazar la entrega en caso de gran cantidad de pedidos o problemas técnicos.`,
-      },
-      {
-        locale: 'fr',
-        value: `La livraison est effectuée sous 1 à 2 heures après la commande.
-
-Le montant minimum de commande pour bénéficier de la livraison gratuite est de 1500 roubles.
-
-Les frais de livraison sont calculés en fonction de la distance jusqu'au point de livraison ou à l'adresse de livraison et peuvent varier de 0 à 1000 roubles.
-
-Le paiement peut être effectué à la réception, en espèces ou par carte.
-
-En cas d'annulation ou de modification de la commande, les frais de livraison restent dus.
-
-L'établissement se réserve le droit de refuser une livraison en cas de volume de commandes important ou de problèmes techniques.`,
-      },
-      {
-        locale: 'it',
-        value: `La consegna viene effettuata entro 1-2 ore dall'ordine.
-
-L'importo minimo per la consegna gratuita è di 1500 rubli.
-
-Il costo della consegna viene calcolato in base alla distanza dal punto di consegna o dall'indirizzo di consegna e può variare da 0 a 1000 rubli.
-
-L'ordine può essere pagato alla consegna in contanti o con carta.
-
-In caso di annullamento dell'ordine o modifica delle sue condizioni, la consegna è pagata per intero.
-
-L'azienda si riserva il diritto di rifiutare la consegna in caso di un gran numero di ordini o problemi tecnici.`,
-      },
-      {
-        locale: 'ka',
-        value: `მიწოდება ხორციელდება შეკვეთის განთავსებიდან 1-2 საათის განმავლობაში.
-
-უფასო მიწოდების მინიმალური შეკვეთის ოდენობაა 1500 რუბლი.
-
-მიწოდების ღირებულება გამოითვლება მიწოდების წერტილამდე ან მიწოდების მისამართამდე მანძილის მიხედვით და შეიძლება იყოს 0-დან 1000 რუბლამდე.
-
-შეკვეთის გადახდა შესაძლებელია მიღებისთანავე ნაღდი ფულით ან ბარათით.
-
-შეკვეთის გაუქმების ან მისი პირობების შეცვლის შემთხვევაში, მიწოდება სრულად იხდის.
-
-დაწესებულება იტოვებს უფლებას უარი თქვას მიწოდებაზე შეკვეთების დიდი რაოდენობის ან ტექნიკური პრობლემების შემთხვევაში.`,
-      },
-      {
-        locale: 'de',
-        value: `Die Lieferung erfolgt innerhalb von 1–2 Stunden nach Bestelleingang.
-
-Der Mindestbestellwert für kostenlose Lieferung beträgt 1500 Rubel.
-
-Die Lieferkosten richten sich nach der Entfernung zum Lieferort bzw. zur Lieferadresse und betragen zwischen 0 und 1000 Rubel.
-
-Die Bezahlung kann bei Erhalt bar oder per Karte erfolgen.
-
-Bei Stornierung oder Änderung der Bestellung ist der volle Lieferpreis zu entrichten.
-
-Das Unternehmen behält sich das Recht vor, die Lieferung bei hohem Bestellaufkommen oder technischen Problemen zu verweigern.`,
-      },
-      {
-        locale: 'zh_cn',
-        value: `下单后1-2小时内发货。
-
-订单金额满1500卢布即可享受免运费。
-
-运费根据送货地点或送货地址的距离计算, 费用范围为0至1000卢布。
-
-订单可在收货时以现金或银行卡支付。
-
-如需取消订单或更改订单内容，需支付全额运费。
-
-如遇订单量过大或出现技术问题，本机构保留拒绝发货的权利。`,
-      },
-    ],
+    conditions: deliveryByCourierConditions,
     minAmountForDelivery: 800,
     schedule: deliverySchedule,
     paymentMethods: paymentMethodsForDelivery,
   },
   selfPickup: {
     isAvailable: true,
-    conditions: [
-      {
-        locale: 'ru',
-        value: `При самовывозе заказ будет готов к получению в течение 1–2 часов с момента оформления.
-
-Для самовывоза нет требования к минимальной сумме заказа — вы можете оформить заказ на любую сумму. Самовынос осуществляется бесплатно, дополнительная плата за него не взимается.
-
-Оплатить заказ вы можете при получении как наличными, так и банковской картой. В случае отмены заказа или внесения в него изменений предварительная оплата, если она была произведена, возвращается вам полностью.
-
-Заведение вправе отказать в предоставлении услуги самовывоза при высокой загруженности или возникновении технических неполадок, влияющих на обработку заказов.`,
-      },
-      {
-        locale: 'en',
-        value: `For in-store pickup, your order will be ready for pickup within 1-2 hours of placing it.
-
-There is no minimum order amount for in-store pickup—you can order any amount. In-store pickup is free, and there is no additional charge.
-
-You can pay for your order upon pickup in cash or by credit card. If you cancel or change your order, your prepayment, if any, will be refunded in full.
-
-The establishment reserves the right to refuse in-store pickup if it is overbooked or if technical issues affect order processing.`,
-      },
-      {
-        locale: 'el',
-        value: `Για παραλαβή από το κατάστημα, η παραγγελία σας θα είναι έτοιμη για παραλαβή εντός 1-2 ωρών από την τοποθέτησή της.
-
-Δεν υπάρχει ελάχιστο ποσό παραγγελίας για παραλαβή από το κατάστημα—μπορείτε να παραγγείλετε οποιοδήποτε ποσό. Η παραλαβή από το κατάστημα είναι δωρεάν και δεν υπάρχει επιπλέον χρέωση.
-
-Μπορείτε να πληρώσετε για την παραγγελία σας κατά την παραλαβή με μετρητά ή με πιστωτική κάρτα. Εάν ακυρώσετε ή αλλάξετε την παραγγελία σας, η προπληρωμή σας, εάν υπάρχει, θα σας επιστραφεί πλήρως.
-
-Το κατάστημα διατηρεί το δικαίωμα να αρνηθεί την παραλαβή από το κατάστημα εάν είναι υπεράριθμη ή εάν τεχνικά προβλήματα επηρεάζουν την επεξεργασία της παραγγελίας.`,
-      },
-      {
-        locale: 'es',
-        value: `Para recoger en tienda, su pedido estará listo en 1 o 2 horas después de realizarlo.
-
-No hay un pedido mínimo para recoger en tienda; puede pedir cualquier cantidad. Recoger en tienda es gratuito y no tiene ningún cargo adicional.
-
-Puede pagar su pedido al recogerlo en efectivo o con tarjeta de crédito. Si cancela o modifica su pedido, se le reembolsará el importe total del prepago, si lo hubiera.
-
-El establecimiento se reserva el derecho de rechazar la recogida en tienda si hay overbooking o si algún problema técnico afecta al procesamiento del pedido.`,
-      },
-      {
-        locale: 'fr',
-        value: `Pour un retrait en magasin, votre commande sera prête dans un délai de 1 à 2 heures après sa validation.
-
-Il n'y a pas de montant minimum pour le retrait en magasin: vous pouvez commander le montant de votre choix. Le retrait en magasin est gratuit et sans frais supplémentaires.
-
-Vous pouvez régler votre commande en espèces ou par carte bancaire lors du retrait. En cas d'annulation ou de modification de votre commande, votre acompte, le cas échéant, vous sera intégralement remboursé.
-
-L'établissement se réserve le droit de refuser le retrait en magasin en cas de forte affluence ou de problèmes techniques affectant le traitement des commandes.`,
-      },
-      {
-        locale: 'it',
-        value: `Per il ritiro in negozio, il tuo ordine sarà pronto entro 1-2 ore dall'ordine.
-
-Non c'è un importo minimo per il ritiro in negozio: puoi ordinare qualsiasi importo. Il ritiro in negozio è gratuito e non ci sono costi aggiuntivi.
-
-Puoi pagare il tuo ordine al ritiro in contanti o con carta di credito. Se annulli o modifichi il tuo ordine, l'eventuale pagamento anticipato ti verrà rimborsato per intero.
-
-L'esercizio si riserva il diritto di rifiutare il ritiro in negozio in caso di sovraccarico o problemi tecnici che influenzano l'elaborazione degli ordini.`,
-      },
-      {
-        locale: 'ka',
-        value: `მაღაზიაში ასაღებად, თქვენი შეკვეთა მზად იქნება ასაღებად მისი განთავსებიდან 1-2 საათში.
-
-მაღაზიაში ასაღებად მინიმალური შეკვეთის ოდენობა არ არსებობს - შეგიძლიათ შეუკვეთოთ ნებისმიერი თანხა. მაღაზიაში ასაღებად მომსახურება უფასოა და დამატებითი გადასახადი არ არის.
-
-შეკვეთის გადახდა შეგიძლიათ ნაღდი ფულით ან საკრედიტო ბარათით აღებისას. თუ შეკვეთას გააუქმებთ ან შეცვლით, თქვენი წინასწარი გადახდა, თუ ასეთი მოხდა, სრულად დაგიბრუნდებათ.
-
-დაწესებულებას უფლება აქვს უარი თქვას მაღაზიაში ასაღებად, თუ ის გადატვირთულია ან თუ ტექნიკური პრობლემები გავლენას ახდენს შეკვეთის დამუშავებაზე.`,
-      },
-      {
-        locale: 'de',
-        value: `Bei Abholung im Geschäft ist Ihre Bestellung innerhalb von 1–2 Stunden abholbereit.
-
-Es gibt keinen Mindestbestellwert für die Abholung im Geschäft – Sie können beliebig viel bestellen. Die Abholung ist kostenlos und es fallen keine zusätzlichen Gebühren an.
-
-Sie können Ihre Bestellung bei Abholung bar oder mit Kreditkarte bezahlen. Wenn Sie Ihre Bestellung stornieren oder ändern, wird Ihre Vorauszahlung, falls vorhanden, vollständig zurückerstattet.
-
-Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, falls es überbucht ist oder technische Probleme die Bestellabwicklung beeinträchtigen.`,
-      },
-      {
-        locale: 'zh_cn',
-        value: `选择店内自提，您的订单将在下单后 1-2 小时内准备好。
-
-店内自提没有最低消费金额限制，您可以订购任意金额。店内自提免费，不收取任何额外费用。
-
-您可以在取货时使用现金或信用卡付款。如果您取消或更改订单，我们将全额退还您的预付款（如有）。
-
-如果店内自提订单已满或出现技术问题影响订单处理，本店保留拒绝自提订单的权利。`,
-      },
-    ],
+    conditions: selfPickupConditions,
     schedule: selfPickupSchedule,
     warehouses: [
       {
@@ -941,6 +1018,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
             locale: 'zh_cn',
             value: 'Kolotushkina 12',
           },
+          {
+            locale: 'pt',
+            value: 'Kolotushkina 12',
+          },
         ],
         address: {
           street: [
@@ -978,6 +1059,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
             },
             {
               locale: 'zh_cn',
+              value: 'Kolotushkina 12',
+            },
+            {
+              locale: 'pt',
               value: 'Kolotushkina 12',
             },
           ],
@@ -1022,6 +1107,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
             locale: 'zh_cn',
             value: 'Lenina 46',
           },
+          {
+            locale: 'pt',
+            value: 'Lenina 46',
+          },
         ],
         address: {
           street: [
@@ -1059,6 +1148,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
             },
             {
               locale: 'zh_cn',
+              value: 'Lenina 46',
+            },
+            {
+              locale: 'pt',
               value: 'Lenina 46',
             },
           ],
@@ -1109,6 +1202,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
       locale: 'zh_cn',
       value: '圣彼得堡',
     },
+    {
+      locale: 'pt',
+      value: 'São Petersburgo',
+    },
   ],
   title: [
     {
@@ -1146,6 +1243,10 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
     {
       locale: 'zh_cn',
       value: '在圣彼得堡享受便捷的美食之旅',
+    },
+    {
+      locale: 'pt',
+      value: 'Sabores rápidos em São Petersburgo',
     },
   ],
   description: [
@@ -1185,20 +1286,24 @@ Das Geschäft behält sich das Recht vor, die Abholung im Geschäft abzulehnen, 
       locale: 'zh_cn',
       value: '享受独特的口味和愉悦的氛围',
     },
+    {
+      locale: 'pt',
+      value: 'Desfrute de sabores únicos e uma atmosfera agradável',
+    },
   ],
   url: 'https://demo.nextorders.space/peterburg',
   timeZone: '+03:00',
   isActive: true,
   deliveryByCourier: {
     isAvailable: true,
-    conditions: undefined,
+    conditions: deliveryByCourierConditions,
     minAmountForDelivery: 1000,
-    paymentMethods: [],
+    paymentMethods: paymentMethodsForDelivery,
   },
   selfPickup: {
     isAvailable: true,
-    conditions: undefined,
-    paymentMethods: [],
+    conditions: selfPickupConditions,
+    paymentMethods: paymentMethodsForSelfPickup,
   },
   copyright,
   links,

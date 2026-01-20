@@ -38,6 +38,10 @@ const options: Options = {
       locale: 'zh_cn',
       value: '随时随地品尝美味',
     },
+    {
+      locale: 'pt',
+      value: 'Sabor em movimento',
+    },
   ],
   selectorDescription: [
     {
@@ -76,10 +80,14 @@ const options: Options = {
       locale: 'zh_cn',
       value: '享受独特的口味和愉悦的氛围',
     },
+    {
+      locale: 'pt',
+      value: 'Desfrute de sabores únicos e uma atmosfera agradável',
+    },
   ],
   logoUrl: 'https://storage.yandexcloud.net/next-orders-food-demo/nextorders-food-logo.jpg',
   defaultLocale: 'ru',
-  availableLocales: ['ru', 'el', 'en', 'es', 'fr', 'it', 'ka', 'de', 'zh_cn'],
+  availableLocales: ['ru', 'el', 'en', 'es', 'fr', 'it', 'ka', 'de', 'zh_cn', 'pt'],
   countryCode: 'RU',
   currencyCode: 'RUB',
   headLinks: [

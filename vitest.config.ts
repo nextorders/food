@@ -36,7 +36,7 @@ export default defineConfig({
     ],
     coverage: {
       reporter: ['text', 'lcov', 'html'],
-      include: ['**/packages/**/*.{ts,vue}'],
+      include: ['**/packages/**/*.ts'],
       exclude: [
         '**/{nitro,release,nuxt,app,i18n,drizzle}.config.*',
         '**/.nuxt/**',

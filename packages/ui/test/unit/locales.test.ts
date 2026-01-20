@@ -4,7 +4,9 @@ import { el } from '../../i18n/locales/el-GR'
 import { en } from '../../i18n/locales/en-US'
 import { es } from '../../i18n/locales/es-ES'
 import { fr } from '../../i18n/locales/fr-FR'
+import { it as it_it } from '../../i18n/locales/it-IT'
 import { ka } from '../../i18n/locales/ka-GE'
+import { pt } from '../../i18n/locales/pt-PT'
 import { ru } from '../../i18n/locales/ru-RU'
 import { zh_cn } from '../../i18n/locales/zh-CN'
 
@@ -34,6 +36,11 @@ describe('locales', () => {
     expect(fr['web-app'].cart.add).toBe('Ajouter')
   })
 
+  it('it | can be imported', () => {
+    expect(it_it).toBeDefined()
+    expect(it_it['web-app'].cart.add).toBe('Aggiungi')
+  })
+
   it('de | can be imported', () => {
     expect(de).toBeDefined()
     expect(de['web-app'].cart.add).toBe('Hinzufügen')
@@ -42,6 +49,11 @@ describe('locales', () => {
   it('ka | can be imported', () => {
     expect(ka).toBeDefined()
     expect(ka['web-app'].cart.add).toBe('დამატება')
+  })
+
+  it('pt | can be imported', () => {
+    expect(pt).toBeDefined()
+    expect(pt['web-app'].cart.add).toBe('Adicionar')
   })
 
   it('zh_cn | can be imported', () => {
