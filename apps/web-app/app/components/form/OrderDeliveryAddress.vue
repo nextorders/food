@@ -19,29 +19,49 @@
       />
     </UFormField>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-      <UFormField :label="$dict('web-app.checkout.address.flat')">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 items-end">
+      <UFormField
+        :label="$dict('web-app.checkout.address.flat')"
+        :ui="{
+          label: 'leading-4 line-clamp-2',
+        }"
+      >
         <UInput
           v-model="state.flat"
           size="xl"
         />
       </UFormField>
 
-      <UFormField :label="$dict('web-app.checkout.address.intercom')">
+      <UFormField
+        :label="$dict('web-app.checkout.address.intercom')"
+        :ui="{
+          label: 'leading-4 line-clamp-2',
+        }"
+      >
         <UInput
           v-model="state.intercom"
           size="xl"
         />
       </UFormField>
 
-      <UFormField :label="$dict('web-app.checkout.address.entrance')">
+      <UFormField
+        :label="$dict('web-app.checkout.address.entrance')"
+        :ui="{
+          label: 'leading-4 line-clamp-2',
+        }"
+      >
         <UInput
           v-model="state.entrance"
           size="xl"
         />
       </UFormField>
 
-      <UFormField :label="$dict('web-app.checkout.address.floor')">
+      <UFormField
+        :label="$dict('web-app.checkout.address.floor')"
+        :ui="{
+          label: 'leading-4 line-clamp-2',
+        }"
+      >
         <UInput
           v-model="state.floor"
           size="xl"
