@@ -254,7 +254,7 @@ export const desserts: Product[] = [
           },
           {
             locale: 'hi',
-            value: 'संपूर्ण पिज्जा',
+            value: 'संपूर्ण पाई',
           },
           {
             locale: 'it',

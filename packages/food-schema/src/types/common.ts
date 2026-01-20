@@ -1,7 +1,7 @@
 import z from 'zod'
 
 export const CurrencyCodeSchema = z.enum([
-  'USD', 'EUR', 'RUB', 'CNY', 'GEL', 'BYN', 'UAH', 'KZT', 'PLN', 'TRY',
+  'USD', 'EUR', 'RUB', 'CNY', 'GEL', 'BYN', 'UAH', 'KZT', 'PLN', 'TRY', 'INR',
 ])
 export type CurrencyCode = z.infer<typeof CurrencyCodeSchema>
 
