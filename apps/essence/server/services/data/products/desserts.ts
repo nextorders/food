@@ -22,6 +22,10 @@ export const desserts: Product[] = [
         value: 'Fête de la pomme',
       },
       {
+        locale: 'hi',
+        value: 'एप्पल एक्स्ट्रावैगैंजा',
+      },
+      {
         locale: 'it',
         value: 'Stravaganza di mele',
       },
@@ -62,6 +66,10 @@ export const desserts: Product[] = [
       {
         locale: 'fr',
         value: 'Une tarte délicieuse qui vous fera vivre un voyage gustatif inoubliable ! Pâte tendre, pommes parfumées et croûte croustillante : cette combinaison saura vous séduire. Plongez dans l\'ambiance des fêtes avec cette tarte irrésistible !',
+      },
+      {
+        locale: 'hi',
+        value: 'एक स्वादिष्ट पाई जो आपको एक यादगार स्वाद का अनुभव देगी! नरम आटा, खुशबूदार सेब और क्रिस्पी क्रस्ट - यह कॉम्बिनेशन ज़रूर आपका दिल जीत लेगा। इस ज़बरदस्त पाई के साथ छुट्टियों के माहौल में डूब जाइए!',
       },
       {
         locale: 'it',
@@ -109,6 +117,10 @@ export const desserts: Product[] = [
           {
             locale: 'fr',
             value: 'Part',
+          },
+          {
+            locale: 'hi',
+            value: 'टुकड़ा',
           },
           {
             locale: 'it',
@@ -174,6 +186,10 @@ export const desserts: Product[] = [
             value: '2 parts',
           },
           {
+            locale: 'hi',
+            value: '2 टुकड़े',
+          },
+          {
             locale: 'it',
             value: '2 fette',
           },
@@ -235,6 +251,10 @@ export const desserts: Product[] = [
           {
             locale: 'fr',
             value: 'Tarte entière',
+          },
+          {
+            locale: 'hi',
+            value: 'संपूर्ण पाई',
           },
           {
             locale: 'it',
@@ -303,6 +323,10 @@ export const desserts: Product[] = [
         value: 'Cheesecake chic new-yorkais',
       },
       {
+        locale: 'hi',
+        value: 'न्यूयॉर्क ठाठ चीज़केक',
+      },
+      {
         locale: 'it',
         value: 'Cheesecake chic newyorkese',
       },
@@ -343,6 +367,10 @@ export const desserts: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez le goût unique d\'un véritable cheesecake new-yorkais ! L\'alliance délicate du fromage frais, d\'une base croustillante et de fruits frais vous offrira une expérience gustative inoubliable. Préparé avec amour, ce dessert sera la touche finale parfaite à votre soirée ou un excellent complément à une rencontre entre amis.',
+      },
+      {
+        locale: 'hi',
+        value: 'असली न्यूयॉर्क चीज़केक के अनोखे स्वाद का अनुभव करें! क्रीम चीज़, क्रंची बेस और ताज़े फलों का नाज़ुक मेल आपको एक यादगार स्वाद देगा। प्यार से तैयार किया गया यह डेज़र्ट आपकी शाम का एक परफेक्ट अंत होगा या किसी फ्रेंडली मीटिंग में एक बढ़िया चीज़ होगी।',
       },
       {
         locale: 'it',
@@ -390,6 +418,10 @@ export const desserts: Product[] = [
           {
             locale: 'fr',
             value: 'Part',
+          },
+          {
+            locale: 'hi',
+            value: 'टुकड़ा',
           },
           {
             locale: 'it',
@@ -464,6 +496,10 @@ export const desserts: Product[] = [
         value: 'Tourbillon de mangue',
       },
       {
+        locale: 'hi',
+        value: 'आम का घुमाव',
+      },
+      {
         locale: 'it',
         value: 'Vortice di mango',
       },
@@ -504,6 +540,10 @@ export const desserts: Product[] = [
       {
         locale: 'fr',
         value: 'Vivez une véritable explosion de saveurs tropicales avec notre dessert unique ! L\'alliance délicate de la mangue mûre, de la crème onctueuse et des biscuits croustillants vous procurera un plaisir inoubliable. Plongez dans une ambiance chaleureuse et ensoleillée à chaque bouchée de cette gourmandise irrésistible.',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारे अनोखे डेज़र्ट के साथ स्वाद के असली ट्रॉपिकल धमाके का अनुभव करें! पके आम, क्रीमी क्रीम और क्रिस्पी कुकीज़ का एक नाज़ुक कॉम्बिनेशन आपको कभी न भूलने वाला मज़ा देगा। इस शानदार ट्रीट के हर बाइट के साथ गर्मी और धूप के माहौल में डूब जाएं।',
       },
       {
         locale: 'it',
@@ -551,6 +591,10 @@ export const desserts: Product[] = [
           {
             locale: 'fr',
             value: 'Part',
+          },
+          {
+            locale: 'hi',
+            value: 'टुकड़ा',
           },
           {
             locale: 'it',

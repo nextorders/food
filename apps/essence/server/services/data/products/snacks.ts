@@ -45,6 +45,10 @@ export const snacks: Product[] = [
         locale: 'pt',
         value: 'Asas da Felicidade: Sopro Quente de Búfalo',
       },
+      {
+        locale: 'hi',
+        value: 'खुशी के पंख: भैंस की गर्म सांस',
+      },
     ],
     description: [
       {
@@ -86,6 +90,10 @@ export const snacks: Product[] = [
       {
         locale: 'pt',
         value: 'Asas de Frango Buffalo - picantes, suculentas e incrivelmente deliciosas! A escolha perfeita para uma festa divertida.',
+      },
+      {
+        locale: 'hi',
+        value: 'बफ़ेलो फ्राइड विंग्स - मसालेदार, रसीले और बहुत स्वादिष्ट! मज़ेदार पार्टी के लिए एकदम सही चॉइस।',
       },
     ],
     isAvailableForPurchase: true,
@@ -133,6 +141,10 @@ export const snacks: Product[] = [
           {
             locale: 'pt',
             value: 'Porção',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
         ],
         images: [
@@ -205,6 +217,10 @@ export const snacks: Product[] = [
             locale: 'pt',
             value: '🔥🥵',
           },
+          {
+            locale: 'hi',
+            value: '🔥🥵',
+          },
         ],
       },
     ],
@@ -253,6 +269,10 @@ export const snacks: Product[] = [
         locale: 'pt',
         value: 'Riqueza de vegetais',
       },
+      {
+        locale: 'hi',
+        value: 'सब्जियों की भरमार',
+      },
     ],
     description: [
       {
@@ -270,6 +290,10 @@ export const snacks: Product[] = [
       {
         locale: 'fr',
         value: 'Savourez la fraîcheur des légumes dans notre quesadilla végétarienne ! C\'est l\'alliance parfaite d\'ingrédients juteux et d\'épices aromatiques. Ne manquez pas l\'occasion de goûter notre quesadilla végétarienne et de faire le plein d\'énergie grâce à ses saveurs éclatantes !',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारे वेजिटेबल क्साडिला में ताज़ी सब्जियों के स्वाद का मज़ा लें! यह खुशबूदार मसालों के साथ रसीले इंग्रीडिएंट्स का परफेक्ट कॉम्बिनेशन है। हमारे वेजिटेबल क्साडिला को ट्राई करने और ब्राइट फ्लेवर के साथ एनर्जी पाने का मौका न चूकें!',
       },
       {
         locale: 'it',
@@ -317,6 +341,10 @@ export const snacks: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -414,6 +442,10 @@ export const snacks: Product[] = [
         locale: 'pt',
         value: 'Cheeseburgerettes',
       },
+      {
+        locale: 'hi',
+        value: 'चीज़बर्गरेट',
+      },
     ],
     description: [
       {
@@ -431,6 +463,10 @@ export const snacks: Product[] = [
       {
         locale: 'fr',
         value: 'De tendres mini cheeseburgers : le goûter idéal pour toute la famille ! De délicieux mini-burgers avec du vrai fromage américain, un steak juteux et des légumes frais. Retrouvez l’ambiance d’un authentique restaurant américain, sans plus attendre !',
+      },
+      {
+        locale: 'hi',
+        value: 'टेंडर मिनी चीज़बर्गर - पूरे परिवार के लिए परफेक्ट स्नैक! असली अमेरिकन चीज़, जूसी पैटी और ताज़ी सब्ज़ियों के साथ स्वादिष्ट मिनी-बर्गर। अभी और यहीं एक असली अमेरिकन रेस्टोरेंट का माहौल महसूस करें!',
       },
       {
         locale: 'it',
@@ -478,6 +514,10 @@ export const snacks: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -552,6 +592,10 @@ export const snacks: Product[] = [
         value: 'Fromage chaud et bacon',
       },
       {
+        locale: 'hi',
+        value: 'गरम पनीर और बेकन',
+      },
+      {
         locale: 'it',
         value: 'Formaggio caldo e pancetta',
       },
@@ -592,6 +636,10 @@ export const snacks: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez le goût unique des frites au cheddar et au bacon dans notre restaurant ! C’est la combinaison parfaite pour les vrais gourmets.',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारे रेस्टोरेंट में चेडर चीज़ और बेकन के साथ फ्रेंच फ्राइज़ का अनोखा स्वाद अनुभव करें! यह असली खाने के शौकीनों के लिए एकदम सही कॉम्बिनेशन है।',
       },
       {
         locale: 'it',
@@ -639,6 +687,10 @@ export const snacks: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -713,6 +765,10 @@ export const snacks: Product[] = [
         value: 'Aventures fromagères : nachos avec trois sortes de fromage',
       },
       {
+        locale: 'hi',
+        value: 'चीज़ एडवेंचर: तीन तरह के चीज़ के साथ नाचोस',
+      },
+      {
         locale: 'it',
         value: 'Avventure di formaggio: nachos con tre tipi di formaggio',
       },
@@ -753,6 +809,10 @@ export const snacks: Product[] = [
       {
         locale: 'fr',
         value: 'Plongez dans l\'ambiance authentique d\'une fête mexicaine avec nos nachos au fromage uniques ! L\'alliance fondante de trois fromages et de tortillas de maïs croustillantes saura ravir même les palais les plus exigeants. Servez-les avec de la sauce piquante ou de la salsa : l\'accord parfait pour une soirée inoubliable entre amis ou en famille.',
+      },
+      {
+        locale: 'hi',
+        value: 'हम आपको हमारे खास चीज़ वाले नाचोस के साथ असली मैक्सिकन छुट्टी के माहौल में डूबने के लिए बुलाते हैं! तीन तरह के चीज़ और क्रिस्पी कॉर्न टॉर्टिला का नरम कॉम्बिनेशन सबसे अनुभवी खाने के शौकीनों को भी पसंद आएगा। हॉट सॉस या साल्सा के साथ परोसें - दोस्तों और परिवार के साथ एक यादगार शाम के लिए यह एकदम सही कॉम्बिनेशन है।',
       },
       {
         locale: 'it',
@@ -800,6 +860,10 @@ export const snacks: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -874,6 +938,10 @@ export const snacks: Product[] = [
         value: 'Extravagance au bacon',
       },
       {
+        locale: 'hi',
+        value: 'बेकन का असाधारण प्रदर्शन',
+      },
+      {
         locale: 'it',
         value: 'Stravaganza di bacon',
       },
@@ -914,6 +982,10 @@ export const snacks: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez un plaisir gustatif inédit avec notre pizzadilla spéciale ! Pâte fine, bacon savoureux et fromage : une combinaison irrésistible. Ne manquez pas l\'occasion de savourer ce délice dans l\'ambiance chaleureuse de notre restaurant !',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारे स्पेशल पिज़्ज़ाडिला के साथ मज़े का एक नया लेवल खोजें! पतला आटा, स्वादिष्ट बेकन और चीज़ - यह कॉम्बिनेशन आपका दिल ज़रूर जीत लेगा। हमारे रेस्टोरेंट के आरामदायक माहौल में इस ज़बरदस्त स्वाद का मज़ा लेने का मौका न चूकें!',
       },
       {
         locale: 'it',
@@ -961,6 +1033,10 @@ export const snacks: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -1035,6 +1111,10 @@ export const snacks: Product[] = [
         value: 'Les fils magiques de Gouda',
       },
       {
+        locale: 'hi',
+        value: 'गौडा के जादुई धागे',
+      },
+      {
         locale: 'it',
         value: 'I fili magici di Gouda',
       },
@@ -1075,6 +1155,10 @@ export const snacks: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez un monde de saveurs extraordinaires avec des fromages gastronomiques qui vous offriront une expérience inoubliable à chaque bouchée.',
+      },
+      {
+        locale: 'hi',
+        value: 'गॉरमे चीज़ के साथ स्वादों की एक अद्भुत दुनिया खोजें जो आपको हर बाइट के साथ एक यादगार अनुभव देगी।',
       },
       {
         locale: 'it',
@@ -1122,6 +1206,10 @@ export const snacks: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -1196,6 +1284,10 @@ export const snacks: Product[] = [
         value: 'Quesadilla flambée : tranches de poulet épicées',
       },
       {
+        locale: 'hi',
+        value: 'फ्लेमिंग क्साडिला: मसालेदार चिकन स्लाइस',
+      },
+      {
         locale: 'it',
         value: 'Quesadilla fiammeggiante: Fette di pollo piccanti',
       },
@@ -1236,6 +1328,10 @@ export const snacks: Product[] = [
       {
         locale: 'fr',
         value: 'Nous vous invitons à déguster une exquise quesadilla au poulet dans notre restaurant ! Filet de poulet tendre, épices parfumées et fromage doré : cette combinaison saura vous séduire. Servie avec des légumes et de la sauce salsa. Venez savourer l\'authentique cuisine mexicaine dans l\'ambiance chaleureuse de notre restaurant !',
+      },
+      {
+        locale: 'hi',
+        value: 'हम आपको हमारे रेस्टोरेंट में शानदार चिकन क्साडिला का मज़ा लेने के लिए बुलाते हैं! मुलायम चिकन फ़िलेट, खुशबूदार मसाले और सुनहरा चीज़ - यह कॉम्बिनेशन ज़रूर आपका दिल जीत लेगा। सब्ज़ियों और साल्सा सॉस के साथ सर्व किया जाता है। हमारे रेस्टोरेंट के आरामदायक माहौल में असली मैक्सिकन खाने का अनोखा स्वाद महसूस करें!',
       },
       {
         locale: 'it',
@@ -1283,6 +1379,10 @@ export const snacks: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',

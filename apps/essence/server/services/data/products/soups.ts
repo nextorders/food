@@ -22,6 +22,10 @@ export const soups: Product[] = [
         value: 'Bortsch généreux',
       },
       {
+        locale: 'hi',
+        value: 'उदार बोर्स्ट',
+      },
+      {
         locale: 'it',
         value: 'Borscht generoso',
       },
@@ -62,6 +66,10 @@ export const soups: Product[] = [
       {
         locale: 'fr',
         value: 'Un plat exquis pour les vrais gourmets. Viande tendre, légumes parfumés et crème fraîche onctueuse composent une saveur unique dont vous vous souviendrez longtemps.',
+      },
+      {
+        locale: 'hi',
+        value: 'सच्चे खाने के शौकीनों के लिए एक शानदार डिश। नरम मीट, खुशबूदार सब्ज़ियां और गाढ़ी खट्टी क्रीम एक अनोखा स्वाद देती है जिसे आप लंबे समय तक याद रखेंगे।',
       },
       {
         locale: 'it',
@@ -109,6 +117,10 @@ export const soups: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -183,6 +195,10 @@ export const soups: Product[] = [
         value: 'Le charme de la Loire',
       },
       {
+        locale: 'hi',
+        value: 'लॉयर का आकर्षण',
+      },
+      {
         locale: 'it',
         value: 'Il fascino della Loira',
       },
@@ -223,6 +239,10 @@ export const soups: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez la véritable soupe à l\'oignon française dans notre restaurant ! Un bouillon onctueux et crémeux, des oignons dorés et du thym parfumé créent une combinaison de saveurs unique. Goûtez à cette soupe exquise et imprégnez-vous de l\'atmosphère française dans notre cadre chaleureux !',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारे रेस्टोरेंट में असली फ्रेंच अनियन सूप का मज़ा लें! मुलायम क्रीमी ब्रोथ, सुनहरे प्याज़ और मसालेदार थाइम मिलकर एक अनोखा स्वाद बनाते हैं। इस शानदार सूप को ट्राई करें और हमारी आरामदायक जगह पर फ्रांस का माहौल महसूस करें!',
       },
       {
         locale: 'it',
@@ -270,6 +290,10 @@ export const soups: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -344,6 +368,10 @@ export const soups: Product[] = [
         value: 'Club de l\'amitié ! Sandwich !',
       },
       {
+        locale: 'hi',
+        value: 'दोस्ती! सैंडविच! क्लब!',
+      },
+      {
         locale: 'it',
         value: 'Amicizia! Sandwich! Club!',
       },
@@ -384,6 +412,10 @@ export const soups: Product[] = [
       {
         locale: 'fr',
         value: 'Goûtez notre délicieux et copieux sandwich poulet, nouilles et petit pain ! Du poulet tendre, des légumes juteux et un petit pain croustillant : un excellent choix pour votre déjeuner ou votre dîner. Savourez le goût authentique d\'une cuisine maison dans l\'ambiance chaleureuse de notre restaurant !',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारा स्वादिष्ट और पेट भरने वाला चिकन नूडल और बन सैंडविच ट्राई करें! मुलायम चिकन मीट, रसीली सब्ज़ियाँ और क्रिस्पी बन - आपके लंच या डिनर के लिए एक बढ़िया ऑप्शन। हमारे रेस्टोरेंट के आरामदायक माहौल में घर के खाने का अनोखा स्वाद महसूस करें!',
       },
       {
         locale: 'it',
@@ -431,6 +463,10 @@ export const soups: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -502,6 +538,10 @@ export const soups: Product[] = [
           {
             locale: 'fr',
             value: 'Profitable 🤑',
+          },
+          {
+            locale: 'hi',
+            value: 'लाभदायक 🤑',
           },
           {
             locale: 'it',

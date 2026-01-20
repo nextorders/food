@@ -22,6 +22,10 @@ export const salads: Product[] = [
         value: 'Entrée épicée : salade au poulet grillé',
       },
       {
+        locale: 'hi',
+        value: 'मसालेदार ऐपेटाइज़र: ग्रिल्ड चिकन के साथ सलाद',
+      },
+      {
         locale: 'it',
         value: 'Antipasto piccante: insalata con pollo alla griglia',
       },
@@ -62,6 +66,10 @@ export const salads: Product[] = [
       {
         locale: 'fr',
         value: 'Nous vous invitons à savourer une délicieuse entrée ! Notre salade signature au poulet grillé est une combinaison parfaite de poulet juteux, de légumes frais et d\'une sauce savoureuse. Ne manquez pas l\'occasion de goûter ce plat exquis dans notre restaurant et de faire le plein d\'énergie pour toute la journée !',
+      },
+      {
+        locale: 'hi',
+        value: 'हम आपको एक स्वादिष्ट ऐपेटाइज़र का मज़ा लेने के लिए बुलाते हैं! ग्रिल्ड चिकन के साथ हमारा सिग्नेचर सलाद रसीले चिकन, ताज़ी सब्ज़ियों और स्वादिष्ट सॉस का एक पर्फेक्ट कॉम्बिनेशन है। हमारे रेस्टोरेंट में इस शानदार डिश को आज़माने का मौका न चूकें और पूरे दिन के लिए एनर्जेटिक रहें!',
       },
       {
         locale: 'it',
@@ -109,6 +117,10 @@ export const salads: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -188,6 +200,10 @@ export const salads: Product[] = [
         value: '« Tourbillon de feu » : Salade de poulet Buffalo',
       },
       {
+        locale: 'hi',
+        value: '"फायर व्हर्ल": बफ़ेलो चिकन सलाद',
+      },
+      {
         locale: 'it',
         value: '"Vortice di fuoco": Insalata di pollo Buffalo',
       },
@@ -228,6 +244,10 @@ export const salads: Product[] = [
       {
         locale: 'fr',
         value: 'Nous vous invitons à savourer l\'exquise salade de poulet Buffalo dans notre restaurant ! De tendres morceaux de poulet marinés dans une sauce épicée se marient à merveille avec de la laitue, des carottes, du céleri et une vinaigrette originale au bleu. Ce plat ravira les amateurs de saveurs relevées et originales !',
+      },
+      {
+        locale: 'hi',
+        value: 'हम आपको हमारे रेस्टोरेंट में बफ़ेलो चिकन सलाद के शानदार स्वाद का मज़ा लेने के लिए बुलाते हैं! मसालेदार सॉस में मैरीनेट किया हुआ नरम चिकन मीट, लेट्यूस के पत्तों, गाजर, सेलेरी और ओरिजिनल ब्लू चीज़ ड्रेसिंग के साथ बहुत अच्छा लगता है। यह डिश मसालेदार और अनोखे स्वाद के कॉम्बिनेशन पसंद करने वालों के लिए एक असली खोज होगी!',
       },
       {
         locale: 'it',
@@ -275,6 +295,10 @@ export const salads: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -354,6 +378,10 @@ export const salads: Product[] = [
         value: 'Crevettes charmantes : salade César',
       },
       {
+        locale: 'hi',
+        value: 'आकर्षक झींगा: सीज़र सलाद',
+      },
+      {
         locale: 'it',
         value: 'Gamberi affascinanti: insalata Caesar',
       },
@@ -394,6 +422,10 @@ export const salads: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez la saveur unique de notre salade César aux crevettes ! La combinaison tendre de crevettes juteuses, de feuilles de salade croquantes et d’une sauce savoureuse vous séduira. Un choix idéal pour un dîner romantique ou un repas entre amis.',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारे रेस्टोरेंट में श्रिम्प के साथ सीज़र सलाद का अनोखा स्वाद अनुभव करें! रसीले श्रिम्प, कुरकुरे सलाद पत्ते और स्वादिष्ट सॉस का नरम मेल आपका दिल जीत लेगा। रोमांटिक डिनर या फ्रेंडली मीटिंग के लिए एक परफेक्ट चॉइस।',
       },
       {
         locale: 'it',
@@ -441,6 +473,10 @@ export const salads: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -519,6 +555,10 @@ export const salads: Product[] = [
             value: 'Délice gastronomique',
           },
           {
+            locale: 'hi',
+            value: 'गैस्ट्रोनॉमिक आनंद',
+          },
+          {
             locale: 'it',
             value: 'Piacere gastronomico',
           },
@@ -567,6 +607,10 @@ export const salads: Product[] = [
         value: '"Barbecue Flip" : une explosion de saveurs et d\'arômes',
       },
       {
+        locale: 'hi',
+        value: '"बारबेक्यू फ्लिप": स्वाद और खुशबू का धमाका',
+      },
+      {
         locale: 'it',
         value: '"Barbecue Flip": un\'esplosione di sapore e aroma',
       },
@@ -607,6 +651,10 @@ export const salads: Product[] = [
       {
         locale: 'fr',
         value: 'Goûtez notre salade de poulet BBQ signature : une combinaison parfaite de poulet juteux, de bacon, de tomates et d’œufs, le tout nappé de sauce BBQ. Le goût délicat et savoureux de ce plat vous laissera un souvenir impérissable !',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारा सिग्नेचर BBQ चिकन सलाद ट्राई करें - BBQ सॉस के साथ जूसी चिकन, बेकन, टमाटर और अंडे का एक परफेक्ट कॉम्बिनेशन। इस डिश का नाज़ुक स्वाद और फ्लेवर लंबे समय तक याद रहेगा!',
       },
       {
         locale: 'it',
@@ -654,6 +702,10 @@ export const salads: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -728,6 +780,10 @@ export const salads: Product[] = [
         value: 'Le chic de Cobb',
       },
       {
+        locale: 'hi',
+        value: 'कोब का ठाठ',
+      },
+      {
         locale: 'it',
         value: 'L\'eleganza di Cobb',
       },
@@ -768,6 +824,10 @@ export const salads: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez la saveur exquise de la légendaire salade Cobb dans notre restaurant ! Ce mélange de poulet tendre, d’avocat juteux, de tomates fraîches, de bacon croustillant et de fromage bleu parfumé saura vous séduire. Un choix idéal pour les amateurs de cuisine américaine authentique et de saveurs uniques.',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारे रेस्टोरेंट में मशहूर कॉब सलाद का शानदार स्वाद चखें! मुलायम चिकन, रसीले एवोकाडो, ताज़े टमाटर, क्रिस्पी बेकन और खुशबूदार ब्लू चीज़ का यह कॉम्बिनेशन आपको ज़रूर पसंद आएगा। यह उन लोगों के लिए एक बढ़िया चॉइस है जो असली अमेरिकन खाना पसंद करते हैं और अनोखे स्वाद का मज़ा लेना चाहते हैं।',
       },
       {
         locale: 'it',
@@ -815,6 +875,10 @@ export const salads: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -889,6 +953,10 @@ export const salads: Product[] = [
         value: 'César Impérial',
       },
       {
+        locale: 'hi',
+        value: 'शाही सीज़र',
+      },
+      {
         locale: 'it',
         value: 'Caesar Imperiale',
       },
@@ -929,6 +997,10 @@ export const salads: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez le goût unique de la salade César classique dans notre restaurant ! La combinaison délicate de feuilles de salade juteuses, de parmesan parfumé et de croûtons dorés, assaisonnés d\'une sauce Worcestershire spéciale, vous offrira un plaisir gastronomique inoubliable.',
+      },
+      {
+        locale: 'hi',
+        value: 'हमारे रेस्टोरेंट में क्लासिक सीज़र सलाद के अनोखे स्वाद का अनुभव करें! रसीले सलाद के पत्ते, खुशबूदार पार्मेज़ान और खास वॉर्सेस्टर सॉस के साथ सुनहरे क्राउटन का नरम मेल आपको कभी न भूलने वाला खाने का मज़ा देगा।',
       },
       {
         locale: 'it',
@@ -976,6 +1048,10 @@ export const salads: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -1050,6 +1126,10 @@ export const salads: Product[] = [
         value: 'Explosion cosmique de saveurs',
       },
       {
+        locale: 'hi',
+        value: 'स्वाद का ब्रह्मांडीय विस्फोट',
+      },
+      {
         locale: 'it',
         value: 'Esplosione cosmica di sapore',
       },
@@ -1090,6 +1170,10 @@ export const salads: Product[] = [
       {
         locale: 'fr',
         value: 'Découvrez une combinaison exquise de légumes frais, de poulet tendre et d\'épices parfumées. Savourez un goût unique et régalez vos convives !',
+      },
+      {
+        locale: 'hi',
+        value: 'ताज़ी सब्ज़ियों, मुलायम चिकन और खुशबूदार मसालों का एक शानदार कॉम्बिनेशन देखें। अनोखे स्वाद का मज़ा लें और अपनी टेबल पर चमकते सितारों को एनर्जी दें!',
       },
       {
         locale: 'it',
@@ -1137,6 +1221,10 @@ export const salads: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
@@ -1210,6 +1298,10 @@ export const salads: Product[] = [
             value: 'Leader des préférences 🚀',
           },
           {
+            locale: 'hi',
+            value: 'प्राथमिकताओं का नेता 🚀',
+          },
+          {
             locale: 'it',
             value: 'Leader delle preferenze 🚀',
           },
@@ -1258,6 +1350,10 @@ export const salads: Product[] = [
         value: 'Oasis grecque de saveurs',
       },
       {
+        locale: 'hi',
+        value: 'स्वाद का ग्रीक नखलिस्तान',
+      },
+      {
         locale: 'it',
         value: 'Oasi greca di sapore',
       },
@@ -1298,6 +1394,10 @@ export const salads: Product[] = [
       {
         locale: 'fr',
         value: 'La salade grecque est un classique, source de fraîcheur et de vitamines. Savourez l\'alliance parfaite de tomates mûres, de concombres croquants, de poivrons doux, d\'oignons rouges et d\'olives tendres. Arrosez le tout d\'huile d\'olive parfumée et ajoutez de la feta artisanale : votre table se transformera en un véritable festin de saveurs !',
+      },
+      {
+        locale: 'hi',
+        value: 'ग्रीक सलाद ताज़गी और विटामिन का एक क्लासिक सोर्स है। पके टमाटर, कुरकुरे खीरे, मीठी मिर्च, लाल प्याज़ और मुलायम ऑलिव के परफेक्ट कॉम्बिनेशन का मज़ा लें। इसे खुशबूदार ऑलिव ऑयल से सीज़न करें और ओरिजिनल फेटा डालें - और आपकी टेबल स्वाद की असली दावत में बदल जाएगी!',
       },
       {
         locale: 'it',
@@ -1345,6 +1445,10 @@ export const salads: Product[] = [
           {
             locale: 'fr',
             value: 'Portion',
+          },
+          {
+            locale: 'hi',
+            value: 'भाग',
           },
           {
             locale: 'it',
