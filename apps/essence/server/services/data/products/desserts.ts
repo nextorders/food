@@ -346,7 +346,7 @@ export const desserts: Product[] = [
       },
       {
         locale: 'it',
-        value: 'Experience the unique taste of a real New York cheesecake! The delicate combination of cream cheese, crunchy base and fresh fruit will give you an unforgettable taste sensation. Prepared with love, this dessert will be a perfect end to your evening or a great addition to a friendly meeting.',
+        value: 'Provate il gusto unico di una vera cheesecake newyorkese! La delicata combinazione di formaggio cremoso, base croccante e frutta fresca vi regalerà un\'esperienza di gusto indimenticabile. Preparato con amore, questo dessert sarà la conclusione perfetta della vostra serata o un\'ottima aggiunta a un incontro amichevole.',
       },
       {
         locale: 'ru',
@@ -393,7 +393,7 @@ export const desserts: Product[] = [
           },
           {
             locale: 'it',
-            value: 'Slice',
+            value: 'Fetta',
           },
           {
             locale: 'ru',
@@ -554,7 +554,7 @@ export const desserts: Product[] = [
           },
           {
             locale: 'it',
-            value: 'Slice',
+            value: 'Fetta',
           },
           {
             locale: 'ru',
@@ -566,7 +566,7 @@ export const desserts: Product[] = [
           },
           {
             locale: 'de',
-            value: 'Schlitzer',
+            value: 'Scheibe',
           },
           {
             locale: 'zh_cn',
