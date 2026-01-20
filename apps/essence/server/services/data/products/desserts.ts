@@ -187,7 +187,7 @@ export const desserts: Product[] = [
           },
           {
             locale: 'hi',
-            value: '2 स्लाइस',
+            value: '2 टुकड़े',
           },
           {
             locale: 'it',
