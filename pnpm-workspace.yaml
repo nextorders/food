@@ -29,13 +29,13 @@ catalogs:
     eslint: ^9.39.2
     husky: ^9.1.7
     lint-staged: ^16.2.7
-    nuxt: ^4.2.2
+    nuxt: ^4.3.0
     nuxt-auth-utils: ^0.5.27
     tailwindcss-motion: ^1.1.1
     typescript: ^5.9.3
     unbuild: ^3.6.1
     vite: ^7.3.1
-    vue-tsc: ^3.2.2
+    vue-tsc: ^3.2.3
   integrations:
     '@date-fns/tz': ^1.4.1
     '@neoconfetti/vue': ^2.2.1
@@ -46,12 +46,12 @@ catalogs:
     '@vueuse/nuxt': ^14.1.0
     libphonenumber-js: ^1.12.35
     pinia: ^3.0.4
-    zod: ^4.3.5
+    zod: ^4.3.6
   test:
-    '@vitest/browser-playwright': ^4.0.17
-    '@vitest/coverage-v8': ^4.0.17
+    '@vitest/browser-playwright': ^4.0.18
+    '@vitest/coverage-v8': ^4.0.18
     playwright: ^1.57.0
-    vitest: ^4.0.17
+    vitest: ^4.0.18
   types:
     '@types/node': ^25.0.10
 
