@@ -6,31 +6,54 @@
   <a href="https://demo.nextorders.space/"><img src="https://img.shields.io/static/v1?label=Demo&message=Open&colorA=18181B&colorB=FF7F50" alt="Demo"></a>
 </p>
 
-Modern e-commerce self-hosted platform: clients will be happy to order delicious food!
+Self-hosted website for food delivery. Your brand, your customers, zero middleman fees.
 
 👉 [Demo: Select a city](https://demo.nextorders.space/)
 
 👉 [Demo: Website](https://demo.nextorders.space/moscow/)
 
-> Loved the taste? Give a star ⭐ — it’s like leaving a tip for the chef!
+> Loved the taste? Give a star ⭐ — it's like leaving a tip for the chef!
 
 ![main-screen-desktop](https://github.com/nextorders/food/blob/main/.github/media/main-screen-desktop.jpg?raw=true)
 
+## 🎯 Who is this for?
+
+| Who | Current pain | How NextOrders helps |
+|-----|--------------|---------------------|
+| **Small restaurants & cafes** | Aggregators (Uber Eats, DoorDash, etc.) take 20-35% commission | Your own website with zero commission fees |
+| **Restaurant chains** | Custom development is expensive, or stuck with legacy systems | Modern, production-ready frontend out of the box |
+| **Ghost kitchens** | Full dependency on aggregators, no direct customer relationship | Direct channel to customers, own brand presence |
+| **Dev agencies & integrators** | Building food delivery sites from scratch for each client | Ready-to-deploy solution, just connect your backend |
+
+**The idea is simple**: deploy the `web-app` container, connect it to your own service that implements `food-schema`, and you have a modern food ordering website.
+
 ## 🍣 Features
 
-- **Fully responsive design** — works perfectly on any device.
-- **Multi‑page SSR** — fast loading + SEO.
-- **Multi‑language** — supports 11+ locales.
-- **Multi‑city support** — run separate storefronts for different cities/regions.
-- **Most often added** — block shows items frequently bought together to boost cross‑sales.
-- **Product video** - show fragment on product page to increase conversion rates.
-- **Product composition** — it can be a list of ingredients or product cards with information.
+**Performance & SEO**
+- **PageSpeed 100** — [check it yourself](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fdemo.nextorders.space%2Fmoscow%2F). Fast loading, great Core Web Vitals.
+- **Multi‑page SSR** — SEO-friendly, indexable by search engines.
+
+**Global ready**
+- **11+ languages** — EN, DE, ES, FR, RU, ZH, and more.
+- **Multi‑city support** — separate storefronts for different locations.
+
+**Conversion focused**
+- **Most often added** — shows items frequently bought together.
+- **Product video** — boost conversion with video on product pages.
 - **Persistent cart** — always visible on desktop.
 - **Delivery & pickup** — flexible fulfillment options.
-- **Instant search** — find products in the catalog.
-- **Guest checkout** — no registration required.
 
-[Check out PageSpeed Insights](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fdemo.nextorders.space%2Fmoscow%2F). Maybe it's showing all 100s 😉
+## 🍕 Architecture
+
+NextOrders separates the **frontend** (this repo) from the **backend** (your business logic).
+
+![nextorders-arch](https://github.com/nextorders/food/blob/main/.github/media/nextorders-arch-v2.png?raw=true)
+
+- **Web App** — storefront that customers see and use
+- **Your Backend** — serves your menu, prices, and handles orders
+- **Shared schema** — typed contract between frontend and backend (see [Food Schema](https://github.com/nextorders/food/tree/main/packages/food-schema))
+
+You keep full control over your data and business logic. The frontend just needs an API that follows the schema.
 
 ## 🥪 Tech Stack
 
@@ -59,7 +82,10 @@ All dependencies are managed by [pnpm](https://pnpm.io/). Check the [pnpm-worksp
 
 ## 🌎 Supported Locales
 
-The application currently supports [different languages](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales):
+11+ languages out of the box: English, German, Spanish, French, Russian, Chinese, and more.
+
+<details>
+<summary>Full list of supported languages</summary>
 
 | Code | Language | Native | Link |
 |------|----------|--------|------|
@@ -75,9 +101,11 @@ The application currently supports [different languages](https://github.com/next
 | `ru` 🇷🇺 | Russian | Русский | [ru-RU.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/ru-RU.ts) |
 | `zh_cn` 🇨🇳 | Simplified Chinese | 简体中文 | [zh-CN.ts](https://github.com/nextorders/food/tree/main/packages/ui/i18n/locales/zh-CN.ts) |
 
+</details>
+
 ## ☕ How to deploy
 
-⚠️ Warn: work in progress.
+Docker image and deployment guide coming soon. For now, check out the [demo](https://demo.nextorders.space/) or run locally with `pnpm dev`.
 
 ## 🍿 How to develop
 
@@ -94,12 +122,3 @@ pnpm i
 ## 🍰 License
 
 This project is licensed under the **MIT License** - see the [**License**](https://github.com/nextorders/food/blob/main/LICENSE) file for details.
-
-## 🍕 Main idea and architecture of NextOrders
-
-There is a great desire to create software that is ideal for ordering and delivering food.
-It will be a set of solutions that can work together.
-
-![nextorders-arch](https://github.com/nextorders/food/blob/main/.github/media/nextorders-arch-v2.png?raw=true)
-
-Let's see what happens. Offer your ideas and make commits.
