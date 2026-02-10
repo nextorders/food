@@ -1,6 +1,6 @@
 import z from 'zod'
 
-export const ImageFormatSchema = z.enum(['jpeg', 'webp'])
+export const ImageFormatSchema = z.enum(['jpeg', 'webp', 'original'])
 export type ImageFormat = z.infer<typeof ImageFormatSchema>
 
 /**
@@ -11,7 +11,7 @@ export type ImageFormat = z.infer<typeof ImageFormatSchema>
  * - lg - 1280px
  * - xl - 1920px
  */
-export const ImageSizeSchema = z.enum(['xs', 'sm', 'md', 'lg', 'xl'])
+export const ImageSizeSchema = z.enum(['xs', 'sm', 'md', 'lg', 'xl', 'original'])
 export type ImageSize = z.infer<typeof ImageSizeSchema>
 
 export const ImageSchema = z.object({
