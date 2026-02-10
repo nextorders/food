@@ -7,12 +7,17 @@ const HeadLinkSchema = z.object({
   sizes: z.string().optional(),
   href: z.string().optional(),
 })
+export type HeadLink = z.infer<typeof HeadLinkSchema>
 
 const HeadScriptSchema = z.object({
   src: z.string().optional(),
   type: z.string().optional(),
   textContent: z.string().optional(),
 })
+export type HeadScript = z.infer<typeof HeadScriptSchema>
+
+const HeadStyleSchema = z.string()
+export type HeadStyle = z.infer<typeof HeadStyleSchema>
 
 export const OptionsSchema = z.object({
   selectorTitle: LocaleValueSchema.array(),
@@ -24,6 +29,6 @@ export const OptionsSchema = z.object({
   currencyCode: CurrencyCodeSchema,
   headLinks: HeadLinkSchema.array().optional(),
   headScripts: HeadScriptSchema.array().optional(),
-  headStyles: z.string().array().optional(),
+  headStyles: HeadStyleSchema.array().optional(),
 })
 export type Options = z.infer<typeof OptionsSchema>

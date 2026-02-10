@@ -11,6 +11,7 @@ const DeliveryByCourierSchema = z.object({
   minAmountForDelivery: z.number().optional(),
   schedule: ScheduleSchema.optional(),
 })
+export type DeliveryByCourier = z.infer<typeof DeliveryByCourierSchema>
 
 const SelfPickupSchema = z.object({
   isAvailable: z.boolean(),
@@ -19,6 +20,7 @@ const SelfPickupSchema = z.object({
   schedule: ScheduleSchema.optional(),
   warehouses: WarehouseSchema.array().optional(),
 })
+export type SelfPickup = z.infer<typeof SelfPickupSchema>
 
 const LinkSchema = z.object({
   to: z.string(),
@@ -26,12 +28,14 @@ const LinkSchema = z.object({
   icon: z.string().optional(),
   target: z.string().optional(),
 })
+export type Link = z.infer<typeof LinkSchema>
 
 const LinksSchema = z.object({
   aside: LinkSchema.array(),
   footer: LinkSchema.array(),
   social: LinkSchema.array(),
 })
+export type Links = z.infer<typeof LinksSchema>
 
 export const ChannelSchema = z.object({
   id: z.string(),
