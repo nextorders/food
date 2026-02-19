@@ -43,6 +43,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Build packages
+        run: pnpm --filter @nextorders/food-schema run build
+
       - name: ESLint
         run: pnpm run lint
 
