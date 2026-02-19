@@ -1,6 +1,6 @@
 {
   "name": "@nextorders/food-monorepo",
-  "version": "0.0.0",
+  "version": "2.0.0-alpha.1",
   "private": true,
   "packageManager": "pnpm@10.29.2",
   "description": "Modern e-commerce self-hosted platform: clients will be happy to order delicious food!",
