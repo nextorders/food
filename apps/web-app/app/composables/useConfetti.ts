@@ -4,9 +4,7 @@ function _useConfetti() {
 
   function pop() {
     isShown.value = true
-    if (hideTimeout) {
-      clearTimeout(hideTimeout)
-    }
+    clearTimeout(hideTimeout)
     hideTimeout = setTimeout(() => {
       isShown.value = false
     }, 3000)

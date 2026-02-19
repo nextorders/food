@@ -85,14 +85,16 @@ import type { OrderDeliveryAddress } from '@nextorders/food-schema'
 
 const orderStore = useOrderStore()
 
+const savedAddress = orderStore.address?.type === 'deliveryAddress' ? orderStore.address : null
+
 const state = ref<OrderDeliveryAddress>({
   type: 'deliveryAddress',
-  street: orderStore.address?.type === 'deliveryAddress' ? orderStore.address.street : '',
-  flat: orderStore.address?.type === 'deliveryAddress' ? orderStore.address.flat : '',
-  intercom: orderStore.address?.type === 'deliveryAddress' ? orderStore.address.intercom : '',
-  entrance: orderStore.address?.type === 'deliveryAddress' ? orderStore.address.entrance : '',
-  floor: orderStore.address?.type === 'deliveryAddress' ? orderStore.address.floor : '',
-  addressNote: orderStore.address?.type === 'deliveryAddress' ? orderStore.address.addressNote : '',
+  street: savedAddress?.street ?? '',
+  flat: savedAddress?.flat ?? '',
+  intercom: savedAddress?.intercom ?? '',
+  entrance: savedAddress?.entrance ?? '',
+  floor: savedAddress?.floor ?? '',
+  addressNote: savedAddress?.addressNote ?? '',
 })
 
 // If changed, update the order
