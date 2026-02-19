@@ -1,6 +1,7 @@
 # 🍔 NextOrders: Food
 
 <p>
+  <a href="https://github.com/nextorders/food/actions/workflows/ci.yml"><img src="https://github.com/nextorders/food/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/nextorders/food/blob/main/LICENSE"><img src="https://img.shields.io/static/v1?label=License&message=MIT&colorA=18181B&colorB=FF7F50" alt="License"></a>
   <a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/nextorders/food"><img src="https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&colorA=18181B&colorB=FF7F50" alt="Dev Containers"></a>
   <a href="https://demo.nextorders.space/"><img src="https://img.shields.io/static/v1?label=Demo&message=Open&colorA=18181B&colorB=FF7F50" alt="Demo"></a>
@@ -103,21 +104,32 @@ All dependencies are managed by [pnpm](https://pnpm.io/). Check the [pnpm-worksp
 
 </details>
 
-## ☕ How to deploy
+## 🚀 Quick Start
 
-Docker image and deployment guide coming soon. For now, check out the [demo](https://demo.nextorders.space/) or run locally with `pnpm dev`.
+```shell
+git clone https://github.com/nextorders/food.git
+cd food
+pnpm i
+pnpm dev
+```
 
-## 🍿 How to develop
+Open `http://localhost:3000` — you'll see the city selector. Pick a city to explore the storefront.
 
-You can develop in isolated container with prepared options:
+You can also develop in an isolated container with prepared options:
 
 <a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/nextorders/food"><img src="https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&colorA=18181B&colorB=FF7F50" alt="Dev Containers"></a>
 
-Make a fork. Or clone this repo and use standard command to install dependencies:
+## 🤝 Contributing
 
-```shell
-pnpm i
-```
+Contributions are welcome! Here's how to get started:
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b my-feature`
+3. Make your changes and commit: `git commit -m 'feat: add my feature'`
+4. Push to your fork: `git push origin my-feature`
+5. Open a Pull Request
+
+Please follow existing code style and conventions. For bug reports and feature requests, use [GitHub Issues](https://github.com/nextorders/food/issues).
 
 ## 🍰 License
 

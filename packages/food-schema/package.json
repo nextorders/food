@@ -30,8 +30,7 @@
     "publish": "pnpm publish --no-git-checks",
     "clean": "rm -rf dist",
     "clean:modules": "rm -rf node_modules",
-    "typecheck": "tsc --noEmit --erasableSyntaxOnly",
-    "postinstall": "pnpm build"
+    "typecheck": "tsc --noEmit --erasableSyntaxOnly"
   },
   "dependencies": {
     "zod": "catalog:integrations"
