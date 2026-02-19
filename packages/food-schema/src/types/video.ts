@@ -1,6 +1,6 @@
 import z from 'zod'
 
-export const VideoTypeSchema = z.enum(['video/mp4'])
+export const VideoTypeSchema = z.enum(['video/mp4', 'video/webm'])
 export type VideoType = z.infer<typeof VideoTypeSchema>
 
 export const VideoSchema = z.object({

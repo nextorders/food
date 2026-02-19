@@ -6,7 +6,7 @@ export const MenuCategorySchema = z.object({
   id: z.string(),
   slug: z.string(),
   title: LocaleValueSchema.array(),
-  icon: z.string().optional().nullable(),
+  icon: z.string().optional(),
   products: ProductSchema.array(),
 })
 export type MenuCategory = z.infer<typeof MenuCategorySchema>

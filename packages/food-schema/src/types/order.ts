@@ -19,8 +19,8 @@ export const OrderItemSchema = z.object({
   categorySlug: z.string(),
   variantId: z.string(),
   quantity: z.number().positive(),
-  unitPrice: z.number(),
-  totalPrice: z.number(), // quantity × unitPrice
+  unitPrice: z.number().nonnegative(),
+  totalPrice: z.number().nonnegative(), // quantity × unitPrice
 })
 export type OrderItem = z.infer<typeof OrderItemSchema>
 
@@ -70,8 +70,8 @@ export const OrderSchema = z.object({
   /** Payment */
   paymentMethodId: PaymentMethodSchema.shape.id,
   /** Amount of cash that client has to pay if choose cash */
-  changeFrom: z.number().optional(),
-  totalPrice: z.number(),
+  changeFrom: z.number().nonnegative().optional(),
+  totalPrice: z.number().nonnegative(),
 
   /** Client */
   name: z.string(),

@@ -40,7 +40,7 @@ export type GatewayRequest = z.infer<typeof GatewayRequestSchema>
  */
 export const BaseResponseSchema = z.object({
   ok: z.boolean(),
-  error: z.string().nullable().optional(),
+  error: z.string().optional(),
 })
 
 // getOptions
@@ -71,7 +71,7 @@ export type GatewayGetChannelsResponse = z.infer<typeof GatewayGetChannelsRespon
 export const GatewayGetOrderRequestSchema = GatewayRequestSchema.extend({
   type: z.literal('getOrder'),
   body: z.object({
-    id: z.string().optional().nullable(),
+    id: z.string().optional(),
   }),
 })
 export type GatewayGetOrderRequest = z.infer<typeof GatewayGetOrderRequestSchema>

@@ -4,16 +4,16 @@ import { PaymentMethodSchema } from './payment'
 import { ScheduleSchema, TimeZoneSchema } from './time'
 import { WarehouseSchema } from './warehouse'
 
-const DeliveryByCourierSchema = z.object({
+export const DeliveryByCourierSchema = z.object({
   isAvailable: z.boolean(),
   paymentMethods: PaymentMethodSchema.array(),
   conditions: LocaleValueSchema.array().optional(),
-  minAmountForDelivery: z.number().optional(),
+  minAmountForDelivery: z.number().nonnegative().optional(),
   schedule: ScheduleSchema.optional(),
 })
 export type DeliveryByCourier = z.infer<typeof DeliveryByCourierSchema>
 
-const SelfPickupSchema = z.object({
+export const SelfPickupSchema = z.object({
   isAvailable: z.boolean(),
   paymentMethods: PaymentMethodSchema.array(),
   conditions: LocaleValueSchema.array().optional(),
@@ -22,7 +22,7 @@ const SelfPickupSchema = z.object({
 })
 export type SelfPickup = z.infer<typeof SelfPickupSchema>
 
-const LinkSchema = z.object({
+export const LinkSchema = z.object({
   to: z.string(),
   label: LocaleValueSchema.array().optional(),
   icon: z.string().optional(),
@@ -30,7 +30,7 @@ const LinkSchema = z.object({
 })
 export type Link = z.infer<typeof LinkSchema>
 
-const LinksSchema = z.object({
+export const LinksSchema = z.object({
   aside: LinkSchema.array(),
   footer: LinkSchema.array(),
   social: LinkSchema.array(),

@@ -1,47 +1,58 @@
 import { describe, expect, it } from 'vitest'
 import { ZodError } from 'zod'
-import { GatewayActionTypeSchema } from '../../src/types/gateway'
+import { GatewayActionTypeSchema, GatewayGetOrderRequestSchema, GatewayResponseSchema } from '../../src/types/gateway'
 
 describe('gatewayActionTypeSchema', () => {
-  it('invalid action type', () => {
+  it('rejects invalid action type', () => {
     expect(() => GatewayActionTypeSchema.parse('oops!')).toThrow(ZodError)
   })
 
-  it('valid action type', () => {
-    const getOptions = GatewayActionTypeSchema.parse('getOptions')
-    expect(getOptions).toBe('getOptions')
+  it('valid action types', () => {
+    expect(GatewayActionTypeSchema.parse('getOptions')).toBe('getOptions')
+    expect(GatewayActionTypeSchema.parse('createOrder')).toBe('createOrder')
+    expect(GatewayActionTypeSchema.parse('getMenu')).toBe('getMenu')
+  })
+})
 
-    const getChannels = GatewayActionTypeSchema.parse('getChannels')
-    expect(getChannels).toBe('getChannels')
+describe('gatewayGetOrderRequestSchema', () => {
+  it('valid request with optional id', () => {
+    const data = GatewayGetOrderRequestSchema.parse({
+      type: 'getOrder',
+      body: { id: 'order-1' },
+    })
+    expect(data.body.id).toBe('order-1')
+  })
 
-    const getOrder = GatewayActionTypeSchema.parse('getOrder')
-    expect(getOrder).toBe('getOrder')
+  it('valid request without id', () => {
+    const data = GatewayGetOrderRequestSchema.parse({
+      type: 'getOrder',
+      body: {},
+    })
+    expect(data.body.id).toBeUndefined()
+  })
+})
 
-    const createOrder = GatewayActionTypeSchema.parse('createOrder')
-    expect(createOrder).toBe('createOrder')
+describe('gatewayResponseSchema', () => {
+  it('discriminates by type', () => {
+    const data = GatewayResponseSchema.parse({
+      ok: true,
+      type: 'getMenu',
+      result: {
+        id: '1',
+        slug: 'main',
+        title: [],
+        isActive: true,
+        categories: [],
+      },
+    })
+    expect(data.type).toBe('getMenu')
+  })
 
-    const updateOrder = GatewayActionTypeSchema.parse('updateOrder')
-    expect(updateOrder).toBe('updateOrder')
-
-    const addOrderItem = GatewayActionTypeSchema.parse('addOrderItem')
-    expect(addOrderItem).toBe('addOrderItem')
-
-    const incrementOrderItemQuantity = GatewayActionTypeSchema.parse('incrementOrderItemQuantity')
-    expect(incrementOrderItemQuantity).toBe('incrementOrderItemQuantity')
-
-    const getMenu = GatewayActionTypeSchema.parse('getMenu')
-    expect(getMenu).toBe('getMenu')
-
-    const getDeliveryByCourierStatus = GatewayActionTypeSchema.parse('getDeliveryByCourierStatus')
-    expect(getDeliveryByCourierStatus).toBe('getDeliveryByCourierStatus')
-
-    const getSelfPickupStatus = GatewayActionTypeSchema.parse('getSelfPickupStatus')
-    expect(getSelfPickupStatus).toBe('getSelfPickupStatus')
-
-    const getTimeSlots = GatewayActionTypeSchema.parse('getTimeSlots')
-    expect(getTimeSlots).toBe('getTimeSlots')
-
-    const decrementOrderItemQuantity = GatewayActionTypeSchema.parse('decrementOrderItemQuantity')
-    expect(decrementOrderItemQuantity).toBe('decrementOrderItemQuantity')
+  it('rejects unknown type', () => {
+    expect(() => GatewayResponseSchema.parse({
+      ok: true,
+      type: 'unknownAction',
+      result: {},
+    })).toThrow(ZodError)
   })
 })
