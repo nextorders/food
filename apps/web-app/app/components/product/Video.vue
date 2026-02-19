@@ -7,6 +7,7 @@
     ]"
     :controls="false"
     muted
+    playsinline
     preload="auto"
     @canplaythrough="onCanPlayThrough"
     @ended="onVideoEnded"

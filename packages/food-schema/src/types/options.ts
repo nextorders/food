@@ -1,7 +1,7 @@
 import z from 'zod'
 import { CountryCodeSchema, CurrencyCodeSchema, LocaleSchema, LocaleValueSchema } from './common'
 
-const HeadLinkSchema = z.object({
+export const HeadLinkSchema = z.object({
   rel: z.string().optional(),
   type: z.string().optional(),
   sizes: z.string().optional(),
@@ -9,20 +9,20 @@ const HeadLinkSchema = z.object({
 })
 export type HeadLink = z.infer<typeof HeadLinkSchema>
 
-const HeadScriptSchema = z.object({
+export const HeadScriptSchema = z.object({
   src: z.string().optional(),
   type: z.string().optional(),
   textContent: z.string().optional(),
 })
 export type HeadScript = z.infer<typeof HeadScriptSchema>
 
-const HeadStyleSchema = z.string()
+export const HeadStyleSchema = z.string()
 export type HeadStyle = z.infer<typeof HeadStyleSchema>
 
 export const OptionsSchema = z.object({
   selectorTitle: LocaleValueSchema.array(),
   selectorDescription: LocaleValueSchema.array().optional(),
-  logoUrl: z.string().optional().nullable(),
+  logoUrl: z.string().optional(),
   availableLocales: LocaleSchema.array(),
   defaultLocale: LocaleSchema,
   countryCode: CountryCodeSchema,

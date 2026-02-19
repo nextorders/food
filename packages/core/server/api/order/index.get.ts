@@ -8,7 +8,7 @@ export default defineEventHandler<Promise<GatewayGetOrderResponse['result']>>(as
     const order = await fetchApi<GatewayGetOrderRequest, GatewayGetOrderResponse>({
       type: 'getOrder',
       body: {
-        id: orderId,
+        id: orderId ?? undefined,
       },
     })
     if (!order?.result) {

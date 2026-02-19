@@ -4,10 +4,10 @@ import { ImageSchema } from './image'
 import { VideoSchema } from './video'
 
 export const NutritionFactsSchema = z.object({
-  calories: z.number(),
-  carbohydrate: z.number(),
-  protein: z.number(),
-  fat: z.number(),
+  calories: z.number().nonnegative(),
+  carbohydrate: z.number().nonnegative(),
+  protein: z.number().nonnegative(),
+  fat: z.number().nonnegative(),
 })
 export type NutritionFacts = z.infer<typeof NutritionFactsSchema>
 
@@ -23,9 +23,9 @@ export const ProductVariantSchema = z.object({
   images: ImageSchema.array(),
   video: VideoSchema.optional(),
   weightUnit: WeightUnitSchema,
-  weightValue: z.number(),
-  price: z.number(),
-  originalPrice: z.number().optional(),
+  weightValue: z.number().nonnegative(),
+  price: z.number().nonnegative(),
+  originalPrice: z.number().nonnegative().optional(),
   sku: z.string().nullable(),
   nutritionFacts: NutritionFactsSchema.nullable(),
 })

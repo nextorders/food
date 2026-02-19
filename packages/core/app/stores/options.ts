@@ -3,7 +3,7 @@ import type { LocaleValue, Options } from '@nextorders/food-schema'
 export const useOptionsStore = defineStore('options', () => {
   const selectorTitleValues = ref<Options['selectorTitle']>([])
   const selectorDescriptionValues = ref<Options['selectorDescription']>()
-  const logoUrl = ref<Options['logoUrl']>(null)
+  const logoUrl = ref<Options['logoUrl']>()
   const headLinks = ref<Options['headLinks']>([])
   const headScripts = ref<Options['headScripts']>([])
   const headStyles = ref<Options['headStyles']>([])

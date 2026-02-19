@@ -20,7 +20,7 @@ export type TimePeriod = z.infer<typeof TimePeriodSchema>
 export const WeekDaySchema = z.enum(['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'])
 export type WeekDay = z.infer<typeof WeekDaySchema>
 
-const DayScheduleSchema = z.object({
+export const DayScheduleSchema = z.object({
   day: WeekDaySchema,
   isClosed: z.boolean(),
   hours: TimePeriodSchema.array().optional(), // time period (example: from 9:00 to 13:00 and from 14:00 to 18:00)
@@ -37,10 +37,10 @@ export const ScheduleSchema = z.array(DayScheduleSchema)
   })
 export type Schedule = z.infer<typeof ScheduleSchema>
 
-const NextOpeningSchema = z.object({
+export const NextOpeningSchema = z.object({
   day: WeekDaySchema,
   time: TimeSchema,
-  relativeDays: z.number().int(),
+  relativeDays: z.number().int().nonnegative(),
 })
 export type NextOpening = z.infer<typeof NextOpeningSchema>
 
@@ -51,7 +51,7 @@ export const OpeningStatusSchema = z.object({
   currentDay: WeekDaySchema,
   todayHours: TimePeriodSchema.array().nullable(),
   todayEndAt: TimeSchema.nullable(),
-  todayEndInMinutes: z.number().nullable(),
+  todayEndInMinutes: z.number().nonnegative().nullable(),
   nextOpening: NextOpeningSchema.nullable(),
 })
 export type OpeningStatus = z.infer<typeof OpeningStatusSchema>
