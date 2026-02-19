@@ -1,84 +1,47 @@
 name: Docker Release
 
 on:
-  release:
-    types:
-      - created
+  push:
+    tags:
+      - v*
   workflow_dispatch:
     inputs:
-      release:
-        description: 'ex: @nextorders/web-app-v1.0.0'
-        type: string
-        required: true
       ref:
         description: 'branch, tag or SHA'
         type: string
+        required: true
 
 jobs:
-  determine-changes:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    outputs:
-      package: ${{ steps.set-package.outputs.package }}
-      version: ${{ steps.set-package.outputs.version }}
-    steps:
-      - name: Regex matching
-        uses: actions-ecosystem/action-regex-match@v2
-        id: regex-match
-        with:
-          text: ${{ github.event.inputs.release || github.ref_name }}
-          regex: '@nextorders\/([a-z-]+)-(v[0-9]+.[0-9]+.[0-9]+)'
-
-      - name: Set package in env
-        id: set-package
-        run: |
-          APPS=("web-app" "web-app-selector" "essence")
-          MATCH="${{ steps.regex-match.outputs.match }}"
-
-          if [ -z "$MATCH" ]; then
-            echo "package=" >> $GITHUB_OUTPUT
-            echo "version=" >> $GITHUB_OUTPUT
-          else
-            found=false
-            for app in "${APPS[@]}"; do
-              if [ "$app" == "${{ steps.regex-match.outputs.group1 }}" ]; then
-                found=true
-                break
-              fi
-            done
-
-            if $found; then
-              echo "package=${{ steps.regex-match.outputs.group1 }}" >> $GITHUB_OUTPUT
-              echo "version=${{ steps.regex-match.outputs.group2 }}" >> $GITHUB_OUTPUT
-            else
-              echo "package=" >> $GITHUB_OUTPUT
-              echo "version=" >> $GITHUB_OUTPUT
-            fi
-          fi
-
-      - name: Result
-        run: |
-          echo "${{ steps.set-package.outputs.package }}"
-          echo "${{ steps.set-package.outputs.version }}"
-
   build:
-    needs: determine-changes
-    if: ${{ needs.determine-changes.outputs.package != '' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        app:
+          - web-app
+          - web-app-selector
+          - essence
     steps:
+      - name: Determine version
+        id: version
+        run: |
+          REF="${{ github.event.inputs.ref || github.ref_name }}"
+          VERSION="${REF#v}"
+          echo "ref=${REF}" >> $GITHUB_OUTPUT
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          if [[ "$REF" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "is_stable=true" >> $GITHUB_OUTPUT
+          else
+            echo "is_stable=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Checkout
         uses: actions/checkout@v6
         with:
-          ref: ${{ github.event.inputs.ref || github.ref_name }}
-
-      - name: Set APP in env
-        run: |
-          echo "APP_NAME=${{ needs.determine-changes.outputs.package }}" >> $GITHUB_ENV
-          echo "APP_VERSION=${{ needs.determine-changes.outputs.version }}" >> $GITHUB_ENV
+          ref: ${{ steps.version.outputs.ref }}
 
       - name: Login to Github Registry
         uses: docker/login-action@v3
@@ -87,12 +50,21 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build ${{ matrix.package }}
+      - name: Set Docker tags
+        id: tags
+        run: |
+          TAGS="ghcr.io/${{ github.repository }}/${{ matrix.app }}:${{ steps.version.outputs.ref }}"
+          if [ "${{ steps.version.outputs.is_stable }}" == "true" ]; then
+            TAGS="${TAGS},ghcr.io/${{ github.repository }}/${{ matrix.app }}:latest"
+          fi
+          echo "tags=${TAGS}" >> $GITHUB_OUTPUT
+
+      - name: Build and push ${{ matrix.app }}
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: docker/${{ env.APP_NAME }}/Dockerfile
+          file: docker/${{ matrix.app }}/Dockerfile
           push: true
           build-args: |
-            APP_VERSION=${{ env.APP_VERSION }}
-          tags: ghcr.io/${{ github.repository }}/${{ env.APP_NAME }}:latest,ghcr.io/${{ github.repository }}/${{ env.APP_NAME }}:${{ env.APP_VERSION }}
+            APP_VERSION=${{ steps.version.outputs.version }}
+          tags: ${{ steps.tags.outputs.tags }}
