@@ -49,7 +49,7 @@ const { line, canBeChanged = true } = defineProps<{
 const optionsStore = useOptionsStore()
 const menuStore = useMenuStore()
 
-const product = menuStore.getProduct(line.productId)
-const productVariant = menuStore.getProductVariant(line.variantId)
+const product = computed(() => menuStore.getProduct(line.productId))
+const productVariant = computed(() => menuStore.getProductVariant(line.variantId))
 const productUrl = computed(() => menuStore.getProductUrl(line.productId))
 </script>

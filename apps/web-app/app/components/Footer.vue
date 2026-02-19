@@ -47,7 +47,7 @@ import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
 const location = useBrowserLocation()
 
-const projectUrl = 'https://github.com/nextorders/food'
+const projectUrl = 'https://nextorders.ru/go/food'
 const projectTitle = 'nextorders/food'
 const url = ref(projectUrl)
 
