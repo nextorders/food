@@ -23,10 +23,10 @@ export const SelfPickupSchema = z.object({
 export type SelfPickup = z.infer<typeof SelfPickupSchema>
 
 export const LinkSchema = z.object({
-  to: z.string(),
+  to: z.string().min(1),
   label: LocaleValueSchema.array().optional(),
   icon: z.string().optional(),
-  target: z.string().optional(),
+  target: z.enum(['_blank', '_self', '_parent', '_top']).optional(),
 })
 export type Link = z.infer<typeof LinkSchema>
 

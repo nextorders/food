@@ -14,7 +14,7 @@ describe('orderItemSchema', () => {
       variantId: 'v1',
       quantity: 1,
       unitPrice: -100,
-      totalPrice: -100,
+      totalPrice: 0,
     })).toThrow(ZodError)
   })
 
