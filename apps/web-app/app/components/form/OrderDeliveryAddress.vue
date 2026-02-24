@@ -203,7 +203,7 @@ async function checkDeliveryZone(lat: number, lon: number) {
     })
     deliveryZone.value = result
     zoneNotFound.value = !result
-    orderStore.deliveryZoneRequired = true
+    orderStore.deliveryZoneRequired = optionsStore.deliveryZonesEnabled && optionsStore.addressSuggestEnabled
     orderStore.deliveryZoneValid = !!result
   } catch {
     deliveryZone.value = null
