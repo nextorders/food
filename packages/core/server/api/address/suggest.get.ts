@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
       type: 'suggestAddresses',
       body: {
         query,
-        limit: limit ? Number(limit) : undefined,
+        limit: limit ? (Number.isNaN(Number(limit)) ? undefined : Number.parseInt(limit, 10)) : undefined,
       },
     })
 

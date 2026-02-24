@@ -6,6 +6,11 @@ export default defineEventHandler(async (event) => {
     if (!lat || !lon) {
       throw createError({ statusCode: 400, message: 'lat and lon are required' })
     }
+    const latNum = Number(lat)
+    const lonNum = Number(lon)
+    if (Number.isNaN(latNum) || Number.isNaN(lonNum)) {
+      throw createError({ statusCode: 400, message: 'lat and lon must be valid numbers' })
+    }
 
     const response = await fetchApi<GatewayCheckDeliveryZoneRequest, GatewayCheckDeliveryZoneResponse>({
       type: 'checkDeliveryZone',

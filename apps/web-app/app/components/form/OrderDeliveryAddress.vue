@@ -38,10 +38,7 @@
           label: 'leading-4 line-clamp-2',
         }"
       >
-        <UInput
-          v-model="state.flat"
-          size="xl"
-        />
+        <UInput v-model="state.flat" size="xl" />
       </UFormField>
 
       <UFormField
@@ -50,10 +47,7 @@
           label: 'leading-4 line-clamp-2',
         }"
       >
-        <UInput
-          v-model="state.intercom"
-          size="xl"
-        />
+        <UInput v-model="state.intercom" size="xl" />
       </UFormField>
 
       <UFormField
@@ -62,10 +56,7 @@
           label: 'leading-4 line-clamp-2',
         }"
       >
-        <UInput
-          v-model="state.entrance"
-          size="xl"
-        />
+        <UInput v-model="state.entrance" size="xl" />
       </UFormField>
 
       <UFormField
@@ -74,10 +65,7 @@
           label: 'leading-4 line-clamp-2',
         }"
       >
-        <UInput
-          v-model="state.floor"
-          size="xl"
-        />
+        <UInput v-model="state.floor" size="xl" />
       </UFormField>
     </div>
 
@@ -89,7 +77,8 @@
           {{ deliveryZone.name }}
         </p>
         <p class="text-muted">
-          {{ $dict('web-app.checkout.delivery-cost') }}: {{ optionsStore.formatCurrency(deliveryZone.deliveryPrice) }} {{ optionsStore.currencySign }}
+          {{ $dict('web-app.checkout.delivery-cost') }}: {{ optionsStore.formatCurrency(deliveryZone.deliveryPrice) }}
+          {{ optionsStore.currencySign }}
         </p>
       </div>
     </div>
@@ -161,12 +150,15 @@ const searchTermDebounced = refDebounced(searchTerm, 300)
 const suggestions = ref<AddressSuggestion[]>([])
 const suggestionItems = computed(() => suggestions.value.map((s) => s.value))
 
+const suppressNextSearch = ref(false)
+
 watch(selectedValue, async (value) => {
   if (value) {
     const suggestion = suggestions.value.find((s) => s.value === value)
     state.value.street = value
     state.value.lat = suggestion?.lat ?? null
     state.value.lon = suggestion?.lon ?? null
+    suppressNextSearch.value = true
     searchTerm.value = value
     suggestions.value = []
 
@@ -182,6 +174,10 @@ watch(selectedValue, async (value) => {
 })
 
 watch(searchTermDebounced, async (query) => {
+  if (suppressNextSearch.value) {
+    suppressNextSearch.value = false
+    return
+  }
   if (!query || query.length < 3) {
     suggestions.value = []
     return
@@ -203,16 +199,16 @@ async function checkDeliveryZone(lat: number, lon: number) {
     })
     deliveryZone.value = result
     zoneNotFound.value = !result
-    orderStore.deliveryZoneRequired = optionsStore.deliveryZonesEnabled && optionsStore.addressSuggestEnabled
     orderStore.deliveryZoneValid = !!result
   } catch {
     deliveryZone.value = null
-    zoneNotFound.value = false
+    zoneNotFound.value = true // surface the problem to the user
+    orderStore.deliveryZoneValid = false
   }
 }
 
 // Check zone on mount if coordinates already exist
-if (savedAddress?.lat && savedAddress?.lon) {
+if (optionsStore.deliveryZonesEnabled && savedAddress?.lat && savedAddress?.lon) {
   checkDeliveryZone(savedAddress.lat, savedAddress.lon)
 }
 
