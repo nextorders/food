@@ -30,5 +30,8 @@ export const OptionsSchema = z.object({
   headLinks: HeadLinkSchema.array().optional(),
   headScripts: HeadScriptSchema.array().optional(),
   headStyles: HeadStyleSchema.array().optional(),
+  addressSuggestEnabled: z.boolean().optional(),
+  deliveryZonesEnabled: z.boolean().optional(),
+  deliveryZoneNotFoundMessage: LocaleValueSchema.array().optional(),
 })
 export type Options = z.infer<typeof OptionsSchema>

@@ -57,6 +57,8 @@ export const zh_cn: Dictionary = {
         products: '商品总价',
       },
       'change-label': '需要准备多少找零',
+      'delivery-cost': '配送费用',
+      'delivery-zone-not-found': '该地址暂不支持配送',
       'info-shipping-price': '网站未包含配送费用，最终金额可能变动。',
       'warning-data': '请填写所有必填字段',
     },

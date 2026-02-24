@@ -11,6 +11,9 @@ export const useOptionsStore = defineStore('options', () => {
   const currencyCode = ref<Options['currencyCode']>()
   const countryCode = ref<Options['countryCode']>()
   const defaultLocale = ref<Options['defaultLocale']>()
+  const addressSuggestEnabled = ref(false)
+  const deliveryZonesEnabled = ref(false)
+  const deliveryZoneNotFoundMessageValues = ref<Options['deliveryZoneNotFoundMessage']>()
 
   const { locale, locales } = useI18n()
 
@@ -19,6 +22,7 @@ export const useOptionsStore = defineStore('options', () => {
 
   const appLocale = computed(() => locales.value.find((l) => l.code === locale.value))
   const currencySign = computed<string>(() => getCurrencySymbol())
+  const deliveryZoneNotFoundMessage = computed(() => getLocaleValue(deliveryZoneNotFoundMessageValues.value))
 
   async function update() {
     try {
@@ -37,6 +41,9 @@ export const useOptionsStore = defineStore('options', () => {
       currencyCode.value = data.currencyCode
       countryCode.value = data.countryCode
       defaultLocale.value = data.defaultLocale
+      addressSuggestEnabled.value = data.addressSuggestEnabled ?? false
+      deliveryZonesEnabled.value = data.deliveryZonesEnabled ?? false
+      deliveryZoneNotFoundMessageValues.value = data.deliveryZoneNotFoundMessage
     } catch (error) {
       if (error instanceof Error) {
         if (error.message.includes('404')) {
@@ -98,10 +105,13 @@ export const useOptionsStore = defineStore('options', () => {
     headStyles,
     availableLocales,
     countryCode,
+    addressSuggestEnabled,
+    deliveryZonesEnabled,
 
     selectorTitle,
     selectorDescription,
     currencySign,
+    deliveryZoneNotFoundMessage,
 
     update,
     getLocaleValue,

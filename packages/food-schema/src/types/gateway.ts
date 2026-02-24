@@ -2,7 +2,7 @@ import z from 'zod'
 import { ChannelSchema } from './channel'
 import { MenuSchema } from './menu'
 import { OptionsSchema } from './options'
-import { DeliveryMethodSchema, OrderItemChangeSchema, OrderSchema } from './order'
+import { AddressSuggestionSchema, DeliveryMethodSchema, OrderItemChangeSchema, OrderSchema } from './order'
 import { OpeningStatusSchema, TimePeriodSchema } from './time'
 
 /**
@@ -22,6 +22,8 @@ export const GatewayActionTypeSchema = z.enum([
   'getDeliveryByCourierStatus',
   'getSelfPickupStatus',
   'getTimeSlots',
+  'suggestAddresses',
+  'checkDeliveryZone',
 ])
 export type GatewayActionType = z.infer<typeof GatewayActionTypeSchema>
 
@@ -220,6 +222,45 @@ export const GatewayGetTimeSlotsResponseSchema = BaseResponseSchema.extend({
 })
 export type GatewayGetTimeSlotsResponse = z.infer<typeof GatewayGetTimeSlotsResponseSchema>
 
+// suggestAddresses
+export const GatewaySuggestAddressesRequestSchema = GatewayRequestSchema.extend({
+  type: z.literal('suggestAddresses'),
+  body: z.object({
+    query: z.string().min(1).max(200),
+    limit: z.number().int().min(1).max(50).optional(),
+  }),
+})
+export type GatewaySuggestAddressesRequest = z.infer<typeof GatewaySuggestAddressesRequestSchema>
+
+export const GatewaySuggestAddressesResponseSchema = BaseResponseSchema.extend({
+  type: z.literal('suggestAddresses'),
+  result: z.array(AddressSuggestionSchema),
+})
+export type GatewaySuggestAddressesResponse = z.infer<typeof GatewaySuggestAddressesResponseSchema>
+
+// checkDeliveryZone
+export const DeliveryZoneInfoSchema = z.object({
+  name: z.string(),
+  deliveryPrice: z.number(),
+  minOrderAmount: z.number().nullable(),
+})
+export type DeliveryZoneInfo = z.infer<typeof DeliveryZoneInfoSchema>
+
+export const GatewayCheckDeliveryZoneRequestSchema = GatewayRequestSchema.extend({
+  type: z.literal('checkDeliveryZone'),
+  body: z.object({
+    lat: z.number(),
+    lon: z.number(),
+  }),
+})
+export type GatewayCheckDeliveryZoneRequest = z.infer<typeof GatewayCheckDeliveryZoneRequestSchema>
+
+export const GatewayCheckDeliveryZoneResponseSchema = BaseResponseSchema.extend({
+  type: z.literal('checkDeliveryZone'),
+  result: DeliveryZoneInfoSchema.nullable(),
+})
+export type GatewayCheckDeliveryZoneResponse = z.infer<typeof GatewayCheckDeliveryZoneResponseSchema>
+
 /**
  * Combined Gateway Response
  */
@@ -237,5 +278,7 @@ export const GatewayResponseSchema = z.discriminatedUnion('type', [
   GatewayGetDeliveryByCourierStatusResponseSchema,
   GatewayGetSelfPickupStatusResponseSchema,
   GatewayGetTimeSlotsResponseSchema,
+  GatewaySuggestAddressesResponseSchema,
+  GatewayCheckDeliveryZoneResponseSchema,
 ])
 export type GatewayResponse = z.infer<typeof GatewayResponseSchema>

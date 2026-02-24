@@ -57,6 +57,8 @@ export const en = {
         products: 'Cost of goods',
       },
       'change-label': 'From what amount should prepare change',
+      'delivery-cost': 'Delivery cost',
+      'delivery-zone-not-found': 'Delivery to this address is not available',
       'info-shipping-price': 'The website does not take shipping costs into account. Totals may vary.',
       'warning-data': 'Please fill in all required fields',
     },

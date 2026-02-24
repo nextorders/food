@@ -57,6 +57,8 @@ export const fr: Dictionary = {
         products: 'Coût des produits',
       },
       'change-label': 'À partir de quelle somme préparer la monnaie ?',
+      'delivery-cost': 'Frais de livraison',
+      'delivery-zone-not-found': 'La livraison à cette adresse n est pas disponible',
       'info-shipping-price': 'Le site web ne prend pas en compte les frais de livraison. Le total peut varier.',
       'warning-data': 'Veuillez remplir tous les champs obligatoires',
     },

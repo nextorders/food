@@ -57,6 +57,8 @@ export const de: Dictionary = {
         products: 'Warenkosten',
       },
       'change-label': 'Von welchem Betrag soll das Wechselgeld vorbereitet werden',
+      'delivery-cost': 'Lieferkosten',
+      'delivery-zone-not-found': 'Lieferung an diese Adresse ist nicht verfügbar',
       'info-shipping-price': 'Die Website berücksichtigt die Lieferkosten nicht. Der Gesamtbetrag kann abweichen.',
       'warning-data': 'Bitte füllen Sie alle erforderlichen Felder aus',
     },

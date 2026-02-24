@@ -57,6 +57,8 @@ export const hi: Dictionary = {
         products: 'सामान की लागत',
       },
       'change-label': 'कितनी राशि से बदलाव तैयार करना चाहिए',
+      'delivery-cost': 'डिलीवरी शुल्क',
+      'delivery-zone-not-found': 'इस पते पर डिलीवरी उपलब्ध नहीं है',
       'info-shipping-price': 'वेबसाइट शिपिंग लागत को ध्यान में नहीं रखती। कुल राशि भिन्न हो सकती है।',
       'warning-data': 'कृपया सभी आवश्यक फ़ील्ड भरें',
     },

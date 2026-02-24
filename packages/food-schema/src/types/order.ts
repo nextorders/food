@@ -42,6 +42,8 @@ export const OrderDeliveryAddressSchema = z.object({
   entrance: z.string().optional(),
   floor: z.string().optional(),
   addressNote: z.string().optional(),
+  lat: z.number().nullable().optional(),
+  lon: z.number().nullable().optional(),
 })
 export type OrderDeliveryAddress = z.infer<typeof OrderDeliveryAddressSchema>
 
@@ -84,3 +86,14 @@ export const OrderSchema = z.object({
   items: OrderItemSchema.array(),
 })
 export type Order = z.infer<typeof OrderSchema>
+
+/**
+ * Address Suggestion
+ */
+export const AddressSuggestionSchema = z.object({
+  value: z.string(),
+  lat: z.number().nullable(),
+  lon: z.number().nullable(),
+  data: z.record(z.string(), z.unknown()).optional(),
+})
+export type AddressSuggestion = z.infer<typeof AddressSuggestionSchema>

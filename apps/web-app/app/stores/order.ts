@@ -23,13 +23,16 @@ export const useOrderStore = defineStore('order', () => {
   const channelStore = useChannelStore()
 
   const isValidPhone = ref(false)
+  const deliveryZoneRequired = ref(false)
+  const deliveryZoneValid = ref(false)
 
   const isEmpty = computed<boolean>(() => items.value.length === 0)
   const isValidMinAmount = computed<boolean>(() => deliveryMethod.value === 'deliveryByCourier' && channelStore.deliveryByCourier?.minAmountForDelivery ? channelStore.deliveryByCourier.minAmountForDelivery <= totalPrice.value : true)
   const isValidTotalPrice = computed<boolean>(() => isValidMinAmount.value)
   const isValidDeliveryAddress = computed<boolean>(() => deliveryMethod.value === 'deliveryByCourier' ? address.value?.type === 'deliveryAddress' && !!address.value?.street : true)
   const isValidPickupAddress = computed<boolean>(() => deliveryMethod.value === 'selfPickup' ? address.value?.type === 'warehouseAddress' && !!address.value?.id : true)
-  const isValidAddress = computed<boolean>(() => isValidDeliveryAddress.value && isValidPickupAddress.value)
+  const isValidDeliveryZone = computed<boolean>(() => deliveryMethod.value === 'deliveryByCourier' && deliveryZoneRequired.value ? deliveryZoneValid.value : true)
+  const isValidAddress = computed<boolean>(() => isValidDeliveryAddress.value && isValidPickupAddress.value && isValidDeliveryZone.value)
   const isValidCheckoutData = computed<boolean>(() => {
     return !!name.value
       && !!phone.value
@@ -241,6 +244,8 @@ export const useOrderStore = defineStore('order', () => {
     isReadyToCheckout,
     isLoading,
     isSaved,
+    deliveryZoneRequired,
+    deliveryZoneValid,
 
     update,
     add,
