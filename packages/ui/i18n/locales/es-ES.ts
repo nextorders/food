@@ -57,6 +57,8 @@ export const es: Dictionary = {
         products: 'Coste de los productos',
       },
       'change-label': '¿A partir de qué cantidad preparar el cambio?',
+      'delivery-cost': 'Coste de entrega',
+      'delivery-zone-not-found': 'La entrega a esta dirección no está disponible',
       'info-shipping-price': 'El sitio web no tiene en cuenta los costes de envío. Los totales pueden variar.',
       'warning-data': 'Por favor, complete todos los campos obligatorios',
     },

@@ -62,6 +62,15 @@ export default defineAppConfig({
         },
       },
     },
+    inputMenu: {
+      variants: {
+        size: {
+          xl: {
+            base: 'px-4 py-3',
+          },
+        },
+      },
+    },
     toast: {
       slots: {
         title: 'md:text-lg/5 font-medium',

@@ -57,6 +57,8 @@ export const pt: Dictionary = {
         products: 'Custo dos produtos',
       },
       'change-label': 'A partir de que valor deve preparar troco',
+      'delivery-cost': 'Custo de entrega',
+      'delivery-zone-not-found': 'A entrega neste endereço não está disponível',
       'info-shipping-price': 'O website não considera os custos de envio. Os totais podem variar.',
       'warning-data': 'Por favor, preencha todos os campos obrigatórios',
     },
