@@ -52,6 +52,4 @@ jobs:
 
       - run: pnpm --filter @nextorders/food-schema run build
 
-      - run: pnpm --filter @nextorders/food-schema publish --no-git-checks --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: pnpm --filter @nextorders/food-schema publish --no-git-checks --provenance --access public
