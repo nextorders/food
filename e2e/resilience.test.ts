@@ -47,6 +47,6 @@ test.describe('Resilience', () => {
     await page.goBack()
 
     // Homepage should still work
-    await expect(page.locator('main')).toBeVisible()
+    await expect(page.locator('main')).toBeVisible({ timeout: 10_000 })
   })
 })

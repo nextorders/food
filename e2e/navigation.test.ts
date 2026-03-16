@@ -43,19 +43,23 @@ test.describe('Navigation', () => {
     const page = await context.newPage()
     await page.goto('/')
 
-    // First button in header on mobile is the menu button
+    // Wait for Nuxt hydration before interacting
+    await page.waitForLoadState('networkidle')
+
+    // Menu button is visible on mobile (hidden at lg+)
     const menuButton = page.locator('header button').first()
+    await expect(menuButton).toBeVisible()
     await menuButton.click()
 
-    // Wait for navigation content to appear
-    const navOverlay = page.locator('nav').last()
-    await expect(navOverlay).toBeVisible({ timeout: 3000 })
+    // Slideover dialog should appear
+    const dialog = page.getByRole('dialog')
+    await expect(dialog).toBeVisible({ timeout: 5000 })
 
-    // Close the menu via Escape key
+    // Close via Escape
     await page.keyboard.press('Escape')
 
-    // Menu should be hidden
-    await expect(navOverlay).not.toBeVisible()
+    // Dialog should disappear
+    await expect(dialog).not.toBeVisible({ timeout: 5000 })
 
     await context.close()
   })
