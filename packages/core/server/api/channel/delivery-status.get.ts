@@ -1,20 +1,12 @@
-import type { GatewayGetDeliveryByCourierStatusRequest, GatewayGetDeliveryByCourierStatusResponse } from '@nextorders/food-schema'
+import type { GatewayGetDeliveryByCourierStatusResponse } from '@nextorders/food-schema'
 
 export default defineEventHandler<Promise<GatewayGetDeliveryByCourierStatusResponse['result']>>(async () => {
   try {
-    const { public: publicEnv } = useRuntimeConfig()
-    if (!publicEnv?.channelId) {
-      throw createError({
-        statusCode: 400,
-        message: 'Missing channelId',
-      })
-    }
+    const channelId = getChannelId()
 
-    const status = await fetchApi<GatewayGetDeliveryByCourierStatusRequest, GatewayGetDeliveryByCourierStatusResponse>({
+    const status = await fetchApi({
       type: 'getDeliveryByCourierStatus',
-      body: {
-        channelId: publicEnv.channelId as string,
-      },
+      body: { channelId },
     })
     if (!status.result) {
       throw createError({

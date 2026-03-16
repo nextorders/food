@@ -1,10 +1,10 @@
-import type { GatewayGetMenuRequest, GatewayGetMenuResponse } from '@nextorders/food-schema'
+import type { GatewayGetMenuResponse } from '@nextorders/food-schema'
 
 const CACHE_MAX_AGE = 60 // 1 minute
 
 export default defineCachedEventHandler<Promise<GatewayGetMenuResponse['result']>>(async () => {
   try {
-    const menu = await fetchApi<GatewayGetMenuRequest, GatewayGetMenuResponse>({
+    const menu = await fetchApi({
       type: 'getMenu',
     })
     if (!menu.result) {

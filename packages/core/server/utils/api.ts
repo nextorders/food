@@ -1,7 +1,48 @@
-import type { GatewayRequest, GatewayResponse } from '@nextorders/food-schema'
+import type {
+  GatewayActionType,
+  GatewayAddOrderItemRequest,
+  GatewayCheckDeliveryZoneRequest,
+  GatewayCompleteOrderRequest,
+  GatewayCreateOrderRequest,
+  GatewayDecrementOrderItemQuantityRequest,
+  GatewayGetChannelsRequest,
+  GatewayGetDeliveryByCourierStatusRequest,
+  GatewayGetMenuRequest,
+  GatewayGetOptionsRequest,
+  GatewayGetOrderRequest,
+  GatewayGetSelfPickupStatusRequest,
+  GatewayGetTimeSlotsRequest,
+  GatewayIncrementOrderItemQuantityRequest,
+  GatewayResponse,
+  GatewaySuggestAddressesRequest,
+  GatewayUpdateOrderRequest,
+} from '@nextorders/food-schema'
 import { GatewayResponseSchema } from '@nextorders/food-schema'
 
-export async function fetchApi<Req = GatewayRequest, Res = GatewayResponse>(data: Req): Promise<Res> {
+type GatewayRequestMap = {
+  getOptions: GatewayGetOptionsRequest
+  getChannels: GatewayGetChannelsRequest
+  getOrder: GatewayGetOrderRequest
+  createOrder: GatewayCreateOrderRequest
+  updateOrder: GatewayUpdateOrderRequest
+  completeOrder: GatewayCompleteOrderRequest
+  addOrderItem: GatewayAddOrderItemRequest
+  incrementOrderItemQuantity: GatewayIncrementOrderItemQuantityRequest
+  decrementOrderItemQuantity: GatewayDecrementOrderItemQuantityRequest
+  getMenu: GatewayGetMenuRequest
+  getDeliveryByCourierStatus: GatewayGetDeliveryByCourierStatusRequest
+  getSelfPickupStatus: GatewayGetSelfPickupStatusRequest
+  getTimeSlots: GatewayGetTimeSlotsRequest
+  suggestAddresses: GatewaySuggestAddressesRequest
+  checkDeliveryZone: GatewayCheckDeliveryZoneRequest
+}
+
+type AllGatewayRequests = GatewayRequestMap[keyof GatewayRequestMap]
+type GatewayResponseFor<T> = T extends { type: infer U extends GatewayActionType }
+  ? Extract<GatewayResponse, { type: U }>
+  : never
+
+export async function fetchApi<T extends AllGatewayRequests>(data: T): Promise<GatewayResponseFor<T>> {
   const { apiUrl, apiToken } = useRuntimeConfig()
 
   try {
@@ -31,7 +72,7 @@ export async function fetchApi<Req = GatewayRequest, Res = GatewayResponse>(data
       })
     }
 
-    return validated as Res
+    return validated as GatewayResponseFor<T>
   } catch (error) {
     throw errorResolver(error)
   }

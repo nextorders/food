@@ -1,10 +1,10 @@
-import type { GatewayGetChannelsRequest, GatewayGetChannelsResponse } from '@nextorders/food-schema'
+import type { GatewayGetChannelsResponse } from '@nextorders/food-schema'
 
 const CACHE_MAX_AGE = 60 * 5 // 5 minutes
 
 export default defineCachedEventHandler<Promise<GatewayGetChannelsResponse['result']>>(async () => {
   try {
-    const channels = await fetchApi<GatewayGetChannelsRequest, GatewayGetChannelsResponse>({
+    const channels = await fetchApi({
       type: 'getChannels',
     })
     if (!channels.result?.length) {

@@ -1,19 +1,13 @@
-import type { GatewayGetTimeSlotsRequest, GatewayGetTimeSlotsResponse } from '@nextorders/food-schema'
+import type { GatewayGetTimeSlotsResponse } from '@nextorders/food-schema'
 
 export default defineEventHandler<Promise<GatewayGetTimeSlotsResponse['result']>>(async () => {
   try {
-    const { public: publicEnv } = useRuntimeConfig()
-    if (!publicEnv?.channelId) {
-      throw createError({
-        statusCode: 400,
-        message: 'Missing channelId',
-      })
-    }
+    const channelId = getChannelId()
 
-    const slots = await fetchApi<GatewayGetTimeSlotsRequest, GatewayGetTimeSlotsResponse>({
+    const slots = await fetchApi({
       type: 'getTimeSlots',
       body: {
-        channelId: publicEnv.channelId as string,
+        channelId,
         deliveryMethod: 'deliveryByCourier',
       },
     })

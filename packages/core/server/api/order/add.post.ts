@@ -1,4 +1,4 @@
-import type { GatewayAddOrderItemRequest, GatewayAddOrderItemResponse } from '@nextorders/food-schema'
+import type { GatewayAddOrderItemResponse } from '@nextorders/food-schema'
 import { OrderItemSchema } from '@nextorders/food-schema'
 
 export default defineEventHandler<Promise<GatewayAddOrderItemResponse['result']>>(async (event) => {
@@ -8,7 +8,7 @@ export default defineEventHandler<Promise<GatewayAddOrderItemResponse['result']>
 
     const orderId = await getOrderId(event, true) as string
 
-    const order = await fetchApi<GatewayAddOrderItemRequest, GatewayAddOrderItemResponse>({
+    const order = await fetchApi({
       type: 'addOrderItem',
       body: {
         orderId,

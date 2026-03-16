@@ -1,5 +1,3 @@
-import type { GatewayCheckDeliveryZoneRequest, GatewayCheckDeliveryZoneResponse } from '@nextorders/food-schema'
-
 export default defineEventHandler(async (event) => {
   try {
     const { lat, lon } = getQuery<{ lat?: string, lon?: string }>(event)
@@ -12,7 +10,7 @@ export default defineEventHandler(async (event) => {
       throw createError({ statusCode: 400, message: 'lat and lon must be valid numbers' })
     }
 
-    const response = await fetchApi<GatewayCheckDeliveryZoneRequest, GatewayCheckDeliveryZoneResponse>({
+    const response = await fetchApi({
       type: 'checkDeliveryZone',
       body: {
         lat: Number(lat),

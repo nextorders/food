@@ -1,20 +1,12 @@
-import type { GatewayGetSelfPickupStatusRequest, GatewayGetSelfPickupStatusResponse } from '@nextorders/food-schema'
+import type { GatewayGetSelfPickupStatusResponse } from '@nextorders/food-schema'
 
 export default defineEventHandler<Promise<GatewayGetSelfPickupStatusResponse['result']>>(async () => {
   try {
-    const { public: publicEnv } = useRuntimeConfig()
-    if (!publicEnv?.channelId) {
-      throw createError({
-        statusCode: 400,
-        message: 'Missing channelId',
-      })
-    }
+    const channelId = getChannelId()
 
-    const status = await fetchApi<GatewayGetSelfPickupStatusRequest, GatewayGetSelfPickupStatusResponse>({
+    const status = await fetchApi({
       type: 'getSelfPickupStatus',
-      body: {
-        channelId: publicEnv.channelId as string,
-      },
+      body: { channelId },
     })
     if (!status.result) {
       throw createError({
