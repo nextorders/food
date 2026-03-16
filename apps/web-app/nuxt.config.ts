@@ -10,5 +10,5 @@ export default defineNuxtConfig({
       scrollBehaviorType: 'smooth',
     },
   },
-  compatibilityDate: '2025-02-20',
+  compatibilityDate: '2025-07-15',
 })

@@ -1,5 +1,3 @@
-import type { GatewaySuggestAddressesRequest, GatewaySuggestAddressesResponse } from '@nextorders/food-schema'
-
 export default defineEventHandler(async (event) => {
   try {
     const { query, limit } = getQuery<{ query?: string, limit?: string }>(event)
@@ -7,7 +5,7 @@ export default defineEventHandler(async (event) => {
       throw createError({ statusCode: 400, message: 'query is required' })
     }
 
-    const response = await fetchApi<GatewaySuggestAddressesRequest, GatewaySuggestAddressesResponse>({
+    const response = await fetchApi({
       type: 'suggestAddresses',
       body: {
         query,

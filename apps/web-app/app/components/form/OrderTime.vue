@@ -19,7 +19,6 @@
 
 <script setup lang="ts">
 import type { Order } from '@nextorders/food-schema'
-import { useChannelStore } from '@nextorders/core/app/stores/channel'
 
 const { dict } = useDictionary()
 const toast = useToast()

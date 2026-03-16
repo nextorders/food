@@ -49,8 +49,6 @@
 
 <script setup lang="ts">
 import { ModalChannelSelector, ModalDeliveryInfo, ModalDeliverySchedule } from '#components'
-import { useChannelStore } from '@nextorders/core/app/stores/channel'
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
 const { dict } = useDictionary()
 const route = useRoute()

@@ -46,12 +46,8 @@ export const useOptionsStore = defineStore('options', () => {
       addressSuggestEnabled.value = data.addressSuggestEnabled ?? false
       deliveryZonesEnabled.value = data.deliveryZonesEnabled ?? false
       deliveryZoneNotFoundMessageValues.value = data.deliveryZoneNotFoundMessage
-    } catch (error) {
-      if (error instanceof Error) {
-        if (error.message.includes('404')) {
-          // Not found
-        }
-      }
+    } catch {
+      // API unavailable, keep default state
     }
   }
 
@@ -67,8 +63,7 @@ export const useOptionsStore = defineStore('options', () => {
       }
 
       return hasCurrentLocale.value
-    } catch (error) {
-      console.error(error)
+    } catch {
       return ''
     }
   }
@@ -76,8 +71,7 @@ export const useOptionsStore = defineStore('options', () => {
   function formatCurrency(amount: number): string {
     try {
       return new Intl.NumberFormat(appLocale.value?.language).format(amount)
-    } catch (error) {
-      console.error(error)
+    } catch {
       return amount.toString()
     }
   }
@@ -94,8 +88,7 @@ export const useOptionsStore = defineStore('options', () => {
       })
       // Format zero to get only the currency symbol
       return formatter.format(0).replace(DIGIT_OR_SPACE_RE, '').trim()
-    } catch (error) {
-      console.error(error)
+    } catch {
       return currencyCode.value ?? ''
     }
   }

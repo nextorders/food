@@ -47,9 +47,9 @@ function playVideo() {
 
   try {
     videoRef.value?.play()
-  } catch (error) {
-    console.error(error)
+  } catch {
     isVideoLoaded.value = false
+    return
   }
 
   isVideoPlaying.value = true

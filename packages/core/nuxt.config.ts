@@ -11,5 +11,5 @@ export default defineNuxtConfig({
   i18n: {
     strategy: 'no_prefix',
   },
-  compatibilityDate: '2025-11-28',
+  compatibilityDate: '2025-07-15',
 })

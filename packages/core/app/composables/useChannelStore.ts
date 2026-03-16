@@ -30,12 +30,8 @@ export const useChannelStore = defineStore('channel', () => {
       }
 
       list.value = data
-    } catch (error) {
-      if (error instanceof Error) {
-        if (error.message.includes('404')) {
-          // Not found
-        }
-      }
+    } catch {
+      // API unavailable, keep default state
     }
   }
 
@@ -80,10 +76,8 @@ export const useChannelStore = defineStore('channel', () => {
       }
 
       deliveryOpeningStatus.value = data
-    } catch (error) {
-      if (error instanceof Error) {
-        // its ok
-      }
+    } catch {
+      // API unavailable, keep default state
     }
   }
 
@@ -95,10 +89,8 @@ export const useChannelStore = defineStore('channel', () => {
       }
 
       selfPickupOpeningStatus.value = data
-    } catch (error) {
-      if (error instanceof Error) {
-        // its ok
-      }
+    } catch {
+      // API unavailable, keep default state
     }
   }
 
@@ -110,10 +102,8 @@ export const useChannelStore = defineStore('channel', () => {
       }
 
       timeSlots.value = data
-    } catch (error) {
-      if (error instanceof Error) {
-        // its ok
-      }
+    } catch {
+      // API unavailable, keep default state
     }
   }
 

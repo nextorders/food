@@ -1,4 +1,4 @@
-import type { GatewayCompleteOrderRequest, GatewayCompleteOrderResponse, GatewayGetOrderRequest, GatewayGetOrderResponse } from '@nextorders/food-schema'
+import type { GatewayCompleteOrderResponse } from '@nextorders/food-schema'
 import { OrderSchema } from '@nextorders/food-schema'
 import { createId } from '@paralleldrive/cuid2'
 
@@ -15,7 +15,7 @@ export default defineEventHandler<Promise<GatewayCompleteOrderResponse['result']
       })
     }
 
-    const order = await fetchApi<GatewayGetOrderRequest, GatewayGetOrderResponse>({
+    const order = await fetchApi({
       type: 'getOrder',
       body: {
         id: orderId,
@@ -36,7 +36,7 @@ export default defineEventHandler<Promise<GatewayCompleteOrderResponse['result']
       })
     }
 
-    const completedOrder = await fetchApi<GatewayCompleteOrderRequest, GatewayCompleteOrderResponse>({
+    const completedOrder = await fetchApi({
       type: 'completeOrder',
       body: {
         ...order.result,

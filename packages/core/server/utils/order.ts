@@ -1,4 +1,3 @@
-import type { GatewayCreateOrderRequest, GatewayCreateOrderResponse } from '@nextorders/food-schema'
 import type { H3Error, H3Event } from 'h3'
 import { createId } from '@paralleldrive/cuid2'
 
@@ -6,7 +5,7 @@ export async function getOrderId(event: H3Event, createIfNotExist = false): Prom
   const { user } = await getUserSession(event)
 
   if (createIfNotExist && !user?.orderId) {
-    const createdOrder = await fetchApi<GatewayCreateOrderRequest, GatewayCreateOrderResponse>({
+    const createdOrder = await fetchApi({
       type: 'createOrder',
     })
     if (!createdOrder?.result?.id) {

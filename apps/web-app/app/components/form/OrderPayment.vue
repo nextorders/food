@@ -33,8 +33,6 @@
 
 <script setup lang="ts">
 import type { Order, PaymentMethod } from '@nextorders/food-schema'
-import { useChannelStore } from '@nextorders/core/app/stores/channel'
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
 const optionsStore = useOptionsStore()
 const channelStore = useChannelStore()

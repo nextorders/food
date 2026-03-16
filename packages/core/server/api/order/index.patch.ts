@@ -1,4 +1,4 @@
-import type { GatewayUpdateOrderRequest, GatewayUpdateOrderResponse } from '@nextorders/food-schema'
+import type { GatewayUpdateOrderResponse } from '@nextorders/food-schema'
 import { OrderSchema } from '@nextorders/food-schema'
 
 export default defineEventHandler<Promise<GatewayUpdateOrderResponse['result']>>(async (event) => {
@@ -14,7 +14,7 @@ export default defineEventHandler<Promise<GatewayUpdateOrderResponse['result']>>
       })
     }
 
-    const order = await fetchApi<GatewayUpdateOrderRequest, GatewayUpdateOrderResponse>({
+    const order = await fetchApi({
       type: 'updateOrder',
       body: {
         ...data,

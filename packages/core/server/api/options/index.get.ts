@@ -1,10 +1,10 @@
-import type { GatewayGetOptionsRequest, GatewayGetOptionsResponse } from '@nextorders/food-schema'
+import type { GatewayGetOptionsResponse } from '@nextorders/food-schema'
 
 const CACHE_MAX_AGE = 60 * 5 // 5 minutes
 
 export default defineCachedEventHandler<Promise<GatewayGetOptionsResponse['result']>>(async () => {
   try {
-    const options = await fetchApi<GatewayGetOptionsRequest, GatewayGetOptionsResponse>({
+    const options = await fetchApi({
       type: 'getOptions',
     })
     if (!options?.result) {

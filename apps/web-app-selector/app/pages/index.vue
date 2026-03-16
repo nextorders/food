@@ -3,8 +3,6 @@
 </template>
 
 <script setup lang="ts">
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
-
 const optionsStore = useOptionsStore()
 
 useHead({

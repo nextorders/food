@@ -29,32 +29,20 @@
       {{ $dict('common.footer.copyright-part-two') }}
 
       <ULink
-        :to="url"
+        :to="appConfig.projectUrl"
         target="_blank"
         external
         class="font-medium flex flex-row gap-1 items-center"
       >
         <UIcon name="simple-icons:github" class="size-4" />
-        {{ projectTitle }}
+        {{ appConfig.projectTitle }}
       </ULink>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useChannelStore } from '@nextorders/core/app/stores/channel'
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
-
-const location = useBrowserLocation()
-
-const projectUrl = 'https://nextorders.ru/go/food'
-const projectTitle = 'nextorders/food'
-const url = ref(projectUrl)
-
-onMounted(() => {
-  url.value = `${projectUrl}?ref=${location.value.host}`
-})
-
+const appConfig = useAppConfig()
 const optionsStore = useOptionsStore()
 const channelStore = useChannelStore()
 

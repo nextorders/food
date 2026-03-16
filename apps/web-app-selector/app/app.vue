@@ -8,8 +8,6 @@
 </template>
 
 <script setup lang="ts">
-import { useChannelStore } from '@nextorders/core/app/stores/channel'
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
 import * as locales from '@nuxt/ui/locale'
 import ChannelSelector from '~/components/ChannelSelector.vue'
 

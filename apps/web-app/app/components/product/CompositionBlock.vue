@@ -18,7 +18,6 @@
 
 <script setup lang="ts">
 import type { ProductComposition } from '@nextorders/food-schema'
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
 const { composition } = defineProps<{ composition: ProductComposition }>()
 
