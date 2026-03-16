@@ -15,7 +15,7 @@ RUN corepack enable pnpm && pnpm i --frozen-lockfile
 COPY packages/ packages/
 COPY apps/essence/ apps/essence/
 
-RUN pnpm build --filter @nextorders/essence
+RUN pnpm --filter @nextorders/essence... run build
 
 # Production stage
 FROM base AS production

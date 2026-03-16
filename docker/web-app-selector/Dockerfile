@@ -15,7 +15,7 @@ RUN corepack enable pnpm && pnpm i --frozen-lockfile
 COPY packages/ packages/
 COPY apps/web-app-selector/ apps/web-app-selector/
 
-RUN pnpm build --filter @nextorders/web-app-selector
+RUN pnpm --filter @nextorders/web-app-selector... run build
 
 # Production stage
 FROM base AS production

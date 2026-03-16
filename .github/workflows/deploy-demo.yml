@@ -1,14 +1,15 @@
-name: Deploy Demo Web App
+name: Deploy Demo
 
 on:
-  # workflow_run:
-  #   workflows: ["Docker Nightly", "Docker Release"]
-  #   types:
-  #     - completed
+  workflow_run:
+    workflows: ["Docker web-app-selector"]
+    types:
+      - completed
   workflow_dispatch:
 
 jobs:
   deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     strategy:
       fail-fast: false
       matrix:
