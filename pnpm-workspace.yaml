@@ -24,7 +24,6 @@ catalogs:
     '@iconify-json/simple-icons': ^1.2.74
     '@nuxt/devtools': ^3.2.3
     '@nuxtjs/i18n': ^10.2.3
-    '@tailwindcss/typography': ^0.5.19
     bumpp: ^11.0.1
     eslint: ^9.39.4
     husky: ^9.1.7
@@ -40,7 +39,7 @@ catalogs:
     '@date-fns/tz': ^1.4.1
     '@neoconfetti/vue': ^2.2.1
     '@nuxt/ui': ^4.5.1
-    '@paralleldrive/cuid2': 3.3.0
+    '@paralleldrive/cuid2': ^3.3.0
     '@pinia/nuxt': ^0.11.3
     '@vueuse/core': ^14.2.1
     '@vueuse/nuxt': ^14.2.1

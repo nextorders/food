@@ -1,12 +1,10 @@
-import { beforeAll, describe, expect, it, vi } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { useDictionary } from '../../app/composables/useDictionary'
 import { mockUseI18n } from '../setup'
 
-beforeAll(() => {
-  vi.mock('vue-i18n', () => ({
-    useI18n: () => mockUseI18n,
-  }))
-})
+vi.mock('vue-i18n', () => ({
+  useI18n: () => mockUseI18n,
+}))
 
 describe('useDictionary', () => {
   it('should translate key', () => {

@@ -20,7 +20,6 @@
     "@iconify-json/simple-icons": "catalog:dev",
     "@nuxt/devtools": "catalog:dev",
     "@nuxtjs/i18n": "catalog:dev",
-    "@tailwindcss/typography": "catalog:dev",
     "nuxt": "catalog:dev",
     "tailwindcss-motion": "catalog:dev"
   }
