@@ -1,4 +1,4 @@
 export default defineNuxtConfig({
   extends: ['@nextorders/ui', '@nextorders/core'],
-  compatibilityDate: '2025-02-20',
+  compatibilityDate: '2025-07-15',
 })

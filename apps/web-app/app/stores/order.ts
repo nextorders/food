@@ -1,6 +1,4 @@
 import type { Order, OrderItem, OrderItemChange } from '@nextorders/food-schema'
-import { useChannelStore } from '@nextorders/core/app/stores/channel'
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
 const NON_DIGIT_RE = /\D/g
 
@@ -151,8 +149,8 @@ export const useOrderStore = defineStore('order', () => {
       )
 
       await update()
-    } catch (error) {
-      console.error(error)
+    } catch {
+      // Request failed, keep current state
     } finally {
       isLoading.value = false
     }
@@ -173,8 +171,8 @@ export const useOrderStore = defineStore('order', () => {
       }
 
       return data
-    } catch (error) {
-      console.error(error)
+    } catch {
+      // Request failed, keep current state
     }
   }
 
@@ -189,8 +187,8 @@ export const useOrderStore = defineStore('order', () => {
       )
 
       await update()
-    } catch (error) {
-      console.error(error)
+    } catch {
+      // Request failed, keep current state
     }
   }
 
@@ -207,17 +205,16 @@ export const useOrderStore = defineStore('order', () => {
       await update()
 
       return data
-    } catch (error) {
-      console.error(error)
+    } catch {
+      // Request failed, keep current state
     }
   }
 
   async function get(id: string) {
     try {
-      const data = await $fetch(`/api/order/id/${id}`)
-      return data
-    } catch (error) {
-      console.error(error)
+      return await $fetch(`/api/order/id/${id}`)
+    } catch {
+      // Order not found
     }
   }
 

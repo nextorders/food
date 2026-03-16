@@ -158,11 +158,8 @@
 </template>
 
 <script setup lang="ts">
-import { useChannelStore } from '@nextorders/core/app/stores/channel'
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
-
 const { dict } = useDictionary()
-const { params } = useRoute('categorySlug-productSlug')
+const { params } = useRoute()
 
 const orderStore = useOrderStore()
 const channelStore = useChannelStore()

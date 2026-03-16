@@ -17,7 +17,7 @@ export default defineEventHandler<Promise<GatewayGetTimeSlotsResponse['result']>
         deliveryMethod: 'deliveryByCourier',
       },
     })
-    if (!slots) {
+    if (!slots.result) {
       throw createError({
         statusCode: 404,
         message: 'Not found',

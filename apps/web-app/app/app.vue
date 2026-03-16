@@ -8,8 +8,6 @@
 </template>
 
 <script setup lang="ts">
-import { useChannelStore } from '@nextorders/core/app/stores/channel'
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
 import * as locales from '@nuxt/ui/locale'
 
 const { locale } = useI18n()
@@ -45,8 +43,8 @@ onMounted(() => {
       channelStore.updateDeliveryOpeningStatus(),
       channelStore.updateSelfPickupOpeningStatus(),
       channelStore.updateTimeSlots(),
-    ])
-  }, 30000)
+    ]).catch(() => {})
+  }, 30_000)
 })
 
 onBeforeUnmount(() => {

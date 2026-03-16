@@ -28,7 +28,6 @@
 
 <script setup lang="ts">
 import type { MenuCategory } from '@nextorders/food-schema'
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
 const { category } = defineProps<{
   category: MenuCategory

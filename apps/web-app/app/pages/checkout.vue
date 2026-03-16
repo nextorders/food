@@ -113,9 +113,6 @@
 </template>
 
 <script setup lang="ts">
-import { useChannelStore } from '@nextorders/core/app/stores/channel'
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
-
 definePageMeta({
   layout: 'checkout',
 })

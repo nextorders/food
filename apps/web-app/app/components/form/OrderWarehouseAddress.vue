@@ -28,8 +28,6 @@
 
 <script setup lang="ts">
 import type { OrderWarehouseAddress } from '@nextorders/food-schema'
-import { useChannelStore } from '@nextorders/core/app/stores/channel'
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
 const channelStore = useChannelStore()
 const optionsStore = useOptionsStore()

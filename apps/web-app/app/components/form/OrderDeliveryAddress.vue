@@ -107,7 +107,6 @@
 
 <script setup lang="ts">
 import type { AddressSuggestion, OrderDeliveryAddress } from '@nextorders/food-schema'
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
 import { refDebounced } from '@vueuse/core'
 
 const optionsStore = useOptionsStore()

@@ -67,8 +67,6 @@
 </template>
 
 <script setup lang="ts">
-import { useChannelStore } from '@nextorders/core/app/stores/channel'
-
 const channelStore = useChannelStore()
 const orderStore = useOrderStore()
 

@@ -16,7 +16,7 @@ export default defineEventHandler<Promise<GatewayGetDeliveryByCourierStatusRespo
         channelId: publicEnv.channelId as string,
       },
     })
-    if (!status) {
+    if (!status.result) {
       throw createError({
         statusCode: 404,
         message: 'Not found',

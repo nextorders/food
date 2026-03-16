@@ -39,7 +39,6 @@
 
 <script setup lang="ts">
 import type { OrderItem } from '@nextorders/food-schema'
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
 const { line, canBeChanged = true } = defineProps<{
   line: OrderItem

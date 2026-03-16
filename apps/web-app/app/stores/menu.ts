@@ -19,10 +19,8 @@ export const useMenuStore = defineStore('menu', () => {
       categories.value = data.categories
       products.value = data.categories.flatMap((category) => category.products)
       productVariants.value = data.categories.flatMap((category) => category.products.flatMap((product) => product.variants))
-    } catch (error) {
-      if (error instanceof Error) {
-        // its ok
-      }
+    } catch {
+      // API unavailable, keep default state
     }
   }
 

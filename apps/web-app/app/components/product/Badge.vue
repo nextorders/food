@@ -6,7 +6,6 @@
 
 <script setup lang="ts">
 import type { ProductBadge } from '@nextorders/food-schema'
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
 defineProps<{ badge: ProductBadge }>()
 

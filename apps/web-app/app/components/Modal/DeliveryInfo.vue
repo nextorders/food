@@ -30,9 +30,6 @@
 </template>
 
 <script setup lang="ts">
-import { useChannelStore } from '@nextorders/core/app/stores/channel'
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
-
 const optionsStore = useOptionsStore()
 const channelStore = useChannelStore()
 const orderStore = useOrderStore()

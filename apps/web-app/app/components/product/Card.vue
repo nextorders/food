@@ -63,7 +63,6 @@
 
 <script setup lang="ts">
 import type { Product } from '@nextorders/food-schema'
-import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
 const { product } = defineProps<{
   product: Product
