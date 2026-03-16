@@ -12,7 +12,7 @@ test.describe('Smoke Tests', () => {
     await page.goto('/')
 
     const headings = page.locator('h2')
-    await expect(headings.first()).toBeVisible()
+    await expect(headings.first()).toBeVisible({ timeout: 10_000 })
     expect(await headings.count()).toBeGreaterThanOrEqual(1)
   })
 

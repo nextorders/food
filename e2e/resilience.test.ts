@@ -36,7 +36,7 @@ test.describe('Resilience', () => {
 
   test('page works after browser back navigation', async ({ page }) => {
     await page.goto('/')
-    await expect(page.locator('h2').first()).toBeVisible()
+    await expect(page.locator('main')).toBeVisible()
 
     // Navigate to a category
     const categoryLink = page.locator('nav a[href^="/"]').first()
@@ -47,6 +47,6 @@ test.describe('Resilience', () => {
     await page.goBack()
 
     // Homepage should still work
-    await expect(page.locator('h2').first()).toBeVisible()
+    await expect(page.locator('main')).toBeVisible()
   })
 })

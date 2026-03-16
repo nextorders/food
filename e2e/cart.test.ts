@@ -13,6 +13,7 @@ test.describe('Cart', () => {
 
     // Click "Add to cart" button
     const addButton = page.getByRole('button', { name: /add to cart/i })
+    await expect(addButton).toBeVisible({ timeout: 10_000 })
     await addButton.click()
 
     // Cart aside (xl viewport) should now show cart content
