@@ -29,7 +29,7 @@ const channelStore = useChannelStore()
 const optionsStore = useOptionsStore()
 const menuStore = useMenuStore()
 
-const category = menuStore.getCategoryBySlug(params.categorySlug)
+const category = menuStore.getCategoryBySlug(String(params.categorySlug))
 if (!category) {
   throw createError({
     statusCode: 404,

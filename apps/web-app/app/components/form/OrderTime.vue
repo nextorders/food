@@ -62,7 +62,7 @@ watch(state, () => {
 
 watch(items, () => {
   // If there is no selected time slot, select the default
-  if (selectedTimeSlotValue.value !== defaultTimeSlot && !items.value.find((i) => i.value === selectedTimeSlotValue.value)) {
+  if (selectedTimeSlotValue.value !== defaultTimeSlot && !items.value.some((i) => i.value === selectedTimeSlotValue.value)) {
     selectedTimeSlotValue.value = defaultTimeSlot
 
     // Tell the user that the time slot has been reset

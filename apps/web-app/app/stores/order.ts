@@ -2,6 +2,8 @@ import type { Order, OrderItem, OrderItemChange } from '@nextorders/food-schema'
 import { useChannelStore } from '@nextorders/core/app/stores/channel'
 import { useOptionsStore } from '@nextorders/core/app/stores/options'
 
+const NON_DIGIT_RE = /\D/g
+
 export const useOrderStore = defineStore('order', () => {
   const id = ref<Order['id']>()
   const name = ref<Order['name']>()
@@ -85,7 +87,7 @@ export const useOrderStore = defineStore('order', () => {
 
     if (isValidPhone.value) {
       // Remove all except numbers
-      phone.value = formattedPhone.replace(/\D/g, '')
+      phone.value = formattedPhone.replace(NON_DIGIT_RE, '')
     } else {
       phone.value = undefined
     }
