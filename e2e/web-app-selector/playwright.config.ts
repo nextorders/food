@@ -2,8 +2,8 @@ import process from 'node:process'
 import { defineConfig, devices } from '@playwright/test'
 
 const CI = !!process.env.CI
-const ESSENCE_PORT = 3603
-const WEB_APP_PORT = 3602
+const ESSENCE_PORT = 3703
+const SELECTOR_PORT = 3702
 
 export default defineConfig({
   testDir: '.',
@@ -13,7 +13,7 @@ export default defineConfig({
   workers: CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: `http://localhost:${WEB_APP_PORT}`,
+    baseURL: `http://localhost:${SELECTOR_PORT}`,
     trace: 'on-first-retry',
   },
   projects: [
@@ -28,18 +28,17 @@ export default defineConfig({
       port: ESSENCE_PORT,
       timeout: 120_000,
       reuseExistingServer: !CI,
-      cwd: '..',
+      cwd: '../..',
     },
     {
-      command: `pnpm nuxt dev --port ${WEB_APP_PORT} --cwd apps/web-app`,
-      port: WEB_APP_PORT,
+      command: `pnpm nuxt dev --port ${SELECTOR_PORT} --cwd apps/web-app-selector`,
+      port: SELECTOR_PORT,
       timeout: 120_000,
       reuseExistingServer: !CI,
-      cwd: '..',
+      cwd: '../..',
       env: {
         NUXT_API_URL: `http://localhost:${ESSENCE_PORT}/api/storefront/gateway`,
         NUXT_API_TOKEN: 'test-token',
-        NUXT_PUBLIC_CHANNEL_ID: 'moscow',
       },
     },
   ],
