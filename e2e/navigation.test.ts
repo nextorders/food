@@ -48,10 +48,14 @@ test.describe('Navigation', () => {
     await menuButton.click()
 
     // Wait for navigation content to appear
-    await expect(page.getByRole('button', { name: /close/i }).or(page.locator('[data-slot="close"]')).or(page.locator('button[aria-label]').nth(1))).toBeVisible({ timeout: 3000 }).catch(async () => {
-      // Fallback: check if nav appeared
-      await expect(page.locator('nav').last()).toBeVisible()
-    })
+    const navOverlay = page.locator('nav').last()
+    await expect(navOverlay).toBeVisible({ timeout: 3000 })
+
+    // Close the menu via Escape key
+    await page.keyboard.press('Escape')
+
+    // Menu should be hidden
+    await expect(navOverlay).not.toBeVisible()
 
     await context.close()
   })
