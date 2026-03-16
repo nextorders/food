@@ -23,7 +23,7 @@ All requests go through `POST /api/storefront/gateway` with JSON body:
 }
 ```
 
-Supported types: `getChannels`, `getMenu`, `getOptions`, `createOrder`, `getOrder`, `updateOrder`, `addOrderItem`, `changeOrderItemQuantity`, `completeOrder`, `getDeliveryOpeningStatus`, `getSelfPickupOpeningStatus`, `getTimeSlots`, `checkDeliveryZone`.
+Supported types: `getOptions`, `getChannels`, `getMenu`, `getOrder`, `createOrder`, `updateOrder`, `completeOrder`, `addOrderItem`, `incrementOrderItemQuantity`, `decrementOrderItemQuantity`, `getDeliveryByCourierStatus`, `getSelfPickupStatus`, `getTimeSlots`.
 
 ## Data
 

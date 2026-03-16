@@ -16,7 +16,7 @@ Starts on `http://localhost:3502`.
 
 1. Fetches list of channels from `/api/channel/list`
 2. Displays them as selectable cards
-3. On selection, saves `channel-id` to `localStorage` and redirects to the channel URL
+3. On selection, saves `selector-channel-id` to `localStorage` and redirects to the channel URL
 
 ## Configuration
 
