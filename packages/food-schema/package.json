@@ -7,7 +7,7 @@
   },
   "description": "All types and schemas for @nextorders/food",
   "license": "MIT",
-  "homepage": "https://nextorders.ru",
+  "homepage": "https://demo.nextorders.space",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextorders/food.git",

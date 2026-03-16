@@ -21,7 +21,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     permissions:
       contents: read
 
@@ -54,6 +54,12 @@ jobs:
 
       - name: Test
         run: pnpm run test
+
+      - name: Install Playwright browsers
+        run: pnpm playwright install chromium
+
+      - name: E2E tests
+        run: pnpm run test:e2e
 
       - name: Build
         run: pnpm run build

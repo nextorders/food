@@ -772,7 +772,7 @@ const links: Channel['links'] = {
           value: 'Software para comércio eletrónico',
         },
       ],
-      to: 'https://nextorders.ru/',
+      to: 'https://startodel.ru/',
       target: '_blank',
     },
   ],

@@ -42,6 +42,9 @@ vite.config.*.timestamp-*
 
 ### Tests ###
 /coverage/
+/test-results/
+/playwright-report/
+/blob-report/
 
 ### IDE ###
 .vscode/*
