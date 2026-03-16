@@ -6,7 +6,7 @@
   "description": "Modern e-commerce self-hosted platform: clients will be happy to order delicious food!",
   "author": "Nick Kosarev <hmbanan666@hotmail.com>",
   "license": "MIT",
-  "homepage": "https://nextorders.ru",
+  "homepage": "https://demo.nextorders.space",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextorders/food.git"
@@ -35,13 +35,15 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "check:full": "pnpm run lint:fix && pnpm run typecheck && pnpm vitest run",
+    "test:e2e": "playwright test --config e2e/playwright.config.ts",
+    "check:full": "pnpm run lint:fix && pnpm run typecheck && pnpm vitest run && pnpm test:e2e",
     "prepare": "husky"
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:dev",
     "@commitlint/cli": "catalog:dev",
     "@commitlint/config-conventional": "catalog:dev",
+    "@playwright/test": "catalog:test",
     "@vitest/browser-playwright": "catalog:test",
     "@vitest/coverage-v8": "catalog:test",
     "bumpp": "catalog:dev",
