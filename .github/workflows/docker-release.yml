@@ -44,7 +44,7 @@ jobs:
           ref: ${{ steps.version.outputs.ref }}
 
       - name: Login to Github Registry
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -60,7 +60,7 @@ jobs:
           echo "tags=${TAGS}" >> $GITHUB_OUTPUT
 
       - name: Build and push ${{ matrix.app }}
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: docker/${{ matrix.app }}/Dockerfile

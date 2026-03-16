@@ -1,5 +1,7 @@
 import type { LocaleValue, Options } from '@nextorders/food-schema'
 
+const DIGIT_OR_SPACE_RE = /\d|\s/g
+
 export const useOptionsStore = defineStore('options', () => {
   const selectorTitleValues = ref<Options['selectorTitle']>([])
   const selectorDescriptionValues = ref<Options['selectorDescription']>()
@@ -91,7 +93,7 @@ export const useOptionsStore = defineStore('options', () => {
         maximumFractionDigits: 0,
       })
       // Format zero to get only the currency symbol
-      return formatter.format(0).replace(/\d|\s/g, '').trim()
+      return formatter.format(0).replace(DIGIT_OR_SPACE_RE, '').trim()
     } catch (error) {
       console.error(error)
       return currencyCode.value ?? ''

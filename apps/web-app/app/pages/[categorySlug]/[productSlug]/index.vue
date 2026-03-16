@@ -169,7 +169,7 @@ const channelStore = useChannelStore()
 const optionsStore = useOptionsStore()
 const menuStore = useMenuStore()
 
-const product = menuStore.getProductBySlug(params.productSlug)
+const product = menuStore.getProductBySlug(String(params.productSlug))
 if (!product) {
   throw createError({
     statusCode: 404,

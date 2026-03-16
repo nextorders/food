@@ -66,7 +66,7 @@ export function getTimeSlotsFromNow(schedule: Schedule, timeZone: TimeZone): Tim
   }
 
   // Get today's last closing period (we'll use the latest end time)
-  const lastPeriod = todaySchedule.hours[todaySchedule.hours.length - 1]
+  const lastPeriod = todaySchedule.hours.at(-1)
   if (!lastPeriod) {
     return slots
   }

@@ -33,7 +33,7 @@ let checkAndPlayTimer: NodeJS.Timeout
 function onCanPlayThrough() {
   isVideoLoaded.value = true
 
-  playDelayTimer = setTimeout(() => playVideo(), 1000)
+  playDelayTimer = setTimeout(playVideo, 1000)
 }
 
 function onVideoEnded() {

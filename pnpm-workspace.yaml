@@ -15,44 +15,43 @@ packages:
 
 catalogs:
   dev:
-    '@antfu/eslint-config': ^7.0.0
-    '@commitlint/cli': ^20.3.1
-    '@commitlint/config-conventional': ^20.3.1
+    '@antfu/eslint-config': ^7.7.2
+    '@commitlint/cli': ^20.5.0
+    '@commitlint/config-conventional': ^20.5.0
     '@iconify-json/circle-flags': ^1.2.10
     '@iconify-json/fluent-emoji-flat': ^1.2.5
-    '@iconify-json/lucide': ^1.2.85
-    '@iconify-json/simple-icons': ^1.2.66
-    '@nuxt/devtools': ^3.1.1
-    '@nuxtjs/i18n': ^10.2.1
-    '@tailwindcss/typography': ^0.5.19
-    bumpp: ^10.4.0
-    eslint: ^9.39.2
+    '@iconify-json/lucide': ^1.2.98
+    '@iconify-json/simple-icons': ^1.2.74
+    '@nuxt/devtools': ^3.2.3
+    '@nuxtjs/i18n': ^10.2.3
+    bumpp: ^11.0.1
+    eslint: ^9.39.4
     husky: ^9.1.7
-    lint-staged: ^16.2.7
-    nuxt: ^4.2.2
-    nuxt-auth-utils: ^0.5.26
+    lint-staged: ^16.4.0
+    nuxt: ^4.4.2
+    nuxt-auth-utils: ^0.5.29
     tailwindcss-motion: ^1.1.1
     typescript: ^5.9.3
     unbuild: ^3.6.1
     vite: ^7.3.1
-    vue-tsc: ^3.2.2
+    vue-tsc: ^3.2.5
   integrations:
     '@date-fns/tz': ^1.4.1
     '@neoconfetti/vue': ^2.2.1
-    '@nuxt/ui': ^4.3.0
-    '@paralleldrive/cuid2': 2.2.2
+    '@nuxt/ui': ^4.5.1
+    '@paralleldrive/cuid2': ^3.3.0
     '@pinia/nuxt': ^0.11.3
-    '@vueuse/core': ^14.1.0
-    '@vueuse/nuxt': ^14.1.0
-    libphonenumber-js: ^1.12.34
+    '@vueuse/core': ^14.2.1
+    '@vueuse/nuxt': ^14.2.1
+    libphonenumber-js: ^1.12.40
     pinia: ^3.0.4
-    zod: ^4.3.5
+    zod: ^4.3.6
   test:
-    '@vitest/browser-playwright': ^4.0.17
-    '@vitest/coverage-v8': ^4.0.17
-    playwright: ^1.57.0
-    vitest: ^4.0.17
+    '@vitest/browser-playwright': ^4.1.0
+    '@vitest/coverage-v8': ^4.1.0
+    playwright: ^1.58.2
+    vitest: ^4.1.0
   types:
-    '@types/node': ^25.0.8
+    '@types/node': ^25.5.0
 
 autoInstallPeers: true

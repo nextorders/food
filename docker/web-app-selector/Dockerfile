@@ -1,14 +1,21 @@
-FROM node:24.13.0-alpine AS base
+FROM node:24-alpine AS base
 
 # Builder stage
 FROM base AS builder
 WORKDIR /app
+
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-COPY packages ./packages
-COPY apps/web-app-selector ./apps/web-app-selector
-RUN npm install --ignore-scripts -g pnpm && \
-    pnpm i --frozen-lockfile && \
-    pnpm build --filter @nextorders/web-app-selector
+COPY packages/food-schema/package.json packages/food-schema/
+COPY packages/core/package.json packages/core/
+COPY packages/ui/package.json packages/ui/
+COPY apps/web-app-selector/package.json apps/web-app-selector/
+
+RUN corepack enable pnpm && pnpm i --frozen-lockfile
+
+COPY packages/ packages/
+COPY apps/web-app-selector/ apps/web-app-selector/
+
+RUN pnpm build --filter @nextorders/web-app-selector
 
 # Production stage
 FROM base AS production
@@ -40,7 +47,7 @@ EXPOSE 3000
 
 # Health check using exec form
 HEALTHCHECK --interval=30s --timeout=5s --start-period=60s \
-    CMD ["health-check.sh"]
+    CMD ["/app/health-check.sh"]
 
 # Run the application
 ENTRYPOINT ["node"]
