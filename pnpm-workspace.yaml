@@ -33,7 +33,7 @@ catalogs:
     tailwindcss-motion: ^1.1.1
     typescript: ^5.9.3
     unbuild: ^3.6.1
-    vite: ^7.3.1
+    vite: ^8.0.10
     vue-tsc: ^3.2.5
   integrations:
     '@date-fns/tz': ^1.4.1
