@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: akb-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: akbdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  essence:
+    build:
+      context: .
+      dockerfile: docker/essence/Dockerfile
+    container_name: akb-essence
+    environment:
+      POSTGRES_URL: postgresql://postgres:mysecretpassword@postgres:5432/akbdb
+      VK_ACCESS_TOKEN: ${VK_ACCESS_TOKEN}
+      VK_USER_ID: ${VK_USER_ID}
+      YOUR_NAME: ${YOUR_NAME}
+      PHONE_NUMBER: ${PHONE_NUMBER}
+      EMAIL: ${EMAIL}
+      INN: ${INN}
+      OGRN: ${OGRN}
+      LOCAL_CITY: ${LOCAL_CITY}
+      LOCAL_ADDRESS: ${LOCAL_ADDRESS}
+    ports:
+      - "127.0.0.1:3001:3000"   # только локальный доступ, будет проксироваться Nginx
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: always
+
+  web-app:
+    build:
+      context: .
+      dockerfile: docker/web-app/Dockerfile
+    environment:
+      NUXT_SESSION_PASSWORD: ${NUXT_SESSION_PASSWORD}
+      NUXT_API_URL: "http://essence:3000/api/storefront/gateway"
+      NUXT_PUBLIC_CHANNEL_ID: "moscow"
+    ports:
+      - "127.0.0.1:3002:3000"
+    depends_on:
+      - essence
+    restart: always
+
+  nginx:
+    image: nginx:alpine
+    container_name: akb-nginx
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/html:/usr/share/nginx/html
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - web-app
+      - essence
+    restart: always
+
+  certbot:
+    image: certbot/certbot
+    container_name: akb-certbot
+    volumes:
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    # Первоначальное получение сертификата выполним вручную, потом он будет обновляться автоматически.
+
+volumes:
+  postgres_data:

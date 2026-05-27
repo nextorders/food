@@ -17,7 +17,7 @@ COPY apps/web-app/ apps/web-app/
 
 # Увеличиваем память для сборки
 ENV NODE_OPTIONS="--max-old-space-size=4096"
-RUN pnpm --filter @nextorders/web-app run build
+RUN pnpm --filter @nextorders/web-app... run build
 
 # Production stage
 FROM base AS production
